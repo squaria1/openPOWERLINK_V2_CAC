@@ -287,18 +287,18 @@ int read_adc(int fd)
 int open_adc(int adc)
 {
     char path[128];
-    /*
+    
     sprintf(path, "%sin_voltage%d_raw", iiosyspath, adc);
-    */
+    
 
     int fd = open(path, O_RDONLY);
 
-/*
+
     if (fd < 0) {
         perror("open()");
         printf("%s\n", path);
     }
-*/
+
 
     return fd;
 }
@@ -310,12 +310,12 @@ void register_sig_handler()
     bzero(&sia, sizeof sia);
     sia.sa_handler = sigint_handler;
 
-    /*
+    
     if (sigaction(SIGINT, &sia, NULL) < 0) {
         perror("sigaction(SIGINT)");
         exit(1);
     }
-    */
+    
 }
 
 void sigint_handler(int sig)

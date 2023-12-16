@@ -10,7 +10,7 @@ sensor::~sensor()
     //destructor
 }
 
-void getOutputAnalog()
+void sensor::getOutputAnalog()
 {
 
 }
