@@ -8,8 +8,8 @@ int main() {
     int etat=1;
     gpio gpio;
     opl opl;
-    file fichier;
-    stateMachine machineEtat;
+    file file;
+  
     sensor capteur;
     
     while(etat<3){
@@ -17,39 +17,39 @@ int main() {
             case 1: // Initialisation
                 for(int i=0; i<3;i++){
                     if(gpio.initGPIO()){
-                        machineEtat.writeTelem();
-                        machineEtat.sendTelem();
+                        file.writeTelem();
+                        opl.sendTelem();
                     }else{
-                        machineEtat.writeError();
-                        machineEtat.sendTelem();
+                        file.writeError();
+                        opl.sendTelem();
                     }
                     if(opl.initOPL()){
-                        machineEtat.writeTelem();
-                        machineEtat.sendTelem();
+                        file.writeTelem();
+                        opl.sendTelem();
                     }else{
-                        machineEtat.writeError();
-                        machineEtat.sendTelem();
+                        file.writeError();
+                        opl.sendTelem();
                     }
                     if(opl.testOPL()){
-                        machineEtat.writeTelem();
-                        machineEtat.sendTelem();
+                        file.writeTelem();
+                        opl.sendTelem();
                     }else{
-                        machineEtat.writeError();
-                        machineEtat.sendTelem();
+                        file.writeError();
+                        opl.sendTelem();
                     }
                     if(fichier.testWriteFile()){
-                        machineEtat.writeTelem();
-                        machineEtat.sendTelem();
+                        file.writeTelem();
+                        opl.sendTelem();
                     }else{
-                        machineEtat.writeError();
-                        machineEtat.sendTelem();
+                        file.writeError();
+                        opl.sendTelem();
                     }
                     if(capteur.testCapteur()){
-                        machineEtat.writeTelem();
-                        machineEtat.sendTelem();
+                        file.writeTelem();
+                        opl.sendTelem();
                     }else{
-                        machineEtat.writeError();
-                        machineEtat.sendTelem();
+                        file.writeError();
+                        opl.sendTelem();
                     }
                     if(opl.demandeExtinctOPL()){
                         etat=2;
@@ -62,20 +62,20 @@ int main() {
                 if(capteur.isValeurCaptTropEleve()){
                     opl.demandeExtinctOPL();
                 }else{
-                    machineEtat.writeTelem();
-                    machineEtat.sendTelem();
+                    file.writeTelem();
+                    opl.sendTelem();
                 }
                 if(capteur.isPressionTropEleve()){
                     opl.demandeExtinctOPL();
                 }else{
-                    machineEtat.writeTelem();
-                    machineEtat.sendTelem();
+                    file.writeTelem();
+                    opl.sendTelem();
                 }
                 if(capteur.isDebitTropEleve()){
                     opl.demandeExtinctOPL();
                 }else{
-                    machineEtat.writeTelem();
-                    machineEtat.sendTelem();
+                    file.writeTelem();
+                    opl.sendTelem();
                 }
                 if(opl.demandeExtinctOPL()){
                     etat=3;
@@ -83,11 +83,11 @@ int main() {
                 break;
             case 3: // Extinction
                 if(opl.ExtinctOPL()){
-                    machineEtat.writeTelem();
-                    machineEtat.sendTelem();
+                    file.writeTelem();
+                    opl.sendTelem();
                 }else{
-                    machineEtat.writeError();
-                    machineEtat.sendTelem();
+                    file.writeError();
+                    opl.sendTelem();
                 }
                 break;
         }
