@@ -98,10 +98,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // local vars
 //------------------------------------------------------------------------------
 /* process image */
-static const PI_IN*     pProcessImageIn_l;
-static PI_OUT*          pProcessImageOut_l;
-static PI_IN            AppProcessImageIn_g;
-static PI_OUT           AppProcessImageOut_g;
+static PI_IN*     pProcessImageIn_l;
+static const PI_OUT*          pProcessImageOut_l;
 
 
 /* application variables */
@@ -194,7 +192,7 @@ tOplkError processSync(void)
 
 
     /* read input image - digital outputs */
-    arrOplIO_l[101] = pProcessImageIn_l->CN1_Output_AI16_EG;
+    arrOplIO_l[101] = pProcessImageOut_l->CN1_Output_AI16_EG;
 //  EC_l = pProcessImageOut_l->CN1_AnalogueOutput_00h_AI16_EC;
 
     /* setup output image - digital inputs */
@@ -214,7 +212,7 @@ tOplkError processSync(void)
 
 */
 
-    pProcessImageOut_l->CN1_Input_AI8_VALVE1 = arrOplIO_l[2];
+    pProcessImageIn_l->CN1_Input_AI8_VALVE1 = arrOplIO_l[2];
     /*
     pProcessImageOut_l->CN1_AnalogueInput_00h_AI32_MEP_PR01 = arrOplIO_l[11];
     pProcessImageOut_l->CN1_AnalogueInput_00h_AI32_MEP_PR02 = arrOplIO_l[12];
@@ -401,16 +399,16 @@ static tOplkError initProcessImage(void)
     /* link process variables used by CN to object dictionary */
     fprintf(stderr, "Linking process image vars:\n");
 
-    obdSize = sizeof(pProcessImageOut_l->CN1_Input_AI8_VALVE1);
+    obdSize = sizeof(pProcessImageIn_l->CN1_Input_AI8_VALVE1);
     varEntries = 1;
     ret = oplk_linkProcessImageObject(0x6402,
                                       0x02,
-                                      offsetof(PI_OUT, CN1_Input_AI8_VALVE1),
+                                      offsetof(PI_IN, CN1_Input_AI8_VALVE1),
                                       FALSE,
                                       obdSize,
                                       &varEntries);
 
-    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_OUT, CN1_Input_AI8_VALVE1));
+    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_IN, CN1_Input_AI8_VALVE1));
     if (ret != kErrorOk)
     {
         fprintf(stderr,
@@ -421,16 +419,16 @@ static tOplkError initProcessImage(void)
     }
 
 
-    obdSize = sizeof(pProcessImageIn_l->CN1_Output_AI16_EG);
+    obdSize = sizeof(pProcessImageOut_l->CN1_Output_AI16_EG);
     varEntries = 1;
     ret = oplk_linkProcessImageObject(0x6411,
                                       0x03,
-                                      offsetof(PI_IN, CN1_Output_AI16_EG),
+                                      offsetof(PI_OUT, CN1_Output_AI16_EG),
                                       TRUE,
                                       obdSize,
                                       &varEntries);
 
-    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_IN, CN1_Output_AI16_EG));
+    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_OUT, CN1_Output_AI16_EG));
     if (ret != kErrorOk)
     {
         fprintf(stderr,
