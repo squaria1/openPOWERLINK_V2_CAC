@@ -102,10 +102,13 @@ typedef struct
 static int              aUsedNodeIds_l[] = {1, 2, 3, 0};
 static UINT             cnt_l;
 static APP_NODE_VAR_T   aNodeVar_l[MAX_NODES];
-static PI_IN*           pProcessImageIn_l;
-static const PI_OUT*    pProcessImageOut_l;
+static const UNION_OUT*  pProcessImageOut_l;
+static UNION_IN*         pProcessImageIn_l;
+
 
 static int32_t          arrOplIO_l[MAX_VALUES];
+
+// Declare an array to store member names
 
 //------------------------------------------------------------------------------
 // local function prototypes
@@ -149,6 +152,9 @@ tOplkError initApp(void)
     {
         arrOplIO_l[i] = 0;
     }
+
+    memset(&pProcessImageOut_l, 0, sizeof(pProcessImageOut_l));
+    memset(&pProcessImageIn_l, 0, sizeof(pProcessImageIn_l));
    
     ret = initProcessImage();
 
@@ -204,42 +210,49 @@ tOplkError processSync(void)
     if (ret != kErrorOk)
         return ret;
 
+    for (int i = 0; i < sizeof(pProcessImageOut_l->out_array) / sizeof(pProcessImageOut_l->out_array[0]); i++)
+    {
+        arrOplIO_l[i] = pProcessImageOut_l->out_array[i];
+        printf("arropl at %d = %d", i, arrOplIO_l[i]);
+    }
+
     cnt_l++;
 
-    aNodeVar_l[0].input = pProcessImageOut_l->CN1_Input_AI32_SENSOR1;
-    aNodeVar_l[1].input = pProcessImageOut_l->CN2_Input_AI32_SENSOR1;
-    aNodeVar_l[2].input = pProcessImageOut_l->CN3_Input_AI32_SENSOR1;
+    //aNodeVar_l[0].input = pProcessImageOut_l->memberNamesOUT[0];
+    //aNodeVar_l[1].input = pProcessImageOut_l->CN2_Input_AI32_SENSOR1;
+    //aNodeVar_l[2].input = pProcessImageOut_l->CN3_Input_AI32_SENSOR1;
 
-    arrOplIO_l[2] = pProcessImageOut_l->CN1_Input_AI16_EC1;
-    arrOplIO_l[3] = pProcessImageOut_l->CN1_Input_AI8_VALVE1;
-    arrOplIO_l[4] = pProcessImageOut_l->CN1_Input_AI8_VALVE2;
-    arrOplIO_l[5] = pProcessImageOut_l->CN1_Input_AI8_VALVE3;
-    arrOplIO_l[6] = pProcessImageOut_l->CN1_Input_AI8_VALVE4;
-    arrOplIO_l[15] = pProcessImageOut_l->CN1_Input_AI32_SENSOR1;
-    arrOplIO_l[16] = pProcessImageOut_l->CN1_Input_AI32_SENSOR2;
-    arrOplIO_l[17] = pProcessImageOut_l->CN1_Input_AI32_SENSOR3;
-    arrOplIO_l[18] = pProcessImageOut_l->CN1_Input_AI32_SENSOR4;
-    arrOplIO_l[19] = pProcessImageOut_l->CN1_Input_AI32_SENSOR5;
 
-    arrOplIO_l[27] = pProcessImageOut_l->CN2_Input_AI16_EC2;
-    arrOplIO_l[28] = pProcessImageOut_l->CN2_Input_AI8_VALVE1;
-    arrOplIO_l[29] = pProcessImageOut_l->CN2_Input_AI8_VALVE2;
-    arrOplIO_l[40] = pProcessImageOut_l->CN2_Input_AI32_SENSOR1;
-    arrOplIO_l[41] = pProcessImageOut_l->CN2_Input_AI32_SENSOR2;
-    arrOplIO_l[42] = pProcessImageOut_l->CN2_Input_AI32_SENSOR3;
-    arrOplIO_l[43] = pProcessImageOut_l->CN2_Input_AI32_SENSOR4;
-    arrOplIO_l[44] = pProcessImageOut_l->CN2_Input_AI32_SENSOR5;
+   /* arrOplIO_l[2] = pProcessImageOut_l->out_array[0];
+    arrOplIO_l[3] = pProcessImageOut_l->out_array[1];
+    arrOplIO_l[4] = pProcessImageOut_l->out_array[2];
+    arrOplIO_l[5] = pProcessImageOut_l->out_array[3];
+    arrOplIO_l[6] = pProcessImageOut_l->out_array[4];
+    arrOplIO_l[15] = pProcessImageOut_l->out_array[5];
+    arrOplIO_l[16] = pProcessImageOut_l->out_array[6];
+    arrOplIO_l[17] = pProcessImageOut_l->out_array[7];
+    arrOplIO_l[18] = pProcessImageOut_l->out_array[8];
+    arrOplIO_l[19] = pProcessImageOut_l->out_array[9];
 
-    arrOplIO_l[52] = pProcessImageOut_l->CN3_Input_AI16_EC3;
-    arrOplIO_l[53] = pProcessImageOut_l->CN3_Input_AI8_VALVE1;
-    arrOplIO_l[54] = pProcessImageOut_l->CN3_Input_AI8_VALVE2;
-    arrOplIO_l[55] = pProcessImageOut_l->CN3_Input_AI8_VALVE3;
-    arrOplIO_l[56] = pProcessImageOut_l->CN3_Input_AI8_VALVE4;
-    arrOplIO_l[65] = pProcessImageOut_l->CN3_Input_AI32_SENSOR1;
-    arrOplIO_l[66] = pProcessImageOut_l->CN3_Input_AI32_SENSOR2;
-    arrOplIO_l[67] = pProcessImageOut_l->CN3_Input_AI32_SENSOR3;
-    arrOplIO_l[68] = pProcessImageOut_l->CN3_Input_AI32_SENSOR4;
-    arrOplIO_l[69] = pProcessImageOut_l->CN3_Input_AI32_SENSOR5;
+    arrOplIO_l[27] = pProcessImageOut_l->out_array[10];
+    arrOplIO_l[28] = pProcessImageOut_l->out_array[11];
+    arrOplIO_l[29] = pProcessImageOut_l->out_array[12];
+    arrOplIO_l[40] = pProcessImageOut_l->out_array[14];
+    arrOplIO_l[41] = pProcessImageOut_l->out_array[15];
+    arrOplIO_l[42] = pProcessImageOut_l->out_array[16];
+    arrOplIO_l[43] = pProcessImageOut_l->out_array[17];
+    arrOplIO_l[44] = pProcessImageOut_l->out_array[18];
+
+    arrOplIO_l[52] = pProcessImageOut_l->out_array[19];
+    arrOplIO_l[53] = pProcessImageOut_l->out_array[20];
+    arrOplIO_l[54] = pProcessImageOut_l->out_array[21];
+    arrOplIO_l[55] = pProcessImageOut_l->out_array[22];
+    arrOplIO_l[56] = pProcessImageOut_l->out_array[23];
+    arrOplIO_l[65] = pProcessImageOut_l->out_array[23];
+    arrOplIO_l[66] = pProcessImageOut_l->out_array[24];
+    arrOplIO_l[67] = pProcessImageOut_l->out_array[25];
+    arrOplIO_l[68] = pProcessImageOut_l->out_array[26];
+    arrOplIO_l[69] = pProcessImageOut_l->out_array[27];*/
 
 
     for (i = 0; (i < MAX_NODES) && (aUsedNodeIds_l[i] != 0); i++)
@@ -278,26 +291,26 @@ tOplkError processSync(void)
             aNodeVar_l[i].ledsOld = aNodeVar_l[i].leds;
     }
 
-    pProcessImageIn_l->CN1_Output_AI16_EG = aNodeVar_l[0].leds;
-    pProcessImageIn_l->CN2_Output_AI16_EG = aNodeVar_l[1].leds;
-    pProcessImageIn_l->CN3_Output_AI16_EG = aNodeVar_l[2].leds;
+    //pProcessImageIn_l->CN1_Output_AI16_EG = aNodeVar_l[0].leds;
+    //pProcessImageIn_l->CN2_Output_AI16_EG = aNodeVar_l[1].leds;
+    //pProcessImageIn_l->CN3_Output_AI16_EG = aNodeVar_l[2].leds;
 
-    pProcessImageIn_l->CN1_Output_AI8_VALVE1 = arrOplIO_l[3];
-    pProcessImageIn_l->CN1_Output_AI8_VALVE2 = arrOplIO_l[4];
-    pProcessImageIn_l->CN1_Output_AI8_VALVE3 = arrOplIO_l[5];
-    pProcessImageIn_l->CN1_Output_AI8_VALVE4 = arrOplIO_l[6];
+    //pProcessImageIn_l->CN1_Output_AI8_VALVE1 = arrOplIO_l[3];
+    //pProcessImageIn_l->CN1_Output_AI8_VALVE2 = arrOplIO_l[4];
+    //pProcessImageIn_l->CN1_Output_AI8_VALVE3 = arrOplIO_l[5];
+    //pProcessImageIn_l->CN1_Output_AI8_VALVE4 = arrOplIO_l[6];
 
-    pProcessImageIn_l->CN1_Output_AI8_VALVE1 = arrOplIO_l[28];
-    pProcessImageIn_l->CN1_Output_AI8_VALVE2 = arrOplIO_l[29];
+    //pProcessImageIn_l->CN1_Output_AI8_VALVE1 = arrOplIO_l[28];
+    //pProcessImageIn_l->CN1_Output_AI8_VALVE2 = arrOplIO_l[29];
 
-    pProcessImageIn_l->CN1_Output_AI8_VALVE1 = arrOplIO_l[53];
-    pProcessImageIn_l->CN1_Output_AI8_VALVE2 = arrOplIO_l[54];
-    pProcessImageIn_l->CN1_Output_AI8_VALVE3 = arrOplIO_l[55];
-    pProcessImageIn_l->CN1_Output_AI8_VALVE4 = arrOplIO_l[56];
+    //pProcessImageIn_l->CN1_Output_AI8_VALVE1 = arrOplIO_l[53];
+    //pProcessImageIn_l->CN1_Output_AI8_VALVE2 = arrOplIO_l[54];
+    //pProcessImageIn_l->CN1_Output_AI8_VALVE3 = arrOplIO_l[55];
+    //pProcessImageIn_l->CN1_Output_AI8_VALVE4 = arrOplIO_l[56];
 
-    pProcessImageIn_l->CN1_Output_AI16_EG = arrOplIO_l[1];
-    pProcessImageIn_l->CN2_Output_AI16_EG = arrOplIO_l[1];
-    pProcessImageIn_l->CN3_Output_AI16_EG = arrOplIO_l[1];
+    //pProcessImageIn_l->CN1_Output_AI16_EG = arrOplIO_l[1];
+    //pProcessImageIn_l->CN2_Output_AI16_EG = arrOplIO_l[1];
+    //pProcessImageIn_l->CN3_Output_AI16_EG = arrOplIO_l[1];
 
     ret = oplk_exchangeProcessImageIn();
 
@@ -326,20 +339,20 @@ static tOplkError initProcessImage(void)
 
     printf("Initializing process image...\n");
     printf("Size of process image: Input = %lu Output = %lu\n",
-           (ULONG)sizeof(PI_IN),
-           (ULONG)sizeof(PI_OUT));
+           (ULONG)sizeof(UNION_IN),
+           (ULONG)sizeof(UNION_OUT));
     eventlog_printMessage(kEventlogLevelInfo,
                           kEventlogCategoryGeneric,
                           "Allocating process image: Input:%lu Output:%lu",
-                          (ULONG)sizeof(PI_IN),
-                          (ULONG)sizeof(PI_OUT));
+                          (ULONG)sizeof(UNION_IN),
+                          (ULONG)sizeof(UNION_OUT));
 
-    ret = oplk_allocProcessImage(sizeof(PI_IN), sizeof(PI_OUT));
+    ret = oplk_allocProcessImage(sizeof(UNION_IN), sizeof(UNION_OUT));
     if (ret != kErrorOk)
         return ret;
 
-    pProcessImageIn_l = (PI_IN*)oplk_getProcessImageIn();
-    pProcessImageOut_l = (const PI_OUT*)oplk_getProcessImageOut();
+    pProcessImageIn_l = (UNION_IN*)oplk_getProcessImageIn();
+    pProcessImageOut_l = (const UNION_OUT*)oplk_getProcessImageOut();
 
     errorIndex = obdpi_setupProcessImage();
     if (errorIndex != 0)

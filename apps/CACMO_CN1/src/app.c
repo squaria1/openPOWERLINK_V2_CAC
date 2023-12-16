@@ -98,8 +98,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // local vars
 //------------------------------------------------------------------------------
 /* process image */
-static PI_IN*           pProcessImageIn_l;
-static const PI_OUT*    pProcessImageOut_l;
+static const PI_IN*     pProcessImageIn_l;
+static PI_OUT*          pProcessImageOut_l;
 static PI_IN            AppProcessImageIn_g;
 static PI_OUT           AppProcessImageOut_g;
 
@@ -194,7 +194,7 @@ tOplkError processSync(void)
 
 
     /* read input image - digital outputs */
-    arrOplIO_l[101] = pProcessImageOut_l->CN1_AnalogueOutput_00h_AI16_EC;
+    arrOplIO_l[101] = pProcessImageIn_l->CN1_Output_AI16_EG;
 //  EC_l = pProcessImageOut_l->CN1_AnalogueOutput_00h_AI16_EC;
 
     /* setup output image - digital inputs */
@@ -213,18 +213,18 @@ tOplkError processSync(void)
     pProcessImageIn_l->CN1_AnalogueInput_00h_AI8_E_VBCO = E_VBCO_l;
 
 */
-    pProcessImageIn_l->CN2_AnalogueInput_00h_AI16_EC_CACOE = arrOplIO_l[1];
 
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI32_MEP_TP01 = arrOplIO_l[10];
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI32_MEP_PR01 = arrOplIO_l[11];
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI32_MEP_PR02 = arrOplIO_l[12];
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI32_MEP_PR03 = arrOplIO_l[13];
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI32_MEP_PR04 = arrOplIO_l[14];
+    pProcessImageOut_l->CN1_Input_AI8_VALVE1 = arrOplIO_l[2];
+    /*
+    pProcessImageOut_l->CN1_AnalogueInput_00h_AI32_MEP_PR01 = arrOplIO_l[11];
+    pProcessImageOut_l->CN1_AnalogueInput_00h_AI32_MEP_PR02 = arrOplIO_l[12];
+    pProcessImageOut_l->CN1_AnalogueInput_00h_AI32_MEP_PR03 = arrOplIO_l[13];
+    pProcessImageOut_l->CN1_AnalogueInput_00h_AI32_MEP_PR04 = arrOplIO_l[14];
 
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI8_E_VCE = arrOplIO_l[23];
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI8_E_VBCE = arrOplIO_l[24];
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI8_E_VCO = arrOplIO_l[25];
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI8_E_VBCO = arrOplIO_l[26];
+    pProcessImageOut_l->CN1_AnalogueInput_00h_AI8_E_VCE = arrOplIO_l[23];
+    pProcessImageOut_l->CN1_AnalogueInput_00h_AI8_E_VBCE = arrOplIO_l[24];
+    pProcessImageOut_l->CN1_AnalogueInput_00h_AI8_E_VCO = arrOplIO_l[25];
+    pProcessImageOut_l->CN1_AnalogueInput_00h_AI8_E_VBCO = arrOplIO_l[26];*/
 
     
     ret = oplk_exchangeProcessImageIn();
@@ -401,16 +401,16 @@ static tOplkError initProcessImage(void)
     /* link process variables used by CN to object dictionary */
     fprintf(stderr, "Linking process image vars:\n");
 
-    obdSize = sizeof(pProcessImageIn_l->CN1_AnalogueInput_00h_AI32_MEP_TP01);
+    obdSize = sizeof(pProcessImageOut_l->CN1_Input_AI8_VALVE1);
     varEntries = 1;
     ret = oplk_linkProcessImageObject(0x6402,
                                       0x02,
-                                      offsetof(PI_IN, CN1_AnalogueInput_00h_AI32_MEP_TP01),
+                                      offsetof(PI_OUT, CN1_Input_AI8_VALVE1),
                                       FALSE,
                                       obdSize,
                                       &varEntries);
 
-    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_IN, CN1_AnalogueOutput_00h_AI16_EC));
+    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_OUT, CN1_Input_AI8_VALVE1));
     if (ret != kErrorOk)
     {
         fprintf(stderr,
@@ -420,206 +420,17 @@ static tOplkError initProcessImage(void)
         return ret;
     }
 
-    obdSize = sizeof(pProcessImageIn_l->CN2_AnalogueInput_00h_AI16_EC_CACOE);
-    varEntries = 1;
-    ret = oplk_linkProcessImageObject(0x6402,
-                                      0x02,
-                                      offsetof(PI_IN, CN2_AnalogueInput_00h_AI16_EC_CACOE),
-                                      FALSE,
-                                      obdSize,
-                                      &varEntries);
 
-    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_IN, CN2_AnalogueInput_00h_AI16_EC_CACOE));
-    if (ret != kErrorOk)
-    {
-        fprintf(stderr,
-                "Linking process vars failed with \"%s\" (0x%04x)\n",
-                debugstr_getRetValStr(ret),
-                ret);
-        return ret;
-    }
-
-    obdSize = sizeof(pProcessImageIn_l->CN1_AnalogueInput_00h_AI32_MEP_TP01);
-    varEntries = 1;
-    ret = oplk_linkProcessImageObject(0x6402,
-                                      0x02,
-                                      offsetof(PI_IN, CN1_AnalogueInput_00h_AI32_MEP_TP01),
-                                      FALSE,
-                                      obdSize,
-                                      &varEntries);
-
-    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_IN, CN1_AnalogueInput_00h_AI32_MEP_TP01));
-    if (ret != kErrorOk)
-    {
-        fprintf(stderr,
-                "Linking process vars failed with \"%s\" (0x%04x)\n",
-                debugstr_getRetValStr(ret),
-                ret);
-        return ret;
-    }
-
-    obdSize = sizeof(pProcessImageIn_l->CN1_AnalogueInput_00h_AI32_MEP_PR01);
-    varEntries = 1;
-    ret = oplk_linkProcessImageObject(0x6402,
-                                      0x02,
-                                      offsetof(PI_IN, CN1_AnalogueInput_00h_AI32_MEP_PR01),
-                                      FALSE,
-                                      obdSize,
-                                      &varEntries);
-
-    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_IN, CN1_AnalogueInput_00h_AI32_MEP_PR01));
-    if (ret != kErrorOk)
-    {
-        fprintf(stderr,
-                "Linking process vars failed with \"%s\" (0x%04x)\n",
-                debugstr_getRetValStr(ret),
-                ret);
-        return ret;
-    }
-
-    obdSize = sizeof(pProcessImageIn_l->CN1_AnalogueInput_00h_AI32_MEP_PR02);
-    varEntries = 1;
-    ret = oplk_linkProcessImageObject(0x6402,
-                                      0x02,
-                                      offsetof(PI_IN, CN1_AnalogueInput_00h_AI32_MEP_PR02),
-                                      FALSE,
-                                      obdSize,
-                                      &varEntries);
-
-    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_IN, CN1_AnalogueInput_00h_AI32_MEP_PR02));
-    if (ret != kErrorOk)
-    {
-        fprintf(stderr,
-                "Linking process vars failed with \"%s\" (0x%04x)\n",
-                debugstr_getRetValStr(ret),
-                ret);
-        return ret;
-    }
-
-    obdSize = sizeof(pProcessImageIn_l->CN1_AnalogueInput_00h_AI32_MEP_PR03);
-    varEntries = 1;
-    ret = oplk_linkProcessImageObject(0x6402,
-                                      0x02,
-                                      offsetof(PI_IN, CN1_AnalogueInput_00h_AI32_MEP_PR03),
-                                      FALSE,
-                                      obdSize,
-                                      &varEntries);
-
-    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_IN, CN1_AnalogueInput_00h_AI32_MEP_PR03));
-    if (ret != kErrorOk)
-    {
-        fprintf(stderr,
-                "Linking process vars failed with \"%s\" (0x%04x)\n",
-                debugstr_getRetValStr(ret),
-                ret);
-        return ret;
-    }
-
-    obdSize = sizeof(pProcessImageIn_l->CN1_AnalogueInput_00h_AI32_MEP_PR04);
-    varEntries = 1;
-    ret = oplk_linkProcessImageObject(0x6402,
-                                      0x02,
-                                      offsetof(PI_IN, CN1_AnalogueInput_00h_AI32_MEP_PR04),
-                                      FALSE,
-                                      obdSize,
-                                      &varEntries);
-
-    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_IN, CN1_AnalogueInput_00h_AI32_MEP_PR04));
-    if (ret != kErrorOk)
-    {
-        fprintf(stderr,
-                "Linking process vars failed with \"%s\" (0x%04x)\n",
-                debugstr_getRetValStr(ret),
-                ret);
-        return ret;
-    }
-
-    obdSize = sizeof(pProcessImageIn_l->CN1_AnalogueInput_00h_AI8_E_VCE);
-    varEntries = 1;
-    ret = oplk_linkProcessImageObject(0x6402,
-                                      0x02,
-                                      offsetof(PI_IN, CN1_AnalogueInput_00h_AI8_E_VCE),
-                                      FALSE,
-                                      obdSize,
-                                      &varEntries);
-
-    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_IN, CN1_AnalogueInput_00h_AI8_E_VCE));
-    if (ret != kErrorOk)
-    {
-        fprintf(stderr,
-                "Linking process vars failed with \"%s\" (0x%04x)\n",
-                debugstr_getRetValStr(ret),
-                ret);
-        return ret;
-    }
-
-    obdSize = sizeof(pProcessImageIn_l->CN1_AnalogueInput_00h_AI8_E_VBCE);
-    varEntries = 1;
-    ret = oplk_linkProcessImageObject(0x6402,
-                                      0x02,
-                                      offsetof(PI_IN, CN1_AnalogueInput_00h_AI8_E_VBCE),
-                                      FALSE,
-                                      obdSize,
-                                      &varEntries);
-
-    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_IN, CN1_AnalogueInput_00h_AI8_E_VBCE));
-    if (ret != kErrorOk)
-    {
-        fprintf(stderr,
-                "Linking process vars failed with \"%s\" (0x%04x)\n",
-                debugstr_getRetValStr(ret),
-                ret);
-        return ret;
-    }
-
-    obdSize = sizeof(pProcessImageIn_l->CN1_AnalogueInput_00h_AI8_E_VCO);
-    varEntries = 1;
-    ret = oplk_linkProcessImageObject(0x6402,
-                                      0x02,
-                                      offsetof(PI_IN, CN1_AnalogueInput_00h_AI8_E_VCO),
-                                      FALSE,
-                                      obdSize,
-                                      &varEntries);
-
-    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_IN, CN1_AnalogueInput_00h_AI8_E_VCO));
-    if (ret != kErrorOk)
-    {
-        fprintf(stderr,
-                "Linking process vars failed with \"%s\" (0x%04x)\n",
-                debugstr_getRetValStr(ret),
-                ret);
-        return ret;
-    }
-
-    obdSize = sizeof(pProcessImageIn_l->CN1_AnalogueInput_00h_AI8_E_VBCO);
-    varEntries = 1;
-    ret = oplk_linkProcessImageObject(0x6402,
-                                      0x02,
-                                      offsetof(PI_IN, CN1_AnalogueInput_00h_AI8_E_VBCO),
-                                      FALSE,
-                                      obdSize,
-                                      &varEntries);
-
-    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_IN, CN1_AnalogueInput_00h_AI8_E_VBCO));
-    if (ret != kErrorOk)
-    {
-        fprintf(stderr,
-                "Linking process vars failed with \"%s\" (0x%04x)\n",
-                debugstr_getRetValStr(ret),
-                ret);
-        return ret;
-    }
-
-    obdSize = sizeof(pProcessImageOut_l->CN1_AnalogueOutput_00h_AI16_EC);
+    obdSize = sizeof(pProcessImageIn_l->CN1_Output_AI16_EG);
     varEntries = 1;
     ret = oplk_linkProcessImageObject(0x6411,
                                       0x03,
-                                      offsetof(PI_OUT, CN1_AnalogueOutput_00h_AI16_EC),
+                                      offsetof(PI_IN, CN1_Output_AI16_EG),
                                       TRUE,
                                       obdSize,
                                       &varEntries);
 
-    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_OUT, CN1_AnalogueOutput_00h_AI16_EC));
+    printf("\n\n\n offsetof = %zu \n\n\n", offsetof(PI_IN, CN1_Output_AI16_EG));
     if (ret != kErrorOk)
     {
         fprintf(stderr,
@@ -634,27 +445,28 @@ static tOplkError initProcessImage(void)
     return kErrorOk;
 }
 
-tOplkError linkPDO(UINT varEntries, tObdSize obdSize, PI_IN test, UINT16 index, UINT8 subIndex) {
-    tOplkError  ret = kErrorOk;
 
-    obdSize = sizeof(pProcessImageIn_l->test);
-    varEntries = 1;
-    ret = oplk_linkProcessImageObject(index,
-        subIndex,
-        offsetof(PI_IN, test),
-        FALSE,
-        obdSize,
-        &varEntries);
-    if (ret != kErrorOk)
-    {
-        fprintf(stderr,
-            "Linking process vars failed with \"%s\" (0x%04x)\n",
-            debugstr_getRetValStr(ret),
-            ret);
-        return ret;
-    }
-
-    return ret;
-}
+//tOplkError linkPDO(UINT varEntries, tObdSize obdSize, PI_IN test, UINT16 index, UINT8 subIndex) {
+//    tOplkError  ret = kErrorOk;
+//
+//    obdSize = sizeof(pProcessImageIn_l->test);
+//    varEntries = 1;
+//    ret = oplk_linkProcessImageObject(index,
+//        subIndex,
+//        offsetof(PI_IN, test),
+//        FALSE,
+//        obdSize,
+//        &varEntries);
+//    if (ret != kErrorOk)
+//    {
+//        fprintf(stderr,
+//            "Linking process vars failed with \"%s\" (0x%04x)\n",
+//            debugstr_getRetValStr(ret),
+//            ret);
+//        return ret;
+//    }
+//
+//    return ret;
+//}
 
 /// \}
