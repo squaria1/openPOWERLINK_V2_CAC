@@ -213,7 +213,7 @@ tOplkError processSync(void)
     for (int i = 0; i < sizeof(pProcessImageOut_l->out_array) / sizeof(pProcessImageOut_l->out_array[0]); i++)
     {
         arrOplIO_l[i] = pProcessImageOut_l->out_array[i];
-        printf("arropl at %d = %d", i, arrOplIO_l[i]);
+        printf("arropl at %d = %d \n", i, arrOplIO_l[i]);
     }
 
     cnt_l++;
