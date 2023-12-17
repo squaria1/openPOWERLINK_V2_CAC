@@ -7,127 +7,135 @@
 #define XAP_h
 
 #define COMPUTED_PI_OUT_SIZE 84
-typedef struct
+typedef union
 {
-	INT16 CN1_Output_AI16_EG;
-	INT8 CN1_Output_AI8_VALVE1;
-	INT8 CN1_Output_AI8_VALVE2;
-	INT8 CN1_Output_AI8_VALVE3;
-	INT8 CN1_Output_AI8_VALVE4;
-	INT8 CN1_Output_AI8_VALVE5;
-	INT8 CN1_Output_AI8_VALVE6;
-	INT8 CN1_Output_AI8_VALVE7;
-	INT8 CN1_Output_AI8_VALVE8;
-	INT8 CN1_Output_AI8_VALVE9;
-	INT8 CN1_Output_AI8_VALVE10;
-	INT8 CN1_Output_AI8_VALVE11;
-	INT8 CN1_Output_AI8_VALVE12;
-	INT16 CN2_Output_AI16_EG;
-	INT8 CN2_Output_AI8_VALVE1;
-	INT8 CN2_Output_AI8_VALVE2;
-	INT8 CN2_Output_AI8_VALVE3;
-	INT8 CN2_Output_AI8_VALVE4;
-	INT8 CN2_Output_AI8_VALVE5;
-	INT8 CN2_Output_AI8_VALVE6;
-	INT8 CN2_Output_AI8_VALVE7;
-	INT8 CN2_Output_AI8_VALVE8;
-	INT8 CN2_Output_AI8_VALVE9;
-	INT8 CN2_Output_AI8_VALVE10;
-	INT8 CN2_Output_AI8_VALVE11;
-	INT8 CN2_Output_AI8_VALVE12;
-	INT16 CN3_Output_AI16_EG;
-	INT8 CN3_Output_AI8_VALVE1;
-	INT8 CN3_Output_AI8_VALVE2;
-	INT8 CN3_Output_AI8_VALVE3;
-	INT8 CN3_Output_AI8_VALVE4;
-	INT8 CN3_Output_AI8_VALVE5;
-	INT8 CN3_Output_AI8_VALVE6;
-	INT8 CN3_Output_AI8_VALVE7;
-	INT8 CN3_Output_AI8_VALVE8;
-	INT8 CN3_Output_AI8_VALVE9;
-	INT8 CN3_Output_AI8_VALVE10;
-	INT8 CN3_Output_AI8_VALVE11;
-	INT8 CN3_Output_AI8_VALVE12;
-} PI_OUT;
+	struct
+	{
+		INT16 CN1_Output_AI16_EG;									//0
+		INT8 CN1_Output_AI8_VALVE1;									//1
+		INT8 CN1_Output_AI8_VALVE2;									//2
+		INT8 CN1_Output_AI8_VALVE3;									//3
+		INT8 CN1_Output_AI8_VALVE4;									//4
+		INT8 CN1_Output_AI8_VALVE5;									//5
+		INT8 CN1_Output_AI8_VALVE6;									//6
+		INT8 CN1_Output_AI8_VALVE7;									//7
+		INT8 CN1_Output_AI8_VALVE8;									//8
+		INT8 CN1_Output_AI8_VALVE9;									//9
+		INT8 CN1_Output_AI8_VALVE10;								//10
+		INT8 CN1_Output_AI8_VALVE11;								//11
+		INT8 CN1_Output_AI8_VALVE12;								//12
+		INT16 CN2_Output_AI16_EG;									//13
+		INT8 CN2_Output_AI8_VALVE1;									//14
+		INT8 CN2_Output_AI8_VALVE2;									//15
+		INT8 CN2_Output_AI8_VALVE3;									//16
+		INT8 CN2_Output_AI8_VALVE4;									//17
+		INT8 CN2_Output_AI8_VALVE5;									//18
+		INT8 CN2_Output_AI8_VALVE6;									//19
+		INT8 CN2_Output_AI8_VALVE7;									//20
+		INT8 CN2_Output_AI8_VALVE8;									//21
+		INT8 CN2_Output_AI8_VALVE9;									//22
+		INT8 CN2_Output_AI8_VALVE10;								//23
+		INT8 CN2_Output_AI8_VALVE11;								//24
+		INT8 CN2_Output_AI8_VALVE12;								//25
+		INT16 CN3_Output_AI16_EG;									//26
+		INT8 CN3_Output_AI8_VALVE1;									//27
+		INT8 CN3_Output_AI8_VALVE2;									//28
+		INT8 CN3_Output_AI8_VALVE3;									//29
+		INT8 CN3_Output_AI8_VALVE4;									//30
+		INT8 CN3_Output_AI8_VALVE5;									//31
+		INT8 CN3_Output_AI8_VALVE6;									//32
+		INT8 CN3_Output_AI8_VALVE7;									//33
+		INT8 CN3_Output_AI8_VALVE8;									//34
+		INT8 CN3_Output_AI8_VALVE9;									//35
+		INT8 CN3_Output_AI8_VALVE10;								//36
+		INT8 CN3_Output_AI8_VALVE11;								//37
+		INT8 CN3_Output_AI8_VALVE12;								//38
+	} PI_OUT;
+	signed out_array[80];
+} UNION_OUT;
 
 #define COMPUTED_PI_IN_SIZE 8
-typedef struct
+typedef union
 {
-	INT16 CN1_Input_AI16_EC1;
-	INT8 CN1_Input_AI8_VALVE1;
-	INT8 CN1_Input_AI8_VALVE2;
-	INT8 CN1_Input_AI8_VALVE3;
-	INT8 CN1_Input_AI8_VALVE4;
-	INT8 CN1_Input_AI8_VALVE5;
-	INT8 CN1_Input_AI8_VALVE6;
-	INT8 CN1_Input_AI8_VALVE7;
-	INT8 CN1_Input_AI8_VALVE8;
-	INT8 CN1_Input_AI8_VALVE9;
-	INT8 CN1_Input_AI8_VALVE10;
-	INT8 CN1_Input_AI8_VALVE11;
-	INT8 CN1_Input_AI8_VALVE12;
-	INT32 CN1_Input_AI32_SENSOR1;
-	INT32 CN1_Input_AI32_SENSOR2;
-	INT32 CN1_Input_AI32_SENSOR3;
-	INT32 CN1_Input_AI32_SENSOR4;
-	INT32 CN1_Input_AI32_SENSOR5;
-	INT32 CN1_Input_AI32_SENSOR6;
-	INT32 CN1_Input_AI32_SENSOR7;
-	INT32 CN1_Input_AI32_SENSOR8;
-	INT32 CN1_Input_AI32_SENSOR9;
-	INT32 CN1_Input_AI32_SENSOR10;
-	INT32 CN1_Input_AI32_SENSOR11;
-	INT32 CN1_Input_AI32_SENSOR12;
-	INT16 CN2_Input_AI16_EC2;
-	INT8 CN2_Input_AI8_VALVE1;
-	INT8 CN2_Input_AI8_VALVE2;
-	INT8 CN2_Input_AI8_VALVE3;
-	INT8 CN2_Input_AI8_VALVE4;
-	INT8 CN2_Input_AI8_VALVE5;
-	INT8 CN2_Input_AI8_VALVE6;
-	INT8 CN2_Input_AI8_VALVE7;
-	INT8 CN2_Input_AI8_VALVE8;
-	INT8 CN2_Input_AI8_VALVE9;
-	INT8 CN2_Input_AI8_VALVE10;
-	INT8 CN2_Input_AI8_VALVE11;
-	INT8 CN2_Input_AI8_VALVE12;
-	INT32 CN2_Input_AI32_SENSOR1;
-	INT32 CN2_Input_AI32_SENSOR2;
-	INT32 CN2_Input_AI32_SENSOR3;
-	INT32 CN2_Input_AI32_SENSOR4;
-	INT32 CN2_Input_AI32_SENSOR5;
-	INT32 CN2_Input_AI32_SENSOR6;
-	INT32 CN2_Input_AI32_SENSOR7;
-	INT32 CN2_Input_AI32_SENSOR8;
-	INT32 CN2_Input_AI32_SENSOR9;
-	INT32 CN2_Input_AI32_SENSOR10;
-	INT32 CN2_Input_AI32_SENSOR11;
-	INT32 CN2_Input_AI32_SENSOR12;
-	INT16 CN3_Input_AI16_EC3;
-	INT8 CN3_Input_AI8_VALVE1;
-	INT8 CN3_Input_AI8_VALVE2;
-	INT8 CN3_Input_AI8_VALVE3;
-	INT8 CN3_Input_AI8_VALVE4;
-	INT8 CN3_Input_AI8_VALVE5;
-	INT8 CN3_Input_AI8_VALVE6;
-	INT8 CN3_Input_AI8_VALVE7;
-	INT8 CN3_Input_AI8_VALVE8;
-	INT8 CN3_Input_AI8_VALVE9;
-	INT8 CN3_Input_AI8_VALVE10;
-	INT8 CN3_Input_AI8_VALVE11;
-	INT8 CN3_Input_AI8_VALVE12;
-	INT32 CN3_Input_AI32_SENSOR1;
-	INT32 CN3_Input_AI32_SENSOR2;
-	INT32 CN3_Input_AI32_SENSOR3;
-	INT32 CN3_Input_AI32_SENSOR4;
-	INT32 CN3_Input_AI32_SENSOR5;
-	INT32 CN3_Input_AI32_SENSOR6;
-	INT32 CN3_Input_AI32_SENSOR7;
-	INT32 CN3_Input_AI32_SENSOR8;
-	INT32 CN3_Input_AI32_SENSOR9;
-	INT32 CN3_Input_AI32_SENSOR10;
-	INT32 CN3_Input_AI32_SENSOR11;
-	INT32 CN3_Input_AI32_SENSOR12;
-} PI_IN;
+	struct
+	{
+		INT16 CN1_Input_AI16_EC1;										//0
+		INT8 CN1_Input_AI8_VALVE1;										//3
+		INT8 CN1_Input_AI8_VALVE2;										//4
+		INT8 CN1_Input_AI8_VALVE3;										//5
+		INT8 CN1_Input_AI8_VALVE4;										//6
+		INT8 CN1_Input_AI8_VALVE5;										//7
+		INT8 CN1_Input_AI8_VALVE6;										//8
+		INT8 CN1_Input_AI8_VALVE7;										//9
+		INT8 CN1_Input_AI8_VALVE8;										//10
+		INT8 CN1_Input_AI8_VALVE9;										//11
+		INT8 CN1_Input_AI8_VALVE10;										//12
+		INT8 CN1_Input_AI8_VALVE11;										//13
+		INT8 CN1_Input_AI8_VALVE12;										//14
+		INT32 CN1_Input_AI32_SENSOR1;									//15
+		INT32 CN1_Input_AI32_SENSOR2;									//16
+		INT32 CN1_Input_AI32_SENSOR3;									//17
+		INT32 CN1_Input_AI32_SENSOR4;									//18
+		INT32 CN1_Input_AI32_SENSOR5;									//19
+		INT32 CN1_Input_AI32_SENSOR6;									//20
+		INT32 CN1_Input_AI32_SENSOR7;									//21
+		INT32 CN1_Input_AI32_SENSOR8;									//22
+		INT32 CN1_Input_AI32_SENSOR9;									//23
+		INT32 CN1_Input_AI32_SENSOR10;									//24
+		INT32 CN1_Input_AI32_SENSOR11;									//25
+		INT32 CN1_Input_AI32_SENSOR12;									//26
+		INT16 CN2_Input_AI16_EC2;										//27
+		INT8 CN2_Input_AI8_VALVE1;										//28
+		INT8 CN2_Input_AI8_VALVE2;										//29
+		INT8 CN2_Input_AI8_VALVE3;										//30
+		INT8 CN2_Input_AI8_VALVE4;										//31
+		INT8 CN2_Input_AI8_VALVE5;										//32
+		INT8 CN2_Input_AI8_VALVE6;										//33
+		INT8 CN2_Input_AI8_VALVE7;										//34
+		INT8 CN2_Input_AI8_VALVE8;										//35
+		INT8 CN2_Input_AI8_VALVE9;										//36
+		INT8 CN2_Input_AI8_VALVE10;										//37
+		INT8 CN2_Input_AI8_VALVE11;										//38
+		INT8 CN2_Input_AI8_VALVE12;										//39
+		INT32 CN2_Input_AI32_SENSOR1;									//40
+		INT32 CN2_Input_AI32_SENSOR2;									//41
+		INT32 CN2_Input_AI32_SENSOR3;									//42
+		INT32 CN2_Input_AI32_SENSOR4;									//43
+		INT32 CN2_Input_AI32_SENSOR5;									//44
+		INT32 CN2_Input_AI32_SENSOR6;									//45
+		INT32 CN2_Input_AI32_SENSOR7;									//46
+		INT32 CN2_Input_AI32_SENSOR8;									//47
+		INT32 CN2_Input_AI32_SENSOR9;									//48
+		INT32 CN2_Input_AI32_SENSOR10;									//49
+		INT32 CN2_Input_AI32_SENSOR11;									//50
+		INT32 CN2_Input_AI32_SENSOR12;									//51
+		INT16 CN3_Input_AI16_EC3;										//52
+		INT8 CN3_Input_AI8_VALVE1;										//53
+		INT8 CN3_Input_AI8_VALVE2;										//54
+		INT8 CN3_Input_AI8_VALVE3;										//55
+		INT8 CN3_Input_AI8_VALVE4;										//56
+		INT8 CN3_Input_AI8_VALVE5;										//57
+		INT8 CN3_Input_AI8_VALVE6;										//58
+		INT8 CN3_Input_AI8_VALVE7;										//59
+		INT8 CN3_Input_AI8_VALVE8;										//60
+		INT8 CN3_Input_AI8_VALVE9;										//61
+		INT8 CN3_Input_AI8_VALVE10;										//62
+		INT8 CN3_Input_AI8_VALVE11;										//63
+		INT8 CN3_Input_AI8_VALVE12;										//64
+		INT32 CN3_Input_AI32_SENSOR1;									//65
+		INT32 CN3_Input_AI32_SENSOR2;									//66
+		INT32 CN3_Input_AI32_SENSOR3;									//67
+		INT32 CN3_Input_AI32_SENSOR4;									//68
+		INT32 CN3_Input_AI32_SENSOR5;									//68
+		INT32 CN3_Input_AI32_SENSOR6;									//69
+		INT32 CN3_Input_AI32_SENSOR7;									//70
+		INT32 CN3_Input_AI32_SENSOR8;									//71
+		INT32 CN3_Input_AI32_SENSOR9;									//72
+		INT32 CN3_Input_AI32_SENSOR10;									//73
+		INT32 CN3_Input_AI32_SENSOR11;									//74
+		INT32 CN3_Input_AI32_SENSOR12;									//75
+	} PI_IN;
+	signed in_array[40];
+} UNION_IN;
 
 #endif

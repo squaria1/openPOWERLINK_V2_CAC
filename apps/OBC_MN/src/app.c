@@ -218,9 +218,9 @@ tOplkError processSync(void)
 
     cnt_l++;
 
-    aNodeVar_l[0].input = pProcessImageOut_l->in_array[1];
-    aNodeVar_l[1].input = pProcessImageOut_l->in_array[26];
-    aNodeVar_l[2].input = pProcessImageOut_l->in_array[51];
+    aNodeVar_l[0].input = pProcessImageOut_l->out_array[1];
+    aNodeVar_l[1].input = pProcessImageOut_l->out_array[26];
+    aNodeVar_l[2].input = pProcessImageOut_l->out_array[51];
 
 
    /* arrOplIO_l[2] = pProcessImageOut_l->out_array[0];
@@ -291,9 +291,9 @@ tOplkError processSync(void)
             aNodeVar_l[i].ledsOld = aNodeVar_l[i].leds;
     }
 
-    pProcessImageIn_l->out_array[0] = aNodeVar_l[0].leds;
-    pProcessImageIn_l->out_array[13] = aNodeVar_l[1].leds;
-    pProcessImageIn_l->out_array[26] = aNodeVar_l[2].leds;
+    pProcessImageIn_l->in_array[0] = aNodeVar_l[0].leds;
+    pProcessImageIn_l->in_array[13] = aNodeVar_l[1].leds;
+    pProcessImageIn_l->in_array[26] = aNodeVar_l[2].leds;
 
     //pProcessImageIn_l->CN1_Output_AI8_VALVE1 = arrOplIO_l[3];
     //pProcessImageIn_l->CN1_Output_AI8_VALVE2 = arrOplIO_l[4];

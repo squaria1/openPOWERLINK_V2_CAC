@@ -9,9 +9,6 @@
       B&R Strasse 1, A-5142 Eggelsberg
       www.br-automation.com
 
-  (c) Kalycito Infotech Private Limited
-      www.kalycito.com
-
   Project:      openPOWERLINK
 
   Description:  Device Description for a CiA DS401 POWERLINK CN
@@ -81,8 +78,8 @@
       fileCreator="B&amp;R Industrial Automation GmbH"
       fileCreationDate="2011-04-01"
       fileCreationTime="10:00:00+02:00"
-      fileModificationDate="2021-06-10"
-      fileModificationTime="12:40:00+01:00"
+      fileModificationDate="2018-05-17"
+      fileModificationTime="09:50:00+01:00"
       fileModifiedBy="B&amp;R Industrial Automation GmbH"
       fileVersion="01.00"
       supportedLanguages="en">
@@ -92,7 +89,7 @@
         <productName>openPOWERLINK device</productName>
         <version versionType="HW">1.00</version>
         <version versionType="SW">1.00</version>
-        <version versionType="FW">OPLK V2.7.2</version>
+        <version versionType="FW">OPLK V2.7.0</version>
       </DeviceIdentity>
       <DeviceFunction>
         <capabilities>
@@ -145,8 +142,8 @@
       fileCreator="B&amp;R Industrial Automation GmbH"
       fileCreationDate="2011-04-01"
       fileCreationTime="10:00:00+02:00"
-      fileModificationDate="2021-06-10"
-      fileModificationTime="12:40:00+01:00"
+      fileModificationDate="2018-05-17"
+      fileModificationTime="09:50:00+01:00"
       fileModifiedBy="B&amp;R Industrial Automation GmbH"
       fileVersion="01.00"
       supportedLanguages="en">
@@ -247,7 +244,21 @@
           <Object index="1006" name="NMT_CycleLen_U32" objectType="7" dataType="0007" accessType="rw" PDOmapping="no" defaultValue="1000"/>
           <Object index="1008" name="NMT_ManufactDevName_VS" objectType="7" dataType="0009" accessType="const" PDOmapping="no" defaultValue="openPOWERLINK device"/>
           <Object index="1009" name="NMT_ManufactHwVers_VS" objectType="7" dataType="0009" accessType="const" PDOmapping="no" defaultValue="1.00"/>
-          <Object index="100A" name="NMT_ManufactSwVers_VS" objectType="7" dataType="0009" accessType="const" PDOmapping="no" defaultValue="OPLK V2.7.2"/>
+          <Object index="100A" name="NMT_ManufactSwVers_VS" objectType="7" dataType="0009" accessType="const" PDOmapping="no" defaultValue="OPLK V2.7.0"/>
+		  <Object index="1010" name="NMT_StoreParam_REC" objectType="9">
+             <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="4"/>
+             <SubObject subIndex="01" name="AllParam_U32" objectType="7" dataType="0007" accessType="rw"/>
+             <SubObject subIndex="02" name="CommunicationParam_U32" objectType="7" dataType="0007" accessType="rw"/>
+             <SubObject subIndex="03" name="ApplicationParam_U32" objectType="7" dataType="0007" accessType="rw"/>
+             <SubObject subIndex="04" name="ManufacturerParam_04h_U32" objectType="7" dataType="0007" accessType="rw"/>
+          </Object>
+          <Object index="1011" name="NMT_RestoreDefParam_REC" objectType="9">
+             <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="4"/>
+             <SubObject subIndex="01" name="AllParam_U32" objectType="7" dataType="0007" accessType="rw"/>
+             <SubObject subIndex="02" name="CommunicationParam_U32" objectType="7" dataType="0007" accessType="rw"/>
+             <SubObject subIndex="03" name="ApplicationParam_U32" objectType="7" dataType="0007" accessType="rw"/>
+             <SubObject subIndex="04" name="ManufacturerParam_04h_U32" objectType="7" dataType="0007" accessType="rw"/>
+          </Object>
           <Object index="1018" name="NMT_IdentityObject_REC" objectType="9">
             <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" PDOmapping="no" defaultValue="4"/>
             <SubObject subIndex="01" name="VendorId_U32" objectType="7" dataType="0007" accessType="const" PDOmapping="no" defaultValue="0x00000000"/>
@@ -1509,6 +1520,7 @@
             <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="2" PDOmapping="no"/>
             <SubObject subIndex="01" name="AnalogueInput" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO"/>
             <SubObject subIndex="02" name="AnalogueInput" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO"/>
+			
           </Object>
           <Object index="6402" name="AnalogueInput_00h_AI32" objectType="8" dataType="0004">
             <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="1" PDOmapping="no"/>
@@ -1530,6 +1542,554 @@
             <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="1" PDOmapping="no"/>
             <SubObject subIndex="01" name="AnalogueOutput" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO"/>
           </Object>
+		
+          <Object index="6500" name="Input_AI8" objectType="8" dataType="0002">
+            <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="12" PDOmapping="no" />
+            <SubObject subIndex="01" name="VALVE1" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="02" name="VALVE2" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="03" name="VALVE3" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="04" name="VALVE4" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="05" name="VALVE5" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="06" name="VALVE6" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="07" name="VALVE7" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="08" name="VALVE8" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="09" name="VALVE9" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0A" name="VALVE10" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0B" name="VALVE11" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0C" name="VALVE12" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
+          </Object>
+          <Object index="6501" name="Input_AI16" objectType="8" dataType="0003">
+            <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="240" PDOmapping="no" />
+            <SubObject subIndex="01" name="EC1" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="02" name="EC2" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="03" name="EC3" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="04" name="EC4" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="05" name="EC5" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="06" name="EC6" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="07" name="EC7" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="08" name="EC8" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="09" name="EC9" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0A" name="EC10" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0B" name="EC11" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0C" name="EC12" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0D" name="EC13" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0E" name="EC14" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0F" name="EC15" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="10" name="EC16" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="11" name="EC17" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="12" name="EC18" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="13" name="EC19" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="14" name="EC20" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="15" name="EC21" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="16" name="EC22" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="17" name="EC23" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="18" name="EC24" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="19" name="EC25" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="1A" name="EC26" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="1B" name="EC27" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="1C" name="EC28" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="1D" name="EC29" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="1E" name="EC30" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="1F" name="EC31" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="20" name="EC32" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="21" name="EC33" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="22" name="EC34" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="23" name="EC35" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="24" name="EC36" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="25" name="EC37" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="26" name="EC38" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="27" name="EC39" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="28" name="EC40" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="29" name="EC41" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="2A" name="EC42" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="2B" name="EC43" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="2C" name="EC44" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="2D" name="EC45" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="2E" name="EC46" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="2F" name="EC47" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="30" name="EC48" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="31" name="EC49" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="32" name="EC50" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="33" name="EC51" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="34" name="EC52" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="35" name="EC53" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="36" name="EC54" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="37" name="EC55" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="38" name="EC56" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="39" name="EC57" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="3A" name="EC58" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="3B" name="EC59" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="3C" name="EC60" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="3D" name="EC61" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="3E" name="EC62" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="3F" name="EC63" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="40" name="EC64" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="41" name="EC65" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="42" name="EC66" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="43" name="EC67" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="44" name="EC68" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="45" name="EC69" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="46" name="EC70" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="47" name="EC71" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="48" name="EC72" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="49" name="EC73" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="4A" name="EC74" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="4B" name="EC75" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="4C" name="EC76" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="4D" name="EC77" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="4E" name="EC78" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="4F" name="EC79" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="50" name="EC80" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="51" name="EC81" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="52" name="EC82" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="53" name="EC83" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="54" name="EC84" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="55" name="EC85" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="56" name="EC86" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="57" name="EC87" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="58" name="EC88" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="59" name="EC89" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="5A" name="EC90" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="5B" name="EC91" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="5C" name="EC92" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="5D" name="EC93" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="5E" name="EC94" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="5F" name="EC95" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="60" name="EC96" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="61" name="EC97" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="62" name="EC98" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="63" name="EC99" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="64" name="EC100" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="65" name="EC101" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="66" name="EC102" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="67" name="EC103" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="68" name="EC104" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="69" name="EC105" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="6A" name="EC106" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="6B" name="EC107" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="6C" name="EC108" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="6D" name="EC109" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="6E" name="EC110" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="6F" name="EC111" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="70" name="EC112" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="71" name="EC113" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="72" name="EC114" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="73" name="EC115" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="74" name="EC116" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="75" name="EC117" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="76" name="EC118" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="77" name="EC119" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="78" name="EC120" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="79" name="EC121" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="7A" name="EC122" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="7B" name="EC123" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="7C" name="EC124" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="7D" name="EC125" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="7E" name="EC126" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="7F" name="EC127" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="80" name="EC128" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="81" name="EC129" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="82" name="EC130" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="83" name="EC131" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="84" name="EC132" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="85" name="EC133" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="86" name="EC134" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="87" name="EC135" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="88" name="EC136" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="89" name="EC137" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="8A" name="EC138" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="8B" name="EC139" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="8C" name="EC140" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="8D" name="EC141" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="8E" name="EC142" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="8F" name="EC143" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="90" name="EC144" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="91" name="EC145" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="92" name="EC146" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="93" name="EC147" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="94" name="EC148" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="95" name="EC149" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="96" name="EC150" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="97" name="EC151" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="98" name="EC152" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="99" name="EC153" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="9A" name="EC154" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="9B" name="EC155" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="9C" name="EC156" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="9D" name="EC157" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="9E" name="EC158" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="9F" name="EC159" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="A0" name="EC160" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="A1" name="EC161" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="A2" name="EC162" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="A3" name="EC163" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="A4" name="EC164" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="A5" name="EC165" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="A6" name="EC166" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="A7" name="EC167" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="A8" name="EC168" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="A9" name="EC169" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="AA" name="EC170" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="AB" name="EC171" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="AC" name="EC172" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="AD" name="EC173" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="AE" name="EC174" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="AF" name="EC175" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="B0" name="EC176" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="B1" name="EC177" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="B2" name="EC178" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="B3" name="EC179" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="B4" name="EC180" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="B5" name="EC181" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="B6" name="EC182" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="B7" name="EC183" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="B8" name="EC184" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="B9" name="EC185" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="BA" name="EC186" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="BB" name="EC188" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="BC" name="EC189" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="BD" name="EC190" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="BE" name="EC191" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="BF" name="EC192" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="C0" name="EC193" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="C1" name="EC194" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="C2" name="EC195" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="C3" name="EC196" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="C4" name="EC197" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="C5" name="EC198" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="C6" name="EC199" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="C7" name="EC200" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="C8" name="EC201" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="C9" name="EC202" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="CA" name="EC203" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="CB" name="EC203" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="CC" name="EC204" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="CD" name="EC205" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="CE" name="EC206" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="CF" name="EC207" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="D0" name="EC208" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="D1" name="EC209" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="D2" name="EC210" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="D3" name="EC211" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="D4" name="EC212" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="D5" name="EC213" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="D6" name="EC214" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="D7" name="EC215" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="D8" name="EC216" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="D9" name="EC217" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="DA" name="EC218" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="DB" name="EC219" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="DC" name="EC220" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="DD" name="EC221" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="DE" name="EC222" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="DF" name="EC223" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="E0" name="EC224" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="E1" name="EC225" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="E2" name="EC226" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="E3" name="EC227" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="E4" name="EC228" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="E5" name="EC229" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="E6" name="EC230" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="E7" name="EC231" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="E8" name="EC232" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="E9" name="EC233" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="EA" name="EC234" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="EB" name="EC235" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="EC" name="EC236" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="ED" name="EC237" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="EE" name="EC238" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="EF" name="EC239" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="F0" name="EG" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+          </Object>
+          <Object index="6502" name="Input_AI32" objectType="8" dataType="0004">
+            <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="12" PDOmapping="no" />
+            <SubObject subIndex="01" name="SENSOR1" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="02" name="SENSOR2" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="03" name="SENSOR3" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="04" name="SENSOR4" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="05" name="SENSOR5" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="06" name="SENSOR6" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="07" name="SENSOR7" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="08" name="SENSOR8" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="09" name="SENSOR9" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0A" name="SENSOR10" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0B" name="SENSOR11" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0C" name="SENSOR12" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
+          </Object>
+          <Object index="6510" name="Output_AI8" objectType="8" dataType="0002">
+            <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="12" PDOmapping="no" />
+            <SubObject subIndex="01" name="VALVE1" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="02" name="VALVE2" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="03" name="VALVE3" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="04" name="VALVE4" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="05" name="VALVE5" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="06" name="VALVE6" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="07" name="VALVE7" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="08" name="VALVE8" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="09" name="VALVE9" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0A" name="VALVE10" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0B" name="VALVE11" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0C" name="VALVE12" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
+          </Object>
+          <Object index="6511" name="Output_AI16" objectType="8" dataType="0003">
+            <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="240" PDOmapping="no" />
+            <SubObject subIndex="01" name="EC1" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="02" name="EC2" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="03" name="EC3" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="04" name="EC4" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="05" name="EC5" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="06" name="EC6" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="07" name="EC7" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="08" name="EC8" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="09" name="EC9" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0A" name="EC10" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0B" name="EC11" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0C" name="EC12" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0D" name="EC13" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0E" name="EC14" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0F" name="EC15" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="10" name="EC16" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="11" name="EC17" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="12" name="EC18" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="13" name="EC19" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="14" name="EC20" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="15" name="EC21" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="16" name="EC22" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="17" name="EC23" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="18" name="EC24" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="19" name="EC25" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="1A" name="EC26" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="1B" name="EC27" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="1C" name="EC28" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="1D" name="EC29" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="1E" name="EC30" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="1F" name="EC31" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="20" name="EC32" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="21" name="EC33" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="22" name="EC34" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="23" name="EC35" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="24" name="EC36" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="25" name="EC37" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="26" name="EC38" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="27" name="EC39" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="28" name="EC40" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="29" name="EC41" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="2A" name="EC42" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="2B" name="EC43" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="2C" name="EC44" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="2D" name="EC45" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="2E" name="EC46" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="2F" name="EC47" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="30" name="EC48" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="31" name="EC49" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="32" name="EC50" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="33" name="EC51" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="34" name="EC52" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="35" name="EC53" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="36" name="EC54" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="37" name="EC55" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="38" name="EC56" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="39" name="EC57" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="3A" name="EC58" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="3B" name="EC59" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="3C" name="EC60" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="3D" name="EC61" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="3E" name="EC62" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="3F" name="EC63" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="40" name="EC64" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="41" name="EC65" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="42" name="EC66" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="43" name="EC67" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="44" name="EC68" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="45" name="EC69" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="46" name="EC70" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="47" name="EC71" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="48" name="EC72" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="49" name="EC73" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="4A" name="EC74" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="4B" name="EC75" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="4C" name="EC76" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="4D" name="EC77" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="4E" name="EC78" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="4F" name="EC79" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="50" name="EC80" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="51" name="EC81" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="52" name="EC82" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="53" name="EC83" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="54" name="EC84" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="55" name="EC85" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="56" name="EC86" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="57" name="EC87" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="58" name="EC88" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="59" name="EC89" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="5A" name="EC90" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="5B" name="EC91" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="5C" name="EC92" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="5D" name="EC93" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="5E" name="EC94" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="5F" name="EC95" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="60" name="EC96" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="61" name="EC97" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="62" name="EC98" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="63" name="EC99" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="64" name="EC100" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="65" name="EC101" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="66" name="EC102" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="67" name="EC103" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="68" name="EC104" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="69" name="EC105" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="6A" name="EC106" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="6B" name="EC107" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="6C" name="EC108" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="6D" name="EC109" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="6E" name="EC110" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="6F" name="EC111" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="70" name="EC112" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="71" name="EC113" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="72" name="EC114" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="73" name="EC115" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="74" name="EC116" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="75" name="EC117" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="76" name="EC118" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="77" name="EC119" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="78" name="EC120" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="79" name="EC121" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="7A" name="EC122" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="7B" name="EC123" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="7C" name="EC124" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="7D" name="EC125" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="7E" name="EC126" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="7F" name="EC127" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="80" name="EC128" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="81" name="EC129" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="82" name="EC130" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="83" name="EC131" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="84" name="EC132" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="85" name="EC133" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="86" name="EC134" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="87" name="EC135" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="88" name="EC136" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="89" name="EC137" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="8A" name="EC138" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="8B" name="EC139" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="8C" name="EC140" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="8D" name="EC141" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="8E" name="EC142" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="8F" name="EC143" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="90" name="EC144" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="91" name="EC145" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="92" name="EC146" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="93" name="EC147" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="94" name="EC148" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="95" name="EC149" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="96" name="EC150" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="97" name="EC151" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="98" name="EC152" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="99" name="EC153" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="9A" name="EC154" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="9B" name="EC155" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="9C" name="EC156" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="9D" name="EC157" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="9E" name="EC158" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="9F" name="EC159" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="A0" name="EC160" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="A1" name="EC161" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="A2" name="EC162" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="A3" name="EC163" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="A4" name="EC164" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="A5" name="EC165" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="A6" name="EC166" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="A7" name="EC167" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="A8" name="EC168" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="A9" name="EC169" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="AA" name="EC170" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="AB" name="EC171" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="AC" name="EC172" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="AD" name="EC173" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="AE" name="EC174" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="AF" name="EC175" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="B0" name="EC176" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="B1" name="EC177" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="B2" name="EC178" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="B3" name="EC179" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="B4" name="EC180" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="B5" name="EC181" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="B6" name="EC182" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="B7" name="EC183" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="B8" name="EC184" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="B9" name="EC185" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="BA" name="EC186" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="BB" name="EC188" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="BC" name="EC189" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="BD" name="EC190" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="BE" name="EC191" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="BF" name="EC192" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="C0" name="EC193" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="C1" name="EC194" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="C2" name="EC195" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="C3" name="EC196" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="C4" name="EC197" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="C5" name="EC198" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="C6" name="EC199" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="C7" name="EC200" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="C8" name="EC201" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="C9" name="EC202" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="CA" name="EC203" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="CB" name="EC203" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="CC" name="EC204" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="CD" name="EC205" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="CE" name="EC206" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="CF" name="EC207" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="D0" name="EC208" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="D1" name="EC209" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="D2" name="EC210" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="D3" name="EC211" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="D4" name="EC212" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="D5" name="EC213" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="D6" name="EC214" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="D7" name="EC215" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="D8" name="EC216" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="D9" name="EC217" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="DA" name="EC218" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="DB" name="EC219" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="DC" name="EC220" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="DD" name="EC221" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="DE" name="EC222" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="DF" name="EC223" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="E0" name="EC224" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="E1" name="EC225" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="E2" name="EC226" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="E3" name="EC227" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="E4" name="EC228" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="E5" name="EC229" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="E6" name="EC230" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="E7" name="EC231" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="E8" name="EC232" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="E9" name="EC233" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="EA" name="EC234" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="EB" name="EC235" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="EC" name="EC236" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="ED" name="EC237" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="EE" name="EC238" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="EF" name="EC239" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="F0" name="EG" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+          </Object>
+          <Object index="6512" name="Output_AI32" objectType="8" dataType="0004">
+            <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="12" PDOmapping="no" />
+            <SubObject subIndex="01" name="SENSOR1" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="02" name="SENSOR2" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="03" name="SENSOR3" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="04" name="SENSOR4" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="05" name="SENSOR5" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="06" name="SENSOR6" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="07" name="SENSOR7" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="08" name="SENSOR8" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="09" name="SENSOR9" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0A" name="SENSOR10" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0B" name="SENSOR11" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0C" name="SENSOR12" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
+          </Object>
+		  
         </ObjectList>
       </ApplicationLayers>
       <TransportLayers/>

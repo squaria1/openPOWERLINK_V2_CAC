@@ -88,7 +88,7 @@ typedef union
 		signed CN3_Input_AI32_SENSOR11 : 32;								//73
 		signed CN3_Input_AI32_SENSOR12 : 32;								//74
 	} PI_OUT;
-	signed in_array[80];
+	signed out_array[80];
 } UNION_OUT;
 
 
@@ -137,7 +137,7 @@ typedef union
 		signed CN3_Output_AI8_VALVE11 : 8;										//37
 		signed CN3_Output_AI8_VALVE12 : 8;										//38
 	} PI_IN;
-	signed out_array[40];
+	signed in_array[40];
 }UNION_IN;
 
 
