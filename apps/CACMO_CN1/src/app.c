@@ -42,6 +42,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // includes
 //------------------------------------------------------------------------------
 #include "app.h"
+#include "configopl.h"
 
 #include <oplk/oplk.h>
 #include <oplk/debugstr.h>
@@ -51,6 +52,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stddef.h>
 #include <stdio.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 //============================================================================//
 //            G L O B A L   D E F I N I T I O N S                             //
@@ -59,8 +61,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //------------------------------------------------------------------------------
 // const defines
 //------------------------------------------------------------------------------
-
-#define MAX_VALUES      255
 
 //------------------------------------------------------------------------------
 // module global vars
@@ -82,17 +82,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //------------------------------------------------------------------------------
 // local types
 //------------------------------------------------------------------------------
-/* structure for input process image */
-//typedef struct
-//{
-//   UINT8                digitalIn;
-//} PI_IN;
-
-/* structure for output process image */
-//typedef struct
-//{
-//   UINT8                digitalOut;
-//} PI_OUT;
 
 //------------------------------------------------------------------------------
 // local vars
@@ -103,29 +92,21 @@ static const UNION_OUT*          pProcessImageOut_l;
 
 
 /* application variables */
-/*
-static INT16            EC_l;            // 8 bit digital input
 
-static INT16            EC_CACOE_l;
-static INT32            MEP_TP01_l;           // 8 bit digital output
-static INT32            MEP_PR01_l;
-static INT32            MEP_PR02_l;
-static INT32            MEP_PR03_l;
-static INT32            MEP_PR04_l;
-
-
-static INT8             E_VCE_l;
-static INT8             E_VBCE_l;
-static INT8             E_VCO_l;
-static INT8             E_VBCO_l;
-*/
-
-static int32_t          arrOplIO_l[MAX_VALUES];
+static int32_t          values_In_CN_l[COMPUTED_PI_IN_SIZE];
+static int32_t          values_Out_CN_l[COMPUTED_PI_OUT_SIZE];
+static bool             activated_In_CN_l[COMPUTED_PI_IN_SIZE];
+static bool             activated_Out_CN_l[COMPUTED_PI_OUT_SIZE];
 
 //------------------------------------------------------------------------------
 // local function prototypes
 //------------------------------------------------------------------------------
 static tOplkError   initProcessImage(void);
+
+static const UINT8       nbValuesCN_Out = COMPUTED_PI_OUT_SIZE / NB_NODES;
+static const UINT8       nbValuesCN_In = COMPUTED_PI_IN_SIZE / NB_NODES;
+static const UINT8       nbValuesCN_Out_ByCN = COMPUTED_PI_OUT_SIZE / NB_NODES * (NODEID - 1) + 1;
+static const UINT8       nbValuesCN_In_ByCN = COMPUTED_PI_IN_SIZE / NB_NODES * (NODEID - 1) + 1;
 
 //============================================================================//
 //            P U B L I C   F U N C T I O N S                                 //
@@ -191,39 +172,23 @@ tOplkError processSync(void)
 
 
 
-    /* read input image - digital outputs */
-    arrOplIO_l[1] = pProcessImageOut_l->out_array[1];
-//  EC_l = pProcessImageOut_l->CN1_AnalogueOutput_00h_AI16_EC;
 
     /* setup output image - digital inputs */
-/*
-    pProcessImageIn_l->CN2_AnalogueInput_00h_AI16_EC_CACOE = EC_CACOE_l;
+    // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
+    for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
+    {
+        if(activated_In_CN_l[i])
+            values_In_CN_l[i] = pProcessImageOut_l->out_CN_array[i];
+    }
 
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI32_MEP_TP01 = MEP_TP01_l;
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI32_MEP_PR01 = MEP_PR01_l;
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI32_MEP_PR02 = MEP_PR02_l;
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI32_MEP_PR03 = MEP_PR03_l;
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI32_MEP_PR04 = MEP_PR04_l;
 
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI8_E_VCE = E_VCE_l;
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI8_E_VBCE = E_VBCE_l;
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI8_E_VCO = E_VCO_l;
-    pProcessImageIn_l->CN1_AnalogueInput_00h_AI8_E_VBCO = E_VBCO_l;
+    /* read input image - digital outputs */
 
-*/
-
-    pProcessImageIn_l->in_array[2] = arrOplIO_l[2];
-    /*
-    pProcessImageOut_l->CN1_AnalogueInput_00h_AI32_MEP_PR01 = arrOplIO_l[11];
-    pProcessImageOut_l->CN1_AnalogueInput_00h_AI32_MEP_PR02 = arrOplIO_l[12];
-    pProcessImageOut_l->CN1_AnalogueInput_00h_AI32_MEP_PR03 = arrOplIO_l[13];
-    pProcessImageOut_l->CN1_AnalogueInput_00h_AI32_MEP_PR04 = arrOplIO_l[14];
-
-    pProcessImageOut_l->CN1_AnalogueInput_00h_AI8_E_VCE = arrOplIO_l[23];
-    pProcessImageOut_l->CN1_AnalogueInput_00h_AI8_E_VBCE = arrOplIO_l[24];
-    pProcessImageOut_l->CN1_AnalogueInput_00h_AI8_E_VCO = arrOplIO_l[25];
-    pProcessImageOut_l->CN1_AnalogueInput_00h_AI8_E_VBCO = arrOplIO_l[26];*/
-
+    for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In; i++)
+    {
+        if (activated_Out_CN_l[i])
+            pProcessImageIn_l->in_CN_array[i] = values_Out_CN_l[i];
+    }
     
     ret = oplk_exchangeProcessImageIn();
 
@@ -241,12 +206,7 @@ The function initializes the digital input port.
 //------------------------------------------------------------------------------
 void setupInputs(void)
 {
-    //MEP_TP01_l = 1;
-
-    for (int i = 0; i < MAX_VALUES; i++)
-    {
-        arrOplIO_l[i] = 0;
-    }
+    memset(&values_In_CN_l, 0, sizeof(values_In_CN_l));
 }
 
 //------------------------------------------------------------------------------
@@ -259,18 +219,9 @@ left (increase the value).
 \ingroup module_demo_cn_console
 */
 //------------------------------------------------------------------------------
-void printEC(void)
+void printEG(void)
 {
-    //if (digitalIn_l == 128)
-    //    digitalIn_l = 1;
-    //else
-    //    digitalIn_l = digitalIn_l << 1;
-
-    //printf("\b \b");
-    //printInputs();
-
-    //printf("Valeur input EC: %d\n", EC_l);
-    printf("Valeur input EC: %d\n", arrOplIO_l[101]);
+    printf("Valeur input EG: %d\n", values_In_CN_l[0]);
     
 }
 
@@ -286,17 +237,10 @@ right (decrease the value).
 //------------------------------------------------------------------------------
 void modMEP_TP01(void)
 {
-    /*
-    if (MEP_TP01_l == 1)
-        MEP_TP01_l = 2147483648;
+    if (values_Out_CN_l[13] == 1)
+        values_Out_CN_l[13] = 2147483648;
     else
-        MEP_TP01_l = MEP_TP01_l >> 1;
-    */
-
-    if (arrOplIO_l[10] == 1)
-        arrOplIO_l[10] = 2147483648;
-    else
-        arrOplIO_l[10] = arrOplIO_l[10] >> 1;
+        values_Out_CN_l[13] = values_Out_CN_l[13] >> 1;
 
     printf("\b \b");
     printInputs();
@@ -314,21 +258,7 @@ The function prints the value of the digital output port on the console.
 //------------------------------------------------------------------------------
 void printMEP_TP01(void)
 {
-    //int i;
-
-    //printf("\b \b");
-    //printf("Digital outputs: ");
-    //for (i = 0; i < 8; i++)
-    //{
-    //    if (((digitalOut_l >> i) & 1) == 1)
-    //        printf("*");
-    //    else
-    //        printf("-");
-    //}
-    //printf("\n");
-
-    //printf("Valeur output MEP_TP01: %d\n", MEP_TP01_l);
-    printf("Valeur output MEP_TP01: %d\n", arrOplIO_l[10]);
+    printf("Valeur output MEP_TP01: %d\n", values_Out_CN_l[13]);
 }
 
 //------------------------------------------------------------------------------
@@ -348,8 +278,7 @@ void printInputs(void)
 
     for (i = 0; i < 32; i++)
     {
-        //if (((MEP_TP01_l >> i) & 1) == 1)
-        if (((arrOplIO_l[10] >> i) & 1) == 1)
+        if (((values_Out_CN_l[13] >> i) & 1) == 1)
             printf("*");
         else
             printf("-");
@@ -378,6 +307,7 @@ static tOplkError initProcessImage(void)
     UINT        varEntries;
     tObdSize    obdSize;
 
+
     /* Allocate process image */
     printf("Initializing process image...\n");
     printf("Size of process image: Input = %lu Output = %lu \n",
@@ -399,9 +329,54 @@ static tOplkError initProcessImage(void)
     /* link process variables used by CN to object dictionary */
     fprintf(stderr, "Linking process image vars:\n");
 
-    linkPDO_in(varEntries, obdSize, 1, 0x6500, 0x01);
+    varEntries = 1;
 
-    linkPDO_out(varEntries, obdSize, 0, 0x6511, 0xF0);
+    obdSize = sizeof(pProcessImageIn_l->in_CN_array[1]);
+    ret = linkPDO_in(varEntries, obdSize, NODEID, 0x6511, NODEID);
+    if (ret != kErrorOk)
+    {
+        return ret;
+    }
+
+    // Init process image input
+    // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
+    for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
+    {
+        if (activated_Out_CN_l[i])
+        {
+            obdSize = sizeof(pProcessImageOut_l->out_CN_array[i]);
+            if(i > nbValuesCN_Out_ByCN && i <= nbValuesCN_Out_ByCN + nbValuesCN_Out / 2)
+                ret = linkPDO_out(varEntries, obdSize, i, 0x6510, 0x01 + i % (nbValuesCN_Out / 2));
+            else if(i > nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 && i <= nbValuesCN_Out_ByCN + nbValuesCN_Out)
+                ret = linkPDO_out(varEntries, obdSize, i, 0x6512, 0x01 + i % (nbValuesCN_Out / 2));
+            if (ret != kErrorOk)
+            {
+                return ret;
+            }
+        }
+    }
+
+    // Init process image input
+    for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In / 2; i++)
+    {
+        if (activated_In_CN_l[i])
+        {
+            obdSize = sizeof(pProcessImageIn_l->in_CN_array[i]);
+            ret = linkPDO_in(varEntries, obdSize, i, 0x6500, 0x01 + i % (nbValuesCN_In / 2));
+            if (ret != kErrorOk)
+            {
+                return ret;
+            }
+        }
+    }
+
+    // Init process image input EG
+    obdSize = sizeof(pProcessImageIn_l->in_CN_array[0]);
+    ret = linkPDO_in(varEntries, obdSize, 0, 0x6501, 0xF0);
+    if (ret != kErrorOk)
+    {
+        return ret;
+    }
 
     fprintf(stderr, "Linking process vars... ok\n\n");
 
@@ -412,11 +387,9 @@ static tOplkError initProcessImage(void)
 tOplkError linkPDO_in(UINT varEntries, tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
     tOplkError  ret = kErrorOk;
 
-    obdSize = sizeof(pProcessImageIn_l->in_array[arrayIndex]);
-    varEntries = 1;
     ret = oplk_linkProcessImageObject(index,
         subIndex,
-        offsetof(UNION_IN, in_array[arrayIndex]),
+        offsetof(UNION_IN, in_CN_array[arrayIndex]),
         FALSE,
         obdSize,
         &varEntries);
@@ -426,7 +399,6 @@ tOplkError linkPDO_in(UINT varEntries, tObdSize obdSize, UINT16 arrayIndex, UINT
             "Linking process vars failed with \"%s\" (0x%04x)\n",
             debugstr_getRetValStr(ret),
             ret);
-        return ret;
     }
 
     return ret;
@@ -435,11 +407,9 @@ tOplkError linkPDO_in(UINT varEntries, tObdSize obdSize, UINT16 arrayIndex, UINT
 tOplkError linkPDO_out(UINT varEntries, tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
     tOplkError  ret = kErrorOk;
 
-    obdSize = sizeof(pProcessImageOut_l->out_array[arrayIndex]);
-    varEntries = 1;
     ret = oplk_linkProcessImageObject(index,
         subIndex,
-        offsetof(UNION_OUT, out_array[arrayIndex]),
+        offsetof(UNION_OUT, out_CN_array[arrayIndex]),
         FALSE,
         obdSize,
         &varEntries);
@@ -449,10 +419,49 @@ tOplkError linkPDO_out(UINT varEntries, tObdSize obdSize, UINT16 arrayIndex, UIN
             "Linking process vars failed with \"%s\" (0x%04x)\n",
             debugstr_getRetValStr(ret),
             ret);
-        return ret;
     }
 
     return ret;
 }
 
-/// \}
+void setvalues_In_CN(int32_t values_In_CN_g[])
+{
+    for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
+    {
+        values_In_CN_l[i] = values_In_CN_g[i];
+    }
+}
+
+int32_t* getvalues_In_CN()
+{
+    return values_In_CN_l;
+}
+
+void setvalues_Out_CN(int32_t values_Out_CN_g[])
+{
+    for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
+    {
+        values_Out_CN_l[i] = values_Out_CN_g[i];
+    }
+}
+
+int32_t* getvalues_Out_CN()
+{
+    return values_Out_CN_l;
+}
+
+void setActivated_In_CN(int32_t activated_In_CN_g[])
+{
+    for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
+    {
+        activated_In_CN_l[i] = activated_In_CN_g[i];
+    }
+}
+
+void setActivated_Out_CN(int32_t activated_Out_CN_g[])
+{
+    for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
+    {
+        activated_Out_CN_l[i] = activated_Out_CN_g[i];
+    }
+}

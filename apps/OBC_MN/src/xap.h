@@ -6,7 +6,7 @@
 #ifndef XAP_h
 #define XAP_h
 
-#define COMPUTED_PI_OUT_SIZE 192
+#define COMPUTED_PI_OUT_SIZE 75
 
 typedef union
 {
@@ -88,11 +88,11 @@ typedef union
 		signed CN3_Input_AI32_SENSOR11 : 32;								//73
 		signed CN3_Input_AI32_SENSOR12 : 32;								//74
 	} PI_OUT;
-	signed out_array[80];
+	signed out_MN_array[80];
 } UNION_OUT;
 
 
-#define COMPUTED_PI_IN_SIZE 44
+#define COMPUTED_PI_IN_SIZE 39
 typedef union
 {
 	struct
@@ -137,7 +137,7 @@ typedef union
 		signed CN3_Output_AI8_VALVE11 : 8;										//37
 		signed CN3_Output_AI8_VALVE12 : 8;										//38
 	} PI_IN;
-	signed in_array[40];
+	signed in_MN_array[40];
 }UNION_IN;
 
 

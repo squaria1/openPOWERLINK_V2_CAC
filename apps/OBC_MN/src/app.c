@@ -51,6 +51,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <obdpi.h>
 #include <eventlog/eventlog.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 #include "xap.h"
 
@@ -92,21 +93,24 @@ typedef struct
     UINT32                ledsOld;
     UINT32                input;
     UINT32                inputOld;
-    UINT                period;
-    int                 toggle;
+    UINT                  period;
+    int                   toggle;
 } APP_NODE_VAR_T;
 
 //------------------------------------------------------------------------------
 // local vars
 //------------------------------------------------------------------------------
-static int              aUsedNodeIds_l[] = {1, 2, 3, 0};
-static UINT             cnt_l;
-static APP_NODE_VAR_T   aNodeVar_l[MAX_NODES];
-static const UNION_OUT*  pProcessImageOut_l;
-static UNION_IN*         pProcessImageIn_l;
+static int                aUsedNodeIds_l[] = {1, 2, 3, 0};
+static UINT               cnt_l;
+static APP_NODE_VAR_T     aNodeVar_l[MAX_NODES];
+static const UNION_OUT*   pProcessImageOut_l;
+static UNION_IN*          pProcessImageIn_l;
 
 
-static int32_t          arrOplIO_l[MAX_VALUES];
+static int32_t            values_In_MN_l[MAX_VALUES];
+static int32_t            values_Out_MN_l[MAX_VALUES];
+static bool               activated_In_MN_l[COMPUTED_PI_IN_SIZE];
+static bool               activated_Out_MN_l[COMPUTED_PI_OUT_SIZE];
 
 // Declare an array to store member names
 
@@ -150,7 +154,7 @@ tOplkError initApp(void)
 
     for (i = 0; i < MAX_VALUES; i++) 
     {
-        arrOplIO_l[i] = 0;
+        values_In_MN_l[i] = 0;
     }
 
     memset(&pProcessImageOut_l, 0, sizeof(pProcessImageOut_l));
@@ -210,49 +214,33 @@ tOplkError processSync(void)
     if (ret != kErrorOk)
         return ret;
 
-    //for (int i = 0; i < sizeof(pProcessImageOut_l->in_array) / sizeof(pProcessImageOut_l->in_array[0]); i++)
+    //for (int i = 0; i < sizeof(pProcessImageOut_l->in_MN_array) / sizeof(pProcessImageOut_l->in_MN_array[0]); i++)
     //{
-    //    arrOplIO_l[i] = pProcessImageOut_l->in_array[i];
-    //    //printf("arropl at %d = %d \n", i, arrOplIO_l[i]);
+    //    values_IO_l[i] = pProcessImageOut_l->in_MN_array[i];
+    //    //printf("arropl at %d = %d \n", i, values_IO_l[i]);
     //}
 
     cnt_l++;
 
-    aNodeVar_l[0].input = pProcessImageOut_l->out_array[1];
-    aNodeVar_l[1].input = pProcessImageOut_l->out_array[26];
-    aNodeVar_l[2].input = pProcessImageOut_l->out_array[51];
+    aNodeVar_l[0].input = pProcessImageOut_l->out_MN_array[1];
+    aNodeVar_l[1].input = pProcessImageOut_l->out_MN_array[26];
+    aNodeVar_l[2].input = pProcessImageOut_l->out_MN_array[51];
 
+    for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
+    {
+        if (activated_In_MN_l[i])
+        {
+            values_In_MN_l[i] = pProcessImageOut_l->out_MN_array[i];
+        }
+    }
 
-   /* arrOplIO_l[2] = pProcessImageOut_l->out_array[0];
-    arrOplIO_l[3] = pProcessImageOut_l->out_array[1];
-    arrOplIO_l[4] = pProcessImageOut_l->out_array[2];
-    arrOplIO_l[5] = pProcessImageOut_l->out_array[3];
-    arrOplIO_l[6] = pProcessImageOut_l->out_array[4];
-    arrOplIO_l[15] = pProcessImageOut_l->out_array[5];
-    arrOplIO_l[16] = pProcessImageOut_l->out_array[6];
-    arrOplIO_l[17] = pProcessImageOut_l->out_array[7];
-    arrOplIO_l[18] = pProcessImageOut_l->out_array[8];
-    arrOplIO_l[19] = pProcessImageOut_l->out_array[9];
-
-    arrOplIO_l[27] = pProcessImageOut_l->out_array[10];
-    arrOplIO_l[28] = pProcessImageOut_l->out_array[11];
-    arrOplIO_l[29] = pProcessImageOut_l->out_array[12];
-    arrOplIO_l[40] = pProcessImageOut_l->out_array[14];
-    arrOplIO_l[41] = pProcessImageOut_l->out_array[15];
-    arrOplIO_l[42] = pProcessImageOut_l->out_array[16];
-    arrOplIO_l[43] = pProcessImageOut_l->out_array[17];
-    arrOplIO_l[44] = pProcessImageOut_l->out_array[18];
-
-    arrOplIO_l[52] = pProcessImageOut_l->out_array[19];
-    arrOplIO_l[53] = pProcessImageOut_l->out_array[20];
-    arrOplIO_l[54] = pProcessImageOut_l->out_array[21];
-    arrOplIO_l[55] = pProcessImageOut_l->out_array[22];
-    arrOplIO_l[56] = pProcessImageOut_l->out_array[23];
-    arrOplIO_l[65] = pProcessImageOut_l->out_array[23];
-    arrOplIO_l[66] = pProcessImageOut_l->out_array[24];
-    arrOplIO_l[67] = pProcessImageOut_l->out_array[25];
-    arrOplIO_l[68] = pProcessImageOut_l->out_array[26];
-    arrOplIO_l[69] = pProcessImageOut_l->out_array[27];*/
+    for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
+    {
+        if (activated_Out_MN_l[i])
+        {
+            pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
+        }
+    }
 
 
     for (i = 0; (i < MAX_NODES) && (aUsedNodeIds_l[i] != 0); i++)
@@ -291,26 +279,10 @@ tOplkError processSync(void)
             aNodeVar_l[i].ledsOld = aNodeVar_l[i].leds;
     }
 
-    pProcessImageIn_l->in_array[0] = aNodeVar_l[0].leds;
-    pProcessImageIn_l->in_array[13] = aNodeVar_l[1].leds;
-    pProcessImageIn_l->in_array[26] = aNodeVar_l[2].leds;
+    pProcessImageIn_l->in_MN_array[0] = aNodeVar_l[0].leds;
+    pProcessImageIn_l->in_MN_array[13] = aNodeVar_l[1].leds;
+    pProcessImageIn_l->in_MN_array[26] = aNodeVar_l[2].leds;
 
-    //pProcessImageIn_l->CN1_Output_AI8_VALVE1 = arrOplIO_l[3];
-    //pProcessImageIn_l->CN1_Output_AI8_VALVE2 = arrOplIO_l[4];
-    //pProcessImageIn_l->CN1_Output_AI8_VALVE3 = arrOplIO_l[5];
-    //pProcessImageIn_l->CN1_Output_AI8_VALVE4 = arrOplIO_l[6];
-
-    //pProcessImageIn_l->CN1_Output_AI8_VALVE1 = arrOplIO_l[28];
-    //pProcessImageIn_l->CN1_Output_AI8_VALVE2 = arrOplIO_l[29];
-
-    //pProcessImageIn_l->CN1_Output_AI8_VALVE1 = arrOplIO_l[53];
-    //pProcessImageIn_l->CN1_Output_AI8_VALVE2 = arrOplIO_l[54];
-    //pProcessImageIn_l->CN1_Output_AI8_VALVE3 = arrOplIO_l[55];
-    //pProcessImageIn_l->CN1_Output_AI8_VALVE4 = arrOplIO_l[56];
-
-    //pProcessImageIn_l->CN1_Output_AI16_EG = arrOplIO_l[1];
-    //pProcessImageIn_l->CN2_Output_AI16_EG = arrOplIO_l[1];
-    //pProcessImageIn_l->CN3_Output_AI16_EG = arrOplIO_l[1];
 
     ret = oplk_exchangeProcessImageIn();
 
@@ -367,15 +339,44 @@ static tOplkError initProcessImage(void)
     return ret;
 }
 
-void setArrOplIO_l(int32_t arrOplIO_g[])
+void setValues_In_MN(int32_t values_In_g[])
 {
-    for (int i = 0; i < MAX_VALUES; i++)
+    for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
     {
-        arrOplIO_l[i] = arrOplIO_g[i];
+        values_In_MN_l[i] = values_In_g[i];
     }
 }
 
-int32_t* getArrOplIO_l()
+int32_t* getValues_In_MN()
 {
-    return arrOplIO_l;
+    return values_In_MN_l;
+}
+
+void setValues_Out_MN(int32_t values_Out_g[])
+{
+    for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
+    {
+        values_Out_MN_l[i] = values_Out_g[i];
+    }
+}
+
+int32_t* getValues_Out_MN()
+{
+    return values_Out_MN_l;
+}
+
+void setActivated_In_MN(int32_t activated_In_MN_g[])
+{
+    for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
+    {
+        activated_In_MN_l[i] = activated_In_MN_g[i];
+    }
+}
+
+void setActivated_Out_MN(int32_t activated_Out_MN_g[])
+{
+    for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
+    {
+        activated_Out_MN_l[i] = activated_Out_MN_g[i];
+    }
 }

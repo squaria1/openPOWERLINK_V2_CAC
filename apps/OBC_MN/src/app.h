@@ -63,8 +63,12 @@ extern "C"
 tOplkError  initApp(void);
 void        shutdownApp(void);
 tOplkError  processSync(void);
-void        setArrOplIO_l(int32_t arrOplIO_g[]);
-int32_t*    getArrOplIO_l(void);
+void        setValues_In_MN(int32_t values_In_g[]);
+int32_t*    getValues_In_MN(void);
+void        setValues_Out_MN(int32_t values_Out_g[]);
+int32_t*    getValues_Out_MN(void);
+void        setActivated_In_MN(int32_t activated_In_MN_g[]);
+void        setActivated_Out_MN(int32_t activated_Out_MN_g[]);
 
 #ifdef __cplusplus
 }

@@ -65,8 +65,15 @@ tOplkError processSync(void);
 void       printMEP_TP01(void);
 void       printInputs(void);
 void       setupInputs(void);
-void       printEC(void);
+void       printEG(void);
 void       modMEP_TP01(void);
+void       setvalues_In_CN(int32_t values_In_CN_g[]);
+int32_t*   getvalues_In_CN();
+void       setvalues_Out_CN(int32_t values_Out_CN_g[]);
+int32_t*   getvalues_Out_CN();
+void       setActivated_In_CN(int32_t activated_In_CN_g[]);
+void       setActivated_Out_CN(int32_t activated_Out_CN_g[]);
+
 
 #ifdef __cplusplus
 }

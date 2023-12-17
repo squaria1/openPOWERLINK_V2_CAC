@@ -44,6 +44,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //------------------------------------------------------------------------------
 #include "app.h"
 #include "event.h"
+#include "configopl.h"
 
 #include <oplk/oplk.h>
 #include <oplk/debugstr.h>
@@ -71,11 +72,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //------------------------------------------------------------------------------
 // const defines
 //------------------------------------------------------------------------------
-#define CYCLE_LEN           10000
-#define NODEID              1                   // could be changed by command param
-#define IP_ADDR             0xc0a80142          // 192.168.100.1
-#define DEFAULT_GATEWAY     0xC0A801FE          // 192.168.100.C_ADR_RT1_DEF_NODE_ID
-#define SUBNET_MASK         0xFFFFFF00          // 255.255.255.0
 
 //------------------------------------------------------------------------------
 // module global vars
@@ -283,7 +279,7 @@ static tOplkError initPowerlink(UINT32 cycleLen_p,
     initParam.pfnCbEvent = processEvents;
 
 #if defined(CONFIG_KERNELSTACK_DIRECTLINK)
-    initParam.pfnCbSync = processSync;
+    initParam.pfnCbSync = processSync(NODEID, NB_NODES);
 #else
     initParam.pfnCbSync = NULL;
 #endif
@@ -397,7 +393,7 @@ static void loopMain(void)
                     break;
 
                 case 'a':
-                    printEC();
+                    printEG();
                     break;
 
                 case 'z':
