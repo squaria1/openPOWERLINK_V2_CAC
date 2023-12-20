@@ -18,9 +18,6 @@ class sensor
         unsigned int Getpressure() { return pressure; }
         void Setpressure(unsigned int val) { pressure = val; }
 
-        void getOutputAnalog();
-
-
     protected:
 
     private:
