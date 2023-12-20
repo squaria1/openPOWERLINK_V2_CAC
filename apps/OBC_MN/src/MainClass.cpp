@@ -1,7 +1,6 @@
 #include "gpio.h"
 #include "opl.h"
 #include "file.h"
-#include "stateMachine.h"
 #include "sensor.h"
 
 int main() {

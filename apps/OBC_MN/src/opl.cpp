@@ -1,47 +1,6 @@
 #include "opl.h"
 #include "app.h"
 
-/*
-opl::opl(INT16 CN1_EC, INT16 CN1_EC_CACMO, INT32 CN1_MEP_TP01, INT32 CN1_MEP_PR01, INT32 CN1_MEP_PR02, 
-    INT32 CN1_MEP_PR03, INT32 CN1_MEP_PR04, INT8 CN1_E_VCE, INT8 CN1_E_VBCE, INT8 CN1_E_VCO, INT8 CN1_E_VBCO,
-    INT16 CN2_EC, INT16 CN2_EC_CACOE, INT32 CN2_MEP_TP02, INT32 CN2_MEP_TP03, INT32 CN2_MEP_PR05, INT32 CN2_MEP_PR06,
-    INT32 CN2_MEP_PR07, INT8 CN2_E_VPrO, INT8 CN2_E_VMAO, INT16 CN3_EC, INT16 CN3_EC_CACEHP, INT32 CN3_MEP_TP04,
-    INT32 CN3_MEP_TP05, INT32 CN3_MEP_PR08, INT32 CN3_MEP_PR09, INT32 CN3_MEP_PR10, INT8 CN3_E_VMAPr, INT8 CN3_E_VPrG,
-    INT8 CN3_E_VPrE, INT8 CN3_E_VMAE)
-{
-    //constructor
-    CN1_EC_CACMO = 0;
-    CN1_MEP_TP01 = 0;
-    CN1_MEP_PR01 = 0;
-    CN1_MEP_PR02 = 0;
-    CN1_MEP_PR03 = 0;
-    CN1_MEP_PR04 = 0;
-    CN1_E_VCE = 0;
-    CN1_E_VBCE = 0;
-    CN1_E_VCO = 0;
-    CN1_E_VBCO = 0;
-
-    CN2_EC_CACOE = 0;
-    CN2_MEP_TP02 = 0;
-    CN2_MEP_TP03 = 0;
-    CN2_MEP_PR05 = 0;
-    CN2_MEP_PR06 = 0;
-    CN2_MEP_PR07 = 0;
-    CN2_E_VPrO = 0;
-    CN2_E_VMAO = 0;
-
-    CN3_EC_CACEHP = 0;
-    CN3_MEP_TP04 = 0;
-    CN3_MEP_TP05 = 0;
-    CN3_MEP_PR08 = 0;
-    CN3_MEP_PR09 = 0;
-    CN3_MEP_PR10 = 0;
-    CN3_E_VMAPr = 0;
-    CN3_E_VPrG = 0;
-    CN3_E_VPrE = 0;
-    CN3_E_VMAE = 0;
-}
-*/
 opl::opl()
 {
 
@@ -51,18 +10,6 @@ opl::~opl()
 {
     //destructor
 }
-
-/*
-INT16 opl::getCN1_EC_CACMO()
-{
-    return CN1_EC_CACMO;
-}
-
-void opl::setCN1_EC_CACMO(INT16 CN1_EC_CACMO)
-{
-    this::CN1_EC_CACMO = CN1_EC_CACMO;
-}
-*/
 
 bool opl::initOPL()
 {

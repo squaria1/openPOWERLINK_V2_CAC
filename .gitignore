@@ -1,6 +1,7 @@
 .gitreview
 .metadata/
 .settings
+.vscode
 .project
 .cproject
 *~
