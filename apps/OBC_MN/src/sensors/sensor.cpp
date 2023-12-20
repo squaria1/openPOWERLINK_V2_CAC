@@ -18,6 +18,8 @@
 int opt, delay_us, adc, i;
 int adc_list[MAX_ADC];
 
+char iiosyspath[] = "/sys/bus/iio/devices/iio:device0/";
+
 
 sensor::sensor()
 {
@@ -64,7 +66,7 @@ int sensor::init_sensor(){
 }
 
 
-void read_Channels(int delay_us, int *list)
+void sensor::read_Channels(int delay_us, int *list)
 {
     int ret, i, update, update_reset;
     int val[MAX_ADC];
