@@ -41,15 +41,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //------------------------------------------------------------------------------
 // includes
 //------------------------------------------------------------------------------
-#include "event.h"
-
-#include <oplk/oplk.h>
-#include <oplk/debugstr.h>
-
-#include <console/console.h>
-#include <eventlog/eventlog.h>
-
-#include <stdio.h>
+#include "eventOpl.h"
 
 //============================================================================//
 //            G L O B A L   D E F I N I T I O N S                             //

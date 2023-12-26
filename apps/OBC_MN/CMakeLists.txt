@@ -60,9 +60,7 @@ SET_PROPERTY(CACHE CFG_DEMO_PROJECT PROPERTY STRINGS Demo_3CN Demo_RMN_3CN)
 
 # Set generic sources and include directories for this demo
 SET(DEMO_SOURCES
-    ${DEMO_SOURCE_DIR}/main.c
-    ${DEMO_SOURCE_DIR}/app.c
-    ${DEMO_SOURCE_DIR}/event.c
+    ${DEMO_SOURCE_DIR}/MainClass.cpp
     ${COMMON_SOURCE_DIR}/obdcreate/obdcreate.c
     ${OBJDICT_DIR}/${OBJDICT}/obdpi.c
     ${COMMON_SOURCE_DIR}/eventlog/eventlog.c
@@ -70,13 +68,15 @@ SET(DEMO_SOURCES
     ${COMMON_SOURCE_DIR}/netselect/netselect.c
     ${CONTRIB_SOURCE_DIR}/console/printlog.c
     ${FIRMWARE_MANAGER_SOURCES}
+	${DEMO_SOURCE_DIR}/opl.cpp
+	${DEMO_SOURCE_DIR}/eventOpl.c
     )
 
 INCLUDE_DIRECTORIES(
     ${DEMO_SOURCE_DIR}
     ${OBJDICT_DIR}/${OBJDICT}
     ${CONTRIB_SOURCE_DIR}
-	${DEMO_SOURCE_DIR}/../include
+    ${DEMO_INCLUDE_DIR}
     )
 
 ADD_DEFINITIONS(-DNMT_MAX_NODE_ID=254)

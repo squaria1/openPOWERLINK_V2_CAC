@@ -1,54 +1,53 @@
-#include "gpio.h"
+#include "valve.h"
 #include "opl.h"
 #include "file.h"
 #include "sensor.h"
 
 int main() {
     int etat=1;
-    gpio gpio;
+    valve valve;
     opl opl;
     file file;
   
-    sensor capteur;
+    sensor sensor;
     
     while(etat<3){
         switch(etat){
             case 1: // Initialisation
                 for(int i=0; i<3;i++){
-                    if(gpio.initGPIO()){
+                    if (opl.initOPL()) {
                         file.writeTelem();
-                        opl.sendTelem();
-                    }else{
-                        file.writeError();
                         opl.sendTelem();
                     }
-                    if(opl.initOPL()){
+                    else {
+                        file.writeError();
+                    }
+                    if(valve.initValve()){
                         file.writeTelem();
                         opl.sendTelem();
                     }else{
                         file.writeError();
-                        opl.sendTelem();
+                        opl.sendError();
                     }
                     if(opl.testOPL()){
                         file.writeTelem();
                         opl.sendTelem();
                     }else{
                         file.writeError();
-                        opl.sendTelem();
+                        opl.sendError();
                     }
-                    if(fichier.testWriteFile()){
+                    if(file.testWriteFile()){
+                        file.writeTelem();
+                        opl.sendTelem();
+                    }else{
+                        opl.sendError();
+                    }
+                    if(sensor.testSensor()){
                         file.writeTelem();
                         opl.sendTelem();
                     }else{
                         file.writeError();
-                        opl.sendTelem();
-                    }
-                    if(capteur.testCapteur()){
-                        file.writeTelem();
-                        opl.sendTelem();
-                    }else{
-                        file.writeError();
-                        opl.sendTelem();
+                        opl.sendError();
                     }
                     if(opl.demandeExtinctOPL()){
                         etat=2;
@@ -58,20 +57,20 @@ int main() {
                 }
                 break;
             case 2: // Acquisition et controle
-                if(capteur.isValeurCaptTropEleve()){
-                    opl.demandeExtinctOPL();
+                if(sensor.isValeurCaptTropEleve()){
+                    //opl.demandeExtinctOPL();
                 }else{
                     file.writeTelem();
                     opl.sendTelem();
                 }
-                if(capteur.isPressionTropEleve()){
-                    opl.demandeExtinctOPL();
+                if(sensor.isPressionTropEleve()){
+                    //opl.demandeExtinctOPL();
                 }else{
                     file.writeTelem();
                     opl.sendTelem();
                 }
-                if(capteur.isDebitTropEleve()){
-                    opl.demandeExtinctOPL();
+                if(sensor.isDebitTropEleve()){
+                    //opl.demandeExtinctOPL();
                 }else{
                     file.writeTelem();
                     opl.sendTelem();
@@ -86,7 +85,7 @@ int main() {
                     opl.sendTelem();
                 }else{
                     file.writeError();
-                    opl.sendTelem();
+                    opl.sendError();
                 }
                 break;
         }

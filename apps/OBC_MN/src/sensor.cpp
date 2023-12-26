@@ -6,8 +6,6 @@
 #include <fcntl.h>
 #include <signal.h>
 #include <sys/ioctl.h>
-#include <time.h>
-#include <sys/time.h>
 #include <getopt.h>
 #include <errno.h>
 
@@ -76,7 +74,6 @@ void sensor::read_Channels(int delay_us, int *list)
     memset(fd, 0, sizeof(fd));
     memset(val, 0, sizeof(val));
 
-    
     for (i = 0; i < MAX_ADC; i++) {
         if (list[i]) {
             fd[i] = open_adc(i);

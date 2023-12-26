@@ -312,6 +312,7 @@ static tOplkError initPowerlink(UINT32 cycleLen_p,
     initParam.pfnCbEvent = processEvents;
 
 #if defined(CONFIG_KERNELSTACK_DIRECTLINK)
+    printf("\n\n\CONFIG_KERNELSTACK_DIRECTLINK\n\n\n");
     initParam.pfnCbSync  = processSync;
 #else
     initParam.pfnCbSync  = NULL;
@@ -392,7 +393,9 @@ static void loopMain(void)
 
 #if !defined(CONFIG_KERNELSTACK_DIRECTLINK)
 
+    printf("\n\n\CONFIG_KERNELSTACK_DIRECTLINK\n\n\n");
 #if defined(CONFIG_USE_SYNCTHREAD)
+    printf("\n\n\nCONFIG_USE_SYNCTHREAD\n\n\n");
     system_startSyncThread(processSync);
 #endif
 
@@ -478,6 +481,7 @@ static void loopMain(void)
      defined(CONFIG_KERNELSTACK_DIRECTLINK))
         system_msleep(100);
 #else
+        printf("\n\n\CONFIG_KERNELSTACK_DIRECTLINK\n\n\n");
         processSync();
 #endif
 

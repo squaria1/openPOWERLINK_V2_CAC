@@ -1,10 +1,10 @@
 /**
 ********************************************************************************
-\file   app.h
+\file   event.h
 
-\brief  Definitions for MN running-light application
+\brief  Definitions of the MN demo event handler
 
-The file contains the definition for the MN running-light application.
+The file contains the definitions for the MN demo event handler.
 *******************************************************************************/
 
 /*------------------------------------------------------------------------------
@@ -35,14 +35,20 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ------------------------------------------------------------------------------*/
-#ifndef _INC_demo_app_H_
-#define _INC_demo_app_H_
+#ifndef _INC_demo_event_H_
+#define _INC_demo_event_H_
 
 //------------------------------------------------------------------------------
 // includes
 //------------------------------------------------------------------------------
 #include <oplk/oplk.h>
-#include <stdint.h>
+
+#include <oplk/debugstr.h>
+
+#include <console/console.h>
+#include <eventlog/eventlog.h>
+
+#include <stdio.h>
 
 //------------------------------------------------------------------------------
 // const defines
@@ -52,6 +58,15 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // typedef
 //------------------------------------------------------------------------------
 
+/**
+\brief Event configuration
+*/
+typedef struct
+{
+    BOOL*           pfGsOff;                    ///< Pointer to GsOff flag (determines if the stack is down)
+    tOplkApiCbEvent pfnFirmwareManagerCallback; ///< Callback function to firmware manager
+} tEventConfig;
+
 //------------------------------------------------------------------------------
 // function prototypes
 //------------------------------------------------------------------------------
@@ -60,18 +75,13 @@ extern "C"
 {
 #endif
 
-tOplkError  initApp(void);
-void        shutdownApp(void);
-tOplkError  processSync(void);
-void        setValues_In_MN(int32_t values_In_g[]);
-int32_t*    getValues_In_MN(void);
-void        setValues_Out_MN(int32_t values_Out_g[]);
-int32_t*    getValues_Out_MN(void);
-void        setActivated_In_MN(int32_t activated_In_MN_g[]);
-void        setActivated_Out_MN(int32_t activated_Out_MN_g[]);
+void        initEvents(const tEventConfig* config);
+tOplkError  processEvents(tOplkApiEventType eventType_p,
+                          const tOplkApiEventArg* pEventArg_p,
+                          void* pUserArg_p);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* _INC_demo_app_H_ */
+#endif /* _INC_demo_event_H_ */
