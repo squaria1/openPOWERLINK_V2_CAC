@@ -39,7 +39,7 @@ bool opl::demandeExtinctOPL()
     #if (TARGET_SYSTEM == _WIN32_)
     Sleep(500);
     #else
-    sleep(500)
+    sleep(500);
     #endif
     
     if (values_Out_MN_l[0] == 0x1FFF)
