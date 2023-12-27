@@ -36,7 +36,11 @@ bool opl::demandeExtinctOPL()
     printf("\n\n values_Out_MN_l[0] : %d \n\n", values_Out_MN_l[0]);
 
     printf("\n\n test : %d \n\n", test);
+    #if (TARGET_SYSTEM == _WIN32_)
     Sleep(500);
+    #else
+    sleep(500)
+    #endif
     
     if (values_Out_MN_l[0] == 0x1FFF)
         return true;
