@@ -8,7 +8,7 @@ static BOOL                     fGsOff_l;
 
 static int                      aUsedNodeIds_l[] = { 1, 2, 3, 0 };
 static UINT                     cnt_l;
-static opl::APP_NODE_VAR_T      aNodeVar_l[MAX_NODES];
+static APP_NODE_VAR_T           aNodeVar_l[MAX_NODES];
 static UNION_OUT*               pProcessImageOut_l;
 static const UNION_IN*          pProcessImageIn_l;
 
@@ -16,11 +16,7 @@ static int32_t                  values_In_MN_l[MAX_VALUES];
 static int32_t                  values_Out_MN_l[MAX_VALUES];
 static bool                     activated_In_MN_l[COMPUTED_PI_IN_SIZE];
 static bool                     activated_Out_MN_l[COMPUTED_PI_OUT_SIZE];
-
-//------------------------------------------------------------------------------
-// local function prototypes
-//------------------------------------------------------------------------------
-static tOplkError       processSync(void);
+static int test;
 
 
 opl::opl()
@@ -33,8 +29,86 @@ opl::~opl()
     //destructor
 }
 
-bool opl::initOPL()
+
+bool opl::demandeExtinctOPL()
 {
+
+    printf("\n\n values_Out_MN_l[0] : %d \n\n", values_Out_MN_l[0]);
+
+    printf("\n\n test : %d \n\n", test);
+    Sleep(500);
+    
+    if (values_Out_MN_l[0] == 0x1FFF)
+        return true;
+    else
+        return false;
+
+}
+
+void opl::sendTelem()
+{
+
+}
+
+void opl::sendError()
+{
+
+}
+
+void opl::setValues_In_MN(int32_t values_In_g[])
+{
+    for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
+    {
+        values_In_MN_l[i] = values_In_g[i];
+    }
+}
+
+int32_t* opl::getValues_In_MN()
+{
+    return values_In_MN_l;
+}
+
+void opl::setValues_Out_MN(int32_t values_Out_g[])
+{
+    for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
+    {
+        values_Out_MN_l[i] = values_Out_g[i];
+    }
+}
+
+int32_t* opl::getValues_Out_MN()
+{
+    return values_Out_MN_l;
+}
+
+void opl::setActivated_In_MN(int32_t activated_In_MN_g[])
+{
+    for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
+    {
+        activated_In_MN_l[i] = activated_In_MN_g[i];
+    }
+}
+
+void opl::setActivated_Out_MN(int32_t activated_Out_MN_g[])
+{
+    for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
+    {
+        activated_Out_MN_l[i] = activated_Out_MN_g[i];
+    }
+}
+
+extern "C"
+{
+
+
+//------------------------------------------------------------------------------
+// local function prototypes
+//------------------------------------------------------------------------------
+static tOplkError       processSync(void);
+
+bool initOPL()
+{
+    
     tOplkError      ret = kErrorOk;
     tOptions        opts;
     tEventConfig    eventConfig;
@@ -116,7 +190,7 @@ The function initializes the synchronous data application
 \ingroup module_demo_mn_console
 */
 //------------------------------------------------------------------------------
-tOplkError opl::initApp(void)
+tOplkError initApp(void)
 {
     tOplkError  ret = kErrorOk;
     int         i;
@@ -139,14 +213,14 @@ tOplkError opl::initApp(void)
         values_In_MN_l[i] = 0;
         values_Out_MN_l[i] = 0;
     }
-
     memset(&pProcessImageOut_l, 0, sizeof(pProcessImageOut_l));
     memset(&pProcessImageIn_l, 0, sizeof(pProcessImageIn_l));
-
+    test = 0x1FFF;
     ret = initProcessImage();
 
     return ret;
 }
+
 
 //------------------------------------------------------------------------------
 /**
@@ -162,7 +236,7 @@ The function initializes the openPOWERLINK stack.
 \return The function returns a tOplkError error code.
 */
 //------------------------------------------------------------------------------
-tOplkError opl::initPowerlink(UINT32 cycleLen_p,
+tOplkError initPowerlink(UINT32 cycleLen_p,
                               const char* cdcFileName_p,
                               const char* devName_p,
                               const UINT8* macAddr_p)
@@ -176,7 +250,15 @@ tOplkError opl::initPowerlink(UINT32 cycleLen_p,
         kEventlogCategoryControl,
         "Initializing openPOWERLINK stack");
 
-    strncpy(devName, devName_p, 128);
+    eventlog_printMessage(kEventlogLevelInfo,
+        kEventlogCategoryGeneric,
+        "Select the network interface");
+
+    if (netselect_selectNetworkInterface(devName, sizeof(devName)) < 0)
+        return kErrorIllegalInstance;
+
+    //strncpy(devName, devName_p, 128);
+
     printf("DEVNAME : %s \n", devName);
     memset(&initParam, 0, sizeof(initParam));
     initParam.sizeOfInitParam = sizeof(initParam);
@@ -285,7 +367,7 @@ tOplkError opl::initPowerlink(UINT32 cycleLen_p,
   application.
 */
 //------------------------------------------------------------------------------
-void opl::initOplThread(void)
+void initOplThread(void)
 {
     tOplkError  ret = kErrorOk;
 
@@ -397,8 +479,10 @@ tOplkError processSync(void)
     pProcessImageOut_l->out_MN_array[0] = aNodeVar_l[0].leds;
     pProcessImageOut_l->out_MN_array[13] = aNodeVar_l[1].leds;
     pProcessImageOut_l->out_MN_array[26] = aNodeVar_l[2].leds;
+    values_Out_MN_l[0] = 0x1FFF;
 
     pProcessImageOut_l->out_MN_array[0] = values_Out_MN_l[0];
+
     
     ret = oplk_exchangeProcessImageIn();
 
@@ -414,7 +498,7 @@ The function initializes the process image of the application.
 \return The function returns a tOplkError error code.
 */
 //------------------------------------------------------------------------------
-tOplkError opl::initProcessImage(void)
+tOplkError initProcessImage(void)
 {
     tOplkError  ret = kErrorOk;
     UINT        errorIndex = 0;
@@ -449,54 +533,12 @@ tOplkError opl::initProcessImage(void)
     return ret;
 }
 
-void opl::setValues_In_MN(int32_t values_In_g[])
-{
-    for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
-    {
-        values_In_MN_l[i] = values_In_g[i];
-    }
-}
-
-int32_t* opl::getValues_In_MN()
-{
-    return values_In_MN_l;
-}
-
-void opl::setValues_Out_MN(int32_t values_Out_g[])
-{
-    for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
-    {
-        values_Out_MN_l[i] = values_Out_g[i];
-    }
-}
-
-int32_t* opl::getValues_Out_MN()
-{
-    return values_Out_MN_l;
-}
-
-void opl::setActivated_In_MN(int32_t activated_In_MN_g[])
-{
-    for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
-    {
-        activated_In_MN_l[i] = activated_In_MN_g[i];
-    }
-}
-
-void opl::setActivated_Out_MN(int32_t activated_Out_MN_g[])
-{
-    for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
-    {
-        activated_Out_MN_l[i] = activated_Out_MN_g[i];
-    }
-}
-
-bool opl::testOPL() 
+bool testOPL() 
 {
     return true;
 }
 
-bool opl::ExtinctOPL()
+bool ExtinctOPL()
 {
     shutdownOplImage();
     shutdownPowerlink();
@@ -516,7 +558,7 @@ The function shuts down the synchronous data application
 \ingroup module_demo_mn_console
 */
 //------------------------------------------------------------------------------
-void opl::shutdownOplImage(void)
+void shutdownOplImage(void)
 {
     tOplkError  ret;
 
@@ -530,7 +572,7 @@ void opl::shutdownOplImage(void)
     }
 }
 
-void opl::shutdownPowerlink(void)
+void shutdownPowerlink(void)
 {
     UINT        i;
     tOplkError  ret = kErrorOk;
@@ -565,21 +607,5 @@ void opl::shutdownPowerlink(void)
     oplk_destroy();
     oplk_exit();
 }
-
-bool opl::demandeExtinctOPL() 
-{
-    if (values_Out_MN_l[0] == 0x1FFF)
-        return true;
-    else
-        return false;
-}
-
-void opl::sendTelem()
-{
-
-}
-
-void opl::sendError()
-{
 
 }

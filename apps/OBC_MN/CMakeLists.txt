@@ -32,11 +32,12 @@
 ################################################################################
 # Setup project and generic options
 
-SET(OPLK_MN_APP "OBC_MN")
-PROJECT(${OPLK_MN_APP} CXX)
+PROJECT(demo_mn_console CXX)
 MESSAGE(STATUS "Configuring OBC_MN")
 
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.7)
+
+enable_language(C)
 
 # Set CMake Policy to suppress the warning in CMake version 3.3.x
 IF (POLICY CMP0043)
@@ -61,7 +62,10 @@ SET_PROPERTY(CACHE CFG_DEMO_PROJECT PROPERTY STRINGS Demo_3CN Demo_RMN_3CN)
 
 # Set generic sources and include directories for this demo
 SET(DEMO_SOURCES
-    ${DEMO_SOURCE_DIR}/main.cpp
+	${DEMO_SOURCE_DIR}/main.cpp
+	${DEMO_SOURCE_DIR}/file.cpp
+    ${DEMO_SOURCE_DIR}/opl.cpp
+	${DEMO_SOURCE_DIR}/eventOpl.c
     ${COMMON_SOURCE_DIR}/obdcreate/obdcreate.c
     ${OBJDICT_DIR}/${OBJDICT}/obdpi.c
     ${COMMON_SOURCE_DIR}/eventlog/eventlog.c
@@ -69,16 +73,18 @@ SET(DEMO_SOURCES
     ${COMMON_SOURCE_DIR}/netselect/netselect.c
     ${CONTRIB_SOURCE_DIR}/console/printlog.c
     ${FIRMWARE_MANAGER_SOURCES}
-	${DEMO_SOURCE_DIR}/opl.cpp
-	${DEMO_SOURCE_DIR}/file.cpp
-	${DEMO_SOURCE_DIR}/eventOpl.c
     )
+
+#FILE ( GLOB_RECURSE MN_SOURCES_CXX "${DEMO_SOURCE_DIR}/*.cpp" )
+#FILE ( GLOB_RECURSE MN_SOURCES_C "${DEMO_SOURCE_DIR}/*.c" )
+#FILE ( GLOB_RECURSE MN_HEADERS "${DEMO_INCLUDE_DIR}/*.h" )
 
 INCLUDE_DIRECTORIES(
     ${DEMO_SOURCE_DIR}
     ${OBJDICT_DIR}/${OBJDICT}
     ${CONTRIB_SOURCE_DIR}
     ${DEMO_INCLUDE_DIR}
+	${COMMON_SOURCE_DIR}
     )
 
 ADD_DEFINITIONS(-DNMT_MAX_NODE_ID=254)
@@ -149,21 +155,19 @@ SOURCE_GROUP("Object Dictionary" FILES
 ################################################################################
 # Setup compiler specific definitions and flags
 INCLUDE("${OPLK_APPS_COMMON_DIR}/cmake/configure-compiler.cmake")
-IF (MSVC)
-    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /w34100 /w34189 /Zm200 ")     # from Qt-Creator build :: needed?
-ENDIF (MSVC)
 
 MESSAGE( STATUS "CMAKE_CXX_FLAGS: " ${CMAKE_CXX_FLAGS} )
 
 ################################################################################
 # Set the executable
 
-ADD_EXECUTABLE(demo_mn_console ${DEMO_SOURCES} ${DEMO_ARCH_SOURCES} ${DEMO_INCLUDE_DIR}/mnobd.cdc )
+#ADD_EXECUTABLE(demo_mn_console ${DEMO_SOURCES} ${DEMO_ARCH_SOURCES} ${MN_SOURCES_CXX} ${MN_SOURCES_C} ${MN_HEADERS} ${DEMO_INCLUDE_DIR}/mnobd.cdc )
+ADD_EXECUTABLE(demo_mn_console ${DEMO_SOURCES} ${DEMO_ARCH_SOURCES} ${CMAKE_CURRENT_BINARY_DIR}/mnobd.cdc)
 SET_PROPERTY(TARGET demo_mn_console
              PROPERTY COMPILE_DEFINITIONS_DEBUG DEBUG;DEF_DEBUG_LVL=${CFG_DEBUG_LVL})
 
-ADD_CUSTOM_COMMAND(OUTPUT ${DEMO_INCLUDE_DIR}/mnobd.cdc
-                   COMMAND ${CMAKE_COMMAND} -E copy ${OPENCONFIG_PROJ_DIR}/${CFG_DEMO_PROJECT}/output/mnobd.cdc ${DEMO_INCLUDE_DIR}/mnobd.cdc
+ADD_CUSTOM_COMMAND(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/mnobd.cdc
+                   COMMAND ${CMAKE_COMMAND} -E copy ${OPENCONFIG_PROJ_DIR}/${CFG_DEMO_PROJECT}/output/mnobd.cdc ${CMAKE_CURRENT_BINARY_DIR}/mnobd.cdc
                    DEPENDS ${OPENCONFIG_PROJ_DIR}/${CFG_DEMO_PROJECT}/output/mnobd.cdc
                    VERBATIM
                    )
@@ -177,4 +181,4 @@ TARGET_LINK_LIBRARIES(demo_mn_console ${ARCH_LIBRARIES})
 # Installation rules
 
 INSTALL(TARGETS demo_mn_console RUNTIME DESTINATION ${PROJECT_NAME})
-INSTALL(FILES ${DEMO_INCLUDE_DIR}/mnobd.cdc DESTINATION ${PROJECT_NAME})
+INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/mnobd.cdc DESTINATION ${PROJECT_NAME})

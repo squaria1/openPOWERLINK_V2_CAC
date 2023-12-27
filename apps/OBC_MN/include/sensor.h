@@ -15,6 +15,7 @@ class sensor
         void Settemperature(int val) { temperature = val; }
         unsigned int Getpressure() { return pressure; }
         void Setpressure(unsigned int val) { pressure = val; }
+        int initSensor();
 
     protected:
 

@@ -9,31 +9,43 @@ int main() {
     while(etat<=3){
         switch(etat){
             case 1: // Initialisation
-                for(int i=0; i<3;i++){
-                    if (opl.initOPL()) {
-                        file.writeTelem();
-                        opl.sendTelem();
-                    }
-                    else {
-                        file.writeError();
-                    }
-                    if(opl.testOPL()){
-                        file.writeTelem();
-                        opl.sendTelem();
-                    }else{
-                        file.writeError();
-                        opl.sendError();
-                    }
-                    if(!opl.demandeExtinctOPL()){
-                        etat=2;
-                    }else{
-                        etat=3;
-                    }
+                if (initOPL()) {
+                    file.writeTelem();
+                    opl.sendTelem();
+                }
+                else {
+                    file.writeError();
+                }
+                if(testOPL()){
+                    file.writeTelem();
+                    opl.sendTelem();
+                }else{
+                    file.writeError();
+                    opl.sendError();
+                }
+                if(!opl.demandeExtinctOPL()){
+                    etat=2;
+                }else{
+                    etat=3;
                 }
                 break;
             case 2: // Sequencement des etats generaux
+                if (!opl.demandeExtinctOPL()) {
+                    etat = 2;
+                }
+                else {
+                    etat = 3;
+                }
                 break;
             case 3: // Extinction
+                if (ExtinctOPL()) {
+                    file.writeTelem();
+                    opl.sendTelem();
+                }
+                else {
+                    file.writeError();
+                    opl.sendError();
+                }
                 etat=4;
                 break;
         }

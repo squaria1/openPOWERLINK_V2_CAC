@@ -12,17 +12,17 @@ file::~file()
 
 bool file::initFile()
 {
-
+    return true;
 }
 
 bool file::testWriteFile()
 {
-
+    return true;
 }
 
 void file::writeTelem() 
 {
-
+    
 }
 
 void file::writeError() 
@@ -32,5 +32,5 @@ void file::writeError()
 
 bool file::closeFile()
 {
-
+    return true;
 }

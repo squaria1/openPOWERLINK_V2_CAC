@@ -4,6 +4,7 @@
 //------------------------------------------------------------------------------
 // includes
 //------------------------------------------------------------------------------
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -39,6 +40,45 @@ extern "C"
 #include <limits.h>
 #include <string.h>
 
+typedef struct
+{
+    char            cdcFile[256];
+    char            fwInfoFile[256];
+    char* pLogFile;
+    tEventlogFormat logFormat;
+    UINT32          logLevel;
+    UINT32          logCategory;
+    char            devName[128];
+} tOptions;
+
+typedef struct
+{
+    tNmtState       nodeState[254];
+} tDemoNodeInfo;
+
+typedef struct
+{
+    UINT32                leds;
+    UINT32                ledsOld;
+    UINT32                input;
+    UINT32                inputOld;
+    UINT                  period;
+    int                   toggle;
+} APP_NODE_VAR_T;
+
+tOplkError  initPowerlink(UINT32 cycleLen_p,
+    const char* cdcFileName_p,
+    const char* devName_p,
+    const UINT8* macAddr_p);
+void        initOplThread(void);
+tOplkError  initProcessImage(void);
+void        shutdownOplImage(void);
+void        shutdownPowerlink(void);
+tOplkError  initApp(void);
+bool        initOPL();
+bool        testOPL();
+bool        ExtinctOPL();
+
 #ifdef __cplusplus
 }
 #endif
@@ -49,20 +89,9 @@ class opl
         opl();
         ~opl();
 
-        bool        initOPL();
-        bool        testOPL();
-        bool        ExtinctOPL();
         void        sendTelem();
         void        sendError();
-        tOplkError  initPowerlink(UINT32 cycleLen_p,
-                                       const char* cdcFileName_p,
-                                       const char* devName_p,
-                                       const UINT8* macAddr_p);
-        void        initOplThread(void);
-        tOplkError  initProcessImage(void);
-        void        shutdownOplImage(void);
-        void        shutdownPowerlink(void);
-        tOplkError  initApp(void);
+
         void        setValues_In_MN(int32_t values_In_g[]);
         int32_t*    getValues_In_MN(void);
         void        setValues_Out_MN(int32_t values_Out_g[]);
@@ -71,40 +100,9 @@ class opl
         void        setActivated_Out_MN(int32_t activated_Out_MN_g[]);
         bool        demandeExtinctOPL();
 
-
-        typedef struct
-        {
-            UINT32                leds;
-            UINT32                ledsOld;
-            UINT32                input;
-            UINT32                inputOld;
-            UINT                  period;
-            int                   toggle;
-        } APP_NODE_VAR_T;
-
-
     protected:
 
     private:
-        //------------------------------------------------------------------------------
-        // local types
-        //------------------------------------------------------------------------------
-
-        typedef struct
-        {
-            char            cdcFile[256];
-            char            fwInfoFile[256];
-            char*           pLogFile;
-            tEventlogFormat logFormat;
-            UINT32          logLevel;
-            UINT32          logCategory;
-            char            devName[128];
-        } tOptions;
-
-        typedef struct
-        {
-            tNmtState       nodeState[254];
-        } tDemoNodeInfo;
 
 };
 
