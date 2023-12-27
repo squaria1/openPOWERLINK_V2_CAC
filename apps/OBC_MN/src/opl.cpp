@@ -16,7 +16,6 @@ static int32_t                  values_In_MN_l[MAX_VALUES];
 static int32_t                  values_Out_MN_l[MAX_VALUES];
 static bool                     activated_In_MN_l[COMPUTED_PI_IN_SIZE];
 static bool                     activated_Out_MN_l[COMPUTED_PI_OUT_SIZE];
-static int test;
 
 
 opl::opl()
@@ -32,10 +31,9 @@ opl::~opl()
 
 bool opl::demandeExtinctOPL()
 {
+    processSync();
 
     printf("\n\n values_Out_MN_l[0] : %d \n\n", values_Out_MN_l[0]);
-
-    printf("\n\n test : %d \n\n", test);
     #if (TARGET_SYSTEM == _WIN32_)
     Sleep(500);
     #else
@@ -108,7 +106,7 @@ extern "C"
 //------------------------------------------------------------------------------
 // local function prototypes
 //------------------------------------------------------------------------------
-static tOplkError       processSync(void);
+
 
 bool initOPL()
 {
@@ -377,6 +375,7 @@ void initOplThread(void)
 
     system_startFirmwareManagerThread(firmwaremanager_thread, 5);
 
+
     // start stack processing by sending a NMT reset command
     ret = oplk_execNmtCommand(kNmtEventSwReset);
     if (ret != kErrorOk)
@@ -387,6 +386,8 @@ void initOplThread(void)
             ret);
         return;
     }
+
+
 }
 
 //------------------------------------------------------------------------------

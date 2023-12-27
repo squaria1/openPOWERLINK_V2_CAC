@@ -2,9 +2,9 @@
 ********************************************************************************
 \file   event.h
 
-\brief  Definitions of the MN demo event handler
+\brief  Definitions of the CN demo event handler
 
-The file contains the definitions for the MN demo event handler.
+The file contains the definitions for the CN demo event handler.
 *******************************************************************************/
 
 /*------------------------------------------------------------------------------
@@ -43,13 +43,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //------------------------------------------------------------------------------
 #include <oplk/oplk.h>
 
-#include <oplk/debugstr.h>
-
-#include <console/console.h>
-#include <eventlog/eventlog.h>
-
-#include <stdio.h>
-
 //------------------------------------------------------------------------------
 // const defines
 //------------------------------------------------------------------------------
@@ -58,27 +51,19 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // typedef
 //------------------------------------------------------------------------------
 
-/**
-\brief Event configuration
-*/
-typedef struct
-{
-    BOOL*           pfGsOff;                    ///< Pointer to GsOff flag (determines if the stack is down)
-    tOplkApiCbEvent pfnFirmwareManagerCallback; ///< Callback function to firmware manager
-} tEventConfig;
-
 //------------------------------------------------------------------------------
 // function prototypes
 //------------------------------------------------------------------------------
+
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-void        initEvents(const tEventConfig* config);
-tOplkError  processEvents(tOplkApiEventType eventType_p,
-                          const tOplkApiEventArg* pEventArg_p,
-                          void* pUserArg_p);
+    void        initEvents(BOOL* pfGsOff_p);
+    tOplkError  processEvents(tOplkApiEventType eventType_p,
+        const tOplkApiEventArg* pEventArg_p,
+        void* pUserArg_p);
 
 #ifdef __cplusplus
 }

@@ -2,11 +2,11 @@
 ********************************************************************************
 \file   event.c
 
-\brief  MN Application event handler
+\brief  CN application event handler
 
-This file contains a demo MN application event handler.
+This file contains a demo CN application event handler.
 
-\ingroup module_demo_mn_console
+\ingroup module_demo
 *******************************************************************************/
 
 /*------------------------------------------------------------------------------
@@ -43,6 +43,13 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //------------------------------------------------------------------------------
 #include "eventOpl.h"
 
+#include <oplk/oplk.h>
+#include <oplk/debugstr.h>
+#include <console/console.h>
+#include <eventlog/eventlog.h>
+
+#include <stdio.h>
+
 //============================================================================//
 //            G L O B A L   D E F I N I T I O N S                             //
 //============================================================================//
@@ -54,6 +61,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //------------------------------------------------------------------------------
 // module global vars
 //------------------------------------------------------------------------------
+static BOOL* pfGsOff_l;
 
 //------------------------------------------------------------------------------
 // global function prototypes
@@ -71,43 +79,24 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // local types
 //------------------------------------------------------------------------------
 
-/**
-\brief Event instance
-*/
-typedef struct
-{
-    tEventConfig config; ///< Configuration provided in initEvents()
-} tEventInstance;
-
 //------------------------------------------------------------------------------
 // local vars
 //------------------------------------------------------------------------------
-static tEventInstance instance_l;
 
 //------------------------------------------------------------------------------
 // local function prototypes
 //------------------------------------------------------------------------------
 static tOplkError processStateChangeEvent(const tEventNmtStateChange* pNmtStateChange_p,
-                                          void* pUserArg_p);
+    void* pUserArg_p);
 static tOplkError processErrorWarningEvent(const tEventError* pInternalError_p,
-                                           void* pUserArg_p);
-static tOplkError processHistoryEvent(const tErrHistoryEntry* pHistoryEntry_p,
-                                      void* pUserArg_p);
-static tOplkError processNodeEvent(const tOplkApiEventNode* pNode_p,
-                                   void* pUserArg_p);
+    void* pUserArg_p);
 static tOplkError processPdoChangeEvent(const tOplkApiEventPdoChange* pPdoChange_p,
-                                        void* pUserArg_p);
-static tOplkError processCfmProgressEvent(const tCfmEventCnProgress* pCfmProgress_p,
-                                          void* pUserArg_p);
-static tOplkError processCfmResultEvent(const tOplkApiEventCfmResult* pCfmResult_p,
-                                        void* pUserArg_p);
-static tOplkError processFirmwareManagerEvents(tOplkApiEventType eventType_p,
-                                               const tOplkApiEventArg* pEventArg_p,
-                                               void* pUserArg_p);
+    void* pUserArg_p);
 
 //============================================================================//
 //            P U B L I C   F U N C T I O N S                                 //
 //============================================================================//
+
 
 //------------------------------------------------------------------------------
 /**
@@ -115,15 +104,14 @@ static tOplkError processFirmwareManagerEvents(tOplkApiEventType eventType_p,
 
 The function initializes the applications event module
 
-\param[in]      pfGsOff_p           Pointer to GsOff flag (determines if the stack is down)
+\param[in]      pfGsOff_p           Pointer to GsOff flag (determines that stack is down)
 
-\ingroup module_demo_mn_console
+\ingroup module_demo_cn_console
 */
 //------------------------------------------------------------------------------
-
-void initEvents(const tEventConfig* config)
+void initEvents(BOOL* pfGsOff_p)
 {
-    memcpy(&instance_l, config, sizeof(tEventConfig));
+    pfGsOff_l = pfGsOff_p;
 }
 
 //------------------------------------------------------------------------------
@@ -138,54 +126,32 @@ The function implements the application's stack event handler.
 
 \return The function returns a tOplkError error code.
 
-\ingroup module_demo_mn_console
+\ingroup module_demo_cn_console
 */
 //------------------------------------------------------------------------------
 tOplkError processEvents(tOplkApiEventType eventType_p,
-                         const tOplkApiEventArg* pEventArg_p,
-                         void* pUserArg_p)
+    const tOplkApiEventArg* pEventArg_p,
+    void* pUserArg_p)
 {
     tOplkError  ret = kErrorOk;
 
-    // check if NMT_GS_OFF is reached
     switch (eventType_p)
     {
-        case kOplkApiEventNmtStateChange:
-            ret = processStateChangeEvent(&pEventArg_p->nmtStateChange, pUserArg_p);
-            break;
+    case kOplkApiEventNmtStateChange:
+        ret = processStateChangeEvent(&pEventArg_p->nmtStateChange, pUserArg_p);
+        break;
 
-        case kOplkApiEventCriticalError:
-        case kOplkApiEventWarning:
-            ret = processErrorWarningEvent(&pEventArg_p->internalError, pUserArg_p);
-            break;
+    case kOplkApiEventCriticalError:
+    case kOplkApiEventWarning:
+        ret = processErrorWarningEvent(&pEventArg_p->internalError, pUserArg_p);
+        break;
 
-        case kOplkApiEventHistoryEntry:
-            ret = processHistoryEvent(&pEventArg_p->errorHistoryEntry, pUserArg_p);
-            break;
+    case kOplkApiEventPdoChange:
+        ret = processPdoChangeEvent(&pEventArg_p->pdoChange, pUserArg_p);
+        break;
 
-        case kOplkApiEventNode:
-            ret = processNodeEvent(&pEventArg_p->nodeEvent, pUserArg_p);
-            break;
-
-        case kOplkApiEventPdoChange:
-            ret = processPdoChangeEvent(&pEventArg_p->pdoChange, pUserArg_p);
-            break;
-
-        case kOplkApiEventCfmProgress:
-            ret = processCfmProgressEvent(&pEventArg_p->cfmProgress, pUserArg_p);
-            break;
-
-        case kOplkApiEventCfmResult:
-            ret = processCfmResultEvent(&pEventArg_p->cfmResult, pUserArg_p);
-            break;
-
-        default:
-            break;
-    }
-
-    if (ret == kErrorOk)
-    {
-        ret = processFirmwareManagerEvents(eventType_p, pEventArg_p, pUserArg_p);
+    default:
+        break;
     }
 
     return ret;
@@ -203,60 +169,52 @@ tOplkError processEvents(tOplkApiEventType eventType_p,
 
 The function processes state change events.
 
-\param[in]      pNmtStateChange_p   Pointer to the state change structure
+\param[in]      pNmtStateChange_p   Pointer to the state change event structure
 \param[in]      pUserArg_p          User specific argument
 
 \return The function returns a tOplkError error code.
 */
 //------------------------------------------------------------------------------
 static tOplkError processStateChangeEvent(const tEventNmtStateChange* pNmtStateChange_p,
-                                          void* pUserArg_p)
+    void* pUserArg_p)
 {
     tOplkError  ret = kErrorOk;
 
     UNUSED_PARAMETER(pUserArg_p);
 
-    if (instance_l.config.pfGsOff == NULL)
-    {
-        console_printlog("Application event module is not initialized!\n");
+    if (pfGsOff_l == NULL)
         return kErrorGeneralError;
-    }
 
     eventlog_printStateEvent(pNmtStateChange_p);
 
     switch (pNmtStateChange_p->newNmtState)
     {
-        case kNmtGsOff:
-           // NMT state machine was shut down,
-            // because of user signal (CTRL-C) or critical POWERLINK stack error
-            // -> also shut down oplk_process() and main()
-            ret = kErrorShutdown;
+    case kNmtGsOff:
+        // NMT state machine was shut down,
+        ret = kErrorShutdown;
 
-            printf("Stack received kNmtGsOff!\n");
+        printf("Stack received kNmtGsOff!\n");
 
-            // signal that stack is off
-            *instance_l.config.pfGsOff = TRUE;
-            break;
+        // signal that stack is off
+        *pfGsOff_l = TRUE;
+        break;
 
-        case kNmtGsResetCommunication:
-            break;
+    case kNmtGsInitialising:
+    case kNmtGsResetApplication:
+    case kNmtGsResetConfiguration:
+    case kNmtGsResetCommunication:
+    case kNmtCsNotActive:               // Implement
+    case kNmtCsPreOperational1:         // handling of
+    case kNmtCsStopped:                 // different
+    case kNmtCsPreOperational2:         // states here
+    case kNmtCsReadyToOperate:
+    case kNmtCsOperational:
+    case kNmtCsBasicEthernet:           // no break;
 
-        case kNmtGsResetConfiguration:
-            break;
-
-        case kNmtGsInitialising:
-        case kNmtGsResetApplication:        // Implement
-        case kNmtMsNotActive:               // handling of
-        case kNmtMsPreOperational1:         // different
-        case kNmtMsPreOperational2:         // states here
-        case kNmtMsReadyToOperate:
-        case kNmtMsOperational:
-        case kNmtMsBasicEthernet:           // no break
-
-        default:
-            printf("Stack entered state: %s\n",
-                   debugstr_getNmtStateStr(pNmtStateChange_p->newNmtState));
-            break;
+    default:
+        printf("Stack entered state: %s\n",
+            debugstr_getNmtStateStr(pNmtStateChange_p->newNmtState));
+        break;
     }
 
     return ret;
@@ -268,14 +226,14 @@ static tOplkError processStateChangeEvent(const tEventNmtStateChange* pNmtStateC
 
 The function processes error and warning events.
 
-\param[in]      pInternalError_p    Pointer to the error structure
+\param[in]      pInternalError_p    Pointer to the internal error structure
 \param[in]      pUserArg_p          User specific argument
 
 \return The function returns a tOplkError error code.
 */
 //------------------------------------------------------------------------------
 static tOplkError processErrorWarningEvent(const tEventError* pInternalError_p,
-                                           void* pUserArg_p)
+    void* pUserArg_p)
 {
     // error or warning occurred within the stack or the application
     // on error the API layer stops the NMT state machine
@@ -287,82 +245,6 @@ static tOplkError processErrorWarningEvent(const tEventError* pInternalError_p,
     return kErrorOk;
 }
 
-//------------------------------------------------------------------------------
-/**
-\brief  Process history events
-
-The function processes history events.
-
-\param[in]      pHistoryEntry_p     Pointer to the history entry
-\param[in]      pUserArg_p          User specific argument
-
-\return The function returns a tOplkError error code.
-*/
-//------------------------------------------------------------------------------
-static tOplkError processHistoryEvent(const tErrHistoryEntry* pHistoryEntry_p,
-                                      void* pUserArg_p)
-{
-    UNUSED_PARAMETER(pUserArg_p);
-
-    eventlog_printHistoryEvent(pHistoryEntry_p);
-
-    return kErrorOk;
-}
-
-//------------------------------------------------------------------------------
-/**
-\brief  Process node events
-
-The function processes node events.
-
-\param[in]      pNode_p             Pointer to the node event
-\param[in]      pUserArg_p          User specific argument
-
-\return The function returns a tOplkError error code.
-*/
-//------------------------------------------------------------------------------
-static tOplkError processNodeEvent(const tOplkApiEventNode* pNode_p,
-                                   void* pUserArg_p)
-{
-    UNUSED_PARAMETER(pUserArg_p);
-
-    eventlog_printNodeEvent(pNode_p);
-
-    // check additional argument
-    switch (pNode_p->nodeEvent)
-    {
-        case kNmtNodeEventCheckConf:
-            break;
-
-        case kNmtNodeEventUpdateConf:
-            break;
-
-        case kNmtNodeEventNmtState:
-            printf("Node %d entered state %s\n",
-                   pNode_p->nodeId,
-                   debugstr_getNmtStateStr(pNode_p->nmtState));
-            break;
-
-        case kNmtNodeEventError:
-            break;
-
-        case kNmtNodeEventFound:
-            printf("Stack found node %d\n",
-                   pNode_p->nodeId);
-            break;
-
-        case kNmtNodeEventAmniReceived:
-            break;
-
-        case kNmtNodeEventUpdateSw:
-            break;
-
-        default:
-            break;
-    }
-
-    return kErrorOk;
-}
 
 //------------------------------------------------------------------------------
 /**
@@ -377,7 +259,7 @@ The function processes PDO change events.
 */
 //------------------------------------------------------------------------------
 static tOplkError processPdoChangeEvent(const tOplkApiEventPdoChange* pPdoChange_p,
-                                        void* pUserArg_p)
+    void* pUserArg_p)
 {
     UINT        subIndex;
     UINT64      mappObject;
@@ -392,125 +274,24 @@ static tOplkError processPdoChangeEvent(const tOplkApiEventPdoChange* pPdoChange
     {
         varLen = sizeof(mappObject);
         ret = oplk_readLocalObject(pPdoChange_p->mappParamIndex,
-                                   subIndex,
-                                   &mappObject,
-                                   &varLen);
+            subIndex,
+            &mappObject,
+            &varLen);
         if (ret != kErrorOk)
         {
             eventlog_printMessage(kEventlogLevelError,
-                                  kEventlogCategoryObjectDictionary,
-                                  "Reading 0x%X/%d failed with %s(0x%X)",
-                                  pPdoChange_p->mappParamIndex,
-                                  subIndex,
-                                  debugstr_getRetValStr(ret),
-                                  ret);
+                kEventlogCategoryObjectDictionary,
+                "Reading 0x%X/%d failed with %s(0x%X)",
+                pPdoChange_p->mappParamIndex,
+                subIndex,
+                debugstr_getRetValStr(ret),
+                ret);
             continue;
         }
-
-        eventlog_printPdoMap(pPdoChange_p->mappParamIndex,
-                             subIndex,
-                             mappObject);
+        eventlog_printPdoMap(pPdoChange_p->mappParamIndex, subIndex, mappObject);
     }
 
     return kErrorOk;
-}
-
-//------------------------------------------------------------------------------
-/**
-\brief  Process CFM progress events
-
-The function processes CFM progress events.
-
-\param[in]      pCfmProgress_p      Pointer to the CFM progress information
-\param[in]      pUserArg_p          User specific argument
-
-\return The function returns a tOplkError error code.
-*/
-//------------------------------------------------------------------------------
-static tOplkError processCfmProgressEvent(const tCfmEventCnProgress* pCfmProgress_p,
-                                          void* pUserArg_p)
-{
-    UNUSED_PARAMETER(pUserArg_p);
-
-    eventlog_printCfmProgressEvent(pCfmProgress_p);
-
-    return kErrorOk;
-}
-
-//------------------------------------------------------------------------------
-/**
-\brief  Process CFM result events
-
-The function processes CFM result events.
-
-\param[in]      pCfmResult_p        Pointer to the CFM result information
-\param[in]      pUserArg_p          User specific argument
-
-\return The function returns a tOplkError error code.
-*/
-//------------------------------------------------------------------------------
-static tOplkError processCfmResultEvent(const tOplkApiEventCfmResult* pCfmResult_p,
-                                        void* pUserArg_p)
-{
-    UNUSED_PARAMETER(pUserArg_p);
-
-    eventlog_printCfmResultEvent(pCfmResult_p->nodeId, pCfmResult_p->nodeCommand);
-
-    switch (pCfmResult_p->nodeCommand)
-    {
-        case kNmtNodeCommandConfOk:
-            break;
-
-        case kNmtNodeCommandConfErr:
-            break;
-
-        case kNmtNodeCommandConfReset:
-            break;
-
-        case kNmtNodeCommandConfRestored:
-            break;
-
-        default:
-            break;
-    }
-
-    return kErrorOk;
-}
-
-static tOplkError processFirmwareManagerEvents(tOplkApiEventType eventType_p,
-                                               const tOplkApiEventArg* pEventArg_p,
-                                               void* pUserArg_p)
-{
-    tOplkError ret = kErrorOk;
-    BOOL fCallFirmwareManager = FALSE;
-    tOplkApiEventNode* pEventNode;
-
-    switch (eventType_p)
-    {
-        case kOplkApiEventUserDef:
-            fCallFirmwareManager = TRUE;
-            break;
-
-        case kOplkApiEventSdo:
-            fCallFirmwareManager = TRUE;
-            break;
-
-        case kOplkApiEventNode:
-            pEventNode = (tOplkApiEventNode*)&pEventArg_p->nodeEvent;
-            fCallFirmwareManager = ((pEventNode->nodeEvent == kNmtNodeEventUpdateSw) ||
-                    (pEventNode->nodeEvent == kNmtNodeEventConfDone));
-            break;
-
-        default:
-            break;
-    }
-
-    if (fCallFirmwareManager && (instance_l.config.pfnFirmwareManagerCallback != NULL))
-    {
-        ret = instance_l.config.pfnFirmwareManagerCallback(eventType_p, pEventArg_p, pUserArg_p);
-    }
-
-    return ret;
 }
 
 /// \}

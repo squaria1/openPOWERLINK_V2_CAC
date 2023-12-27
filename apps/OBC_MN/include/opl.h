@@ -74,6 +74,7 @@ void        initOplThread(void);
 tOplkError  initProcessImage(void);
 void        shutdownOplImage(void);
 void        shutdownPowerlink(void);
+tOplkError  processSync(void);
 tOplkError  initApp(void);
 bool        initOPL();
 bool        testOPL();

@@ -23,17 +23,14 @@ int main() {
                     file.writeError();
                     opl.sendError();
                 }
-                if(!opl.demandeExtinctOPL()){
-                    etat=2;
-                }else{
+                if(opl.demandeExtinctOPL()){
                     etat=3;
+                }else{
+                    etat=2;
                 }
                 break;
             case 2: // Sequencement des etats generaux
-                if (!opl.demandeExtinctOPL()) {
-                    etat = 2;
-                }
-                else {
+                if (opl.demandeExtinctOPL()) {
                     etat = 3;
                 }
                 break;

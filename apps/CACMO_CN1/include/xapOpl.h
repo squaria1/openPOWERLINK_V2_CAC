@@ -6,6 +6,8 @@
 #ifndef XAPOPL_h
 #define XAPOPL_h
 
+#include <eventlog/eventlog.h>
+
 #define COMPUTED_PI_OUT_SIZE 75
 typedef union
 {

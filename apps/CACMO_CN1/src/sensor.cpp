@@ -1,4 +1,4 @@
-#include "include\sensors\sensor.h"
+#include "sensor.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -31,7 +31,7 @@ sensor::~sensor()
 }
 
 
-int sensor::init_sensor(){
+int sensor::initSensor(){
 
     register_sig_handler();
 
@@ -64,7 +64,7 @@ int sensor::init_sensor(){
 }
 
 
-void sensor::read_Channels(int delay_us, int *list)
+void sensor::readChannels(int delay_us, int *list)
 {
     int ret, i, update, update_reset;
     int val[MAX_ADC];
@@ -76,7 +76,7 @@ void sensor::read_Channels(int delay_us, int *list)
 
     for (i = 0; i < MAX_ADC; i++) {
         if (list[i]) {
-            fd[i] = open_adc(i);
+            fd[i] = openAdc(i);
 
             if (fd[i] < 0)
                 goto loop_done;
@@ -87,7 +87,7 @@ void sensor::read_Channels(int delay_us, int *list)
         if (!list[i])
             continue;
 
-        val[i] = read_adc(fd[i]);
+        val[i] = readAdc(fd[i]);
 
         // reset for next read
         lseek(fd[i], 0, SEEK_SET);
@@ -108,7 +108,7 @@ void sensor::read_Channels(int delay_us, int *list)
     return count;
 }
 
-int sensor::read_adc(int fd)
+int sensor::readAdc(int fd)
 {
     char buff[8];
 
@@ -124,7 +124,7 @@ int sensor::read_adc(int fd)
     return val;
 }
 
-int sensor::open_adc(int adc)
+int sensor::openAdc(int adc)
 {
     char path[128];
     
