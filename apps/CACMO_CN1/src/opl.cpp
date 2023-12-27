@@ -3,19 +3,19 @@
 //------------------------------------------------------------------------------
 // local vars
 //------------------------------------------------------------------------------
-static const UINT8              aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-static BOOL                     fGsOff_l;
+static const UINT8  aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static BOOL         fGsOff_l;
 
-static int                      aUsedNodeIds_l[] = { 1, 2, 3, 0 };
-static UINT                     cnt_l;
-static opl::APP_NODE_VAR_T      aNodeVar_l[MAX_NODES];
-static UNION_OUT*               pProcessImageOut_l;
-static const UNION_IN*          pProcessImageIn_l;
+static int                aUsedNodeIds_l[] = { 1, 2, 3, 0 };
+static UINT               cnt_l;
+static opl::APP_NODE_VAR_T     aNodeVar_l[MAX_NODES];
+static const UNION_OUT*   pProcessImageOut_l;
+static UNION_IN*          pProcessImageIn_l;
 
-static int32_t                  values_In_MN_l[MAX_VALUES];
-static int32_t                  values_Out_MN_l[MAX_VALUES];
-static bool                     activated_In_MN_l[COMPUTED_PI_IN_SIZE];
-static bool                     activated_Out_MN_l[COMPUTED_PI_OUT_SIZE];
+static int32_t            values_In_MN_l[MAX_VALUES];
+static int32_t            values_Out_MN_l[MAX_VALUES];
+static bool               activated_In_MN_l[COMPUTED_PI_IN_SIZE];
+static bool               activated_Out_MN_l[COMPUTED_PI_OUT_SIZE];
 
 //------------------------------------------------------------------------------
 // local function prototypes
@@ -101,8 +101,6 @@ bool opl::initOPL()
         return false;
 
     initOplThread();
-
-    return true;
 }
 
 //------------------------------------------------------------------------------
@@ -137,7 +135,6 @@ tOplkError opl::initApp(void)
     for (i = 0; i < MAX_VALUES; i++)
     {
         values_In_MN_l[i] = 0;
-        values_Out_MN_l[i] = 0;
     }
 
     memset(&pProcessImageOut_l, 0, sizeof(pProcessImageOut_l));
@@ -335,25 +332,23 @@ tOplkError processSync(void)
 
     cnt_l++;
 
-    aNodeVar_l[0].input = pProcessImageIn_l->in_MN_array[1];
-    aNodeVar_l[1].input = pProcessImageIn_l->in_MN_array[26];
-    aNodeVar_l[2].input = pProcessImageIn_l->in_MN_array[51];
-
-    values_In_MN_l[1] = pProcessImageIn_l->in_MN_array[1];
+    aNodeVar_l[0].input = pProcessImageOut_l->out_MN_array[1];
+    aNodeVar_l[1].input = pProcessImageOut_l->out_MN_array[26];
+    aNodeVar_l[2].input = pProcessImageOut_l->out_MN_array[51];
 
     for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
     {
-        if (activated_Out_MN_l[i])
+        if (activated_In_MN_l[i])
         {
-            pProcessImageOut_l->out_MN_array[i] = values_Out_MN_l[i];
+            values_In_MN_l[i] = pProcessImageOut_l->out_MN_array[i];
         }
     }
 
     for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
     {
-        if (activated_In_MN_l[i])
+        if (activated_Out_MN_l[i])
         {
-            values_In_MN_l[i] = pProcessImageIn_l->in_MN_array[i];
+            pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
         }
     }
 
@@ -394,12 +389,11 @@ tOplkError processSync(void)
             aNodeVar_l[i].ledsOld = aNodeVar_l[i].leds;
     }
 
-    pProcessImageOut_l->out_MN_array[0] = aNodeVar_l[0].leds;
-    pProcessImageOut_l->out_MN_array[13] = aNodeVar_l[1].leds;
-    pProcessImageOut_l->out_MN_array[26] = aNodeVar_l[2].leds;
+    pProcessImageIn_l->in_MN_array[0] = aNodeVar_l[0].leds;
+    pProcessImageIn_l->in_MN_array[13] = aNodeVar_l[1].leds;
+    pProcessImageIn_l->in_MN_array[26] = aNodeVar_l[2].leds;
 
-    pProcessImageOut_l->out_MN_array[0] = values_Out_MN_l[0];
-    
+
     ret = oplk_exchangeProcessImageIn();
 
     return ret;
@@ -433,8 +427,8 @@ tOplkError opl::initProcessImage(void)
     if (ret != kErrorOk)
         return ret;
 
-    pProcessImageIn_l = (const UNION_IN*)oplk_getProcessImageIn();
-    pProcessImageOut_l = (UNION_OUT*)oplk_getProcessImageOut();
+    pProcessImageIn_l = (UNION_IN*)oplk_getProcessImageIn();
+    pProcessImageOut_l = (const UNION_OUT*)oplk_getProcessImageOut();
 
     errorIndex = obdpi_setupProcessImage();
     if (errorIndex != 0)
@@ -493,7 +487,7 @@ void opl::setActivated_Out_MN(int32_t activated_Out_MN_g[])
 
 bool opl::testOPL() 
 {
-    return true;
+
 }
 
 bool opl::ExtinctOPL()
@@ -501,8 +495,6 @@ bool opl::ExtinctOPL()
     shutdownOplImage();
     shutdownPowerlink();
     firmwaremanager_exit();
-
-    return true;
 }
 
 //------------------------------------------------------------------------------
@@ -564,14 +556,6 @@ void opl::shutdownPowerlink(void)
 
     oplk_destroy();
     oplk_exit();
-}
-
-bool opl::demandeExtinctOPL() 
-{
-    if (values_Out_MN_l[0] == 0x1FFF)
-        return true;
-    else
-        return false;
 }
 
 void opl::sendTelem()

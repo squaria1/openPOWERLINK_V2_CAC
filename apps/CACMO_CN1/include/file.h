@@ -10,9 +10,6 @@ class file
 
         bool initFile();
         bool testWriteFile();
-        bool closeFile();
-        void writeTelem();
-        void writeError();
 
 
     protected:

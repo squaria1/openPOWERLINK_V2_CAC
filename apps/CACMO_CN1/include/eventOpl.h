@@ -41,20 +41,15 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //------------------------------------------------------------------------------
 // includes
 //------------------------------------------------------------------------------
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 #include <oplk/oplk.h>
 
 #include <oplk/debugstr.h>
+
 #include <console/console.h>
 #include <eventlog/eventlog.h>
 
 #include <stdio.h>
-#ifdef __cplusplus
-}
-#endif
+
 //------------------------------------------------------------------------------
 // const defines
 //------------------------------------------------------------------------------

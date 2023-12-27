@@ -4,10 +4,6 @@
 //------------------------------------------------------------------------------
 // includes
 //------------------------------------------------------------------------------
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 
 #include "xapOpl.h"
 #include "eventOpl.h"
@@ -39,10 +35,6 @@ extern "C"
 #include <limits.h>
 #include <string.h>
 
-#ifdef __cplusplus
-}
-#endif
-
 class opl
 {
     public:
@@ -69,7 +61,6 @@ class opl
         int32_t*    getValues_Out_MN(void);
         void        setActivated_In_MN(int32_t activated_In_MN_g[]);
         void        setActivated_Out_MN(int32_t activated_Out_MN_g[]);
-        bool        demandeExtinctOPL();
 
 
         typedef struct

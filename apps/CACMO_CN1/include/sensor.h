@@ -3,6 +3,8 @@
 #ifndef SENSOR_H
 #define SENSOR_H
 
+std::string test = "blabla";
+
 class sensor
 {
     public:

@@ -6,7 +6,7 @@
 #ifndef XAPOPL_h
 #define XAPOPL_h
 
-#define COMPUTED_PI_OUT_SIZE 75
+#define COMPUTED_PI_IN_SIZE 75
 
 typedef union
 {
@@ -87,12 +87,12 @@ typedef union
 		signed CN3_Input_AI32_SENSOR10 : 32;								//72
 		signed CN3_Input_AI32_SENSOR11 : 32;								//73
 		signed CN3_Input_AI32_SENSOR12 : 32;								//74
-	} PI_OUT;
-	signed out_MN_array[80];
-} UNION_OUT;
+	} PI_IN;
+	signed in_MN_array[COMPUTED_PI_IN_SIZE];
+} UNION_IN;
 
 
-#define COMPUTED_PI_IN_SIZE 39
+#define COMPUTED_PI_OUT_SIZE 39
 typedef union
 {
 	struct
@@ -136,9 +136,9 @@ typedef union
 		signed CN3_Output_AI8_VALVE10 : 8;										//36
 		signed CN3_Output_AI8_VALVE11 : 8;										//37
 		signed CN3_Output_AI8_VALVE12 : 8;										//38
-	} PI_IN;
-	signed in_MN_array[40];
-}UNION_IN;
+	} PI_OUT;
+	signed out_MN_array[COMPUTED_PI_OUT_SIZE];
+}UNION_OUT;
 
 
 #endif

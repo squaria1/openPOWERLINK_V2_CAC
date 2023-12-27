@@ -3,8 +3,8 @@
 * Project: ASTREOS-1_OpenPOWERLINK
 * Application process for openPOWERLINK_MN(240)
 */
-#ifndef XAP_h
-#define XAP_h
+#ifndef XAPOPL_h
+#define XAPOPL_h
 
 #define COMPUTED_PI_OUT_SIZE 75
 typedef union
