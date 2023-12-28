@@ -14,7 +14,7 @@ opl::~opl()
 
 bool opl::demandeExtinctOPL()
 {
-    //processSync();
+    processSync();
     
     //printf("\n\n values_In_CN_l[0] : %d \n\n", values_In_CN_l[0]);
 
@@ -31,14 +31,16 @@ bool opl::demandeExtinctOPL()
 
 }
 
-void opl::sendTelem()
+void opl::sendTelem(int16_t statusCode)
 {
-
+    values_Out_CN_l[nbValuesCN_Out_ByCN-1] = statusCode;
+    processSync();
 }
 
-void opl::sendError()
+void opl::sendError(int16_t errorCode)
 {
-
+    values_Out_CN_l[nbValuesCN_Out_ByCN-1] = errorCode;
+    processSync();
 }
 
 void opl::setValues_In_CN(int32_t values_In_CN_g[])
@@ -339,28 +341,33 @@ tOplkError processSync(void)
     if (oplk_waitSyncEvent(100000) != kErrorOk)
         return ret;
 
+
+
+    /* setup output image - digital inputs */
+    // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
+    for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In; i++)
+    {
+        if (activated_In_CN_l[i])
+            values_In_CN_l[i] = pProcessImageIn_l->in_CN_array[i];
+    }
+
+    ret = oplk_exchangeProcessImageIn();
+    if (ret != kErrorOk)
+        return ret;
+
+    /* read input image - digital outputs */
+    activated_Out_CN_l[nbValuesCN_Out_ByCN-1] = true;
+
+    for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
+    {
+        if (activated_Out_CN_l[i])
+            pProcessImageOut_l->out_CN_array[i] = values_Out_CN_l[i];
+    }
+
     ret = oplk_exchangeProcessImageOut();
     if (ret != kErrorOk)
         return ret;
 
-    /* setup output image - digital inputs */
-    // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
-    for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
-    {
-        if (activated_In_CN_l[i])
-            values_In_CN_l[i] = pProcessImageOut_l->out_CN_array[i];
-    }
-
-
-    /* read input image - digital outputs */
-
-    for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In; i++)
-    {
-        if (activated_Out_CN_l[i])
-            pProcessImageIn_l->in_CN_array[i] = values_Out_CN_l[i];
-    }
-
-    ret = oplk_exchangeProcessImageIn();
 
     return ret;
 }
@@ -410,8 +417,8 @@ tOplkError initProcessImage(void)
     if (ret != kErrorOk)
         return ret;
 
-    pProcessImageIn_l = (UNION_IN*)oplk_getProcessImageIn();
-    pProcessImageOut_l = (const UNION_OUT*)oplk_getProcessImageOut();
+    pProcessImageIn_l = (const UNION_IN*)oplk_getProcessImageIn();
+    pProcessImageOut_l = (UNION_OUT*)oplk_getProcessImageOut();
 
     /* link process variables used by CN to object dictionary */
     fprintf(stderr, "Linking process image vars:\n");

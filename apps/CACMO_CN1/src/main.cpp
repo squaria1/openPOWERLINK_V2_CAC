@@ -18,7 +18,7 @@ int main() {
             case 1: // Initialisation
                 if (initOPL()) {
                     file.writeTelem();
-                    opl.sendTelem();
+                    opl.sendTelem(0x0002);
                 }
                 else {
                     file.writeError();
@@ -82,10 +82,10 @@ int main() {
             case 3: // Extinction
                 if(ExtinctOPL()){
                     file.writeTelem();
-                    opl.sendTelem();
+                    opl.sendTelem(0x1002);
                 }else{
                     file.writeError();
-                    opl.sendError();
+                    opl.sendError(0xE102);
                 }
                 break;
         }

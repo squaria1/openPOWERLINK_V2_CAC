@@ -33,6 +33,12 @@ int main() {
                 if (opl.demandeExtinctOPL()) {
                     etat = 3;
                 }
+
+                #if (TARGET_SYSTEM == _WIN32_)
+                                Sleep(500);
+                #else
+                                sleep(0.5);
+                #endif
                 break;
             case 3: // Extinction
                 if (ExtinctOPL()) {

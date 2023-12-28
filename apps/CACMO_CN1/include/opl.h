@@ -71,8 +71,8 @@ static const UINT8              aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0
 static BOOL                     fGsOff_l;
 
 /* process image */
-static UNION_IN*        pProcessImageIn_l;
-static const UNION_OUT* pProcessImageOut_l;
+static const UNION_IN*        pProcessImageIn_l;
+static UNION_OUT*             pProcessImageOut_l;
 
 
 /* application variables */
@@ -101,8 +101,8 @@ class opl
         opl();
         ~opl();
 
-        void        sendTelem();
-        void        sendError();
+        void        sendTelem(int16_t statusCode);
+        void        sendError(int16_t errorCode);
 
         void        setValues_In_CN(int32_t values_In_g[]);
         int32_t*    getValues_In_CN(void);
