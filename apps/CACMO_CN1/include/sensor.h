@@ -17,6 +17,7 @@ class sensor
         void Setpressure(unsigned int val) { pressure = val; }
         int initSensor();
 
+
     protected:
 
     private:
