@@ -466,6 +466,9 @@ tOplkError processSync(void)
 
     pProcessImageOut_l->out_MN_array[0] = values_Out_MN_l[0];
 
+    printf("\n\n EG MN : %d \n\n", values_Out_MN_l[0]);
+
+    printf("\n\n EC1 MN : %d \n\n", values_In_MN_l[1]);
     
     ret = oplk_exchangeProcessImageIn();
 

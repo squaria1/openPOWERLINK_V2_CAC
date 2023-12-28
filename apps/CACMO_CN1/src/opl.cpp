@@ -341,7 +341,7 @@ tOplkError processSync(void)
     if (oplk_waitSyncEvent(100000) != kErrorOk)
         return ret;
 
-
+    activated_In_CN_l[0] = true;
 
     /* setup output image - digital inputs */
     // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
@@ -368,6 +368,9 @@ tOplkError processSync(void)
     if (ret != kErrorOk)
         return ret;
 
+    printf("\n\n EG CN : %d \n\n", values_In_CN_l[0]);
+
+    printf("\n\n EC1 CN : %d \n\n", values_Out_CN_l[nbValuesCN_Out_ByCN - 1]);
 
     return ret;
 }
@@ -492,7 +495,7 @@ tOplkError linkPDO_in(UINT varEntries, tObdSize obdSize, const UINT16 arrayIndex
 
     ret = oplk_linkProcessImageObject(index,
         subIndex,
-        offsetof(UNION_IN, in_CN_array[0]) + sizeof(INT32) * arrayIndex,
+        offsetof(UNION_IN, in_CN_array[0]) + sizeof(INT16) * arrayIndex,
         FALSE,
         obdSize,
         &varEntries);

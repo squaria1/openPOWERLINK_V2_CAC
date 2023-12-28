@@ -137,7 +137,7 @@ typedef union
 		INT8 CN3_Input_AI8_VALVE11;									//37
 		INT8 CN3_Input_AI8_VALVE12;									//38
 	} PI_IN;
-	INT32 in_CN_array[COMPUTED_PI_IN_SIZE];
+	INT16 in_CN_array[COMPUTED_PI_IN_SIZE];
 } UNION_IN;
 
 #endif
