@@ -87,6 +87,16 @@ void opl::setActivated_Out_CN(int32_t activated_Out_CN_g[])
     }
 }
 
+int16_t opl::getEG()
+{
+    return values_In_CN_l[0];
+}
+
+void opl::setEC1(int16_t EC1)
+{
+    values_Out_CN_l[0] = EC1;
+}
+
 extern "C"
 {
 

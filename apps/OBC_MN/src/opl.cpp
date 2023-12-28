@@ -78,6 +78,16 @@ void opl::setActivated_Out_MN(int32_t activated_Out_MN_g[])
     }
 }
 
+int16_t opl::getEC1()
+{
+    return values_In_MN_l[0];
+}
+
+void opl::setEG(int16_t EG)
+{
+    values_Out_MN_l[0] = EG;
+}
+
 extern "C"
 {
 

@@ -6,6 +6,8 @@ int main() {
     opl opl;
     file file;
     char cKey = 0;
+    int16_t EG = -1;
+    int16_t EC1 = -1;
 
     while(etat<=3){
         switch(etat){
@@ -53,14 +55,14 @@ int main() {
                 #else
                                 sleep(5);
                 #endif
-
-                values_Out_MN_l[0] = 555;
-                opl.setValues_Out_MN(values_Out_MN_l);
+                EC1 = opl.getEC1();
+                EG = 555;
+                opl.setEG(EG);
                 processSync();
 
-                printf("\n\n EG MN : %d \n\n", values_Out_MN_l[0]);
+                printf("\n\n EG MN : %d \n\n", EG);
 
-                printf("\n\n EC1 MN : %d \n\n", values_In_MN_l[0]);
+                printf("\n\n EC1 MN : %d \n\n", EC1);
                 break;
             case 3: // Extinction
                 if (ExtinctOPL()) {

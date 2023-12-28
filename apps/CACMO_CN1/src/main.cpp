@@ -9,6 +9,8 @@ int main() {
     opl opl;
     file file;
     char cKey = 0;
+    int16_t EG = -1;
+    int16_t EC1 = -1;
   
 
     /*valve valve;
@@ -101,11 +103,16 @@ int main() {
                                 sleep(5);
                 #endif
 
+                EG = opl.getEG();
+                EC1 = 111;
+                opl.setEC1(EC1);
+
                 processSync();
 
-                printf("\n\n EG CN : %d \n\n", values_In_CN_l[0]);
 
-                printf("\n\n EC1 CN : %d \n\n", values_Out_CN_l[nbValuesCN_Out_ByCN - 1]);
+                printf("\n\n EG CN : %d \n\n", EG);
+
+                printf("\n\n EC1 CN : %d \n\n", EC1);
 
                 break;
             case 3: // Extinction

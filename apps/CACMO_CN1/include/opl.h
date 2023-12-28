@@ -110,6 +110,8 @@ class opl
         int32_t*    getValues_Out_CN(void);
         void        setActivated_In_CN(int32_t activated_In_MN_g[]);
         void        setActivated_Out_CN(int32_t activated_Out_MN_g[]);
+        int16_t     getEG();
+        void        setEC1(int16_t EC1);
         bool        demandeExtinctOPL();
 
     protected:
