@@ -16,10 +16,11 @@ bool opl::demandeExtinctOPL()
     processSync();
 
     printf("\n\n values_Out_MN_l[0] : %d \n\n", values_Out_MN_l[0]);
+    printf("\n\n extinction ! \n\n");
     #if (TARGET_SYSTEM == _WIN32_)
     Sleep(500);
     #else
-    sleep(500);
+    sleep(0.5);
     #endif
     
     if (values_Out_MN_l[0] == 0x1FFF)
