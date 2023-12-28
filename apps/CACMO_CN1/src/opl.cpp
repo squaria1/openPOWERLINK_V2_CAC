@@ -29,12 +29,20 @@ void opl::sendTelem(int16_t statusCode)
 {
     values_Out_CN_l[nbValuesCN_Out_ByCN-1] = statusCode;
     processSync();
+
+    printf("\n\n EG CN : %d \n\n", values_In_CN_l[0]);
+
+    printf("\n\n EC1 CN : %d \n\n", values_Out_CN_l[nbValuesCN_Out_ByCN - 1]);
 }
 
 void opl::sendError(int16_t errorCode)
 {
     values_Out_CN_l[nbValuesCN_Out_ByCN-1] = errorCode;
     processSync();
+
+    printf("\n\n EG CN : %d \n\n", values_In_CN_l[0]);
+
+    printf("\n\n EC1 CN : %d \n\n", values_Out_CN_l[nbValuesCN_Out_ByCN - 1]);
 }
 
 void opl::setValues_In_CN(int32_t values_In_CN_g[])
@@ -361,10 +369,6 @@ tOplkError processSync(void)
     ret = oplk_exchangeProcessImageOut();
     if (ret != kErrorOk)
         return ret;
-
-    printf("\n\n EG CN : %d \n\n", values_In_CN_l[0]);
-
-    printf("\n\n EC1 CN : %d \n\n", values_Out_CN_l[nbValuesCN_Out_ByCN - 1]);
 
     return ret;
 }

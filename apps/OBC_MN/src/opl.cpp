@@ -404,7 +404,7 @@ tOplkError processSync(void)
     aNodeVar_l[1].input = pProcessImageIn_l->in_MN_array[26];
     aNodeVar_l[2].input = pProcessImageIn_l->in_MN_array[51];
 
-    values_In_MN_l[1] = pProcessImageIn_l->in_MN_array[1];
+    values_In_MN_l[0] = pProcessImageIn_l->in_MN_array[0];
 
     for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
     {
@@ -468,7 +468,7 @@ tOplkError processSync(void)
 
     printf("\n\n EG MN : %d \n\n", values_Out_MN_l[0]);
 
-    printf("\n\n EC1 MN : %d \n\n", values_In_MN_l[1]);
+    printf("\n\n EC1 MN : %d \n\n", values_In_MN_l[0]);
     
     ret = oplk_exchangeProcessImageIn();
 

@@ -49,12 +49,14 @@ int main() {
                 }
         }
                 #if (TARGET_SYSTEM == _WIN32_)
-                                Sleep(1000);
+                                Sleep(5000);
                 #else
-                                sleep(1);
+                                sleep(5);
                 #endif
-                processSync();
 
+                values_Out_MN_l[0] = 555;
+                opl.setValues_Out_MN(values_Out_MN_l);
+                processSync();
                 break;
             case 3: // Extinction
                 if (ExtinctOPL()) {

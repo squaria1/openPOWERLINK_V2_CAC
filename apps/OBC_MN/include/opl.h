@@ -89,8 +89,8 @@ static BOOL                     fGsOff_l;
 static int                      aUsedNodeIds_l[] = { 1, 2, 3, 0 };
 static UINT                     cnt_l;
 static APP_NODE_VAR_T           aNodeVar_l[MAX_NODES];
-static UNION_OUT* pProcessImageOut_l;
-static const UNION_IN* pProcessImageIn_l;
+static UNION_OUT*               pProcessImageOut_l;
+static const UNION_IN*          pProcessImageIn_l;
 
 static int32_t                  values_In_MN_l[MAX_VALUES];
 static int32_t                  values_Out_MN_l[MAX_VALUES];
