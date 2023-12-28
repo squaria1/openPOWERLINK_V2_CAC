@@ -57,6 +57,10 @@ int main() {
                 values_Out_MN_l[0] = 555;
                 opl.setValues_Out_MN(values_Out_MN_l);
                 processSync();
+
+                printf("\n\n EG MN : %d \n\n", values_Out_MN_l[0]);
+
+                printf("\n\n EC1 MN : %d \n\n", values_In_MN_l[0]);
                 break;
             case 3: // Extinction
                 if (ExtinctOPL()) {

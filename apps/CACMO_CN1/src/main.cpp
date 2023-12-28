@@ -103,6 +103,10 @@ int main() {
 
                 processSync();
 
+                printf("\n\n EG CN : %d \n\n", values_In_CN_l[0]);
+
+                printf("\n\n EC1 CN : %d \n\n", values_Out_CN_l[nbValuesCN_Out_ByCN - 1]);
+
                 break;
             case 3: // Extinction
                 opl.sendTelem(0x1FFF);
