@@ -44,7 +44,7 @@ typedef struct
 {
     char            cdcFile[256];
     char            fwInfoFile[256];
-    char* pLogFile;
+    char*           pLogFile;
     tEventlogFormat logFormat;
     UINT32          logLevel;
     UINT32          logCategory;
@@ -67,9 +67,9 @@ typedef struct
 } APP_NODE_VAR_T;
 
 tOplkError  initPowerlink(UINT32 cycleLen_p,
-    const char* cdcFileName_p,
-    const char* devName_p,
-    const UINT8* macAddr_p);
+                            const char* cdcFileName_p,
+                            const char* devName_p,
+                            const UINT8* macAddr_p);
 void        initOplThread(void);
 tOplkError  initProcessImage(void);
 void        shutdownOplImage(void);
@@ -79,6 +79,23 @@ tOplkError  initApp(void);
 bool        initOPL();
 bool        testOPL();
 bool        ExtinctOPL();
+
+//------------------------------------------------------------------------------
+// local vars
+//------------------------------------------------------------------------------
+static const UINT8              aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static BOOL                     fGsOff_l;
+
+static int                      aUsedNodeIds_l[] = { 1, 2, 3, 0 };
+static UINT                     cnt_l;
+static APP_NODE_VAR_T           aNodeVar_l[MAX_NODES];
+static UNION_OUT* pProcessImageOut_l;
+static const UNION_IN* pProcessImageIn_l;
+
+static int32_t                  values_In_MN_l[MAX_VALUES];
+static int32_t                  values_Out_MN_l[MAX_VALUES];
+static bool                     activated_In_MN_l[COMPUTED_PI_IN_SIZE];
+static bool                     activated_Out_MN_l[COMPUTED_PI_OUT_SIZE];
 
 #ifdef __cplusplus
 }

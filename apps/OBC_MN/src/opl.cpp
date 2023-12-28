@@ -1,23 +1,5 @@
 #include "opl.h"
 
-//------------------------------------------------------------------------------
-// local vars
-//------------------------------------------------------------------------------
-static const UINT8              aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-static BOOL                     fGsOff_l;
-
-static int                      aUsedNodeIds_l[] = { 1, 2, 3, 0 };
-static UINT                     cnt_l;
-static APP_NODE_VAR_T           aNodeVar_l[MAX_NODES];
-static UNION_OUT*               pProcessImageOut_l;
-static const UNION_IN*          pProcessImageIn_l;
-
-static int32_t                  values_In_MN_l[MAX_VALUES];
-static int32_t                  values_Out_MN_l[MAX_VALUES];
-static bool                     activated_In_MN_l[COMPUTED_PI_IN_SIZE];
-static bool                     activated_Out_MN_l[COMPUTED_PI_OUT_SIZE];
-
-
 opl::opl()
 {
 
@@ -217,7 +199,6 @@ tOplkError initApp(void)
     }
     memset(&pProcessImageOut_l, 0, sizeof(pProcessImageOut_l));
     memset(&pProcessImageIn_l, 0, sizeof(pProcessImageIn_l));
-    test = 0x1FFF;
     ret = initProcessImage();
 
     return ret;

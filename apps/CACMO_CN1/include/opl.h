@@ -64,6 +64,33 @@ tOplkError  initApp(void);
 bool        initOPL();
 bool        ExtinctOPL();
 
+//------------------------------------------------------------------------------
+// local vars
+//------------------------------------------------------------------------------
+static const UINT8              aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static BOOL                     fGsOff_l;
+
+/* process image */
+static UNION_IN*        pProcessImageIn_l;
+static const UNION_OUT* pProcessImageOut_l;
+
+
+/* application variables */
+
+static int32_t          values_In_CN_l[COMPUTED_PI_IN_SIZE];
+static int32_t          values_Out_CN_l[COMPUTED_PI_OUT_SIZE];
+static bool             activated_In_CN_l[COMPUTED_PI_IN_SIZE];
+static bool             activated_Out_CN_l[COMPUTED_PI_OUT_SIZE];
+
+//------------------------------------------------------------------------------
+// local function prototypes
+//------------------------------------------------------------------------------
+
+static const UINT8       nbValuesCN_Out = COMPUTED_PI_OUT_SIZE / NB_NODES;
+static const UINT8       nbValuesCN_In = COMPUTED_PI_IN_SIZE / NB_NODES;
+static const UINT8       nbValuesCN_Out_ByCN = COMPUTED_PI_OUT_SIZE / NB_NODES * (NODEID - 1) + 1;
+static const UINT8       nbValuesCN_In_ByCN = COMPUTED_PI_IN_SIZE / NB_NODES * (NODEID - 1) + 1;
+
 #ifdef __cplusplus
 }
 #endif

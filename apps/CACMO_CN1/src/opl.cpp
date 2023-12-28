@@ -1,32 +1,5 @@
 #include "opl.h"
 
-//------------------------------------------------------------------------------
-// local vars
-//------------------------------------------------------------------------------
-static const UINT8              aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-static BOOL                     fGsOff_l;
-
-/* process image */
-static UNION_IN*        pProcessImageIn_l;
-static const UNION_OUT* pProcessImageOut_l;
-
-
-/* application variables */
-
-static int32_t          values_In_CN_l[COMPUTED_PI_IN_SIZE];
-static int32_t          values_Out_CN_l[COMPUTED_PI_OUT_SIZE];
-static bool             activated_In_CN_l[COMPUTED_PI_IN_SIZE];
-static bool             activated_Out_CN_l[COMPUTED_PI_OUT_SIZE];
-
-//------------------------------------------------------------------------------
-// local function prototypes
-//------------------------------------------------------------------------------
-
-static const UINT8       nbValuesCN_Out = COMPUTED_PI_OUT_SIZE / NB_NODES;
-static const UINT8       nbValuesCN_In = COMPUTED_PI_IN_SIZE / NB_NODES;
-static const UINT8       nbValuesCN_Out_ByCN = COMPUTED_PI_OUT_SIZE / NB_NODES * (NODEID - 1) + 1;
-static const UINT8       nbValuesCN_In_ByCN = COMPUTED_PI_IN_SIZE / NB_NODES * (NODEID - 1) + 1;
-
 
 opl::opl()
 {
@@ -221,13 +194,10 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
     eventlog_printMessage(kEventlogLevelInfo,
         kEventlogCategoryGeneric,
         "Select the network interface");
-    if (devName_p[0] == '\0')
-    {
-        if (netselect_selectNetworkInterface(devName, sizeof(devName)) < 0)
-            return kErrorIllegalInstance;
-    }
-    else
-        strncpy(devName, devName_p, 128);
+    if (netselect_selectNetworkInterface(devName, sizeof(devName)) < 0)
+        return kErrorIllegalInstance;
+
+    //strncpy(devName, devName_p, 128);
 
     memset(&initParam, 0, sizeof(initParam));
     initParam.sizeOfInitParam = sizeof(initParam);
@@ -448,24 +418,32 @@ tOplkError initProcessImage(void)
 
     varEntries = 1;
 
-    obdSize = sizeof(pProcessImageIn_l->in_CN_array[1]);
-    ret = linkPDO_in(varEntries, obdSize, NODEID, 0x6511, NODEID);
+    //Link image EC of the correct NODEID
+    obdSize = 2;
+    ret = linkPDO_out(varEntries, obdSize, nbValuesCN_Out_ByCN-1, 0x6511, NODEID);
     if (ret != kErrorOk)
     {
         return ret;
     }
 
-    // Init process image input
+    // Init process image output
     // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
     for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
     {
         if (activated_Out_CN_l[i])
         {
-            obdSize = sizeof(pProcessImageOut_l->out_CN_array[i]);
+            //Link valves images
             if (i > nbValuesCN_Out_ByCN && i <= nbValuesCN_Out_ByCN + nbValuesCN_Out / 2)
+            {
+                obdSize = 1;
                 ret = linkPDO_out(varEntries, obdSize, i, 0x6510, 0x01 + i % (nbValuesCN_Out / 2));
+            }
+            //Link sensors images
             else if (i > nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 && i <= nbValuesCN_Out_ByCN + nbValuesCN_Out)
+            {
+                obdSize = 4;
                 ret = linkPDO_out(varEntries, obdSize, i, 0x6512, 0x01 + i % (nbValuesCN_Out / 2));
+            }
             if (ret != kErrorOk)
             {
                 return ret;
@@ -476,9 +454,10 @@ tOplkError initProcessImage(void)
     // Init process image input
     for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In / 2; i++)
     {
+        //Link valves images in from MN
         if (activated_In_CN_l[i])
         {
-            obdSize = sizeof(pProcessImageIn_l->in_CN_array[i]);
+            obdSize = 1;
             ret = linkPDO_in(varEntries, obdSize, i, 0x6500, 0x01 + i % (nbValuesCN_In / 2));
             if (ret != kErrorOk)
             {
@@ -487,8 +466,8 @@ tOplkError initProcessImage(void)
         }
     }
 
-    // Init process image input EG
-    obdSize = sizeof(pProcessImageIn_l->in_CN_array[0]);
+    // Link image input EG
+    obdSize = 2;
     ret = linkPDO_in(varEntries, obdSize, 0, 0x6501, 0xF0);
     if (ret != kErrorOk)
     {
