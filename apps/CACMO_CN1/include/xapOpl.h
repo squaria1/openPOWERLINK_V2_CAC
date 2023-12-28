@@ -89,7 +89,7 @@ typedef union
 		INT32 CN3_Output_AI32_SENSOR11;									//73
 		INT32 CN3_Output_AI32_SENSOR12;									//74
 	} PI_OUT;
-	signed out_CN_array[COMPUTED_PI_OUT_SIZE];
+	INT32 out_CN_array[COMPUTED_PI_OUT_SIZE];
 } UNION_OUT;
 
 #define COMPUTED_PI_IN_SIZE 39
@@ -137,7 +137,7 @@ typedef union
 		INT8 CN3_Input_AI8_VALVE11;									//37
 		INT8 CN3_Input_AI8_VALVE12;									//38
 	} PI_IN;
-	signed in_CN_array[COMPUTED_PI_IN_SIZE];
+	INT32 in_CN_array[COMPUTED_PI_IN_SIZE];
 } UNION_IN;
 
 #endif
