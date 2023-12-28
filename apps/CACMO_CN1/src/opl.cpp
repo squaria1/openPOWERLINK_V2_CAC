@@ -14,15 +14,9 @@ opl::~opl()
 
 bool opl::demandeExtinctOPL()
 {
-    processSync();
+    //processSync();
     
     //printf("\n\n values_In_CN_l[0] : %d \n\n", values_In_CN_l[0]);
-
-    #if (TARGET_SYSTEM == _WIN32_)
-    Sleep(500);
-    #else
-    sleep(500);
-    #endif
     
     if (values_In_CN_l[0] == 0x1FFF)
         return true;

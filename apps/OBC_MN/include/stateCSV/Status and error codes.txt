@@ -8,7 +8,6 @@ ERROR CODES
 0xE00D : Open sysfs file sensor error.
 0xE00E : Read sysfs file sensor error.
 0xE00F : Valve signal handler error.
-0xE102 : OpenPowerLink shutdown error.
 
 STATUS CODES
 0x0001 : GPIO library initialisation success.
@@ -23,7 +22,6 @@ STATUS CODES
 0x0FFF : Initialisation full success.
 0x1000 : MN call CNs to state initialisation.
 0x1001 : MN call CNs to state "control and acquisition".
-0x1002 : OpenPowerLink shutdown success.
 0x1FFF : MN call CNS to state shutdown.
 0x2000 : MN call CNs to CSV state 0
 0x2001 : MN call CNs to CSV state 1

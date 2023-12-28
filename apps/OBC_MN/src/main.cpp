@@ -5,7 +5,8 @@ int main() {
     int etat=1;
     opl opl;
     file file;
-    
+    char cKey = 0;
+
     while(etat<=3){
         switch(etat){
             case 1: // Initialisation
@@ -33,21 +34,34 @@ int main() {
                 if (opl.demandeExtinctOPL()) {
                     etat = 3;
                 }
+                if (console_kbhit())
+                {
+                    cKey = (char)console_getch();
 
+                    switch (cKey)
+                    {
+                    case 0x1B:
+                        etat = 3;
+                        break;
+
+                    default:
+                        break;
+                }
+        }
                 #if (TARGET_SYSTEM == _WIN32_)
-                                Sleep(500);
+                                Sleep(1000);
                 #else
-                                sleep(0.5);
+                                sleep(1);
                 #endif
+                processSync();
+
                 break;
             case 3: // Extinction
                 if (ExtinctOPL()) {
                     file.writeTelem();
-                    opl.sendTelem();
                 }
                 else {
                     file.writeError();
-                    opl.sendError();
                 }
                 etat=4;
                 break;
