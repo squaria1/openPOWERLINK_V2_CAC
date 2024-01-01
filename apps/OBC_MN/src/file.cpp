@@ -1,5 +1,8 @@
 #include "file.h"
 
+#include <eventlog/eventlog.h>
+
+
 file::file()
 {
     //constructor
