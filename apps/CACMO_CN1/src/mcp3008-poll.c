@@ -162,7 +162,7 @@ void show_elapsed(struct timeval *start, struct timeval *end, int count)
 }
 */
 
-void loop(int delay_us, int *list)
+int loop(int delay_us, int *list)
 {
     int count, i, update, update_reset;
     int val[MAX_ADC];

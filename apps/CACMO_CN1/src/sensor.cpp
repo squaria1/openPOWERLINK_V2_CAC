@@ -2,19 +2,22 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <fcntl.h>
 #include <signal.h>
-#include <sys/ioctl.h>
-#include <getopt.h>
 #include <errno.h>
+#include <sys/types.h> 
 
-#define ADC_READ_ERROR -100000
+#if (TARGET_SYSTEM == _WIN32_)
+#include <getopt/getopt.h>
+#else
+#include <unistd.h>
+#endif
+#if (TARGET_SYSTEM == _WIN32_)
+#include <io.h>
+#else 
+#include <sys/ioctl.h>
+#endif
 
-#define MAX_ADC 8
-
-int opt, delay_us, adc, i;
-int adc_list[MAX_ADC];
 
 char iiosyspath[] = "/sys/bus/iio/devices/iio:device0/";
 
@@ -30,45 +33,34 @@ sensor::~sensor()
     //destructor
 }
 
+int sensor::GetAdc_value(int index) {
+    return val[index];
+}
+
 
 int sensor::initSensor(){
 
     register_sig_handler();
 
-    if (optind == argc) {
-        printf("List of ADCs is required\n");
-        usage(argv[0]);
-    }
-
     memset(adc_list, 0, sizeof(adc_list));
 
-    for (i = 0; i < 6; i++) {
-        adc = atoi(argv[i]);
-
-        if (adc < 0 || adc > 5) {
-            printf("adc %d is out of range\n", adc);
-            usage(argv[0]);
-        }
-
-        if (adc_list[adc]) {
-            printf("adc %d listed more then once\n", adc + 2);
-            usage(argv[0]);
-        }
-
-        adc_list[adc] = 1;
+    for (i = 0; i < MAX_ADC; i++) { //0 à taille tab de benoit
+        
+        if (tabSensorActive[i])
+            adc_list[adc] = 1;
+        else
+            adc_list[adc] = 0;
     }
 
 
-    int count = read_Channels(delay_us, adc_list);
+    readChannels(delay_us, adc_list);
 
 }
 
 
 void sensor::readChannels(int delay_us, int *list)
 {
-    int ret, i, update, update_reset;
-    int val[MAX_ADC];
-    int fd[MAX_ADC];
+    int count, ret, i, update, update_reset;
 
     ret = 0;
     memset(fd, 0, sizeof(fd));
@@ -78,8 +70,6 @@ void sensor::readChannels(int delay_us, int *list)
         if (list[i]) {
             fd[i] = openAdc(i);
 
-            if (fd[i] < 0)
-                goto loop_done;
         }
     }
     
@@ -95,17 +85,16 @@ void sensor::readChannels(int delay_us, int *list)
         if (val[i] == ADC_READ_ERROR)
             break;
     }
-
-    if (delay_us)
-        usleep(delay_us);
     
+}
 
+void sensor::closeAdc()
+{
     for (i = 0; i < MAX_ADC; i++) {
         if (fd[i] > 0)
             close(fd[i]);
-    }
 
-    return count;
+    }
 }
 
 int sensor::readAdc(int fd)
@@ -147,7 +136,7 @@ void sensor::register_sig_handler()
 {
     struct sigaction sia;
 
-    bzero(&sia, sizeof sia);
+    memset(sia,0, sizeof(sia));
     sia.sa_handler = sigint_handler;
 
     
