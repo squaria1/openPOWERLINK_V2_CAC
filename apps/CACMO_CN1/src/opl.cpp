@@ -1,5 +1,6 @@
 #include "opl.h"
 
+
 opl::opl()
 {
 
@@ -13,79 +14,87 @@ opl::~opl()
 
 bool opl::demandeExtinctOPL()
 {
-    processSync();
+    //processSync();
     
-    if (values_Out_MN_l[0] == 0x1FFF)
-    {
-        printf("\n\n values_Out_MN_l[0] : %d \n\n", values_Out_MN_l[0]);
-        printf("\n\n extinction ! \n\n");
+    //printf("\n\n values_In_CN_l[0] : %d \n\n", values_In_CN_l[0]);
+    
+    if (values_In_CN_l[0] == 0x1FFF)
         return true;
-    }
     else
         return false;
 
 }
 
-void opl::sendTelem()
+void opl::sendTelem(int16_t statusCode)
 {
+    values_Out_CN_l[nbValuesCN_Out_ByCN-1] = statusCode;
+    processSync();
 
+    printf("\n\n EG CN : %d \n\n", values_In_CN_l[0]);
+
+    printf("\n\n EC1 CN : %d \n\n", values_Out_CN_l[nbValuesCN_Out_ByCN - 1]);
 }
 
-void opl::sendError()
+void opl::sendError(int16_t errorCode)
 {
+    values_Out_CN_l[nbValuesCN_Out_ByCN-1] = errorCode;
+    processSync();
 
+    printf("\n\n EG CN : %d \n\n", values_In_CN_l[0]);
+
+    printf("\n\n EC1 CN : %d \n\n", values_Out_CN_l[nbValuesCN_Out_ByCN - 1]);
 }
 
-void opl::setValues_In_MN(int32_t values_In_g[])
+void opl::setValues_In_CN(int32_t values_In_CN_g[])
 {
     for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
     {
-        values_In_MN_l[i] = values_In_g[i];
+        values_In_CN_l[i] = values_In_CN_g[i];
     }
 }
 
-int32_t* opl::getValues_In_MN()
+int32_t* opl::getValues_In_CN()
 {
-    return values_In_MN_l;
+    return values_In_CN_l;
 }
 
-void opl::setValues_Out_MN(int32_t values_Out_g[])
+void opl::setValues_Out_CN(int32_t values_Out_CN_g[])
 {
     for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
     {
-        values_Out_MN_l[i] = values_Out_g[i];
+        values_Out_CN_l[i] = values_Out_CN_g[i];
     }
 }
 
-int32_t* opl::getValues_Out_MN()
+int32_t* opl::getValues_Out_CN()
 {
-    return values_Out_MN_l;
+    return values_Out_CN_l;
 }
 
-void opl::setActivated_In_MN(int32_t activated_In_MN_g[])
+void opl::setActivated_In_CN(int32_t activated_In_CN_g[])
 {
     for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
     {
-        activated_In_MN_l[i] = activated_In_MN_g[i];
+        activated_In_CN_l[i] = activated_In_CN_g[i];
     }
 }
 
-void opl::setActivated_Out_MN(int32_t activated_Out_MN_g[])
+void opl::setActivated_Out_CN(int32_t activated_Out_CN_g[])
 {
     for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
     {
-        activated_Out_MN_l[i] = activated_Out_MN_g[i];
+        activated_Out_CN_l[i] = activated_Out_CN_g[i];
     }
 }
 
-int16_t opl::getEC1()
+int16_t opl::getEG()
 {
-    return values_In_MN_l[0];
+    return values_In_CN_l[0];
 }
 
-void opl::setEG(int16_t EG)
+void opl::setEC1(int16_t EC1)
 {
-    values_Out_MN_l[0] = EG;
+    values_Out_CN_l[0] = EC1;
 }
 
 extern "C"
@@ -96,19 +105,14 @@ extern "C"
 // local function prototypes
 //------------------------------------------------------------------------------
 
-
 bool initOPL()
 {
-    
-    tOplkError      ret = kErrorOk;
-    tOptions        opts;
-    tEventConfig    eventConfig;
-    tFirmwareRet    fwRet;
 
-    strncpy(opts.cdcFile, "mnobd.cdc", 256);
-    strncpy(opts.fwInfoFile, "fw.info", 256);
+    tOplkError  ret = kErrorOk;
+    tOptions    opts;
+
     strncpy(opts.devName, "eth0", 128);
-    opts.pLogFile = NULL;
+    opts.nodeId = NODEID;
     opts.logFormat = kEventlogFormatReadable;
     opts.logCategory = 0xffffffff;
     opts.logLevel = 0xffffffff;
@@ -119,47 +123,29 @@ bool initOPL()
         return false;
     }
 
-    fwRet = firmwaremanager_init(opts.fwInfoFile);
-    if (fwRet != kFwReturnOk)
-    {
-        fprintf(stderr, "Error initializing firmware manager!");
-        return false;
-    }
-
     eventlog_init(opts.logFormat,
         opts.logLevel,
         opts.logCategory,
         (tEventlogOutputCb)console_printlogadd);
 
-    memset(&eventConfig, 0, sizeof(tEventConfig));
 
-    eventConfig.pfGsOff = &fGsOff_l;
-    eventConfig.pfnFirmwareManagerCallback = firmwaremanager_processEvent;
-
-    initEvents(&eventConfig);
+    initEvents(&fGsOff_l);
 
     printf("----------------------------------------------------\n");
-    printf("openPOWERLINK OBC MN application\n");
+    printf("openPOWERLINK console CN DEMO application\n");
     printf("Using openPOWERLINK stack: %s\n", oplk_getVersionString());
     printf("----------------------------------------------------\n");
 
     eventlog_printMessage(kEventlogLevelInfo,
         kEventlogCategoryGeneric,
-        "demo_mn_console: Stack version:%s Stack configuration:0x%08X",
+        "demo_cn_console: Stack version:%s Stack configuration:0x%08X",
         oplk_getVersionString(),
         oplk_getStackConfiguration());
 
-    eventlog_printMessage(kEventlogLevelInfo,
-        kEventlogCategoryGeneric,
-        "Using CDC file: %s",
-        opts.cdcFile);
-
     ret = initPowerlink(CYCLE_LEN,
-        opts.cdcFile,
-        opts.devName,
-        aMacAddr_l);
-    if (ret != kErrorOk)
-        return false;
+                        opts.devName,
+                        aMacAddr_l,
+                        opts.nodeId);
 
     ret = initApp();
     if (ret != kErrorOk)
@@ -178,34 +164,13 @@ The function initializes the synchronous data application
 
 \return The function returns a tOplkError error code.
 
-\ingroup module_demo_mn_console
+\ingroup module_demo_cn_console
 */
 //------------------------------------------------------------------------------
 tOplkError initApp(void)
 {
-    tOplkError  ret = kErrorOk;
-    int         i;
+    tOplkError  ret;
 
-    cnt_l = 0;
-
-    for (i = 0; (i < MAX_NODES) && (aUsedNodeIds_l[i] != 0); i++)
-    {
-        aNodeVar_l[i].leds = 0;
-        aNodeVar_l[i].ledsOld = 0;
-        aNodeVar_l[i].input = 0;
-        aNodeVar_l[i].inputOld = 0;
-        aNodeVar_l[i].toggle = 0;
-        aNodeVar_l[i].period = 0;
-    }
-    i = 0;
-
-    for (i = 0; i < MAX_VALUES; i++)
-    {
-        values_In_MN_l[i] = 0;
-        values_Out_MN_l[i] = 0;
-    }
-    memset(&pProcessImageOut_l, 0, sizeof(pProcessImageOut_l));
-    memset(&pProcessImageIn_l, 0, sizeof(pProcessImageIn_l));
     ret = initProcessImage();
 
     return ret;
@@ -219,17 +184,17 @@ tOplkError initApp(void)
 The function initializes the openPOWERLINK stack.
 
 \param[in]      cycleLen_p          Length of POWERLINK cycle.
-\param[in]      cdcFileName_p       Name of the CDC file.
 \param[in]      devName_p           Device name string.
 \param[in]      macAddr_p           MAC address to use for POWERLINK interface.
+\param[in]      nodeId_p            POWERLINK node ID.
 
 \return The function returns a tOplkError error code.
 */
 //------------------------------------------------------------------------------
 tOplkError initPowerlink(UINT32 cycleLen_p,
-                              const char* cdcFileName_p,
-                              const char* devName_p,
-                              const UINT8* macAddr_p)
+                                const char* devName_p,
+                                const UINT8* macAddr_p,
+                                UINT32 nodeId_p)
 {
     tOplkError          ret = kErrorOk;
     tOplkApiInitParam   initParam;
@@ -243,19 +208,17 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
     eventlog_printMessage(kEventlogLevelInfo,
         kEventlogCategoryGeneric,
         "Select the network interface");
-
     if (netselect_selectNetworkInterface(devName, sizeof(devName)) < 0)
         return kErrorIllegalInstance;
 
     //strncpy(devName, devName_p, 128);
 
-    printf("DEVNAME : %s \n", devName);
     memset(&initParam, 0, sizeof(initParam));
     initParam.sizeOfInitParam = sizeof(initParam);
 
     // pass selected device name to Edrv
     initParam.hwParam.pDevName = devName;
-    initParam.nodeId = NODEID;
+    initParam.nodeId = nodeId_p;
     initParam.ipAddress = (0xFFFFFF00 & IP_ADDR) | initParam.nodeId;
 
     /* write 00:00:00:00:00:00 to MAC address, so that the driver uses the real hardware address */
@@ -263,25 +226,26 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
 
     initParam.fAsyncOnly = FALSE;
     initParam.featureFlags = UINT_MAX;
-    initParam.cycleLen = cycleLen_p;       // required for error detection
-    initParam.isochrTxMaxPayload = 256;              // const
-    initParam.isochrRxMaxPayload = 1490;             // const
-    initParam.presMaxLatency = 50000;            // const; only required for IdentRes
-    initParam.preqActPayloadLimit = 36;               // required for initialisation (+28 bytes)
-    initParam.presActPayloadLimit = 36;               // required for initialisation of Pres frame (+28 bytes)
-    initParam.asndMaxLatency = 150000;           // const; only required for IdentRes
-    initParam.multiplCylceCnt = 0;                // required for error detection
-    initParam.asyncMtu = 1500;             // required to set up max frame size
-    initParam.prescaler = 2;                // required for sync
+    initParam.cycleLen = cycleLen_p;             // required for error detection
+    initParam.isochrTxMaxPayload = C_DLL_ISOCHR_MAX_PAYL;  // const
+    initParam.isochrRxMaxPayload = C_DLL_ISOCHR_MAX_PAYL;  // const
+    initParam.presMaxLatency = 50000;                  // const; only required for IdentRes
+    initParam.preqActPayloadLimit = 36;                     // required for initialization (+28 bytes)
+    initParam.presActPayloadLimit = 36;                     // required for initialization of Pres frame (+28 bytes)
+    initParam.asndMaxLatency = 150000;                 // const; only required for IdentRes
+    initParam.multiplCylceCnt = 0;                      // required for error detection
+    initParam.asyncMtu = 1500;                   // required to set up max frame size
+    initParam.prescaler = 2;                      // required for sync
     initParam.lossOfFrameTolerance = 500000;
     initParam.asyncSlotTimeout = 3000000;
     initParam.waitSocPreq = 1000;
-    initParam.deviceType = UINT_MAX;         // NMT_DeviceType_U32
-    initParam.vendorId = UINT_MAX;         // NMT_IdentityObject_REC.VendorId_U32
-    initParam.productCode = UINT_MAX;         // NMT_IdentityObject_REC.ProductCode_U32
-    initParam.revisionNumber = UINT_MAX;         // NMT_IdentityObject_REC.RevisionNo_U32
-    initParam.serialNumber = UINT_MAX;         // NMT_IdentityObject_REC.SerialNo_U32
-
+    initParam.deviceType = UINT_MAX;               // NMT_DeviceType_U32
+    initParam.vendorId = UINT_MAX;               // NMT_IdentityObject_REC.VendorId_U32
+    initParam.productCode = UINT_MAX;               // NMT_IdentityObject_REC.ProductCode_U32
+    initParam.revisionNumber = UINT_MAX;               // NMT_IdentityObject_REC.RevisionNo_U32
+    initParam.serialNumber = UINT_MAX;               // NMT_IdentityObject_REC.SerialNo_U32
+    initParam.applicationSwDate = 0;
+    initParam.applicationSwTime = 0;
     initParam.subnetMask = SUBNET_MASK;
     initParam.defaultGateway = DEFAULT_GATEWAY;
     sprintf((char*)initParam.sHostname, "%02x-%08x", initParam.nodeId, initParam.vendorId);
@@ -297,6 +261,10 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
     ret = obdcreate_initObd(&initParam.obdInitParam);
     if (ret != kErrorOk)
     {
+        fprintf(stderr,
+            "obdcreate_initObd() failed with \"%s\" (0x%04x)\n",
+            debugstr_getRetValStr(ret),
+            ret);
         eventlog_printMessage(kEventlogLevelFatal,
             kEventlogCategoryControl,
             "obdcreate_initObd() failed with \"%s\" (0x%04x)\n",
@@ -315,7 +283,7 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
             ret);
         eventlog_printMessage(kEventlogLevelFatal,
             kEventlogCategoryControl,
-            "oplk_init() failed with \"%s\" (0x%04x)\n",
+            "oplk_initialize() failed with \"%s\" (0x%04x)\n",
             debugstr_getRetValStr(ret),
             ret);
         return ret;
@@ -328,19 +296,9 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
             "oplk_create() failed with \"%s\" (0x%04x)\n",
             debugstr_getRetValStr(ret),
             ret);
-        return ret;
-    }
-
-    ret = oplk_setCdcFilename(cdcFileName_p);
-    if (ret != kErrorOk)
-    {
-        fprintf(stderr,
-            "oplk_setCdcFilename() failed with \"%s\" (0x%04x)\n",
-            debugstr_getRetValStr(ret),
-            ret);
         eventlog_printMessage(kEventlogLevelFatal,
             kEventlogCategoryControl,
-            "oplk_setCdcFilename() failed with \"%s\" (0x%04x)\n",
+            "oplk_create() failed with \"%s\" (0x%04x)\n",
             debugstr_getRetValStr(ret),
             ret);
         return ret;
@@ -361,9 +319,6 @@ void initOplThread(void)
 {
     tOplkError  ret = kErrorOk;
 
-    system_startFirmwareManagerThread(firmwaremanager_thread, 5);
-
-
     // start stack processing by sending a NMT reset command
     ret = oplk_execNmtCommand(kNmtEventSwReset);
     if (ret != kErrorOk)
@@ -375,7 +330,9 @@ void initOplThread(void)
         return;
     }
 
+    setupInputs();
 
+    processSync();
 }
 
 //------------------------------------------------------------------------------
@@ -391,95 +348,53 @@ The function implements the synchronous data handler.
 //------------------------------------------------------------------------------
 tOplkError processSync(void)
 {
-    tOplkError  ret;
-    int         i;
+    tOplkError  ret = kErrorOk;
 
-    ret = oplk_waitSyncEvent(100000);
+    if (oplk_waitSyncEvent(100000) != kErrorOk)
+        return ret;
+
+    activated_In_CN_l[0] = true;
+
+    /* setup output image - digital inputs */
+    // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
+    for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In; i++)
+    {
+        if (activated_In_CN_l[i])
+            values_In_CN_l[i] = pProcessImageIn_l->in_CN_array[i];
+    }
+
+    ret = oplk_exchangeProcessImageIn();
     if (ret != kErrorOk)
         return ret;
+
+    /* read input image - digital outputs */
+    activated_Out_CN_l[nbValuesCN_Out_ByCN-1] = true;
+
+    for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
+    {
+        if (activated_Out_CN_l[i])
+            pProcessImageOut_l->out_CN_array[i] = values_Out_CN_l[i];
+    }
 
     ret = oplk_exchangeProcessImageOut();
     if (ret != kErrorOk)
         return ret;
 
-    //for (int i = 0; i < sizeof(pProcessImageOut_l->in_MN_array) / sizeof(pProcessImageOut_l->in_MN_array[0]); i++)
-    //{
-    //    values_IO_l[i] = pProcessImageOut_l->in_MN_array[i];
-    //    //printf("arropl at %d = %d \n", i, values_IO_l[i]);
-    //}
-
-    cnt_l++;
-
-    aNodeVar_l[0].input = pProcessImageIn_l->in_MN_array[1];
-    aNodeVar_l[1].input = pProcessImageIn_l->in_MN_array[26];
-    aNodeVar_l[2].input = pProcessImageIn_l->in_MN_array[51];
-
-    values_In_MN_l[0] = pProcessImageIn_l->in_MN_array[0];
-
-    for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
-    {
-        if (activated_Out_MN_l[i])
-        {
-            pProcessImageOut_l->out_MN_array[i] = values_Out_MN_l[i];
-        }
-    }
-
-    for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
-    {
-        if (activated_In_MN_l[i])
-        {
-            values_In_MN_l[i] = pProcessImageIn_l->in_MN_array[i];
-        }
-    }
-
-
-    for (i = 0; (i < MAX_NODES) && (aUsedNodeIds_l[i] != 0); i++)
-    {
-        /* Running LEDs */
-        /* period for LED flashing determined by inputs */
-        aNodeVar_l[i].period = (aNodeVar_l[i].input == 0) ? 1 : (aNodeVar_l[i].input * 20);
-        if (cnt_l % aNodeVar_l[i].period == 0)
-        {
-            if (aNodeVar_l[i].leds == 0x00000000)
-            {
-                aNodeVar_l[i].leds = 0x1;
-                aNodeVar_l[i].toggle = 1;
-            }
-            else
-            {
-                if (aNodeVar_l[i].toggle)
-                {
-                    aNodeVar_l[i].leds <<= 1;
-                    if (aNodeVar_l[i].leds == APP_LED_MASK_1)
-                        aNodeVar_l[i].toggle = 0;
-                }
-                else
-                {
-                    aNodeVar_l[i].leds >>= 1;
-                    if (aNodeVar_l[i].leds == 0x00000001)
-                        aNodeVar_l[i].toggle = 1;
-                }
-            }
-        }
-
-        if (aNodeVar_l[i].input != aNodeVar_l[i].inputOld)
-            aNodeVar_l[i].inputOld = aNodeVar_l[i].input;
-
-        if (aNodeVar_l[i].leds != aNodeVar_l[i].ledsOld)
-            aNodeVar_l[i].ledsOld = aNodeVar_l[i].leds;
-    }
-
-    pProcessImageOut_l->out_MN_array[0] = aNodeVar_l[0].leds;
-    pProcessImageOut_l->out_MN_array[13] = aNodeVar_l[1].leds;
-    pProcessImageOut_l->out_MN_array[26] = aNodeVar_l[2].leds;
-    //values_Out_MN_l[0] = 0x1FFF;
-
-    pProcessImageOut_l->out_MN_array[0] = values_Out_MN_l[0];
-
-    
-    ret = oplk_exchangeProcessImageIn();
-
     return ret;
+}
+
+//------------------------------------------------------------------------------
+/**
+\brief  Setup inputs
+
+The function initializes the digital input port.
+
+\ingroup module_demo_cn_console
+*/
+//------------------------------------------------------------------------------
+void setupInputs(void)
+{
+    memset(&values_In_CN_l, 0, sizeof(values_In_CN_l));
 }
 
 //------------------------------------------------------------------------------
@@ -494,10 +409,13 @@ The function initializes the process image of the application.
 tOplkError initProcessImage(void)
 {
     tOplkError  ret = kErrorOk;
-    UINT        errorIndex = 0;
+    UINT        varEntries;
+    tObdSize    obdSize;
 
+
+    /* Allocate process image */
     printf("Initializing process image...\n");
-    printf("Size of process image: Input = %lu Output = %lu\n",
+    printf("Size of process image: Input = %lu Output = %lu \n",
         (ULONG)sizeof(UNION_IN),
         (ULONG)sizeof(UNION_OUT));
     eventlog_printMessage(kEventlogLevelInfo,
@@ -513,29 +431,118 @@ tOplkError initProcessImage(void)
     pProcessImageIn_l = (const UNION_IN*)oplk_getProcessImageIn();
     pProcessImageOut_l = (UNION_OUT*)oplk_getProcessImageOut();
 
-    errorIndex = obdpi_setupProcessImage();
-    if (errorIndex != 0)
+    /* link process variables used by CN to object dictionary */
+    fprintf(stderr, "Linking process image vars:\n");
+
+    varEntries = 1;
+
+    //Link image EC of the correct NODEID
+    obdSize = 2;
+    ret = linkPDO_out(varEntries, obdSize, nbValuesCN_Out_ByCN-1, 0x6511, NODEID);
+    if (ret != kErrorOk)
     {
-        eventlog_printMessage(kEventlogLevelFatal,
-            kEventlogCategoryControl,
-            "Setup process image failed at index 0x%04x\n",
-            errorIndex);
-        ret = kErrorApiPINotAllocated;
+        return ret;
+    }
+
+    // Init process image output
+    // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
+    for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
+    {
+        if (activated_Out_CN_l[i])
+        {
+            //Link valves images
+            if (i > nbValuesCN_Out_ByCN && i <= nbValuesCN_Out_ByCN + nbValuesCN_Out / 2)
+            {
+                obdSize = 1;
+                ret = linkPDO_out(varEntries, obdSize, i, 0x6510, 0x01 + i % (nbValuesCN_Out / 2));
+            }
+            //Link sensors images
+            else if (i > nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 && i <= nbValuesCN_Out_ByCN + nbValuesCN_Out)
+            {
+                obdSize = 4;
+                ret = linkPDO_out(varEntries, obdSize, i, 0x6512, 0x01 + i % (nbValuesCN_Out / 2));
+            }
+            if (ret != kErrorOk)
+            {
+                return ret;
+            }
+        }
+    }
+
+    // Init process image input
+    for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In / 2; i++)
+    {
+        //Link valves images in from MN
+        if (activated_In_CN_l[i])
+        {
+            obdSize = 1;
+            ret = linkPDO_in(varEntries, obdSize, i, 0x6500, 0x01 + i % (nbValuesCN_In / 2));
+            if (ret != kErrorOk)
+            {
+                return ret;
+            }
+        }
+    }
+
+    // Link image input EG
+    obdSize = 2;
+    ret = linkPDO_in(varEntries, obdSize, 0, 0x6501, 0xF0);
+    if (ret != kErrorOk)
+    {
+        return ret;
+    }
+
+    fprintf(stderr, "Linking process vars... ok\n\n");
+
+    return kErrorOk;
+}
+
+
+tOplkError linkPDO_in(UINT varEntries, tObdSize obdSize, const UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
+    tOplkError  ret = kErrorOk;
+
+    ret = oplk_linkProcessImageObject(index,
+        subIndex,
+        offsetof(UNION_IN, in_CN_array[0]) + sizeof(INT16) * arrayIndex,
+        FALSE,
+        obdSize,
+        &varEntries);
+    if (ret != kErrorOk)
+    {
+        fprintf(stderr,
+            "Linking process vars failed with \"%s\" (0x%04x)\n",
+            debugstr_getRetValStr(ret),
+            ret);
     }
 
     return ret;
 }
 
-bool testOPL() 
-{
-    return true;
+tOplkError linkPDO_out(UINT varEntries, tObdSize obdSize, const UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
+    tOplkError  ret = kErrorOk;
+
+    ret = oplk_linkProcessImageObject(index,
+        subIndex,
+        offsetof(UNION_OUT, out_CN_array[0]) + sizeof(INT32) * arrayIndex,
+        FALSE,
+        obdSize,
+        &varEntries);
+    if (ret != kErrorOk)
+    {
+        fprintf(stderr,
+            "Linking process vars failed with \"%s\" (0x%04x)\n",
+            debugstr_getRetValStr(ret),
+            ret);
+    }
+
+    return ret;
 }
 
 bool ExtinctOPL()
 {
     shutdownOplImage();
     shutdownPowerlink();
-    firmwaremanager_exit();
+    system_exit();
 
     return true;
 }
@@ -565,25 +572,21 @@ void shutdownOplImage(void)
     }
 }
 
+//------------------------------------------------------------------------------
+/**
+\brief  Shutdown the demo application
+
+The function shuts down the demo application.
+*/
+//------------------------------------------------------------------------------
 void shutdownPowerlink(void)
 {
-    UINT        i;
-    tOplkError  ret = kErrorOk;
+    UINT    i;
 
-    // NMT_GS_OFF state has not yet been reached
     fGsOff_l = FALSE;
 
-    system_stopFirmwareManagerThread();
-
     // halt the NMT state machine so the processing of POWERLINK frames stops
-    ret = oplk_execNmtCommand(kNmtEventSwitchOff);
-    if (ret != kErrorOk)
-    {
-        fprintf(stderr,
-            "oplk_execNmtCommand() failed with \"%s\" (0x%04x)\n",
-            debugstr_getRetValStr(ret),
-            ret);
-    }
+    oplk_execNmtCommand(kNmtEventSwitchOff);
 
     // small loop to implement timeout waiting for thread to terminate
     for (i = 0; i < 1000; i++)

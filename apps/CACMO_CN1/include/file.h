@@ -2,6 +2,8 @@
 #define FILE_H
 
 
+#include <eventlog/eventlog.h>
+
 class file
 {
     public:

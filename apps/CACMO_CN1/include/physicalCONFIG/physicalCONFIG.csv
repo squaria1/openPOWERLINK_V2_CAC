@@ -1,0 +1,25 @@
+﻿Carte;Vannes/Etat;Activation;Etat initial;PORT GPIO;Min value;Max value
+CACMO;valve0;1;0;5;;
+CACMO;valve1;1;0;6;;
+CACMO;valve2;1;0;19;;
+CACMO;valve3;1;0;26;;
+CACMO;valve4;0;;;;
+CACMO;valve5;0;;;;
+CACMO;valve6;0;;;;
+CACMO;valve7;0;;;;
+CACMO;valve8;0;;;;
+CACMO;valve9;0;;;;
+CACMO;valve10;0;;;;
+CACMO;valve11;0;;;;
+CACMO;sensorCH0;1;1;;100;1000
+CACMO;sensorCH1;1;1;;100;1000
+CACMO;sensorCH2;1;0;;100;1000
+CACMO;sensorCH3;1;0;;100;1000
+CACMO;sensorCH4;0;-1;;100;1000
+CACMO;sensorCH5;0;-1;;;
+CACMO;sensorCH6;0;;;;
+CACMO;sensorCH7;0;;;;
+CACMO;sensorCH8;0;;;;
+CACMO;sensorCH9;0;;;;
+CACMO;sensorCH10;0;;;;
+CACMO;sensorCH11;0;;;;

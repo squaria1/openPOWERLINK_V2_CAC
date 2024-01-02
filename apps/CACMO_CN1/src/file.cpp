@@ -1,8 +1,5 @@
 #include "file.h"
 
-#include <eventlog/eventlog.h>
-
-
 file::file()
 {
     //constructor
@@ -23,9 +20,13 @@ bool file::testWriteFile()
     return true;
 }
 
-void file::writeTelem() 
+void file::writeTelem(int statusCode) 
 {
-    
+    eventlog_printMessage(kEventlogLevelFatal,
+        kEventlogCategoryControl,
+        "obdcreate_initObd() failed with \"%s\" (0x%04x)\n",
+        debugstr_getRetValStr(ret),
+        ret);
 }
 
 void file::writeError() 
