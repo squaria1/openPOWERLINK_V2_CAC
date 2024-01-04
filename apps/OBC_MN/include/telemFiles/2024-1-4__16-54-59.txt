@@ -1,2 +1,0 @@
-2024/01/04-16:54:59 INFO     GENERIC        code_success:0x03
-2024/01/04-16:54:59 INFO     GENERIC        code_success:0xE003
