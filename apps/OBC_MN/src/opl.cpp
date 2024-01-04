@@ -149,6 +149,8 @@ bool initOPL()
         oplk_getVersionString(),
         oplk_getStackConfiguration());
 
+    
+
     eventlog_printMessage(kEventlogLevelInfo,
         kEventlogCategoryGeneric,
         "Using CDC file: %s",

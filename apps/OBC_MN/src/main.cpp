@@ -1,8 +1,11 @@
 #include "opl.h"
 #include "file.h"
 
+#include <iostream>
+using namespace std;
+
 int main() {
-    int etat=1;
+    /*int etat = 1;
     opl opl;
     file file;
     char cKey = 0;
@@ -13,17 +16,17 @@ int main() {
         switch(etat){
             case 1: // Initialisation
                 if (initOPL()) {
-                    file.writeTelem();
+                    file.writeTelem("code_success:0x % 08X", 0x0003);
                     opl.sendTelem();
                 }
                 else {
                     file.writeError();
                 }
                 if(testOPL()){
-                    file.writeTelem();
+                    file.writeTelem("code_success:0x % 08X", 0x0003);
                     opl.sendTelem();
                 }else{
-                    file.writeError();
+                    file.writeError("", 0xE003);
                     opl.sendError();
                 }
                 if(opl.demandeExtinctOPL()){
@@ -66,15 +69,24 @@ int main() {
                 break;
             case 3: // Extinction
                 if (ExtinctOPL()) {
-                    file.writeTelem();
+                    file.writeTelem("code_success:0x % 08X", 0x0003);
                 }
                 else {
-                    file.writeError();
+                    file.writeError("", 0xE003);
                 }
                 etat=4;
                 break;
         }
     }
 
-    return 0;
+    return 0;*/
+    file test;
+    test.initFile();
+    test.openFile();
+   
+     
+    test.writeTelem( "code_success:0x % 08X" , 0x0003);
+    test.writeError( "" , 0xE003);
+    test.closeFile();
+    
 }
