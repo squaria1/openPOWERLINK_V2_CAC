@@ -505,7 +505,7 @@ tOplkError initProcessImage(void)
 }
 
 
-tOplkError linkPDO_in(UINT varEntries, tObdSize obdSize, const UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
+tOplkError linkPDO_in(UINT varEntries, tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
     tOplkError  ret = kErrorOk;
 
     //ret = oplk_linkProcessImageObject(index,
@@ -531,7 +531,7 @@ tOplkError linkPDO_in(UINT varEntries, tObdSize obdSize, const UINT16 arrayIndex
     return ret;
 }
 
-tOplkError linkPDO_out(UINT varEntries, tObdSize obdSize, const UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
+tOplkError linkPDO_out(UINT varEntries, tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
     tOplkError  ret = kErrorOk;
 
     //ret = oplk_linkProcessImageObject(index,
