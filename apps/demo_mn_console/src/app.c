@@ -101,7 +101,7 @@ static int              aUsedNodeIds_l[] = {1, 32, 110, 0};
 static UINT             cnt_l;
 static APP_NODE_VAR_T   aNodeVar_l[MAX_NODES];
 static PI_IN*           pProcessImageIn_l;
-static PI_OUT*          pProcessImageOut_l;
+static const PI_OUT*          pProcessImageOut_l;
 
 //------------------------------------------------------------------------------
 // local function prototypes
@@ -140,10 +140,7 @@ tOplkError initApp(void)
         aNodeVar_l[i].period = 0;
     }
 
-    for (i = 0; i < 75; i++)
-    {
-        pProcessImageOut_l->out_MN_array[i] = 0;
-    }
+    memset(&pProcessImageOut_l, 0, sizeof(pProcessImageOut_l));
 
     ret = initProcessImage();
 
