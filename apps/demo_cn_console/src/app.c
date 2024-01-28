@@ -83,7 +83,7 @@ typedef struct
 {
    //UINT8                digitalIn;
 
-   UINT8                digitalIn;
+   UINT16                digitalIn;
 } PI_IN;
 
 /* structure for output process image */
