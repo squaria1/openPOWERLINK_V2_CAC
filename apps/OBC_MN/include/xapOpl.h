@@ -8,8 +8,9 @@
 
 #define COMPUTED_PI_IN_SIZE 75
 
-typedef union
+typedef struct
 {
+	/*
 	struct
 	{
 		signed CN1_Input_AI16_EC1 : 16;										//0
@@ -88,13 +89,15 @@ typedef union
 		signed CN3_Input_AI32_SENSOR11 : 32;								//73
 		signed CN3_Input_AI32_SENSOR12 : 32;								//74
 	} PI_IN;
+	*/
 	signed in_MN_array[COMPUTED_PI_IN_SIZE];
 } UNION_IN;
 
 
 #define COMPUTED_PI_OUT_SIZE 39
-typedef union
+typedef struct
 {
+	/*
 	struct
 	{
 		signed CN1_Output_AI16_EG : 16;											//0
@@ -137,6 +140,7 @@ typedef union
 		signed CN3_Output_AI8_VALVE11 : 8;										//37
 		signed CN3_Output_AI8_VALVE12 : 8;										//38
 	} PI_OUT;
+	*/
 	signed out_MN_array[COMPUTED_PI_OUT_SIZE];
 }UNION_OUT;
 

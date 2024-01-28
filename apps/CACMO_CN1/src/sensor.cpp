@@ -44,7 +44,7 @@ int sensor::initSensor(){
 
     memset(adc_list, 0, sizeof(adc_list));
 
-    for (i = 0; i < MAX_ADC; i++) { //0 à taille tab de benoit
+    for (i = 0; i < MAX_ADC; i++) { //0 ï¿½ taille tab de benoit
         
         if (tabSensorActive[i])
             adc_list[adc] = 1;

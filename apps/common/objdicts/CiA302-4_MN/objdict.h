@@ -1180,35 +1180,6 @@ OBD_BEGIN()
      *************************************************************************/
     OBD_BEGIN_PART_DEVICE()
         // static input process image (from network point of view)
-		
-		OBD_RAM_INDEX_RAM_VARARRAY_NOINIT(0x6000, 0x04, FALSE, kObdTypeUInt8, kObdAccVPR, tObdUnsigned8, DigitalInput_00h_AU8)
-
-		OBD_RAM_INDEX_RAM_VARARRAY_NOINIT(0x6200, 0x04, FALSE, kObdTypeUInt8, kObdAccVPRW, tObdUnsigned8, DigitalOutput_00h_AU8)
-
-		OBD_RAM_INDEX_RAM_VARARRAY_NOINIT(0x6400, 0x04, FALSE, kObdTypeInt8, kObdAccVPR, tObdInteger8, AnalogueInput_00h_AI8)
-
-		OBD_RAM_INDEX_RAM_VARARRAY_NOINIT(0x6401, 0x02, FALSE, kObdTypeInt16, kObdAccVPR, tObdInteger16, AnalogueInput_00h_AI16)
-
-		OBD_RAM_INDEX_RAM_VARARRAY_NOINIT(0x6402, 0x01, FALSE, kObdTypeInt32, kObdAccVPR, tObdInteger32, AnalogueInput_00h_AI32)
-
-		OBD_RAM_INDEX_RAM_VARARRAY_NOINIT(0x6410, 0x04, FALSE, kObdTypeInt8, kObdAccVPRW, tObdInteger8, AnalogueOutput_00h_AI8)
-
-		OBD_RAM_INDEX_RAM_VARARRAY_NOINIT(0x6411, 0x02, FALSE, kObdTypeInt16, kObdAccVPRW, tObdInteger16, AnalogueOutput_00h_AI16)
-
-		OBD_RAM_INDEX_RAM_VARARRAY_NOINIT(0x6412, 0x01, FALSE, kObdTypeInt32, kObdAccVPRW, tObdInteger32, AnalogueOutput_00h_AI32)
-
-		OBD_RAM_INDEX_RAM_VARARRAY_NOINIT(0x6500, 0xC, FALSE, kObdTypeInt8, kObdAccVPR, tObdInteger8, Output_AI8)
-
-		OBD_RAM_INDEX_RAM_VARARRAY_NOINIT(0x6501, 0xF0, FALSE, kObdTypeInt16, kObdAccVPR, tObdInteger16, Output_AI16)
-
-		OBD_RAM_INDEX_RAM_VARARRAY_NOINIT(0x6502, 0xC, FALSE, kObdTypeInt32, kObdAccVPR, tObdInteger32, Input_AI32)
-
-		OBD_RAM_INDEX_RAM_VARARRAY_NOINIT(0x6510, 0xC, FALSE, kObdTypeInt8, kObdAccVPRW, tObdInteger8, Input_AI8)
-
-		OBD_RAM_INDEX_RAM_VARARRAY_NOINIT(0x6511, 0xF0, FALSE, kObdTypeInt16, kObdAccVPRW, tObdInteger16, Output_AI16)
-
-		OBD_RAM_INDEX_RAM_VARARRAY_NOINIT(0x6512, 0xC, FALSE, kObdTypeInt32, kObdAccVPRW, tObdInteger32, Output_AI32)
-		
         OBD_RAM_INDEX_RAM_VARARRAY(0xA000, (252), FALSE, kObdTypeInt8, kObdAccVPR, tObdInteger8, PI_Input_I8, 0x00)
         OBD_RAM_INDEX_RAM_VARARRAY(0xA001, (252), FALSE, kObdTypeInt8, kObdAccVPR, tObdInteger8, PI_Input_I8, 0x00)
         OBD_RAM_INDEX_RAM_VARARRAY(0xA002, (252), FALSE, kObdTypeInt8, kObdAccVPR, tObdInteger8, PI_Input_I8, 0x00)

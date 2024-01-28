@@ -1,14 +1,12 @@
 #include "file.h"
 
-
-
 using namespace std;
 
 //const string PATH_DIRECTORY_telemFiles = "..\\..\\..\\include\\telemFiles";
 
 //const string PATH_DIRECTORY_LIST_TELEM_FILES = PATH_DIRECTORY_telemFiles + "\\listTelemFiles.txt";
 
-string nameFiles;//nom du fichier à créer avec le temps actuel
+string nameFiles;//nom du fichier a creer avec le temps actuel
 
 static string year_month_day;
 
@@ -26,8 +24,8 @@ file::~file()
 
 bool file::initFile()
 {
-    time_t now = time(0); // récupération du temps actuel dans la variable now
-    tm* tm_NOW = localtime(&now); // transformation du temps actuel en struct tm contenant les composantes temporelles d'une date : seconde,minute,heure,jour,mois,année 
+    time_t now = time(0); // rï¿½cupï¿½ration du temps actuel dans la variable now
+    tm* tm_NOW = localtime(&now); // transformation du temps actuel en struct tm contenant les composantes temporelles d'une date : seconde,minute,heure,jour,mois,annï¿½e 
     
     int  year = 1900 + tm_NOW->tm_year;
     int  month = 1 + tm_NOW->tm_mon;
@@ -74,9 +72,9 @@ bool file::initFile()
     //dataFile.close(); 
     
 
-/******************* stockage du chemin du nouveau fichier de télémétrie ******************/
+/******************* stockage du chemin du nouveau fichier de tï¿½lï¿½mï¿½trie ******************/
     
-    //dataFile.open(file::PATH_DIRECTORY_LIST_TELEM_FILES, ios::out | ios::app);// ouverture du fichier en mode écriture avec curseur repositionné automatiquement à la fin du fichier
+    //dataFile.open(file::PATH_DIRECTORY_LIST_TELEM_FILES, ios::out | ios::app);// ouverture du fichier en mode ï¿½criture avec curseur repositionnï¿½ automatiquement ï¿½ la fin du fichier
     //dataFile << PATH_DIRECTORY_FILE << endl;
     //dataFile.close();
     
@@ -129,7 +127,7 @@ void file::writeError(const char* fmt_p, ...) ///< ajouter uniquement : uint16_t
 
 bool file::openFile()
 {
-    file::dataFile.open(file::pathFile, ios::out | ios::app);// ouverture du fichier en mode écriture avec curseur repositionné automatiquement à la fin du fichier
+    file::dataFile.open(file::pathFile, ios::out | ios::app);// ouverture du fichier en mode ï¿½criture avec curseur repositionnï¿½ automatiquement ï¿½ la fin du fichier
     return true;
 }
 

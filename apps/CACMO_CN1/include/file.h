@@ -2,24 +2,40 @@
 #define FILE_H
 
 
-#include <eventlog/eventlog.h>
+#include "eventOpl.h"
+#include <iostream>
+#include <fstream>
+#include <ctime>
+#include <string>
+
+
+#define EVENTLOG_MAX_LENGTH 256
+
+using namespace std;
 
 class file
 {
-    public:
-        file();
-        ~file();
-
-        bool initFile();
-        bool testWriteFile();
-        bool closeFile();
-        void writeTelem();
-        void writeError();
+public:
 
 
-    protected:
+    file();
+    ~file();
 
-    private:
+    bool initFile();
+    bool testWriteFile();
+    bool openFile();
+    bool closeFile();
+    void writeTelem(const char* fmt_p, ...); ///< ajouter uniquement : uint16_t codeSuccess
+    void writeError(const char* fmt_p = "code_Error:0x%08X", ...); ///< ajouter uniquement : uint16_t codeError
+
+
+
+protected:
+
+private:
+    const string PATH_DIRECTORY_telemFiles = "..\\..\\..\\include\\telemFiles";
+    string pathFile;
+    ofstream dataFile;
 };
 
 #endif // FILE_H

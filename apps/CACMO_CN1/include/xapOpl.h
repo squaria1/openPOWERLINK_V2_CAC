@@ -9,8 +9,9 @@
 #include <eventlog/eventlog.h>
 
 #define COMPUTED_PI_OUT_SIZE 75
-typedef union
+typedef struct
 {
+	/*
 	struct
 	{
 		INT16 CN1_Output_AI16_EC1;										//0
@@ -89,12 +90,14 @@ typedef union
 		INT32 CN3_Output_AI32_SENSOR11;									//73
 		INT32 CN3_Output_AI32_SENSOR12;									//74
 	} PI_OUT;
+	*/
 	INT32 out_CN_array[COMPUTED_PI_OUT_SIZE];
 } UNION_OUT;
 
 #define COMPUTED_PI_IN_SIZE 39
-typedef union
+typedef struct
 {
+	/*
 	struct
 	{
 		INT16 CN1_Input_AI16_EG;									//0
@@ -137,6 +140,7 @@ typedef union
 		INT8 CN3_Input_AI8_VALVE11;									//37
 		INT8 CN3_Input_AI8_VALVE12;									//38
 	} PI_IN;
+	*/
 	INT16 in_CN_array[COMPUTED_PI_IN_SIZE];
 } UNION_IN;
 
