@@ -9,6 +9,7 @@
 #define COMPUTED_PI_OUT_SIZE 152
 typedef struct
 {
+	/*
 	signed CN1_EC_In_AI16_EC1:16;
 	signed CN1_VALVE_In_AI16_VALVE1:16;
 	signed CN1_VALVE_In_AI16_VALVE2:16;
@@ -85,11 +86,14 @@ typedef struct
 	signed CN3_SENSOR_In_AI16_SENSOR11:16;
 	signed CN3_SENSOR_In_AI16_SENSOR12:16;
 	unsigned PADDING_VAR_1:16;
+	*/
+	UINT16 out_MN_array[75];
 } PI_OUT;
 
 #define COMPUTED_PI_IN_SIZE 80
 typedef struct
 {
+	/*
 	signed CN1_EC_Out_AI16_EG:16;
 	signed CN1_VALVE_Out_AI16_VALVE1:16;
 	signed CN1_VALVE_Out_AI16_VALVE2:16;
@@ -130,6 +134,8 @@ typedef struct
 	signed CN3_VALVE_Out_AI16_VALVE11:16;
 	signed CN3_VALVE_Out_AI16_VALVE12:16;
 	unsigned PADDING_VAR_1:16;
+	*/
+	UINT16 in_MN_array[39];
 } PI_IN;
 
 #endif
