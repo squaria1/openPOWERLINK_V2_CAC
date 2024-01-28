@@ -203,7 +203,7 @@ tOplkError processSync(void)
     //aNodeVar_l[2].input = pProcessImageOut_l->CN110_DigitalInput_00h_AU8_DigitalInput;
 
     //aNodeVar_l[0].input = pProcessImageOut_l->CN1_EC_In_AI16_EC1;
-    aNodeVar_l[0].input = pProcessImageOut_l->out_MN_array[0];
+    aNodeVar_l[0].input = pProcessImageOut_l->out_MN_array[10];
 
     for (i = 0; (i < MAX_NODES) && (aUsedNodeIds_l[i] != 0); i++)
     {
