@@ -81,13 +81,16 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /* structure for input process image */
 typedef struct
 {
-   UINT8                digitalIn;
+   //UINT8                digitalIn;
+
+   UINT16                digitalIn;
 } PI_IN;
 
 /* structure for output process image */
 typedef struct
 {
-   UINT8                digitalOut;
+   //UINT8                digitalOut;
+   UINT16                digitalOut;
 } PI_OUT;
 
 //------------------------------------------------------------------------------
@@ -329,12 +332,18 @@ static tOplkError initProcessImage(void)
 
     obdSize = sizeof(pProcessImageIn_l->digitalIn);
     varEntries = 1;
-    ret = oplk_linkProcessImageObject(0x6000,
-                                      0x01,
-                                      offsetof(PI_IN, digitalIn),
-                                      FALSE,
-                                      obdSize,
-                                      &varEntries);
+    //ret = oplk_linkProcessImageObject(0x6000,
+    //                                  0x01,
+    //                                  offsetof(PI_IN, digitalIn),
+    //                                  FALSE,
+    //                                  obdSize,
+    //                                  &varEntries);
+    ret = oplk_linkProcessImageObject(0x6501,
+                                        0x01,
+                                        offsetof(PI_IN, digitalIn),
+                                        FALSE,
+                                        obdSize,
+                                        &varEntries);
     if (ret != kErrorOk)
     {
         fprintf(stderr,
@@ -346,12 +355,18 @@ static tOplkError initProcessImage(void)
 
     obdSize = sizeof(pProcessImageOut_l->digitalOut);
     varEntries = 1;
-    ret = oplk_linkProcessImageObject(0x6200,
-                                      0x01,
-                                      offsetof(PI_OUT, digitalOut),
-                                      TRUE,
-                                      obdSize,
-                                      &varEntries);
+    //ret = oplk_linkProcessImageObject(0x6200,
+    //                                  0x01,
+    //                                  offsetof(PI_OUT, digitalOut),
+    //                                  TRUE,
+    //                                  obdSize,
+    //                                  &varEntries);
+    ret = oplk_linkProcessImageObject(0x6511,
+                                        0xF0,
+                                        offsetof(PI_OUT, digitalOut),
+                                        TRUE,
+                                        obdSize,
+                                        &varEntries);
     if (ret != kErrorOk)
     {
         fprintf(stderr,
