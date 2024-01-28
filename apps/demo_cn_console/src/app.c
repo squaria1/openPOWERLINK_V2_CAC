@@ -82,15 +82,18 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 typedef struct
 {
    //UINT8                digitalIn;
+   //UINT16                digitalIn;
 
-   UINT16                digitalIn;
+   UINT16               in_CN_array[1];
 } PI_IN;
 
 /* structure for output process image */
 typedef struct
 {
    //UINT8                digitalOut;
-   UINT16                digitalOut;
+   //UINT16                digitalOut;
+
+   UINT16               out_CN_array[1];
 } PI_OUT;
 
 //------------------------------------------------------------------------------
@@ -172,10 +175,10 @@ tOplkError processSync(void)
         return ret;
 
     /* read input image - digital outputs */
-    digitalOut_l = pProcessImageOut_l->digitalOut;
+    digitalOut_l = pProcessImageOut_l->out_CN_array[0];
 
     /* setup output image - digital inputs */
-    pProcessImageIn_l->digitalIn = digitalIn_l;
+    pProcessImageIn_l->in_CN_array[0] = digitalIn_l;
 
     ret = oplk_exchangeProcessImageIn();
 
@@ -330,7 +333,7 @@ static tOplkError initProcessImage(void)
     /* link process variables used by CN to object dictionary */
     fprintf(stderr, "Linking process image vars:\n");
 
-    obdSize = sizeof(pProcessImageIn_l->digitalIn);
+    obdSize = sizeof(pProcessImageIn_l->in_CN_array[0]);
     varEntries = 1;
     //ret = oplk_linkProcessImageObject(0x6000,
     //                                  0x01,
@@ -340,7 +343,7 @@ static tOplkError initProcessImage(void)
     //                                  &varEntries);
     ret = oplk_linkProcessImageObject(0x6500,
                                         0x0A,
-                                        offsetof(PI_IN, digitalIn),
+                                        offsetof(PI_IN, in_CN_array[0]),
                                         FALSE,
                                         obdSize,
                                         &varEntries);
@@ -353,7 +356,7 @@ static tOplkError initProcessImage(void)
         return ret;
     }
 
-    obdSize = sizeof(pProcessImageOut_l->digitalOut);
+    obdSize = sizeof(pProcessImageOut_l->out_CN_array[0]);
     varEntries = 1;
     //ret = oplk_linkProcessImageObject(0x6200,
     //                                  0x01,
@@ -363,7 +366,7 @@ static tOplkError initProcessImage(void)
     //                                  &varEntries);
     ret = oplk_linkProcessImageObject(0x6511,
                                         0xF0,
-                                        offsetof(PI_OUT, digitalOut),
+                                        offsetof(PI_OUT, out_CN_array[0]),
                                         TRUE,
                                         obdSize,
                                         &varEntries);
