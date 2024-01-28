@@ -1543,22 +1543,22 @@
             <SubObject subIndex="01" name="AnalogueOutput" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO"/>
           </Object>
 		
-          <Object index="6500" name="Input_AI8" objectType="8" dataType="0002">
+          <Object index="6500" name="VALVE_In_AI16" objectType="8" dataType="0003">
             <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="12" PDOmapping="no" />
-            <SubObject subIndex="01" name="VALVE1" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="02" name="VALVE2" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="03" name="VALVE3" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="04" name="VALVE4" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="05" name="VALVE5" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="06" name="VALVE6" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="07" name="VALVE7" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="08" name="VALVE8" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="09" name="VALVE9" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="0A" name="VALVE10" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="0B" name="VALVE11" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="0C" name="VALVE12" objectType="7" dataType="0002" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="01" name="VALVE1" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="02" name="VALVE2" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="03" name="VALVE3" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="04" name="VALVE4" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="05" name="VALVE5" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="06" name="VALVE6" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="07" name="VALVE7" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="08" name="VALVE8" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="09" name="VALVE9" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0A" name="VALVE10" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0B" name="VALVE11" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0C" name="VALVE12" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
           </Object>
-          <Object index="6501" name="Input_AI16" objectType="8" dataType="0003">
+          <Object index="6501" name="EC_In_AI16" objectType="8" dataType="0003">
             <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="240" PDOmapping="no" />
             <SubObject subIndex="01" name="EC1" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
             <SubObject subIndex="02" name="EC2" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
@@ -1801,37 +1801,37 @@
             <SubObject subIndex="EF" name="EC239" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
             <SubObject subIndex="F0" name="EG" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
           </Object>
-          <Object index="6502" name="Input_AI32" objectType="8" dataType="0004">
+          <Object index="6502" name="SENSOR_In_AI16" objectType="8" dataType="0003">
             <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="12" PDOmapping="no" />
-            <SubObject subIndex="01" name="SENSOR1" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="02" name="SENSOR2" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="03" name="SENSOR3" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="04" name="SENSOR4" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="05" name="SENSOR5" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="06" name="SENSOR6" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="07" name="SENSOR7" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="08" name="SENSOR8" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="09" name="SENSOR9" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="0A" name="SENSOR10" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="0B" name="SENSOR11" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
-            <SubObject subIndex="0C" name="SENSOR12" objectType="7" dataType="0004" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="01" name="SENSOR1" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="02" name="SENSOR2" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="03" name="SENSOR3" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="04" name="SENSOR4" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="05" name="SENSOR5" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="06" name="SENSOR6" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="07" name="SENSOR7" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="08" name="SENSOR8" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="09" name="SENSOR9" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0A" name="SENSOR10" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0B" name="SENSOR11" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
+            <SubObject subIndex="0C" name="SENSOR12" objectType="7" dataType="0003" accessType="ro" PDOmapping="TPDO" />
           </Object>
-          <Object index="6510" name="Output_AI8" objectType="8" dataType="0002">
+          <Object index="6510" name="VALVE_Out_AI16" objectType="8" dataType="0003">
             <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="12" PDOmapping="no" />
-            <SubObject subIndex="01" name="VALVE1" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="02" name="VALVE2" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="03" name="VALVE3" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="04" name="VALVE4" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="05" name="VALVE5" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="06" name="VALVE6" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="07" name="VALVE7" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="08" name="VALVE8" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="09" name="VALVE9" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="0A" name="VALVE10" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="0B" name="VALVE11" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="0C" name="VALVE12" objectType="7" dataType="0002" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="01" name="VALVE1" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="02" name="VALVE2" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="03" name="VALVE3" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="04" name="VALVE4" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="05" name="VALVE5" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="06" name="VALVE6" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="07" name="VALVE7" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="08" name="VALVE8" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="09" name="VALVE9" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0A" name="VALVE10" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0B" name="VALVE11" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0C" name="VALVE12" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
           </Object>
-          <Object index="6511" name="Output_AI16" objectType="8" dataType="0003">
+          <Object index="6511" name="EC_Out_AI16" objectType="8" dataType="0003">
             <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="240" PDOmapping="no" />
             <SubObject subIndex="01" name="EC1" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
             <SubObject subIndex="02" name="EC2" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
@@ -2074,20 +2074,20 @@
             <SubObject subIndex="EF" name="EC239" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
             <SubObject subIndex="F0" name="EG" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
           </Object>
-          <Object index="6512" name="Output_AI32" objectType="8" dataType="0004">
+          <Object index="6512" name="SENSOR_Out_AI16" objectType="8" dataType="0003">
             <SubObject subIndex="00" name="NumberOfEntries" objectType="7" dataType="0005" accessType="const" defaultValue="12" PDOmapping="no" />
-            <SubObject subIndex="01" name="SENSOR1" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="02" name="SENSOR2" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="03" name="SENSOR3" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="04" name="SENSOR4" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="05" name="SENSOR5" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="06" name="SENSOR6" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="07" name="SENSOR7" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="08" name="SENSOR8" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="09" name="SENSOR9" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="0A" name="SENSOR10" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="0B" name="SENSOR11" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
-            <SubObject subIndex="0C" name="SENSOR12" objectType="7" dataType="0004" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="01" name="SENSOR1" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="02" name="SENSOR2" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="03" name="SENSOR3" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="04" name="SENSOR4" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="05" name="SENSOR5" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="06" name="SENSOR6" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="07" name="SENSOR7" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="08" name="SENSOR8" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="09" name="SENSOR9" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0A" name="SENSOR10" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0B" name="SENSOR11" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
+            <SubObject subIndex="0C" name="SENSOR12" objectType="7" dataType="0003" accessType="rw" PDOmapping="RPDO" />
           </Object>
 		  
         </ObjectList>
