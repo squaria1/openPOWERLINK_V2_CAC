@@ -101,7 +101,7 @@ static int              aUsedNodeIds_l[] = {1, 32, 110, 0};
 static UINT             cnt_l;
 static APP_NODE_VAR_T   aNodeVar_l[MAX_NODES];
 static PI_IN*           pProcessImageIn_l;
-static const PI_OUT*    pProcessImageOut_l;
+static PI_OUT*          pProcessImageOut_l;
 
 //------------------------------------------------------------------------------
 // local function prototypes
@@ -138,6 +138,11 @@ tOplkError initApp(void)
         aNodeVar_l[i].inputOld = 0;
         aNodeVar_l[i].toggle = 0;
         aNodeVar_l[i].period = 0;
+    }
+
+    for (i = 0; i < 75; i++)
+    {
+        pProcessImageOut_l->out_MN_array[i] = 0;
     }
 
     ret = initProcessImage();
@@ -201,7 +206,7 @@ tOplkError processSync(void)
     //aNodeVar_l[2].input = pProcessImageOut_l->CN110_DigitalInput_00h_AU8_DigitalInput;
 
     //aNodeVar_l[0].input = pProcessImageOut_l->CN1_Input_AI16_EC1;
-    aNodeVar_l[0].input = pProcessImageOut_l->out_MN_array[68];
+    aNodeVar_l[0].input = pProcessImageOut_l->out_MN_array[5];
 
     for (i = 0; (i < MAX_NODES) && (aUsedNodeIds_l[i] != 0); i++)
     {
