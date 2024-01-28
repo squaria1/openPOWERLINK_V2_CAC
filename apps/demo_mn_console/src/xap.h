@@ -90,7 +90,7 @@ typedef struct
 		signed CN3_Input_AI32_SENSOR12 : 32;								//74
 	} PI_IN;
 	*/
-	signed out_MN_array[COMPUTED_PI_OUT_SIZE];
+	UINT16 out_MN_array[75];
 } PI_OUT;
 
 
@@ -141,7 +141,7 @@ typedef struct
 		signed CN3_Output_AI8_VALVE12 : 8;										//38
 	} PI_OUT;
 	*/
-	signed in_MN_array[COMPUTED_PI_IN_SIZE];
+	UINT16 in_MN_array[39];
 }PI_IN;
 
 
