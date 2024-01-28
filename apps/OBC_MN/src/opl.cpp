@@ -189,16 +189,6 @@ tOplkError initApp(void)
     int         i;
 
     cnt_l = 0;
-
-    for (i = 0; (i < MAX_NODES) && (aUsedNodeIds_l[i] != 0); i++)
-    {
-        aNodeVar_l[i].leds = 0;
-        aNodeVar_l[i].ledsOld = 0;
-        aNodeVar_l[i].input = 0;
-        aNodeVar_l[i].inputOld = 0;
-        aNodeVar_l[i].toggle = 0;
-        aNodeVar_l[i].period = 0;
-    }
     i = 0;
 
     for (i = 0; i < MAX_VALUES; i++)
@@ -206,6 +196,7 @@ tOplkError initApp(void)
         values_In_MN_l[i] = 0;
         values_Out_MN_l[i] = 0;
     }
+
     memset(&pProcessImageOut_l, 0, sizeof(pProcessImageOut_l));
     memset(&pProcessImageIn_l, 0, sizeof(pProcessImageIn_l));
     ret = initProcessImage();
@@ -412,13 +403,16 @@ tOplkError processSync(void)
 
     cnt_l++;
 
+    values_In_MN_l[0] = pProcessImageOut_l->out_MN_array[0];
+
+    /*
+
     aNodeVar_l[0].input = pProcessImageOut_l->out_MN_array[1];
     aNodeVar_l[1].input = pProcessImageOut_l->out_MN_array[26];
     aNodeVar_l[2].input = pProcessImageOut_l->out_MN_array[51];
 
-    values_In_MN_l[0] = pProcessImageOut_l->out_MN_array[0];
 
-    /*
+
     for (int i = 0; i < COMPUTED_PI_IN_SIZE/2; i++)
     {
         if (activated_In_MN_l[i])
@@ -434,49 +428,10 @@ tOplkError processSync(void)
             pProcessImageOut_l->out_MN_array[i] = values_Out_MN_l[i];
         }
     }
+
+    values_Out_MN_l[0] = 0x1FFF;
+
     */
-
-
-    for (i = 0; (i < MAX_NODES) && (aUsedNodeIds_l[i] != 0); i++)
-    {
-        /* Running LEDs */
-        /* period for LED flashing determined by inputs */
-        aNodeVar_l[i].period = (aNodeVar_l[i].input == 0) ? 1 : (aNodeVar_l[i].input * 20);
-        if (cnt_l % aNodeVar_l[i].period == 0)
-        {
-            if (aNodeVar_l[i].leds == 0x00000000)
-            {
-                aNodeVar_l[i].leds = 0x1;
-                aNodeVar_l[i].toggle = 1;
-            }
-            else
-            {
-                if (aNodeVar_l[i].toggle)
-                {
-                    aNodeVar_l[i].leds <<= 1;
-                    if (aNodeVar_l[i].leds == APP_LED_MASK_1)
-                        aNodeVar_l[i].toggle = 0;
-                }
-                else
-                {
-                    aNodeVar_l[i].leds >>= 1;
-                    if (aNodeVar_l[i].leds == 0x00000001)
-                        aNodeVar_l[i].toggle = 1;
-                }
-            }
-        }
-
-        if (aNodeVar_l[i].input != aNodeVar_l[i].inputOld)
-            aNodeVar_l[i].inputOld = aNodeVar_l[i].input;
-
-        if (aNodeVar_l[i].leds != aNodeVar_l[i].ledsOld)
-            aNodeVar_l[i].ledsOld = aNodeVar_l[i].leds;
-    }
-
-    pProcessImageIn_l->in_MN_array[0] = aNodeVar_l[0].leds;
-    pProcessImageIn_l->in_MN_array[13] = aNodeVar_l[1].leds;
-    pProcessImageIn_l->in_MN_array[26] = aNodeVar_l[2].leds;
-    //values_Out_MN_l[0] = 0x1FFF;
 
     pProcessImageIn_l->in_MN_array[0] = values_Out_MN_l[0];
 
