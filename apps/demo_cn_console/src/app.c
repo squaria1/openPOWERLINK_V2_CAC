@@ -362,7 +362,7 @@ static tOplkError initProcessImage(void)
     //                                  obdSize,
     //                                  &varEntries);
     ret = oplk_linkProcessImageObject(0x6511,
-                                        0x01,
+                                        0x0F,
                                         offsetof(PI_OUT, digitalOut),
                                         TRUE,
                                         obdSize,
