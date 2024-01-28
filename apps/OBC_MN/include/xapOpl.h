@@ -6,7 +6,7 @@
 #ifndef XAP_h
 #define XAP_h
 
-#include <cstdint>
+#include <stdint.h>
 
 #define COMPUTED_PI_OUT_SIZE 152
 typedef struct
