@@ -98,17 +98,17 @@ int main() {
                 }
 
                 #if (TARGET_SYSTEM == _WIN32_)
-                                Sleep(5000);
+                                Sleep(1000);
                 #else
-                                sleep(5);
+                                sleep(1);
                 #endif
 
-                EG = opl.getEG();
                 EC1 = 111;
                 opl.setEC1(EC1);
 
                 processSync();
 
+                EG = opl.getEG();
 
                 printf("\n\n EG CN : %d \n\n", EG);
 

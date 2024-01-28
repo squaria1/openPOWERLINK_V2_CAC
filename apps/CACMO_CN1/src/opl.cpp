@@ -353,9 +353,30 @@ tOplkError processSync(void)
     if (oplk_waitSyncEvent(100000) != kErrorOk)
         return ret;
 
-    activated_In_CN_l[0] = true;
+
+    ret = oplk_exchangeProcessImageOut();
+    if (ret != kErrorOk)
+        return ret;
+
+    /* read input image - digital outputs */
+
+    pProcessImageOut_l->out_CN_array[0] = values_Out_CN_l[0];
+
+    /*
+    activated_Out_CN_l[nbValuesCN_Out_ByCN - 1] = true;
+    for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
+    {
+        if (activated_Out_CN_l[i])
+            pProcessImageOut_l->out_CN_array[i] = values_Out_CN_l[i];
+    }
+    */
+
+    values_In_CN_l[0] = pProcessImageIn_l->in_CN_array[0];
 
     /* setup output image - digital inputs */
+
+    /*
+    activated_In_CN_l[0] = true;
     // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
     for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In; i++)
     {
@@ -366,19 +387,9 @@ tOplkError processSync(void)
     ret = oplk_exchangeProcessImageIn();
     if (ret != kErrorOk)
         return ret;
+    */
 
-    /* read input image - digital outputs */
-    activated_Out_CN_l[nbValuesCN_Out_ByCN-1] = true;
-
-    for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
-    {
-        if (activated_Out_CN_l[i])
-            pProcessImageOut_l->out_CN_array[i] = values_Out_CN_l[i];
-    }
-
-    ret = oplk_exchangeProcessImageOut();
-    if (ret != kErrorOk)
-        return ret;
+    ret = oplk_exchangeProcessImageIn();
 
     return ret;
 }
