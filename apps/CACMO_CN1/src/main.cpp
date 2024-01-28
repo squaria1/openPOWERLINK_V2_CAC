@@ -20,11 +20,11 @@ int main() {
         switch(etat){
             case 1: // Initialisation
                 if (initOPL()) {
-                    file.writeTelem();
+                    file.writeTelem("code_success:0x % 08X", 0x0003);
                     opl.sendTelem(0x0002);
                 }
                 else {
-                    file.writeError();
+                    file.writeError("", 0xE003);
                 }
                 /*if(valve.initValve()){
                     file.writeTelem();
@@ -118,9 +118,9 @@ int main() {
             case 3: // Extinction
                 opl.sendTelem(0x1FFF);
                 if(ExtinctOPL()){
-                    file.writeTelem();
+                    file.writeTelem("code_success:0x % 08X", 0x0003);
                 }else{
-                    file.writeError();
+                    file.writeError("", 0xE003);
                 }
                 break;
         }

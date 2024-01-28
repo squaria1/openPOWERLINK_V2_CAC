@@ -87,7 +87,7 @@ typedef struct
 	signed CN3_SENSOR_In_AI16_SENSOR12:16;
 	unsigned PADDING_VAR_1:16;
 	*/
-	UINT16 out_MN_array[75];
+	INT16 out_MN_array[75];
 } PI_OUT;
 
 #define COMPUTED_PI_IN_SIZE 80
@@ -135,7 +135,7 @@ typedef struct
 	signed CN3_VALVE_Out_AI16_VALVE12:16;
 	unsigned PADDING_VAR_1:16;
 	*/
-	UINT16 in_MN_array[39];
+	INT16 in_MN_array[39];
 } PI_IN;
 
 #endif

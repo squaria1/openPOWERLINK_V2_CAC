@@ -412,24 +412,23 @@ tOplkError initProcessImage(void)
     UINT        varEntries;
     tObdSize    obdSize;
 
-
     /* Allocate process image */
     printf("Initializing process image...\n");
     printf("Size of process image: Input = %lu Output = %lu \n",
-        (ULONG)sizeof(UNION_IN),
-        (ULONG)sizeof(UNION_OUT));
+        (ULONG)sizeof(PI_IN),
+        (ULONG)sizeof(PI_OUT));
     eventlog_printMessage(kEventlogLevelInfo,
         kEventlogCategoryGeneric,
         "Allocating process image: Input:%lu Output:%lu",
-        (ULONG)sizeof(UNION_IN),
-        (ULONG)sizeof(UNION_OUT));
+        (ULONG)sizeof(PI_IN),
+        (ULONG)sizeof(PI_OUT));
 
-    ret = oplk_allocProcessImage(sizeof(UNION_IN), sizeof(UNION_OUT));
+    ret = oplk_allocProcessImage(sizeof(PI_IN), sizeof(PI_OUT));
     if (ret != kErrorOk)
         return ret;
 
-    pProcessImageIn_l = (const UNION_IN*)oplk_getProcessImageIn();
-    pProcessImageOut_l = (UNION_OUT*)oplk_getProcessImageOut();
+    pProcessImageIn_l = (const PI_IN*)oplk_getProcessImageIn();
+    pProcessImageOut_l = (PI_OUT*)oplk_getProcessImageOut();
 
     /* link process variables used by CN to object dictionary */
     fprintf(stderr, "Linking process image vars:\n");
@@ -443,7 +442,7 @@ tOplkError initProcessImage(void)
     {
         return ret;
     }
-
+    /*
     // Init process image output
     // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
     for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
@@ -453,13 +452,11 @@ tOplkError initProcessImage(void)
             //Link valves images
             if (i > nbValuesCN_Out_ByCN && i <= nbValuesCN_Out_ByCN + nbValuesCN_Out / 2)
             {
-                obdSize = 1;
                 ret = linkPDO_out(varEntries, obdSize, i, 0x6510, 0x01 + i % (nbValuesCN_Out / 2));
             }
             //Link sensors images
             else if (i > nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 && i <= nbValuesCN_Out_ByCN + nbValuesCN_Out)
             {
-                obdSize = 4;
                 ret = linkPDO_out(varEntries, obdSize, i, 0x6512, 0x01 + i % (nbValuesCN_Out / 2));
             }
             if (ret != kErrorOk)
@@ -468,14 +465,12 @@ tOplkError initProcessImage(void)
             }
         }
     }
-
     // Init process image input
     for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In / 2; i++)
     {
         //Link valves images in from MN
         if (activated_In_CN_l[i])
         {
-            obdSize = 1;
             ret = linkPDO_in(varEntries, obdSize, i, 0x6500, 0x01 + i % (nbValuesCN_In / 2));
             if (ret != kErrorOk)
             {
@@ -483,9 +478,10 @@ tOplkError initProcessImage(void)
             }
         }
     }
+    */
 
+    varEntries = 1;
     // Link image input EG
-    obdSize = 2;
     ret = linkPDO_in(varEntries, obdSize, 0, 0x6501, 0xF0);
     if (ret != kErrorOk)
     {
@@ -503,7 +499,7 @@ tOplkError linkPDO_in(UINT varEntries, tObdSize obdSize, const UINT16 arrayIndex
 
     ret = oplk_linkProcessImageObject(index,
         subIndex,
-        offsetof(UNION_IN, in_CN_array[0]) + sizeof(INT16) * arrayIndex,
+        offsetof(PI_IN, in_CN_array[0]) + sizeof(INT16) * arrayIndex,
         FALSE,
         obdSize,
         &varEntries);
@@ -523,7 +519,7 @@ tOplkError linkPDO_out(UINT varEntries, tObdSize obdSize, const UINT16 arrayInde
 
     ret = oplk_linkProcessImageObject(index,
         subIndex,
-        offsetof(UNION_OUT, out_CN_array[0]) + sizeof(INT32) * arrayIndex,
+        offsetof(PI_OUT, out_CN_array[0]) + sizeof(INT16) * arrayIndex,
         FALSE,
         obdSize,
         &varEntries);

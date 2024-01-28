@@ -412,27 +412,29 @@ tOplkError processSync(void)
 
     cnt_l++;
 
-    aNodeVar_l[0].input = pProcessImageIn_l->in_MN_array[1];
-    aNodeVar_l[1].input = pProcessImageIn_l->in_MN_array[26];
-    aNodeVar_l[2].input = pProcessImageIn_l->in_MN_array[51];
+    aNodeVar_l[0].input = pProcessImageOut_l->out_MN_array[1];
+    aNodeVar_l[1].input = pProcessImageOut_l->out_MN_array[26];
+    aNodeVar_l[2].input = pProcessImageOut_l->out_MN_array[51];
 
-    values_In_MN_l[0] = pProcessImageIn_l->in_MN_array[0];
+    values_In_MN_l[0] = pProcessImageOut_l->out_MN_array[0];
 
-    for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
-    {
-        if (activated_Out_MN_l[i])
-        {
-            pProcessImageOut_l->out_MN_array[i] = values_Out_MN_l[i];
-        }
-    }
-
-    for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
+    /*
+    for (int i = 0; i < COMPUTED_PI_IN_SIZE/2; i++)
     {
         if (activated_In_MN_l[i])
         {
             values_In_MN_l[i] = pProcessImageIn_l->in_MN_array[i];
         }
     }
+
+    for (int i = 0; i < COMPUTED_PI_OUT_SIZE/2; i++)
+    {
+        if (activated_Out_MN_l[i])
+        {
+            pProcessImageOut_l->out_MN_array[i] = values_Out_MN_l[i];
+        }
+    }
+    */
 
 
     for (i = 0; (i < MAX_NODES) && (aUsedNodeIds_l[i] != 0); i++)
@@ -471,12 +473,12 @@ tOplkError processSync(void)
             aNodeVar_l[i].ledsOld = aNodeVar_l[i].leds;
     }
 
-    pProcessImageOut_l->out_MN_array[0] = aNodeVar_l[0].leds;
-    pProcessImageOut_l->out_MN_array[13] = aNodeVar_l[1].leds;
-    pProcessImageOut_l->out_MN_array[26] = aNodeVar_l[2].leds;
+    pProcessImageIn_l->in_MN_array[0] = aNodeVar_l[0].leds;
+    pProcessImageIn_l->in_MN_array[13] = aNodeVar_l[1].leds;
+    pProcessImageIn_l->in_MN_array[26] = aNodeVar_l[2].leds;
     //values_Out_MN_l[0] = 0x1FFF;
 
-    pProcessImageOut_l->out_MN_array[0] = values_Out_MN_l[0];
+    pProcessImageIn_l->in_MN_array[0] = values_Out_MN_l[0];
 
     
     ret = oplk_exchangeProcessImageIn();
@@ -500,20 +502,20 @@ tOplkError initProcessImage(void)
 
     printf("Initializing process image...\n");
     printf("Size of process image: Input = %lu Output = %lu\n",
-        (ULONG)sizeof(UNION_IN),
-        (ULONG)sizeof(UNION_OUT));
+        (ULONG)sizeof(PI_IN),
+        (ULONG)sizeof(PI_OUT));
     eventlog_printMessage(kEventlogLevelInfo,
         kEventlogCategoryGeneric,
         "Allocating process image: Input:%lu Output:%lu",
-        (ULONG)sizeof(UNION_IN),
-        (ULONG)sizeof(UNION_OUT));
+        (ULONG)sizeof(PI_IN),
+        (ULONG)sizeof(PI_OUT));
 
-    ret = oplk_allocProcessImage(sizeof(UNION_IN), sizeof(UNION_OUT));
+    ret = oplk_allocProcessImage(sizeof(PI_IN), sizeof(PI_OUT));
     if (ret != kErrorOk)
         return ret;
 
-    pProcessImageIn_l = (const UNION_IN*)oplk_getProcessImageIn();
-    pProcessImageOut_l = (UNION_OUT*)oplk_getProcessImageOut();
+    pProcessImageIn_l = (PI_IN*)oplk_getProcessImageIn();
+    pProcessImageOut_l = (const PI_OUT*)oplk_getProcessImageOut();
 
     errorIndex = obdpi_setupProcessImage();
     if (errorIndex != 0)
