@@ -6,7 +6,7 @@
 #ifndef XAPOPL_h
 #define XAPOPL_h
 
-#define COMPUTED_PI_IN_SIZE 75
+#define COMPUTED_PI_OUT_SIZE 192
 
 typedef struct
 {
@@ -90,11 +90,11 @@ typedef struct
 		signed CN3_Input_AI32_SENSOR12 : 32;								//74
 	} PI_IN;
 	*/
-	signed out_MN_array[COMPUTED_PI_IN_SIZE];
+	signed out_MN_array[COMPUTED_PI_OUT_SIZE];
 } PI_OUT;
 
 
-#define COMPUTED_PI_OUT_SIZE 39
+#define COMPUTED_PI_IN_SIZE 44
 typedef struct
 {
 	/*
@@ -141,7 +141,7 @@ typedef struct
 		signed CN3_Output_AI8_VALVE12 : 8;										//38
 	} PI_OUT;
 	*/
-	signed in_MN_array[COMPUTED_PI_OUT_SIZE];
+	signed in_MN_array[COMPUTED_PI_IN_SIZE];
 }PI_IN;
 
 
