@@ -516,7 +516,7 @@ tOplkError linkPDO_in(UINT varEntries, tObdSize obdSize, UINT16 arrayIndex, UINT
     //    &varEntries);
     ret = oplk_linkProcessImageObject(index,
         subIndex,
-        offsetof(PI_IN, in_CN_array[arrayIndex]),
+        offsetof(PI_IN, in_CN_array[0]),
         FALSE,
         obdSize,
         &varEntries);
@@ -542,7 +542,7 @@ tOplkError linkPDO_out(UINT varEntries, tObdSize obdSize, UINT16 arrayIndex, UIN
     //    &varEntries);
     ret = oplk_linkProcessImageObject(index,
         subIndex,
-        offsetof(PI_OUT, out_CN_array[arrayIndex]),
+        offsetof(PI_OUT, out_CN_array[0]),
         FALSE,
         obdSize,
         &varEntries);
