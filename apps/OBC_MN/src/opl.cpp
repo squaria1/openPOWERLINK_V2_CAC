@@ -78,18 +78,23 @@ void opl::setActivated_Out_MN(int32_t activated_Out_MN_g[])
     }
 }
 
-int16_t opl::getEC1()
+extern "C"
+{
+
+int16_t getEC1()
 {
     return values_In_MN_l[0];
 }
 
-void opl::setEG(int16_t EG)
+void setEG(int16_t EG)
 {
     values_Out_MN_l[0] = EG;
 }
 
-extern "C"
+int16_t getTest()
 {
+    return values_Out_MN_l[1];
+}
 
 
 //------------------------------------------------------------------------------
@@ -403,6 +408,7 @@ tOplkError processSync(void)
 
     cnt_l++;
 
+
     values_In_MN_l[0] = pProcessImageOut_l->out_MN_array[0];
 
     /*
@@ -432,6 +438,7 @@ tOplkError processSync(void)
     values_Out_MN_l[0] = 0x1FFF;
 
     */
+    values_Out_MN_l[1] = cnt_l;
 
     pProcessImageIn_l->in_MN_array[0] = values_Out_MN_l[0];
 

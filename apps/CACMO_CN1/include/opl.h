@@ -91,6 +91,10 @@ static const UINT8       nbValuesCN_In = COMPUTED_PI_IN_SIZE / NB_NODES;
 static const UINT8       nbValuesCN_Out_ByCN = COMPUTED_PI_OUT_SIZE / NB_NODES * (NODEID - 1) + 1;
 static const UINT8       nbValuesCN_In_ByCN = COMPUTED_PI_IN_SIZE / NB_NODES * (NODEID - 1) + 1;
 
+
+int16_t     getEG();
+void        setEC1(int16_t EC1);
+
 #ifdef __cplusplus
 }
 #endif
@@ -110,8 +114,6 @@ class opl
         int32_t*    getValues_Out_CN(void);
         void        setActivated_In_CN(int32_t activated_In_MN_g[]);
         void        setActivated_Out_CN(int32_t activated_Out_MN_g[]);
-        int16_t     getEG();
-        void        setEC1(int16_t EC1);
         bool        demandeExtinctOPL();
 
     protected:

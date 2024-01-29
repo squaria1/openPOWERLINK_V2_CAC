@@ -97,6 +97,13 @@ static int32_t                  values_Out_MN_l[MAX_VALUES];
 static bool                     activated_In_MN_l[COMPUTED_PI_IN_SIZE];
 static bool                     activated_Out_MN_l[COMPUTED_PI_OUT_SIZE];
 
+
+int16_t     getTest();
+void        setTest(int16_t TEST);
+
+int16_t     getEC1();
+void        setEG(int16_t EG);
+
 #ifdef __cplusplus
 }
 #endif
@@ -116,8 +123,6 @@ class opl
         int32_t*    getValues_Out_MN(void);
         void        setActivated_In_MN(int32_t activated_In_MN_g[]);
         void        setActivated_Out_MN(int32_t activated_Out_MN_g[]);
-        int16_t     getEC1();
-        void        setEG(int16_t EG);
         bool        demandeExtinctOPL();
 
     protected:

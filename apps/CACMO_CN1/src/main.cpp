@@ -104,11 +104,11 @@ int main() {
                 #endif
 
                 EC1 = 111;
-                opl.setEC1(EC1);
+                setEC1(EC1);
 
                 processSync();
 
-                EG = opl.getEG();
+                EG = getEG();
 
                 printf("\n\n EG CN : %d \n\n", EG);
 

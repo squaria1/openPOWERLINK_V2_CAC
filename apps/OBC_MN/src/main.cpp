@@ -12,6 +12,8 @@ int main() {
     int16_t EG = -1;
     int16_t EC1 = -1;
 
+    int16_t TEST = 30;
+
     while(etat<=3){
         switch(etat){
             case 1: // Initialisation
@@ -59,15 +61,19 @@ int main() {
                                 sleep(1);
                 #endif
                 EG = 555;
-                opl.setEG(EG);
+                setEG(EG);
 
                 processSync();
 
-                EC1 = opl.getEC1();
+                TEST = getTest();
+
+                EC1 = getEC1();
 
                 printf("\n\n EG MN : %d \n\n", EG);
 
                 printf("\n\n EC1 MN : %d \n\n", EC1);
+
+                printf("\n\n TEST : %d \n\n", TEST);
                 break;
             case 3: // Extinction
                 if (ExtinctOPL()) {
