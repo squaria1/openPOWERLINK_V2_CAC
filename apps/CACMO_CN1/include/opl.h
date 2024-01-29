@@ -71,8 +71,8 @@ static const UINT8              aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0
 static BOOL                     fGsOff_l;
 
 /* process image */
-static const PI_IN*        pProcessImageIn_l;
-static PI_OUT*             pProcessImageOut_l;
+static PI_IN*        pProcessImageIn_l;
+static const PI_OUT*             pProcessImageOut_l;
 
 
 /* application variables */

@@ -359,7 +359,11 @@ tOplkError processSync(void)
 
     /* read input image - digital outputs */
 
-    pProcessImageOut_l->out_CN_array[0] = values_Out_CN_l[0];
+
+    values_Out_CN_l[0] = pProcessImageOut_l->out_CN_array[0];
+
+
+    pProcessImageIn_l->in_CN_array[0] = values_In_CN_l[0];
 
     /*
     activated_Out_CN_l[nbValuesCN_Out_ByCN - 1] = true;
@@ -370,7 +374,6 @@ tOplkError processSync(void)
     }
     */
 
-    values_In_CN_l[0] = pProcessImageIn_l->in_CN_array[0];
 
     /* setup output image - digital inputs */
 
@@ -437,8 +440,8 @@ tOplkError initProcessImage(void)
     if (ret != kErrorOk)
         return ret;
 
-    pProcessImageIn_l = (const PI_IN*)oplk_getProcessImageIn();
-    pProcessImageOut_l = (PI_OUT*)oplk_getProcessImageOut();
+    pProcessImageIn_l = (PI_IN*)oplk_getProcessImageIn();
+    pProcessImageOut_l = (const PI_OUT*)oplk_getProcessImageOut();
 
     /* link process variables used by CN to object dictionary */
     fprintf(stderr, "Linking process image vars:\n");
@@ -447,7 +450,7 @@ tOplkError initProcessImage(void)
 
     //Link image EC of the correct NODEID
     obdSize = 2;
-    ret = linkPDO_out(varEntries, obdSize, nbValuesCN_Out_ByCN-1, 0x6511, NODEID);
+    ret = linkPDO_in(varEntries, obdSize, nbValuesCN_Out_ByCN-1, 0x6501, NODEID);
     if (ret != kErrorOk)
     {
         return ret;
@@ -492,7 +495,7 @@ tOplkError initProcessImage(void)
 
     varEntries = 1;
     // Link image input EG
-    ret = linkPDO_in(varEntries, obdSize, 0, 0x6501, 0xF0);
+    ret = linkPDO_out(varEntries, obdSize, 0, 0x6511, 0xF0);
     if (ret != kErrorOk)
     {
         return ret;
@@ -542,7 +545,7 @@ tOplkError linkPDO_out(UINT varEntries, tObdSize obdSize, UINT16 arrayIndex, UIN
     ret = oplk_linkProcessImageObject(index,
         subIndex,
         offsetof(PI_OUT, out_CN_array[0]),
-        FALSE,
+        TRUE,
         obdSize,
         &varEntries);
     if (ret != kErrorOk)
