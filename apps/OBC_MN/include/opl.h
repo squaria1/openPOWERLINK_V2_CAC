@@ -58,12 +58,12 @@ typedef struct
 
 typedef struct
 {
-    UINT32                leds;
-    UINT32                ledsOld;
-    UINT32                input;
-    UINT32                inputOld;
-    UINT                  period;
-    int                   toggle;
+    UINT                leds;
+    UINT                ledsOld;
+    UINT                input;
+    UINT                inputOld;
+    UINT                period;
+    int                 toggle;
 } APP_NODE_VAR_T;
 
 tOplkError  initPowerlink(UINT32 cycleLen_p,
