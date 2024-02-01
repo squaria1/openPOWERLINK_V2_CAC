@@ -48,6 +48,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <eventlog/eventlog.h>
 
 #include <stddef.h>
+#include <stdint.h>
 #include <stdio.h>
 
 //============================================================================//
@@ -104,8 +105,8 @@ static PI_IN*           pProcessImageIn_l;
 static const PI_OUT*    pProcessImageOut_l;
 
 /* application variables */
-static UINT8            digitalIn_l[1];            // 8 bit digital input
-static UINT8            digitalOut_l[1];           // 8 bit digital output
+static uint8_t            digitalIn_l[1];            // 8 bit digital input
+static uint8_t            digitalOut_l[1];           // 8 bit digital output
 
 //------------------------------------------------------------------------------
 // local function prototypes
