@@ -92,6 +92,7 @@ extern "C"
 
 int16_t getEG()
 {
+    printf("\n\n EC1 MN truc : %d \n\n", values_Out_CN_l[0]);
     return values_In_CN_l[0];
 }
 
@@ -362,9 +363,6 @@ tOplkError processSync(void)
 
 
     values_Out_CN_l[0] = pProcessImageOut_l->out_CN_array[0];
-
-
-    printf("\n\n EC1 MN truc : %d \n\n", values_Out_CN_l[0]);
 
     values_In_CN_l[0] = 111;
 

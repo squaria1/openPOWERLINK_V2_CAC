@@ -94,8 +94,8 @@ static const PI_OUT*            pProcessImageOut_l;
 
 static int16_t                  values_In_MN_l[MAX_VALUES];
 static int16_t                  values_Out_MN_l[MAX_VALUES];
-static bool                     activated_In_MN_l[COMPUTED_PI_IN_SIZE];
-static bool                     activated_Out_MN_l[COMPUTED_PI_OUT_SIZE];
+static bool                     activated_In_MN_l[SIZE_IN];
+static bool                     activated_Out_MN_l[SIZE_OUT];
 
 
 int16_t     getTest();

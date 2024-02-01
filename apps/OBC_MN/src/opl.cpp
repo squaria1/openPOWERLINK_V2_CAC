@@ -38,7 +38,7 @@ void opl::sendError()
 
 void opl::setValues_In_MN(int16_t values_In_g[])
 {
-    for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
+    for (int i = 0; i < SIZE_IN; i++)
     {
         values_In_MN_l[i] = values_In_g[i];
     }
@@ -51,7 +51,7 @@ int16_t* opl::getValues_In_MN()
 
 void opl::setValues_Out_MN(int16_t values_Out_g[])
 {
-    for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
+    for (int i = 0; i < SIZE_OUT; i++)
     {
         values_Out_MN_l[i] = values_Out_g[i];
     }
@@ -64,7 +64,7 @@ int16_t* opl::getValues_Out_MN()
 
 void opl::setActivated_In_MN(int16_t activated_In_MN_g[])
 {
-    for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
+    for (int i = 0; i < SIZE_IN; i++)
     {
         activated_In_MN_l[i] = activated_In_MN_g[i];
     }
@@ -72,7 +72,7 @@ void opl::setActivated_In_MN(int16_t activated_In_MN_g[])
 
 void opl::setActivated_Out_MN(int16_t activated_Out_MN_g[])
 {
-    for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
+    for (int i = 0; i < SIZE_OUT; i++)
     {
         activated_Out_MN_l[i] = activated_Out_MN_g[i];
     }
@@ -83,6 +83,7 @@ extern "C"
 
 int16_t getEC1()
 {
+    printf("\n\n EC1 MN truc : %d \n\n", values_In_MN_l[0]);
     return values_In_MN_l[0];
 }
 
@@ -409,7 +410,6 @@ tOplkError processSync(void)
 
     values_In_MN_l[0] = pProcessImageOut_l->out_MN_array[0];
 
-    printf("\n\n EC1 MN truc : %d \n\n", values_In_MN_l[0]);
 
     /*
 
@@ -438,6 +438,7 @@ tOplkError processSync(void)
     values_Out_MN_l[0] = 0x1FFF;
 
     */
+
     values_Out_MN_l[1] = cnt_l;
 
 
