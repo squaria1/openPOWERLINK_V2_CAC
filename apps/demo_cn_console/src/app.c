@@ -333,16 +333,11 @@ static tOplkError initProcessImage(void)
     /* link process variables used by CN to object dictionary */
     fprintf(stderr, "Linking process image vars:\n");
 
+    /*
     obdSize = sizeof(pProcessImageIn_l->in_CN_array[0]);
     varEntries = 1;
-    //ret = oplk_linkProcessImageObject(0x6000,
-    //                                  0x01,
-    //                                  offsetof(PI_IN, digitalIn),
-    //                                  FALSE,
-    //                                  obdSize,
-    //                                  &varEntries);
-    ret = oplk_linkProcessImageObject(0x6500,
-                                        0x0A,
+    ret = oplk_linkProcessImageObject(0x6501,
+                                        0x01,
                                         offsetof(PI_IN, in_CN_array[0]),
                                         FALSE,
                                         obdSize,
@@ -358,12 +353,6 @@ static tOplkError initProcessImage(void)
 
     obdSize = sizeof(pProcessImageOut_l->out_CN_array[0]);
     varEntries = 1;
-    //ret = oplk_linkProcessImageObject(0x6200,
-    //                                  0x01,
-    //                                  offsetof(PI_OUT, digitalOut),
-    //                                  TRUE,
-    //                                  obdSize,
-    //                                  &varEntries);
     ret = oplk_linkProcessImageObject(0x6511,
                                         0xF0,
                                         offsetof(PI_OUT, out_CN_array[0]),
@@ -378,10 +367,80 @@ static tOplkError initProcessImage(void)
                 ret);
         return ret;
     }
+    */
+    varEntries = 1;
+
+    //Link image EC of the correct NODEID
+    obdSize = 2;
+    ret = linkPDO_in(varEntries, obdSize, 0, 0x6501, 0x01);
+    if (ret != kErrorOk)
+    {
+        return ret;
+    }
+
+    varEntries = 1;
+    // Link image input EG
+    ret = linkPDO_out(varEntries, obdSize, 0, 0x6511, 0xF0);
+    if (ret != kErrorOk)
+    {
+        return ret;
+    }
 
     fprintf(stderr, "Linking process vars... ok\n\n");
 
     return kErrorOk;
+}
+
+tOplkError linkPDO_in(UINT varEntries, tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
+    tOplkError  ret = kErrorOk;
+
+    //ret = oplk_linkProcessImageObject(index,
+    //    subIndex,
+    //    offsetof(PI_IN, in_CN_array[0]) + sizeof(INT16) * arrayIndex,
+    //    FALSE,
+    //    obdSize,
+    //    &varEntries);
+    ret = oplk_linkProcessImageObject(index,
+        subIndex,
+        offsetof(PI_IN, in_CN_array[0]),
+        FALSE,
+        obdSize,
+        &varEntries);
+    if (ret != kErrorOk)
+    {
+        fprintf(stderr,
+            "Linking process vars failed with \"%s\" (0x%04x)\n",
+            debugstr_getRetValStr(ret),
+            ret);
+    }
+
+    return ret;
+}
+
+tOplkError linkPDO_out(UINT varEntries, tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
+    tOplkError  ret = kErrorOk;
+
+    //ret = oplk_linkProcessImageObject(index,
+    //    subIndex,
+    //    offsetof(PI_OUT, out_CN_array[0]) + sizeof(INT16) * arrayIndex,
+    //    FALSE,
+    //    obdSize,
+    //    &varEntries);
+    ret = oplk_linkProcessImageObject(index,
+        subIndex,
+        offsetof(PI_OUT, out_CN_array[0]),
+        TRUE,
+        obdSize,
+        &varEntries);
+    if (ret != kErrorOk)
+    {
+        fprintf(stderr,
+            "Linking process vars failed with \"%s\" (0x%04x)\n",
+            debugstr_getRetValStr(ret),
+            ret);
+    }
+
+    return ret;
 }
 
 /// \}
