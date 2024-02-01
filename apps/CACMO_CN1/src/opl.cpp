@@ -360,13 +360,13 @@ tOplkError processSync(void)
     /* read input image - digital outputs */
 
 
-    values_Out_CN_l[0] = 111;
 
     values_Out_CN_l[0] = pProcessImageOut_l->out_CN_array[0];
 
 
     printf("\n\n EC1 MN truc : %d \n\n", values_Out_CN_l[0]);
 
+    values_In_CN_l[0] = 111;
 
     pProcessImageIn_l->in_CN_array[0] = values_In_CN_l[0];
 
