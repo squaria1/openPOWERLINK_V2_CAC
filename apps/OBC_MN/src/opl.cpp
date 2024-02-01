@@ -36,7 +36,7 @@ void opl::sendError()
 
 }
 
-void opl::setValues_In_MN(int32_t values_In_g[])
+void opl::setValues_In_MN(int16_t values_In_g[])
 {
     for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
     {
@@ -44,12 +44,12 @@ void opl::setValues_In_MN(int32_t values_In_g[])
     }
 }
 
-int32_t* opl::getValues_In_MN()
+int16_t* opl::getValues_In_MN()
 {
     return values_In_MN_l;
 }
 
-void opl::setValues_Out_MN(int32_t values_Out_g[])
+void opl::setValues_Out_MN(int16_t values_Out_g[])
 {
     for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
     {
@@ -57,12 +57,12 @@ void opl::setValues_Out_MN(int32_t values_Out_g[])
     }
 }
 
-int32_t* opl::getValues_Out_MN()
+int16_t* opl::getValues_Out_MN()
 {
     return values_Out_MN_l;
 }
 
-void opl::setActivated_In_MN(int32_t activated_In_MN_g[])
+void opl::setActivated_In_MN(int16_t activated_In_MN_g[])
 {
     for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
     {
@@ -70,7 +70,7 @@ void opl::setActivated_In_MN(int32_t activated_In_MN_g[])
     }
 }
 
-void opl::setActivated_Out_MN(int32_t activated_Out_MN_g[])
+void opl::setActivated_Out_MN(int16_t activated_Out_MN_g[])
 {
     for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
     {
@@ -437,6 +437,9 @@ tOplkError processSync(void)
 
     */
     values_Out_MN_l[1] = cnt_l;
+
+
+    values_Out_MN_l[0] = 555;
 
     pProcessImageIn_l->in_MN_array[0] = values_Out_MN_l[0];
     

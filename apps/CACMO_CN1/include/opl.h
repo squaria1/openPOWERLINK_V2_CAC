@@ -81,8 +81,8 @@ static const PI_OUT*     pProcessImageOut_l;
 
 /* application variables */
 
-static UINT8             values_In_CN_l[SIZE_IN];
-static UINT8             values_Out_CN_l[SIZE_OUT];
+static int16_t             values_In_CN_l[SIZE_IN];
+static int16_t             values_Out_CN_l[SIZE_OUT];
 static bool              activated_In_CN_l[SIZE_IN];
 static bool              activated_Out_CN_l[SIZE_OUT];
 
@@ -112,12 +112,12 @@ class opl
         void        sendTelem(int16_t statusCode);
         void        sendError(int16_t errorCode);
 
-        void        setValues_In_CN(UINT8 values_In_g[]);
-        UINT8*      getValues_In_CN(void);
-        void        setValues_Out_CN(UINT8 values_Out_g[]);
-        UINT8*      getValues_Out_CN(void);
-        void        setActivated_In_CN(UINT8 activated_In_MN_g[]);
-        void        setActivated_Out_CN(UINT8 activated_Out_MN_g[]);
+        void        setValues_In_CN(int16_t values_In_g[]);
+        int16_t*      getValues_In_CN(void);
+        void        setValues_Out_CN(int16_t values_Out_g[]);
+        int16_t*      getValues_Out_CN(void);
+        void        setActivated_In_CN(bool activated_In_MN_g[]);
+        void        setActivated_Out_CN(bool activated_Out_MN_g[]);
         bool        demandeExtinctOPL();
 
     protected:

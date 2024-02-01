@@ -92,8 +92,8 @@ static APP_NODE_VAR_T           aNodeVar_l[MAX_NODES];
 static PI_IN*                   pProcessImageIn_l;
 static const PI_OUT*            pProcessImageOut_l;
 
-static int32_t                  values_In_MN_l[MAX_VALUES];
-static int32_t                  values_Out_MN_l[MAX_VALUES];
+static int16_t                  values_In_MN_l[MAX_VALUES];
+static int16_t                  values_Out_MN_l[MAX_VALUES];
 static bool                     activated_In_MN_l[COMPUTED_PI_IN_SIZE];
 static bool                     activated_Out_MN_l[COMPUTED_PI_OUT_SIZE];
 
@@ -116,12 +116,12 @@ class opl
         void        sendTelem();
         void        sendError();
 
-        void        setValues_In_MN(int32_t values_In_g[]);
-        int32_t*    getValues_In_MN(void);
-        void        setValues_Out_MN(int32_t values_Out_g[]);
-        int32_t*    getValues_Out_MN(void);
-        void        setActivated_In_MN(int32_t activated_In_MN_g[]);
-        void        setActivated_Out_MN(int32_t activated_Out_MN_g[]);
+        void        setValues_In_MN(int16_t values_In_g[]);
+        int16_t*    getValues_In_MN(void);
+        void        setValues_Out_MN(int16_t values_Out_g[]);
+        int16_t*    getValues_Out_MN(void);
+        void        setActivated_In_MN(int16_t activated_In_MN_g[]);
+        void        setActivated_Out_MN(int16_t activated_Out_MN_g[]);
         bool        demandeExtinctOPL();
 
     protected:

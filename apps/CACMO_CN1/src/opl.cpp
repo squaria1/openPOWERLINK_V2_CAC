@@ -45,7 +45,7 @@ void opl::sendError(int16_t errorCode)
     printf("\n\n EC1 CN : %d \n\n", values_Out_CN_l[nbValuesCN_Out_ByCN - 1]);
 }
 
-void opl::setValues_In_CN(UINT8 values_In_CN_g[])
+void opl::setValues_In_CN(int16_t values_In_CN_g[])
 {
     for (int i = 0; i < SIZE_IN; i++)
     {
@@ -53,12 +53,12 @@ void opl::setValues_In_CN(UINT8 values_In_CN_g[])
     }
 }
 
-UINT8* opl::getValues_In_CN()
+int16_t* opl::getValues_In_CN()
 {
     return values_In_CN_l;
 }
 
-void opl::setValues_Out_CN(UINT8 values_Out_CN_g[])
+void opl::setValues_Out_CN(int16_t values_Out_CN_g[])
 {
     for (int i = 0; i < SIZE_OUT; i++)
     {
@@ -66,12 +66,12 @@ void opl::setValues_Out_CN(UINT8 values_Out_CN_g[])
     }
 }
 
-UINT8* opl::getValues_Out_CN()
+int16_t* opl::getValues_Out_CN()
 {
     return values_Out_CN_l;
 }
 
-void opl::setActivated_In_CN(UINT8 activated_In_CN_g[])
+void opl::setActivated_In_CN(bool activated_In_CN_g[])
 {
     for (int i = 0; i < SIZE_IN; i++)
     {
@@ -79,7 +79,7 @@ void opl::setActivated_In_CN(UINT8 activated_In_CN_g[])
     }
 }
 
-void opl::setActivated_Out_CN(UINT8 activated_Out_CN_g[])
+void opl::setActivated_Out_CN(bool activated_Out_CN_g[])
 {
     for (int i = 0; i < SIZE_OUT; i++)
     {
@@ -359,6 +359,8 @@ tOplkError processSync(void)
 
     /* read input image - digital outputs */
 
+
+    values_Out_CN_l[0] = 111;
 
     values_Out_CN_l[0] = pProcessImageOut_l->out_CN_array[0];
 
