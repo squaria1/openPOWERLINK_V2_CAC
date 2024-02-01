@@ -409,6 +409,8 @@ tOplkError processSync(void)
 
     values_In_MN_l[0] = pProcessImageOut_l->out_MN_array[0];
 
+    printf("\n\n EC1 MN truc : %d \n\n", values_In_MN_l[0]);
+
     /*
 
     aNodeVar_l[0].input = pProcessImageOut_l->out_MN_array[1];
