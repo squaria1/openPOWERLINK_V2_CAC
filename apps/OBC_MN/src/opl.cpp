@@ -188,22 +188,57 @@ The function initializes the synchronous data application
 \ingroup module_demo_mn_console
 */
 //------------------------------------------------------------------------------
+//tOplkError initApp(void)
+//{
+//    tOplkError  ret = kErrorOk;
+//    int         i;
+//
+//    cnt_l = 0;
+//    i = 0;
+//
+//    for (i = 0; i < MAX_VALUES; i++)
+//    {
+//        values_In_MN_l[i] = 0;
+//        values_Out_MN_l[i] = 0;
+//    }
+//
+//    memset(&pProcessImageOut_l, 0, sizeof(pProcessImageOut_l));
+//    memset(&pProcessImageIn_l, 0, sizeof(pProcessImageIn_l));
+//    ret = initProcessImage();
+//
+//    return ret;
+//}
+
+//------------------------------------------------------------------------------
+/**
+\brief  Initialize the synchronous data application
+
+The function initializes the synchronous data application
+
+\return The function returns a tOplkError error code.
+
+\ingroup module_demo_mn_console
+*/
+//------------------------------------------------------------------------------
 tOplkError initApp(void)
 {
     tOplkError  ret = kErrorOk;
     int         i;
 
     cnt_l = 0;
-    i = 0;
 
-    for (i = 0; i < MAX_VALUES; i++)
+    for (i = 0; (i < MAX_NODES) && (aUsedNodeIds_l[i] != 0); i++)
     {
-        values_In_MN_l[i] = 0;
-        values_Out_MN_l[i] = 0;
+        aNodeVar_l[i].leds = 0;
+        aNodeVar_l[i].ledsOld = 0;
+        aNodeVar_l[i].input = 0;
+        aNodeVar_l[i].inputOld = 0;
+        aNodeVar_l[i].toggle = 0;
+        aNodeVar_l[i].period = 0;
     }
 
     memset(&pProcessImageOut_l, 0, sizeof(pProcessImageOut_l));
-    memset(&pProcessImageIn_l, 0, sizeof(pProcessImageIn_l));
+
     ret = initProcessImage();
 
     return ret;
