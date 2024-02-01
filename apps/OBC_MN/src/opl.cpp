@@ -409,8 +409,6 @@ tOplkError processSync(void)
 
     cnt_l++;
 
-    printf("setter fonctionne 222 ? %d", values_Out_MN_l[0]);
-
     values_In_MN_l[0] = pProcessImageOut_l->out_MN_array[0];
 
     /*

@@ -431,10 +431,10 @@ tOplkError initProcessImage(void)
         (ULONG)sizeof(PI_IN),
         (ULONG)sizeof(PI_OUT));
     eventlog_printMessage(kEventlogLevelInfo,
-        kEventlogCategoryGeneric,
-        "Allocating process image: Input:%lu Output:%lu",
-        (ULONG)sizeof(PI_IN),
-        (ULONG)sizeof(PI_OUT));
+                        kEventlogCategoryGeneric,
+                        "Allocating process image: Input:%lu Output:%lu",
+                        (ULONG)sizeof(PI_IN),
+                        (ULONG)sizeof(PI_OUT));
 
     ret = oplk_allocProcessImage(sizeof(PI_IN), sizeof(PI_OUT));
     if (ret != kErrorOk)
@@ -450,7 +450,7 @@ tOplkError initProcessImage(void)
 
     //Link image EC of the correct NODEID
     obdSize = 2;
-    ret = linkPDO_in(varEntries, obdSize, nbValuesCN_Out_ByCN-1, 0x6501, NODEID);
+    ret = linkPDO_in(varEntries, obdSize, 0, 0x6501, 0x01);
     if (ret != kErrorOk)
     {
         return ret;
