@@ -92,13 +92,13 @@ extern "C"
 
 int16_t getEG()
 {
-    printf("\n\n EC1 MN truc : %d \n\n", values_Out_CN_l[0]);
-    return values_In_CN_l[0];
+    printf("\n\n EG CN truc : %d \n\n", values_Out_CN_l[0]);
+    return values_Out_CN_l[0];
 }
 
 void setEC1(int16_t EC1)
 {
-    values_Out_CN_l[0] = EC1;
+    values_In_CN_l[0] = EC1;
 }
 
 //------------------------------------------------------------------------------
