@@ -67,6 +67,8 @@ void       printInputs(void);
 void       setupInputs(void);
 void       increaseInputs(void);
 void       decreaseInputs(void);
+tOplkError linkPDO_in(UINT varEntries, tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex);
+tOplkError linkPDO_out(UINT varEntries, tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex);
 
 #ifdef __cplusplus
 }
