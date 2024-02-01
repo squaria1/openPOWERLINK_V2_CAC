@@ -7,8 +7,10 @@ using namespace std;
 int main() {
     int etat = 1;
     opl opl;
-    file file;
-    char cKey = 0;
+    file file;    
+    tOplkError  ret = kErrorOk;
+    char        cKey = 0;
+    BOOL        fExit = FALSE;
     int16_t EG = -1;
     int16_t EC1 = -1;
 
@@ -41,7 +43,7 @@ int main() {
                 if (opl.demandeExtinctOPL()) {
                     etat = 3;
                 }
-                if (console_kbhit())
+                /*if (console_kbhit())
                 {
                     cKey = (char)console_getch();
 
@@ -73,7 +75,80 @@ int main() {
 
                 printf("\n\n EC1 MN : %d \n\n", EC1);
 
-                printf("\n\n TEST : %d \n\n", TEST);
+                printf("\n\n TEST : %d \n\n", TEST);*/
+
+                printf("\n-------------------------------\n");
+                printf("Press Esc to leave the program\n");
+                printf("Press r to reset the node\n");
+                printf("-------------------------------\n\n");
+
+                while (!fExit)
+                {
+                    if (console_kbhit())
+                    {
+                        cKey = (char)console_getch();
+                        switch (cKey)
+                        {
+                        case 'r':
+                            ret = oplk_execNmtCommand(kNmtEventSwReset);
+                            if (ret != kErrorOk)
+                            {
+                                fprintf(stderr,
+                                    "oplk_execNmtCommand() failed with \"%s\" (0x%04x)\n",
+                                    debugstr_getRetValStr(ret),
+                                    ret);
+                                fExit = TRUE;
+                            }
+                            break;
+
+                        case 'c':
+                            ret = oplk_execNmtCommand(kNmtEventNmtCycleError);
+                            if (ret != kErrorOk)
+                            {
+                                fprintf(stderr,
+                                    "oplk_execNmtCommand() failed with \"%s\" (0x%04x)\n",
+                                    debugstr_getRetValStr(ret),
+                                    ret);
+                                fExit = TRUE;
+                            }
+                            break;
+
+                        case 0x1B:
+                            fExit = TRUE;
+                            break;
+
+                        default:
+                            break;
+                        }
+                    }
+
+                    if (system_getTermSignalState() != FALSE)
+                    {
+                        fExit = TRUE;
+                        printf("Received termination signal, exiting...\n");
+                        eventlog_printMessage(kEventlogLevelInfo,
+                            kEventlogCategoryControl,
+                            "Received termination signal, exiting...");
+                    }
+
+                    if (oplk_checkKernelStack() == FALSE)
+                    {
+                        fExit = TRUE;
+                        fprintf(stderr, "Kernel stack has gone! Exiting...\n");
+                        eventlog_printMessage(kEventlogLevelFatal,
+                            kEventlogCategoryControl,
+                            "Kernel stack has gone! Exiting...");
+                    }
+
+                    #if (defined(CONFIG_USE_SYNCTHREAD) || \
+                         defined(CONFIG_KERNELSTACK_DIRECTLINK))
+                                        system_msleep(100);
+                    #else
+                                        processSync();
+                    #endif
+
+                }
+                etat = 3;
                 break;
             case 3: // Extinction
                 if (ExtinctOPL()) {

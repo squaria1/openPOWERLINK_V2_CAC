@@ -45,43 +45,43 @@ void opl::sendError(int16_t errorCode)
     printf("\n\n EC1 CN : %d \n\n", values_Out_CN_l[nbValuesCN_Out_ByCN - 1]);
 }
 
-void opl::setValues_In_CN(int32_t values_In_CN_g[])
+void opl::setValues_In_CN(UINT8 values_In_CN_g[])
 {
-    for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
+    for (int i = 0; i < SIZE_IN; i++)
     {
         values_In_CN_l[i] = values_In_CN_g[i];
     }
 }
 
-int32_t* opl::getValues_In_CN()
+UINT8* opl::getValues_In_CN()
 {
     return values_In_CN_l;
 }
 
-void opl::setValues_Out_CN(int32_t values_Out_CN_g[])
+void opl::setValues_Out_CN(UINT8 values_Out_CN_g[])
 {
-    for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
+    for (int i = 0; i < SIZE_OUT; i++)
     {
         values_Out_CN_l[i] = values_Out_CN_g[i];
     }
 }
 
-int32_t* opl::getValues_Out_CN()
+UINT8* opl::getValues_Out_CN()
 {
     return values_Out_CN_l;
 }
 
-void opl::setActivated_In_CN(int32_t activated_In_CN_g[])
+void opl::setActivated_In_CN(UINT8 activated_In_CN_g[])
 {
-    for (int i = 0; i < COMPUTED_PI_IN_SIZE; i++)
+    for (int i = 0; i < SIZE_IN; i++)
     {
         activated_In_CN_l[i] = activated_In_CN_g[i];
     }
 }
 
-void opl::setActivated_Out_CN(int32_t activated_Out_CN_g[])
+void opl::setActivated_Out_CN(UINT8 activated_Out_CN_g[])
 {
-    for (int i = 0; i < COMPUTED_PI_OUT_SIZE; i++)
+    for (int i = 0; i < SIZE_OUT; i++)
     {
         activated_Out_CN_l[i] = activated_Out_CN_g[i];
     }
@@ -407,8 +407,116 @@ The function initializes the digital input port.
 //------------------------------------------------------------------------------
 void setupInputs(void)
 {
-    memset(&values_In_CN_l, 0, sizeof(values_In_CN_l));
+    values_In_CN_l[0] = 1;
 }
+
+//------------------------------------------------------------------------------
+/**
+\brief  Increase inputs
+
+The function changes the digital input port by shifting the set bit to the
+left (increase the value).
+
+\ingroup module_demo_cn_console
+*/
+//------------------------------------------------------------------------------
+void increaseInputs(void)
+{
+    if (values_In_CN_l[0] == 128)
+        values_In_CN_l[0] = 1;
+    else
+        values_In_CN_l[0] = values_In_CN_l[0] << 1;
+
+    printf("\b \b");
+    printInputs();
+}
+
+//------------------------------------------------------------------------------
+/**
+\brief  Decrease inputs
+
+The function changes the digital input port by shifting the set bit to the
+right (decrease the value).
+
+\ingroup module_demo_cn_console
+*/
+//------------------------------------------------------------------------------
+void decreaseInputs(void)
+{
+    if (values_In_CN_l[0] == 1)
+        values_In_CN_l[0] = 128;
+    else
+        values_In_CN_l[0] = values_In_CN_l[0] >> 1;
+
+    printf("\b \b");
+    printInputs();
+}
+
+
+//------------------------------------------------------------------------------
+/**
+\brief  Print outputs
+
+The function prints the value of the digital output port on the console.
+
+\ingroup module_demo_cn_console
+*/
+//------------------------------------------------------------------------------
+void printOutputs(void)
+{
+    int i;
+
+    printf("\b \b");
+    printf("Digital outputs: ");
+    for (i = 0; i < 8; i++)
+    {
+        if (((values_Out_CN_l[0] >> i) & 1) == 1)
+            printf("*");
+        else
+            printf("-");
+    }
+    printf("\n");
+}
+
+//------------------------------------------------------------------------------
+/**
+\brief  Print inputs
+
+The function prints the value of the digital input port on the console.
+
+\ingroup module_demo_cn_console
+*/
+//------------------------------------------------------------------------------
+void printInputs(void)
+{
+    int i;
+
+    printf("Digital inputs: ");
+    for (i = 0; i < 8; i++)
+    {
+        if (((values_In_CN_l[0] >> i) & 1) == 1)
+            printf("*");
+        else
+            printf("-");
+    }
+    printf("\n");
+}
+
+//------------------------------------------------------------------------------
+/**
+\brief  Setup inputs
+
+The function initializes the digital input port.
+
+\ingroup module_demo_cn_console
+*/
+//------------------------------------------------------------------------------
+
+/*
+void setupInputs(void)
+{
+    memset(&values_In_CN_l, 0, sizeof(values_In_CN_l));
+}*/
 
 //------------------------------------------------------------------------------
 /**

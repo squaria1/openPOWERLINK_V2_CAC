@@ -9,6 +9,7 @@
 #include <stdint.h>
 
 #define COMPUTED_PI_OUT_SIZE 152
+#define SIZE_OUT 75
 typedef struct
 {
 	/*
@@ -89,10 +90,11 @@ typedef struct
 	signed CN3_SENSOR_In_AI16_SENSOR12:16;
 	unsigned PADDING_VAR_1:16;
 	*/
-	int16_t out_CN_array[75];
+	int16_t out_CN_array[SIZE_OUT];
 } PI_OUT;
 
 #define COMPUTED_PI_IN_SIZE 80
+#define SIZE_IN 39
 typedef struct
 {
 	/*
@@ -137,7 +139,7 @@ typedef struct
 	signed CN3_VALVE_Out_AI16_VALVE12:16;
 	unsigned PADDING_VAR_1:16;
 	*/
-	int16_t in_CN_array[39];
+	int16_t in_CN_array[SIZE_IN];
 } PI_IN;
 
 #endif

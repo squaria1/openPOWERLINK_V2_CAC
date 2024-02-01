@@ -188,6 +188,8 @@ int main() {
                     #else
                                         processSync();
                     #endif
+
+                    etat = 3;
                 }
 
                 break;

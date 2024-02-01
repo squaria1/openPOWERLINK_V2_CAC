@@ -57,6 +57,10 @@ tOplkError  initProcessImage(void);
 void        shutdownOplImage(void);
 void        shutdownPowerlink(void);
 void        setupInputs(void);
+void        printOutputs(void);
+void        printInputs(void);
+void        increaseInputs(void);
+void        decreaseInputs(void);
 tOplkError  processSync(void);
 tOplkError  linkPDO_in(UINT varEntries, tObdSize obdSize, const UINT16 arrayIndex, UINT16 index, UINT8 subIndex);
 tOplkError  linkPDO_out(UINT varEntries, tObdSize obdSize, const UINT16 arrayIndex, UINT16 index, UINT8 subIndex);
@@ -67,33 +71,33 @@ bool        ExtinctOPL();
 //------------------------------------------------------------------------------
 // local vars
 //------------------------------------------------------------------------------
-static const UINT8              aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-static BOOL                     fGsOff_l;
+static const UINT8       aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static BOOL              fGsOff_l;
 
 /* process image */
-static PI_IN*        pProcessImageIn_l;
-static const PI_OUT*             pProcessImageOut_l;
+static PI_IN*            pProcessImageIn_l;
+static const PI_OUT*     pProcessImageOut_l;
 
 
 /* application variables */
 
-static int32_t          values_In_CN_l[COMPUTED_PI_IN_SIZE];
-static int32_t          values_Out_CN_l[COMPUTED_PI_OUT_SIZE];
-static bool             activated_In_CN_l[COMPUTED_PI_IN_SIZE];
-static bool             activated_Out_CN_l[COMPUTED_PI_OUT_SIZE];
+static UINT8             values_In_CN_l[SIZE_IN];
+static UINT8             values_Out_CN_l[SIZE_OUT];
+static bool              activated_In_CN_l[SIZE_IN];
+static bool              activated_Out_CN_l[SIZE_OUT];
 
 //------------------------------------------------------------------------------
 // local function prototypes
 //------------------------------------------------------------------------------
 
-static const UINT8       nbValuesCN_Out = COMPUTED_PI_OUT_SIZE / NB_NODES;
-static const UINT8       nbValuesCN_In = COMPUTED_PI_IN_SIZE / NB_NODES;
-static const UINT8       nbValuesCN_Out_ByCN = COMPUTED_PI_OUT_SIZE / NB_NODES * (NODEID - 1) + 1;
-static const UINT8       nbValuesCN_In_ByCN = COMPUTED_PI_IN_SIZE / NB_NODES * (NODEID - 1) + 1;
+static const UINT8       nbValuesCN_Out = SIZE_OUT / NB_NODES;
+static const UINT8       nbValuesCN_In = SIZE_IN / NB_NODES;
+static const UINT8       nbValuesCN_Out_ByCN = SIZE_OUT / NB_NODES * (NODEID - 1) + 1;
+static const UINT8       nbValuesCN_In_ByCN = SIZE_IN / NB_NODES * (NODEID - 1) + 1;
 
 
-int16_t     getEG();
-void        setEC1(int16_t EC1);
+int16_t                  getEG();
+void                     setEC1(int16_t EC1);
 
 #ifdef __cplusplus
 }
@@ -108,12 +112,12 @@ class opl
         void        sendTelem(int16_t statusCode);
         void        sendError(int16_t errorCode);
 
-        void        setValues_In_CN(int32_t values_In_g[]);
-        int32_t*    getValues_In_CN(void);
-        void        setValues_Out_CN(int32_t values_Out_g[]);
-        int32_t*    getValues_Out_CN(void);
-        void        setActivated_In_CN(int32_t activated_In_MN_g[]);
-        void        setActivated_Out_CN(int32_t activated_Out_MN_g[]);
+        void        setValues_In_CN(UINT8 values_In_g[]);
+        UINT8*      getValues_In_CN(void);
+        void        setValues_Out_CN(UINT8 values_Out_g[]);
+        UINT8*      getValues_Out_CN(void);
+        void        setActivated_In_CN(UINT8 activated_In_MN_g[]);
+        void        setActivated_Out_CN(UINT8 activated_Out_MN_g[]);
         bool        demandeExtinctOPL();
 
     protected:
