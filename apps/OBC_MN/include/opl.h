@@ -99,7 +99,6 @@ static bool                     activated_Out_MN_l[COMPUTED_PI_OUT_SIZE];
 
 
 int16_t     getTest();
-void        setTest(int16_t TEST);
 
 int16_t     getEC1();
 void        setEG(int16_t EG);
