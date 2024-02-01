@@ -442,7 +442,7 @@ tOplkError processSync(void)
     values_Out_MN_l[1] = cnt_l;
 
 
-    values_Out_MN_l[0] = 555;
+    //values_Out_MN_l[0] = 555;
 
     pProcessImageIn_l->in_MN_array[0] = values_Out_MN_l[0];
     
