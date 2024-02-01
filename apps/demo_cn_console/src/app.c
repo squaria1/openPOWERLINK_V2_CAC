@@ -104,8 +104,8 @@ static PI_IN*           pProcessImageIn_l;
 static const PI_OUT*    pProcessImageOut_l;
 
 /* application variables */
-static UINT8            digitalIn_l;            // 8 bit digital input
-static UINT8            digitalOut_l;           // 8 bit digital output
+static UINT8            digitalIn_l[1];            // 8 bit digital input
+static UINT8            digitalOut_l[1];           // 8 bit digital output
 
 //------------------------------------------------------------------------------
 // local function prototypes
@@ -175,10 +175,10 @@ tOplkError processSync(void)
         return ret;
 
     /* read input image - digital outputs */
-    digitalOut_l = pProcessImageOut_l->out_CN_array[0];
+    digitalOut_l[0] = pProcessImageOut_l->out_CN_array[0];
 
     /* setup output image - digital inputs */
-    pProcessImageIn_l->in_CN_array[0] = digitalIn_l;
+    pProcessImageIn_l->in_CN_array[0] = digitalIn_l[0];
 
     ret = oplk_exchangeProcessImageIn();
 
@@ -196,7 +196,7 @@ The function initializes the digital input port.
 //------------------------------------------------------------------------------
 void setupInputs(void)
 {
-    digitalIn_l = 1;
+    digitalIn_l[0] = 1;
 }
 
 //------------------------------------------------------------------------------
@@ -211,10 +211,10 @@ left (increase the value).
 //------------------------------------------------------------------------------
 void increaseInputs(void)
 {
-    if (digitalIn_l == 128)
-        digitalIn_l = 1;
+    if (digitalIn_l[0] == 128)
+        digitalIn_l[0] = 1;
     else
-        digitalIn_l = digitalIn_l << 1;
+        digitalIn_l[0] = digitalIn_l[0] << 1;
 
     printf("\b \b");
     printInputs();
@@ -232,10 +232,10 @@ right (decrease the value).
 //------------------------------------------------------------------------------
 void decreaseInputs(void)
 {
-    if (digitalIn_l == 1)
-        digitalIn_l = 128;
+    if (digitalIn_l[0] == 1)
+        digitalIn_l[0] = 128;
     else
-        digitalIn_l = digitalIn_l >> 1;
+        digitalIn_l[0] = digitalIn_l[0] >> 1;
 
     printf("\b \b");
     printInputs();
@@ -259,7 +259,7 @@ void printOutputs(void)
     printf("Digital outputs: ");
     for (i = 0; i < 8; i++)
     {
-        if (((digitalOut_l >> i) & 1) == 1)
+        if (((digitalOut_l[0] >> i) & 1) == 1)
             printf("*");
         else
             printf("-");
@@ -283,7 +283,7 @@ void printInputs(void)
     printf("Digital inputs: ");
     for (i = 0; i < 8; i++)
     {
-        if (((digitalIn_l >> i) & 1) == 1)
+        if (((digitalIn_l[0] >> i) & 1) == 1)
             printf("*");
         else
             printf("-");
