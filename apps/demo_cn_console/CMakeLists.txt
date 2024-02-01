@@ -32,11 +32,11 @@
 ################################################################################
 # Setup project and generic options
 
-PROJECT(demo_cn_console C)
+PROJECT(demo_cn_console CXX)
 MESSAGE(STATUS "Configuring demo_cn_console")
 
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.7)
-
+enable_language(C)
 # Set CMake Policy to suppress the warning in CMake version 3.3.x
 IF (POLICY CMP0043)
     CMAKE_POLICY(SET CMP0043 OLD)
@@ -127,6 +127,11 @@ SOURCE_GROUP("Object Dictionary" FILES
     ${COMMON_SOURCE_DIR}/obdcreate/obdcreate.h
     ${OBJDICT_DIR}/${OBJDICT}/objdict.h
     )
+################################################################################
+# Setup compiler specific definitions and flags
+INCLUDE("${OPLK_APPS_COMMON_DIR}/cmake/configure-compiler.cmake")
+
+MESSAGE( STATUS "CMAKE_CXX_FLAGS: " ${CMAKE_CXX_FLAGS} )
 
 ################################################################################
 # Set the executable

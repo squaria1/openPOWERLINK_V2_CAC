@@ -89,7 +89,6 @@ int16_t getEC1()
 void setEG(int16_t EG)
 {
     values_Out_MN_l[0] = EG;
-    printf("setter fonctionne ? %d", values_Out_MN_l[0]);
 }
 
 int16_t getTest()
