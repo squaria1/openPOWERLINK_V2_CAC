@@ -56,16 +56,6 @@ typedef struct
     tNmtState       nodeState[254];
 } tDemoNodeInfo;
 
-typedef struct
-{
-    UINT                leds;
-    UINT                ledsOld;
-    UINT                input;
-    UINT                inputOld;
-    UINT                period;
-    int                 toggle;
-} APP_NODE_VAR_T;
-
 tOplkError  initPowerlink(UINT32 cycleLen_p,
                             const char* cdcFileName_p,
                             const char* devName_p,
@@ -86,9 +76,7 @@ bool        ExtinctOPL();
 static const UINT8              aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 static BOOL                     fGsOff_l;
 
-static int                      aUsedNodeIds_l[] = { 1, 2, 3, 0 };
 static UINT                     cnt_l;
-static APP_NODE_VAR_T           aNodeVar_l[MAX_NODES];
 static PI_IN*                   pProcessImageIn_l;
 static const PI_OUT*            pProcessImageOut_l;
 

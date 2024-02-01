@@ -83,7 +83,6 @@ extern "C"
 
 int16_t getEC1()
 {
-    printf("\n\n EC1 MN truc : %d \n\n", values_In_MN_l[0]);
     return values_In_MN_l[0];
 }
 
@@ -412,14 +411,7 @@ tOplkError processSync(void)
 
 
     /*
-
-    aNodeVar_l[0].input = pProcessImageOut_l->out_MN_array[1];
-    aNodeVar_l[1].input = pProcessImageOut_l->out_MN_array[26];
-    aNodeVar_l[2].input = pProcessImageOut_l->out_MN_array[51];
-
-
-
-    for (int i = 0; i < COMPUTED_PI_IN_SIZE/2; i++)
+    for (int i = 0; i < SIZE_IN/2; i++)
     {
         if (activated_In_MN_l[i])
         {
@@ -427,7 +419,7 @@ tOplkError processSync(void)
         }
     }
 
-    for (int i = 0; i < COMPUTED_PI_OUT_SIZE/2; i++)
+    for (int i = 0; i < SIZE_OUT/2; i++)
     {
         if (activated_Out_MN_l[i])
         {
@@ -435,14 +427,7 @@ tOplkError processSync(void)
         }
     }
 
-    values_Out_MN_l[0] = 0x1FFF;
-
     */
-
-    values_Out_MN_l[1] = cnt_l;
-
-
-    //values_Out_MN_l[0] = 555;
 
     pProcessImageIn_l->in_MN_array[0] = values_Out_MN_l[0];
     
