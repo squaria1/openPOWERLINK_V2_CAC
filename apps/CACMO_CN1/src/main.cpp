@@ -1,10 +1,33 @@
 
 #include "opl.h"
 #include "file.h"
+#include "csv.h"
 //#include "valve.h"
 //#include "sensor.h"
 
 int main() {
+
+    struct LigneCSV* data;
+
+    char* fileName = "Etat_.csv";
+    lireFichier(fileName, data);
+
+    int* monTableau = getDependanceVannes(data, 2);
+
+    int i = 0;
+    do {
+
+        printf("%d ", monTableau[i]);
+        i++;
+    } while (monTableau[i] != 0);
+
+
+    //  printf("%c\n", getCarte(&data, 2));
+    //  printf("%c\n", getVannes (&data, 2));
+    printf("valeur : %d\n", getValeur(data, 2));
+    printf("timer : %f\n", getTimerVannes(data, 2));
+
+
     int etat=1;
     opl opl;
     file file;
