@@ -1,4 +1,25 @@
+#include "csv.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <sys/types.h> 
+#include <signal.h>
 #include <string>
+
+#if (TARGET_SYSTEM == _WIN32_)
+#include <getopt/getopt.h>
+#else
+#include <unistd.h>
+#endif
+#if (TARGET_SYSTEM == _WIN32_)
+#include <io.h>
+#else 
+#include <sys/ioctl.h>
+#endif
+
+
+char iiosyspath[] = "/sys/bus/iio/devices/iio:device0/";
 
 #ifndef SENSOR_H
 #define SENSOR_H

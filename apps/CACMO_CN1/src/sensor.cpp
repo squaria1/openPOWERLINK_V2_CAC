@@ -1,26 +1,4 @@
 #include "sensor.h"
-#include "csv.h"
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <signal.h>
-#include <errno.h>
-#include <sys/types.h> 
-
-#if (TARGET_SYSTEM == _WIN32_)
-#include <getopt/getopt.h>
-#else
-#include <unistd.h>
-#endif
-#if (TARGET_SYSTEM == _WIN32_)
-#include <io.h>
-#else 
-#include <sys/ioctl.h>
-#endif
-
-
-char iiosyspath[] = "/sys/bus/iio/devices/iio:device0/";
 
 
 sensor::sensor()
@@ -141,8 +119,8 @@ void sensor::register_sig_handler()
 {
     struct sigaction sia;
 
-    memset(sia,0, sizeof(sia));
-    sia.sa_handler = sigint_handler;
+    memset(&sia,0, sizeof(sia));
+    sia.sa_handler = &sensor::sigint_handler;
 
     
     if (sigaction(SIGINT, &sia, NULL) < 0) {
