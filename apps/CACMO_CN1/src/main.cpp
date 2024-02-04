@@ -43,7 +43,7 @@ int main() {
     int16_t EG = -1;
     int16_t EC1 = -1;
   
-
+/*
     //valve valve;
     sensor sensor;
     
@@ -83,7 +83,7 @@ int main() {
                 }else{
                     file.writeError();
                     opl.sendError();
-                }*/
+                }
                 if(sensor.initSensor(data)){
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                     opl.sendTelem(0x0002);
@@ -178,5 +178,5 @@ int main() {
                 free(data);
                 break;
         }
-    }
+    }*/
 }

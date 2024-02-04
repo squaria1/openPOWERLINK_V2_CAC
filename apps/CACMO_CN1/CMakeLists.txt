@@ -60,7 +60,7 @@ SET(DEMO_SOURCES
     ${DEMO_SOURCE_DIR}/file.cpp
     ${DEMO_SOURCE_DIR}/opl.cpp
 	${DEMO_SOURCE_DIR}/eventOpl.c
-	${DEMO_SOURCE_DIR}/sensor.cpp
+	#${DEMO_SOURCE_DIR}/sensor.cpp
 	#${DEMO_SOURCE_DIR}/valve.cpp
 	${DEMO_SOURCE_DIR}/csv.cpp
     ${COMMON_SOURCE_DIR}/obdcreate/obdcreate.c
