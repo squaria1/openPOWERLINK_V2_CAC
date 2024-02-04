@@ -1,4 +1,3 @@
-
 #include "opl.h"
 #include "file.h"
 #include "csv.h"
@@ -6,6 +5,8 @@
 #include "sensor.h"
 
 int main() {
+
+    /********************Partie_CSV********************/
 
     struct LigneCSV* data = (struct LigneCSV*)malloc(sizeof(struct LigneCSV));
     if (data == NULL) {
@@ -16,7 +17,7 @@ int main() {
     memset(data, 0, sizeof(struct LigneCSV));
 
     char* fileName = "Etat_.csv";
-    lireFichier(fileName, data);
+    lireFichierCSV(STATE_CSV_DIRECTORY, data);
 
     int* monTableau = getDependanceVannes(data, 2);
 
@@ -33,6 +34,41 @@ int main() {
     printf("valeur : %d\n", getValeur(data, 2));
     printf("timer : %f\n", getTimerVannes(data, 2));
 
+
+    /********************Partie_PhysicalConfig_Vannes********************/
+
+    struct LigneVannes* dataPhysicalConfigVannes = (struct LigneVannes*)malloc(sizeof(struct LigneVannes));
+    if (dataPhysicalConfigVannes == NULL) {
+        perror("Error allocating memory");
+        exit(EXIT_FAILURE);
+    }
+
+    memset(dataPhysicalConfigVannes, 0, sizeof(struct LigneVannes));
+
+    lireFichierVannes(PYSICAL_CONFIG_VANNES_DIRECTORY, dataPhysicalConfigVannes);
+    printf("Activation : %d\n", getActivationVannes(dataPhysicalConfigVannes, 3));
+    printf("Etat Init : %d\n", getEtatInitialVannes(dataPhysicalConfigVannes, 3));
+    printf("Port GPIO : %d\n", getPortGPIO(dataPhysicalConfigVannes, 3));
+
+    /********************Partie_PhysicalConfig_Sensors********************/
+
+/*
+    struct LigneSensors* dataPhysicalConfigSensors = (struct LigneSensors*)malloc(sizeof(struct LigneSensors));
+    if (dataPhysicalConfigVannes == NULL) {
+        perror("Error allocating memory");
+        exit(EXIT_FAILURE);
+    }
+
+    memset(dataPhysicalConfigVannes, 0, sizeof(struct LigneSensors));
+
+    lireFichierSensors(PYSICAL_CONFIG_VANNES_DIRECTORY, dataPhysicalConfigSensors);
+    printf("Activation : %d\n", getActivationSensors(dataPhysicalConfigSensors, 2));
+    printf("Etat Init : %d\n", getEtatInitialSensors(dataPhysicalConfigSensors, 2));
+    printf("Min Val : %f\n", getMinValue(dataPhysicalConfigSensors, 2));
+    printf("Max Val : %f\n", getMaxValue(dataPhysicalConfigSensors, 2));
+
+    */
+    
 
     int etat=1;
     opl opl;
