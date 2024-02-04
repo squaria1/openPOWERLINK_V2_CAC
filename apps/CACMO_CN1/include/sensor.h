@@ -25,7 +25,7 @@ class sensor
         void register_sig_handler();
         void sigint_handler(int sig);
         int GetAdc_value(int index);
-        int initSensor();
+        int initSensor(struct LigneCSV* data);
 
 
         int opt, delay_us, adc, i;

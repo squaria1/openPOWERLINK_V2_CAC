@@ -1,4 +1,5 @@
 #include "sensor.h"
+#include "csv.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -38,15 +39,19 @@ int sensor::GetAdc_value(int index) {
 }
 
 
-int sensor::initSensor(){
+int sensor::initSensor(struct LigneCSV* data) {
 
     register_sig_handler();
+    bool tabSensorActivated[MAX_SENSORS_PER_BOARD];
+
+    for (int i = 0; i < MAX_SENSORS_PER_BOARD; i++) {
+        tabSensorActivated[i] = getSensorActivated(data, i);
+    }
 
     memset(adc_list, 0, sizeof(adc_list));
 
-    for (i = 0; i < MAX_ADC; i++) { //0 � taille tab de benoit
-        
-        if (tabSensorActive[i])
+    for (int i = 0; i < MAX_ADC; i++) { //0 taille tab de benoit
+        if (tabSensorActivated[i])
             adc_list[adc] = 1;
         else
             adc_list[adc] = 0;

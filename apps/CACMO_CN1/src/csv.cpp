@@ -65,7 +65,6 @@ char* getCarte(struct LigneCSV* data, int ligne) {
 
 char* getVannes(struct LigneCSV* data, int ligne) {
     return data->vannes[ligne];
-
 }
 
 int getValeur(struct LigneCSV* data, int ligne) {
@@ -73,13 +72,17 @@ int getValeur(struct LigneCSV* data, int ligne) {
 }
 
 int* getDependanceVannes(struct LigneCSV* data, int ligne) {
-    int* tableau = 0;
+    int* tableau = (int*)malloc(MAX_DEPENDANCE * sizeof(int));
 
     for (int i = 0; i < MAX_DEPENDANCE; i++) {
         tableau[i] = data->dependanceVannes[ligne][i];
     }
     
     return tableau;
+}
+
+bool getSensorActivated(struct LigneCSV* data, int ligne) {
+    return data->sensorActivated[ligne];
 }
 
 float getTimerVannes(struct LigneCSV* data, int ligne) {

@@ -4,11 +4,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 
 #define MAX_LINE_SIZE 2832
 #define MAX_FIELD_SIZE 2832
 #define MAX_ROWS 5
 #define MAX_DEPENDANCE 2832
+#define MAX_SENSORS_PER_BOARD 12
 #define STATE_CSV_DIRECTORY "..\\..\\..\\include\\stateCSV\\Etat_.csv"
 
 #ifdef __cplusplus
@@ -23,6 +25,7 @@ struct LigneCSV {
     int valeur[256];
     int dependanceVannes[256][256];
     float timerVannes[256];
+    bool sensorActivated[MAX_SENSORS_PER_BOARD];
 };
 
 
@@ -34,6 +37,7 @@ char* getVannes(struct LigneCSV* data, int ligne);
 int getValeur(struct LigneCSV* data, int ligne);
 int* getDependanceVannes(struct LigneCSV* data, int ligne);
 float getTimerVannes(struct LigneCSV* data, int ligne);
+bool getSensorActivated(struct LigneCSV* data, int ligne);
 
 #ifdef __cplusplus
 }

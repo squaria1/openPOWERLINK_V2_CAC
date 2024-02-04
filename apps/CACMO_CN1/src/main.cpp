@@ -3,11 +3,17 @@
 #include "file.h"
 #include "csv.h"
 //#include "valve.h"
-//#include "sensor.h"
+#include "sensor.h"
 
 int main() {
 
-    struct LigneCSV* data;
+    struct LigneCSV* data = (struct LigneCSV*)malloc(sizeof(struct LigneCSV));
+    if (data == NULL) {
+        perror("Error allocating memory");
+        exit(EXIT_FAILURE);
+    }
+
+    memset(data, 0, sizeof(struct LigneCSV));
 
     char* fileName = "Etat_.csv";
     lireFichier(fileName, data);
@@ -38,8 +44,8 @@ int main() {
     int16_t EC1 = -1;
   
 
-    /*valve valve;
-    sensor sensor;*/
+    //valve valve;
+    sensor sensor;
     
     while(etat<3){
         switch(etat){
@@ -78,6 +84,13 @@ int main() {
                     file.writeError();
                     opl.sendError();
                 }*/
+                if(sensor.initSensor(data)){
+                    file.writeTelem("code_success:0x % 08X", 0x0003);
+                    opl.sendTelem(0x0002);
+                }else{
+                    file.writeError("", 0xE003);
+                    opl.sendError(0xE002);
+                }    
                 if(opl.demandeExtinctOPL()){
                     etat=3;
                 }else{
@@ -162,6 +175,7 @@ int main() {
                 }else{
                     file.writeError("", 0xE003);
                 }
+                free(data);
                 break;
         }
     }
