@@ -1,4 +1,5 @@
 #include "csv.h"
+#include "configOpl.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -18,13 +19,24 @@
 #include <sys/ioctl.h>
 #endif
 
-
 char iiosyspath[] = "/sys/bus/iio/devices/iio:device0/";
 
 #ifndef SENSOR_H
 #define SENSOR_H
 #define ADC_READ_ERROR -100000
 #define MAX_ADC 8
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+int val[MAX_ADC];
+int getAdc_value(int index);
+
+#ifdef __cplusplus
+}
+#endif
 
 class sensor
 {
@@ -43,15 +55,11 @@ class sensor
         void closeAdc();
         int readAdc(int fd);
         int openAdc(int adc);
-        void register_sig_handler();
-        void sigint_handler(int sig);
-        int GetAdc_value(int index);
         int initSensor(struct LigneCSV* data);
 
 
         int opt, delay_us, adc, i;
         int adc_list[MAX_ADC];
-        int val[MAX_ADC];
         int fd[MAX_ADC];
         int abort_read;
 

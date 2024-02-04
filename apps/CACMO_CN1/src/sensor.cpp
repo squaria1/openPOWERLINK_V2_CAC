@@ -12,8 +12,11 @@ sensor::~sensor()
     //destructor
 }
 
-int sensor::GetAdc_value(int index) {
-    return val[index];
+extern "C"
+{
+    int getAdc_value(int index) {
+        return val[index];
+    }
 }
 
 
@@ -23,7 +26,7 @@ int sensor::initSensor(struct LigneCSV* data) {
     bool tabSensorActivated[MAX_SENSORS_PER_BOARD];
 
     for (int i = 0; i < MAX_SENSORS_PER_BOARD; i++) {
-        tabSensorActivated[i] = getSensorActivated(data, i);
+        tabSensorActivated[i] = getActivationSensors(data, i);
     }
 
     memset(adc_list, 0, sizeof(adc_list));
@@ -113,24 +116,4 @@ int sensor::openAdc(int adc)
 
 
     return fd;
-}
-
-void sensor::register_sig_handler()
-{
-    struct sigaction sia;
-
-    memset(&sia,0, sizeof(sia));
-    sia.sa_handler = &sensor::sigint_handler;
-
-    
-    if (sigaction(SIGINT, &sia, NULL) < 0) {
-        perror("sigaction(SIGINT)");
-        exit(1);
-    }
-    
-}
-
-void sensor::sigint_handler(int sig)
-{
-    abort_read = 1;
 }

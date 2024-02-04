@@ -10,7 +10,6 @@
 #define MAX_FIELD_SIZE 2832
 #define MAX_ROWS 5
 #define MAX_DEPENDANCE 2832
-#define MAX_SENSORS_PER_BOARD 12
 #define STATE_CSV_DIRECTORY "..\\..\\..\\include\\stateCSV\\Etat_.csv"
 #define PYSICAL_CONFIG_VANNES_DIRECTORY "..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_vannes.csv"
 #define PYSICAL_CONFIG_SENSORS_DIRECTORY "..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_sensors.csv"

@@ -52,14 +52,14 @@ int main() {
 
     /********************Partie_PhysicalConfig_Sensors********************/
 
-/*
+
     struct LigneSensors* dataPhysicalConfigSensors = (struct LigneSensors*)malloc(sizeof(struct LigneSensors));
-    if (dataPhysicalConfigVannes == NULL) {
+    if (dataPhysicalConfigSensors == NULL) {
         perror("Error allocating memory");
         exit(EXIT_FAILURE);
     }
 
-    memset(dataPhysicalConfigVannes, 0, sizeof(struct LigneSensors));
+    memset(dataPhysicalConfigSensors, 0, sizeof(struct LigneSensors));
 
     lireFichierSensors(PYSICAL_CONFIG_VANNES_DIRECTORY, dataPhysicalConfigSensors);
     printf("Activation : %d\n", getActivationSensors(dataPhysicalConfigSensors, 2));
@@ -67,9 +67,7 @@ int main() {
     printf("Min Val : %f\n", getMinValue(dataPhysicalConfigSensors, 2));
     printf("Max Val : %f\n", getMaxValue(dataPhysicalConfigSensors, 2));
 
-    */
     
-
     int etat=1;
     opl opl;
     file file;
@@ -79,14 +77,14 @@ int main() {
     int16_t EG = -1;
     int16_t EC1 = -1;
   
-/*
+
     //valve valve;
-    sensor sensor;
+    //sensor sensor;
     
     while(etat<3){
         switch(etat){
             case 1: // Initialisation
-                if (initOPL()) {
+                if (initOPL(dataPhysicalConfigVannes, dataPhysicalConfigSensors)) {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                     opl.sendTelem(0x0002);
                 }
@@ -119,14 +117,19 @@ int main() {
                 }else{
                     file.writeError();
                     opl.sendError();
-                }
-                if(sensor.initSensor(data)){
-                    file.writeTelem("code_success:0x % 08X", 0x0003);
-                    opl.sendTelem(0x0002);
-                }else{
-                    file.writeError("", 0xE003);
-                    opl.sendError(0xE002);
-                }    
+                }*/
+                #if (TARGET_SYSTEM == _WIN32_)
+                #else
+                    if(sensor.initSensor(data)) {
+                        file.writeTelem("code_success:0x % 08X", 0x0003);
+                        opl.sendTelem(0x0002);
+                    }
+                    else {
+                        file.writeError("", 0xE003);
+                        opl.sendError(0xE002);
+                    }
+                #endif
+                
                 if(opl.demandeExtinctOPL()){
                     etat=3;
                 }else{
@@ -214,5 +217,5 @@ int main() {
                 free(data);
                 break;
         }
-    }*/
+    }
 }

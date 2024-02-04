@@ -1,17 +1,5 @@
 #include "file.h"
 
-using namespace std;
-
-//const string PATH_DIRECTORY_telemFiles = "..\\..\\..\\include\\telemFiles";
-
-//const string PATH_DIRECTORY_LIST_TELEM_FILES = PATH_DIRECTORY_telemFiles + "\\listTelemFiles.txt";
-
-string nameFiles;//nom du fichier a creer avec le temps actuel
-
-static string year_month_day;
-
-static string hour_minute_second;
-
 file::file()
 {
     //constructor
@@ -35,9 +23,7 @@ bool file::initFile()
     int  minute = tm_NOW->tm_min;
     int  second = tm_NOW->tm_sec;
 
-
     /*********************** initialisation day_month_year *************************************/
-
 
     year_month_day = year_month_day + to_string(year);
     year_month_day = year_month_day + "-";
@@ -49,7 +35,6 @@ bool file::initFile()
 
     /*********************** initialisation hour_minute_seconde *************************************/
 
-
     hour_minute_second = hour_minute_second + to_string(hour);
     hour_minute_second = hour_minute_second + "-";
     hour_minute_second = hour_minute_second + to_string(minute);
@@ -58,28 +43,15 @@ bool file::initFile()
 
     /*******************************************************************************************/
 
+    /******************* stockage du chemin du nouveau fichier de t�l�m�trie ******************/
+
     nameFiles = year_month_day + "__" + hour_minute_second + ".txt";
-
-
     cout << nameFiles << endl;
-
     string PATH_DIRECTORY_FILE = file::PATH_DIRECTORY_telemFiles + "\\" + nameFiles;
-
-    //ofstream dataFile(PATH_DIRECTORY_FILE);
-
     file::pathFile = PATH_DIRECTORY_FILE;
 
-    //dataFile.close(); 
+    /******************************************************************************************/
 
-
-/******************* stockage du chemin du nouveau fichier de t�l�m�trie ******************/
-
-    //dataFile.open(file::PATH_DIRECTORY_LIST_TELEM_FILES, ios::out | ios::app);// ouverture du fichier en mode �criture avec curseur repositionn� automatiquement � la fin du fichier
-    //dataFile << PATH_DIRECTORY_FILE << endl;
-    //dataFile.close();
-
-
-/******************************************************************************************/
     return true;
 }
 
