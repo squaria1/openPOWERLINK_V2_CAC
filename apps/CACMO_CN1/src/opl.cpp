@@ -42,7 +42,7 @@ extern "C"
         case 0: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
             for (int i = 0; i < SIZE_IN; i++)
             {
-                if (i % (MAX_VALVES_PER_BOARD + 1) == 0)
+                if (i % (MAX_VALVES + 1) == 0)
                     values_In_CN_l[i] = getValeur(data, i);
             }
             break;
@@ -58,12 +58,12 @@ extern "C"
 
     void setValues_Out_CN()
     {
-        for (int i = 0; i < MAX_VALVES_PER_BOARD; i++) { //0 taille tab de benoit
+        for (int i = 0; i < MAX_SENSORS; i++) { //0 taille tab de benoit
             values_Out_CN_l[i + nbValuesCN_Out_ByCN] = getValve_value(i);
         }
 
-        for (int i = 0; i < MAX_ADC; i++) { //0 taille tab de benoit
-            values_Out_CN_l[i + nbValuesCN_Out_ByCN + MAX_SENSORS_PER_BOARD] = getAdc_value(i);
+        for (int i = 0; i < MAX_SENSORS; i++) { //0 taille tab de benoit
+            values_Out_CN_l[i + nbValuesCN_Out_ByCN + MAX_SENSORS] = getAdc_value(i);
         }
     }
 
@@ -71,7 +71,7 @@ extern "C"
     {
         return values_Out_CN_l;
     }
-
+    /*
     void setActivated_In_CN(struct LigneCSV* data, int ligne, uint8_t mode)
     {
         switch (mode)
@@ -79,7 +79,7 @@ extern "C"
         case 0: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
             for (int i = 0; i < SIZE_IN; i++)
             {
-                if (i % (MAX_VALVES_PER_BOARD + 1) == 0)
+                if (i % (MAX_VALVES + 1) == 0)
                     activated_In_CN_l[i] = getActivation(data, i);
             }
             break;
@@ -92,6 +92,7 @@ extern "C"
             break;
         }
     }
+    */
 
     void setActivated_Out_CN(struct LigneCSV* data, int ligne)
     {
@@ -116,7 +117,8 @@ extern "C"
     // local function prototypes
     //------------------------------------------------------------------------------
 
-    bool initOPL(struct LigneVannes* dataPhysicalConfigVannes, struct LigneSensors* dataPhysicalConfigSensors)
+    bool initOPL(struct LigneVannes* dataPhysicalConfigVannes,
+                 struct LigneSensors* dataPhysicalConfigSensors)
     {
 
         tOplkError  ret = kErrorOk;
@@ -178,7 +180,8 @@ extern "C"
     \ingroup module_demo_cn_console
     */
     //------------------------------------------------------------------------------
-    tOplkError initApp(struct LigneVannes* dataPhysicalConfigVannes, struct LigneSensors* dataPhysicalConfigSensors)
+    tOplkError initApp(struct LigneVannes* dataPhysicalConfigVannes, 
+                       struct LigneSensors* dataPhysicalConfigSensors)
     {
         tOplkError  ret;
     
@@ -359,7 +362,7 @@ extern "C"
     \ingroup module_demo_mn_console
     */
     //------------------------------------------------------------------------------
-    tOplkError processSync(void)
+    tOplkError processSync()
     {
         tOplkError  ret = kErrorOk;
 
@@ -381,33 +384,33 @@ extern "C"
 
         pProcessImageIn_l->in_CN_array[0] = values_In_CN_l[0];
 
-        /*
-        activated_Out_CN_l[nbValuesCN_Out_ByCN - 1] = true;
         for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
         {
             if (activated_Out_CN_l[i])
-                pProcessImageOut_l->out_CN_array[i] = values_Out_CN_l[i];
+                values_Out_CN_l[i % nbValuesCN_Out] = pProcessImageOut_l->out_CN_array[i];
         }
-        */
 
 
         /* setup output image - digital inputs */
 
-        /*
-        activated_In_CN_l[0] = true;
         // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
-        for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In; i++)
+        switch (mode)
         {
-            if (activated_In_CN_l[i])
-                values_In_CN_l[i] = pProcessImageIn_l->in_CN_array[i];
+        case 0: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
+            break;
+        case 1: // mode manuel : l'état des vannes proviennent directement du MN
+            for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In; i++)
+            {
+                pProcessImageIn_l->in_CN_array[i] = values_In_CN_l[i % nbValuesCN_In];
+            }
+            break;
+        default:
+            break;
         }
 
         ret = oplk_exchangeProcessImageIn();
         if (ret != kErrorOk)
             return ret;
-        */
-
-        ret = oplk_exchangeProcessImageIn();
 
         return ret;
     }
@@ -423,24 +426,8 @@ extern "C"
     //------------------------------------------------------------------------------
     void setupInputs(void)
     {
-        values_In_CN_l[0] = 0;
-    }
-
-    //------------------------------------------------------------------------------
-    /**
-    \brief  Setup inputs
-
-    The function initializes the digital input port.
-
-    \ingroup module_demo_cn_console
-    */
-    //------------------------------------------------------------------------------
-
-    /*
-    void setupInputs(void)
-    {
         memset(&values_In_CN_l, 0, sizeof(values_In_CN_l));
-    }*/
+    }
 
     //------------------------------------------------------------------------------
     /**
@@ -478,31 +465,36 @@ extern "C"
         /* link process variables used by CN to object dictionary */
         fprintf(stderr, "Linking process image vars:\n");
 
-        varEntries = 1;
+        obdSize = 2;
 
         //Link image EC of the correct NODEID
-        obdSize = 2;
+        /*
         ret = linkPDO_in(varEntries, obdSize, 0, 0x6501, 0x01);
         if (ret != kErrorOk)
         {
             return ret;
         }
-        /*
+        */
+        
         // Init process image output
         // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
-        for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
+        for (int i = nbValuesCN_Out_ByCN; i <= nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
         {
             if (activated_Out_CN_l[i])
             {
                 //Link valves images
                 if (i > nbValuesCN_Out_ByCN && i <= nbValuesCN_Out_ByCN + nbValuesCN_Out / 2)
                 {
-                    ret = linkPDO_out(varEntries, obdSize, i, 0x6510, 0x01 + i % (nbValuesCN_Out / 2));
+                    ret = linkPDO_out(obdSize, i, 0x6500, 0x01 + i % (nbValuesCN_Out / 2));
                 }
                 //Link sensors images
                 else if (i > nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 && i <= nbValuesCN_Out_ByCN + nbValuesCN_Out)
                 {
-                    ret = linkPDO_out(varEntries, obdSize, i, 0x6512, 0x01 + i % (nbValuesCN_Out / 2));
+                    ret = linkPDO_out(obdSize, i, 0x6502, 0x01 + i % (nbValuesCN_Out / 2));
+                }
+                else if (i == nbValuesCN_Out_ByCN)
+                {
+                    ret = linkPDO_out(obdSize, i, 0x6501, NODEID);
                 }
                 if (ret != kErrorOk)
                 {
@@ -511,27 +503,33 @@ extern "C"
             }
         }
         // Init process image input
-        for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In / 2; i++)
+        ret = linkPDO_in(obdSize, nbValuesCN_In_ByCN, 0x6511, 0xF0);
+        if (ret != kErrorOk)
         {
-            //Link valves images in from MN
-            if (activated_In_CN_l[i])
+            return ret;
+        }
+
+        switch (mode)
+        {
+        case 0: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
+            break;
+        case 1: // mode manuel : l'état des vannes proviennent directement du MN
+            for (int i = nbValuesCN_In_ByCN + 1; i <= nbValuesCN_In_ByCN + nbValuesCN_In / 2; i++)
             {
-                ret = linkPDO_in(varEntries, obdSize, i, 0x6500, 0x01 + i % (nbValuesCN_In / 2));
+                //Link valves images in from MN
+                ret = linkPDO_in(obdSize, i, 0x6510, 0x01 + i % (nbValuesCN_In / 2));
                 if (ret != kErrorOk)
                 {
                     return ret;
                 }
             }
+            break;
+        default:
+            break;
         }
-        */
-
-        varEntries = 1;
+        
         // Link image input EG
-        ret = linkPDO_out(varEntries, obdSize, 0, 0x6511, 0xF0);
-        if (ret != kErrorOk)
-        {
-            return ret;
-        }
+
 
         fprintf(stderr, "Linking process vars... ok\n\n");
 
@@ -539,18 +537,12 @@ extern "C"
     }
 
 
-    tOplkError linkPDO_in(UINT varEntries, tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
+    tOplkError linkPDO_in(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
         tOplkError  ret = kErrorOk;
-
-        //ret = oplk_linkProcessImageObject(index,
-        //    subIndex,
-        //    offsetof(PI_IN, in_CN_array[0]) + sizeof(INT16) * arrayIndex,
-        //    FALSE,
-        //    obdSize,
-        //    &varEntries);
+        UINT varEntries = 1;
         ret = oplk_linkProcessImageObject(index,
             subIndex,
-            offsetof(PI_IN, in_CN_array[0]),
+            offsetof(PI_IN, in_CN_array[arrayIndex]) + sizeof(uint16_t) * arrayIndex,
             FALSE,
             obdSize,
             &varEntries);
@@ -565,18 +557,12 @@ extern "C"
         return ret;
     }
 
-    tOplkError linkPDO_out(UINT varEntries, tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
+    tOplkError linkPDO_out(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
         tOplkError  ret = kErrorOk;
-
-        //ret = oplk_linkProcessImageObject(index,
-        //    subIndex,
-        //    offsetof(PI_OUT, out_CN_array[0]) + sizeof(INT16) * arrayIndex,
-        //    FALSE,
-        //    obdSize,
-        //    &varEntries);
+        UINT varEntries = 1;
         ret = oplk_linkProcessImageObject(index,
             subIndex,
-            offsetof(PI_OUT, out_CN_array[0]),
+            offsetof(PI_OUT, out_CN_array[arrayIndex]) + sizeof(uint16_t) * arrayIndex,
             TRUE,
             obdSize,
             &varEntries);

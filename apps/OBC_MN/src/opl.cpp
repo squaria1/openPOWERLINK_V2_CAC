@@ -70,6 +70,7 @@ void opl::setActivated_In_MN(int16_t activated_In_MN_g[])
     }
 }
 
+/*
 void opl::setActivated_Out_MN(int16_t activated_Out_MN_g[])
 {
     for (int i = 0; i < SIZE_OUT; i++)
@@ -77,6 +78,7 @@ void opl::setActivated_Out_MN(int16_t activated_Out_MN_g[])
         activated_Out_MN_l[i] = activated_Out_MN_g[i];
     }
 }
+*/
 
 extern "C"
 {
@@ -407,29 +409,31 @@ tOplkError processSync(void)
 
     cnt_l++;
 
-    values_In_MN_l[0] = pProcessImageOut_l->out_MN_array[0];
+    //values_In_MN_l[0] = pProcessImageOut_l->out_MN_array[0];
 
-
-    /*
-    for (int i = 0; i < SIZE_IN/2; i++)
+    for (int i = 0; i < SIZE_OUT; i++)
     {
         if (activated_In_MN_l[i])
         {
-            values_In_MN_l[i] = pProcessImageIn_l->in_MN_array[i];
+            values_In_MN_l[i] = pProcessImageOut_l->out_MN_array[i];
         }
     }
 
-    for (int i = 0; i < SIZE_OUT/2; i++)
+    switch (mode)
     {
-        if (activated_Out_MN_l[i])
+    case 0: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
+        break;
+    case 1: // mode manuel : l'état des vannes proviennent directement du MN
+        for (int i = 0; i < SIZE_IN; i++)
         {
-            pProcessImageOut_l->out_MN_array[i] = values_Out_MN_l[i];
+            pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
         }
+        break;
+    default:
+        break;
     }
 
-    */
-
-    pProcessImageIn_l->in_MN_array[0] = values_Out_MN_l[0];
+    //pProcessImageIn_l->in_MN_array[0] = values_Out_MN_l[0];
     
     ret = oplk_exchangeProcessImageIn();
 

@@ -59,17 +59,26 @@ extern "C"
     void        shutdownPowerlink(void);
     void        setupInputs(void);
     tOplkError  processSync(void);
-    tOplkError  linkPDO_in(UINT varEntries, tObdSize obdSize, const UINT16 arrayIndex, UINT16 index, UINT8 subIndex);
-    tOplkError  linkPDO_out(UINT varEntries, tObdSize obdSize, const UINT16 arrayIndex, UINT16 index, UINT8 subIndex);
-    tOplkError  initApp(struct LigneVannes* dataPhysicalConfigVannes, struct LigneSensors* dataPhysicalConfigSensors);
-    bool        initOPL(struct LigneVannes* dataPhysicalConfigVannes, struct LigneSensors* dataPhysicalConfigSensors);
+    tOplkError  linkPDO_in(tObdSize obdSize, 
+                           const UINT16 arrayIndex, 
+                           UINT16 index, 
+                           UINT8 subIndex);
+    tOplkError  linkPDO_out(tObdSize obdSize, 
+                            const UINT16 arrayIndex, 
+                            UINT16 index, 
+                            UINT8 subIndex);
+    tOplkError  initApp(struct LigneVannes* dataPhysicalConfigVannes,
+                        struct LigneSensors* dataPhysicalConfigSensors);
+    bool        initOPL(struct LigneVannes* dataPhysicalConfigVannes,
+                        struct LigneSensors* dataPhysicalConfigSensors);
     bool        ExtinctOPL();
-    void        setValues_In_CN(struct LigneCSV* data, int ligne, uint8_t mode);
+    //void        setValues_In_CN(struct LigneCSV* data, int ligne);
     int16_t*    getValues_In_CN(void);
     void        setValues_Out_CN();
     int16_t*    getValues_Out_CN(void);
-    void        setActivated_In_CN(struct LigneCSV* data, int ligne, uint8_t mode);
-    void        setActivated_Out_CN(struct LigneCSV* data, int ligne);
+    //void        setActivated_In_CN(struct LigneCSV* data, int ligne, uint8_t mode);
+    void        setActivated_Out_CN(struct LigneCSV* data, 
+                                    int ligne);
 
     //------------------------------------------------------------------------------
     // local vars
@@ -81,23 +90,23 @@ extern "C"
     static PI_IN*            pProcessImageIn_l;
     static const PI_OUT*     pProcessImageOut_l;
 
-
     /* application variables */
-
     static int16_t             values_In_CN_l[SIZE_IN];
     static int16_t             values_Out_CN_l[SIZE_OUT];
-    static bool              activated_In_CN_l[SIZE_IN];
-    static bool              activated_Out_CN_l[SIZE_OUT];
+    static bool                activated_Out_CN_l[SIZE_OUT];
+
+    //------------------------------------------------------------------------------
+    // global vars
+    //------------------------------------------------------------------------------
+    static const uint16_t       nbValuesCN_Out = SIZE_OUT / NB_NODES - 1;
+    static const uint16_t       nbValuesCN_In = SIZE_IN / NB_NODES - 1;
+    static const uint16_t       nbValuesCN_Out_ByCN = (SIZE_OUT / NB_NODES) * (NODEID - 1);
+    static const uint16_t       nbValuesCN_In_ByCN = (SIZE_IN / NB_NODES) * (NODEID - 1);
+    static uint8_t              mode;
 
     //------------------------------------------------------------------------------
     // local function prototypes
     //------------------------------------------------------------------------------
-
-    static const uint16_t       nbValuesCN_Out = SIZE_OUT / NB_NODES;
-    static const uint16_t       nbValuesCN_In = SIZE_IN / NB_NODES;
-    static const uint16_t       nbValuesCN_Out_ByCN = SIZE_OUT / NB_NODES * (NODEID - 1) + 1;
-    static const uint16_t       nbValuesCN_In_ByCN = SIZE_IN / NB_NODES * (NODEID - 1) + 1;
-
 
     int16_t                  getEG();
     void                     setEC1(int16_t EC1);

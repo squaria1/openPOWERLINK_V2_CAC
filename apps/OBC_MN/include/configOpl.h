@@ -13,4 +13,9 @@
 #define MAX_NODES               255
 #define MAX_VALUES              255
 
+#define COMPUTED_PI_OUT_SIZE 152
+#define SIZE_OUT 75
+#define COMPUTED_PI_IN_SIZE 80
+#define SIZE_IN 39
+
 #endif
