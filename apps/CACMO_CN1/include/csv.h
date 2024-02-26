@@ -5,16 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
-
-#define MAX_LINE_SIZE 2832
-#define MAX_FIELD_SIZE 2832
-#define MAX_ROWS 5
-#define MAX_DEPENDANCE 2832
-#define STATE_CSV_DIRECTORY "..\\..\\..\\include\\stateCSV\\Etat_.csv"
-#define PYSICAL_CONFIG_VANNES_DIRECTORY "..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_vannes.csv"
-#define PYSICAL_CONFIG_SENSORS_DIRECTORY "..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_sensors.csv"
-#define COMMON_PYSICAL_CONFIG_SENSORS_DIRECTORY "..\\..\\..\\..\\common\\commonPhysicalCONFIG\\commonPhysicalCONFIG.csv"
-
+#include <configDefine.h>
 
 #ifdef __cplusplus
 extern "C"
@@ -54,8 +45,6 @@ extern "C"
     void remplirStructure(char* ligne, struct LigneCSV* data, int id);
     void remplirStructureCommon(char* ligne, struct LigneActivation* data, int id);
 
-    char* getCarte(struct LigneCSV* data, int ligne);
-    char* getVannes(struct LigneCSV* data, int ligne);
     int getValeur(struct LigneCSV* data, int ligne);
     int* getDependanceVannes(struct LigneCSV* data, int ligne);
     float getTimerVannes(struct LigneCSV* data, int ligne);

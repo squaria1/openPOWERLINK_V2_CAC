@@ -1,5 +1,5 @@
 #include "csv.h"
-#include "configOpl.h"
+#include "configDefine.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -19,19 +19,16 @@
 #include <sys/ioctl.h>
 #endif
 
-char iiosyspath[] = "/sys/bus/iio/devices/iio:device0/";
-
 #ifndef SENSOR_H
 #define SENSOR_H
 #define ADC_READ_ERROR -100000
-#define MAX_ADC 8
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-int val[MAX_ADC];
+int val[MAX_SENSORS];
 int getAdc_value(int index);
 
 #ifdef __cplusplus
@@ -59,8 +56,8 @@ class sensor
 
 
         int opt, delay_us, adc, i;
-        int adc_list[MAX_ADC];
-        int fd[MAX_ADC];
+        int adc_list[MAX_SENSORS];
+        int fd[MAX_SENSORS];
         int abort_read;
 
     protected:

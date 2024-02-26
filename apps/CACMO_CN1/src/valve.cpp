@@ -10,9 +10,12 @@ valves::~valves()
 
 }
 
-bool valves::getLineValue(char chip_path, int line_offset)
+#if (TARGET_SYSTEM == _WIN32_)
+#else
+bool valves::getLineValue(struct LigneVannes* dataPhysicalConfigVannes, int line)
 {
-	auto request = ::gpiod::chip(chip_path)
+    int gpioPort = getPortGPIO(dataPhysicalConfigVannes, line);
+	auto request = ::gpiod::chip(CHIP_PATH)
 		.prepare_request()
 		.set_consumer("get-line-value")
 		.add_line_settings(
@@ -31,51 +34,52 @@ bool valves::getLineValue(char chip_path, int line_offset)
 	return true;
 }
 
-bool valves::initValves(char* chip_path, int offset, int16_t* valveslist)
+bool valves::initValve(LigneVannes* dataPhysicalConfigVannes)
 {
-    if (chip_path=="" || chip_path==" ") {
+    if (CHIP_PATH=="" || CHIP_PATH==" ") {
         perror("Error: GPIO chip path is not set.");
         return false;
     }
 
-    // Ouvrir le chip GPIO
-    struct gpiod_chip gpioChip(chip_path, offset);
-    if (!gpioChip) {
-        perror("Error: Failed to open GPIO chip.");
-        return false;
-    }
+    for (int i = 0; i <= MAX_VALVES; ++i) {
+        if(getActivation())
+        // Ouvrir le chip GPIO
+        struct gpiod_chip gpioChip(CHIP_PATH, getPortGPIO(dataPhysicalConfigVannes, i));
+        if (!gpioChip) {
+            perror("Error: Failed to open GPIO chip.");
+            return false;
+        }
 
-    // Obtenez la ligne GPIO correspondant au port GPIO � actionner
-    struct GpioLine gpioLine(gpioChip.getLine(offset));
-    if (!gpioLine) {
-        perror("Error: Failed to get GPIO line.");
-        return false;
-    }
+        // Obtenez la ligne GPIO correspondant au port GPIO a actionner
+        struct GpioLine gpioLine(gpioChip.getLine(getPortGPIO(dataPhysicalConfigVannes, i)));
+        if (!gpioLine) {
+            perror("Error: Failed to get GPIO line.");
+            return false;
+        }
 
-    // V�rifiez les valeurs 
-    for (int i = 1; i <= MAX_VALVES; ++i) {
+        // Verifiez les valeurs 
         // Assurez-vous que la valeur est valide (0 ou 1)
-        if (valveslist(i) != 0 && value != 1) {
+        if (getEtatInitialVannes(dataPhysicalConfigVannes, i) < 0 || 
+            getEtatInitialVannes(dataPhysicalConfigVannes, i) > 1) {
             perror("Error: Invalid input value. Must be 0 or 1.");
             return false;
         }
 
         // Actionnez la vanne 
-        if (gpioLine.setValue(valveslist(i)) < 0) {
+        if (gpioLine.setValue(getEtatInitialVannes(dataPhysicalConfigVannes, i)) < 0) {
             perror("Error: Failed to set GPIO value.");
             return false;
         }
     }
     return true;
 }
+#endif
 
-int16_t* getValvesValue(int16_t* benoitlist)
+extern "C"
 {
-    int16_t* valveslist;
-    for (int i = 1; i <= MAX_VALVES; ++i) {
-        valveslist[i] = benoitlist[i];
+    int16_t getValveValue(struct LigneCSV* data, int index)
+    {
+        int16_t valveValue = getValeur(data, index);
+        return valveValue;
     }
-
-    // Retourner le tableau d'entiers
-    return valveslist;
 }

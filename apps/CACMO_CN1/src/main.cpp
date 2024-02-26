@@ -45,8 +45,7 @@ int main() {
 
     memset(dataPhysicalConfigVannes, 0, sizeof(struct LigneVannes));
 
-    lireFichierVannes(PYSICAL_CONFIG_VANNES_DIRECTORY, dataPhysicalConfigVannes);
-    printf("Activation : %d\n", getActivationVannes(dataPhysicalConfigVannes, 3));
+    lireFichierVannes(PHYSICAL_CONFIG_VANNES_DIRECTORY, dataPhysicalConfigVannes);
     printf("Etat Init : %d\n", getEtatInitialVannes(dataPhysicalConfigVannes, 3));
     printf("Port GPIO : %d\n", getPortGPIO(dataPhysicalConfigVannes, 3));
 
@@ -61,8 +60,7 @@ int main() {
 
     memset(dataPhysicalConfigSensors, 0, sizeof(struct LigneSensors));
 
-    lireFichierSensors(PYSICAL_CONFIG_VANNES_DIRECTORY, dataPhysicalConfigSensors);
-    printf("Activation : %d\n", getActivationSensors(dataPhysicalConfigSensors, 2));
+    lireFichierSensors(PHYSICAL_CONFIG_VANNES_DIRECTORY, dataPhysicalConfigSensors);
     printf("Etat Init : %d\n", getEtatInitialSensors(dataPhysicalConfigSensors, 2));
     printf("Min Val : %f\n", getMinValue(dataPhysicalConfigSensors, 2));
     printf("Max Val : %f\n", getMaxValue(dataPhysicalConfigSensors, 2));
@@ -71,7 +69,6 @@ int main() {
     int etat=1;
     opl opl;
     file file;
-    tOplkError  ret;
     char        cKey = 0;
     BOOL        fExit = FALSE;
     int16_t EG = -1;
@@ -91,33 +88,17 @@ int main() {
                 else {
                     file.writeError("", 0xE003);
                 }
-                /*if(valve.initValve()){
+
+                #if (TARGET_SYSTEM == _WIN32_)
+                #else
+                if(valve.initValve()){
                     file.writeTelem();
                     opl.sendTelem();
                 }else{
                     file.writeError();
                     opl.sendError();
-                }
-                if(opl.testOPL()){
-                    file.writeTelem();
-                    opl.sendTelem();
-                }else{
-                    file.writeError();
-                    opl.sendError();
-                }
-                if(file.testWriteFile()){
-                    file.writeTelem();
-                    opl.sendTelem();
-                }else{
-                    opl.sendError();
-                }
-                if(sensor.testSensor()){
-                    file.writeTelem();
-                    opl.sendTelem();
-                }else{
-                    file.writeError();
-                    opl.sendError();
-                }*/
+                }                
+                #endif
                 #if (TARGET_SYSTEM == _WIN32_)
                 #else
                     if(sensor.initSensor(data)) {

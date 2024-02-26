@@ -5,16 +5,12 @@
 // includes
 //------------------------------------------------------------------------------
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
     #include "xapOpl.h"
     #include "eventOpl.h"
-    #include "configOpl.h"
+    #include "configDefine.h"
     #include "csv.h"
     #include "sensor.h"
+    #include "valve.h"
 
     #include <oplk/oplk.h>
     #include <oplk/debugstr.h>
@@ -39,6 +35,11 @@ extern "C"
     #include <stdio.h>
     #include <limits.h>
     #include <string.h>
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
     typedef struct
     {
@@ -74,7 +75,7 @@ extern "C"
     bool        ExtinctOPL();
     //void        setValues_In_CN(struct LigneCSV* data, int ligne);
     int16_t*    getValues_In_CN(void);
-    void        setValues_Out_CN();
+    void        setValues_Out_CN(struct LigneCSV* data);
     int16_t*    getValues_Out_CN(void);
     //void        setActivated_In_CN(struct LigneCSV* data, int ligne, uint8_t mode);
     void        setActivated_Out_CN(struct LigneCSV* data, 

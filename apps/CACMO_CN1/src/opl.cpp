@@ -56,10 +56,10 @@ extern "C"
         return values_In_CN_l;
     }
 
-    void setValues_Out_CN()
+    void setValues_Out_CN(struct LigneCSV* data)
     {
-        for (int i = 0; i < MAX_SENSORS; i++) { //0 taille tab de benoit
-            values_Out_CN_l[i + nbValuesCN_Out_ByCN] = getValve_value(i);
+        for (int i = 0; i < MAX_VALVES; i++) { //0 taille tab de benoit
+            values_Out_CN_l[i + nbValuesCN_Out_ByCN] = getValveValue(data, i + nbValuesCN_Out_ByCN);
         }
 
         for (int i = 0; i < MAX_SENSORS; i++) { //0 taille tab de benoit

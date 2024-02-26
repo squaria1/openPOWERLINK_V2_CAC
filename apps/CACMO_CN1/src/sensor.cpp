@@ -21,17 +21,15 @@ extern "C"
 
 
 int sensor::initSensor(struct LigneCSV* data) {
+    bool tabSensorActivated[MAX_SENSORS];
 
-    register_sig_handler();
-    bool tabSensorActivated[MAX_SENSORS_PER_BOARD];
-
-    for (int i = 0; i < MAX_SENSORS_PER_BOARD; i++) {
-        tabSensorActivated[i] = getActivationSensors(data, i);
+    for (int i = 0; i < MAX_SENSORS; i++) {
+        tabSensorActivated[i] = getActivation(data, i);
     }
 
     memset(adc_list, 0, sizeof(adc_list));
 
-    for (int i = 0; i < MAX_ADC; i++) { //0 taille tab de benoit
+    for (int i = 0; i < MAX_SENSORS; i++) { //0 taille tab de benoit
         if (tabSensorActivated[i])
             adc_list[adc] = 1;
         else
@@ -52,21 +50,21 @@ void sensor::readChannels(int delay_us, int *list)
     memset(fd, 0, sizeof(fd));
     memset(val, 0, sizeof(val));
 
-    for (i = 0; i < MAX_ADC; i++) {
+    for (i = 0; i < MAX_SENSORS; i++) {
         if (list[i]) {
             fd[i] = openAdc(i);
 
         }
     }
     
-    for (i = 0; i < MAX_ADC; i++) {
+    for (i = 0; i < MAX_SENSORS; i++) {
         if (!list[i])
             continue;
 
         val[i] = readAdc(fd[i]);
 
         // reset for next read
-        lseek(fd[i], 0, SEEK_SET);
+        _lseek(fd[i], 0, SEEK_SET);
 
         if (val[i] == ADC_READ_ERROR)
             break;
@@ -76,9 +74,9 @@ void sensor::readChannels(int delay_us, int *list)
 
 void sensor::closeAdc()
 {
-    for (i = 0; i < MAX_ADC; i++) {
+    for (i = 0; i < MAX_SENSORS; i++) {
         if (fd[i] > 0)
-            close(fd[i]);
+            _close(fd[i]);
 
     }
 }
@@ -91,7 +89,7 @@ int sensor::readAdc(int fd)
 
     memset(buff, 0, sizeof(buff));
 
-    if (read(fd, buff, 8) < 0)
+    if (_read(fd, buff, 8) < 0)
         perror("read()");
     else
         val = atoi(buff);
@@ -106,7 +104,7 @@ int sensor::openAdc(int adc)
     sprintf(path, "%sin_voltage%d_raw", iiosyspath, adc);
     
 
-    int fd = open(path, O_RDONLY);
+    int fd = _open(path, O_RDONLY);
 
 
     if (fd < 0) {
