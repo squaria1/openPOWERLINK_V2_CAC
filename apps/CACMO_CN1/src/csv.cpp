@@ -57,10 +57,28 @@ void lireFichierSensors(char* fileName, struct LigneSensors* data) {
     fclose(file);
 }
 
+void lireFichierCommon(char* fileName, struct LigneActivation* data) {
+
+    FILE* file = fopen(fileName, "r");
+    if (file == NULL) {
+        perror("Erreur lors de l'ouverture du fichier");
+        exit(EXIT_FAILURE);
+    }
+    int id = 0;
+
+    char ligne[MAX_LINE_SIZE];
+    while (fgets(ligne, sizeof(ligne), file) != NULL) {
+        ligne[strcspn(ligne, "\n")] = 0;
+        remplirStructureSensorsPhysicalCONFIG(ligne, data, id);
+        id++;
+    }
+
+    fclose(file);
+}
+
 void remplirStructure(char* ligne, struct LigneCSV* data, int id) {
     char* token = strtok(ligne, ";");
     int colonne = 0;
-
 
     while (token != NULL) {
        /* if (colonne == 0) {
@@ -102,12 +120,9 @@ void remplirStructureVannesPhysicalCONFIG(char* ligne, struct LigneVannes* data,
 
     while (token != NULL) {
         if (colonne == 2) {
-            data->activation[id] = atoi(token);
-        }
-        else if (colonne == 3) {
             data->etatInitial[id] = atoi(token);
         }
-        else if (colonne == 4) {
+        else if (colonne == 3) {
             data->portGPIO[id] = atoi(token);
         }
         colonne++;
@@ -121,17 +136,28 @@ void remplirStructureSensorsPhysicalCONFIG(char* ligne, struct LigneSensors* dat
 
 
     while (token != NULL) {
-        if (colonne == 2) {
-            data->activation[id] = atoi(token);
-        }
-        else if (colonne == 3) {
+         if (colonne == 2) {
             data->etatInitial[id] = atoi(token);
         }
-        else if (colonne == 4) {
+        else if (colonne == 3) {
             data->minValue[id] = atof(token);
         }
-        else if (colonne == 5) {
+        else if (colonne == 4) {
             data->maxValue[id] = atof(token);
+        }
+        colonne++;
+        token = strtok(NULL, ";");
+    }
+}
+
+void lireFichierCommon(char* ligne, struct LigneActivation* data, int id) {
+    char* token = strtok(ligne, ";");
+    int colonne = 0;
+
+
+    while (token != NULL) {
+        if (colonne == 2) {
+            data->activation[id] = atoi(token);
         }
         colonne++;
         token = strtok(NULL, ";");
@@ -164,16 +190,8 @@ float getTimerVannes(struct LigneCSV* data, int ligne) {
     return data->timerVannes[ligne];
 }
 
-bool getActivationVannes(struct LigneVannes* data, int ligne) {
-    return data->activation[ligne];
-}
-
 uint8_t getEtatInitialVannes(struct LigneVannes* data, int ligne) {
     return data->etatInitial[ligne];
-}
-
-bool getActivationSensors(struct LigneSensors* data, int ligne) {
-    return data->activation[ligne];
 }
 
 uint8_t getEtatInitialSensors(struct LigneSensors* data, int ligne) {
@@ -190,4 +208,8 @@ float getMinValue(struct LigneSensors* data, int ligne) {
 
 float getMaxValue(struct LigneSensors* data, int ligne) {
     return data->maxValue[ligne];
+}
+
+bool getActivationVannes(struct LigneActivation* data, int ligne) {
+    return data->activation[ligne];
 }
