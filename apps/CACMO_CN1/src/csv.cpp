@@ -1,201 +1,201 @@
 #include "csv.h"
 
-    void lireFichierCSV(char* fileName, struct LigneCSV* data) {
+void lireFichierCSV(char* fileName, struct LigneCSV* data) {
 
-        FILE* file = fopen(fileName, "r");
-        if (file == NULL) {
-            perror("Erreur lors de l'ouverture du fichier");
-            exit(EXIT_FAILURE);
-        }
-        int id = 0;
+    FILE* file = fopen(fileName, "r");
+    if (file == NULL) {
+        perror("Erreur lors de l'ouverture du fichier");
+        exit(EXIT_FAILURE);
+    }
+    int id = 0;
 
-        char ligne[MAX_LINE_SIZE];
-        while (fgets(ligne, sizeof(ligne), file) != NULL) {
-            ligne[strcspn(ligne, "\n")] = 0;
-            remplirStructure(ligne, data, id);
-            id++;
-        }
-
-        fclose(file);
+    char ligne[MAX_LINE_SIZE];
+    while (fgets(ligne, sizeof(ligne), file) != NULL) {
+        ligne[strcspn(ligne, "\n")] = 0;
+        remplirStructure(ligne, data, id);
+        id++;
     }
 
-    void lireFichierVannes(char* fileName, struct LigneVannes* data) {
+    fclose(file);
+}
 
-        FILE* file = fopen(fileName, "r");
-        if (file == NULL) {
-            perror("Erreur lors de l'ouverture du fichier");
-            exit(EXIT_FAILURE);
-        }
-        int id = 0;
+void lireFichierVannes(char* fileName, struct LigneVannes* data) {
 
-        char ligne[MAX_LINE_SIZE];
-        while (fgets(ligne, sizeof(ligne), file) != NULL) {
-            ligne[strcspn(ligne, "\n")] = 0;
-            remplirStructureVannesPhysicalCONFIG(ligne, data, id);
-            id++;
-        }
+    FILE* file = fopen(fileName, "r");
+    if (file == NULL) {
+        perror("Erreur lors de l'ouverture du fichier");
+        exit(EXIT_FAILURE);
+    }
+    int id = 0;
 
-        fclose(file);
+    char ligne[MAX_LINE_SIZE];
+    while (fgets(ligne, sizeof(ligne), file) != NULL) {
+        ligne[strcspn(ligne, "\n")] = 0;
+        remplirStructureVannesPhysicalCONFIG(ligne, data, id);
+        id++;
     }
 
-    void lireFichierSensors(char* fileName, struct LigneSensors* data) {
+    fclose(file);
+}
 
-        FILE* file = fopen(fileName, "r");
-        if (file == NULL) {
-            perror("Erreur lors de l'ouverture du fichier");
-            exit(EXIT_FAILURE);
-        }
-        int id = 0;
+void lireFichierSensors(char* fileName, struct LigneSensors* data) {
 
-        char ligne[MAX_LINE_SIZE];
-        while (fgets(ligne, sizeof(ligne), file) != NULL) {
-            ligne[strcspn(ligne, "\n")] = 0;
-            remplirStructureSensorsPhysicalCONFIG(ligne, data, id);
-            id++;
-        }
+    FILE* file = fopen(fileName, "r");
+    if (file == NULL) {
+        perror("Erreur lors de l'ouverture du fichier");
+        exit(EXIT_FAILURE);
+    }
+    int id = 0;
 
-        fclose(file);
+    char ligne[MAX_LINE_SIZE];
+    while (fgets(ligne, sizeof(ligne), file) != NULL) {
+        ligne[strcspn(ligne, "\n")] = 0;
+        remplirStructureSensorsPhysicalCONFIG(ligne, data, id);
+        id++;
     }
 
-    void lireFichierCommon(char* fileName, struct LigneActivation* data) {
+    fclose(file);
+}
 
-        FILE* file = fopen(fileName, "r");
-        if (file == NULL) {
-            perror("Erreur lors de l'ouverture du fichier");
-            exit(EXIT_FAILURE);
-        }
-        int id = 0;
+void lireFichierCommon(char* fileName, struct LigneActivation* data) {
 
-        char ligne[MAX_LINE_SIZE];
-        while (fgets(ligne, sizeof(ligne), file) != NULL) {
-            ligne[strcspn(ligne, "\n")] = 0;
-            remplirStructureCommon(ligne, data, id);
-            id++;
-        }
+    FILE* file = fopen(fileName, "r");
+    if (file == NULL) {
+        perror("Erreur lors de l'ouverture du fichier");
+        exit(EXIT_FAILURE);
+    }
+    int id = 0;
 
-        fclose(file);
+    char ligne[MAX_LINE_SIZE];
+    while (fgets(ligne, sizeof(ligne), file) != NULL) {
+        ligne[strcspn(ligne, "\n")] = 0;
+        remplirStructureCommon(ligne, data, id);
+        id++;
     }
 
-    void remplirStructure(char* ligne, struct LigneCSV* data, int id) {
-        char* token = strtok(ligne, ";");
-        int colonne = 0;
+    fclose(file);
+}
 
-        while (token != NULL) {
-            if (colonne == 2) {
-                if (atoi(token) == 0) {
-                    data->valeur[id] = NULL;
-                }
-                else {
-                    data->valeur[id] = atoi(token);
-                }
+void remplirStructure(char* ligne, struct LigneCSV* data, int id) {
+    char* token = strtok(ligne, ";");
+    int colonne = 0;
+
+    while (token != NULL) {
+        if (colonne == 2) {
+            if (atoi(token) == 0) {
+                data->valeur[id] = NULL;
             }
-            else if (colonne == 4) {
-                char* token2 = strtok(token, "|");
-                int i = 0;
-                while (token2 != NULL) {
-                    int valeurDependance = atoi(token2);
-                    data->dependanceVannes[id][i] = valeurDependance;
-                    i++;
-                    token2 = strtok(NULL, "|");
-                }
+            else {
+                data->valeur[id] = atoi(token);
             }
-            else if (colonne == 3) {
-                data->timerVannes[id] = atof(token);
-            }
-            colonne++;
-            token = strtok(NULL, ";");
         }
-    }
-
-    void remplirStructureVannesPhysicalCONFIG(char* ligne, struct LigneVannes* data, int id) {
-        char* token = strtok(ligne, ";");
-        int colonne = 0;
-
-
-        while (token != NULL) {
-            if (colonne == 2) {
-                data->etatInitial[id] = atoi(token);
+        else if (colonne == 4) {
+            char* token2 = strtok(token, "|");
+            int i = 0;
+            while (token2 != NULL) {
+                int valeurDependance = atoi(token2);
+                data->dependanceVannes[id][i] = valeurDependance;
+                i++;
+                token2 = strtok(NULL, "|");
             }
-            else if (colonne == 3) {
-                data->portGPIO[id] = atoi(token);
-            }
-            colonne++;
-            token = strtok(NULL, ";");
         }
-    }
-
-    void remplirStructureSensorsPhysicalCONFIG(char* ligne, struct LigneSensors* data, int id) {
-        char* token = strtok(ligne, ";");
-        int colonne = 0;
-
-
-        while (token != NULL) {
-            if (colonne == 2) {
-                data->etatInitial[id] = atoi(token);
-            }
-            else if (colonne == 3) {
-                data->minValue[id] = atof(token);
-            }
-            else if (colonne == 4) {
-                data->maxValue[id] = atof(token);
-            }
-            colonne++;
-            token = strtok(NULL, ";");
+        else if (colonne == 3) {
+            data->timerVannes[id] = atof(token);
         }
+        colonne++;
+        token = strtok(NULL, ";");
     }
+}
 
-    void lireFichierCommon(char* ligne, struct LigneActivation* data, int id) {
-        char* token = strtok(ligne, ";");
-        int colonne = 0;
+void remplirStructureVannesPhysicalCONFIG(char* ligne, struct LigneVannes* data, int id) {
+    char* token = strtok(ligne, ";");
+    int colonne = 0;
 
 
-        while (token != NULL) {
-            if (colonne == 2) {
-                data->activation[id] = atoi(token);
-            }
-            colonne++;
-            token = strtok(NULL, ";");
+    while (token != NULL) {
+        if (colonne == 2) {
+            data->etatInitial[id] = atoi(token);
         }
-    }
-
-    int getValeur(struct LigneCSV* data, int ligne) {
-        return data->valeur[ligne];
-    }
-
-    int* getDependanceVannes(struct LigneCSV* data, int ligne) {
-        int* tableau = (int*)malloc(MAX_DEPENDANCE * sizeof(int));
-
-        for (int i = 0; i < MAX_DEPENDANCE; i++) {
-            tableau[i] = data->dependanceVannes[ligne][i];
+        else if (colonne == 3) {
+            data->portGPIO[id] = atoi(token);
         }
+        colonne++;
+        token = strtok(NULL, ";");
+    }
+}
 
-        return tableau;
+void remplirStructureSensorsPhysicalCONFIG(char* ligne, struct LigneSensors* data, int id) {
+    char* token = strtok(ligne, ";");
+    int colonne = 0;
+
+
+    while (token != NULL) {
+        if (colonne == 2) {
+            data->etatInitial[id] = atoi(token);
+        }
+        else if (colonne == 3) {
+            data->minValue[id] = atof(token);
+        }
+        else if (colonne == 4) {
+            data->maxValue[id] = atof(token);
+        }
+        colonne++;
+        token = strtok(NULL, ";");
+    }
+}
+
+void lireFichierCommon(char* ligne, struct LigneActivation* data, int id) {
+    char* token = strtok(ligne, ";");
+    int colonne = 0;
+
+
+    while (token != NULL) {
+        if (colonne == 2) {
+            data->activation[id] = atoi(token);
+        }
+        colonne++;
+        token = strtok(NULL, ";");
+    }
+}
+
+int getValeur(struct LigneCSV* data, int ligne) {
+    return data->valeur[ligne];
+}
+
+int* getDependanceVannes(struct LigneCSV* data, int ligne) {
+    int* tableau = (int*)malloc(MAX_DEPENDANCE * sizeof(int));
+
+    for (int i = 0; i < MAX_DEPENDANCE; i++) {
+        tableau[i] = data->dependanceVannes[ligne][i];
     }
 
-    float getTimerVannes(struct LigneCSV* data, int ligne) {
-        return data->timerVannes[ligne];
-    }
+    return tableau;
+}
 
-    uint8_t getEtatInitialVannes(struct LigneVannes* data, int ligne) {
-        return data->etatInitial[ligne];
-    }
+float getTimerVannes(struct LigneCSV* data, int ligne) {
+    return data->timerVannes[ligne];
+}
 
-    uint8_t getEtatInitialSensors(struct LigneSensors* data, int ligne) {
-        return data->etatInitial[ligne];
-    }
+uint8_t getEtatInitialVannes(struct LigneVannes* data, int ligne) {
+    return data->etatInitial[ligne];
+}
 
-    uint8_t getPortGPIO(struct LigneVannes* data, int ligne) {
-        return data->portGPIO[ligne];
-    }
+uint8_t getEtatInitialSensors(struct LigneSensors* data, int ligne) {
+    return data->etatInitial[ligne];
+}
 
-    float getMinValue(struct LigneSensors* data, int ligne) {
-        return data->minValue[ligne];
-    }
+uint8_t getPortGPIO(struct LigneVannes* data, int ligne) {
+    return data->portGPIO[ligne];
+}
 
-    float getMaxValue(struct LigneSensors* data, int ligne) {
-        return data->maxValue[ligne];
-    }
+float getMinValue(struct LigneSensors* data, int ligne) {
+    return data->minValue[ligne];
+}
 
-    bool getActivationVannes(struct LigneActivation* data, int ligne) {
-        return data->activation[ligne];
-    }
+float getMaxValue(struct LigneSensors* data, int ligne) {
+    return data->maxValue[ligne];
+}
+
+bool getActivationVannes(struct LigneActivation* data, int ligne) {
+    return data->activation[ligne];
+}
