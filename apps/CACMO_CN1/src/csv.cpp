@@ -113,7 +113,7 @@ int16_t extinctCSV() {
     return 0;
 }
 
-void lireFichierCSV(char* dir) {
+void lireFichierCSV(const char* dir) {
     char* nameCSV = getNomFichiercsv(EG);
     if (nameCSV == NULL) {
         perror("Erreur code EG non trouve dans liaisonEGEtat.csv");
@@ -140,7 +140,7 @@ void lireFichierCSV(char* dir) {
     fclose(file);
 }
 
-void lireFichierVannes(char* fileName) {
+void lireFichierVannes(const char* fileName) {
 
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
@@ -159,7 +159,7 @@ void lireFichierVannes(char* fileName) {
     fclose(file);
 }
 
-void lireFichierSensors(char* fileName) {
+void lireFichierSensors(const char* fileName) {
 
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
@@ -178,7 +178,7 @@ void lireFichierSensors(char* fileName) {
     fclose(file);
 }
 
-void lireFichierCommon(char* fileName) {
+void lireFichierCommon(const char* fileName) {
 
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
@@ -197,7 +197,7 @@ void lireFichierCommon(char* fileName) {
     fclose(file);
 }
 
-void lireFichierEG(char* fileName) {
+void lireFichierEG(const char* fileName) {
 
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {

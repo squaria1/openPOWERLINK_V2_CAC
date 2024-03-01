@@ -43,11 +43,11 @@ extern "C"
     int16_t refreshCSV();
     int16_t extinctCSV();
 
-    void lireFichierCSV(char* fileName);
-    void lireFichierVannes(char* fileName);
-    void lireFichierSensors(char* fileName);
-    void lireFichierCommon(char* fileName);
-    void lireFichierEG(char* fileName);
+    void lireFichierCSV(const char* dir);
+    void lireFichierVannes(const char* fileName);
+    void lireFichierSensors(const char* fileName);
+    void lireFichierCommon(const char* fileName);
+    void lireFichierEG(const char* fileName);
 
     void remplirStructure(char* ligne, int id);
     void remplirStructureVannesPhysicalCONFIG(char* ligne, int id);
