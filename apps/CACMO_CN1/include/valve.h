@@ -14,6 +14,7 @@
 #if (TARGET_SYSTEM == _WIN32_)
 #else
 #include <gpiod.h>
+#include <unistd.h>
 #endif
 
 #ifndef VALVES_H
