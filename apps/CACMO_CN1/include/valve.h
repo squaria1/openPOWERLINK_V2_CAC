@@ -14,9 +14,9 @@
 #if (TARGET_SYSTEM == _WIN32_)
 #else
 #include <gpiod.h>
-struct gpiod_chip* chip;
-struct gpiod_line_request_config config;
-struct gpiod_line_bulk lines;
+static struct gpiod_chip* chip;
+static struct gpiod_line_request_config config;
+static struct gpiod_line_bulk lines;
 #endif
 
 #ifndef VALVES_H
