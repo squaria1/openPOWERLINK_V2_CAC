@@ -49,6 +49,14 @@ bool valve::initValve()
                 return false;
             }
 
+            // Request the line for output
+            if (gpiod_line_request_output(line, "example", 0) < 0) {
+                perror("Request line as output failed");
+                gpiod_line_release(line);
+                gpiod_chip_close(chip);
+                return false;
+            }
+
             // Verifiez les valeurs 
             // Assurez-vous que la valeur est valide (0 ou 1)
             if (getEtatInitialVannes(i) < 0 ||
@@ -63,7 +71,7 @@ bool valve::initValve()
                 err = gpiod_line_set_value(line, values[i]);
                 if (err)
                 {
-                    perror("gpiod_line_set_value_bulk");
+                    perror("gpiod_line_set_value");
                     return false;
                 }
             }
