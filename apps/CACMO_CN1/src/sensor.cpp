@@ -20,7 +20,7 @@ int getAdc_value(int index) {
 #else 
 int sensor::initSensor() {
     bool tabSensorActivated[MAX_SENSORS];
-
+    printf("test1\n");
     for (int i = 0; i < MAX_SENSORS; i++) {
         tabSensorActivated[i] = getActivation(i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2);
     }
