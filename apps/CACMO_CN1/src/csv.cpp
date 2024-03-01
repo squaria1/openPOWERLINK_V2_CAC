@@ -113,15 +113,15 @@ int16_t extinctCSV() {
 }
 
 void lireFichierCSV(const char* dir) {
-    const char* nameCSV = getNomFichiercsv(EG);
+    //const char* nameCSV = getNomFichiercsv(EG);
+    const char* nameCSV = "Etat_.csv";
     char cwd[MAX_PATH_LENGTH];
     printf("nameCSV: %s\n", nameCSV);
     #if (TARGET_SYSTEM == _WIN32_)
     #else
         if (getcwd(cwd, sizeof(cwd)) != NULL)
-            printf("Current working directory : %s", cwd);
+            printf("Current working directory : %s\n", cwd);
     #endif
-    //const char* nameCSV = "Etat_.csv";
     if (nameCSV == NULL) {
         perror("Erreur code EG non trouve dans liaisonEGEtat.csv");
         exit(EXIT_FAILURE);
@@ -133,7 +133,6 @@ void lireFichierCSV(const char* dir) {
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
         perror("Erreur lors de l'ouverture du fichier lireFichierCSV");
-        fprintf(stderr, "Erreur2 lors de l'ouverture du fichier lireFichierCSV: %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
     int id = 0;
