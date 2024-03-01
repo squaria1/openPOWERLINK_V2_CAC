@@ -16,7 +16,8 @@ int getAdc_value(int index) {
     return valSensors[index];
 }
 
-
+#if (TARGET_SYSTEM == _WIN32_)
+#else 
 int sensor::initSensor() {
     bool tabSensorActivated[MAX_SENSORS];
 
@@ -62,7 +63,7 @@ void sensor::readChannels(int delay_us, int *list)
         valSensors[i] = readAdc(fd[i]);
 
         // reset for next read
-        _lseek(fd[i], 0, SEEK_SET);
+        lseek(fd[i], 0, SEEK_SET);
 
         if (valSensors[i] == ADC_READ_ERROR)
             break;
@@ -74,7 +75,7 @@ void sensor::closeAdc()
 {
     for (i = 0; i < MAX_SENSORS; i++) {
         if (fd[i] > 0)
-            _close(fd[i]);
+            close(fd[i]);
 
     }
 }
@@ -88,7 +89,7 @@ int sensor::readAdc(int fd)
 
     memset(buff, 0, sizeof(buff));
 
-    if (_read(fd, buff, 8) < 0)
+    if (read(fd, buff, 8) < 0)
         perror("read()");
     else
         val = atoi(buff);
@@ -103,7 +104,7 @@ int sensor::openAdc(int adc)
     sprintf(path, "%sin_voltage%d_raw", IIOSYSPATH, adc);
     
 
-    int fd = _open(path, O_RDONLY);
+    int fd = open(path, O_RDONLY);
 
 
     if (fd < 0) {
@@ -114,3 +115,4 @@ int sensor::openAdc(int adc)
 
     return fd;
 }
+#endif
