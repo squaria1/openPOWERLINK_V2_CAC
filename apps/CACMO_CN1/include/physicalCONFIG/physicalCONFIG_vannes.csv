@@ -1,8 +1,8 @@
 ﻿Carte;Vannes/Etat;Etat initial;PORT GPIO
 CACMO;valve0;1;5
-CACMO;valve1;3;6
-CACMO;valve2;2;19
-CACMO;valve3;2;26
+CACMO;valve1;0;6
+CACMO;valve2;1;19
+CACMO;valve3;0;26
 CACMO;valve4;;
 CACMO;valve5;;
 CACMO;valve6;;
