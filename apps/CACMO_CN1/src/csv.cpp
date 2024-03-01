@@ -123,7 +123,7 @@ void lireFichierCSV(const char* dir) {
     strcpy(fileName, dir);
     strcat(fileName, nameCSV);
     printf("fileName lireFichierCSV: %s\n", fileName);
-    FILE* file = fopen(fileName, "r");
+    FILE* file = fopen((const char*)fileName, "r");
     if (file == NULL) {
         perror("Erreur lors de l'ouverture du fichier lireFichierCSV");
         exit(EXIT_FAILURE);
