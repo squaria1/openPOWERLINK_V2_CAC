@@ -113,8 +113,8 @@ int16_t extinctCSV() {
 }
 
 void lireFichierCSV(const char* dir) {
-    //char* nameCSV = getNomFichiercsv(EG);
-    const char* nameCSV = "Etat_.csv";
+    const char* nameCSV = getNomFichiercsv(EG);
+    //const char* nameCSV = "Etat_.csv";
     if (nameCSV == NULL) {
         perror("Erreur code EG non trouve dans liaisonEGEtat.csv");
         exit(EXIT_FAILURE);
