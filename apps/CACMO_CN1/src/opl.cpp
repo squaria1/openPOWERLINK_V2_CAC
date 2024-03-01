@@ -551,9 +551,10 @@ tOplkError initProcessImage(void)
 tOplkError linkPDO_in(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
     tOplkError  ret = kErrorOk;
     UINT varEntries = 1;
+
     ret = oplk_linkProcessImageObject(index,
         subIndex,
-        offsetof(PI_IN, in_CN_array[arrayIndex]) + sizeof(uint16_t) * arrayIndex,
+        (size_t)(sizeof(int16_t) * arrayIndex),
         FALSE,
         obdSize,
         &varEntries);
@@ -573,7 +574,7 @@ tOplkError linkPDO_out(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 
     UINT varEntries = 1;
     ret = oplk_linkProcessImageObject(index,
         subIndex,
-        offsetof(PI_OUT, out_CN_array[arrayIndex]) + sizeof(uint16_t) * arrayIndex,
+        (size_t)(sizeof(int16_t) * arrayIndex),
         TRUE,
         obdSize,
         &varEntries);
