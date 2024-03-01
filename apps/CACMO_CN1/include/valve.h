@@ -38,11 +38,11 @@ struct gpiod_line {
 	int line;
 };
 
-class valves
+class valve
 {
 public:
-	valves();
-	virtual ~valves();
+	valve();
+	virtual ~valve();
 	bool getLineValue(struct LigneVannes* dataPhysicalConfigVannes, int line);
 	bool initValve(struct LigneVannes* dataPhysicalConfigVannes);
 

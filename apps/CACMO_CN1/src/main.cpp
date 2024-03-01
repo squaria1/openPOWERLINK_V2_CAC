@@ -9,6 +9,7 @@ int main() {
     int etat=1;
     opl opl;
     file file;
+    valve valve;
     char        cKey = 0;
     BOOL        fExit = FALSE;
     EG = 1;

@@ -1,18 +1,18 @@
 #include "valve.h"
 
-valves::valves()
+valve::valve()
 {
 
 }
 
-valves::~valves()
+valve::~valve()
 {
 
 }
 
 #if (TARGET_SYSTEM == _WIN32_)
 #else
-bool valves::getLineValue(struct LigneVannes* dataPhysicalConfigVannes, int line)
+bool valve::getLineValue(struct LigneVannes* dataPhysicalConfigVannes, int line)
 {
     int gpioPort = getPortGPIO(dataPhysicalConfigVannes, line);
 	auto request = ::gpiod::chip(CHIP_PATH)
@@ -34,7 +34,7 @@ bool valves::getLineValue(struct LigneVannes* dataPhysicalConfigVannes, int line
 	return true;
 }
 
-bool valves::initValve(LigneVannes* dataPhysicalConfigVannes)
+bool valve::initValve(LigneVannes* dataPhysicalConfigVannes)
 {
     if (CHIP_PATH=="" || CHIP_PATH==" ") {
         perror("Error: GPIO chip path is not set.");
