@@ -147,16 +147,32 @@ int main() {
 
                 break;
             case 255: // Extinction
+                file.writeTelem("Shutdown:0x % 08X", 0x1FFF);
                 opl.sendTelem(0x1FFF);
-                if (extinctOPL())
+                #if (TARGET_SYSTEM == _WIN32_)
+                #else
+                if(valve.extinctValve())
                 {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
+                    opl.sendTelem(0x0003);
                 }
                 else
                 {
                     file.writeError("", 0xE003);
+                    opl.sendError(0x0003);
                 }
+                #endif
                 if (extinctCSV())
+                {
+                    file.writeTelem("code_success:0x % 08X", 0x0003);
+                    opl.sendTelem(0x0003);
+                }
+                else
+                {
+                    file.writeError("", 0xE003);
+                    opl.sendError(0x0003);
+                }                
+                if (extinctOPL())
                 {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                 }

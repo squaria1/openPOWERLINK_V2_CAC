@@ -10,12 +10,9 @@
 
 #if (TARGET_SYSTEM == _WIN32_)
 #include <getopt/getopt.h>
+#include <io.h>
 #else
 #include <unistd.h>
-#endif
-#if (TARGET_SYSTEM == _WIN32_)
-#include <io.h>
-#else 
 #include <sys/ioctl.h>
 #endif
 

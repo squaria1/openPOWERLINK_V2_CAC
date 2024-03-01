@@ -93,17 +93,17 @@ extern "C"
     static int16_t             values_Out_CN_l[SIZE_OUT];
     static bool                activated_Out_CN_l[SIZE_OUT];
 
-    /* Xap segmentation variables */
-    static const uint16_t       nbValuesCN_Out = SIZE_OUT / NB_NODES - 1;
-    static const uint16_t       nbValuesCN_In = SIZE_IN / NB_NODES - 1;
-    static const uint16_t       nbValuesCN_Out_ByCN = (SIZE_OUT / NB_NODES) * (NODEID - 1);
-    static const uint16_t       nbValuesCN_In_ByCN = (SIZE_IN / NB_NODES) * (NODEID - 1);
-
     //------------------------------------------------------------------------------
     // global vars
     //------------------------------------------------------------------------------
     extern uint8_t              mode;
-    extern int16_t              EG;
+    extern int16_t              EG;    
+    
+    /* Xap segmentation variables */
+    extern const uint16_t       nbValuesCN_Out;
+    extern const uint16_t       nbValuesCN_In;
+    extern const uint16_t       nbValuesCN_Out_ByCN;
+    extern const uint16_t       nbValuesCN_In_ByCN;
 
     //------------------------------------------------------------------------------
     // local function prototypes

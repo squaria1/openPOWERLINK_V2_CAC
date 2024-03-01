@@ -13,7 +13,10 @@
 #include <string>
 #if (TARGET_SYSTEM == _WIN32_)
 #else
-#include <gpiod.hpp>
+#include <gpiod.h>
+struct gpiod_chip* chip;
+struct gpiod_line_request_config config;
+struct gpiod_line_bulk lines;
 #endif
 
 #ifndef VALVES_H
@@ -43,8 +46,8 @@ class valve
 public:
 	valve();
 	virtual ~valve();
-	bool getLineValue(int line);
 	bool initValve();
+	bool extinctValve();
 
 protected:
 

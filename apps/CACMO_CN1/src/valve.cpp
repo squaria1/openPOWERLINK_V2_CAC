@@ -12,28 +12,6 @@ valve::~valve()
 
 #if (TARGET_SYSTEM == _WIN32_)
 #else
-bool valve::getLineValue(int line)
-{
-    int gpioPort = getPortGPIO(line);
-	auto request = ::gpiod::chip(CHIP_PATH)
-		.prepare_request()
-		.set_consumer("get-line-value")
-		.add_line_settings(
-			line_offset,
-			::gpiod::line_settings().set_direction(
-				::gpiod::line::direction::INPUT))
-		.do_request();
-
-	::std::cout << line_offset << "="
-		<< (request.get_value(line_offset) ==
-			::gpiod::line::value::ACTIVE ?
-			"Active" :
-			"Inactive")
-		<< ::std::endl;
-
-	return true;
-}
-
 bool valve::initValve()
 {
     if (CHIP_PATH=="" || CHIP_PATH==" ") {
@@ -41,36 +19,64 @@ bool valve::initValve()
         return false;
     }
 
+    unsigned int offsets[1];
+
+    int values[1];
+    int err;
+
+    chip = gpiod_chip_open(CHIP_PATH);
+    if (!chip)
+    {
+        perror("gpiod_chip_open");
+        return false;
+    }
+
+
+
     for (int i = 0; i <= MAX_VALVES; ++i) {
-        if(getActivation())
-        // Ouvrir le chip GPIO
-        struct gpiod_chip gpioChip(CHIP_PATH, getPortGPIO(i));
-        if (!gpioChip) {
-            perror("Error: Failed to open GPIO chip.");
-            return false;
-        }
+        if (getActivation(i + nbValuesCN_Out_ByCN))
+        {
+            offsets[i] = getPortGPIO(i);
+            values[i] = getEtatInitialVannes(i);
 
-        // Obtenez la ligne GPIO correspondant au port GPIO a actionner
-        struct GpioLine gpioLine(gpioChip.getLine(getPortGPIO(i)));
-        if (!gpioLine) {
-            perror("Error: Failed to get GPIO line.");
-            return false;
-        }
+            err = gpiod_chip_get_lines(chip, offsets, 1, &lines);
+            if (err)
+            {
+                perror("gpiod_chip_get_lines");
+                return false;
+            }
 
-        // Verifiez les valeurs 
-        // Assurez-vous que la valeur est valide (0 ou 1)
-        if (getEtatInitialVannes(i) < 0 || 
-            getEtatInitialVannes(i) > 1) {
-            perror("Error: Invalid input value. Must be 0 or 1.");
-            return false;
-        }
+            memset(&config, 0, sizeof(config));
+            config.consumer = "valve";
+            config.request_type = GPIOD_LINE_REQUEST_DIRECTION_OUTPUT;
+            config.flags = 0;
 
-        // Actionnez la vanne 
-        if (gpioLine.setValue(getEtatInitialVannes(i)) < 0) {
-            perror("Error: Failed to set GPIO value.");
-            return false;
+            // Verifiez les valeurs 
+            // Assurez-vous que la valeur est valide (0 ou 1)
+            if (getEtatInitialVannes(i) < 0 ||
+                getEtatInitialVannes(i) > 1) 
+            {
+                perror("Error: Invalid input value. Must be 0 or 1.");
+                return false;
+            }
+
+            // Actionnez la vanne 
+            err = gpiod_line_set_value_bulk(&lines, values);
+            if (err)
+            {
+                perror("gpiod_line_set_value_bulk");
+                goto cleanup;
+            }
         }
     }
+    return true;
+}
+
+bool valve::extinctValve()
+{
+    gpiod_line_release_bulk(&lines);
+    gpiod_chip_close(chip);
+
     return true;
 }
 #endif
