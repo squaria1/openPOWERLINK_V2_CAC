@@ -58,7 +58,7 @@ bool valve::initValve()
             }
 
             uint8_t etatInit = getEtatInitialVannes(i);
-            printf("getEtatInitialVannes(i):%d", etatInit);
+            printf("getEtatInitialVannes(i):%d\n", etatInit);
             // Verifiez les valeurs 
             // Assurez-vous que la valeur est valide (0 ou 1)
             if (etatInit < 0 ||
