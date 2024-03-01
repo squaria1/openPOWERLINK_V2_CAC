@@ -38,8 +38,10 @@ bool valve::initValve()
     for (int i = 0; i <= MAX_VALVES; ++i) {
         if (getActivation(i + nbValuesCN_Out_ByCN))
         {
-            offsets[i] = getPortGPIO(i);
-            values[i] = getEtatInitialVannes(i);
+            offsets[i] = getPortGPIO(i+1);
+            values[i] = getEtatInitialVannes(i+1);
+            printf("offsets[i]:%d\n", offsets[i]);
+            printf("values[i]:%d\n", values[i]);
 
             line = gpiod_chip_get_line(chip, offsets[i]);
             if (!line)
@@ -56,13 +58,10 @@ bool valve::initValve()
                 gpiod_chip_close(chip);
                 return false;
             }
-
-            uint8_t etatInit = getEtatInitialVannes(i);
-            printf("getEtatInitialVannes(i):%d\n", etatInit);
             // Verifiez les valeurs 
             // Assurez-vous que la valeur est valide (0 ou 1)
-            if (etatInit < 0 ||
-                etatInit > 1)
+            if (values[i] < 0 ||
+                values[i] > 1)
             {
                 perror("Error: Invalid input value. Must be 0 or 1.");
                 return false;
