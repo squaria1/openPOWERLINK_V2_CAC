@@ -8,6 +8,11 @@
 #include "configDefine.h"
 #include "opl.h"
 
+#if (TARGET_SYSTEM == _WIN32_)
+#else
+#include <unistd.h>
+#endif
+
 #ifdef __cplusplus
 extern "C"
 {
