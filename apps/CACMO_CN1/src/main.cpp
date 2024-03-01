@@ -10,14 +10,12 @@ int main() {
     opl opl;
     file file;
     valve valve;
+    sensor sensor;
+
     char        cKey = 0;
     BOOL        fExit = FALSE;
     EG = 1;
     int16_t EC1 = -1;
-  
-
-    //valve valve;
-    //sensor sensor;
     
     while(etat<3){
         switch(etat){
@@ -45,12 +43,12 @@ int main() {
                 #else
                 if(valve.initValve())
                 {
-                    file.writeTelem();
-                    opl.sendTelem();
+                    file.writeTelem("code_success:0x % 08X", 0x0003);
+                    opl.sendTelem(0x0002);
                 }else
                 {
-                    file.writeError();
-                    opl.sendError();
+                    file.writeError("", 0xE003);
+                    opl.sendError(0xE002);
                 }
                 if(sensor.initSensor()) 
                 {
