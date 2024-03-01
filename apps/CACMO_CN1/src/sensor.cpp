@@ -44,7 +44,7 @@ int sensor::initSensor() {
 void sensor::readChannels(int delay_us, int *list)
 {
     int ret, i;
-
+    printf("test2\n");
     ret = 0;
     memset(fd, 0, sizeof(fd));
     memset(valSensors, 0, sizeof(valSensors));
