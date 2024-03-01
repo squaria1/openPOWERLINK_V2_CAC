@@ -134,6 +134,25 @@ void checkForTrailingWhitespace(const char* str) {
     }
 }
 
+void removeTrailingWhitespace(char* str) {
+    int i = strlen(str) - 1;
+    while (i >= 0 && isspace(str[i])) {
+        str[i] = '\0'; // Replace trailing whitespace with null terminator
+        i--;
+    }
+}
+
+void removeCarriageReturn(char* str) {
+    int i = 0;
+    while (str[i] != '\0') {
+        if (str[i] == '\r') {
+            str[i] = '\0'; // Replace carriage return with null terminator
+            break; // Stop after the first carriage return
+        }
+        i++;
+    }
+}
+
 void lireFichierCSV(const char* dir) {
     const char* nameCSV = getNomFichiercsv(EG);
     //const char* nameCSV = "Etat_.csv";
@@ -155,6 +174,8 @@ void lireFichierCSV(const char* dir) {
 
     checkForHiddenCharacters(fileName);
     checkForTrailingWhitespace(fileName);
+    removeTrailingWhitespace(fileName);
+    removeCarriageReturn(fileName);
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
         perror("Erreur lors de l'ouverture du fichier lireFichierCSV");
