@@ -85,7 +85,7 @@ int16_t refreshCSV() {
     }
 
     memset(dataEtats, 0, sizeof(struct LigneCSV));
-
+    printf("STATE_CSV_DIRECTORY: %s\n", STATE_CSV_DIRECTORY);
     lireFichierCSV(STATE_CSV_DIRECTORY);
 
     int* monTableau = getDependanceVannes(2);
@@ -122,6 +122,7 @@ void lireFichierCSV(const char* dir) {
     char fileName[MAX_PATH_LENGTH];
     strcpy(fileName, dir);
     strcat(fileName, nameCSV);
+    printf("fileName lireFichierCSV: %s\n", fileName);
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
         perror("Erreur lors de l'ouverture du fichier");
