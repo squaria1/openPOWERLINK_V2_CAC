@@ -3,8 +3,10 @@
 #if (TARGET_SYSTEM == _WIN32_)
 #else
 struct gpiod_chip* chip;
-struct gpiod_line_request_config config;
-struct gpiod_line_bulk lines;
+struct gpiod_line* line;
+unsigned int offsets[MAX_VALVES];
+int values[MAX_VALVES];
+int err;
 #endif
 
 valve::valve()
@@ -25,11 +27,6 @@ bool valve::initValve()
         perror("Error: GPIO chip path is not set.");
         return false;
     }
-
-    unsigned int offsets[MAX_VALVES];
-    int values[MAX_VALVES];
-
-    int err;
 
     chip = gpiod_chip_open(CHIP_PATH);
     if (!chip)

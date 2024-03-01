@@ -20,13 +20,6 @@
 #ifndef VALVES_H
 #define VALVES_H
 
-struct gpiod_chip* chip;
-struct gpiod_line* line;
-
-unsigned int offsets[MAX_VALVES];
-int values[MAX_VALVES];
-int err;
-
 class valve
 {
 public:
