@@ -199,6 +199,7 @@ void lireFichierCommon(const char* fileName) {
 
 void lireFichierEG(const char* fileName) {
 
+    printf("fileName lireFichierEG: %s\n", fileName);
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
         perror("Erreur lors de l'ouverture du fichier lireFichierEG");
