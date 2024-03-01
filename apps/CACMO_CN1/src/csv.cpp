@@ -86,7 +86,6 @@ int16_t refreshCSV() {
 
     memset(dataEtats, 0, sizeof(struct LigneCSV));
 
-    char* fileName = "Etat_.csv";
     lireFichierCSV(STATE_CSV_DIRECTORY);
 
     int* monTableau = getDependanceVannes(2);
