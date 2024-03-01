@@ -20,24 +20,12 @@
 #ifndef VALVES_H
 #define VALVES_H
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-	int16_t getValveValue(int index);
+struct gpiod_chip* chip;
+struct gpiod_line* line;
 
-#ifdef __cplusplus
-}
-#endif
-
-struct gpiod_chip {
-	char* path;
-	int offset;
-};
-
-struct gpiod_line {
-	int line;
-};
+unsigned int offsets[MAX_VALVES];
+int values[MAX_VALVES];
+int err;
 
 class valve
 {
@@ -51,5 +39,15 @@ protected:
 
 private:
 };
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+	int16_t getValveValue(int index);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // VALVES_H

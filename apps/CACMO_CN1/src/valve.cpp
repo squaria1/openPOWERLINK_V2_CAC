@@ -26,9 +26,9 @@ bool valve::initValve()
         return false;
     }
 
-    unsigned int offsets[1];
+    unsigned int offsets[MAX_VALVES];
+    int values[MAX_VALVES];
 
-    int values[1];
     int err;
 
     chip = gpiod_chip_open(CHIP_PATH);
@@ -38,25 +38,19 @@ bool valve::initValve()
         return false;
     }
 
-
-
     for (int i = 0; i <= MAX_VALVES; ++i) {
         if (getActivation(i + nbValuesCN_Out_ByCN))
         {
             offsets[i] = getPortGPIO(i);
             values[i] = getEtatInitialVannes(i);
 
-            err = gpiod_chip_get_lines(chip, offsets, 1, &lines);
-            if (err)
+            line = gpiod_chip_get_line(chip, offsets[i]);
+            if (!line)
             {
                 perror("gpiod_chip_get_lines");
+                gpiod_chip_close(chip);
                 return false;
             }
-
-            memset(&config, 0, sizeof(config));
-            config.consumer = "valve";
-            config.request_type = GPIOD_LINE_REQUEST_DIRECTION_OUTPUT;
-            config.flags = 0;
 
             // Verifiez les valeurs 
             // Assurez-vous que la valeur est valide (0 ou 1)
@@ -66,13 +60,15 @@ bool valve::initValve()
                 perror("Error: Invalid input value. Must be 0 or 1.");
                 return false;
             }
-
-            // Actionnez la vanne 
-            err = gpiod_line_set_value_bulk(&lines, values);
-            if (err)
+            else 
             {
-                perror("gpiod_line_set_value_bulk");
-                return false;
+                // Actionnez la vanne 
+                err = gpiod_line_set_value(line, values[i]);
+                if (err)
+                {
+                    perror("gpiod_line_set_value_bulk");
+                    return false;
+                }
             }
         }
     }
