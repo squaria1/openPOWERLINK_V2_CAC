@@ -11,9 +11,9 @@
 #include <filesystem>
 #include <iostream>
 #include <string>
+#include <gpiod.h>
 #if (TARGET_SYSTEM == _WIN32_)
 #else
-#include <gpiod.h>
 #include <unistd.h>
 #endif
 
