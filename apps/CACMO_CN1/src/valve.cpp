@@ -57,10 +57,12 @@ bool valve::initValve()
                 return false;
             }
 
+            uint8_t etatInit = getEtatInitialVannes(i);
+            printf("getEtatInitialVannes(i):%d", etatInit);
             // Verifiez les valeurs 
             // Assurez-vous que la valeur est valide (0 ou 1)
-            if (getEtatInitialVannes(i) < 0 ||
-                getEtatInitialVannes(i) > 1) 
+            if (etatInit < 0 ||
+                etatInit > 1)
             {
                 perror("Error: Invalid input value. Must be 0 or 1.");
                 return false;
