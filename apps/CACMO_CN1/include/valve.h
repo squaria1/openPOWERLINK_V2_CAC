@@ -43,8 +43,8 @@ class valve
 public:
 	valve();
 	virtual ~valve();
-	bool getLineValue(struct LigneVannes* dataPhysicalConfigVannes, int line);
-	bool initValve(struct LigneVannes* dataPhysicalConfigVannes);
+	bool getLineValue(int line);
+	bool initValve();
 
 protected:
 
