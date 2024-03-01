@@ -72,7 +72,7 @@ bool valve::initValve()
             if (err)
             {
                 perror("gpiod_line_set_value_bulk");
-                goto cleanup;
+                return false;
             }
         }
     }
