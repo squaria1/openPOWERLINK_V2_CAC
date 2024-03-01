@@ -60,22 +60,8 @@ int16_t initCSV() {
 
 int16_t refreshCSV() {
     free(dataEG);
-    free(dataEtats);
-
-    /********************Partie_PhysicalConfig_EG_Etat********************/
-
-    dataEG = (struct LigneEG*)malloc(sizeof(struct LigneEG));
-    if (dataEG == NULL) {
-        perror("Error allocating memory");
-        exit(EXIT_FAILURE);
-    }
-
-    memset(dataEG, 0, sizeof(struct LigneEG));
-
-    lireFichierEG(EG_ETAT_DIRECTORY);
-    printf("EG? : %d\n", getEGcsv(1));
-    printf("NomFichierCSV? : %s\n", getNomFichiercsv(1));
-
+    free(dataEtats);    
+    
     /********************Partie_CSV********************/
 
     dataEtats = (struct LigneCSV*)malloc(sizeof(struct LigneCSV));
@@ -99,6 +85,21 @@ int16_t refreshCSV() {
     printf("valeur : %d\n", getValeur(2));
     printf("timer : %f\n", getTimerVannes(2));
 
+    /********************Partie_PhysicalConfig_EG_Etat********************/
+
+    dataEG = (struct LigneEG*)malloc(sizeof(struct LigneEG));
+    if (dataEG == NULL) {
+        perror("Error allocating memory");
+        exit(EXIT_FAILURE);
+    }
+
+    memset(dataEG, 0, sizeof(struct LigneEG));
+
+    lireFichierEG(EG_ETAT_DIRECTORY);
+    printf("EG? : %d\n", getEGcsv(1));
+    printf("NomFichierCSV? : %s\n", getNomFichiercsv(1));
+
+
     return 0;
 }
 
@@ -113,7 +114,8 @@ int16_t extinctCSV() {
 }
 
 void lireFichierCSV(const char* dir) {
-    char* nameCSV = getNomFichiercsv(EG);
+    //char* nameCSV = getNomFichiercsv(EG);
+    const char* nameCSV = "Etat_.csv";
     if (nameCSV == NULL) {
         perror("Erreur code EG non trouve dans liaisonEGEtat.csv");
         exit(EXIT_FAILURE);
