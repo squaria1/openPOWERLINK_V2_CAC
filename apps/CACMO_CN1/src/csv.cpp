@@ -134,14 +134,6 @@ void checkForTrailingWhitespace(const char* str) {
     }
 }
 
-void removeTrailingWhitespace(char* str) {
-    int i = strlen(str) - 1;
-    while (i >= 0 && isspace(str[i])) {
-        str[i] = '\0'; // Replace trailing whitespace with null terminator
-        i--;
-    }
-}
-
 void removeCarriageReturn(char* str) {
     int i = 0;
     while (str[i] != '\0') {
@@ -174,7 +166,6 @@ void lireFichierCSV(const char* dir) {
 
     checkForHiddenCharacters(fileName);
     checkForTrailingWhitespace(fileName);
-    removeTrailingWhitespace(fileName);
     removeCarriageReturn(fileName);
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
@@ -358,6 +349,7 @@ void remplirEG(char* ligne, int id) {
             dataEG->EG[id] = (int16_t)strtol(token, NULL, 0);
         }
         else if (colonne == 1) {
+            removeCarriageReturn(token);
             dataEG->nom[id] = strdup(token);
         }
         colonne++;
