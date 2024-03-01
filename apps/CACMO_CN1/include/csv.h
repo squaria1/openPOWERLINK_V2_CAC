@@ -70,7 +70,7 @@ extern "C"
     float getMaxValue(int ligne);
     bool getActivation(int ligne);
     int16_t getEGcsv(int ligne);
-    char* getNomFichiercsv(int16_t EG);
+    const char* getNomFichiercsv(int16_t EG);
     int searchEG(int16_t EG);
 
     extern struct LigneCSV* dataEtats;

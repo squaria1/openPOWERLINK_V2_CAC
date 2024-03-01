@@ -113,8 +113,8 @@ int16_t extinctCSV() {
 }
 
 void lireFichierCSV(const char* dir) {
-    //const char* nameCSV = getNomFichiercsv(EG);
-    const char* nameCSV = "Etat_.csv";
+    const char* nameCSV = getNomFichiercsv(EG);
+    //const char* nameCSV = "Etat_.csv";
     char cwd[MAX_PATH_LENGTH];
     printf("nameCSV: %s\n", nameCSV);
     #if (TARGET_SYSTEM == _WIN32_)
@@ -365,7 +365,7 @@ int16_t getEGcsv(int ligne) {
     return dataEG->EG[ligne];
 }
 
-char* getNomFichiercsv(int16_t EG) {
+const char* getNomFichiercsv(int16_t EG) {
     int ligne = searchEG(EG);
     printf("ligne:%d\n",ligne);
     if (ligne != -1)
