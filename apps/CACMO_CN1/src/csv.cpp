@@ -361,18 +361,27 @@ int16_t getEGcsv(int ligne) {
 
 char* getNomFichiercsv(int16_t EG) {
     int ligne = searchEG(EG);
+    printf("ligne:%d\n",ligne);
     if (ligne != -1)
+    {
+        printf("dataEG->nom[ligne]:%s\n", dataEG->nom[ligne]);
         return dataEG->nom[ligne];
+    }
     else
-        return "ERROR_CSV_FILE_NAME";
+        return NULL;
 }
 
 int searchEG(int16_t EG)
 {
     int i;
     for (i = 0; i < MAX_LINE_SIZE; i++)
+    {
         if (dataEG->EG[i] == EG)
+        {
+            printf("i:%d\n", i);
             return i;
+        }
+    }
 
     return -1;
 }
