@@ -69,7 +69,7 @@ ELSE (PCAP_CONFIG)
 ENDIF (PCAP_CONFIG)
 
 ENDIF (CFG_KERNEL_STACK_DIRECTLINK OR CFG_KERNEL_STACK_USERSPACE_DAEMON)
-SET (ARCH_LIBRARIES ${ARCH_LIBRARIES} pthread rt)
+SET (ARCH_LIBRARIES ${ARCH_LIBRARIES} pthread rt gpiod)
 
 ################################################################################
 # Set architecture specific installation files
