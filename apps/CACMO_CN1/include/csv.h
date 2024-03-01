@@ -3,9 +3,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <stdint.h>
-#include <configDefine.h>
+#include <string>
+#include "configDefine.h"
+#include "opl.h"
 
 #ifdef __cplusplus
 extern "C"
@@ -13,47 +14,65 @@ extern "C"
 #endif
 
     struct LigneCSV {
-        char* carte[256];
-        char* vannes[256];
-        int valeur[256];
-        int dependanceVannes[256][256];
-        float timerVannes[256];
+        int valeur[MAX_LINE_SIZE];
+        int dependanceVannes[MAX_LINE_SIZE][MAX_LINE_SIZE];
+        float timerVannes[MAX_LINE_SIZE];
     };
 
     struct LigneVannes {
-        uint8_t etatInitial[256];
-        uint8_t portGPIO[256];
+        uint8_t etatInitial[MAX_PHYSICAL_LINE_SIZE];
+        uint8_t portGPIO[MAX_PHYSICAL_LINE_SIZE];
     };
 
     struct LigneSensors {
-        uint8_t etatInitial[256];
-        float minValue[256];
-        float maxValue[256];
+        uint8_t etatInitial[MAX_PHYSICAL_LINE_SIZE];
+        float minValue[MAX_PHYSICAL_LINE_SIZE];
+        float maxValue[MAX_PHYSICAL_LINE_SIZE];
     };
 
     struct LigneActivation {
-        bool activation[256];
+        bool activation[MAX_LINE_SIZE];
     };
 
-    void lireFichierCSV(char* fileName, struct LigneCSV* data);
-    void lireFichierVannes(char* fileName, struct LigneVannes* data);
-    void lireFichierSensors(char* fileName, struct LigneSensors* data);
-    void lireFichierCommon(char* fileName, struct LigneActivation* data);
+    struct LigneEG {
+         int16_t EG[MAX_LINE_SIZE];
+         char* nom[MAX_LINE_SIZE];
+    };
 
-    void remplirStructureVannesPhysicalCONFIG(char* ligne, struct LigneVannes* data, int id);
-    void remplirStructureSensorsPhysicalCONFIG(char* ligne, struct LigneSensors* data, int id);
-    void remplirStructure(char* ligne, struct LigneCSV* data, int id);
-    void remplirStructureCommon(char* ligne, struct LigneActivation* data, int id);
+    int16_t initCSV();
+    int16_t refreshCSV();
+    int16_t extinctCSV();
 
-    int getValeur(struct LigneCSV* data, int ligne);
-    int* getDependanceVannes(struct LigneCSV* data, int ligne);
-    float getTimerVannes(struct LigneCSV* data, int ligne);
-    uint8_t getEtatInitialVannes(struct LigneVannes* data, int ligne);
-    uint8_t getEtatInitialSensors(struct LigneSensors* data, int ligne);
-    uint8_t getPortGPIO(struct LigneVannes* data, int ligne);
-    float getMinValue(struct LigneSensors* data, int ligne);
-    float getMaxValue(struct LigneSensors* data, int ligne);
+    void lireFichierCSV(char* fileName);
+    void lireFichierVannes(char* fileName);
+    void lireFichierSensors(char* fileName);
+    void lireFichierCommon(char* fileName);
+    void lireFichierEG(char* fileName);
 
+    void remplirStructure(char* ligne, int id);
+    void remplirStructureVannesPhysicalCONFIG(char* ligne, int id);
+    void remplirStructureSensorsPhysicalCONFIG(char* ligne, int id);
+    void remplirStructureCommon(char* ligne, int id);
+    void remplirEG(char* ligne, int id);
+
+    int getValeur(int ligne);
+    int* getDependanceVannes(int ligne);
+    float getTimerVannes(int ligne);
+    uint8_t getEtatInitialVannes(int ligne);
+    uint8_t getEtatInitialSensors(int ligne);
+    uint8_t getPortGPIO(int ligne);
+    float getMinValue(int ligne);
+    float getMaxValue(int ligne);
+    bool getActivation(int ligne);
+    int16_t getEGcsv(int ligne);
+    char* getNomFichiercsv(int16_t EG);
+    int searchEG(int16_t EG);
+
+    extern struct LigneCSV* dataEtats;
+    extern struct LigneVannes* dataPhysicalConfigVannes;
+    extern struct LigneSensors* dataPhysicalConfigSensors;
+    extern struct LigneActivation* dataActivation;
+    extern struct LigneEG* dataEG;
 
 #ifdef __cplusplus
 }

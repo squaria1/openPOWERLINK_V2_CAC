@@ -25,7 +25,7 @@
 extern "C"
 {
 #endif
-	int16_t getValveValue(struct LigneCSV* data, int index);
+	int16_t getValveValue(int index);
 
 #ifdef __cplusplus
 }

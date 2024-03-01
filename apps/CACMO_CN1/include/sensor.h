@@ -28,7 +28,7 @@ extern "C"
 {
 #endif
 
-int val[MAX_SENSORS];
+static int valSensors[MAX_SENSORS];
 int getAdc_value(int index);
 
 #ifdef __cplusplus
@@ -52,7 +52,7 @@ class sensor
         void closeAdc();
         int readAdc(int fd);
         int openAdc(int adc);
-        int initSensor(struct LigneCSV* data);
+        int initSensor();
 
 
         int opt, delay_us, adc, i;

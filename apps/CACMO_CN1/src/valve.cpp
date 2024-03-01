@@ -77,9 +77,9 @@ bool valves::initValve(LigneVannes* dataPhysicalConfigVannes)
 
 extern "C"
 {
-    int16_t getValveValue(struct LigneCSV* data, int index)
+    int16_t getValveValue(int index)
     {
-        int16_t valveValue = getValeur(data, index);
+        int16_t valveValue = getValeur(index);
         return valveValue;
     }
 }

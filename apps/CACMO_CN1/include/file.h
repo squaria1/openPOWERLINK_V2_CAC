@@ -3,6 +3,7 @@
 
 
 #include "eventOpl.h"
+#include "configDefine.h"
 #include <iostream>
 #include <fstream>
 #include <ctime>
@@ -29,7 +30,6 @@ public:
 protected:
 
 private:
-    const string PATH_DIRECTORY_telemFiles = "..\\..\\..\\include\\telemFiles";
     string pathFile;
     ofstream dataFile;
     string nameFiles;//nom du fichier a creer avec le temps actuel

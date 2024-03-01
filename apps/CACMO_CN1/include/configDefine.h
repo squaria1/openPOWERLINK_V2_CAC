@@ -16,7 +16,7 @@
 #define SIZE_IN 39
 
 // Sensor
-char iiosyspath[] = "/sys/bus/iio/devices/iio:device0/";
+#define IIOSYSPATH "/sys/bus/iio/devices/iio:device0/"
 #define MAX_SENSORS 8
 
 // Valve
@@ -24,14 +24,20 @@ char iiosyspath[] = "/sys/bus/iio/devices/iio:device0/";
 #define MAX_VALVES 12
 
 // CSV
+#define MAX_PATH_LENGTH 1024
 #define MAX_LINE_SIZE 2832
-#define MAX_FIELD_SIZE 2832
+#define MAX_PHYSICAL_LINE_SIZE 30
 #define MAX_ROWS 5
 #define MAX_DEPENDANCE 2832
-#define STATE_CSV_DIRECTORY "..\\..\\..\\include\\stateCSV\\Etat_.csv"
+#define STATE_CSV_DIRECTORY "..\\..\\..\\include\\stateCSV\\"
 #define PHYSICAL_CONFIG_VANNES_DIRECTORY "..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_vannes.csv"
 #define PHYSICAL_CONFIG_SENSORS_DIRECTORY "..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_sensors.csv"
 #define COMMON_PHYSICAL_CONFIG_DIRECTORY "..\\..\\..\\..\\common\\commonPhysicalCONFIG\\commonPhysicalCONFIG.csv"
+#define EG_ETAT_DIRECTORY "..\\..\\..\\..\\common\\commonPhysicalCONFIG\\liaisonEGEtat.csv"
+
+// TelemFiles
+#define TELEMFILES_DIRECTORY "..\\..\\..\\include\\telemFiles"
+
 
 
 #endif

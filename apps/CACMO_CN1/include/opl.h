@@ -34,7 +34,7 @@
 
     #include <stdio.h>
     #include <limits.h>
-    #include <string.h>
+    #include <string>
 
 #ifdef __cplusplus
 extern "C"
@@ -68,18 +68,15 @@ extern "C"
                             const UINT16 arrayIndex, 
                             UINT16 index, 
                             UINT8 subIndex);
-    tOplkError  initApp(struct LigneVannes* dataPhysicalConfigVannes,
-                        struct LigneSensors* dataPhysicalConfigSensors);
-    bool        initOPL(struct LigneVannes* dataPhysicalConfigVannes,
-                        struct LigneSensors* dataPhysicalConfigSensors);
-    bool        ExtinctOPL();
-    //void        setValues_In_CN(struct LigneCSV* data, int ligne);
+    tOplkError  initApp();
+    bool        initOPL();
+    bool        extinctOPL();
+    //void        setValues_In_CN(int ligne);
     int16_t*    getValues_In_CN(void);
-    void        setValues_Out_CN(struct LigneCSV* data);
+    void        setValues_Out_CN();
     int16_t*    getValues_Out_CN(void);
-    //void        setActivated_In_CN(struct LigneCSV* data, int ligne, uint8_t mode);
-    void        setActivated_Out_CN(struct LigneCSV* data, 
-                                    int ligne);
+    //void        setActivated_In_CN(int ligne, uint8_t mode);
+    void        setActivated_Out_CN();
 
     //------------------------------------------------------------------------------
     // local vars
@@ -96,20 +93,24 @@ extern "C"
     static int16_t             values_Out_CN_l[SIZE_OUT];
     static bool                activated_Out_CN_l[SIZE_OUT];
 
-    //------------------------------------------------------------------------------
-    // global vars
-    //------------------------------------------------------------------------------
+    /* Xap segmentation variables */
     static const uint16_t       nbValuesCN_Out = SIZE_OUT / NB_NODES - 1;
     static const uint16_t       nbValuesCN_In = SIZE_IN / NB_NODES - 1;
     static const uint16_t       nbValuesCN_Out_ByCN = (SIZE_OUT / NB_NODES) * (NODEID - 1);
     static const uint16_t       nbValuesCN_In_ByCN = (SIZE_IN / NB_NODES) * (NODEID - 1);
-    static uint8_t              mode;
+
+    //------------------------------------------------------------------------------
+    // global vars
+    //------------------------------------------------------------------------------
+    extern uint8_t              mode;
+    extern int16_t              EG;
 
     //------------------------------------------------------------------------------
     // local function prototypes
     //------------------------------------------------------------------------------
 
     int16_t                  getEG();
+    int16_t                  isEGchanged();
     void                     setEC1(int16_t EC1);
 
 #ifdef __cplusplus

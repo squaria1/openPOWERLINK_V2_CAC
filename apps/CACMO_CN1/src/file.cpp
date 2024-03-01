@@ -47,17 +47,28 @@ bool file::initFile()
 
     nameFiles = year_month_day + "__" + hour_minute_second + ".txt";
     cout << nameFiles << endl;
-    string PATH_DIRECTORY_FILE = file::PATH_DIRECTORY_telemFiles + "\\" + nameFiles;
-    file::pathFile = PATH_DIRECTORY_FILE;
+    std::string path = TELEMFILES_DIRECTORY;
+    path.append("\\");
+    path.append(nameFiles);
+
+    file::pathFile = path;
 
     /******************************************************************************************/
 
     return true;
 }
 
-bool file::testWriteFile()
+bool file::testWriteFile() 
 {
-    return true;
+    try
+    {
+        file::dataFile << "test" << endl;
+        return true;
+    }
+    catch (const std::exception& e)
+    {
+        return false;
+    }
 }
 
 void file::writeTelem(const char* fmt_p, ...)///< ajouter uniquement : uint16_t codeSuccess 
@@ -87,7 +98,7 @@ void file::writeError(const char* fmt_p, ...) ///< ajouter uniquement : uint16_t
     va_start(arglist, fmt_p);
     eventlog_createMessageString(logMsg,
         EVENTLOG_MAX_LENGTH,
-        kEventlogLevelInfo,
+        kEventlogLevelError,
         kEventlogCategoryGeneric,
         "code_Error:0x%02X",
         arglist);

@@ -1,13 +1,13 @@
-﻿Carte;Vannes/Etat;Activation;Etat initial;Min value;Max value
-CACMO;sensorCH0;1;1;100;1000
-CACMO;sensorCH1;1;1;100;1000
-CACMO;sensorCH2;1;0;100;1000
-CACMO;sensorCH3;1;0;100;1000
-CACMO;sensorCH4;0;-1;100;1000
-CACMO;sensorCH5;0;-1;;
-CACMO;sensorCH6;0;;;
-CACMO;sensorCH7;0;;;
-CACMO;sensorCH8;0;;;
-CACMO;sensorCH9;0;;;
-CACMO;sensorCH10;0;;;
-CACMO;sensorCH11;0;;;
+﻿Carte;Vannes/Etat;Etat initial;Min value;Max value
+CACMO;sensorCH0;1;100;1000
+CACMO;sensorCH1;1;101;1011
+CACMO;sensorCH2;2;102;1000
+CACMO;sensorCH3;3;100;1000
+CACMO;sensorCH4;-1;104;1003
+CACMO;sensorCH5;-1;;
+CACMO;sensorCH6;;;
+CACMO;sensorCH7;;;
+CACMO;sensorCH8;;;
+CACMO;sensorCH9;;;
+CACMO;sensorCH10;;;
+CACMO;sensorCH11;;;

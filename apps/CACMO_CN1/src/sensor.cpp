@@ -12,19 +12,16 @@ sensor::~sensor()
     //destructor
 }
 
-extern "C"
-{
-    int getAdc_value(int index) {
-        return val[index];
-    }
+int getAdc_value(int index) {
+    return valSensors[index];
 }
 
 
-int sensor::initSensor(struct LigneCSV* data) {
+int sensor::initSensor() {
     bool tabSensorActivated[MAX_SENSORS];
 
     for (int i = 0; i < MAX_SENSORS; i++) {
-        tabSensorActivated[i] = getActivation(data, i);
+        tabSensorActivated[i] = getActivation(i);
     }
 
     memset(adc_list, 0, sizeof(adc_list));
@@ -39,16 +36,17 @@ int sensor::initSensor(struct LigneCSV* data) {
 
     readChannels(delay_us, adc_list);
 
+    return 0;
 }
 
 
 void sensor::readChannels(int delay_us, int *list)
 {
-    int count, ret, i, update, update_reset;
+    int ret, i;
 
     ret = 0;
     memset(fd, 0, sizeof(fd));
-    memset(val, 0, sizeof(val));
+    memset(valSensors, 0, sizeof(valSensors));
 
     for (i = 0; i < MAX_SENSORS; i++) {
         if (list[i]) {
@@ -61,12 +59,12 @@ void sensor::readChannels(int delay_us, int *list)
         if (!list[i])
             continue;
 
-        val[i] = readAdc(fd[i]);
+        valSensors[i] = readAdc(fd[i]);
 
         // reset for next read
         _lseek(fd[i], 0, SEEK_SET);
 
-        if (val[i] == ADC_READ_ERROR)
+        if (valSensors[i] == ADC_READ_ERROR)
             break;
     }
     
@@ -84,6 +82,7 @@ void sensor::closeAdc()
 int sensor::readAdc(int fd)
 {
     char buff[8];
+    buff[7] = 0;
 
     int val = ADC_READ_ERROR;
 
@@ -101,7 +100,7 @@ int sensor::openAdc(int adc)
 {
     char path[128];
     
-    sprintf(path, "%sin_voltage%d_raw", iiosyspath, adc);
+    sprintf(path, "%sin_voltage%d_raw", IIOSYSPATH, adc);
     
 
     int fd = _open(path, O_RDONLY);
