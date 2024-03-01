@@ -1,5 +1,12 @@
 #include "valve.h"
 
+#if (TARGET_SYSTEM == _WIN32_)
+#else
+struct gpiod_chip* chip;
+struct gpiod_line_request_config config;
+struct gpiod_line_bulk lines;
+#endif
+
 valve::valve()
 {
 
