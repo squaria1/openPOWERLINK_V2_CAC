@@ -112,6 +112,28 @@ int16_t extinctCSV() {
     return 0;
 }
 
+void checkForHiddenCharacters(const char* str) {
+    int i = 0;
+    while (str[i] != '\0') {
+        if (!isprint(str[i])) {
+            printf("Hidden character detected at position %d: ASCII value = %d\n", i, str[i]);
+        }
+        i++;
+    }
+}
+
+void checkForTrailingWhitespace(const char* str) {
+    int i = 0;
+    while (str[i] != '\0') {
+        i++;
+    }
+    i--; // Move back one character to the last character of the string
+    while (i >= 0 && isspace(str[i])) {
+        printf("Trailing whitespace detected at position %d: ASCII value = %d\n", i, str[i]);
+        i--;
+    }
+}
+
 void lireFichierCSV(const char* dir) {
     const char* nameCSV = getNomFichiercsv(EG);
     //const char* nameCSV = "Etat_.csv";
@@ -130,6 +152,9 @@ void lireFichierCSV(const char* dir) {
     char fileName[MAX_PATH_LENGTH];
     snprintf(fileName, sizeof(fileName), "%s%s", dir, nameCSV);
     printf("fileName lireFichierCSV: %s\n", fileName);
+
+    checkForHiddenCharacters(fileName);
+    checkForTrailingWhitespace(fileName);
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
         perror("Erreur lors de l'ouverture du fichier lireFichierCSV");

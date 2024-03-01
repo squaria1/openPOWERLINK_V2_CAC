@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string>
+#include <ctype.h>
 #include "configDefine.h"
 #include "opl.h"
 
