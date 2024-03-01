@@ -74,7 +74,7 @@ bool valve::initValve()
 
 bool valve::extinctValve()
 {
-    gpiod_line_release_bulk(&lines);
+    gpiod_line_release(line);
     gpiod_chip_close(chip);
 
     return true;
