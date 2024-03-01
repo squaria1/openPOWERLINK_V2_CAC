@@ -1,7 +1,6 @@
 #include "csv.h"
 #include "configDefine.h"
 #include <stdio.h>
-#include <gpio.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <errno.h>
