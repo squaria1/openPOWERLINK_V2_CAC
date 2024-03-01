@@ -125,7 +125,7 @@ void lireFichierCSV(const char* dir) {
     printf("fileName lireFichierCSV: %s\n", fileName);
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
-        perror("Erreur lors de l'ouverture du fichier");
+        perror("Erreur lors de l'ouverture du fichier lireFichierCSV");
         exit(EXIT_FAILURE);
     }
     int id = 0;
@@ -144,7 +144,7 @@ void lireFichierVannes(const char* fileName) {
 
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
-        perror("Erreur lors de l'ouverture du fichier");
+        perror("Erreur lors de l'ouverture du fichier lireFichierVannes");
         exit(EXIT_FAILURE);
     }
     int id = 0;
@@ -163,7 +163,7 @@ void lireFichierSensors(const char* fileName) {
 
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
-        perror("Erreur lors de l'ouverture du fichier");
+        perror("Erreur lors de l'ouverture du fichier lireFichierSensors");
         exit(EXIT_FAILURE);
     }
     int id = 0;
@@ -182,7 +182,7 @@ void lireFichierCommon(const char* fileName) {
 
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
-        perror("Erreur lors de l'ouverture du fichier");
+        perror("Erreur lors de l'ouverture du fichier lireFichierCommon");
         exit(EXIT_FAILURE);
     }
     int id = 0;
@@ -201,7 +201,7 @@ void lireFichierEG(const char* fileName) {
 
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
-        perror("Erreur lors de l'ouverture du fichier");
+        perror("Erreur lors de l'ouverture du fichier lireFichierEG");
         exit(EXIT_FAILURE);
     }
     int id = 0;
