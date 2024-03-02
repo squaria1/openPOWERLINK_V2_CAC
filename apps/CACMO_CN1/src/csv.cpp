@@ -127,7 +127,7 @@ void lireFichierCSV(const char* dir) {
     const char* nameCSV = getNomFichiercsv(EG);
     //const char* nameCSV = "Etat_.csv";
     char cwd[MAX_PATH_LENGTH];
-    //printf("nameCSV: %s\n", nameCSV);
+    printf("nameCSV: %s\n", nameCSV);
     #if (TARGET_SYSTEM == _WIN32_)
     #else
         if (getcwd(cwd, sizeof(cwd)) != NULL)

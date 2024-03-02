@@ -25,8 +25,8 @@ extern "C"
 {
 #endif
 
-static int valSensors[MAX_SENSORS];
-int getAdc_value(int index);
+static int16_t valSensors[MAX_SENSORS];
+int16_t getAdc_value(int index);
 
 #ifdef __cplusplus
 }

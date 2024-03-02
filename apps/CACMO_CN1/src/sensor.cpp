@@ -13,7 +13,7 @@ sensor::~sensor()
     //destructor
 }
 
-int getAdc_value(int index) {
+int16_t getAdc_value(int index) {
     return valSensors[index];
 }
 

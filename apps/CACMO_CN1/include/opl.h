@@ -5,36 +5,37 @@
 // includes
 //------------------------------------------------------------------------------
 
-    #include "xapOpl.h"
-    #include "eventOpl.h"
-    #include "configDefine.h"
-    #include "csv.h"
-    #include "sensor.h"
-    #include "valve.h"
+#include "xapOpl.h"
+#include "eventOpl.h"
+#include "configDefine.h"
+#include "csv.h"
+#include "sensor.h"
+#include "valve.h"
 
-    #include <oplk/oplk.h>
-    #include <oplk/debugstr.h>
+#include <oplk/oplk.h>
+#include <oplk/debugstr.h>
 
-    #include <stddef.h>
-    #include <stdint.h>
-    #include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <inttypes.h>
 
-    #include <system/system.h>
-    #include <obdcreate/obdcreate.h>
+#include <system/system.h>
+#include <obdcreate/obdcreate.h>
 
-    #if (TARGET_SYSTEM == _WIN32_)
-    #include <getopt/getopt.h>
-    #else
-    #include <unistd.h>
-    #endif
+#if (TARGET_SYSTEM == _WIN32_)
+#include <getopt/getopt.h>
+#else
+#include <unistd.h>
+#endif
 
-    #include <console/console.h>
-    #include <eventlog/eventlog.h>
-    #include <netselect/netselect.h>
+#include <console/console.h>
+#include <eventlog/eventlog.h>
+#include <netselect/netselect.h>
 
-    #include <stdio.h>
-    #include <limits.h>
-    #include <string>
+#include <stdio.h>
+#include <limits.h>
+#include <string>
 
 #ifdef __cplusplus
 extern "C"
@@ -71,12 +72,14 @@ extern "C"
     tOplkError  initApp();
     bool        initOPL();
     bool        extinctOPL();
-    //void        setValues_In_CN(int ligne);
+    //void      setValues_In_CN(int ligne);
     int16_t*    getValues_In_CN(void);
     void        setValues_Out_CN();
     int16_t*    getValues_Out_CN(void);
-    //void        setActivated_In_CN(int ligne, uint8_t mode);
+    //void      setActivated_In_CN(int ligne, uint8_t mode);
     void        setActivated_Out_CN();
+    void        affValeursIn();
+    void        affValeursOut();
 
     //------------------------------------------------------------------------------
     // local vars
@@ -85,19 +88,20 @@ extern "C"
     static BOOL              fGsOff_l;
 
     /* process image */
-    static PI_IN*            pProcessImageIn_l;
-    static const PI_OUT*     pProcessImageOut_l;
+    static const PI_IN*            pProcessImageIn_l;
+    static PI_OUT*                 pProcessImageOut_l;
 
     /* application variables */
     static int16_t             values_In_CN_l[SIZE_IN];
     static int16_t             values_Out_CN_l[SIZE_OUT];
-    static bool                activated_Out_CN_l[SIZE_OUT];
+    static bool                activated_Out_CN_l[SIZE_OUT+1];
 
     //------------------------------------------------------------------------------
     // global vars
     //------------------------------------------------------------------------------
     extern uint8_t              mode;
-    extern int16_t              EG;    
+    extern int16_t              EG;
+    extern int16_t              EC;
     
     /* Xap segmentation variables */
     extern const uint16_t       nbValuesCN_Out;

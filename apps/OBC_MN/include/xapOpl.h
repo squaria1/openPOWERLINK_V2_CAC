@@ -7,7 +7,7 @@
 #define XAP_h
 
 #include <stdint.h>
-#include "configOpl.h"
+#include "configDefine.h"
 
 typedef struct
 {

@@ -5,40 +5,41 @@
 // includes
 //------------------------------------------------------------------------------
 
+#include "xapOpl.h"
+#include "eventOpl.h"
+#include "configDefine.h"
+#include "csv.h"
+
+#include <oplk/oplk.h>
+#include <oplk/debugstr.h>
+
+#include <obdpi.h>
+#include <stdint.h>
+#include <stdbool.h>
+
+
+#include <system/system.h>
+#include <obdcreate/obdcreate.h>
+
+#if (TARGET_SYSTEM == _WIN32_)
+#include <getopt/getopt.h>
+#else
+#include <unistd.h>
+#endif
+
+#include <console/console.h>
+#include <eventlog/eventlog.h>
+#include <firmwaremanager/firmwaremanager.h>
+#include <netselect/netselect.h>
+
+#include <stdio.h>
+#include <limits.h>
+#include <string.h>
+
 #ifdef __cplusplus
 extern "C"
 {
 #endif
-
-    #include "xapOpl.h"
-    #include "eventOpl.h"
-    #include "configOpl.h"
-
-    #include <oplk/oplk.h>
-    #include <oplk/debugstr.h>
-
-    #include <obdpi.h>
-    #include <stdint.h>
-    #include <stdbool.h>
-
-
-    #include <system/system.h>
-    #include <obdcreate/obdcreate.h>
-
-    #if (TARGET_SYSTEM == _WIN32_)
-    #include <getopt/getopt.h>
-    #else
-    #include <unistd.h>
-    #endif
-
-    #include <console/console.h>
-    #include <eventlog/eventlog.h>
-    #include <firmwaremanager/firmwaremanager.h>
-    #include <netselect/netselect.h>
-
-    #include <stdio.h>
-    #include <limits.h>
-    #include <string.h>
 
     typedef struct
     {
@@ -69,6 +70,15 @@ extern "C"
     bool        initOPL();
     bool        testOPL();
     bool        ExtinctOPL();
+    void        setValues_In_MN(int ligne, int16_t valeur);
+    int16_t*    getValues_In_MN(void);
+    void        setValues_Out_MN(int ligne, int16_t valeur);
+    int16_t*    getValues_Out_MN(void);
+    static void setActivated_In_MN(int16_t activated_In_MN_g[]);
+    //void      setActivated_Out_MN(int16_t activated_Out_MN_g[]);
+    void        affValeursIn();
+    void        affValeursOut();
+
 
     //------------------------------------------------------------------------------
     // local vars
@@ -80,15 +90,16 @@ extern "C"
     static PI_IN*                   pProcessImageIn_l;
     static const PI_OUT*            pProcessImageOut_l;
 
-    static int16_t                  values_In_MN_l[MAX_VALUES];
-    static int16_t                  values_Out_MN_l[MAX_VALUES];
-    static bool                     activated_In_MN_l[SIZE_IN];
-    //static bool                     activated_Out_MN_l[SIZE_OUT];
+    static int16_t                  values_In_MN_l[SIZE_OUT];
+    static int16_t                  values_Out_MN_l[SIZE_IN];
+    static bool                     activated_In_MN_l[SIZE_OUT+1];
+    //static bool                   activated_Out_MN_l[SIZE_OUT];
 
     //------------------------------------------------------------------------------
     // global vars
     //------------------------------------------------------------------------------
-    static uint8_t              mode;
+    extern uint8_t              mode;
+    extern const uint16_t       nbValuesCN_In;
 
 
     int16_t     getTest();
@@ -108,13 +119,6 @@ class opl
 
         void        sendTelem();
         void        sendError();
-
-        void        setValues_In_MN(int16_t values_In_g[]);
-        int16_t*    getValues_In_MN(void);
-        void        setValues_Out_MN(int16_t values_Out_g[]);
-        int16_t*    getValues_Out_MN(void);
-        void        setActivated_In_MN(int16_t activated_In_MN_g[]);
-        //void        setActivated_Out_MN(int16_t activated_Out_MN_g[]);
         bool        demandeExtinctOPL();
 
     protected:

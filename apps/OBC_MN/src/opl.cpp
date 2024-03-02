@@ -1,5 +1,8 @@
 #include "opl.h"
 
+uint8_t              mode;
+const uint16_t       nbValuesCN_In = SIZE_IN / NB_NODES - 1;
+
 opl::opl()
 {
 
@@ -36,42 +39,36 @@ void opl::sendError()
 
 }
 
-void opl::setValues_In_MN(int16_t values_In_g[])
+void setValues_In_MN(int ligne, int16_t valeur)
 {
-    for (int i = 0; i < SIZE_IN; i++)
-    {
-        values_In_MN_l[i] = values_In_g[i];
-    }
+        values_In_MN_l[ligne] = valeur;
 }
 
-int16_t* opl::getValues_In_MN()
+int16_t* getValues_In_MN()
 {
     return values_In_MN_l;
 }
 
-void opl::setValues_Out_MN(int16_t values_Out_g[])
+void setValues_Out_MN(int ligne, int16_t valeur)
 {
-    for (int i = 0; i < SIZE_OUT; i++)
-    {
-        values_Out_MN_l[i] = values_Out_g[i];
-    }
+        values_Out_MN_l[ligne] = valeur;
 }
 
-int16_t* opl::getValues_Out_MN()
+int16_t* getValues_Out_MN()
 {
     return values_Out_MN_l;
 }
 
-void opl::setActivated_In_MN(int16_t activated_In_MN_g[])
+void setActivated_In_MN()
 {
-    for (int i = 0; i < SIZE_IN; i++)
+    for (int i = 0; i < SIZE_OUT + 1; i++)
     {
-        activated_In_MN_l[i] = activated_In_MN_g[i];
+        activated_In_MN_l[i] = getActivation(i);
     }
 }
 
 /*
-void opl::setActivated_Out_MN(int16_t activated_Out_MN_g[])
+void setActivated_Out_MN()
 {
     for (int i = 0; i < SIZE_OUT; i++)
     {
@@ -79,9 +76,6 @@ void opl::setActivated_Out_MN(int16_t activated_Out_MN_g[])
     }
 }
 */
-
-extern "C"
-{
 
 int16_t getEC1()
 {
@@ -96,6 +90,27 @@ void setEG(int16_t EG)
 int16_t getTest()
 {
     return values_Out_MN_l[1];
+}
+
+void affValeursIn()
+{
+    printf("\n-------------IN MN--------------\n");
+    for (int i = 0; i < SIZE_OUT; i++)
+    {
+        printf("activated_In_MN_l[%d]=%d\n", i+1, activated_In_MN_l[i + 1]);
+        printf("values_In_MN_l[%d]=%d\n", i, pProcessImageOut_l->out_MN_array[i]);
+    }
+    printf("\n--------------------------------\n");
+}
+
+void affValeursOut()
+{
+    printf("\n------------OUT MN--------------\n");
+    for (int i = 0; i < SIZE_IN; i++)
+    {
+        printf("values_Out_MN_l[%d]=%d\n", i, pProcessImageIn_l->in_MN_array[i]);
+    }
+    printf("\n--------------------------------\n");
 }
 
 
@@ -156,7 +171,7 @@ bool initOPL()
         oplk_getVersionString(),
         oplk_getStackConfiguration());
 
-    
+    setActivated_In_MN();
 
     eventlog_printMessage(kEventlogLevelInfo,
         kEventlogCategoryGeneric,
@@ -198,9 +213,13 @@ tOplkError initApp(void)
     cnt_l = 0;
     i = 0;
 
-    for (i = 0; i < MAX_VALUES; i++)
+    for (i = 0; i < SIZE_OUT; i++)
     {
         values_In_MN_l[i] = 0;
+    }
+
+    for (i = 0; i < SIZE_IN; i++)
+    {
         values_Out_MN_l[i] = 0;
     }
 
@@ -391,7 +410,6 @@ The function implements the synchronous data handler.
 tOplkError processSync(void)
 {
     tOplkError  ret;
-    int         i;
 
     ret = oplk_waitSyncEvent(100000);
     if (ret != kErrorOk)
@@ -401,22 +419,22 @@ tOplkError processSync(void)
     if (ret != kErrorOk)
         return ret;
 
-    //for (int i = 0; i < sizeof(pProcessImageOut_l->in_MN_array) / sizeof(pProcessImageOut_l->in_MN_array[0]); i++)
-    //{
-    //    values_IO_l[i] = pProcessImageOut_l->in_MN_array[i];
-    //    //printf("arropl at %d = %d \n", i, values_IO_l[i]);
-    //}
-
     cnt_l++;
 
-    //values_In_MN_l[0] = pProcessImageOut_l->out_MN_array[0];
-
+    //Process PI_OUT --> variables entrant dans le MN
     for (int i = 0; i < SIZE_OUT; i++)
     {
-        if (activated_In_MN_l[i])
+        if (activated_In_MN_l[i+1])
         {
             values_In_MN_l[i] = pProcessImageOut_l->out_MN_array[i];
         }
+    }
+
+    //Process PI_IN --> variables sortant du MN
+    for (int i = 0; i < SIZE_IN; i++)
+    {
+        if(i % (nbValuesCN_In+1) == 0)
+            pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
     }
 
     switch (mode)
@@ -426,14 +444,13 @@ tOplkError processSync(void)
     case 1: // mode manuel : l'état des vannes proviennent directement du MN
         for (int i = 0; i < SIZE_IN; i++)
         {
-            pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
+            if (i % (nbValuesCN_In + 1) != 0)
+                pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
         }
         break;
     default:
         break;
     }
-
-    //pProcessImageIn_l->in_MN_array[0] = values_Out_MN_l[0];
     
     ret = oplk_exchangeProcessImageIn();
 
@@ -557,6 +574,4 @@ void shutdownPowerlink(void)
 
     oplk_destroy();
     oplk_exit();
-}
-
 }

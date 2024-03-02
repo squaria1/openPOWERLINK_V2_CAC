@@ -15,7 +15,9 @@ int main() {
     char        cKey = 0;
     BOOL        fExit = FALSE;
     EG = 1;
+    EC = 1111;
     int16_t EC1 = -1;
+
     
     while(etat<3){
         switch(etat){
@@ -94,9 +96,8 @@ int main() {
                         etat = 255;
                         break;
                     case 'a':
-                        EC1 = 111;
-                        setEC1(EC1);
-                        printf("\n\n EC1 CN : %d \n\n", EC1);
+                        printf("\n\n EC1 CN : %d \n\n", EC1); 
+                        affValeursOut();
                         break;
                     case 'z':
                         if (getEG() != 0)
@@ -104,12 +105,13 @@ int main() {
                         else
                             printf("values_Out_CN_l[0] is 0\n");
                         printf("\n\n EG CN : %d \n\n", EG);
+                        affValeursIn();
                         break;
                     default:
                         break;
                     }
                 }
-                if (isEGchanged())
+                if (isEGchanged() == 0)
                 {
                     if (refreshCSV())
                     {
@@ -141,12 +143,17 @@ int main() {
                         kEventlogCategoryControl,
                         "Kernel stack has gone! Exiting...");
                 }
-#if (defined(CONFIG_USE_SYNCTHREAD) || \
-                        defined(CONFIG_KERNELSTACK_DIRECTLINK))
-                system_msleep(100);
-#else
+
+                EC1 = 111;
+                setEC1(EC1);
+
                 processSync();
-#endif
+                #if (defined(CONFIG_USE_SYNCTHREAD) || \
+                                        defined(CONFIG_KERNELSTACK_DIRECTLINK))
+                                system_msleep(100);
+                #else
+                                processSync();
+                #endif
 
                 break;
             case 3:

@@ -30,19 +30,19 @@
 #define MAX_ROWS 5
 #define MAX_DEPENDANCE 2832
 #ifdef _WIN32
-#define STATE_CSV_DIRECTORY "..\\..\\..\\include\\stateCSV\\"
+#define STATE_CSV_DIRECTORY "..\\..\\..\\..\\common\\commonCSVFiles\\stateCSV\\"
 #define PHYSICAL_CONFIG_VANNES_DIRECTORY "..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_vannes.csv"
 #define PHYSICAL_CONFIG_SENSORS_DIRECTORY "..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_sensors.csv"
-#define COMMON_PHYSICAL_CONFIG_DIRECTORY "..\\..\\..\\..\\common\\commonPhysicalCONFIG\\commonPhysicalCONFIG.csv"
-#define EG_ETAT_DIRECTORY "..\\..\\..\\..\\common\\commonPhysicalCONFIG\\liaisonEGEtat.csv"
+#define COMMON_PHYSICAL_CONFIG_DIRECTORY "..\\..\\..\\..\\common\\commonCSVFiles\\commonPhysicalCONFIG.csv"
+#define EG_ETAT_DIRECTORY "..\\..\\..\\..\\common\\commonCSVFiles\\liaisonEGEtat.csv"
 // TelemFiles
 #define TELEMFILES_DIRECTORY "..\\..\\..\\include\\telemFiles"
 #else
-#define STATE_CSV_DIRECTORY "../../include/stateCSV/"
+#define STATE_CSV_DIRECTORY "../../../common/commonCSVFiles/stateCSV/"
 #define PHYSICAL_CONFIG_VANNES_DIRECTORY "../../include/physicalCONFIG/physicalCONFIG_vannes.csv"
 #define PHYSICAL_CONFIG_SENSORS_DIRECTORY "../../include/physicalCONFIG/physicalCONFIG_sensors.csv"
-#define COMMON_PHYSICAL_CONFIG_DIRECTORY "../../../common/commonPhysicalCONFIG/commonPhysicalCONFIG.csv"
-#define EG_ETAT_DIRECTORY "../../../common/commonPhysicalCONFIG/liaisonEGEtat.csv"
+#define COMMON_PHYSICAL_CONFIG_DIRECTORY "../../../common/commonCSVFiles/commonPhysicalCONFIG.csv"
+#define EG_ETAT_DIRECTORY "../../../common/commonCSVFiles/liaisonEGEtat.csv"
 // TelemFiles
 #define TELEMFILES_DIRECTORY "../../include/telemFiles"
 #endif

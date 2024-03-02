@@ -1,5 +1,6 @@
 #include "opl.h"
 #include "file.h"
+#include "csv.h"
 
 #include <iostream>
 using namespace std;
@@ -11,27 +12,35 @@ int main() {
     tOplkError  ret = kErrorOk;
     char        cKey = 0;
     BOOL        fExit = FALSE;
-    int16_t EG = -1;
+    int16_t EG;
     int16_t EC1 = -1;
 
-    int16_t TEST = 30;
 
     while(etat<=3){
         switch(etat){
             case 1: // Initialisation
+                if (file.initFile())
+                    printf("TelemFile OK\n");
+                else
+                    printf("Error telemfiles\n");
+                if (file.testWriteFile())
+                    printf("Writing in TelemFile OK\n");
+                else
+                    printf("Error writing in telemfiles\n");
+                if (initCSV())
+                    file.writeTelem("code_success:0x % 08X", 0x0003);
+                else
+                    file.writeError("", 0xE003);
                 if (initOPL()) {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
-                    opl.sendTelem();
                 }
                 else {
                     file.writeError();
                 }
                 if(testOPL()){
                     file.writeTelem("code_success:0x % 08X", 0x0003);
-                    opl.sendTelem();
                 }else{
                     file.writeError("", 0xE003);
-                    opl.sendError();
                 }
                 if(opl.demandeExtinctOPL()){
                     etat=3;
@@ -53,17 +62,13 @@ int main() {
                         etat = 3;
                         break;
                     case 'a':
-                        EG = 555;
-                        setEG(EG);
                         printf("\n\n EG MN : %d \n\n", EG);
+                        affValeursOut();
                         break;
                     case 'z':
                         EC1 = getEC1();
-                        printf("\n\n EC1 MN : %d \n\n", EC1);
-                        break;
-                    case 'e':
-                        TEST = getTest();
-                        printf("\n\n TEST : %d \n\n", TEST);
+                        printf("\n\n EC1 MN : %d \n\n", EC1); 
+                        affValeursIn();
                         break;
                     default:
                         break;
@@ -88,15 +93,26 @@ int main() {
                         "Kernel stack has gone! Exiting...");
                 }
 
+                EG = 1;
+                setEG(EG);
+                processSync();
                 #if (defined(CONFIG_USE_SYNCTHREAD) || \
                                          defined(CONFIG_KERNELSTACK_DIRECTLINK))
-                                system_msleep(10);
+                                system_msleep(100);
                 #else
                                 processSync();
                 #endif
-                system_msleep(2000);
                 break;
             case 3: // Extinction
+                file.writeTelem("Shutdown:0x % 08X", 0x1FFF);
+                if (extinctCSV())
+                {
+                    file.writeTelem("code_success:0x % 08X", 0x0003);
+                }
+                else
+                {
+                    file.writeError("", 0xE003);
+                }
                 if (ExtinctOPL()) {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                 }

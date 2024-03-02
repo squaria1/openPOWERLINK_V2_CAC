@@ -63,6 +63,7 @@ SET_PROPERTY(CACHE CFG_DEMO_PROJECT PROPERTY STRINGS Demo_3CN Demo_RMN_3CN)
 # Set generic sources and include directories for this demo
 SET(DEMO_SOURCES
 	${DEMO_SOURCE_DIR}/main.cpp
+	${DEMO_SOURCE_DIR}/csv.cpp
 	${DEMO_SOURCE_DIR}/file.cpp
     ${DEMO_SOURCE_DIR}/opl.cpp
 	${DEMO_SOURCE_DIR}/eventOpl.c

@@ -2,6 +2,7 @@
 
 uint8_t              mode;
 int16_t              EG;
+int16_t              EC;
 const uint16_t       nbValuesCN_Out = SIZE_OUT / NB_NODES - 1;
 const uint16_t       nbValuesCN_In = SIZE_IN / NB_NODES - 1;
 const uint16_t       nbValuesCN_Out_ByCN = (SIZE_OUT / NB_NODES) * (NODEID - 1);
@@ -55,25 +56,47 @@ void setValues_In_CN(int ligne)
     }
 }
 
-int16_t* getValues_In_CN()
+void affValeursIn()
 {
-    return values_In_CN_l;
+    printf("\n-------------IN CN--------------\n");
+    for (int i = 0; i < SIZE_IN; i++)
+    {
+        printf("values_In_CN_l[%d]=%d\n", i, pProcessImageIn_l->in_CN_array[i]);
+    }
+    printf("\n--------------------------------\n");
+}
+
+void affValeursOut()
+{
+    printf("\n------------OUT CN--------------\n");    
+    for (int i = 0; i < SIZE_OUT; i++)
+    {
+        printf("activated_Out_CN_l[%d]=%d\n", i + 1, activated_Out_CN_l[i + 1]);
+        printf("values_Out_CN_l[%d]=%d\n", i, pProcessImageOut_l->out_CN_array[i]);
+    }
+    printf("\n--------------------------------\n");
+}
+
+int16_t getValues_In_CN(int ligne)
+{
+    return values_In_CN_l[ligne];
 }
 
 void setValues_Out_CN()
 {
+    values_Out_CN_l[nbValuesCN_Out_ByCN] = EC;
     for (int i = 0; i < MAX_VALVES; i++) { //0 taille tab de benoit
-        values_Out_CN_l[i + nbValuesCN_Out_ByCN] = getValveValue(i + nbValuesCN_Out_ByCN);
+        values_Out_CN_l[i + nbValuesCN_Out_ByCN + 1] = getValveValue(i + nbValuesCN_In_ByCN + 2);
     }
 
     for (int i = 0; i < MAX_SENSORS; i++) { //0 taille tab de benoit
-        values_Out_CN_l[i + nbValuesCN_Out_ByCN + MAX_SENSORS] = getAdc_value(i);
+        values_Out_CN_l[i + nbValuesCN_Out_ByCN + nbValuesCN_Out/2 + 1] = getAdc_value(i);
     }
 }
 
-int16_t* getValues_Out_CN()
+int16_t getValues_Out_CN(int ligne)
 {
-    return values_Out_CN_l;
+    return values_Out_CN_l[ligne];
 }
 /*
 void setActivated_In_CN(int ligne)
@@ -108,15 +131,15 @@ void setActivated_Out_CN()
 
 int16_t getEG()
 {
-    printf("\n\n EG CN truc : %d \n\n", values_Out_CN_l[0]);
-    return values_Out_CN_l[0];
+    printf("\n\n EG CN truc : %d \n\n", values_In_CN_l[0]);
+    return values_In_CN_l[0];
 }
 
 int16_t isEGchanged()
 {
-    if (values_Out_CN_l[0] != EG && values_Out_CN_l[0] != 0)
+    if (values_In_CN_l[0] != EG && values_In_CN_l[0] != 0)
     {
-        EG = values_Out_CN_l[0];
+        EG = values_In_CN_l[0];
         return 0;
     }
     else
@@ -126,7 +149,7 @@ int16_t isEGchanged()
 
 void setEC1(int16_t EC1)
 {
-    values_In_CN_l[0] = EC1;
+    values_Out_CN_l[0] = EC1;
 }
 
 //------------------------------------------------------------------------------
@@ -390,24 +413,12 @@ tOplkError processSync()
     if (ret != kErrorOk)
         return ret;
 
-    /* read input image - digital outputs */
-
-
-
-    values_Out_CN_l[0] = pProcessImageOut_l->out_CN_array[0];
-
-    //values_In_CN_l[0] = 111;
-
-    pProcessImageIn_l->in_CN_array[0] = values_In_CN_l[0];
-
-    for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
+   //Process PI_IN --> variables entrant dans le CN
+    for (int i = 0; i < SIZE_IN; i++)
     {
-        if (activated_Out_CN_l[i])
-            values_Out_CN_l[i % nbValuesCN_Out] = pProcessImageOut_l->out_CN_array[i];
+        if (i % (nbValuesCN_In + 1) == 0)
+            values_In_CN_l[i] = pProcessImageIn_l->in_CN_array[i];
     }
-
-
-    /* setup output image - digital inputs */
 
     // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
     switch (mode)
@@ -417,11 +428,21 @@ tOplkError processSync()
     case 1: // mode manuel : l'état des vannes proviennent directement du MN
         for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In; i++)
         {
-            pProcessImageIn_l->in_CN_array[i] = values_In_CN_l[i % nbValuesCN_In];
+            values_In_CN_l[i] = pProcessImageIn_l->in_CN_array[i];
         }
         break;
     default:
         break;
+    }
+
+
+    //Process PI_OUT --> variables sortant du CN
+    setValues_Out_CN();
+
+    for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
+    {
+        if (activated_Out_CN_l[i + 1])
+            pProcessImageOut_l->out_CN_array[i] = values_Out_CN_l[i];
     }
 
     ret = oplk_exchangeProcessImageIn();
@@ -474,8 +495,8 @@ tOplkError initProcessImage(void)
     if (ret != kErrorOk)
         return ret;
 
-    pProcessImageIn_l = (PI_IN*)oplk_getProcessImageIn();
-    pProcessImageOut_l = (const PI_OUT*)oplk_getProcessImageOut();
+    pProcessImageIn_l = (const PI_IN*)oplk_getProcessImageIn();
+    pProcessImageOut_l = (PI_OUT*)oplk_getProcessImageOut();
 
     /* link process variables used by CN to object dictionary */
     fprintf(stderr, "Linking process image vars:\n");
@@ -495,7 +516,7 @@ tOplkError initProcessImage(void)
     // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
     for (int i = nbValuesCN_Out_ByCN; i <= nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
     {
-        if (activated_Out_CN_l[i])
+        if (activated_Out_CN_l[i+1])
         {
             //Link valves images
             if (i > nbValuesCN_Out_ByCN && i <= nbValuesCN_Out_ByCN + nbValuesCN_Out / 2)
@@ -555,10 +576,10 @@ tOplkError initProcessImage(void)
 tOplkError linkPDO_in(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
     tOplkError  ret = kErrorOk;
     UINT varEntries = 1;
-
+    printf("linkPDO_in arrayIndex:%d)= %d\n", arrayIndex, arrayIndex);
     ret = oplk_linkProcessImageObject(index,
         subIndex,
-        (size_t)(sizeof(int16_t) * arrayIndex),
+        sizeof(int16_t) * arrayIndex,
         FALSE,
         obdSize,
         &varEntries);
@@ -576,9 +597,10 @@ tOplkError linkPDO_in(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 s
 tOplkError linkPDO_out(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
     tOplkError  ret = kErrorOk;
     UINT varEntries = 1;
+    printf("linkPDO_out arrayIndex:%d)= %d\n", arrayIndex, arrayIndex);
     ret = oplk_linkProcessImageObject(index,
         subIndex,
-        (size_t)(sizeof(int16_t) * arrayIndex),
+        sizeof(int16_t) * arrayIndex,
         TRUE,
         obdSize,
         &varEntries);
