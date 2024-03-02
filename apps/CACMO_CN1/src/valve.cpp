@@ -36,12 +36,12 @@ bool valve::initValve()
     }
 
     for (int i = 0; i <= MAX_VALVES; ++i) {
-        if (getActivation(i + nbValuesCN_Out_ByCN + 1))
+        if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {
             offsets[i] = getPortGPIO(i+1);
             values[i] = getEtatInitialVannes(i+1);
-            printf("offsets[i]:%d\n", offsets[i]);
-            printf("values[i]:%d\n", values[i]);
+            printf("offsets[%d]:%d\n",i, offsets[i]);
+            printf("values[%d]:%d\n",i, values[i]);
 
             line = gpiod_chip_get_line(chip, offsets[i]);
             if (!line)
