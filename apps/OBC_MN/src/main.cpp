@@ -90,7 +90,7 @@ int main() {
 
                 #if (defined(CONFIG_USE_SYNCTHREAD) || \
                                          defined(CONFIG_KERNELSTACK_DIRECTLINK))
-                                system_msleep(100);
+                                system_msleep(10);
                 #else
                                 processSync();
                 #endif
