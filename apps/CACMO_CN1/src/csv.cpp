@@ -308,7 +308,10 @@ void remplirStructureCommon(char* ligne, int id) {
 
     while (token != NULL) {
         if (colonne == 2)
+        {
             dataActivation->activation[id] = atoi(token);
+            printf("dataActivation->activation[%d]=%d\n", id, dataActivation->activation[id]);
+        }
         colonne++;
         token = strtok(NULL, ";");
     }
