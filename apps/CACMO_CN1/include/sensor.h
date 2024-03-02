@@ -45,7 +45,7 @@ class sensor
         unsigned int Getpressure() { return pressure; }
         void Setpressure(unsigned int val) { pressure = val; }
 
-        void readChannels(int delay_us, int* list);
+        void readChannels();
         void closeAdc();
         int readAdc(int fd);
         int openAdc(int adc);
@@ -53,7 +53,7 @@ class sensor
 
 
         int opt, delay_us, adc, i;
-        int adc_list[MAX_SENSORS];
+        uint8_t tabSensorActivated[MAX_SENSORS];
         int fd[MAX_SENSORS];
         int abort_read;
 

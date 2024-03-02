@@ -369,7 +369,7 @@ float getMaxValue(int ligne) {
     return dataPhysicalConfigSensors->maxValue[ligne];
 }
 
-bool getActivation(int ligne) {
+uint8_t getActivation(int ligne) {
     return dataActivation->activation[ligne];
 }
 

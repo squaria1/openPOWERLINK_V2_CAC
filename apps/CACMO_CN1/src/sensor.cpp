@@ -5,6 +5,7 @@ sensor::sensor()
 {
     //constructor
     delay_us = 10000;
+    memset(tabSensorActivated, 0, sizeof(tabSensorActivated));
 }
 
 sensor::~sensor()
@@ -16,48 +17,32 @@ int getAdc_value(int index) {
     return valSensors[index];
 }
 
-#if (TARGET_SYSTEM == _WIN32_)
-#else 
 int sensor::initSensor() {
-    bool tabSensorActivated[MAX_SENSORS];
-    printf("test1\n");
     for (int i = 0; i < MAX_SENSORS; i++) {
         tabSensorActivated[i] = getActivation(i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2);
     }
-    memset(adc_list, 0, sizeof(adc_list));
 
-    for (int i = 0; i < MAX_SENSORS; i++) { //0 taille tab de benoit
-        if (tabSensorActivated[i])
-            adc_list[adc] = 1;
-        else
-            adc_list[adc] = 0;
-        printf("test3\n");
-    }
-
-
-    readChannels(delay_us, adc_list);
+    readChannels();
 
     return 0;
 }
 
 
-void sensor::readChannels(int delay_us, int *list)
+void sensor::readChannels()
 {
     int ret, i;
-    printf("test2\n");
     ret = 0;
     memset(fd, 0, sizeof(fd));
     memset(valSensors, 0, sizeof(valSensors));
 
     for (i = 0; i < MAX_SENSORS; i++) {
-        if (list[i]) {
+        if (tabSensorActivated[i]) {
             fd[i] = openAdc(i);
-
         }
     }
     
     for (i = 0; i < MAX_SENSORS; i++) {
-        if (!list[i])
+        if (!tabSensorActivated[i])
             continue;
 
         valSensors[i] = readAdc(fd[i]);
@@ -115,4 +100,3 @@ int sensor::openAdc(int adc)
 
     return fd;
 }
-#endif

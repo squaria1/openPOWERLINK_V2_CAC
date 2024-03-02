@@ -50,17 +50,17 @@ int main() {
                     file.writeError("", 0xE003);
                     opl.sendError(0xE002);
                 }
-                if(sensor.initSensor()) 
+                #endif
+                if (sensor.initSensor())
                 {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                     opl.sendTelem(0x0002);
                 }
-                else 
+                else
                 {
                     file.writeError("", 0xE003);
                     opl.sendError(0xE002);
                 }
-                #endif
                 if(opl.demandeExtinctOPL())
                     etat=3;
                 else

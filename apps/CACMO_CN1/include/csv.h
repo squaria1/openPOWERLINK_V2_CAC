@@ -37,7 +37,7 @@ extern "C"
     };
 
     struct LigneActivation {
-        bool activation[MAX_LINE_SIZE];
+        uint8_t activation[MAX_LINE_SIZE];
     };
 
     struct LigneEG {
@@ -69,7 +69,7 @@ extern "C"
     uint8_t getPortGPIO(int ligne);
     float getMinValue(int ligne);
     float getMaxValue(int ligne);
-    bool getActivation(int ligne);
+    uint8_t getActivation(int ligne);
     int16_t getEGcsv(int ligne);
     const char* getNomFichiercsv(int16_t EG);
     int searchEG(int16_t EG);
