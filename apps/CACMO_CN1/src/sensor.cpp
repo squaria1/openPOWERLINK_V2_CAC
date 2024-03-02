@@ -24,7 +24,6 @@ int sensor::initSensor() {
     for (int i = 0; i < MAX_SENSORS; i++) {
         tabSensorActivated[i] = getActivation(i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2);
     }
-    printf("test3\n");
     memset(adc_list, 0, sizeof(adc_list));
 
     for (int i = 0; i < MAX_SENSORS; i++) { //0 taille tab de benoit
@@ -32,6 +31,7 @@ int sensor::initSensor() {
             adc_list[adc] = 1;
         else
             adc_list[adc] = 0;
+        printf("test3\n");
     }
 
 
