@@ -36,7 +36,7 @@ bool valve::initValve()
     }
 
     for (int i = 0; i <= MAX_VALVES; ++i) {
-        if (getActivation(i + nbValuesCN_Out_ByCN))
+        if (getActivation(i + nbValuesCN_Out_ByCN + 1))
         {
             offsets[i] = getPortGPIO(i+1);
             values[i] = getEtatInitialVannes(i+1);
@@ -52,7 +52,7 @@ bool valve::initValve()
             }
 
             // Request the line for output
-            if (gpiod_line_request_output(line, "example", 0) < 0) {
+            if (gpiod_line_request_output(line, "test", 0) < 0) {
                 perror("Request line as output failed");
                 gpiod_line_release(line);
                 gpiod_chip_close(chip);
