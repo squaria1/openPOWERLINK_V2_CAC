@@ -1093,7 +1093,7 @@ OBD_BEGIN()
         OBD_END_INDEX(0x1F8C)
 
         // Object 1F8Dh: NMT_PResPayloadLimitList_AU16
-        OBD_RAM_INDEX_RAM_ARRAY_ALT(0x1F8D, NMT_MAX_NODE_ID, FALSE, kObdTypeUInt16, kObdAccSRW, tObdUnsigned16, NMT_PResPayloadLimitList_AU16, 36)
+        OBD_RAM_INDEX_RAM_ARRAY_ALT(0x1F8D, NMT_MAX_NODE_ID, FALSE, kObdTypeUInt16, kObdAccSRW, tObdUnsigned16, NMT_PResPayloadLimitList_AU16, 1490)
 
         // Object 1F8Eh: NMT_MNNodeCurrState_AU8
         OBD_RAM_INDEX_RAM_ARRAY(0x1F8E, 254, FALSE, kObdTypeUInt8, kObdAccR, tObdUnsigned8, NMT_MNNodeCurrState_AU8, 0x1C)

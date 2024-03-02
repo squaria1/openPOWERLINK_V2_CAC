@@ -99,7 +99,10 @@ int main() {
                         printf("\n\n EC1 CN : %d \n\n", EC1);
                         break;
                     case 'z':
-                        EG = getEG();
+                        if (getEG() != 0)
+                            EG = getEG();
+                        else
+                            printf("values_Out_CN_l[0] is 0\n");
                         printf("\n\n EG CN : %d \n\n", EG);
                         break;
                     default:
