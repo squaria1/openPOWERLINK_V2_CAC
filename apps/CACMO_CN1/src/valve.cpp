@@ -36,7 +36,7 @@ bool valve::initValve()
     }
 
     for (int i = 0; i <= MAX_VALVES; ++i) {
-        if (getActivation(i + nbValuesCN_Out_ByCN + 2))
+        if (getActivation(i + nbValuesCN_Out_ByCN + 1))
         {
             offsets[i] = getPortGPIO(i+1);
             values[i] = getEtatInitialVannes(i+1);
