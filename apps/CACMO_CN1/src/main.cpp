@@ -146,6 +146,8 @@ int main() {
 #endif
 
                 break;
+            case 3:
+                break;
             case 255: // Extinction
                 file.writeTelem("Shutdown:0x % 08X", 0x1FFF);
                 opl.sendTelem(0x1FFF);

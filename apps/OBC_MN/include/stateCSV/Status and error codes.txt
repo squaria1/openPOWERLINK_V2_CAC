@@ -10,6 +10,7 @@ ERROR CODES
 0xE00F : Valve signal handler error.
 
 STATUS CODES
+!!! EG or EC can never be 0 or 0x0000 !!!
 0x0001 : GPIO library initialisation success.
 0x0002 : OpenPowerLink initialisation success.
 0x0003 : OpenPowerLink communication test success.

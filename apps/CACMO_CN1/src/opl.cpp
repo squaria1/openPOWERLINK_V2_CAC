@@ -114,7 +114,7 @@ int16_t getEG()
 
 int16_t isEGchanged()
 {
-    if (values_Out_CN_l[0] != EG)
+    if (values_Out_CN_l[0] != EG && values_Out_CN_l[0] != 0)
     {
         EG = values_Out_CN_l[0];
         return 0;

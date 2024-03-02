@@ -73,8 +73,8 @@ int16_t refreshCSV() {
     memset(dataEG, 0, sizeof(struct LigneEG));
 
     lireFichierEG(EG_ETAT_DIRECTORY);
-    printf("EG? : %d\n", getEGcsv(1));
-    printf("NomFichierCSV? : %s\n", getNomFichiercsv(1));
+    //printf("EG? : %d\n", getEGcsv(1));
+    //printf("NomFichierCSV? : %s\n", getNomFichiercsv(1));
 
     /********************Partie_CSV********************/
 
@@ -85,19 +85,19 @@ int16_t refreshCSV() {
     }
 
     memset(dataEtats, 0, sizeof(struct LigneCSV));
-    printf("STATE_CSV_DIRECTORY: %s\n", STATE_CSV_DIRECTORY);
+    //printf("STATE_CSV_DIRECTORY: %s\n", STATE_CSV_DIRECTORY);
     lireFichierCSV(STATE_CSV_DIRECTORY);
 
     int* monTableau = getDependanceVannes(2);
 
     int i = 0;
     do {
-        printf("%d ", monTableau[i]);
+        //printf("%d ", monTableau[i]);
         i++;
     } while (monTableau[i] != 0);
 
-    printf("valeur : %d\n", getValeur(2));
-    printf("timer : %f\n", getTimerVannes(2));
+    //printf("valeur : %d\n", getValeur(2));
+    //printf("timer : %f\n", getTimerVannes(2));
 
     return 0;
 }
@@ -127,11 +127,11 @@ void lireFichierCSV(const char* dir) {
     const char* nameCSV = getNomFichiercsv(EG);
     //const char* nameCSV = "Etat_.csv";
     char cwd[MAX_PATH_LENGTH];
-    printf("nameCSV: %s\n", nameCSV);
+    //printf("nameCSV: %s\n", nameCSV);
     #if (TARGET_SYSTEM == _WIN32_)
     #else
         if (getcwd(cwd, sizeof(cwd)) != NULL)
-            printf("Current working directory : %s\n", cwd);
+            //printf("Current working directory : %s\n", cwd);
     #endif
     if (nameCSV == NULL) {
         perror("Erreur code EG non trouve dans liaisonEGEtat.csv");
@@ -140,7 +140,7 @@ void lireFichierCSV(const char* dir) {
 
     char fileName[MAX_PATH_LENGTH];
     snprintf(fileName, sizeof(fileName), "%s%s", dir, nameCSV);
-    printf("fileName lireFichierCSV: %s\n", fileName);
+    //printf("fileName lireFichierCSV: %s\n", fileName);
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
         perror("Erreur lors de l'ouverture du fichier lireFichierCSV");
@@ -217,7 +217,7 @@ void lireFichierCommon(const char* fileName) {
 
 void lireFichierEG(const char* fileName) {
 
-    printf("fileName lireFichierEG: %s\n", fileName);
+    //printf("fileName lireFichierEG: %s\n", fileName);
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
         perror("Erreur lors de l'ouverture du fichier lireFichierEG");
@@ -379,10 +379,10 @@ int16_t getEGcsv(int ligne) {
 
 const char* getNomFichiercsv(int16_t EG) {
     int ligne = searchEG(EG);
-    printf("ligne:%d\n",ligne);
+    ////printf("ligne:%d\n",ligne);
     if (ligne != -1)
     {
-        printf("dataEG->nom[ligne]:%s\n", dataEG->nom[ligne]);
+        //printf("dataEG->nom[ligne]:%s\n", dataEG->nom[ligne]);
         return dataEG->nom[ligne];
     }
     else
@@ -396,7 +396,7 @@ int searchEG(int16_t EG)
     {
         if (dataEG->EG[i] == EG)
         {
-            printf("i:%d\n", i);
+            //printf("i:%d\n", i);
             return i;
         }
     }
