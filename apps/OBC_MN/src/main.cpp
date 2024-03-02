@@ -94,6 +94,7 @@ int main() {
                 #else
                                 processSync();
                 #endif
+                system_msleep(2000);
                 break;
             case 3: // Extinction
                 if (ExtinctOPL()) {
