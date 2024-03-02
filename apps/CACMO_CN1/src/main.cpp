@@ -34,6 +34,7 @@ int main() {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                 else 
                     file.writeError("", 0xE003);
+                valve.test();
                 if (initOPL()) 
                 {
                     file.writeTelem("code_success:0x % 08X", 0x0003);

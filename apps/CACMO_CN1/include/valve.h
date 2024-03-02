@@ -27,6 +27,7 @@ public:
 	virtual ~valve();
 	bool initValve();
 	bool extinctValve();
+	void test();
 
 protected:
 

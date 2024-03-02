@@ -4,10 +4,10 @@
 #else
 struct gpiod_chip* chip;
 struct gpiod_line* line;
+#endif
 unsigned int offsets[MAX_VALVES];
 int values[MAX_VALVES];
 int err;
-#endif
 
 valve::valve()
 {
@@ -17,6 +17,20 @@ valve::valve()
 valve::~valve()
 {
 
+}
+
+void valve::test()
+{
+    for (int i = 0; i < MAX_VALVES; ++i) 
+    {
+        if (getActivation(i + nbValuesCN_Out_ByCN + 2))
+        {
+            offsets[i] = getPortGPIO(i + 1);
+            values[i] = getEtatInitialVannes(i + 1);
+            printf("offsets[%d]:%d\n", i, offsets[i]);
+            printf("values[%d]:%d\n", i, values[i]);
+        }
+    }
 }
 
 #if (TARGET_SYSTEM == _WIN32_)
@@ -35,7 +49,7 @@ bool valve::initValve()
         return false;
     }
 
-    for (int i = 0; i <= MAX_VALVES; ++i) {
+    for (int i = 0; i < MAX_VALVES; ++i) {
         if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {
             offsets[i] = getPortGPIO(i+1);
