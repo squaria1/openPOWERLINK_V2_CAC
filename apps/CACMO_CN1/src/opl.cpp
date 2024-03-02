@@ -69,7 +69,7 @@ void affValeursIn()
 void affValeursOut()
 {
     printf("\n------------OUT CN--------------\n");    
-    for (int i = 0; i < SIZE_OUT; i++)
+    for (int i = 0; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
     {
         printf("activated_Out_CN_l[%d]=%d\n", i + 1, activated_Out_CN_l[i + 1]);
         printf("values_Out_CN_l[%d]=%d\n", i, pProcessImageOut_l->out_CN_array[i]);
@@ -576,10 +576,11 @@ tOplkError initProcessImage(void)
 tOplkError linkPDO_in(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
     tOplkError  ret = kErrorOk;
     UINT varEntries = 1;
-    printf("linkPDO_in arrayIndex:%d)= %d\n", arrayIndex, arrayIndex);
+    uint64_t sizeElementArray = sizeof(int16_t);
+    printf("linkPDO_in sizeof(int16_t) * arrayIndex:%u)= %" PRIu64 "\n", arrayIndex, sizeElementArray * arrayIndex);
     ret = oplk_linkProcessImageObject(index,
         subIndex,
-        sizeof(int16_t) * arrayIndex,
+        sizeElementArray * arrayIndex,
         FALSE,
         obdSize,
         &varEntries);
@@ -597,10 +598,11 @@ tOplkError linkPDO_in(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 s
 tOplkError linkPDO_out(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
     tOplkError  ret = kErrorOk;
     UINT varEntries = 1;
-    printf("linkPDO_out arrayIndex:%d)= %d\n", arrayIndex, arrayIndex);
+    uint64_t sizeElementArray = sizeof(int16_t);
+    printf("linkPDO_out sizeof(int16_t) * arrayIndex:%d)= %" PRIu64 "\n", arrayIndex, sizeElementArray * arrayIndex);
     ret = oplk_linkProcessImageObject(index,
         subIndex,
-        sizeof(int16_t) * arrayIndex,
+        sizeElementArray * arrayIndex,
         TRUE,
         obdSize,
         &varEntries);

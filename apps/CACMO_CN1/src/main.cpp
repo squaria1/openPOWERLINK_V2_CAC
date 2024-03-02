@@ -53,7 +53,6 @@ int main() {
                     file.writeError("", 0xE003);
                     opl.sendError(0xE002);
                 }
-                #endif
                 if (sensor.initSensor())
                 {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
@@ -64,6 +63,7 @@ int main() {
                     file.writeError("", 0xE003);
                     opl.sendError(0xE002);
                 }
+                #endif
                 if(opl.demandeExtinctOPL())
                     etat=3;
                 else
