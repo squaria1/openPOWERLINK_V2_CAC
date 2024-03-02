@@ -19,7 +19,7 @@ int16_t getAdc_value(int index) {
 
 int sensor::initSensor() {
     for (int i = 0; i < MAX_SENSORS; i++) {
-        tabSensorActivated[i] = getActivation(i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2);
+        tabSensorActivated[i] = getActivation(i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 + 2);
     }
 
     readChannels();
