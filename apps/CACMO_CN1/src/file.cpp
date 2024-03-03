@@ -10,7 +10,7 @@ file::~file()
     //destructor
 }
 
-bool file::initFile()
+int16_t file::initFile()
 {
     time_t now = time(0); // r�cup�ration du temps actuel dans la variable now
     tm* tm_NOW = localtime(&now); // transformation du temps actuel en struct tm contenant les composantes temporelles d'une date : seconde,minute,heure,jour,mois,ann�e 
@@ -48,26 +48,27 @@ bool file::initFile()
     nameFiles = year_month_day + "__" + hour_minute_second + ".txt";
     cout << nameFiles << endl;
     std::string path = TELEMFILES_DIRECTORY;
-    path.append("\\");
     path.append(nameFiles);
 
     file::pathFile = path;
 
+    file::openFile();
+
     /******************************************************************************************/
 
-    return true;
+    return 0;
 }
 
-bool file::testWriteFile() 
+int16_t file::testWriteFile()
 {
     try
     {
         file::dataFile << "test" << endl;
-        return true;
+        return 0;
     }
     catch (const std::exception& e)
     {
-        return false;
+        return 1;
     }
 }
 
@@ -108,15 +109,15 @@ void file::writeError(const char* fmt_p, ...) ///< ajouter uniquement : uint16_t
 
 }
 
-bool file::openFile()
+int16_t file::openFile()
 {
     file::dataFile.open(file::pathFile, ios::out | ios::app);// ouverture du fichier en mode �criture avec curseur repositionn� automatiquement � la fin du fichier
-    return true;
+    return 0;
 }
 
-bool file::closeFile()
+int16_t file::closeFile()
 {
     file::dataFile.close();
-    return true;
+    return 0;
 }
 

@@ -25,7 +25,11 @@ extern "C"
 {
 #endif
 
-static int16_t valSensors[MAX_SENSORS];
+static int16_t valSensors[MAX_SENSORS]; 
+void readChannels();
+void closeAdc();
+int readAdc(int fd);
+int openAdc(int adc);
 int16_t getAdc_value(int index);
 
 #ifdef __cplusplus
@@ -45,17 +49,8 @@ class sensor
         unsigned int Getpressure() { return pressure; }
         void Setpressure(unsigned int val) { pressure = val; }
 
-        void readChannels();
-        void closeAdc();
-        int readAdc(int fd);
-        int openAdc(int adc);
-        int initSensor();
-
-
-        int opt, delay_us, adc, i;
-        uint8_t tabSensorActivated[MAX_SENSORS];
-        int fd[MAX_SENSORS];
-        int abort_read;
+        int16_t initSensor();
+        int16_t extinctSensor();
 
     protected:
 

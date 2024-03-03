@@ -25,8 +25,8 @@ class valve
 public:
 	valve();
 	virtual ~valve();
-	bool initValve();
-	bool extinctValve();
+	int16_t initValve();
+	int16_t extinctValve();
 	void test();
 
 protected:

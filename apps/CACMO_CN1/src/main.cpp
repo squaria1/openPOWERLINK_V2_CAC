@@ -6,36 +6,41 @@
 #include "configDefine.h"
 
 int main() {
-    int etat=1;
-    opl opl;
-    file file;
-    valve valve;
-    sensor sensor;
+    int         etat=1;
+    opl         opl;
+    file        file;
+    valve       valve;
+    sensor      sensor;
 
     char        cKey = 0;
     BOOL        fExit = FALSE;
+    int16_t     res = 0;
+    int16_t     EC1 = -1;
     EG = 1;
     EC = 1111;
-    int16_t EC1 = -1;
 
     
-    while(etat<3){
+    while(etat<256){
         switch(etat){
-            case 1: // Initialisation      
-                if (file.initFile())
+            case 1: // Initialisation
+                res = file.initFile();
+                if (res == 0)
                     printf("TelemFile OK\n");
                 else
                     printf("Error telemfiles\n");
-                if(file.testWriteFile())
+                res = file.testWriteFile();
+                if(res == 0)
                     printf("Writing in TelemFile OK\n");
                 else
                     printf("Error writing in telemfiles\n");
-                if (initCSV())
+                res = initCSV();
+                if (res == 0)
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                 else 
                     file.writeError("", 0xE003);
                 valve.test();
-                if (initOPL()) 
+                res = initOPL();
+                if (res == 0)
                 {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                     opl.sendTelem(0x0002);
@@ -44,7 +49,8 @@ int main() {
                     file.writeError("", 0xE003);
                 #if (TARGET_SYSTEM == _WIN32_)
                 #else
-                if(valve.initValve())
+                res = valve.initValve();
+                if(res == 0)
                 {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                     opl.sendTelem(0x0002);
@@ -53,7 +59,8 @@ int main() {
                     file.writeError("", 0xE003);
                     opl.sendError(0xE002);
                 }
-                if (sensor.initSensor())
+                res = sensor.initSensor();
+                if (res == 0)
                 {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                     opl.sendTelem(0x0002);
@@ -64,7 +71,8 @@ int main() {
                     opl.sendError(0xE002);
                 }
                 #endif
-                if(opl.demandeExtinctOPL())
+                res = opl.demandeExtinctOPL();
+                if(res == 0)
                     etat=3;
                 else
                     etat=2;
@@ -112,9 +120,11 @@ int main() {
                         break;
                     }
                 }
-                if (isEGchanged() == 0)
+                res = isEGchanged();
+                if (res == 0)
                 {
-                    if (refreshCSV())
+                    res = refreshCSV();
+                    if (res == 0)
                     {
                         file.writeTelem("code_success:0x % 08X", 0x0003);
                         opl.sendTelem(0x0003);
@@ -125,7 +135,8 @@ int main() {
                         opl.sendError(0x0003);
                     }
                 }
-                if(opl.demandeExtinctOPL()){
+                res = opl.demandeExtinctOPL();
+                if(res == 0){
                     etat=255;
                 }
                 if (system_getTermSignalState() != FALSE)
@@ -148,14 +159,9 @@ int main() {
                 EC1 = 111;
                 setEC1(EC1);
 
+                readChannels();
                 processSync();
-                #if (defined(CONFIG_USE_SYNCTHREAD) || \
-                                        defined(CONFIG_KERNELSTACK_DIRECTLINK))
-                                system_msleep(100);
-                #else
-                                processSync();
-                #endif
-
+                system_msleep(100);
                 break;
             case 3:
                 break;
@@ -164,7 +170,19 @@ int main() {
                 opl.sendTelem(0x1FFF);
                 #if (TARGET_SYSTEM == _WIN32_)
                 #else
-                if(valve.extinctValve())
+                res = valve.extinctValve();
+                if(res == 0)
+                {
+                    file.writeTelem("code_success:0x % 08X", 0x0003);
+                    opl.sendTelem(0x0003);
+                }
+                else
+                {
+                    file.writeError("", 0xE003);
+                    opl.sendError(0x0003);
+                }
+                res = sensor.extinctSensor();
+                if (res == 0)
                 {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                     opl.sendTelem(0x0003);
@@ -175,7 +193,8 @@ int main() {
                     opl.sendError(0x0003);
                 }
                 #endif
-                if (extinctCSV())
+                res = extinctCSV();
+                if (res == 0)
                 {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                     opl.sendTelem(0x0003);
@@ -184,8 +203,9 @@ int main() {
                 {
                     file.writeError("", 0xE003);
                     opl.sendError(0x0003);
-                }                
-                if (extinctOPL())
+                }
+                res = extinctOPL();
+                if (res == 0)
                 {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                 }
@@ -193,6 +213,12 @@ int main() {
                 {
                     file.writeError("", 0xE003);
                 }
+                res = file.closeFile();
+                if (res == 0)
+                    printf("TelemFile close OK\n");
+                else
+                    printf("Error telemfiles close\n");
+                etat = 256;
                 break;
         }
     }

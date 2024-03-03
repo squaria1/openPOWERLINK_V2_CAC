@@ -96,12 +96,7 @@ int main() {
                 EG = 1;
                 setEG(EG);
                 processSync();
-                #if (defined(CONFIG_USE_SYNCTHREAD) || \
-                                         defined(CONFIG_KERNELSTACK_DIRECTLINK))
-                                system_msleep(100);
-                #else
-                                processSync();
-                #endif
+				system_msleep(100);
                 break;
             case 3: // Extinction
                 file.writeTelem("Shutdown:0x % 08X", 0x1FFF);

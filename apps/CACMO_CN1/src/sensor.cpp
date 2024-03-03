@@ -1,5 +1,10 @@
 #include "sensor.h"
 
+static int opt, delay_us, adc, i;
+static uint8_t tabSensorActivated[MAX_SENSORS];
+static int fd[MAX_SENSORS];
+static int abort_read;
+
 
 sensor::sensor()
 {
@@ -13,11 +18,8 @@ sensor::~sensor()
     //destructor
 }
 
-int16_t getAdc_value(int index) {
-    return valSensors[index];
-}
 
-int sensor::initSensor() {
+int16_t sensor::initSensor() {
     for (int i = 0; i < MAX_SENSORS; i++) {
         tabSensorActivated[i] = getActivation(i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 + 2);
     }
@@ -27,8 +29,17 @@ int sensor::initSensor() {
     return 0;
 }
 
+int16_t sensor::extinctSensor() {
+    closeAdc();
 
-void sensor::readChannels()
+    return 0;
+}
+
+int16_t getAdc_value(int index) {
+    return valSensors[index];
+}
+
+void readChannels()
 {
     int ret, i;
     ret = 0;
@@ -53,19 +64,19 @@ void sensor::readChannels()
         if (valSensors[i] == ADC_READ_ERROR)
             break;
     }
-    
+
+    closeAdc();
 }
 
-void sensor::closeAdc()
+void closeAdc()
 {
     for (i = 0; i < MAX_SENSORS; i++) {
         if (fd[i] > 0)
             close(fd[i]);
-
     }
 }
 
-int sensor::readAdc(int fd)
+int readAdc(int fd)
 {
     char buff[8];
     buff[7] = 0;
@@ -82,7 +93,7 @@ int sensor::readAdc(int fd)
     return val;
 }
 
-int sensor::openAdc(int adc)
+int openAdc(int adc)
 {
     char path[128];
     

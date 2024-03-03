@@ -35,18 +35,18 @@ void valve::test()
 
 #if (TARGET_SYSTEM == _WIN32_)
 #else
-bool valve::initValve()
+int16_t valve::initValve()
 {
     if (CHIP_PATH=="" || CHIP_PATH==" ") {
         perror("Error: GPIO chip path is not set.");
-        return false;
+        return 1;
     }
 
     chip = gpiod_chip_open(CHIP_PATH);
     if (!chip)
     {
         perror("gpiod_chip_open");
-        return false;
+        return 1;
     }
 
     for (int i = 0; i < MAX_VALVES; ++i) {
@@ -62,7 +62,7 @@ bool valve::initValve()
             {
                 perror("gpiod_chip_get_lines");
                 gpiod_chip_close(chip);
-                return false;
+                return 1;
             }
 
             // Request the line for output
@@ -70,7 +70,7 @@ bool valve::initValve()
                 perror("Request line as output failed");
                 gpiod_line_release(line);
                 gpiod_chip_close(chip);
-                return false;
+                return 1;
             }
             // Verifiez les valeurs 
             // Assurez-vous que la valeur est valide (0 ou 1)
@@ -78,7 +78,7 @@ bool valve::initValve()
                 values[i] > 1)
             {
                 perror("Error: Invalid input value. Must be 0 or 1.");
-                return false;
+                return 1;
             }
             else 
             {
@@ -87,20 +87,20 @@ bool valve::initValve()
                 if (err)
                 {
                     perror("gpiod_line_set_value");
-                    return false;
+                    return 1;
                 }
             }
         }
     }
-    return true;
+    return 0;
 }
 
-bool valve::extinctValve()
+int16_t valve::extinctValve()
 {
     gpiod_line_release(line);
     gpiod_chip_close(chip);
 
-    return true;
+    return 0;
 }
 #endif
 

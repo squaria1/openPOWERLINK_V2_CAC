@@ -70,8 +70,8 @@ extern "C"
                             UINT16 index, 
                             UINT8 subIndex);
     tOplkError  initApp();
-    bool        initOPL();
-    bool        extinctOPL();
+    int16_t     initOPL();
+    int16_t     extinctOPL();
     //void      setValues_In_CN(int ligne);
     int16_t*    getValues_In_CN(void);
     void        setValues_Out_CN();
@@ -129,7 +129,7 @@ class opl
 
         void        sendTelem(int16_t statusCode);
         void        sendError(int16_t errorCode);
-        bool        demandeExtinctOPL();
+        int16_t     demandeExtinctOPL();
 
     protected:
 

@@ -19,25 +19,23 @@ opl::~opl()
 }
 
 
-bool opl::demandeExtinctOPL()
+int16_t opl::demandeExtinctOPL()
 {    
     if (values_In_CN_l[0] == 0x1FFF)
-        return true;
+        return 0;
     else
-        return false;
+        return 1;
 
 }
 
 void opl::sendTelem(int16_t statusCode)
 {
     values_Out_CN_l[nbValuesCN_Out_ByCN] = statusCode;
-    processSync();
 }
 
 void opl::sendError(int16_t errorCode)
 {
     values_Out_CN_l[nbValuesCN_Out_ByCN] = errorCode;
-    processSync();
 }
 
 void setValues_In_CN(int ligne)
@@ -156,7 +154,7 @@ void setEC1(int16_t EC1)
 // local function prototypes
 //------------------------------------------------------------------------------
 
-bool initOPL()
+int16_t initOPL()
 {
 
     tOplkError  ret = kErrorOk;
@@ -171,7 +169,7 @@ bool initOPL()
     if (system_init() != 0)
     {
         fprintf(stderr, "Error initializing system!");
-        return false;
+        return 1;
     }
 
     eventlog_init(opts.logFormat,
@@ -202,11 +200,11 @@ bool initOPL()
 
     ret = initApp();
     if (ret != kErrorOk)
-        return false;
+        return 1;
 
     initOplThread();
 
-    return true;
+    return 0;
 }
 
 //------------------------------------------------------------------------------
@@ -617,13 +615,13 @@ tOplkError linkPDO_out(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 
     return ret;
 }
 
-bool extinctOPL()
+int16_t extinctOPL()
 {
     shutdownOplImage();
     shutdownPowerlink();
     system_exit();
 
-    return true;
+    return 0;
 }
 
 //------------------------------------------------------------------------------
