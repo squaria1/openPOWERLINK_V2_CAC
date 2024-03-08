@@ -32,7 +32,7 @@
 # Set architecture specific definitions
 
 ADD_DEFINITIONS(-D_GNU_SOURCE -D_POSIX_C_SOURCE=200112L)
-SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -pedantic -std=c99 -pthread")
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -pedantic -lgpiod -std=c99 -pthread")
 
 ################################################################################
 # Set architecture specific sources and include directories
@@ -69,7 +69,7 @@ ELSE (PCAP_CONFIG)
 ENDIF (PCAP_CONFIG)
 
 ENDIF (CFG_KERNEL_STACK_DIRECTLINK OR CFG_KERNEL_STACK_USERSPACE_DAEMON)
-SET (ARCH_LIBRARIES ${ARCH_LIBRARIES} pthread rt)
+SET (ARCH_LIBRARIES ${ARCH_LIBRARIES} pthread rt gpiod)
 
 ################################################################################
 # Set architecture specific installation files

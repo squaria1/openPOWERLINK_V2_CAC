@@ -32,11 +32,12 @@
 ################################################################################
 # Setup project and generic options
 
-PROJECT(demo_cn_console C)
-MESSAGE(STATUS "Configuring demo_cn_console")
+PROJECT(demo_cn_console CXX)
+MESSAGE(STATUS "Configuring CACMO")
 
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.7)
 
+enable_language(C)
 # Set CMake Policy to suppress the warning in CMake version 3.3.x
 IF (POLICY CMP0043)
     CMAKE_POLICY(SET CMP0043 OLD)
@@ -55,9 +56,13 @@ FIND_OPLK_LIBRARY("cn")             # Find suitable openPOWERLINK library
 
 # Set generic sources and include directories for this demo
 SET(DEMO_SOURCES
-    ${DEMO_SOURCE_DIR}/main.c
-    ${DEMO_SOURCE_DIR}/app.c
-    ${DEMO_SOURCE_DIR}/event.c
+    ${DEMO_SOURCE_DIR}/main.cpp
+    ${DEMO_SOURCE_DIR}/file.cpp
+    ${DEMO_SOURCE_DIR}/opl.cpp
+	${DEMO_SOURCE_DIR}/eventOpl.c
+	${DEMO_SOURCE_DIR}/sensor.cpp
+	${DEMO_SOURCE_DIR}/valve.cpp
+	${DEMO_SOURCE_DIR}/csv.cpp
     ${COMMON_SOURCE_DIR}/obdcreate/obdcreate.c
     ${COMMON_SOURCE_DIR}/eventlog/eventlog.c
     ${COMMON_SOURCE_DIR}/eventlog/eventlogstring.c
@@ -69,7 +74,7 @@ INCLUDE_DIRECTORIES(
     ${DEMO_SOURCE_DIR}
     ${OBJDICT_DIR}/${OBJDICT}
     ${CONTRIB_SOURCE_DIR}
-	${DEMO_SOURCE_DIR}/../include
+	${DEMO_INCLUDE_DIR}
     )
 
 # PResChaining is not supported by non-openMAC targets
@@ -128,6 +133,11 @@ SOURCE_GROUP("Object Dictionary" FILES
     ${COMMON_SOURCE_DIR}/obdcreate/obdcreate.h
     ${OBJDICT_DIR}/${OBJDICT}/objdict.h
     )
+################################################################################
+# Setup compiler specific definitions and flags
+INCLUDE("${OPLK_APPS_COMMON_DIR}/cmake/configure-compiler.cmake")
+
+MESSAGE( STATUS "CMAKE_CXX_FLAGS: " ${CMAKE_CXX_FLAGS} )
 
 ################################################################################
 # Set the executable
