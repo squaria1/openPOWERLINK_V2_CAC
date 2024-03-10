@@ -38,6 +38,7 @@ void opl::sendError(int16_t errorCode)
     values_Out_CN_l[nbValuesCN_Out_ByCN] = errorCode;
 }
 
+/*
 void setValues_In_CN(int ligne)
 {
     switch (mode)
@@ -53,11 +54,12 @@ void setValues_In_CN(int ligne)
         break;
     }
 }
+*/
 
 void affValeursIn()
 {
     printf("\n-------------IN CN--------------\n");
-    for (int i = 0; i < SIZE_IN; i++)
+    for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In; i++)
     {
         printf("values_In_CN_l[%d]=%d\n", i, pProcessImageIn_l->in_CN_array[i]);
     }
@@ -67,7 +69,7 @@ void affValeursIn()
 void affValeursOut()
 {
     printf("\n------------OUT CN--------------\n");    
-    for (int i = 0; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
+    for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
     {
         printf("activated_Out_CN_l[%d]=%d\n", i + 1, activated_Out_CN_l[i + 1]);
         printf("values_Out_CN_l[%d]=%d\n", i, pProcessImageOut_l->out_CN_array[i]);
@@ -411,17 +413,22 @@ tOplkError processSync()
     if (ret != kErrorOk)
         return ret;
 
-   //Process PI_IN --> variables entrant dans le CN
-    for (int i = 0; i < SIZE_IN; i++)
-    {
-        if (i % (nbValuesCN_In + 1) == 0)
-            values_In_CN_l[i] = pProcessImageIn_l->in_CN_array[i];
-    }
+
+    //Process PI_IN --> variables entrant dans le CN
+    values_In_CN_l[nbValuesCN_In_ByCN] = pProcessImageIn_l->in_CN_array[nbValuesCN_In_ByCN];
 
     // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
     switch (mode)
     {
     case 0: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
+        int skipSensorsOutFromIn = 1;
+        for (int i = 1; i < SIZE_IN; i++)
+        {
+            if (i % (nbValuesCN_In + 1) == 0)
+                skipSensorsOutFromIn += nbValuesCN_In;
+            if (i % (nbValuesCN_In + 1) != 0 && activated_Out_CN_l[skipSensorsOutFromIn])
+                values_In_CN_l[i] = pProcessImageIn_l->in_CN_array[i];
+        }
         break;
     case 1: // mode manuel : l'état des vannes proviennent directement du MN
         for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In; i++)
@@ -546,6 +553,21 @@ tOplkError initProcessImage(void)
     switch (mode)
     {
     case 0: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
+        int skipSensorsOutFromIn = 1;
+        for (int i = 1; i < SIZE_IN; i++)
+        {
+            if (i % (nbValuesCN_In + 1) == 0)
+                skipSensorsOutFromIn += nbValuesCN_In;
+            if (i % (nbValuesCN_In + 1) != 0 && activated_Out_CN_l[skipSensorsOutFromIn])
+            {
+                //Link valves images in from MN
+                ret = linkPDO_in(obdSize, i, 0x6510, 0x01 + i % nbValuesCN_In);
+                if (ret != kErrorOk)
+                {
+                    return ret;
+                }
+            }
+        }
         break;
     case 1: // mode manuel : l'état des vannes proviennent directement du MN
         for (int i = nbValuesCN_In_ByCN + 1; i <= nbValuesCN_In_ByCN + nbValuesCN_In / 2; i++)

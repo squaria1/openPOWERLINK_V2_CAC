@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <time.h>
 #include <sys/types.h> 
 #include <signal.h>
 #include <sensor.h>
@@ -26,6 +27,12 @@ public:
 	valve();
 	virtual ~valve();
 	int16_t initValve();
+	int16_t actionnementValvesInit();
+	int16_t actionnementValve(int valveNum);
+	int16_t verifDependanceValves();
+	int16_t isDependanceActive(int ligne);
+	int16_t startTimerDependance(int ligne);
+	int16_t isTimerExeeded(int ligne);
 	int16_t extinctValve();
 	void test();
 
@@ -38,8 +45,9 @@ private:
 extern "C"
 {
 #endif
-	int16_t getValveValue(int index);
-
+	static int16_t setValvesValue();
+	static int16_t setValvesInitValue();
+	static int16_t getValveValue(int index);
 #ifdef __cplusplus
 }
 #endif
