@@ -193,7 +193,7 @@ int16_t valve::isDependanceActive(int ligne)
             printf("getValeur(ligne):%d , gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]):%d\n",
                 getValeur(ligne), gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]));
 
-            if (getValeur(ligne) != gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]))
+            if (getValeur(ligne) == gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]))
                 return 1;
         }
         else if (ligne % (nbValuesCN_In + 1) != 0)
@@ -201,7 +201,7 @@ int16_t valve::isDependanceActive(int ligne)
 
             printf("getValeur(ligne):%d , getValues_In_CN((ligne - 2) % MAX_VALVES)):%d\n",
                 getValeur(ligne), getValues_In_CN((ligne - 2) % MAX_VALVES));
-            if (getValeur(ligne) != getValues_In_CN((ligne - 2) % MAX_VALVES))
+            if (getValeur(ligne) == getValues_In_CN((ligne - 2) % MAX_VALVES))
                 return 1;
         }
 
