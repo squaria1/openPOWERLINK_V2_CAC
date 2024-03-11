@@ -208,7 +208,7 @@ int16_t valve::isTimerExeeded(int valveNum)
     currentTime[valveNum] = (endTimer[valveNum].tv_sec - beginTimer[valveNum].tv_sec) +
         (endTimer[valveNum].tv_nsec - beginTimer[valveNum].tv_nsec) / 1e9;
 
-    if (currentTime > getTimerVannes(valveNum + nbValuesCN_In_ByCN + 2))
+    if (currentTime[valveNum] > getTimerVannes(valveNum + nbValuesCN_In_ByCN + 2))
     {
         timerStarted[valveNum] = false;
         return 0;
