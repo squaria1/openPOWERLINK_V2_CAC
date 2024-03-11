@@ -187,15 +187,19 @@ int16_t valve::isDependanceActive(int ligne)
     if (tab[0] == 0)
     {
         printf("tab is null\n");
-        if (tab[i] > nbValuesCN_In_ByCN && tab[i] < nbValuesCN_In_ByCN + nbValuesCN_In)
+        if (ligne > nbValuesCN_In_ByCN && ligne < nbValuesCN_In_ByCN + nbValuesCN_In)
         {
+            printf("(ligne - 2) % MAX_VALVES=%d\n", (ligne - 2) % MAX_VALVES);
+            printf("getValeur(ligne):%d , gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]):%d\n",
+                getValeur(ligne), gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]));
+
             if (getValeur(ligne) != gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]))
                 return 1;
         }
-        else if (tab[i] % (nbValuesCN_In + 1) != 0)
+        else if (ligne % (nbValuesCN_In + 1) != 0)
         {
 
-            printf("getValeur(tab[i] + 2):%d , getValues_In_CN(tab[i]):%d\n",
+            printf("getValeur(ligne):%d , getValues_In_CN((ligne - 2) % MAX_VALVES)):%d\n",
                 getValeur(ligne), getValues_In_CN((ligne - 2) % MAX_VALVES));
             if (getValeur(ligne) != getValues_In_CN((ligne - 2) % MAX_VALVES))
                 return 1;
