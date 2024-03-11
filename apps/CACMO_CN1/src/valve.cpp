@@ -147,7 +147,7 @@ int16_t valve::verifDependanceValves()
             printf("getActivation(%d):faux\n", i + nbValuesCN_Out_ByCN + 2);
 
         if (getActivation(i + nbValuesCN_Out_ByCN + 2) &&
-            isDependanceActive(i + nbValuesCN_In_ByCN + 2))
+            isDependanceActive(i + nbValuesCN_In_ByCN + 2) == 0)
         {
             printf("vrai\n");
             if (!timerStarted[i])
@@ -201,7 +201,7 @@ int16_t valve::isDependanceActive(int ligne)
                 return 1;
         }
     }
-
+    printf("Dependances toutes activees ! \n");
     return 0;
 }
 
