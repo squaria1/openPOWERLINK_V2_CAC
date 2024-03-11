@@ -160,6 +160,7 @@ int16_t valve::verifDependanceValves()
             {
                 printf("actionnement valve %d !\n", i);
                 actionnementValve(i);
+                printf("i:%d\n", i);
                 printf("AFTER : getValeur(i + nbValuesCN_In_ByCN + 2):%d , gpiod_line_get_value(lines[i]):%d\n",
                     getValeur(i + nbValuesCN_In_ByCN + 2), gpiod_line_get_value(lines[i]));
             }
@@ -172,7 +173,7 @@ int16_t valve::verifDependanceValves()
 
 int16_t valve::isDependanceActive(int ligne)
 {
-    printf("ligne:%d\n", ligne);
+    printf("ligne-2:%d\n", ligne-2);
     printf("BEFORE : getValeur(ligne):%d , gpiod_line_get_value(lines[ligne - 2]):%d\n",
         getValeur(ligne), gpiod_line_get_value(lines[ligne - 2]));
 
