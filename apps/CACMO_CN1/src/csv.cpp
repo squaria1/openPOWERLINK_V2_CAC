@@ -92,7 +92,7 @@ int16_t refreshCSV() {
 
     int i = 0;
     do {
-        //printf("%d ", monTableau[i]);
+        printf("getDependanceVannes(%d):%d\n",i, monTableau[i]);
         i++;
     } while (monTableau[i] != 0);
 

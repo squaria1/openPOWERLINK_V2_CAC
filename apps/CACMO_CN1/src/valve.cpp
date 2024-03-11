@@ -164,12 +164,17 @@ int16_t valve::verifDependanceValves()
 int16_t valve::isDependanceActive(int ligne)
 {
     int* tab;
+    int cmpt = 0;
     if (getDependanceVannes(ligne) != NULL)
         tab = getDependanceVannes(ligne);
     else
         return 2;
+    do {
+        printf("getDependanceVannes(%d):%d\n", cmpt, monTableau[cmpt]);
+        cmpt++;
+    } while (tab[cmpt] != 0);
 
-    for (int i = 0; i < (int)(sizeof(tab) / sizeof(tab[0])); i++)
+    for (int i = 0; i < cmpt; i++)
     {
         printf("tab[%d]:%d\n", i, tab[i]);
         if (tab[i] > nbValuesCN_In_ByCN && tab[i] < nbValuesCN_In_ByCN + nbValuesCN_In)
