@@ -184,7 +184,7 @@ int16_t valve::isDependanceActive(int ligne)
     else
         return 2;
 
-    if (tab[0] = 0)
+    if (tab[0] == 0)
     {
         printf("tab is null\n");
         return 1;
