@@ -156,7 +156,7 @@ int16_t valve::verifDependanceValves()
                 startTimerDependance(i);
             }
 
-            if (isTimerExeeded(i) == 0 && timerStarted[i])
+            if (isTimerExeeded(i) == 0 && !timerStarted[i])
             {
                 printf("actionnement valve %d !\n", i);
                 actionnementValve(i);
@@ -183,6 +183,10 @@ int16_t valve::isDependanceActive(int ligne)
         tab = getDependanceVannes(ligne);
     else
         return 2;
+
+    if (tab[0] = 0)
+        return 1;
+
     do {
         printf("getDependanceVannes(%d):%d\n", cmpt, tab[cmpt]);
         cmpt++;
