@@ -142,19 +142,20 @@ int16_t valve::verifDependanceValves()
     for (int i = 0; i < MAX_VALVES; i++) 
     {
         if (getActivation(i + nbValuesCN_Out_ByCN + 1) &&
-            isDependanceActive(i + nbValuesCN_In_ByCN + 2) &&
-            !timerStarted[i])
+            isDependanceActive(i + nbValuesCN_In_ByCN + 2))
         {
-            printf("start timer %d !\n", i);
-            startTimerDependance(i);
-        }
-        
-        if (getActivation(i + nbValuesCN_Out_ByCN + 1) &&
-            isDependanceActive(i + nbValuesCN_In_ByCN + 2) &&
-            isTimerExeeded(i))
-        {
-            printf("actionnement valve %d !\n",i);
-            actionnementValve(i);
+            printf("vrai\n");
+            if (!timerStarted[i])
+            {
+                printf("start timer %d !\n", i);
+                startTimerDependance(i);
+            }
+
+            if (isTimerExeeded(i))
+            {
+                printf("actionnement valve %d !\n", i);
+                actionnementValve(i);
+            }
         }
     }
 
