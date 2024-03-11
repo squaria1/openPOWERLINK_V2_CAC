@@ -184,28 +184,22 @@ int16_t valve::isDependanceActive(int ligne)
     else
         return 2;
 
-    if (tab[0] == 0)
+    if (ligne > nbValuesCN_In_ByCN && ligne < nbValuesCN_In_ByCN + nbValuesCN_In)
     {
-        printf("tab is null\n");
-        if (ligne > nbValuesCN_In_ByCN && ligne < nbValuesCN_In_ByCN + nbValuesCN_In)
-        {
-            printf("(ligne - 2) % MAX_VALVES=%d\n", (ligne - 2) % MAX_VALVES);
-            printf("getValeur(ligne):%d , gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]):%d\n",
-                getValeur(ligne), gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]));
+        printf("(ligne - 2) % MAX_VALVES=%d\n", (ligne - 2) % MAX_VALVES);
+        printf("getValeur(ligne):%d , gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]):%d\n",
+            getValeur(ligne), gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]));
 
-            if (getValeur(ligne) == gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]))
-                return 1;
-        }
-        else if (ligne % (nbValuesCN_In + 1) != 0)
-        {
+        if (getValeur(ligne) == gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]))
+            return 1;
+    }
+    else
+    {
+        printf("getValeur(ligne):%d , getValues_In_CN((ligne - 2) % MAX_VALVES)):%d\n",
+            getValeur(ligne), getValues_In_CN((ligne - 2) % MAX_VALVES));
 
-            printf("getValeur(ligne):%d , getValues_In_CN((ligne - 2) % MAX_VALVES)):%d\n",
-                getValeur(ligne), getValues_In_CN((ligne - 2) % MAX_VALVES));
-            if (getValeur(ligne) == getValues_In_CN((ligne - 2) % MAX_VALVES))
-                return 1;
-        }
-
-        return 0;
+        if (getValeur(ligne) == getValues_In_CN((ligne - 2) % MAX_VALVES))
+            return 1;
     }
 
     do {
@@ -225,7 +219,7 @@ int16_t valve::isDependanceActive(int ligne)
             if (getValeur(tab[i] + 1) != gpiod_line_get_value(lines[tab[i]-1]))
                 return 1;
         }
-        else if(tab[i] % (nbValuesCN_In + 1) != 0)
+        else
         {
 
             printf("getValeur(tab[i] + 2):%d , getValues_In_CN(tab[i]):%d\n",
