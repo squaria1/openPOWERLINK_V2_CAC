@@ -163,6 +163,7 @@ int16_t valve::verifDependanceValves()
 
 int16_t valve::isDependanceActive(int ligne)
 {
+    printf("ligne:%d\n", ligne);
     int* tab;
     int cmpt = 0;
     if (getDependanceVannes(ligne) != NULL)
@@ -180,17 +181,17 @@ int16_t valve::isDependanceActive(int ligne)
         if (tab[i] > nbValuesCN_In_ByCN && tab[i] < nbValuesCN_In_ByCN + nbValuesCN_In)
         {
             printf("getValeur(tab[i] + 2):%d , gpiod_line_get_value(lines[tab[i]]):%d\n", 
-                getValeur(tab[i] + 2), gpiod_line_get_value(lines[tab[i]]));
+                getValeur(tab[i] + 1), gpiod_line_get_value(lines[tab[i]]));
 
-            if (getValeur(tab[i] + 2) != gpiod_line_get_value(lines[tab[i]]))
+            if (getValeur(tab[i] + 1) != gpiod_line_get_value(lines[tab[i]]))
                 return 1;
         }
         else if(tab[i] % (nbValuesCN_In + 1) != 0)
         {
 
             printf("getValeur(tab[i] + 2):%d , getValues_In_CN(tab[i]):%d\n",
-                getValeur(tab[i] + 2), getValues_In_CN(tab[i]));
-            if (getValeur(tab[i] + 2) != getValues_In_CN(tab[i]))
+                getValeur(tab[i] + 1), getValues_In_CN(tab[i]));
+            if (getValeur(tab[i] + 1) != getValues_In_CN(tab[i]))
                 return 1;
         }
     }
@@ -202,6 +203,7 @@ int16_t valve::startTimerDependance(int valveNum)
 {
     clock_gettime(CLOCK_MONOTONIC, &beginTimer[valveNum]);
     printf("timer!\n");
+    printf("valveNum:%d\n", valveNum);
     timerStarted[valveNum] = true;
 
     return 0;
@@ -212,7 +214,8 @@ int16_t valve::isTimerExeeded(int valveNum)
     clock_gettime(CLOCK_MONOTONIC, &endTimer[valveNum]);
     currentTime[valveNum] = (endTimer[valveNum].tv_sec - beginTimer[valveNum].tv_sec) +
         (endTimer[valveNum].tv_nsec - beginTimer[valveNum].tv_nsec) / 1e9;
-
+    printf("currentTime[%d]=%f\n", valveNum, currentTime[valveNum]);
+    printf("getTimerVannes(%d)=%f\n", valveNum + nbValuesCN_In_ByCN + 2, getTimerVannes(valveNum + nbValuesCN_In_ByCN + 2));
     if (currentTime[valveNum] > getTimerVannes(valveNum + nbValuesCN_In_ByCN + 2))
     {
         timerStarted[valveNum] = false;
