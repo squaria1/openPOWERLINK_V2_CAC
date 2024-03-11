@@ -10,7 +10,7 @@ int values[MAX_VALVES];
 int err;
 // Declaration des variables pour le timer
 struct timespec beginTimer[MAX_VALVES], endTimer[MAX_VALVES]; 
-double currentTime[MAX_VALVES];
+float currentTime[MAX_VALVES];
 bool timerStarted[MAX_VALVES];
 
 valve::valve()
