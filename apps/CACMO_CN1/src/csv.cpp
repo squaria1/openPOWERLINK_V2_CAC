@@ -352,7 +352,7 @@ int* getDependanceVannes(int ligne) {
     return tab;
 }
 
-float getTimerVannes(int ligne) {
+double getTimerVannes(int ligne) {
     return dataEtats->timerVannes[ligne];
 }
 

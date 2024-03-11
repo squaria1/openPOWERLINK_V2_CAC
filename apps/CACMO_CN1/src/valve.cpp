@@ -10,7 +10,7 @@ int values[MAX_VALVES];
 int err;
 // Declaration des variables pour le timer
 struct timespec beginTimer[MAX_VALVES], endTimer[MAX_VALVES]; 
-float currentTime[MAX_VALVES];
+double currentTime[MAX_VALVES];
 bool timerStarted[MAX_VALVES];
 
 valve::valve()
@@ -205,7 +205,7 @@ int16_t valve::startTimerDependance(int valveNum)
 int16_t valve::isTimerExeeded(int valveNum)
 {
     clock_gettime(CLOCK_MONOTONIC, &endTimer[valveNum]);
-    currentTime = (endTimer[valveNum].tv_sec - beginTimer[valveNum].tv_sec) +
+    currentTime[valveNum] = (endTimer[valveNum].tv_sec - beginTimer[valveNum].tv_sec) +
         (endTimer[valveNum].tv_nsec - beginTimer[valveNum].tv_nsec) / 1e9;
 
     if (currentTime > getTimerVannes(valveNum + nbValuesCN_In_ByCN + 2))
