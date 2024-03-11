@@ -170,7 +170,7 @@ int16_t valve::isDependanceActive(int ligne)
     else
         return 2;
     do {
-        printf("getDependanceVannes(%d):%d\n", cmpt, monTableau[cmpt]);
+        printf("getDependanceVannes(%d):%d\n", cmpt, tab[cmpt]);
         cmpt++;
     } while (tab[cmpt] != 0);
 
