@@ -115,7 +115,7 @@ int16_t valve::actionnementValvesInit()
 
 int16_t valve::actionnementValve(int valveNum)
 {
-    setValvesValue();
+    values[valveNum] = getValeur(valveNum + nbValuesCN_In_ByCN + 2);
 
     // Verifiez les valeurs 
     if (values[valveNum] < 0 || values[valveNum] > 1)
