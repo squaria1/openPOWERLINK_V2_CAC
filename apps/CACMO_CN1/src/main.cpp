@@ -70,7 +70,6 @@ int main() {
                     file.writeError("", 0xE003);
                     opl.sendError(0xE002);
                 }
-                res = sensor.verifDependanceValves();
                 #endif
                 res = opl.demandeExtinctOPL();
                 if(res == 0)
@@ -97,6 +96,11 @@ int main() {
                 //    file.writeTelem();
                 //    opl.sendTelem();
                 //}
+
+                #if (TARGET_SYSTEM == _WIN32_)
+                #else
+                res = valve.verifDependanceValves();
+                #endif
                 if (console_kbhit())
                 {
                     cKey = (char)console_getch();
