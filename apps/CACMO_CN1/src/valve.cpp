@@ -207,28 +207,30 @@ int16_t valve::isDependanceActive(int ligne)
         cmpt++;
     } while (tab[cmpt] != 0);
 
-    for (int i = 0; i < cmpt; i++)
+    if (tab[0] != 0)
     {
-
-        printf("tab[%d]:%d\n", i, tab[i]);
-        if (tab[i] > nbValuesCN_In_ByCN && tab[i] < nbValuesCN_In_ByCN + nbValuesCN_In)
+        for (int i = 0; i < cmpt; i++)
         {
-            printf("getValeur(tab[i] + 2):%d , gpiod_line_get_value(lines[tab[i]]):%d\n", 
-                getValeur(tab[i] + 1), gpiod_line_get_value(lines[tab[i]-1]));
+            printf("tab[%d]:%d\n", i, tab[i]);
+            if (tab[i] > nbValuesCN_In_ByCN && tab[i] < nbValuesCN_In_ByCN + nbValuesCN_In)
+            {
+                printf("getValeur(tab[i] + 2):%d , gpiod_line_get_value(lines[tab[i]]):%d\n",
+                    getValeur(tab[i] + 1), gpiod_line_get_value(lines[tab[i] - 1]));
 
-            if (getValeur(tab[i] + 1) != gpiod_line_get_value(lines[tab[i]-1]))
-                return 1;
-        }
-        else
-        {
+                if (getValeur(tab[i] + 1) != gpiod_line_get_value(lines[tab[i] - 1]))
+                    return 1;
+            }
+            else
+            {
+                printf("getValeur(tab[i] + 2):%d , getValues_In_CN(tab[i]):%d\n",
+                    getValeur(tab[i] + 1), getValues_In_CN(tab[i] - 1));
 
-            printf("getValeur(tab[i] + 2):%d , getValues_In_CN(tab[i]):%d\n",
-                getValeur(tab[i] + 1), getValues_In_CN(tab[i]-1));
-
-            if (getValeur(tab[i] + 1) != getValues_In_CN(tab[i]-1))
-                return 1;
+                if (getValeur(tab[i] + 1) != getValues_In_CN(tab[i] - 1))
+                    return 1;
+            }
         }
     }
+    
     printf("Dependances toutes activees ! \n");
     return 0;
 }
