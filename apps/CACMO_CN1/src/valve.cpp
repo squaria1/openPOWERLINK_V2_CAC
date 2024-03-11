@@ -54,7 +54,7 @@ int16_t valve::initValve()
     }
 
     for (int i = 0; i < MAX_VALVES; i++) {
-        if (getActivation(i + nbValuesCN_Out_ByCN + 1))
+        if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {
             offsets[i] = getPortGPIO(i+1);
             values[i] = getEtatInitialVannes(i+1);
@@ -89,7 +89,7 @@ int16_t valve::actionnementValvesInit()
     for (int i = 0; i < MAX_VALVES; i++) {
         printf("offsets[%d]:%d\n", i, offsets[i]);
         printf("values[%d]:%d\n", i, values[i]);
-        if (getActivation(i + nbValuesCN_Out_ByCN + 1))
+        if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {
             // Verifiez les valeurs 
             if (values[i] < 0 || values[i] > 1)
@@ -141,12 +141,12 @@ int16_t valve::verifDependanceValves()
 {
     for (int i = 0; i < MAX_VALVES; i++) 
     {
-        if(getActivation(i + nbValuesCN_Out_ByCN + 1))
-            printf("getActivation(%d):vrai\n", i + nbValuesCN_Out_ByCN + 1);
+        if(getActivation(i + nbValuesCN_Out_ByCN + 2))
+            printf("getActivation(%d):vrai\n", i + nbValuesCN_Out_ByCN + 2);
         else
-            printf("getActivation(%d):faux\n", i + nbValuesCN_Out_ByCN + 1);
+            printf("getActivation(%d):faux\n", i + nbValuesCN_Out_ByCN + 2);
 
-        if (getActivation(i + nbValuesCN_Out_ByCN + 1) &&
+        if (getActivation(i + nbValuesCN_Out_ByCN + 2) &&
             isDependanceActive(i + nbValuesCN_In_ByCN + 2))
         {
             printf("vrai\n");
@@ -234,7 +234,7 @@ int16_t valve::isTimerExeeded(int valveNum)
 int16_t valve::extinctValve()
 {
     for (int i = 0; i < MAX_VALVES; i++) {
-        if (getActivation(i + nbValuesCN_Out_ByCN + 1))
+        if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {
             gpiod_line_release(lines[i]);
         }
@@ -249,7 +249,7 @@ int16_t setValvesValue()
 {
     for (int i = 0; i < MAX_VALVES; i++) 
     {
-        if (getActivation(i + nbValuesCN_Out_ByCN + 1))
+        if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {
             values[i] = getValeur(i + nbValuesCN_In_ByCN + 1);
         }
