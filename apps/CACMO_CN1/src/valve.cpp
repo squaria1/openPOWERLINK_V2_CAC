@@ -220,17 +220,18 @@ int16_t valve::isDependanceActive(int ligne)
         if (tab[i] > nbValuesCN_In_ByCN && tab[i] < nbValuesCN_In_ByCN + nbValuesCN_In)
         {
             printf("getValeur(tab[i] + 2):%d , gpiod_line_get_value(lines[tab[i]]):%d\n", 
-                getValeur(tab[i] + 1), gpiod_line_get_value(lines[tab[i]]));
+                getValeur(tab[i] + 1), gpiod_line_get_value(lines[tab[i]-1]));
 
-            if (getValeur(tab[i] + 1) != gpiod_line_get_value(lines[tab[i]]))
+            if (getValeur(tab[i] + 1) != gpiod_line_get_value(lines[tab[i]-1]))
                 return 1;
         }
         else if(tab[i] % (nbValuesCN_In + 1) != 0)
         {
 
             printf("getValeur(tab[i] + 2):%d , getValues_In_CN(tab[i]):%d\n",
-                getValeur(tab[i] + 1), getValues_In_CN(tab[i]));
-            if (getValeur(tab[i] + 1) != getValues_In_CN(tab[i]))
+                getValeur(tab[i] + 1), getValues_In_CN(tab[i]-1));
+
+            if (getValeur(tab[i] + 1) != getValues_In_CN(tab[i]-1))
                 return 1;
         }
     }
