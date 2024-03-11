@@ -156,7 +156,7 @@ int16_t valve::verifDependanceValves()
                 startTimerDependance(i);
             }
 
-            if (isTimerExeeded(i))
+            if (isTimerExeeded(i) == 0)
             {
                 printf("actionnement valve %d !\n", i);
                 actionnementValve(i);
