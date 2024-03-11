@@ -78,19 +78,17 @@ int16_t valve::initValve()
         }
     }
 
-    setValveInitValue();
-    actionnementValves();
+    setValvesInitValue();
+    actionnementValvesInit();
 
     return 0;
 }
 
 int16_t valve::actionnementValvesInit()
 {
-
-    printf("offsets[%d]:%d\n", i, offsets[i]);
-    printf("values[%d]:%d\n", i, values[i]);
-
     for (int i = 0; i < MAX_VALVES; i++) {
+        printf("offsets[%d]:%d\n", i, offsets[i]);
+        printf("values[%d]:%d\n", i, values[i]);
         if (getActivation(i + nbValuesCN_Out_ByCN + 1))
         {
             // Verifiez les valeurs 
@@ -117,7 +115,7 @@ int16_t valve::actionnementValvesInit()
 
 int16_t valve::actionnementValve(int valveNum)
 {
-    setValveValue();
+    setValvesValue();
 
     // Verifiez les valeurs 
     if (values[valveNum] < 0 || values[valveNum] > 1)
@@ -171,7 +169,7 @@ int16_t valve::isDependanceActive(int ligne)
     else
         return 2;
 
-    for (int i = 0; i < sizeof(tab) / sizeof(int); i++)
+    for (int i = 0; i < (int)(sizeof(tab) / sizeof(tab[0])); i++)
     {
         printf("tab[%d]:%d\n", i, tab[i]);
         if (tab[i] > nbValuesCN_In_ByCN && tab[i] < nbValuesCN_In_ByCN + nbValuesCN_In)
@@ -210,7 +208,7 @@ int16_t valve::isTimerExeeded(int valveNum)
     currentTime = (endTimer[valveNum].tv_sec - beginTimer[valveNum].tv_sec) +
         (endTimer[valveNum].tv_nsec - beginTimer[valveNum].tv_nsec) / 1e9;
 
-    if (currentTime > getTimerVannes(ligne))
+    if (currentTime > getTimerVannes(valveNum + nbValuesCN_In_ByCN + 2))
     {
         timerStarted[valveNum] = false;
         return 0;
