@@ -70,10 +70,11 @@ int main() {
                     file.writeError("", 0xE003);
                     opl.sendError(0xE002);
                 }
+                res = sensor.verifDependanceValves();
                 #endif
                 res = opl.demandeExtinctOPL();
                 if(res == 0)
-                    etat=3;
+                    etat=255;
                 else
                     etat=2;
                 break;
@@ -219,6 +220,8 @@ int main() {
                 else
                     printf("Error telemfiles close\n");
                 etat = 256;
+                break;
+            default:
                 break;
         }
     }

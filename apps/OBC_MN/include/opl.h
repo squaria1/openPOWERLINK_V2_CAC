@@ -67,15 +67,13 @@ extern "C"
     void        shutdownPowerlink(void);
     tOplkError  processSync(void);
     tOplkError  initApp(void);
-    bool        initOPL();
-    bool        testOPL();
-    bool        ExtinctOPL();
+    int16_t     initOPL();
+    int16_t     extinctOPL();
     void        setValues_In_MN(int ligne, int16_t valeur);
     int16_t*    getValues_In_MN(void);
     void        setValues_Out_MN(int ligne, int16_t valeur);
     int16_t*    getValues_Out_MN(void);
-    static void setActivated_In_MN(int16_t activated_In_MN_g[]);
-    //void      setActivated_Out_MN(int16_t activated_Out_MN_g[]);
+    void        setActivated_In_MN();
     void        affValeursIn();
     void        affValeursOut();
 
@@ -119,7 +117,7 @@ class opl
 
         void        sendTelem();
         void        sendError();
-        bool        demandeExtinctOPL();
+        int16_t     demandeExtinctOPL();
 
     protected:
 

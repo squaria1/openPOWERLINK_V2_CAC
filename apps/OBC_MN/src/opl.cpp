@@ -14,7 +14,7 @@ opl::~opl()
 }
 
 
-bool opl::demandeExtinctOPL()
+int16_t opl::demandeExtinctOPL()
 {
     processSync();
     
@@ -22,10 +22,10 @@ bool opl::demandeExtinctOPL()
     {
         printf("\n\n values_Out_MN_l[0] : %d \n\n", values_Out_MN_l[0]);
         printf("\n\n extinction ! \n\n");
-        return true;
+        return 0;
     }
     else
-        return false;
+        return 1;
 
 }
 
@@ -119,7 +119,7 @@ void affValeursOut()
 //------------------------------------------------------------------------------
 
 
-bool initOPL()
+int16_t initOPL()
 {
     
     tOplkError      ret = kErrorOk;
@@ -138,14 +138,14 @@ bool initOPL()
     if (system_init() != 0)
     {
         fprintf(stderr, "Error initializing system!");
-        return false;
+        return 1;
     }
 
     fwRet = firmwaremanager_init(opts.fwInfoFile);
     if (fwRet != kFwReturnOk)
     {
         fprintf(stderr, "Error initializing firmware manager!");
-        return false;
+        return 1;
     }
 
     eventlog_init(opts.logFormat,
@@ -183,15 +183,15 @@ bool initOPL()
         opts.devName,
         aMacAddr_l);
     if (ret != kErrorOk)
-        return false;
+        return 1;
 
     ret = initApp();
     if (ret != kErrorOk)
-        return false;
+        return 1;
 
     initOplThread();
 
-    return true;
+    return 0;
 }
 
 //------------------------------------------------------------------------------
@@ -437,9 +437,18 @@ tOplkError processSync(void)
             pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
     }
 
+    int skipSensorsOutFromIn = 1;
     switch (mode)
     {
     case 0: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
+
+        for (int i = 1; i < SIZE_IN; i++)
+        {
+            if (i % (nbValuesCN_In + 1) == 0)
+                skipSensorsOutFromIn += nbValuesCN_In;
+            if (i % (nbValuesCN_In + 1) != 0 && activated_In_MN_l[skipSensorsOutFromIn])
+                pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
+        }
         break;
     case 1: // mode manuel : l'état des vannes proviennent directement du MN
         for (int i = 0; i < SIZE_IN; i++)
@@ -501,18 +510,13 @@ tOplkError initProcessImage(void)
     return ret;
 }
 
-bool testOPL() 
-{
-    return true;
-}
-
-bool ExtinctOPL()
+int16_t extinctOPL()
 {
     shutdownOplImage();
     shutdownPowerlink();
     firmwaremanager_exit();
 
-    return true;
+    return 0;
 }
 
 //------------------------------------------------------------------------------

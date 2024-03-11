@@ -146,12 +146,18 @@ int16_t valve::verifDependanceValves()
         if (getActivation(i + nbValuesCN_Out_ByCN + 1) &&
             isDependanceActive(i + nbValuesCN_In_ByCN + 2) &&
             !timerStarted[i])
+        {
+            printf("start timer %d !\n", i);
             startTimerDependance(i);
+        }
         
         if (getActivation(i + nbValuesCN_Out_ByCN + 1) &&
             isDependanceActive(i + nbValuesCN_In_ByCN + 2) &&
             isTimerExeeded(i))
+        {
+            printf("actionnement valve %d !\n",i);
             actionnementValve(i);
+        }
     }
 
     return 0;
@@ -167,13 +173,20 @@ int16_t valve::isDependanceActive(int ligne)
 
     for (int i = 0; i < sizeof(tab) / sizeof(int); i++)
     {
+        printf("tab[%d]:%d\n", i, tab[i]);
         if (tab[i] > nbValuesCN_In_ByCN && tab[i] < nbValuesCN_In_ByCN + nbValuesCN_In)
         {
+            printf("getValeur(tab[i] + 2):%d , gpiod_line_get_value(lines[tab[i]]):%d\n", 
+                getValeur(tab[i] + 2), gpiod_line_get_value(lines[tab[i]]));
+
             if (getValeur(tab[i] + 2) != gpiod_line_get_value(lines[tab[i]]))
                 return 1;
         }
         else if(tab[i] % (nbValuesCN_In + 1) != 0)
         {
+
+            printf("getValeur(tab[i] + 2):%d , getValues_In_CN(tab[i]):%d\n",
+                getValeur(tab[i] + 2), getValues_In_CN(tab[i]));
             if (getValeur(tab[i] + 2) != getValues_In_CN(tab[i]))
                 return 1;
         }
@@ -185,7 +198,7 @@ int16_t valve::isDependanceActive(int ligne)
 int16_t valve::startTimerDependance(int valveNum)
 {
     clock_gettime(CLOCK_MONOTONIC, &beginTimer[valveNum]);
-
+    printf("timer!\n");
     timerStarted[valveNum] = true;
 
     return 0;

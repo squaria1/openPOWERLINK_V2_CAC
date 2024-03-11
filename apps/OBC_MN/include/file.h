@@ -20,10 +20,10 @@ public:
     file();
     ~file();
 
-    bool initFile();
-    bool testWriteFile();
-    bool openFile();
-    bool closeFile();
+    int16_t initFile();
+    int16_t testWriteFile();
+    int16_t openFile();
+    int16_t closeFile();
     void writeTelem(const char* fmt_p, ...); ///< ajouter uniquement : uint16_t codeSuccess
     void writeError(const char* fmt_p = "code_Error:0x%08X", ...); ///< ajouter uniquement : uint16_t codeError
 

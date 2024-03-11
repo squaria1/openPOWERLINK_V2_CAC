@@ -417,11 +417,11 @@ tOplkError processSync()
     //Process PI_IN --> variables entrant dans le CN
     values_In_CN_l[nbValuesCN_In_ByCN] = pProcessImageIn_l->in_CN_array[nbValuesCN_In_ByCN];
 
+    int skipSensorsOutFromIn = 1;
     // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
     switch (mode)
     {
     case 0: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
-        int skipSensorsOutFromIn = 1;
         for (int i = 1; i < SIZE_IN; i++)
         {
             if (i % (nbValuesCN_In + 1) == 0)
@@ -550,10 +550,11 @@ tOplkError initProcessImage(void)
         return ret;
     }
 
+    int skipSensorsOutFromIn = 1;
+
     switch (mode)
     {
     case 0: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
-        int skipSensorsOutFromIn = 1;
         for (int i = 1; i < SIZE_IN; i++)
         {
             if (i % (nbValuesCN_In + 1) == 0)

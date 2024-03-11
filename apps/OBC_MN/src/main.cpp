@@ -12,46 +12,44 @@ int main() {
     tOplkError  ret = kErrorOk;
     char        cKey = 0;
     BOOL        fExit = FALSE;
-    int16_t EG;
-    int16_t EC1 = -1;
+    int16_t     EG;
+    int16_t     res = 0;
+    int16_t     EC1 = -1;
 
 
-    while(etat<=3){
+    while(etat < 256){
         switch(etat){
             case 1: // Initialisation
-                if (file.initFile())
+                res = file.initFile();
+                if (res == 0)
                     printf("TelemFile OK\n");
                 else
                     printf("Error telemfiles\n");
-                if (file.testWriteFile())
+                res = file.testWriteFile();
+                if (res == 0)
                     printf("Writing in TelemFile OK\n");
                 else
                     printf("Error writing in telemfiles\n");
-                if (initCSV())
+                res = initCSV();
+                if (res == 0)
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                 else
                     file.writeError("", 0xE003);
-                if (initOPL()) {
+                res = initOPL();
+                if (res == 0) 
                     file.writeTelem("code_success:0x % 08X", 0x0003);
-                }
-                else {
+                else 
                     file.writeError();
-                }
-                if(testOPL()){
-                    file.writeTelem("code_success:0x % 08X", 0x0003);
-                }else{
-                    file.writeError("", 0xE003);
-                }
-                if(opl.demandeExtinctOPL()){
-                    etat=3;
-                }else{
+                res = opl.demandeExtinctOPL();
+                if (res == 0)
+                    etat=255;
+                else
                     etat=2;
-                }
                 break;
             case 2: // Sequencement des etats generaux
-                if (opl.demandeExtinctOPL()) {
-                    etat = 3;
-                }
+                res = opl.demandeExtinctOPL();
+                if (res == 0)
+                    etat = 255;
                 if (console_kbhit())
                 {
                     cKey = (char)console_getch();
@@ -59,7 +57,7 @@ int main() {
                     switch (cKey)
                     {
                     case 0x1B:
-                        etat = 3;
+                        etat = 255;
                         break;
                     case 'a':
                         printf("\n\n EG MN : %d \n\n", EG);
@@ -98,9 +96,10 @@ int main() {
                 processSync();
 				system_msleep(100);
                 break;
-            case 3: // Extinction
+            case 255: // Extinction
                 file.writeTelem("Shutdown:0x % 08X", 0x1FFF);
-                if (extinctCSV())
+                res = extinctCSV();
+                if (res == 0)
                 {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                 }
@@ -108,13 +107,22 @@ int main() {
                 {
                     file.writeError("", 0xE003);
                 }
-                if (ExtinctOPL()) {
+                res = extinctOPL();
+                if (res == 0)
+                {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                 }
                 else {
                     file.writeError("", 0xE003);
                 }
-                etat=4;
+                res = file.closeFile();
+                if (res == 0)
+                    printf("TelemFile close OK\n");
+                else
+                    printf("Error telemfiles close\n");
+                etat = 256;
+                break;
+            default:
                 break;
         }
     }

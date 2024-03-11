@@ -30,7 +30,7 @@
 #ifdef _WIN32
 #define COMMON_PHYSICAL_CONFIG_DIRECTORY "..\\..\\..\\..\\common\\commonCSVFiles\\commonPhysicalCONFIG.csv"
 // TelemFiles
-#define TELEMFILES_DIRECTORY "..\\..\\..\\include\\telemFiles"
+#define TELEMFILES_DIRECTORY "..\\..\\..\\include\\telemFiles\\"
 #else
 #define COMMON_PHYSICAL_CONFIG_DIRECTORY "../../../common/commonCSVFiles/commonPhysicalCONFIG.csv"
 // TelemFiles

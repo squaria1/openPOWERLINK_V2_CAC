@@ -45,9 +45,9 @@ private:
 extern "C"
 {
 #endif
-	static int16_t setValvesValue();
-	static int16_t setValvesInitValue();
-	static int16_t getValveValue(int index);
+	int16_t setValvesValue();
+	int16_t setValvesInitValue();
+	int16_t getValveValue(int index);
 #ifdef __cplusplus
 }
 #endif
