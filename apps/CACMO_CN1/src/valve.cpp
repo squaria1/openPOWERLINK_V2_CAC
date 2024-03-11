@@ -160,8 +160,11 @@ int16_t valve::verifDependanceValves()
             {
                 printf("actionnement valve %d !\n", i);
                 actionnementValve(i);
+                printf("AFTER : getValeur(i + nbValuesCN_In_ByCN + 2):%d , gpiod_line_get_value(lines[i]):%d\n",
+                    getValeur(i + nbValuesCN_In_ByCN + 2), gpiod_line_get_value(lines[i]));
             }
         }
+        printf("-------------------------------------------------\n");
     }
 
     return 0;
@@ -170,6 +173,9 @@ int16_t valve::verifDependanceValves()
 int16_t valve::isDependanceActive(int ligne)
 {
     printf("ligne:%d\n", ligne);
+    printf("BEFORE : getValeur(ligne):%d , gpiod_line_get_value(lines[ligne - 2]):%d\n",
+        getValeur(ligne), gpiod_line_get_value(lines[ligne - 2]));
+
     int* tab;
     int cmpt = 0;
     if (getDependanceVannes(ligne) != NULL)
@@ -183,6 +189,7 @@ int16_t valve::isDependanceActive(int ligne)
 
     for (int i = 0; i < cmpt; i++)
     {
+
         printf("tab[%d]:%d\n", i, tab[i]);
         if (tab[i] > nbValuesCN_In_ByCN && tab[i] < nbValuesCN_In_ByCN + nbValuesCN_In)
         {
