@@ -425,7 +425,9 @@ tOplkError processSync()
         for (int i = 1; i < SIZE_IN; i++)
         {
             if (i % (nbValuesCN_In + 1) == 0)
-                skipSensorsOutFromIn += nbValuesCN_In;
+                skipSensorsOutFromIn += nbValuesCN_In + 1;
+            else
+                skipSensorsOutFromIn += 1;
             if (i % (nbValuesCN_In + 1) != 0 && activated_Out_CN_l[skipSensorsOutFromIn])
                 values_In_CN_l[i] = pProcessImageIn_l->in_CN_array[i];
         }
@@ -558,7 +560,9 @@ tOplkError initProcessImage(void)
         for (int i = 1; i < SIZE_IN; i++)
         {
             if (i % (nbValuesCN_In + 1) == 0)
-                skipSensorsOutFromIn += nbValuesCN_In;
+                skipSensorsOutFromIn += nbValuesCN_In + 1;
+            else
+                skipSensorsOutFromIn += 1;
             if (i % (nbValuesCN_In + 1) != 0 && activated_Out_CN_l[skipSensorsOutFromIn])
             {
                 //Link valves images in from MN

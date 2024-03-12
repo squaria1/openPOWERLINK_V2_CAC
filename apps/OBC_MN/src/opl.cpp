@@ -445,7 +445,10 @@ tOplkError processSync(void)
         for (int i = 1; i < SIZE_IN; i++)
         {
             if (i % (nbValuesCN_In + 1) == 0)
-                skipSensorsOutFromIn += nbValuesCN_In;
+                skipSensorsOutFromIn += nbValuesCN_In + 1;
+            else
+                skipSensorsOutFromIn += 1;
+
             if (i % (nbValuesCN_In + 1) != 0 && activated_In_MN_l[skipSensorsOutFromIn])
                 pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
         }
