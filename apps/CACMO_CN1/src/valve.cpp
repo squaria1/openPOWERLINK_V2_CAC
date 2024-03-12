@@ -141,11 +141,12 @@ int16_t valve::verifDependanceValves()
 {
     for (int i = 0; i < MAX_VALVES; i++)
     {
-
+        /*
         if (getActivation(i + nbValuesCN_Out_ByCN + 2))
             printf("getActivation(%d):vrai\n", i + nbValuesCN_Out_ByCN + 2);
         else
             printf("getActivation(%d):faux\n", i + nbValuesCN_Out_ByCN + 2);
+        */
         if (getActivation(i + nbValuesCN_Out_ByCN + 2) &&
             isDependanceActive(i + nbValuesCN_In_ByCN + 2) == 0)
         {
@@ -167,16 +168,17 @@ int16_t valve::verifDependanceValves()
             }
 
         }
-        printf("-------------------------------------------------\n");
     }
+
+    printf("-------------------------------------------------\n");
 
     return 0;
 }
 
 int16_t valve::isDependanceActive(int ligne)
 {
+    printf("\n==========\n");
     printf("ligne:%d\n", ligne);
-    printf("(ligne - 2) % MAX_VALVES:%d\n", (ligne - 2) % (nbValuesCN_In + 1));
     printf("BEFORE : getValeur(ligne):%d , gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In+1)]):%d\n",
         getValeur(ligne), gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In + 1)]));
 
@@ -189,10 +191,6 @@ int16_t valve::isDependanceActive(int ligne)
 
     if (ligne > nbValuesCN_In_ByCN && ligne < nbValuesCN_In_ByCN + nbValuesCN_In)
     {
-        printf("(ligne - 2) % MAX_VALVES=%d\n", (ligne - 2) % MAX_VALVES);
-        printf("getValeur(ligne):%d , gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In+1)]):%d\n",
-            getValeur(ligne), gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In + 1)]));
-
         if (getValeur(ligne) == gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In + 1)]))
             return 1;
     }
@@ -206,7 +204,6 @@ int16_t valve::isDependanceActive(int ligne)
     }
 
     do {
-        printf("getDependanceVannes(%d):%d\n", cmpt, tab[cmpt]);
         cmpt++;
     } while (tab[cmpt] != 0);
 
@@ -214,12 +211,8 @@ int16_t valve::isDependanceActive(int ligne)
     {
         for (int i = 0; i < cmpt; i++)
         {
-            printf("tab[%d]:%d\n", i, tab[i]);
             if (tab[i] > nbValuesCN_In_ByCN && tab[i] < nbValuesCN_In_ByCN + nbValuesCN_In)
             {
-                printf("getValeur(tab[i] + 2):%d , gpiod_line_get_value(lines[tab[i]]):%d\n",
-                    getValeur(tab[i] + 1), gpiod_line_get_value(lines[tab[i] - 1]));
-
                 if (getValeur(tab[i] + 1) != gpiod_line_get_value(lines[tab[i] - 1]))
                     return 1;
             }
@@ -241,7 +234,7 @@ int16_t valve::isDependanceActive(int ligne)
 int16_t valve::startTimerDependance(int valveNum)
 {
     clock_gettime(CLOCK_MONOTONIC, &beginTimer[valveNum]);
-    printf("timer!\n");
+    printf("start timer!\n");
     printf("valveNum:%d\n", valveNum);
     timerStarted[valveNum] = true;
 
