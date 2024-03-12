@@ -141,11 +141,12 @@ int16_t valve::verifDependanceValves()
 {
     for (int i = 0; i < MAX_VALVES; i++) 
     {
+        /*
         if(getActivation(i + nbValuesCN_Out_ByCN + 2))
-            //printf("getActivation(%d):vrai\n", i + nbValuesCN_Out_ByCN + 2);
+            printf("getActivation(%d):vrai\n", i + nbValuesCN_Out_ByCN + 2);
         else
-            //printf("getActivation(%d):faux\n", i + nbValuesCN_Out_ByCN + 2);
-
+            printf("getActivation(%d):faux\n", i + nbValuesCN_Out_ByCN + 2);
+        */
         if (getActivation(i + nbValuesCN_Out_ByCN + 2) &&
             isDependanceActive(i + nbValuesCN_In_ByCN + 2) == 0)
         {
