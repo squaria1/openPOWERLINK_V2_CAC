@@ -90,9 +90,8 @@ void setValues_Out_CN()
     }
 
     for (int i = 0; i < MAX_SENSORS; i++) { //0 taille tab de benoit
-        values_Out_CN_l[i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2] = getAdc_value(i);
+        values_Out_CN_l[i + nbValuesCN_Out_ByCN + (nbValuesCN_Out + 2) / 2] = getAdc_value(i);
     }
-    values_Out_CN_l[nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 + 1] = 12;
 }
 
 int16_t getValues_Out_CN(int ligne)
