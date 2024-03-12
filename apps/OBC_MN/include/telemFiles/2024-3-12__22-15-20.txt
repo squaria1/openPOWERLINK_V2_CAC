@@ -1,0 +1,3 @@
+test
+2024/03/12-22:15:20 INFO     GENERIC        code_success:0x03
+2024/03/12-22:15:22 INFO     GENERIC        code_success:0x03

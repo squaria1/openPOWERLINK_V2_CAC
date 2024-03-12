@@ -59,9 +59,9 @@ void setValues_In_CN(int ligne)
 void affValeursIn()
 {
     printf("\n-------------IN CN--------------\n");
-    for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In; i++)
+    for (int i = 0; i < SIZE_IN; i++)
     {
-        printf("values_In_CN_l[%d]=%d\n", i, pProcessImageIn_l->in_CN_array[i]);
+        printf("values_In_CN_l[%d]=%d\n", i, values_In_CN_l[i]);
     }
     printf("\n--------------------------------\n");
 }
@@ -72,7 +72,7 @@ void affValeursOut()
     for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
     {
         printf("activated_Out_CN_l[%d]=%d\n", i + 1, activated_Out_CN_l[i + 1]);
-        printf("values_Out_CN_l[%d]=%d\n", i, pProcessImageOut_l->out_CN_array[i]);
+        printf("values_Out_CN_l[%d]=%d\n", i, values_Out_CN_l[i]);
     }
     printf("\n--------------------------------\n");
 }

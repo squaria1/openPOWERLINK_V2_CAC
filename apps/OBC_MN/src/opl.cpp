@@ -102,7 +102,7 @@ void affValeursIn()
     for (int i = 0; i < SIZE_OUT; i++)
     {
         printf("activated_In_MN_l[%d]=%d\n", i+1, activated_In_MN_l[i + 1]);
-        printf("values_In_MN_l[%d]=%d\n", i, pProcessImageOut_l->out_MN_array[i]);
+        printf("values_In_MN_l[%d]=%d\n", i, values_In_MN_l[i]);
     }
     printf("\n--------------------------------\n");
 }
@@ -112,7 +112,7 @@ void affValeursOut()
     printf("\n------------OUT MN--------------\n");
     for (int i = 0; i < SIZE_IN; i++)
     {
-        printf("values_Out_MN_l[%d]=%d\n", i, pProcessImageIn_l->in_MN_array[i]);
+        printf("values_Out_MN_l[%d]=%d\n", i, values_Out_MN_l[i]);
     }
     printf("\n--------------------------------\n");
 }
@@ -433,7 +433,7 @@ tOplkError processSync(void)
             values_In_MN_l[i] = pProcessImageOut_l->out_MN_array[i];
         }
     }
-
+    values_In_MN_l[10] = 1;
     //Process PI_IN --> variables sortant du MN
     for (int i = 0; i < SIZE_IN; i++)
     {
