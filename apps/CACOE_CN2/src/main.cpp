@@ -96,7 +96,7 @@ int main() {
                 //    file.writeTelem();
                 //    opl.sendTelem();
                 //}
-
+                printf("\n\n 1 \n\n");
                 #if (TARGET_SYSTEM == _WIN32_)
                 #else
                 res = valve.verifDependanceValves();
@@ -125,6 +125,8 @@ int main() {
                         break;
                     }
                 }
+
+                printf("\n\n 2 \n\n");
                 res = isEGchanged();
                 if (res == 0)
                 {
@@ -140,6 +142,8 @@ int main() {
                         opl.sendError(0x0003);
                     }
                 }
+
+                printf("\n\n 3 \n\n");
                 res = opl.demandeExtinctOPL();
                 if(res == 0){
                     etat=255;
@@ -161,12 +165,15 @@ int main() {
                         "Kernel stack has gone! Exiting...");
                 }
 
+                printf("\n\n 4 \n\n");
                 EC1 = 111;
                 setEC1(EC1);
 
                 readChannels();
                 processSync();
                 system_msleep(1000);
+
+                printf("\n\n 5 \n\n");
                 break;
             case 3:
                 break;
