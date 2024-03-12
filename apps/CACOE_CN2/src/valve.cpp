@@ -141,6 +141,8 @@ int16_t valve::verifDependanceValves()
 {
     for (int i = 0; i < MAX_VALVES; i++) 
     {
+
+        printf("\n\n 1.1 \n\n");
         /*
         if(getActivation(i + nbValuesCN_Out_ByCN + 2))
             printf("getActivation(%d):vrai\n", i + nbValuesCN_Out_ByCN + 2);
@@ -150,6 +152,8 @@ int16_t valve::verifDependanceValves()
         if (getActivation(i + nbValuesCN_Out_ByCN + 2) &&
             isDependanceActive(i + nbValuesCN_In_ByCN + 2) == 0)
         {
+
+            printf("\n\n 1.2 \n\n");
             //printf("vrai\n");
             if (!timerStarted[i])
             {
@@ -157,6 +161,7 @@ int16_t valve::verifDependanceValves()
                 startTimerDependance(i);
             }
 
+            printf("\n\n 1.3 \n\n");
             if (isTimerExeeded(i) == 0)
             {
                 //printf("actionnement valve %d !\n", i);
@@ -165,6 +170,8 @@ int16_t valve::verifDependanceValves()
                 //printf("AFTER : getValeur(i + nbValuesCN_In_ByCN + 2):%d , gpiod_line_get_value(lines[i]):%d\n",
                 //    getValeur(i + nbValuesCN_In_ByCN + 2), gpiod_line_get_value(lines[i]));
             }
+
+            printf("\n\n 1.4 \n\n");
         }
         //printf("-------------------------------------------------\n");
     }
