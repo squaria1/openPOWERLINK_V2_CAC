@@ -84,7 +84,11 @@ int16_t getEC1()
 
 void setEG(int16_t EG)
 {
-    values_Out_MN_l[0] = EG;
+    for (int i = 0; i < SIZE_IN; i++)
+    {
+        if (i % (nbValuesCN_In + 1) == 0)
+            values_Out_MN_l[i] = EG;
+    }
 }
 
 int16_t getTest()
