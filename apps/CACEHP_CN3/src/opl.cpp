@@ -445,6 +445,7 @@ tOplkError processSync()
 
     //Process PI_OUT --> variables sortant du CN
     setValues_Out_CN();
+    affValeursOut();
 
     for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
     {
