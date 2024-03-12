@@ -22,7 +22,7 @@ extern "C"
     struct LigneCSV {
         int valeur[MAX_LINE_SIZE];
         int dependanceVannes[MAX_LINE_SIZE][MAX_LINE_SIZE];
-        float timerVannes[MAX_LINE_SIZE];
+        double timerVannes[MAX_LINE_SIZE];
     };
 
     struct LigneVannes {
@@ -63,7 +63,7 @@ extern "C"
 
     int getValeur(int ligne);
     int* getDependanceVannes(int ligne);
-    float getTimerVannes(int ligne);
+    double getTimerVannes(int ligne);
     uint8_t getEtatInitialVannes(int ligne);
     uint8_t getEtatInitialSensors(int ligne);
     uint8_t getPortGPIO(int ligne);

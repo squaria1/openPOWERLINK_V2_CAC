@@ -73,9 +73,9 @@ extern "C"
     int16_t     initOPL();
     int16_t     extinctOPL();
     //void      setValues_In_CN(int ligne);
-    int16_t*    getValues_In_CN(void);
+    int16_t     getValues_In_CN(int ligne);
     void        setValues_Out_CN();
-    int16_t*    getValues_Out_CN(void);
+    int16_t     getValues_Out_CN(int ligne);
     //void      setActivated_In_CN(int ligne, uint8_t mode);
     void        setActivated_Out_CN();
     void        affValeursIn();

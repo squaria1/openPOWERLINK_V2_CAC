@@ -73,7 +73,7 @@ int main() {
                 #endif
                 res = opl.demandeExtinctOPL();
                 if(res == 0)
-                    etat=3;
+                    etat=255;
                 else
                     etat=2;
                 break;
@@ -96,6 +96,11 @@ int main() {
                 //    file.writeTelem();
                 //    opl.sendTelem();
                 //}
+
+                #if (TARGET_SYSTEM == _WIN32_)
+                #else
+                res = valve.verifDependanceValves();
+                #endif
                 if (console_kbhit())
                 {
                     cKey = (char)console_getch();
@@ -161,7 +166,7 @@ int main() {
 
                 readChannels();
                 processSync();
-                system_msleep(100);
+                system_msleep(1000);
                 break;
             case 3:
                 break;
@@ -219,6 +224,8 @@ int main() {
                 else
                     printf("Error telemfiles close\n");
                 etat = 256;
+                break;
+            default:
                 break;
         }
     }

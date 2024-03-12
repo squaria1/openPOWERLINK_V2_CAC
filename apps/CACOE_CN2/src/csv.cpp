@@ -92,7 +92,7 @@ int16_t refreshCSV() {
 
     int i = 0;
     do {
-        //printf("%d ", monTableau[i]);
+        printf("getDependanceVannes(%d):%d\n",i, monTableau[i]);
         i++;
     } while (monTableau[i] != 0);
 
@@ -125,13 +125,12 @@ void removeCarriageReturn(char* str) {
 
 void lireFichierCSV(const char* dir) {
     const char* nameCSV = getNomFichiercsv(EG);
-    //const char* nameCSV = "Etat_.csv";
     char cwd[MAX_PATH_LENGTH];
     printf("nameCSV: %s\n", nameCSV);
     #if (TARGET_SYSTEM == _WIN32_)
     #else
         if (getcwd(cwd, sizeof(cwd)) != NULL)
-            //printf("Current working directory : %s\n", cwd);
+            printf("Current working directory : %s\n", cwd);
     #endif
     if (nameCSV == NULL) {
         perror("Erreur code EG non trouve dans liaisonEGEtat.csv");
@@ -140,7 +139,6 @@ void lireFichierCSV(const char* dir) {
 
     char fileName[MAX_PATH_LENGTH];
     snprintf(fileName, sizeof(fileName), "%s%s", dir, nameCSV);
-    //printf("fileName lireFichierCSV: %s\n", fileName);
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
         perror("Erreur lors de l'ouverture du fichier lireFichierCSV");
@@ -339,16 +337,22 @@ int getValeur(int ligne) {
 }
 
 int* getDependanceVannes(int ligne) {
-    int* tableau = (int*)malloc(MAX_DEPENDANCE * sizeof(int));
+    int* tab = (int*)malloc(MAX_DEPENDANCE * sizeof(int));
 
-    for (int i = 0; i < MAX_DEPENDANCE; i++) {
-        tableau[i] = dataEtats->dependanceVannes[ligne][i];
+    if (tab != NULL)
+    {
+        for (int i = 0; i < MAX_DEPENDANCE; i++) 
+        {
+            tab[i] = dataEtats->dependanceVannes[ligne][i];
+        }
     }
+    else
+        return NULL;
     
-    return tableau;
+    return tab;
 }
 
-float getTimerVannes(int ligne) {
+double getTimerVannes(int ligne) {
     return dataEtats->timerVannes[ligne];
 }
 
@@ -382,10 +386,8 @@ int16_t getEGcsv(int ligne) {
 
 const char* getNomFichiercsv(int16_t EG) {
     int ligne = searchEG(EG);
-    ////printf("ligne:%d\n",ligne);
     if (ligne != -1)
     {
-        //printf("dataEG->nom[ligne]:%s\n", dataEG->nom[ligne]);
         return dataEG->nom[ligne];
     }
     else
@@ -399,7 +401,6 @@ int searchEG(int16_t EG)
     {
         if (dataEG->EG[i] == EG)
         {
-            //printf("i:%d\n", i);
             return i;
         }
     }

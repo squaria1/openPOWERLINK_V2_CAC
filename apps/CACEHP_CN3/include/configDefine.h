@@ -5,7 +5,7 @@
 #define CYCLE_LEN           10000
 #define NODEID              3                   // could be changed by command param
 #define NB_NODES            3
-#define IP_ADDR             0xc0a80121          // 192.168.1.1
+#define IP_ADDR             0xc0a80121          // 192.168.1.33
 #define DEFAULT_GATEWAY     0xC0A801FE          // 192.168.1.C_ADR_RT1_DEF_NODE_ID
 #define SUBNET_MASK         0xFFFFFF00          // 255.255.255.0
 
