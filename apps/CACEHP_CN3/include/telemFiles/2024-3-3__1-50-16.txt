@@ -1,4 +1,0 @@
-test
-2024/03/03-01:50:16 ERROR    GENERIC        code_Error:0xE003
-2024/03/03-01:50:19 INFO     GENERIC        code_success:0x03
-2024/03/03-01:50:20 INFO     GENERIC        code_success:0x1FFF
