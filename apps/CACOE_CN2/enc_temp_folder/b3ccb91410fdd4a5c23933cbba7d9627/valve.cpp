@@ -180,7 +180,6 @@ int16_t valve::verifDependanceValves()
 int16_t valve::isDependanceActive(int ligne)
 {
     printf("ligne:%d\n", ligne);
-    printf("(ligne - 2) % MAX_VALVES:%d\n", (ligne - 2) % MAX_VALVES);
     printf("BEFORE : getValeur(ligne):%d , gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]):%d\n",
             getValeur(ligne), gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]));
 

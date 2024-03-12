@@ -101,6 +101,7 @@ int main() {
                 #else
                 res = valve.verifDependanceValves();
                 #endif
+
                 if (console_kbhit())
                 {
                     cKey = (char)console_getch();
