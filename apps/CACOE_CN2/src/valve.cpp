@@ -180,9 +180,9 @@ int16_t valve::verifDependanceValves()
 int16_t valve::isDependanceActive(int ligne)
 {
     printf("ligne:%d\n", ligne);
-    printf("(ligne - 2) % MAX_VALVES:%d\n", (ligne - 2) % MAX_VALVES);
-    printf("BEFORE : getValeur(ligne):%d , gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]):%d\n",
-            getValeur(ligne), gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]));
+    printf("(ligne - 2) % MAX_VALVES:%d\n", (ligne - 2) % (nbValuesCN_In+1));
+    printf("BEFORE : getValeur(ligne):%d , gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In+1)]):%d\n",
+            getValeur(ligne), gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In + 1)]));
 
     int* tab;
     int cmpt = 0;
@@ -194,18 +194,18 @@ int16_t valve::isDependanceActive(int ligne)
     if (ligne > nbValuesCN_In_ByCN && ligne < nbValuesCN_In_ByCN + nbValuesCN_In)
     {
         printf("(ligne - 2) % MAX_VALVES=%d\n", (ligne - 2) % MAX_VALVES);
-        printf("getValeur(ligne):%d , gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]):%d\n",
-                getValeur(ligne), gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]));
+        printf("getValeur(ligne):%d , gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In+1)]):%d\n",
+                getValeur(ligne), gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In + 1)]));
 
-        if (getValeur(ligne) == gpiod_line_get_value(lines[(ligne - 2) % MAX_VALVES]))
+        if (getValeur(ligne) == gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In + 1)]))
             return 1;
     }
     else
     {
-        printf("getValeur(ligne):%d , getValues_In_CN((ligne - 2) % MAX_VALVES)):%d\n",
-                getValeur(ligne), getValues_In_CN((ligne - 2) % MAX_VALVES));
+        printf("getValeur(ligne):%d , getValues_In_CN((ligne - 2) % (nbValuesCN_In+1))):%d\n",
+                getValeur(ligne), getValues_In_CN((ligne - 2) % (nbValuesCN_In + 1)));
 
-        if (getValeur(ligne) == getValues_In_CN((ligne - 2) % MAX_VALVES))
+        if (getValeur(ligne) == getValues_In_CN((ligne - 2) % (nbValuesCN_In + 1)))
             return 1;
     }
 
