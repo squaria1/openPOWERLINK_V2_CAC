@@ -17,7 +17,7 @@
 
 // xapOpl
 #define COMPUTED_PI_OUT_SIZE 152
-#define SIZE_OUT_MN 78
+#define SIZE_OUT 78
 #define SIZE_OUT_CN 75
 #define COMPUTED_PI_IN_SIZE 80
 #define SIZE_IN_MN 42
@@ -30,11 +30,11 @@
 #define MAX_ROWS 5
 #define MAX_DEPENDANCE 2832
 #ifdef _WIN32
-#define COMMON_PHYSICAL_CONFIG_DIRECTORY "..\\..\\..\\..\\common\\commonCSVFiles\\activationInMN.csv"
+#define COMMON_PHYSICAL_CONFIG_DIRECTORY "..\\..\\..\\..\\common\\commonCSVFiles\\activation.csv"
 // TelemFiles
 #define TELEMFILES_DIRECTORY "..\\..\\..\\include\\telemFiles\\"
 #else
-#define COMMON_PHYSICAL_CONFIG_DIRECTORY "../../../common/commonCSVFiles/activationInMN.csv"
+#define COMMON_PHYSICAL_CONFIG_DIRECTORY "../../../common/commonCSVFiles/activation.csv"
 // TelemFiles
 #define TELEMFILES_DIRECTORY "../../include/telemFiles"
 #endif

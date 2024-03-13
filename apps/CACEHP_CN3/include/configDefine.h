@@ -33,7 +33,7 @@
 #define STATE_CSV_DIRECTORY "..\\..\\..\\..\\common\\commonCSVFiles\\stateCSV\\"
 #define PHYSICAL_CONFIG_VANNES_DIRECTORY "..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_vannes.csv"
 #define PHYSICAL_CONFIG_SENSORS_DIRECTORY "..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_sensors.csv"
-#define COMMON_PHYSICAL_CONFIG_DIRECTORY "..\\..\\..\\..\\common\\commonCSVFiles\\commonPhysicalCONFIG.csv"
+#define COMMON_PHYSICAL_CONFIG_DIRECTORY "..\\..\\..\\..\\common\\commonCSVFiles\\activation.csv"
 #define EG_ETAT_DIRECTORY "..\\..\\..\\..\\common\\commonCSVFiles\\liaisonEGEtat.csv"
 // TelemFiles
 #define TELEMFILES_DIRECTORY "..\\..\\..\\include\\telemFiles\\"
@@ -41,7 +41,7 @@
 #define STATE_CSV_DIRECTORY "../../../common/commonCSVFiles/stateCSV/"
 #define PHYSICAL_CONFIG_VANNES_DIRECTORY "../../include/physicalCONFIG/physicalCONFIG_vannes.csv"
 #define PHYSICAL_CONFIG_SENSORS_DIRECTORY "../../include/physicalCONFIG/physicalCONFIG_sensors.csv"
-#define COMMON_PHYSICAL_CONFIG_DIRECTORY "../../../common/commonCSVFiles/commonPhysicalCONFIG.csv"
+#define COMMON_PHYSICAL_CONFIG_DIRECTORY "../../../common/commonCSVFiles/activation.csv"
 #define EG_ETAT_DIRECTORY "../../../common/commonCSVFiles/liaisonEGEtat.csv"
 // TelemFiles
 #define TELEMFILES_DIRECTORY "../../include/telemFiles/"

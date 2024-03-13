@@ -1,6 +1,8 @@
 #include "opl.h"
 
 uint8_t              mode;
+
+const uint16_t       nbValuesCN_Out = SIZE_OUT_CN / NB_NODES - 1;
 const uint16_t       nbValuesCN_In = SIZE_IN / NB_NODES - 1;
 
 opl::opl()
@@ -61,7 +63,7 @@ int16_t* getValues_Out_MN()
 
 void setActivated_In_MN()
 {
-    for (int i = 0; i < SIZE_OUT_MN + 1; i++)
+    for (int i = 0; i < SIZE_OUT + 1; i++)
     {
         activated_In_MN_l[i] = getActivation(i);
     }
@@ -70,7 +72,7 @@ void setActivated_In_MN()
 /*
 void setActivated_Out_MN()
 {
-    for (int i = 0; i < SIZE_OUT_MN; i++)
+    for (int i = 0; i < SIZE_OUT; i++)
     {
         activated_Out_MN_l[i] = activated_Out_MN_g[i];
     }
@@ -99,7 +101,7 @@ int16_t getTest()
 void affValeursIn()
 {
     printf("\n-------------IN MN--------------\n");
-    for (int i = 0; i < SIZE_OUT_MN; i++)
+    for (int i = 0; i < SIZE_OUT; i++)
     {
         printf("activated_In_MN_l[%d]=%d\n", i+1, activated_In_MN_l[i + 1]);
         printf("values_In_MN_l[%d]=%d\n", i, values_In_MN_l[i]);
@@ -217,7 +219,7 @@ tOplkError initApp(void)
     cnt_l = 0;
     i = 0;
 
-    for (i = 0; i < SIZE_OUT_MN; i++)
+    for (i = 0; i < SIZE_OUT; i++)
     {
         values_In_MN_l[i] = 0;
     }
@@ -424,10 +426,15 @@ tOplkError processSync(void)
         return ret;
 
     cnt_l++;
-
+    int offset = 1;
     //Process PI_OUT --> variables entrant dans le MN
-    for (int i = 0; i < SIZE_OUT_MN; i++)
+    for (int i = 0; i < SIZE_OUT; i++)
     {
+        if (i % (nbValuesCN_Out + 2) == 1)
+        {
+            i += offset;
+            offset++;
+        }
         if (activated_In_MN_l[i+1])
         {
             values_In_MN_l[i] = pProcessImageOut_l->out_MN_array[i];
