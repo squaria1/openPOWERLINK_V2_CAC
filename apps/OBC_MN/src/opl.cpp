@@ -433,11 +433,10 @@ tOplkError processSync(void)
         if (j % nbValuesCN_Out == 1)
         {
             offset++;
-            j += offset;
         }
         if (activated_In_MN_l[i+1])
         {
-            values_In_MN_l[i] = pProcessImageOut_l->out_MN_array[j];
+            values_In_MN_l[i] = pProcessImageOut_l->out_MN_array[j+offset];
         }
         j++;
     }
