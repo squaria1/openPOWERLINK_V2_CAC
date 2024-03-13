@@ -430,7 +430,7 @@ tOplkError processSync(void)
     //Process PI_OUT --> variables entrant dans le MN
     for (int i = 0; i < SIZE_OUT; i++)
     {
-        if (j % (nbValuesCN_Out + 2) == 1)
+        if (j % nbValuesCN_Out == 1)
         {
             offset++;
             j += offset;
