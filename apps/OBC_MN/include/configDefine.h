@@ -20,8 +20,8 @@
 #define SIZE_OUT_MN 78
 #define SIZE_OUT_CN 75
 #define COMPUTED_PI_IN_SIZE 80
+#define SIZE_IN_MN 42
 #define SIZE_IN 39
-#define SIZE_IN_CN 39
 
 // CSV
 #define MAX_PATH_LENGTH 1024

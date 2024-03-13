@@ -59,7 +59,7 @@ void setValues_In_CN(int ligne)
 void affValeursIn()
 {
     printf("\n-------------IN CN--------------\n");
-    for (int i = nbValuesCN_In_ByCN; i < nbValuesCN_In_ByCN + nbValuesCN_In; i++)
+    for (int i = 0; i < SIZE_IN; i++)
     {
         printf("values_In_CN_l[%d]=%d\n", i, pProcessImageIn_l->in_CN_array[i]);
     }
