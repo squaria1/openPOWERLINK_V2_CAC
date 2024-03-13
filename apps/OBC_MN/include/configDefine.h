@@ -17,7 +17,7 @@
 
 // xapOpl
 #define COMPUTED_PI_OUT_SIZE 152
-#define SIZE_OUT 78
+#define SIZE_OUT 75
 #define SIZE_OUT_CN 75
 #define COMPUTED_PI_IN_SIZE 80
 #define SIZE_IN_MN 42
