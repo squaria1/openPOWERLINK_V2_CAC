@@ -30,11 +30,11 @@
 #define MAX_ROWS 5
 #define MAX_DEPENDANCE 2832
 #ifdef _WIN32
-#define COMMON_PHYSICAL_CONFIG_DIRECTORY "..\\..\\..\\..\\common\\commonCSVFiles\\activationMN.csv"
+#define COMMON_PHYSICAL_CONFIG_DIRECTORY "..\\..\\..\\..\\common\\commonCSVFiles\\activation.csv"
 // TelemFiles
 #define TELEMFILES_DIRECTORY "..\\..\\..\\include\\telemFiles\\"
 #else
-#define COMMON_PHYSICAL_CONFIG_DIRECTORY "../../../common/commonCSVFiles/activationMN.csv"
+#define COMMON_PHYSICAL_CONFIG_DIRECTORY "../../../common/commonCSVFiles/activation.csv"
 // TelemFiles
 #define TELEMFILES_DIRECTORY "../../include/telemFiles"
 #endif
