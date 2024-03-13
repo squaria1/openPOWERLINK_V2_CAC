@@ -431,11 +431,11 @@ tOplkError processSync(void)
     for (int i = 0; i < NB_NODES; i++)
     {
         values_In_MN_l[(nbValuesCN_Out * i)] = pProcessImageOut_l->out_MN_array[(nbValuesCN_Out * i) + i];
+        a = j + i - 1;
         for (j; j < a + nbValuesCN_Out; j++)
         {
             values_In_MN_l[j + 1] = pProcessImageOut_l->out_MN_array[j + i + 2];
         }
-        a = j + i - 1;
     }
 
     //Process PI_IN --> variables sortant du MN
