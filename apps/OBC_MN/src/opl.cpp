@@ -454,7 +454,10 @@ tOplkError processSync(void)
                 skipSensorsOutFromIn += 1;
 
             if (i % (nbValuesCN_In + 1) != 0 && activated_In_MN_l[skipSensorsOutFromIn])
-                pProcessImageIn_l->in_MN_array[i] = values_In_MN_l[i];
+            {
+                values_Out_MN_l[i] = values_In_MN_l[i];
+                pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
+            }
         }
         break;
     case 1: // mode manuel : l'état des vannes proviennent directement du MN
