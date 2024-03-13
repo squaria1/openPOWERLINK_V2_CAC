@@ -442,7 +442,6 @@ tOplkError processSync()
         break;
     }
 
-
     //Process PI_OUT --> variables sortant du CN
     setValues_Out_CN();
 
