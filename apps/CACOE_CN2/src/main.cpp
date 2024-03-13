@@ -17,7 +17,7 @@ int main() {
     int16_t     res = 0;
     int16_t     EC1 = -1;
     EG = 1;
-    EC = 1;
+    EC = 22;
 
     
     while(etat<256){

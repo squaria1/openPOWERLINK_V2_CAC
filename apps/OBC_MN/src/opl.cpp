@@ -450,6 +450,8 @@ tOplkError processSync(void)
         {
             if (i % (nbValuesCN_In + 1) == 0)
                 skipSensorsOutFromIn += nbValuesCN_In + 1;
+            else if (i % (nbValuesCN_In + 2) == 0)
+                i++;
             else
                 skipSensorsOutFromIn += 1;
 
