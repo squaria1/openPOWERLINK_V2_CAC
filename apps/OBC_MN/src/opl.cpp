@@ -426,14 +426,14 @@ tOplkError processSync(void)
         return ret;
 
     cnt_l++;
-    int offset = 1, j = 0;
+    int offset = 0, j = 0;
     //Process PI_OUT --> variables entrant dans le MN
     for (int i = 0; i < SIZE_OUT; i++)
     {
         if (i % (nbValuesCN_Out + 2) == 1)
         {
-            j += offset;
             offset++;
+            j += offset;
         }
         if (activated_In_MN_l[i+1])
         {
