@@ -435,7 +435,7 @@ tOplkError processSync(void)
         {
             values_In_MN_l[j + 1] = pProcessImageOut_l->out_MN_array[j + i + 2];
         }
-        a = j + i;
+        a = j + i - 1;
     }
 
     //Process PI_IN --> variables sortant du MN
