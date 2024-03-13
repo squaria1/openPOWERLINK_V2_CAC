@@ -2,7 +2,7 @@
 
 uint8_t              mode;
 
-const uint16_t       nbValuesCN_Out = SIZE_OUT / NB_NODES;
+const uint16_t       nbValuesCN_Out = SIZE_OUT_MN / NB_NODES;
 const uint16_t       nbValuesCN_In = SIZE_IN / NB_NODES - 1;
 
 opl::opl()
