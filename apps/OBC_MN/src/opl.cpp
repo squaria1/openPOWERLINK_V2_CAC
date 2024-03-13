@@ -428,9 +428,9 @@ tOplkError processSync(void)
     cnt_l++;
     //Process PI_OUT --> variables entrant dans le MN
     int j = 0, a = 0;
-    for (int i = 1; i < NB_NODES+1; i++)
+    for (int i = 0; i < NB_NODES; i++)
     {
-        values_In_MN_l[(nbValuesCN_Out * i)] = pProcessImageOut_l->out_MN_array[(nbValuesCN_Out * i) + i - 1];
+        values_In_MN_l[(nbValuesCN_Out * i)] = pProcessImageOut_l->out_MN_array[(nbValuesCN_Out * i) + i];
         for (j; j < a + nbValuesCN_Out; j++)
         {
             values_In_MN_l[j + 1] = pProcessImageOut_l->out_MN_array[j + i + 1];
