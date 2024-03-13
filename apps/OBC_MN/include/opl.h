@@ -88,7 +88,7 @@ extern "C"
     static PI_IN*                   pProcessImageIn_l;
     static const PI_OUT*            pProcessImageOut_l;
 
-    static int16_t                  values_In_MN_l[SIZE_OUT + NB_NODES];
+    static int16_t                  values_In_MN_l[SIZE_OUT + 2*NB_NODES];
     static int16_t                  values_Out_MN_l[SIZE_IN];
     static bool                     activated_In_MN_l[SIZE_OUT+1];
     //static bool                   activated_Out_MN_l[SIZE_OUT];

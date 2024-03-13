@@ -426,17 +426,16 @@ tOplkError processSync(void)
         return ret;
 
     cnt_l++;
-    int offset = 0;
     //Process PI_OUT --> variables entrant dans le MN
-
-    for (int i = 0; i < NB_NODES; i++)
+    int j = 0, a = 0;
+    for (int i = 1; i < NB_NODES+1; i++)
     {
-        offset++;
-        values_In_MN_l[(nbValuesCN_Out * i)] = pProcessImageOut_l->out_MN_array[(nbValuesCN_Out * i)];
-        for (int j = 0; j < nbValuesCN_Out; j++)
+        values_In_MN_l[(nbValuesCN_Out * i)] = pProcessImageOut_l->out_MN_array[(nbValuesCN_Out * i) + i - 1];
+        for (j; j < a + nbValuesCN_Out; j++)
         {
-            values_In_MN_l[j + (nbValuesCN_Out * i) + 1] = pProcessImageOut_l->out_MN_array[j + (nbValuesCN_Out * i) + offset];
+            values_In_MN_l[j + 1] = pProcessImageOut_l->out_MN_array[j + i + 1];
         }
+        a = j + i;
     }
 
     //Process PI_IN --> variables sortant du MN
