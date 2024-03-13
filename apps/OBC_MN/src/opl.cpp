@@ -61,7 +61,7 @@ int16_t* getValues_Out_MN()
 
 void setActivated_In_MN()
 {
-    for (int i = 0; i < SIZE_OUT + 1; i++)
+    for (int i = 0; i < SIZE_OUT_MN + 1; i++)
     {
         activated_In_MN_l[i] = getActivation(i);
     }
@@ -70,7 +70,7 @@ void setActivated_In_MN()
 /*
 void setActivated_Out_MN()
 {
-    for (int i = 0; i < SIZE_OUT; i++)
+    for (int i = 0; i < SIZE_OUT_MN; i++)
     {
         activated_Out_MN_l[i] = activated_Out_MN_g[i];
     }
@@ -99,7 +99,7 @@ int16_t getTest()
 void affValeursIn()
 {
     printf("\n-------------IN MN--------------\n");
-    for (int i = 0; i < SIZE_OUT; i++)
+    for (int i = 0; i < SIZE_OUT_MN; i++)
     {
         printf("activated_In_MN_l[%d]=%d\n", i+1, activated_In_MN_l[i + 1]);
         printf("values_In_MN_l[%d]=%d\n", i, values_In_MN_l[i]);
@@ -217,7 +217,7 @@ tOplkError initApp(void)
     cnt_l = 0;
     i = 0;
 
-    for (i = 0; i < SIZE_OUT; i++)
+    for (i = 0; i < SIZE_OUT_MN; i++)
     {
         values_In_MN_l[i] = 0;
     }
@@ -426,7 +426,7 @@ tOplkError processSync(void)
     cnt_l++;
 
     //Process PI_OUT --> variables entrant dans le MN
-    for (int i = 0; i < SIZE_OUT; i++)
+    for (int i = 0; i < SIZE_OUT_MN; i++)
     {
         if (activated_In_MN_l[i+1])
         {

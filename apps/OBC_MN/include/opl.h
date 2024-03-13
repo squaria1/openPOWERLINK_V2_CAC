@@ -88,10 +88,10 @@ extern "C"
     static PI_IN*                   pProcessImageIn_l;
     static const PI_OUT*            pProcessImageOut_l;
 
-    static int16_t                  values_In_MN_l[SIZE_OUT];
+    static int16_t                  values_In_MN_l[SIZE_OUT_MN];
     static int16_t                  values_Out_MN_l[SIZE_IN];
-    static bool                     activated_In_MN_l[SIZE_OUT+1];
-    //static bool                   activated_Out_MN_l[SIZE_OUT];
+    static bool                     activated_In_MN_l[SIZE_OUT_MN+1];
+    //static bool                   activated_Out_MN_l[SIZE_OUT_MN];
 
     //------------------------------------------------------------------------------
     // global vars

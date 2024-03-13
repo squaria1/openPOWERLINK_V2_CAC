@@ -11,7 +11,7 @@
 
 typedef struct
 {
-	int16_t out_MN_array[SIZE_OUT];
+	int16_t out_MN_array[SIZE_OUT_MN];
 } PI_OUT;
 
 typedef struct
