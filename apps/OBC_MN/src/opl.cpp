@@ -460,9 +460,9 @@ tOplkError processSync(void)
     {
     case 0: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
 
-        for (int i = 1; i < SIZE_IN; i++)
+        for (int i = 0; i < SIZE_IN; i++)
         {
-            if (i % (nbValuesCN_In) == 0)
+            if (i % (nbValuesCN_In+1) == 0 && i != 0)
                 skipSensorsOutFromIn += nbValuesCN_In + 1;
             else if (activated_In_MN_l[i + skipSensorsOutFromIn + 1])
             {
