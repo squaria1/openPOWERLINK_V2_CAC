@@ -482,6 +482,7 @@ tOplkError processSync(void)
         }
         a = a + nbValuesCN_Out + 2 + i;
     }
+    values_In_MN_l[13] = pProcessImageOut_l->out_MN_array[14];
     //for (int i = 0; i < NB_NODES; i++) 
     //{
     //    values_In_MN_l[(nbValuesCN_Out + 1) * i] = tabInit[a];
