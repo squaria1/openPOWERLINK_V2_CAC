@@ -18,9 +18,7 @@
 // xapOpl
 #define COMPUTED_PI_OUT_SIZE 152
 #define SIZE_OUT 75
-#define SIZE_OUT_MN 78
 #define COMPUTED_PI_IN_SIZE 80
-#define SIZE_IN_MN 42
 #define SIZE_IN 39
 
 // CSV
