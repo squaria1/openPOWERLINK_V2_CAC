@@ -462,7 +462,8 @@ tOplkError processSync(void)
         values_In_MN_l[(nbValuesCN_Out + 1) * i] = pProcessImageOut_l->out_MN_array[a];
         for (int j = 0; j < nbValuesCN_Out + 1; j++) 
         {
-            values_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1] = pProcessImageOut_l->out_MN_array[a + j + i + 2];
+            if(activated_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1])
+                values_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1] = pProcessImageOut_l->out_MN_array[a + j + i + 2];
         }
         a = a + nbValuesCN_Out + 2 + i;
     }

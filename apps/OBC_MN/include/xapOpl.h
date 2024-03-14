@@ -11,7 +11,7 @@
 
 typedef struct
 {
-	int16_t out_MN_array[SIZE_OUT];
+	int16_t out_MN_array[SIZE_OUT + 4 * NB_NODES];
 	unsigned PADDING_VAR_1:16;
 } PI_OUT;
 
