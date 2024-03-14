@@ -87,7 +87,7 @@ extern "C"
 
     static UINT                     cnt_l;
     static PI_IN*                   pProcessImageIn_l;
-    static PI_OUT*            pProcessImageOut_l;
+    static PI_OUT*                  pProcessImageOut_l;
 
     static int16_t                  values_In_MN_l[SIZE_OUT + 2*NB_NODES];
     static int16_t                  values_Out_MN_l[SIZE_IN];
