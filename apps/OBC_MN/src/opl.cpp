@@ -2,7 +2,7 @@
 
 uint8_t              mode;
 
-const uint16_t       nbValuesCN_Out = SIZE_OUT / NB_NODES - 2;
+const uint16_t       nbValuesCN_Out = SIZE_OUT / NB_NODES - 1;
 const uint16_t       nbValuesCN_In = SIZE_IN / NB_NODES - 1;
 
 opl::opl()
@@ -476,10 +476,10 @@ tOplkError processSync(void)
     //}
     for (int i = 0; i < NB_NODES; i++) {
         values_In_MN_l[(nbValuesCN_Out + 1) * i] = pProcessImageOut_l->out_MN_array[(nbValuesCN_Out + 1) * i];
-        for (int j = 0; j < nbValuesCN_Out - i; j++) {
-             values_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1] = pProcessImageOut_l->out_MN_array[a + j + i + 2];
+        for (int j = 0; j < nbValuesCN_Out - i - 1; j++) {
+             values_In_MN_l[(nbValuesCN_Out) * i + j + 1] = pProcessImageOut_l->out_MN_array[a + j + i + 2];
         }
-        a = a + nbValuesCN_Out + 2 - 2*i;
+        a = a + nbValuesCN_Out + 1 - 2*i;
     }
     //values_In_MN_l[13] = pProcessImageOut_l->out_MN_array[14];
     //for (int i = 0; i < NB_NODES; i++) 
