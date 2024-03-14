@@ -452,10 +452,10 @@ tOplkError processSync(void)
     //    a = a + nbValuesCN_Out + 2 + i;
     //}
     //a = 0;
-    int test1 = pProcessImageOut_l->out_MN_array[25], test2 = pProcessImageOut_l->out_MN_array[50];
+    int test1 = pProcessImageOut_l->out_MN_array[29], test2 = pProcessImageOut_l->out_MN_array[57];
 
-    printf("\npProcessImageOut_l->out_MN_array[25] : %d\n", test1);
-    printf("\npProcessImageOut_l->out_MN_array[50] : %d\n", test2);
+    printf("\npProcessImageOut_l->out_MN_array[29] : %d\n", test1);
+    printf("\npProcessImageOut_l->out_MN_array[57] : %d\n", test2);
     //Process PI_OUT --> variables entrant dans le MN
     for (int i = 0; i < NB_NODES; i++) 
     {
