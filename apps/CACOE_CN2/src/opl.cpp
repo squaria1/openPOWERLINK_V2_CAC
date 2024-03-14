@@ -68,8 +68,8 @@ void affValeursIn()
 
 void affValeursOut()
 {
-    printf("\n------------OUT CN--------------\n");
-    for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
+    printf("\n------------OUT CN2--------------\n");
+    for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out + 1; i++)
     {
         printf("activated_Out_CN_l[%d]=%d\n", i + 1, activated_Out_CN_l[i + 1]);
         printf("values_Out_CN_l[%d]=%d\n", i, pProcessImageOut_l->out_CN_array[i]);
