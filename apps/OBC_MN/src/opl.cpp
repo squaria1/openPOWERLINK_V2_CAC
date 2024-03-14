@@ -451,7 +451,7 @@ tOplkError processSync(void)
 
     //    a = a + nbValuesCN_Out + 2 + i;
     //}
-    for (int i = 54; i < 57; i++)
+    for (int i = 54; i < 58; i++)
     {
         values_In_MN_l[i] = pProcessImageOut_l->out_MN_array[i];
     }
