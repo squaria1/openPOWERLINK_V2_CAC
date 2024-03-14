@@ -71,6 +71,9 @@ int main() {
                     case 'e':
                         affValeursInProcess();
                         break;
+                    case 'r':
+                        affValeursOutProcess();
+                        break;
                     default:
                         break;
                     }

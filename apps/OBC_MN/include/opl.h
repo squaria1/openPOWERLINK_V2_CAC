@@ -77,6 +77,7 @@ extern "C"
     void        affValeursIn();
     void        affValeursOut();
     void        affValeursInProcess();
+    void        affValeursOutProcess();
 
 
     //------------------------------------------------------------------------------
