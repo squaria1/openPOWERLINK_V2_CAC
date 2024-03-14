@@ -452,7 +452,7 @@ tOplkError processSync(void)
     //    a = a + nbValuesCN_Out + 2 + i;
     //}
     //a = 0;
-    int test1 = pProcessImageOut_l->out_MN_array[29], test2 = pProcessImageOut_l->out_MN_array[57];
+    int16_t test1 = pProcessImageOut_l->out_MN_array[29], test2 = pProcessImageOut_l->out_MN_array[57];
 
     printf("\npProcessImageOut_l->out_MN_array[29] : %d\n", test1);
     printf("\npProcessImageOut_l->out_MN_array[57] : %d\n", test2);
