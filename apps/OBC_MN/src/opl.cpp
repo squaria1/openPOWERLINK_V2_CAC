@@ -453,20 +453,23 @@ tOplkError processSync(void)
     //}
     //a = 0;
     int16_t test1 = pProcessImageOut_l->out_MN_array[29], test2 = pProcessImageOut_l->out_MN_array[57];
-
+    values_In_MN_l[29] = test1;
+    values_In_MN_l[57] = test2;
     printf("\npProcessImageOut_l->out_MN_array[29] : %d\n", test1);
-    printf("\npProcessImageOut_l->out_MN_array[57] : %d\n", test2);
+    printf("values_In_MN_l[29] : %d\n", values_In_MN_l[29]);
+    printf("values_In_MN_l[57] : %d\n", values_In_MN_l[57]);
+    printf("pProcessImageOut_l->out_MN_array[57] : %d\n", test2);
     //Process PI_OUT --> variables entrant dans le MN
-    for (int i = 0; i < NB_NODES; i++) 
-    {
-        values_In_MN_l[(nbValuesCN_Out + 1) * i] = pProcessImageOut_l->out_MN_array[a];
-        for (int j = 0; j < nbValuesCN_Out; j++) 
-        {
-            if (activated_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1])
-                values_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1] = pProcessImageOut_l->out_MN_array[a + j + i + 2];
-        }
-        a = a + nbValuesCN_Out + 2 + i;
-    }
+    //for (int i = 0; i < NB_NODES; i++) 
+    //{
+    //    values_In_MN_l[(nbValuesCN_Out + 1) * i] = pProcessImageOut_l->out_MN_array[a];
+    //    for (int j = 0; j < nbValuesCN_Out; j++) 
+    //    {
+    //        if (activated_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1])
+    //            values_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1] = pProcessImageOut_l->out_MN_array[a + j + i + 2];
+    //    }
+    //    a = a + nbValuesCN_Out + 2 + i;
+    //}
     //for (int i = 0; i < NB_NODES; i++) 
     //{
     //    values_In_MN_l[(nbValuesCN_Out + 1) * i] = tabInit[a];
