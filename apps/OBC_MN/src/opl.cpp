@@ -430,7 +430,7 @@ tOplkError processSync(void)
     if (ret != kErrorOk)
         return ret;
 
-    memset(pProcessImageOut_l->out_MN_array, 0, sizeof(pProcessImageOut_l->out_MN_array));
+    //memset(pProcessImageOut_l->out_MN_array, 0, sizeof(pProcessImageOut_l->out_MN_array));
 
     ret = oplk_exchangeProcessImageOut();
     if (ret != kErrorOk)
@@ -439,19 +439,19 @@ tOplkError processSync(void)
     cnt_l++;
 
     int a = 0;
-    for (int i = 0; i < NB_NODES; i++) {
-        pProcessImageOut_l->out_MN_array[a] = 1;
-        for (int j = 1; j <= i + 1; j++)
-        {
-            pProcessImageOut_l->out_MN_array[a + j] = 0;
-        }
-        for (int k = 0; k < nbValuesCN_Out; k++) {
-            pProcessImageOut_l->out_MN_array[a + k + i + 2] = k + 1;
-        }
+    //for (int i = 0; i < NB_NODES; i++) {
+    //    pProcessImageOut_l->out_MN_array[a] = 1;
+    //    for (int j = 1; j <= i + 1; j++)
+    //    {
+    //        pProcessImageOut_l->out_MN_array[a + j] = 0;
+    //    }
+    //    for (int k = 0; k < nbValuesCN_Out; k++) {
+    //        pProcessImageOut_l->out_MN_array[a + k + i + 2] = k + 1;
+    //    }
 
-        a = a + nbValuesCN_Out + 2 + i;
-    }
-    a = 0;
+    //    a = a + nbValuesCN_Out + 2 + i;
+    //}
+    //a = 0;
     //Process PI_OUT --> variables entrant dans le MN
     for (int i = 0; i < NB_NODES; i++) 
     {
