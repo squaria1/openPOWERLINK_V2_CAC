@@ -109,6 +109,17 @@ void affValeursIn()
     printf("\n--------------------------------\n");
 }
 
+void affValeursInProcess()
+{
+    printf("\n-------------IN PROCESS MN--------------\n");
+    for (int i = 0; i < SIZE_OUT; i++)
+    {
+        printf("activated_In_MN_l[%d]=%d\n", i + 1, activated_In_MN_l[i + 1]);
+        printf("pProcessImageOut_l->out_MN_array[%d]=%d\n", i, pProcessImageOut_l->out_MN_array[i]);
+    }
+    printf("\n--------------------------------\n");
+}
+
 void affValeursOut()
 {
     printf("\n------------OUT MN--------------\n");
