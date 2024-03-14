@@ -447,24 +447,24 @@ tOplkError processSync(void)
     }
     a = 0;
     //Process PI_OUT --> variables entrant dans le MN
-    //for (int i = 0; i < NB_NODES; i++) 
-    //{
-    //    values_In_MN_l[(nbValuesCN_Out + 1) * i] = tabInit[a];
-    //    for (int j = 0; j < nbValuesCN_Out + 1; j++) 
-    //    {
-    //        values_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1] = tabInit[a + j + i + 2];
-    //    }
-    //    a = a + nbValuesCN_Out + 2 + i;
-    //}
     for (int i = 0; i < NB_NODES; i++) 
     {
         values_In_MN_l[(nbValuesCN_Out + 1) * i] = tabInit[a];
         for (int j = 0; j < nbValuesCN_Out + 1; j++) 
         {
-            values_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1] = tabInit[a + j + 2];
+            values_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1] = tabInit[a + j + i + 2];
         }
-        a = a + nbValuesCN_Out + 2;
+        a = a + nbValuesCN_Out + 2 + i;
     }
+    //for (int i = 0; i < NB_NODES; i++) 
+    //{
+    //    values_In_MN_l[(nbValuesCN_Out + 1) * i] = tabInit[a];
+    //    for (int j = 0; j < nbValuesCN_Out + 1; j++) 
+    //    {
+    //        values_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1] = tabInit[a + j + 2];
+    //    }
+    //    a = a + nbValuesCN_Out + 2;
+    //}
 
     printf("\nvalues_In_MN_l[47]=%d\n", values_In_MN_l[47]);
 
