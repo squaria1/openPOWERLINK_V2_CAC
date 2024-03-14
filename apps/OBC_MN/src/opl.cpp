@@ -442,17 +442,8 @@ tOplkError processSync(void)
 
     int16_t tabInit[SIZE_OUT + 2 * NB_NODES];
 
-    for (int i = 0; i < NB_NODES; i++) {
-        tabInit[a] = 1;
-        for (int j = 1; j <= i + 1; j++)
-        {
-            tabInit[a + j] = 0;
-        }
-        for (int k = 0; k < nbValuesCN_Out; k++) {
-            tabInit[a + k + i + 2] = k + 1;
-        }
-
-        a = a + nbValuesCN_Out + 2 + i;
+    for (int i = 0; i < SIZE_OUT + 2 * NB_NODES; i++) {
+        tabInit[i] = pProcessImageOut_l->out_MN_array[i];
     }
     a = 0;
     //Process PI_OUT --> variables entrant dans le MN
