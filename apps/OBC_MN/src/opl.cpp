@@ -457,6 +457,9 @@ tOplkError processSync(void)
         a = a + nbValuesCN_Out + 2 + i;
     }
 
+    printf("\nvalues_In_MN_l[47]=%d\n", values_In_MN_l[47]);
+
+    printf("values_In_MN_l[50]=%d\n", values_In_MN_l[50]);
     //Process PI_IN --> variables sortant du MN
     for (int i = 0; i < SIZE_IN; i++)
     {
