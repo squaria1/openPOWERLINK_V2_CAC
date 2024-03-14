@@ -474,7 +474,7 @@ tOplkError processSync(void)
             else if (activated_In_MN_l[i + skipSensorsOutFromIn + 1] && i != 0)
             {
                 values_Out_MN_l[i + skipEC] = values_In_MN_l[i + skipSensorsOutFromIn];
-                pProcessImageIn_l->in_MN_array[i + skipEC] = values_Out_MN_l[i + skipEC];
+                pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
             }
         }
         break;
