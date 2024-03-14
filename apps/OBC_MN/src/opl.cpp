@@ -430,6 +430,8 @@ tOplkError processSync(void)
     if (ret != kErrorOk)
         return ret;
 
+    memset(pProcessImageOut_l->out_MN_array, 0, sizeof(pProcessImageOut_l->out_MN_array));
+
     ret = oplk_exchangeProcessImageOut();
     if (ret != kErrorOk)
         return ret;
@@ -463,10 +465,6 @@ tOplkError processSync(void)
     //    }
     //    a = a + nbValuesCN_Out + 2;
     //}
-
-    printf("\nvalues_In_MN_l[47]=%d\n", values_In_MN_l[47]);
-
-    printf("values_In_MN_l[50]=%d\n", values_In_MN_l[50]);
     //Process PI_IN --> variables sortant du MN
     for (int i = 0; i < SIZE_IN; i++)
     {
@@ -540,7 +538,7 @@ tOplkError initProcessImage(void)
         return ret;
 
     pProcessImageIn_l = (PI_IN*)oplk_getProcessImageIn();
-    pProcessImageOut_l = (const PI_OUT*)oplk_getProcessImageOut();
+    pProcessImageOut_l = (PI_OUT*)oplk_getProcessImageOut();
 
     errorIndex = obdpi_setupProcessImage();
     if (errorIndex != 0)
