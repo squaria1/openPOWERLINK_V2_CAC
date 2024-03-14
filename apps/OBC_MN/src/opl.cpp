@@ -238,7 +238,7 @@ tOplkError initApp(void)
         values_Out_MN_l[i] = 0;
     }
 
-    //memset(&pProcessImageOut_l, 0, sizeof(pProcessImageOut_l));
+    memset(&pProcessImageOut_l, 0, sizeof(pProcessImageOut_l));
     ret = initProcessImage();
 
     return ret;
@@ -451,14 +451,18 @@ tOplkError processSync(void)
 
     //    a = a + nbValuesCN_Out + 2 + i;
     //}
+    for (int i = 54; i < 57; i++)
+    {
+        values_In_MN_l[i] = pProcessImageOut_l->out_MN_array[i];
+    }
     //a = 0;
-    int16_t test1 = pProcessImageOut_l->out_MN_array[29], test2 = pProcessImageOut_l->out_MN_array[57];
+    /*int16_t test1 = pProcessImageOut_l->out_MN_array[29], test2 = pProcessImageOut_l->out_MN_array[57];
     values_In_MN_l[29] = test1;
     values_In_MN_l[57] = test2;
     printf("\npProcessImageOut_l->out_MN_array[29] : %d\n", test1);
     printf("values_In_MN_l[29] : %d\n", values_In_MN_l[29]);
     printf("values_In_MN_l[57] : %d\n", values_In_MN_l[57]);
-    printf("pProcessImageOut_l->out_MN_array[57] : %d\n", test2);
+    printf("pProcessImageOut_l->out_MN_array[57] : %d\n", test2);*/
     //Process PI_OUT --> variables entrant dans le MN
     //for (int i = 0; i < NB_NODES; i++) 
     //{
