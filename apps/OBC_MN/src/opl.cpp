@@ -439,41 +439,7 @@ tOplkError processSync(void)
     cnt_l++;
 
     int a = 0;
-    //for (int i = 0; i < NB_NODES; i++) {
-    //    pProcessImageOut_l->out_MN_array[a] = 1;
-    //    for (int j = 1; j <= i + 1; j++)
-    //    {
-    //        pProcessImageOut_l->out_MN_array[a + j] = 0;
-    //    }
-    //    for (int k = 0; k < nbValuesCN_Out; k++) {
-    //        pProcessImageOut_l->out_MN_array[a + k + i + 2] = k + 1;
-    //    }
-
-    //    a = a + nbValuesCN_Out + 2 + i;
-    //}
-    //for (int i = 54; i < 58; i++)
-    //{
-    //    values_In_MN_l[i] = pProcessImageOut_l->out_MN_array[i];
-    //}
-    //a = 0;
-    /*int16_t test1 = pProcessImageOut_l->out_MN_array[29], test2 = pProcessImageOut_l->out_MN_array[57];
-    values_In_MN_l[29] = test1;
-    values_In_MN_l[57] = test2;
-    printf("\npProcessImageOut_l->out_MN_array[29] : %d\n", test1);
-    printf("values_In_MN_l[29] : %d\n", values_In_MN_l[29]);
-    printf("values_In_MN_l[57] : %d\n", values_In_MN_l[57]);
-    printf("pProcessImageOut_l->out_MN_array[57] : %d\n", test2);*/
     //Process PI_OUT --> variables entrant dans le MN
-    //for (int i = 0; i < NB_NODES; i++) 
-    //{
-    //    values_In_MN_l[(nbValuesCN_Out + 1) * i] = pProcessImageOut_l->out_MN_array[a];
-    //    for (int j = 0; j < nbValuesCN_Out; j++) 
-    //    {
-    //        if (activated_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1])
-    //            values_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1] = pProcessImageOut_l->out_MN_array[a + j + i + 2];
-    //    }
-    //    a = a + nbValuesCN_Out + 2 + i;
-    //}
     for (int i = 0; i < NB_NODES; i++) {
         a = (nbValuesCN_Out + 2) * i;
         values_In_MN_l[a] = pProcessImageOut_l->out_MN_array[a];
@@ -481,16 +447,7 @@ tOplkError processSync(void)
              values_In_MN_l[a + j + 1] = pProcessImageOut_l->out_MN_array[a + j + i + 2];
         }
     }
-    //values_In_MN_l[13] = pProcessImageOut_l->out_MN_array[14];
-    //for (int i = 0; i < NB_NODES; i++) 
-    //{
-    //    values_In_MN_l[(nbValuesCN_Out + 1) * i] = tabInit[a];
-    //    for (int j = 0; j < nbValuesCN_Out + 1; j++) 
-    //    {
-    //        values_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1] = tabInit[a + j + 2];
-    //    }
-    //    a = a + nbValuesCN_Out + 2;
-    //}
+
     //Process PI_IN --> variables sortant du MN
     for (int i = 0; i < SIZE_IN; i++)
     {
@@ -507,14 +464,9 @@ tOplkError processSync(void)
         {
             if (i % (nbValuesCN_In + 1) == 0)
                 skipSensorsOutFromIn += nbValuesCN_In + 1;
-            else if (i % (nbValuesCN_In + 2) == 0)
-                i++;
-            else
-                skipSensorsOutFromIn += 1;
-
-            if (i % (nbValuesCN_In + 1) != 0 && activated_In_MN_l[skipSensorsOutFromIn])
+            else if (activated_In_MN_l[i + skipSensorsOutFromIn + 1])
             {
-                values_Out_MN_l[i] = values_In_MN_l[i];
+                values_Out_MN_l[i] = values_In_MN_l[i + skipSensorsOutFromIn];
                 pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
             }
         }
