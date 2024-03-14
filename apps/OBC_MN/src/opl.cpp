@@ -447,10 +447,10 @@ tOplkError processSync(void)
         }
     }
 
-    for (int i = 0; i < SIZE_OUT; i++)
-    {
-        values_In_MN_l[i] = i;
-    }
+    //for (int i = 0; i < SIZE_OUT; i++)
+    //{
+    //    values_In_MN_l[i] = i;
+    //}
 
     //Process PI_IN --> variables sortant du MN
     for (int i = 0; i < SIZE_IN; i++)
