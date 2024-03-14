@@ -459,7 +459,7 @@ tOplkError processSync(void)
     //Process PI_OUT --> variables entrant dans le MN
     for (int i = 0; i < NB_NODES; i++) 
     {
-        memcpy(&values_In_MN_l[(nbValuesCN_Out + 1) * i], &pProcessImageOut_l->out_MN_array[a], sizeof(int16_t));
+        //memcpy(&values_In_MN_l[(nbValuesCN_Out + 1) * i], &pProcessImageOut_l->out_MN_array[a], sizeof(int16_t));
         for (int j = 0; j < nbValuesCN_Out + 1; j++) 
         {
             if(activated_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1])
