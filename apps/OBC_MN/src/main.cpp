@@ -68,6 +68,9 @@ int main() {
                         printf("\n\n EC1 MN : %d \n\n", EC1); 
                         affValeursIn();
                         break;
+                    case 'e':
+                        affValeursInProcess();
+                        break;
                     default:
                         break;
                     }

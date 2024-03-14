@@ -76,6 +76,7 @@ extern "C"
     void        setActivated_In_MN();
     void        affValeursIn();
     void        affValeursOut();
+    void        affValeursInProcess();
 
 
     //------------------------------------------------------------------------------
