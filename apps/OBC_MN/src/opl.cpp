@@ -451,7 +451,7 @@ tOplkError processSync(void)
 
         a = a + nbValuesCN_Out + 2 + i;
     }
-
+    a = 0;
     //Process PI_OUT --> variables entrant dans le MN
     for (int i = 0; i < NB_NODES; i++) 
     {
