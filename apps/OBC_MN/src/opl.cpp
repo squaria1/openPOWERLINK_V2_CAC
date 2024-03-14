@@ -474,13 +474,13 @@ tOplkError processSync(void)
     //    }
     //    a = a + nbValuesCN_Out + 2 + i;
     //}
-    for (int i = 0; i < NB_NODES; i++) {
+    for (int i = 0; i < 1; i++) {
         values_In_MN_l[(nbValuesCN_Out + 1) * i] = pProcessImageOut_l->out_MN_array[a];
         for (int j = 0; j < nbValuesCN_Out; j++) {
             if (activated_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1])
                 values_In_MN_l[(nbValuesCN_Out + 1) * i + j + 1] = pProcessImageOut_l->out_MN_array[a + j + i + 2];
         }
-        a = a + nbValuesCN_Out + 2 + i;
+        a = a + nbValuesCN_Out + 1 + i;
     }
     values_In_MN_l[13] = pProcessImageOut_l->out_MN_array[14];
     //for (int i = 0; i < NB_NODES; i++) 
