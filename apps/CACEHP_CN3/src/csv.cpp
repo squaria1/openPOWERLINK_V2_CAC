@@ -124,7 +124,7 @@ void removeCarriageReturn(char* str) {
 }
 
 void lireFichierCSV(const char* dir) {
-    const char* nameCSV = getNomFichiercsv(EG);
+    const char* nameCSV = getNomFichiercsv();
     char cwd[MAX_PATH_LENGTH];
     printf("nameCSV: %s\n", nameCSV);
     #if (TARGET_SYSTEM == _WIN32_)
@@ -385,7 +385,7 @@ int16_t getEGcsv(int ligne) {
 }
 
 const char* getNomFichiercsv() {
-    int ligne = searchEG(EG);
+    int ligne = searchEG();
     if (ligne != -1)
     {
         return dataEG->nom[ligne];
