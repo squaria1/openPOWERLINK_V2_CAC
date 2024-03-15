@@ -474,7 +474,7 @@ tOplkError processSync(void)
 
     for (int i = 0; i < SIZE_IN; i++)
     {
-        tabInit[i] = i+1;
+        tabInit[i] = i;
     }
     a = 0;
     for (int i = 0; i < NB_NODES; i++) {
