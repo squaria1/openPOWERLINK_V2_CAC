@@ -90,13 +90,12 @@ int16_t valve::actionnementValvesInit()
 {
     for (int i = 0; i < MAX_VALVES; i++) 
     {
-        printf("Actionnement valves init !\n");
         if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {
             // Verifiez les valeurs 
             if (values[i] < 0 || values[i] > 1)
             {
-                perror("Error: Invalid input value. Must be 0 or 1.");
+                perror("Error: Invalid input value. Must be between 0 and 1.");
                 return 1;
             }
             else
@@ -108,6 +107,8 @@ int16_t valve::actionnementValvesInit()
                     perror("gpiod_line_set_value");
                     return 1;
                 }
+                else
+                    printf("line init %d activee a %d\n", i, gpiod_line_get_value(lines[i]));
             }
         }
     }
