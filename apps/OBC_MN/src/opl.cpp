@@ -1,6 +1,7 @@
 #include "opl.h"
 
 uint8_t              mode;
+int                  cmptEG;
 
 const uint16_t       nbValuesCN_Out = SIZE_OUT / NB_NODES - 2;
 const uint16_t       nbValuesCN_In = SIZE_IN / NB_NODES - 1;
@@ -111,7 +112,7 @@ void affValeursIn()
 void affValeursInProcess()
 {
     printf("\n-------------IN PROCESS MN--------------\n");
-    for (int i = 0; i < SIZE_OUT + 2 * NB_NODES; i++)
+    for (int i = 0; i < SIZE_OUT + offsetValues; i++)
     {
         printf("pProcessImageOut_l->out_MN_array[%d]=%d\n", i, pProcessImageOut_l->out_MN_array[i]);
     }
@@ -122,7 +123,7 @@ void affValeursInProcess()
 void affValeursOutProcess()
 {
     printf("\n-------------OUT PROCESS MN--------------\n");
-    for (int i = 0; i < SIZE_IN + 2 * NB_NODES; i++)
+    for (int i = 0; i < SIZE_IN + offsetValues; i++)
     {
         printf("pProcessImageIn_l->in_MN_array[%d]=%d\n", i, pProcessImageIn_l->in_MN_array[i]);
     }
@@ -132,11 +133,32 @@ void affValeursOutProcess()
 void affValeursOut()
 {
     printf("\n------------OUT MN--------------\n");
-    for (int i = 0; i < SIZE_IN + 2 * NB_NODES; i++)
+    for (int i = 0; i < SIZE_IN + offsetValues; i++)
     {
         printf("values_Out_MN_l[%d]=%d\n", i, values_Out_MN_l[i]);
     }
     printf("\n--------------------------------\n");
+}
+
+void changeEG()
+{
+    int sel = cmptEG % 4;
+    switch (sel)
+    {
+    case 0:
+        setEG(1);
+        break;
+    case 1:
+        setEG(2);
+        break;
+    case 2:
+        setEG(3);
+        break;
+    case 3:
+        setEG(4);
+    }
+    printf("\n\nEG = %d\n\n", sel+1);
+    cmptEG++;
 }
 
 
@@ -464,33 +486,13 @@ tOplkError processSync(void)
     //}
 
     //Process PI_IN --> variables sortant du MN
-    //for (int i = 0; i < SIZE_IN; i++)
-    //{
-    //    if(i % (nbValuesCN_In+1) == 0)
-    //        pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
-    //}
-
-    int16_t tabInit[SIZE_IN + 2 * NB_NODES];
-
     for (int i = 0; i < SIZE_IN; i++)
     {
-        tabInit[i] = i;
-    }
-    a = 0;
-    for (int i = 0; i < NB_NODES; i++) {
-        a = (nbValuesCN_In + 1) * i;
-        values_Out_MN_l[a] = tabInit[a];
-        for (int j = 0; j < nbValuesCN_In - 1 - i; j++) {
-                values_Out_MN_l[a + j + i + 2] = tabInit[a + j + 1];
-        }
+        if(i % (nbValuesCN_In+1) == 0)
+            pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
     }
 
-    for (int i = 0; i < SIZE_IN + 2 * NB_NODES; i++)
-    {
-        pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
-    }
-
-    int skipSensorsOutFromIn = 0, skipEC = 0;
+    //int skipSensorsOutFromIn = 0, skipEC = 0;
     switch (mode)
     {
     case 0: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
@@ -510,10 +512,13 @@ tOplkError processSync(void)
         //}
         break;
     case 1: // mode manuel : l'état des vannes proviennent directement du MN
-        for (int i = 0; i < SIZE_IN; i++)
-        {
-            if (i % (nbValuesCN_In + 1) != 0)
-                pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
+        a = 0;
+        for (int i = 0; i < NB_NODES; i++) {
+            a = (nbValuesCN_In + 1) * i;
+            pProcessImageIn_l->in_MN_array[a] = values_Out_MN_l[a];
+            for (int j = 0; j < nbValuesCN_In - 1 - i; j++) {
+                pProcessImageIn_l->in_MN_array[a + j + i + 2] = values_Out_MN_l[a + j + 1];
+            }
         }
         break;
     default:

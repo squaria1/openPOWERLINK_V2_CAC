@@ -1,9 +1,9 @@
 ﻿Carte;Vannes/Etat;Valeur;Timer dépendance;Dépendance vannes
-OBC;EG;1;#;#
+OBC;EG;4;#;#
 CACMO;VCE;0;#;#
-CACMO;VBCE;1;1.4;1|3|4
+CACMO;VBCE;0;#;#
 CACMO;VCO;0;#;#
-CACMO;VBCO;0;#;#
+CACMO;VBCO;1;1.4;1|2|3
 CACMO;#;#;#;#
 CACMO;#;#;#;#
 CACMO;#;#;#;#
@@ -14,7 +14,7 @@ CACMO;#;#;#;#
 CACMO;#;#;#;#
 OFFSET;EG;#;#;#
 CACOE;VPrO;0;#;#
-CACOE;VMAO;1;3;14
+CACOE;VMAO;1;0.5;14
 CACOE;;#;#;#
 CACOE;;#;#;#
 CACOE;;#;#;#
@@ -27,9 +27,9 @@ CACOE;;#;#;#
 CACOE;;#;#;#
 OFFSET;EG;#;#;#
 CACEHP;VMAPr;0;#;#
-CACEHP;VMAE;1;2.5;27
+CACEHP;VMAE;0;#;#
 CACEHP;VPrG;0;#;#
-CACEHP;VPrE;0;#;#
+CACEHP;VPrE;1;2.5;29
 CACEHP;;#;#;#
 CACEHP;;#;#;#
 CACEHP;;#;#;#

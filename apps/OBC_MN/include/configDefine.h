@@ -38,6 +38,7 @@
 #endif
 
 
+constexpr int offsetValues = (NB_NODES * (NB_NODES + 1)) / 2;
 
 
 #endif

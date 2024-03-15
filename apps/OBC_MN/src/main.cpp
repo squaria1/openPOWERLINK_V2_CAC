@@ -12,9 +12,7 @@ int main() {
     tOplkError  ret = kErrorOk;
     char        cKey = 0;
     BOOL        fExit = FALSE;
-    int16_t     EG;
     int16_t     res = 0;
-    int16_t     EC1 = -1;
 
 
     while(etat < 256){
@@ -60,12 +58,9 @@ int main() {
                         etat = 255;
                         break;
                     case 'a':
-                        printf("\n\n EG MN : %d \n\n", EG);
                         affValeursOut();
                         break;
                     case 'z':
-                        EC1 = getEC1();
-                        printf("\n\n EC1 MN : %d \n\n", EC1); 
                         affValeursIn();
                         break;
                     case 'e':
@@ -73,6 +68,9 @@ int main() {
                         break;
                     case 'r':
                         affValeursOutProcess();
+                        break;
+                    case 't':
+                        changeEG();
                         break;
                     default:
                         break;
@@ -96,9 +94,6 @@ int main() {
                         kEventlogCategoryControl,
                         "Kernel stack has gone! Exiting...");
                 }
-
-                EG = 1;
-                setEG(EG);
                 processSync();
 				system_msleep(100);
                 break;

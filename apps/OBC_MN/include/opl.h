@@ -78,7 +78,14 @@ extern "C"
     void        affValeursOut();
     void        affValeursInProcess();
     void        affValeursOutProcess();
+    void        changeEG();
 
+    //------------------------------------------------------------------------------
+    // global vars
+    //------------------------------------------------------------------------------
+    extern uint8_t              mode;
+    extern const uint16_t       nbValuesCN_Out;
+    extern const uint16_t       nbValuesCN_In;
 
     //------------------------------------------------------------------------------
     // local vars
@@ -90,16 +97,12 @@ extern "C"
     static PI_IN*                   pProcessImageIn_l;
     static PI_OUT*                  pProcessImageOut_l;
 
-    static int16_t                  values_In_MN_l[SIZE_OUT + 2*NB_NODES];
-    static int16_t                  values_Out_MN_l[SIZE_IN + 2 * NB_NODES];
+    static int16_t                  values_In_MN_l[SIZE_OUT + offsetValues];
+    static int16_t                  values_Out_MN_l[SIZE_IN + offsetValues];
     static bool                     activated_In_MN_l[SIZE_OUT+1];
     //static bool                   activated_Out_MN_l[SIZE_OUT];
 
-    //------------------------------------------------------------------------------
-    // global vars
-    //------------------------------------------------------------------------------
-    extern uint8_t              mode;
-    extern const uint16_t       nbValuesCN_In;
+
 
 
     int16_t     getTest();
