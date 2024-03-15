@@ -20,7 +20,7 @@ opl::~opl()
 
 
 int16_t opl::demandeExtinctOPL()
-{    
+{
     if (values_In_CN_l[0] == 0x1FFF)
         return 0;
     else
@@ -78,7 +78,7 @@ void affValeursProcessIn()
 
 void affValeursOut()
 {
-    printf("\n------------OUT CN1--------------\n");    
+    printf("\n------------OUT CN1--------------\n");
     for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out + 1; i++)
     {
         printf("activated_Out_CN_l[%d]=%d\n", i + 1, activated_Out_CN_l[i + 1]);
@@ -100,7 +100,7 @@ void setValues_Out_CN()
     }
 
     for (int i = 0; i < MAX_SENSORS; i++) { //0 taille tab de benoit
-        values_Out_CN_l[i + nbValuesCN_Out_ByCN + nbValuesCN_Out/2 + 1] = getAdc_value(i);
+        values_Out_CN_l[i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 + 1] = getAdc_value(i);
     }
 }
 
@@ -206,9 +206,9 @@ int16_t initOPL()
     setActivated_Out_CN();
 
     ret = initPowerlink(CYCLE_LEN,
-                        opts.devName,
-                        aMacAddr_l,
-                        opts.nodeId);
+        opts.devName,
+        aMacAddr_l,
+        opts.nodeId);
 
     ret = initApp();
     if (ret != kErrorOk)
@@ -233,8 +233,8 @@ The function initializes the synchronous data application
 tOplkError initApp()
 {
     tOplkError  ret;
-    
-        
+
+
 
     ret = initProcessImage();
 
@@ -257,9 +257,9 @@ The function initializes the openPOWERLINK stack.
 */
 //------------------------------------------------------------------------------
 tOplkError initPowerlink(UINT32 cycleLen_p,
-                                const char* devName_p,
-                                const UINT8* macAddr_p,
-                                UINT32 nodeId_p)
+    const char* devName_p,
+    const UINT8* macAddr_p,
+    UINT32 nodeId_p)
 {
     tOplkError          ret = kErrorOk;
     tOplkApiInitParam   initParam;
@@ -374,7 +374,7 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
 
 //------------------------------------------------------------------------------
 /**
-\brief  
+\brief
 
 - It creates the sync thread which is responsible for the synchronous data
     application.
@@ -428,7 +428,7 @@ tOplkError processSync()
     //values_In_CN_l[nbValuesCN_In_ByCN] = pProcessImageIn_l->in_CN_array[nbValuesCN_In_ByCN];
     for (int i = 0; i < SIZE_IN; i++)
     {
-            values_In_CN_l[i] = pProcessImageIn_l->in_CN_array[i];
+        values_In_CN_l[i] = pProcessImageIn_l->in_CN_array[i];
     }
 
     //int skipSensorsOutFromIn = 1;
@@ -507,10 +507,10 @@ tOplkError initProcessImage(void)
         (ULONG)sizeof(PI_IN),
         (ULONG)sizeof(PI_OUT));
     eventlog_printMessage(kEventlogLevelInfo,
-                        kEventlogCategoryGeneric,
-                        "Allocating process image: Input:%lu Output:%lu",
-                        (ULONG)sizeof(PI_IN),
-                        (ULONG)sizeof(PI_OUT));
+        kEventlogCategoryGeneric,
+        "Allocating process image: Input:%lu Output:%lu",
+        (ULONG)sizeof(PI_IN),
+        (ULONG)sizeof(PI_OUT));
 
     ret = oplk_allocProcessImage(sizeof(PI_IN), sizeof(PI_OUT));
     if (ret != kErrorOk)
@@ -532,12 +532,12 @@ tOplkError initProcessImage(void)
         return ret;
     }
     */
-        
+
     // Init process image output
     // Example : CN3 and 3 CNs --> from nbValuesCN_Out_ByCN = 75 / 3 * (3 - 1) = 50 to nbValuesCN_Out_ByCN + nbValuesCN_Out = 50 + 25 = 75
     for (int i = nbValuesCN_Out_ByCN; i <= nbValuesCN_Out_ByCN + nbValuesCN_Out; i++)
     {
-        if (activated_Out_CN_l[i+1])
+        if (activated_Out_CN_l[i + 1])
         {
             //Link valves images
             if (i > nbValuesCN_Out_ByCN && i <= nbValuesCN_Out_ByCN + nbValuesCN_Out / 2)
@@ -566,15 +566,9 @@ tOplkError initProcessImage(void)
         return ret;
     }
 
-    int skipSensorsOutFromIn = 1;
-
-    for (int i = 1; i < SIZE_IN; i++)
+    for (int i = nbValuesCN_In_ByCN + 1; i < nbValuesCN_In_ByCN + nbValuesCN_In + 1; i++)
     {
-        if (i % (nbValuesCN_In + 1) == 0)
-            skipSensorsOutFromIn += nbValuesCN_In + 1;
-        else
-            skipSensorsOutFromIn += 1;
-        if (i % (nbValuesCN_In + 1) != 0 && activated_Out_CN_l[skipSensorsOutFromIn])
+        if (activated_Out_CN_l[i + nbValuesCN_In_ByCN + 1 - (NODEID - 1)])
         {
             //Link valves images in from MN
             ret = linkPDO_in(obdSize, i, 0x6510, 0x01 + i % nbValuesCN_In);
@@ -620,7 +614,7 @@ tOplkError initProcessImage(void)
     //default:
     //    break;
     //}
-        
+
     // Link image input EG
 
 
