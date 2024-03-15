@@ -572,7 +572,7 @@ tOplkError initProcessImage(void)
     {
         if (i % (nbValuesCN_In + 1) == 0)
         {
-            ret = linkPDO_in(obdSize, nbValuesCN_In_ByCN, 0x6511, 0xF0);
+            ret = linkPDO_in(obdSize, i, 0x6511, 0xF0);
             if (ret != kErrorOk)
             {
                 return ret;
@@ -581,7 +581,7 @@ tOplkError initProcessImage(void)
         else
         {
             //Link valves images in from MN
-            ret = linkPDO_in(obdSize, i, 0x6510, 0x00 + i % nbValuesCN_In);
+            ret = linkPDO_in(obdSize, i, 0x6510, 0x01 + i % nbValuesCN_In);
             if (ret != kErrorOk)
             {
                 return ret;
