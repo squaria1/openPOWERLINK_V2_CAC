@@ -2,7 +2,7 @@
 OBC;EG;3;#;#
 CACMO;VCE;0;#;#
 CACMO;VBCE;0;#;#
-CACMO;VCO;1;1.4;1|2|4
+CACMO;VCO;1;2;1|2|4
 CACMO;VBCO;0;#;#
 CACMO;#;#;#;#
 CACMO;#;#;#;#
@@ -13,7 +13,7 @@ CACMO;#;#;#;#
 CACMO;#;#;#;#
 CACMO;#;#;#;#
 OFFSET;EG;#;#;#
-CACOE;VPrO;1;1;15
+CACOE;VPrO;1;2;15
 CACOE;VMAO;0;#;#
 CACOE;;#;#;#
 CACOE;;#;#;#
@@ -28,7 +28,7 @@ CACOE;;#;#;#
 OFFSET;EG;#;#;#
 CACEHP;VMAPr;0;#;#
 CACEHP;VMAE;0;#;#
-CACEHP;VPrG;1;2.5;27
+CACEHP;VPrG;1;2;27
 CACEHP;VPrE;0;#;#
 CACEHP;;#;#;#
 CACEHP;;#;#;#

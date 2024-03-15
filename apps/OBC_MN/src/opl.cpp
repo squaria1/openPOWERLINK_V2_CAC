@@ -142,7 +142,7 @@ void affValeursOut()
 
 void changeEG()
 {
-    int sel = cmptEG % 4;
+    int sel = cmptEG % 5;
     switch (sel)
     {
     case 0:
@@ -156,6 +156,10 @@ void changeEG()
         break;
     case 3:
         setEG(4);
+        break;
+    case 4:
+        setEG(5);
+        break;
     }
     printf("\n\nEG = %d\n\n", sel+1);
     cmptEG++;
