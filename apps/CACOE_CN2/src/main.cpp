@@ -68,8 +68,10 @@ int main() {
                     opl.sendError(0xE002);
                 }
                 #endif
-                res = opl.demandeExtinctOPL();
 
+                system_msleep(2000);
+
+                res = opl.demandeExtinctOPL();
                 if(res == 0)
                     etat=255;
                 else
@@ -98,7 +100,6 @@ int main() {
                 #else
                 res = valve.verifDependanceValves();
                 #endif
-                system_msleep(2000);
                 if (console_kbhit())
                 {
                     cKey = (char)console_getch();
@@ -165,7 +166,7 @@ int main() {
 
                 readChannels();
                 processSync();
-                system_msleep(1000);
+                system_msleep(500);
                 break;
             case 3:
                 break;

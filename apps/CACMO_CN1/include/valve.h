@@ -48,6 +48,7 @@ extern "C"
 	int16_t setValvesValue();
 	int16_t setValvesInitValue();
 	int16_t getValveValue(int index);
+	int16_t resetTimers();
 #ifdef __cplusplus
 }
 #endif

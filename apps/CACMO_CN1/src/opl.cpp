@@ -150,7 +150,8 @@ int16_t isEGchanged()
     if (values_In_CN_l[nbValuesCN_In_ByCN] != EG && values_In_CN_l[nbValuesCN_In_ByCN] != 0)
     {
         EG = values_In_CN_l[nbValuesCN_In_ByCN];
-        return 0;
+        int16_t ret = resetTimers();
+        return ret;
     }
     else
         return 1;
