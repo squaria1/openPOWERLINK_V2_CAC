@@ -11,7 +11,6 @@ int main() {
     file        file;
     valve       valve;
     sensor      sensor;
-
     char        cKey = 0;
     BOOL        fExit = FALSE;
     int16_t     res = 0;
@@ -70,6 +69,7 @@ int main() {
                 }
                 #endif
                 res = opl.demandeExtinctOPL();
+
                 if(res == 0)
                     etat=255;
                 else
@@ -98,7 +98,7 @@ int main() {
                 #else
                 res = valve.verifDependanceValves();
                 #endif
-
+                system_msleep(2000);
                 if (console_kbhit())
                 {
                     cKey = (char)console_getch();

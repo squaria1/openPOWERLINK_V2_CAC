@@ -1,7 +1,7 @@
 #include "opl.h"
 
 uint8_t              mode;
-int16_t              EG;
+int16_t              EG = 1;
 int16_t              EC;
 const uint16_t       nbValuesCN_Out = SIZE_OUT / NB_NODES - 1;
 const uint16_t       nbValuesCN_In = SIZE_IN / NB_NODES - 1;
