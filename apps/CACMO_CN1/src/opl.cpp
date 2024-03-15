@@ -560,48 +560,70 @@ tOplkError initProcessImage(void)
         }
     }
     // Init process image input
-    ret = linkPDO_in(obdSize, nbValuesCN_In_ByCN, 0x6511, 0xF0);
-    if (ret != kErrorOk)
-    {
-        return ret;
-    }
+    //ret = linkPDO_in(obdSize, nbValuesCN_In_ByCN, 0x6511, 0xF0);
+    //if (ret != kErrorOk)
+    //{
+    //    return ret;
+    //}
 
-    int skipSensorsOutFromIn = 1;
+    //int skipSensorsOutFromIn = 1;
 
-    switch (mode)
+    for (int i = 0; i < SIZE_IN; i++)
     {
-    case 0: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
-        for (int i = 1; i < SIZE_IN; i++)
+        if (i % (nbValuesCN_In + 1) == 0)
         {
-            if (i % (nbValuesCN_In + 1) == 0)
-                skipSensorsOutFromIn += nbValuesCN_In + 1;
-            else
-                skipSensorsOutFromIn += 1;
-            if (i % (nbValuesCN_In + 1) != 0 && activated_Out_CN_l[skipSensorsOutFromIn])
-            {
-                //Link valves images in from MN
-                ret = linkPDO_in(obdSize, i, 0x6510, 0x01 + i % nbValuesCN_In);
-                if (ret != kErrorOk)
-                {
-                    return ret;
-                }
-            }
-        }
-        break;
-    case 1: // mode manuel : l'état des vannes proviennent directement du MN
-        for (int i = nbValuesCN_In_ByCN + 1; i <= nbValuesCN_In_ByCN + nbValuesCN_In / 2; i++)
-        {
-            //Link valves images in from MN
-            ret = linkPDO_in(obdSize, i, 0x6510, 0x01 + i % (nbValuesCN_In / 2));
+            ret = linkPDO_in(obdSize, nbValuesCN_In_ByCN, 0x6511, 0xF0);
             if (ret != kErrorOk)
             {
                 return ret;
             }
         }
-        break;
-    default:
-        break;
+        else
+        {
+            //Link valves images in from MN
+            ret = linkPDO_in(obdSize, i, 0x6510, 0x00 + i % nbValuesCN_In);
+            if (ret != kErrorOk)
+            {
+                return ret;
+            }
+        }
     }
+
+
+    //switch (mode)
+    //{
+    //case 0: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
+    //    for (int i = 1; i < SIZE_IN; i++)
+    //    {
+    //        if (i % (nbValuesCN_In + 1) == 0)
+    //            skipSensorsOutFromIn += nbValuesCN_In + 1;
+    //        else
+    //            skipSensorsOutFromIn += 1;
+    //        if (i % (nbValuesCN_In + 1) != 0 && activated_Out_CN_l[skipSensorsOutFromIn])
+    //        {
+    //            //Link valves images in from MN
+    //            ret = linkPDO_in(obdSize, i, 0x6510, 0x01 + i % nbValuesCN_In);
+    //            if (ret != kErrorOk)
+    //            {
+    //                return ret;
+    //            }
+    //        }
+    //    }
+    //    break;
+    //case 1: // mode manuel : l'état des vannes proviennent directement du MN
+    //    for (int i = nbValuesCN_In_ByCN + 1; i <= nbValuesCN_In_ByCN + nbValuesCN_In / 2; i++)
+    //    {
+    //        //Link valves images in from MN
+    //        ret = linkPDO_in(obdSize, i, 0x6510, 0x01 + i % (nbValuesCN_In / 2));
+    //        if (ret != kErrorOk)
+    //        {
+    //            return ret;
+    //        }
+    //    }
+    //    break;
+    //default:
+    //    break;
+    //}
         
     // Link image input EG
 
