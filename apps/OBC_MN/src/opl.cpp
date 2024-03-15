@@ -122,7 +122,7 @@ void affValeursInProcess()
 void affValeursOutProcess()
 {
     printf("\n-------------OUT PROCESS MN--------------\n");
-    for (int i = 0; i < SIZE_IN; i++)
+    for (int i = 0; i < SIZE_IN + 2 * NB_NODES; i++)
     {
         printf("pProcessImageIn_l->in_MN_array[%d]=%d\n", i, pProcessImageIn_l->in_MN_array[i]);
     }
@@ -132,7 +132,7 @@ void affValeursOutProcess()
 void affValeursOut()
 {
     printf("\n------------OUT MN--------------\n");
-    for (int i = 0; i < SIZE_IN; i++)
+    for (int i = 0; i < SIZE_IN + 2 * NB_NODES; i++)
     {
         printf("values_Out_MN_l[%d]=%d\n", i, values_Out_MN_l[i]);
     }
@@ -472,7 +472,25 @@ tOplkError processSync(void)
 
     for (int i = 0; i < SIZE_IN; i++)
     {
-        pProcessImageIn_l->in_MN_array[i] = i;
+        values_Out_MN_l[i] = i;
+    }
+    a = 0;
+    for (int i = 0; i < NB_NODES; i++) {
+        values_Out_MN_l[a] = 1;
+        for (int j = 1; j <= i + 1; j++)
+        {
+            values_Out_MN_l[a + j] = 0;
+        }
+        for (int k = 0; k < nbValuesCN_In; k++) {
+            values_Out_MN_l[a + k + i + 2] = k + 1;
+        }
+
+        a = a + nbValuesCN_In + 2 + i;
+    }
+
+    for (int i = 0; i < SIZE_IN + 2 * NB_NODES; i++)
+    {
+        pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
     }
 
     int skipSensorsOutFromIn = 0, skipEC = 0;
