@@ -384,7 +384,7 @@ int16_t getEGcsv(int ligne) {
     return dataEG->EG[ligne];
 }
 
-const char* getNomFichiercsv(int16_t EG) {
+const char* getNomFichiercsv() {
     int ligne = searchEG(EG);
     if (ligne != -1)
     {
@@ -394,7 +394,7 @@ const char* getNomFichiercsv(int16_t EG) {
         return NULL;
 }
 
-int searchEG(int16_t EG)
+int searchEG()
 {
     int i;
     for (i = 0; i < MAX_LINE_SIZE; i++)

@@ -71,8 +71,8 @@ extern "C"
     float getMaxValue(int ligne);
     uint8_t getActivation(int ligne);
     int16_t getEGcsv(int ligne);
-    const char* getNomFichiercsv(int16_t EG);
-    int searchEG(int16_t EG);
+    const char* getNomFichiercsv();
+    int searchEG();
 
     extern struct LigneCSV* dataEtats;
     extern struct LigneVannes* dataPhysicalConfigVannes;

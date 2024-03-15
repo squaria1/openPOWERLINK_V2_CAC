@@ -165,7 +165,7 @@ int main() {
 
                 readChannels();
                 processSync();
-                system_msleep(2000);
+                system_msleep(1000);
                 break;
             case 3:
                 break;

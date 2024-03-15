@@ -141,15 +141,15 @@ void setActivated_Out_CN()
 
 int16_t getEG()
 {
-    printf("\n\n EG CN truc : %d \n\n", values_In_CN_l[0]);
-    return values_In_CN_l[0];
+    printf("\n\n EG CN truc : %d \n\n", values_In_CN_l[nbValuesCN_In_ByCN]);
+    return values_In_CN_l[nbValuesCN_In_ByCN];
 }
 
 int16_t isEGchanged()
 {
-    if (values_In_CN_l[0] != EG && values_In_CN_l[0] != 0)
+    if (values_In_CN_l[nbValuesCN_In_ByCN] != EG && values_In_CN_l[nbValuesCN_In_ByCN] != 0)
     {
-        EG = values_In_CN_l[0];
+        EG = values_In_CN_l[nbValuesCN_In_ByCN];
         return 0;
     }
     else
@@ -159,7 +159,7 @@ int16_t isEGchanged()
 
 void setEC1(int16_t EC1)
 {
-    values_Out_CN_l[0] = EC1;
+    values_Out_CN_l[nbValuesCN_Out_ByCN] = EC1;
 }
 
 //------------------------------------------------------------------------------

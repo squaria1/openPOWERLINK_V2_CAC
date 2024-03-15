@@ -11,12 +11,9 @@ int main() {
     file        file;
     valve       valve;
     sensor      sensor;
-
     char        cKey = 0;
     BOOL        fExit = FALSE;
     int16_t     res = 0;
-    int16_t     EC1 = -1;
-    EG = 1;
     EC = 21;
 
     
@@ -72,6 +69,7 @@ int main() {
                 }
                 #endif
                 res = opl.demandeExtinctOPL();
+
                 if(res == 0)
                     etat=255;
                 else
@@ -100,7 +98,7 @@ int main() {
                 #else
                 res = valve.verifDependanceValves();
                 #endif
-
+                system_msleep(2000);
                 if (console_kbhit())
                 {
                     cKey = (char)console_getch();
@@ -110,7 +108,6 @@ int main() {
                         etat = 255;
                         break;
                     case 'a':
-                        printf("\n\n EC1 CN : %d \n\n", EC1); 
                         affValeursOut();
                         break;
                     case 'z':
@@ -166,13 +163,9 @@ int main() {
                         "Kernel stack has gone! Exiting...");
                 }
 
-                EC1 = 111;
-                setEC1(EC1);
-
                 readChannels();
                 processSync();
-                system_msleep(100);
-
+                system_msleep(1000);
                 break;
             case 3:
                 break;
