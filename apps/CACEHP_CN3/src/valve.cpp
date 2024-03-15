@@ -198,16 +198,19 @@ int16_t valve::isDependanceActive(int ligne)
     do {
         cmpt++;
     } while (tab[cmpt] != 0);
-    printf("1\n");
     if (tab[0] != 0)
     {
         for (int i = 0; i < cmpt; i++)
         {
             if (tab[i] > nbValuesCN_In_ByCN && tab[i] < nbValuesCN_In_ByCN + nbValuesCN_In)
             {
-                printf("(tab[i] - 1) % (nbValuesCN_In_ByCN + 1) = %d\n", (tab[i] - 1) % (nbValuesCN_In_ByCN + 1));
-                if (getValeur(tab[i] + 1) != gpiod_line_get_value(lines[(tab[i] - 1) % (nbValuesCN_In_ByCN + 1)]))
-                    return 1;
+                if (nbValuesCN_In_ByCN != 0)
+                {
+                    printf("(tab[i] - 1) % (nbValuesCN_In_ByCN + nbValuesCN_In + 1) = %d\n", 
+                        (tab[i] - 1) % (nbValuesCN_In_ByCN + nbValuesCN_In + 1));
+                    if (getValeur(tab[i] + 1) != gpiod_line_get_value(lines[(tab[i]-1) % (nbValuesCN_In_ByCN + nbValuesCN_In + 1)]))
+                        return 1;
+                }
             }
         }
     }
@@ -283,4 +286,18 @@ int16_t getValveValue(int index)
 {
     int16_t valveValue = getValeur(index);
     return valveValue;
+}
+
+
+int16_t resetTimers() {
+    for(int i = 0; i < MAX_VALVES; i++)
+    {
+        if (getActivation(i + nbValuesCN_Out_ByCN + 2))
+        {
+            currentTime[i] = 0;
+            timerStarted[i] = false;
+        }
+    }
+
+    return 0;
 }
