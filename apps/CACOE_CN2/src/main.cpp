@@ -15,8 +15,6 @@ int main() {
     char        cKey = 0;
     BOOL        fExit = FALSE;
     int16_t     res = 0;
-    int16_t     EC1 = -1;
-    EG = 1;
     EC = 21;
 
     
@@ -110,7 +108,6 @@ int main() {
                         etat = 255;
                         break;
                     case 'a':
-                        printf("\n\n EC1 CN : %d \n\n", EC1); 
                         affValeursOut();
                         break;
                     case 'z':
@@ -129,21 +126,21 @@ int main() {
                     }
                 }
 
-                //res = isEGchanged();
-                //if (res == 0)
-                //{
-                //    res = refreshCSV();
-                //    if (res == 0)
-                //    {
-                //        file.writeTelem("code_success:0x % 08X", 0x0003);
-                //        opl.sendTelem(0x0003);
-                //    }
-                //    else
-                //    {
-                //        file.writeError("", 0xE003);
-                //        opl.sendError(0x0003);
-                //    }
-                //}
+                res = isEGchanged();
+                if (res == 0)
+                {
+                    res = refreshCSV();
+                    if (res == 0)
+                    {
+                        file.writeTelem("code_success:0x % 08X", 0x0003);
+                        opl.sendTelem(0x0003);
+                    }
+                    else
+                    {
+                        file.writeError("", 0xE003);
+                        opl.sendError(0x0003);
+                    }
+                }
 
                 res = opl.demandeExtinctOPL();
                 if(res == 0){
@@ -166,13 +163,9 @@ int main() {
                         "Kernel stack has gone! Exiting...");
                 }
 
-                EC1 = 111;
-                setEC1(EC1);
-
                 readChannels();
                 processSync();
                 system_msleep(2000);
-
                 break;
             case 3:
                 break;
