@@ -129,21 +129,21 @@ int main() {
                     }
                 }
 
-                res = isEGchanged();
-                if (res == 0)
-                {
-                    res = refreshCSV();
-                    if (res == 0)
-                    {
-                        file.writeTelem("code_success:0x % 08X", 0x0003);
-                        opl.sendTelem(0x0003);
-                    }
-                    else
-                    {
-                        file.writeError("", 0xE003);
-                        opl.sendError(0x0003);
-                    }
-                }
+                //res = isEGchanged();
+                //if (res == 0)
+                //{
+                //    res = refreshCSV();
+                //    if (res == 0)
+                //    {
+                //        file.writeTelem("code_success:0x % 08X", 0x0003);
+                //        opl.sendTelem(0x0003);
+                //    }
+                //    else
+                //    {
+                //        file.writeError("", 0xE003);
+                //        opl.sendError(0x0003);
+                //    }
+                //}
 
                 res = opl.demandeExtinctOPL();
                 if(res == 0){
