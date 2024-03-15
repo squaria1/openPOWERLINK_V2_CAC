@@ -153,7 +153,7 @@ int16_t valve::verifDependanceValves()
             isDependanceActive(i + nbValuesCN_In_ByCN + 2) == 0)
         {
             printf("\n==========\n");
-            printf("ligne:%d\n", ligne);
+            printf("ligne:%d\n", i + nbValuesCN_In_ByCN + 2);
             printf("BEFORE : getValeur(i + nbValuesCN_In_ByCN + 2):%d , gpiod_line_get_value(lines[i]):%d\n",
                 getValeur(i + nbValuesCN_In_ByCN + 2), gpiod_line_get_value(lines[i]));
 
