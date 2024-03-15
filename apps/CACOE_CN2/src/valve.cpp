@@ -197,7 +197,7 @@ int16_t valve::isDependanceActive(int ligne)
     do {
         cmpt++;
     } while (tab[cmpt] != 0);
-
+    printf("1\n");
     if (tab[0] != 0)
     {
         for (int i = 0; i < cmpt; i++)
