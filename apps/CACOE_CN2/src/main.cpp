@@ -17,7 +17,7 @@ int main() {
     int16_t     res = 0;
     int16_t     EC1 = -1;
     EG = 1;
-    EC = 22;
+    EC = 21;
 
     
     while(etat<256){
@@ -120,6 +120,9 @@ int main() {
                             printf("values_Out_CN_l[0] is 0\n");
                         printf("\n\n EG CN : %d \n\n", EG);
                         affValeursIn();
+                        break;
+                    case 'e':
+                        affValeursProcessIn();
                         break;
                     default:
                         break;

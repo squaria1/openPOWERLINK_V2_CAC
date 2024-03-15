@@ -17,7 +17,7 @@ int main() {
     int16_t     res = 0;
     int16_t     EC1 = -1;
     EG = 1;
-    EC = 23;
+    EC = 21;
 
     
     while(etat<256){
@@ -96,11 +96,11 @@ int main() {
                 //    file.writeTelem();
                 //    opl.sendTelem();
                 //}
-
                 #if (TARGET_SYSTEM == _WIN32_)
                 #else
                 res = valve.verifDependanceValves();
                 #endif
+
                 if (console_kbhit())
                 {
                     cKey = (char)console_getch();
@@ -121,10 +121,14 @@ int main() {
                         printf("\n\n EG CN : %d \n\n", EG);
                         affValeursIn();
                         break;
+                    case 'e':
+                        affValeursProcessIn();
+                        break;
                     default:
                         break;
                     }
                 }
+
                 res = isEGchanged();
                 if (res == 0)
                 {
@@ -140,6 +144,7 @@ int main() {
                         opl.sendError(0x0003);
                     }
                 }
+
                 res = opl.demandeExtinctOPL();
                 if(res == 0){
                     etat=255;
@@ -167,6 +172,7 @@ int main() {
                 readChannels();
                 processSync();
                 system_msleep(1000);
+
                 break;
             case 3:
                 break;

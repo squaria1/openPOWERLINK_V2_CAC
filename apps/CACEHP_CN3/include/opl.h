@@ -79,6 +79,7 @@ extern "C"
     //void      setActivated_In_CN(int ligne, uint8_t mode);
     void        setActivated_Out_CN();
     void        affValeursIn();
+    void        affValeursProcessIn();
     void        affValeursOut();
 
     //------------------------------------------------------------------------------

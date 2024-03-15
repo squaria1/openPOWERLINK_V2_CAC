@@ -121,6 +121,9 @@ int main() {
                         printf("\n\n EG CN : %d \n\n", EG);
                         affValeursIn();
                         break;
+                    case 'e':
+                        affValeursProcessIn();
+                        break;
                     default:
                         break;
                     }
