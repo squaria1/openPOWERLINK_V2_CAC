@@ -21,8 +21,6 @@ int16_t initCSV() {
     memset(dataPhysicalConfigVannes, 0, sizeof(struct LigneVannes));
 
     lireFichierVannes(PHYSICAL_CONFIG_VANNES_DIRECTORY);
-    printf("Etat Init : %d\n", getEtatInitialVannes(3));
-    printf("Port GPIO : %d\n", getPortGPIO(3));
 
     /********************Partie_PhysicalConfig_Sensors********************/
 
@@ -36,9 +34,6 @@ int16_t initCSV() {
     memset(dataPhysicalConfigSensors, 0, sizeof(struct LigneSensors));
 
     lireFichierSensors(PHYSICAL_CONFIG_SENSORS_DIRECTORY);
-    printf("Etat Init : %d\n", getEtatInitialSensors(3));
-    printf("Min Val : %f\n", getMinValue(3));
-    printf("Max Val : %f\n", getMaxValue(3));
 
 
     /********************Partie_PhysicalConfig_Activation********************/
@@ -53,7 +48,6 @@ int16_t initCSV() {
     memset(dataActivation, 0, sizeof(struct LigneActivation));
 
     lireFichierCommon(COMMON_PHYSICAL_CONFIG_DIRECTORY);
-    printf("Active? : %d\n", getActivation(2));
 
     return 0;
 }
@@ -73,8 +67,6 @@ int16_t refreshCSV() {
     memset(dataEG, 0, sizeof(struct LigneEG));
 
     lireFichierEG(EG_ETAT_DIRECTORY);
-    //printf("EG? : %d\n", getEGcsv(1));
-    //printf("NomFichierCSV? : %s\n", getNomFichiercsv(1));
 
     /********************Partie_CSV********************/
 
@@ -85,19 +77,7 @@ int16_t refreshCSV() {
     }
 
     memset(dataEtats, 0, sizeof(struct LigneCSV));
-    //printf("STATE_CSV_DIRECTORY: %s\n", STATE_CSV_DIRECTORY);
     lireFichierCSV(STATE_CSV_DIRECTORY);
-
-    int* monTableau = getDependanceVannes(2);
-
-    int i = 0;
-    do {
-        printf("getDependanceVannes(%d):%d\n",i, monTableau[i]);
-        i++;
-    } while (monTableau[i] != 0);
-
-    //printf("valeur : %d\n", getValeur(2));
-    //printf("timer : %f\n", getTimerVannes(2));
 
     return 0;
 }
@@ -127,11 +107,6 @@ void lireFichierCSV(const char* dir) {
     const char* nameCSV = getNomFichiercsv();
     char cwd[MAX_PATH_LENGTH];
     printf("nameCSV: %s\n", nameCSV);
-    #if (TARGET_SYSTEM == _WIN32_)
-    #else
-        if (getcwd(cwd, sizeof(cwd)) != NULL)
-            printf("Current working directory : %s\n", cwd);
-    #endif
     if (nameCSV == NULL) {
         perror("Erreur code EG non trouve dans liaisonEGEtat.csv");
         exit(EXIT_FAILURE);
@@ -214,8 +189,6 @@ void lireFichierCommon(const char* fileName) {
 }
 
 void lireFichierEG(const char* fileName) {
-
-    //printf("fileName lireFichierEG: %s\n", fileName);
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
         perror("Erreur lors de l'ouverture du fichier lireFichierEG");
@@ -268,7 +241,6 @@ void remplirStructureVannesPhysicalCONFIG(char* ligne, int id) {
     char* token = strtok(ligne, ";");
     int colonne = 0;
 
-
     while (token != NULL) {
         if (colonne == 2) {
             dataPhysicalConfigVannes->etatInitial[id] = atoi(token);
@@ -308,7 +280,6 @@ void remplirStructureCommon(char* ligne, int id) {
         if (colonne == 2)
         {
             dataActivation->activation[id] = atoi(token);
-            printf("dataActivation->activation[%d]=%d\n", id, dataActivation->activation[id]);
         }
         colonne++;
         token = strtok(NULL, ";");
@@ -341,14 +312,14 @@ int* getDependanceVannes(int ligne) {
 
     if (tab != NULL)
     {
-        for (int i = 0; i < MAX_DEPENDANCE; i++) 
+        for (int i = 0; i < MAX_DEPENDANCE; i++)
         {
             tab[i] = dataEtats->dependanceVannes[ligne][i];
         }
     }
     else
         return NULL;
-    
+
     return tab;
 }
 
