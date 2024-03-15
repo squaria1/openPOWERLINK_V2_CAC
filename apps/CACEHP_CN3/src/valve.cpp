@@ -206,8 +206,8 @@ int16_t valve::isDependanceActive(int ligne)
             {
                 if (nbValuesCN_In_ByCN != 0)
                 {
-                    printf("(tab[i] - 1) % (nbValuesCN_In_ByCN + nbValuesCN_In + 1) = %d\n", 
-                        (tab[i] - 1) % (nbValuesCN_In_ByCN + nbValuesCN_In + 1));
+                    printf("(tab[i] - 1) % (nbValuesCN_In + 1) = %d\n", 
+                        (tab[i] - 1) % (nbValuesCN_In + 1));
                     if (getValeur(tab[i] + 1) != gpiod_line_get_value(lines[(tab[i]-1) % (nbValuesCN_In + 1)]))
                         return 1;
                 }
