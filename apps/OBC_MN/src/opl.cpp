@@ -464,10 +464,15 @@ tOplkError processSync(void)
     //}
 
     //Process PI_IN --> variables sortant du MN
+    //for (int i = 0; i < SIZE_IN; i++)
+    //{
+    //    if(i % (nbValuesCN_In+1) == 0)
+    //        pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
+    //}
+
     for (int i = 0; i < SIZE_IN; i++)
     {
-        if(i % (nbValuesCN_In+1) == 0)
-            pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
+        pProcessImageIn_l->in_MN_array[i] = i;
     }
 
     int skipSensorsOutFromIn = 0, skipEC = 0;
@@ -475,19 +480,19 @@ tOplkError processSync(void)
     {
     case 0: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
 
-        for (int i = 0; i < SIZE_IN; i++)
-        {
-            if (i % (nbValuesCN_In) == 0 && i != 0)
-            {
-                skipSensorsOutFromIn += nbValuesCN_In + 1;
-                skipEC += 1;
-            }
-            else if (activated_In_MN_l[i + skipSensorsOutFromIn + 1] && i != 0)
-            {
-                values_Out_MN_l[i + skipEC] = values_In_MN_l[i + skipSensorsOutFromIn];
-                pProcessImageIn_l->in_MN_array[i + skipEC] = values_Out_MN_l[i + skipEC];
-            }
-        }
+        //for (int i = 0; i < SIZE_IN; i++)
+        //{
+        //    if (i % (nbValuesCN_In) == 0 && i != 0)
+        //    {
+        //        skipSensorsOutFromIn += nbValuesCN_In + 1;
+        //        skipEC += 1;
+        //    }
+        //    else if (activated_In_MN_l[i + skipSensorsOutFromIn + 1] && i != 0)
+        //    {
+        //        values_Out_MN_l[i + skipEC] = values_In_MN_l[i + skipSensorsOutFromIn];
+        //        pProcessImageIn_l->in_MN_array[i + skipEC] = values_Out_MN_l[i + skipEC];
+        //    }
+        //}
         break;
     case 1: // mode manuel : l'état des vannes proviennent directement du MN
         for (int i = 0; i < SIZE_IN; i++)

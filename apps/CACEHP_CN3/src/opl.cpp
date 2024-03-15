@@ -560,25 +560,21 @@ tOplkError initProcessImage(void)
         }
     }
     // Init process image input
-    //ret = linkPDO_in(obdSize, nbValuesCN_In_ByCN, 0x6511, 0xF0);
-    //if (ret != kErrorOk)
-    //{
-    //    return ret;
-    //}
+    ret = linkPDO_in(obdSize, nbValuesCN_In_ByCN, 0x6511, 0xF0);
+    if (ret != kErrorOk)
+    {
+        return ret;
+    }
 
-    //int skipSensorsOutFromIn = 1;
+    int skipSensorsOutFromIn = 1;
 
-    for (int i = 0; i < SIZE_IN; i++)
+    for (int i = 1; i < SIZE_IN; i++)
     {
         if (i % (nbValuesCN_In + 1) == 0)
-        {
-            ret = linkPDO_in(obdSize, i, 0x6511, 0xF0);
-            if (ret != kErrorOk)
-            {
-                return ret;
-            }
-        }
+            skipSensorsOutFromIn += nbValuesCN_In + 1;
         else
+            skipSensorsOutFromIn += 1;
+        if (i % (nbValuesCN_In + 1) != 0 && activated_Out_CN_l[skipSensorsOutFromIn])
         {
             //Link valves images in from MN
             ret = linkPDO_in(obdSize, i, 0x6510, 0x01 + i % nbValuesCN_In);
@@ -637,11 +633,11 @@ tOplkError initProcessImage(void)
 tOplkError linkPDO_in(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
     tOplkError  ret = kErrorOk;
     UINT varEntries = 1;
-    uint64_t sizeElementArray = sizeof(int16_t);
-    printf("linkPDO_in sizeof(int16_t) * arrayIndex:%u)= %" PRIu64 "\n", arrayIndex, sizeElementArray * arrayIndex);
+    size_t sizeElementArray = sizeof(int16_t) * arrayIndex;
+    printf("linkPDO_in sizeof(int16_t) * arrayIndex:%u)= %" PRIu64 "\n", arrayIndex, sizeElementArray);
     ret = oplk_linkProcessImageObject(index,
         subIndex,
-        sizeElementArray * arrayIndex,
+        sizeElementArray,
         FALSE,
         obdSize,
         &varEntries);
@@ -659,11 +655,11 @@ tOplkError linkPDO_in(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 s
 tOplkError linkPDO_out(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
     tOplkError  ret = kErrorOk;
     UINT varEntries = 1;
-    uint64_t sizeElementArray = sizeof(int16_t);
-    printf("linkPDO_out sizeof(int16_t) * arrayIndex:%d)= %" PRIu64 "\n", arrayIndex, sizeElementArray * arrayIndex);
+    size_t sizeElementArray = sizeof(int16_t) * arrayIndex;
+    printf("linkPDO_out sizeof(int16_t) * arrayIndex:%d)= %" PRIu64 "\n", arrayIndex, sizeElementArray);
     ret = oplk_linkProcessImageObject(index,
         subIndex,
-        sizeElementArray * arrayIndex,
+        sizeElementArray,
         TRUE,
         obdSize,
         &varEntries);
