@@ -474,19 +474,19 @@ tOplkError processSync(void)
     {
         values_Out_MN_l[i] = i;
     }
-    a = 0;
-    for (int i = 0; i < NB_NODES; i++) {
-        values_Out_MN_l[a] = 1;
-        for (int j = 1; j <= i + 1; j++)
-        {
-            values_Out_MN_l[a + j] = 0;
-        }
-        for (int k = 0; k < nbValuesCN_In; k++) {
-            values_Out_MN_l[a + k + i + 2] = k + 1;
-        }
+    //a = 0;
+    //for (int i = 0; i < NB_NODES; i++) {
+    //    values_Out_MN_l[a] = 1;
+    //    for (int j = 1; j <= i + 1; j++)
+    //    {
+    //        values_Out_MN_l[a + j] = 0;
+    //    }
+    //    for (int k = 0; k < nbValuesCN_In; k++) {
+    //        values_Out_MN_l[a + k + i + 2] = k + 1;
+    //    }
 
-        a = a + nbValuesCN_In + 2 + i;
-    }
+    //    a = a + nbValuesCN_In + 2 + i;
+    //}
 
     for (int i = 0; i < SIZE_IN + 2 * NB_NODES; i++)
     {
