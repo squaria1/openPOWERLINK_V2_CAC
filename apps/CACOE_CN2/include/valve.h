@@ -1,5 +1,6 @@
 #include "csv.h"
 #include "configDefine.h"
+#include "statusErrorDefine.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -26,14 +27,14 @@ class valve
 public:
 	valve();
 	virtual ~valve();
-	int16_t initValve();
-	int16_t actionnementValvesInit();
-	int16_t actionnementValve(int valveNum);
-	int16_t verifDependanceValves();
-	int16_t isDependanceActive(int ligne);
+	statusErrDef initValve();
+	statusErrDef actionnementValvesInit();
+	statusErrDef actionnementValve(int valveNum);
+	statusErrDef verifDependanceValves();
+	statusErrDef isDependanceActive(int ligne);
 	int16_t startTimerDependance(int ligne);
 	int16_t isTimerExeeded(int ligne);
-	int16_t extinctValve();
+	statusErrDef extinctValve();
 
 protected:
 
@@ -45,9 +46,9 @@ extern "C"
 {
 #endif
 	int16_t setValvesValue();
-	int16_t setValvesInitValue();
+	statusErrDef getValvesInitValue();
 	int16_t getValveValue(int index);
-	int16_t resetTimers();
+	statusErrDef resetTimers();
 #ifdef __cplusplus
 }
 #endif

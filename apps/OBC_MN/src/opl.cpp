@@ -70,16 +70,6 @@ void setActivated_In_MN()
     }
 }
 
-/*
-void setActivated_Out_MN()
-{
-    for (int i = 0; i < SIZE_OUT; i++)
-    {
-        activated_Out_MN_l[i] = activated_Out_MN_g[i];
-    }
-}
-*/
-
 int16_t getEC1()
 {
     return values_In_MN_l[0];
@@ -171,10 +161,9 @@ void changeEG()
 //------------------------------------------------------------------------------
 
 
-int16_t initOPL()
+statusErrDef initOPL()
 {
-    
-    tOplkError      ret = kErrorOk;
+    statusErrDef    res = noError;
     tOptions        opts;
     tEventConfig    eventConfig;
     tFirmwareRet    fwRet;
@@ -190,14 +179,14 @@ int16_t initOPL()
     if (system_init() != 0)
     {
         fprintf(stderr, "Error initializing system!");
-        return 1;
+        return errOPLSystemInit;
     }
 
     fwRet = firmwaremanager_init(opts.fwInfoFile);
     if (fwRet != kFwReturnOk)
     {
         fprintf(stderr, "Error initializing firmware manager!");
-        return 1;
+        return errInitFirmwareManager;
     }
 
     eventlog_init(opts.logFormat,
@@ -230,20 +219,22 @@ int16_t initOPL()
         "Using CDC file: %s",
         opts.cdcFile);
 
-    ret = initPowerlink(CYCLE_LEN,
+    res = initPowerlink(CYCLE_LEN,
         opts.cdcFile,
         opts.devName,
         aMacAddr_l);
-    if (ret != kErrorOk)
-        return 1;
+    if (res != noError)
+        return res;
 
-    ret = initApp();
-    if (ret != kErrorOk)
-        return 1;
+    res = initApp();
+    if (res != noError)
+        return res;
 
-    initOplThread();
+    res = initOplThread();
+    if (res != noError)
+        return res;
 
-    return 0;
+    return noError;
 }
 
 //------------------------------------------------------------------------------
@@ -257,9 +248,9 @@ The function initializes the synchronous data application
 \ingroup module_demo_mn_console
 */
 //------------------------------------------------------------------------------
-tOplkError initApp(void)
+statusErrDef initApp(void)
 {
-    tOplkError  ret = kErrorOk;
+    statusErrDef res = noError;
     int         i;
 
     cnt_l = 0;
@@ -276,9 +267,9 @@ tOplkError initApp(void)
     }
 
     memset(&pProcessImageOut_l, 0, sizeof(pProcessImageOut_l));
-    ret = initProcessImage();
+    res = initProcessImage();
 
-    return ret;
+    return res;
 }
 
 
@@ -296,7 +287,7 @@ The function initializes the openPOWERLINK stack.
 \return The function returns a tOplkError error code.
 */
 //------------------------------------------------------------------------------
-tOplkError initPowerlink(UINT32 cycleLen_p,
+statusErrDef initPowerlink(UINT32 cycleLen_p,
                               const char* cdcFileName_p,
                               const char* devName_p,
                               const UINT8* macAddr_p)
@@ -316,7 +307,7 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
 
     #if (TARGET_SYSTEM == _WIN32_)
         if (netselect_selectNetworkInterface(devName, sizeof(devName)) < 0)
-            return kErrorIllegalInstance;
+            return errSelNetInterface;
     #else
         strncpy(devName, devName_p, 128);
     #endif
@@ -374,7 +365,7 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
             "obdcreate_initObd() failed with \"%s\" (0x%04x)\n",
             debugstr_getRetValStr(ret),
             ret);
-        return ret;
+        return errInitObjDictionary;
     }
 
     // initialize POWERLINK stack
@@ -390,7 +381,7 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
             "oplk_init() failed with \"%s\" (0x%04x)\n",
             debugstr_getRetValStr(ret),
             ret);
-        return ret;
+        return errOplkInit;
     }
 
     ret = oplk_create(&initParam);
@@ -400,7 +391,7 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
             "oplk_create() failed with \"%s\" (0x%04x)\n",
             debugstr_getRetValStr(ret),
             ret);
-        return ret;
+        return errOplkCreate;
     }
 
     ret = oplk_setCdcFilename(cdcFileName_p);
@@ -415,10 +406,31 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
             "oplk_setCdcFilename() failed with \"%s\" (0x%04x)\n",
             debugstr_getRetValStr(ret),
             ret);
-        return ret;
+        return errOplkSetCDCFileName;
     }
 
-    return kErrorOk;
+    return noError;
+}
+
+statusErrDef checkStateOpl()
+{
+    if (system_getTermSignalState() != FALSE)
+    {
+        printf("Received termination signal, exiting...\n");
+        eventlog_printMessage(kEventlogLevelInfo,
+            kEventlogCategoryControl,
+            "Received termination signal, exiting...");
+        return errSystemSendTerminate;
+    }
+    if (oplk_checkKernelStack() == FALSE)
+    {
+        fprintf(stderr, "Kernel stack has gone! Exiting...\n");
+        eventlog_printMessage(kEventlogLevelFatal,
+            kEventlogCategoryControl,
+            "Kernel stack has gone! Exiting...");
+        return errOplKernelStackDown;
+    }
+    return noError;
 }
 
 //------------------------------------------------------------------------------
@@ -429,7 +441,7 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
   application.
 */
 //------------------------------------------------------------------------------
-void initOplThread(void)
+statusErrDef initOplThread()
 {
     tOplkError  ret = kErrorOk;
 
@@ -444,7 +456,7 @@ void initOplThread(void)
             "oplk_execNmtCommand() failed with \"%s\" (0x%04x)\n",
             debugstr_getRetValStr(ret),
             ret);
-        return;
+        return errSendNMTResetCommand;
     }
 
 
@@ -545,7 +557,7 @@ The function initializes the process image of the application.
 \return The function returns a tOplkError error code.
 */
 //------------------------------------------------------------------------------
-tOplkError initProcessImage(void)
+statusErrDef initProcessImage(void)
 {
     tOplkError  ret = kErrorOk;
     UINT        errorIndex = 0;
@@ -562,7 +574,7 @@ tOplkError initProcessImage(void)
 
     ret = oplk_allocProcessImage(sizeof(PI_IN), sizeof(PI_OUT));
     if (ret != kErrorOk)
-        return ret;
+        return errOplkAllocProcessImage;
 
     pProcessImageIn_l = (PI_IN*)oplk_getProcessImageIn();
     pProcessImageOut_l = (PI_OUT*)oplk_getProcessImageOut();
@@ -574,19 +586,21 @@ tOplkError initProcessImage(void)
             kEventlogCategoryControl,
             "Setup process image failed at index 0x%04x\n",
             errorIndex);
-        ret = kErrorApiPINotAllocated;
+        return errSetupProcessImage;
     }
 
-    return ret;
+    return noError;
 }
 
-int16_t extinctOPL()
+statusErrDef extinctOPL()
 {
-    shutdownOplImage();
+    statusErrDef res = noError;
+
+    res = shutdownOplImage();
     shutdownPowerlink();
     firmwaremanager_exit();
 
-    return 0;
+    return res;
 }
 
 //------------------------------------------------------------------------------
@@ -600,7 +614,7 @@ The function shuts down the synchronous data application
 \ingroup module_demo_mn_console
 */
 //------------------------------------------------------------------------------
-void shutdownOplImage(void)
+statusErrDef shutdownOplImage()
 {
     tOplkError  ret;
 
@@ -611,7 +625,10 @@ void shutdownOplImage(void)
             "oplk_freeProcessImage() failed with \"%s\" (0x%04x)\n",
             debugstr_getRetValStr(ret),
             ret);
+        return errOplkFreeProcessImage;
     }
+
+    return noError;
 }
 
 void shutdownPowerlink(void)

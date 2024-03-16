@@ -1,5 +1,6 @@
 #include "csv.h"
 #include "configDefine.h"
+#include "statusErrorDefine.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -25,8 +26,8 @@ extern "C"
 #endif
 
 static int16_t valSensors[MAX_SENSORS]; 
-int16_t readChannels();
-int16_t closeAdc();
+statusErrDef readChannels();
+statusErrDef closeAdc();
 int readAdc(int fd);
 int openAdc(int adc);
 int16_t getAdc_value(int index);
@@ -40,8 +41,8 @@ class sensor
     public:
         sensor();
         virtual ~sensor();
-        int16_t initSensor();
-        int16_t extinctSensor();
+        statusErrDef initSensor();
+        statusErrDef extinctSensor();
 
     protected:
 

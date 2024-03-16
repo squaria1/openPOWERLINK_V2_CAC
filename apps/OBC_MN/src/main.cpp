@@ -20,32 +20,36 @@ int main() {
     tOplkError  ret = kErrorOk;
     char        cKey = 0;
     BOOL        fExit = FALSE;
-    int16_t     res = 0;
+    statusErrDef     res = noError;
 
 
     while(state != ending){
         switch(state){
             case init: // Initialisation
                 res = file.initFile();
-                if (res == 0)
+                if (res == noError)
                     printf("TelemFile OK\n");
                 else
                     printf("Error telemfiles\n");
                 res = file.testWriteFile();
-                if (res == 0)
+                if (res == noError)
                     printf("Writing in TelemFile OK\n");
                 else
                     printf("Error writing in telemfiles\n");
                 res = initCSV();
-                if (res == 0)
-                    file.writeTelem("code_success:0x % 08X", 0x0003);
+                if (res == noError)
+                    file.writeTelem("CSV subsystem has successfully initialized", infoInitCSV);
                 else
-                    file.writeError("", 0xE003);
+                    file.writeError("CSV subsystem initialization has failed!", res);
                 res = initOPL();
-                if (res == 0) 
-                    file.writeTelem("code_success:0x % 08X", 0x0003);
-                else 
-                    file.writeError();
+                if (res == noError)
+                {
+                    file.writeTelem("OpenPOWERLINK has successfully initialized", infoInitOPL);
+                    file.writeTelem("CAC initialisation is ongoing", infoStateToInit);
+                }
+                else
+                    file.writeError("OpenPOWERLINK initialization has failed!", res);
+                system_msleep(DELAYMSINIT);
                 state=control;
                 break;
             case control: // Sequencement des etats generaux
@@ -78,50 +82,35 @@ int main() {
                     }
                 }
 
-                if (system_getTermSignalState() != FALSE)
+                processSync();
+
+                res = checkStateOpl();
+                if (res != noError)
                 {
-                    fExit = TRUE;
-                    printf("Received termination signal, exiting...\n");
-                    eventlog_printMessage(kEventlogLevelInfo,
-                        kEventlogCategoryControl,
-                        "Received termination signal, exiting...");
+                    file.writeError("OpenPOWERLINK has failed!", res);
+                    if (res == errSystemSendTerminate)
+                        state = shutdown;
                 }
 
-                if (oplk_checkKernelStack() == FALSE)
-                {
-                    fExit = TRUE;
-                    fprintf(stderr, "Kernel stack has gone! Exiting...\n");
-                    eventlog_printMessage(kEventlogLevelFatal,
-                        kEventlogCategoryControl,
-                        "Kernel stack has gone! Exiting...");
-                }
-                processSync();
-				system_msleep(1000);
+				system_msleep(DELAYMSCONTROL);
                 break;
             case shutdown: // Extinction
-                file.writeTelem("Shutdown:0x % 08X", 0x1FFF);
-                res = extinctCSV();
-                if (res == 0)
-                {
-                    file.writeTelem("code_success:0x % 08X", 0x0003);
-                }
-                else
-                {
-                    file.writeError("", 0xE003);
-                }
+                file.writeTelem("CAC is going into shutdown state", infoStateToShutdown);
                 res = extinctOPL();
-                if (res == 0)
-                {
-                    file.writeTelem("code_success:0x % 08X", 0x0003);
-                }
-                else {
-                    file.writeError("", 0xE003);
-                }
+                if (res == noError)
+                    file.writeTelem("OpenPOWERLINK has exited correctly", infoShutdownOPL);
+                else
+                    file.writeError("OpenPOWERLINK has failed to exit!", res);
+                res = extinctCSV();
+                if (res == noError)
+                    file.writeTelem("CSV subsystem has exited correctly", infoShutdownCSV);
+                else
+                    file.writeError("CSV subsystem has failed to exit!", res);
                 res = file.closeFile();
-                if (res == 0)
+                if (res == noError)
                     printf("TelemFile close OK\n");
                 else
-                    printf("Error telemfiles close\n");
+                    printf("Error telemfiles close!\n");
                 state = ending;
                 break;
             default:

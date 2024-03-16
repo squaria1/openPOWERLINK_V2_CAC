@@ -7,6 +7,7 @@
 #include <string>
 #include <ctype.h>
 #include "configDefine.h"
+#include "statusErrorDefine.h"
 #include "opl.h"
 
 #if (TARGET_SYSTEM == _WIN32_)
@@ -45,15 +46,15 @@ extern "C"
          char* nom[MAX_LINE_SIZE];
     };
 
-    int16_t initCSV();
-    int16_t refreshCSV();
-    int16_t extinctCSV();
+    statusErrDef initCSV();
+    statusErrDef refreshCSV();
+    statusErrDef extinctCSV();
 
-    void lireFichierCSV(const char* dir);
-    void lireFichierVannes(const char* fileName);
-    void lireFichierSensors(const char* fileName);
-    void lireFichierCommon(const char* fileName);
-    void lireFichierEG(const char* fileName);
+    statusErrDef lireFichierCSV(const char* dir);
+    statusErrDef lireFichierVannes(const char* fileName);
+    statusErrDef lireFichierSensors(const char* fileName);
+    statusErrDef lireFichierActivation(const char* fileName);
+    statusErrDef lireFichierEG(const char* fileName);
 
     void remplirStructure(char* ligne, int id);
     void remplirStructureVannesPhysicalCONFIG(char* ligne, int id);
@@ -73,6 +74,7 @@ extern "C"
     int16_t getEGcsv(int ligne);
     const char* getNomFichiercsv();
     int searchEG();
+    void removeCarriageReturn(char* str);
 
     extern struct LigneCSV* dataEtats;
     extern struct LigneVannes* dataPhysicalConfigVannes;

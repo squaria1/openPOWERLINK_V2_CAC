@@ -7,6 +7,7 @@
 #include <string>
 #include <ctype.h>
 #include "configDefine.h"
+#include "statusErrorDefine.h"
 #include "opl.h"
 
 #if (TARGET_SYSTEM == _WIN32_)
@@ -23,10 +24,10 @@ extern "C"
         uint8_t activation[MAX_LINE_SIZE];
     };
 
-    int16_t initCSV();
-    int16_t extinctCSV();
+    statusErrDef initCSV();
+    statusErrDef extinctCSV();
 
-    void lireFichierCommon(const char* fileName);
+    statusErrDef lireFichierActivation(const char* fileName);
     void remplirStructureCommon(char* ligne, int id);
 
     uint8_t getActivation(int ligne);

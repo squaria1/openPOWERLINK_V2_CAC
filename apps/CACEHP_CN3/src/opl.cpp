@@ -19,12 +19,12 @@ opl::~opl()
 }
 
 
-int16_t opl::demandeExtinctOPL()
+statusErrDef opl::demandeExtinctOPL()
 {
     if (values_In_CN_l[0] == 0x1FFF)
-        return 0;
+        return infoStopOrderReceived;
     else
-        return 1;
+        return infoNoStopOrder;
 
 }
 
@@ -123,16 +123,16 @@ int16_t getEG()
     return values_In_CN_l[nbValuesCN_In_ByCN];
 }
 
-int16_t isEGchanged()
+statusErrDef isEGchanged()
 {
     if (values_In_CN_l[nbValuesCN_In_ByCN] != EG && values_In_CN_l[nbValuesCN_In_ByCN] != 0)
     {
         EG = values_In_CN_l[nbValuesCN_In_ByCN];
-        int16_t ret = resetTimers();
-        return ret;
+        statusErrDef res = resetTimers();
+        return res;
     }
     else
-        return 1;
+        return infoEGNotChanged;
 
 }
 
@@ -145,11 +145,12 @@ void setEC1(int16_t EC1)
 // local function prototypes
 //------------------------------------------------------------------------------
 
-int16_t initOPL()
+statusErrDef initOPL()
 {
 
-    tOplkError  res = kErrorOk;
-    tOptions    opts;
+    tOplkError      ret = kErrorOk;
+    statusErrDef    res = noError;
+    tOptions        opts;
 
     strncpy(opts.devName, DEVNAME, 128);
     opts.nodeId = NODEID;
@@ -160,7 +161,7 @@ int16_t initOPL()
     if (system_init() != 0)
     {
         fprintf(stderr, "Error initializing system!");
-        return 0xE201;
+        return errOPLSystemInit;
     }
 
     eventlog_init(opts.logFormat,
@@ -184,22 +185,22 @@ int16_t initOPL()
 
     setActivated_Out_CN();
 
-    res = initPowerlink(CYCLE_LEN,
+    ret = initPowerlink(CYCLE_LEN,
         opts.devName,
         aMacAddr_l,
         opts.nodeId);
-    if (res != kErrorOk)
+    if (ret != kErrorOk)
         return res;
 
-    res = initApp();
-    if (res != kErrorOk)
+    ret = initApp();
+    if (ret != kErrorOk)
         return res;
 
     res = initOplThread();
-    if (res != kErrorOk)
+    if (res != noError)
         return res;
 
-    return 0;
+    return noError;
 }
 
 //------------------------------------------------------------------------------
@@ -237,12 +238,12 @@ The function initializes the openPOWERLINK stack.
 \return The function returns a tOplkError error code.
 */
 //------------------------------------------------------------------------------
-tOplkError initPowerlink(UINT32 cycleLen_p,
+statusErrDef initPowerlink(UINT32 cycleLen_p,
     const char* devName_p,
     const UINT8* macAddr_p,
     UINT32 nodeId_p)
 {
-    tOplkError          res = kErrorOk;
+    tOplkError          ret = kErrorOk;
     tOplkApiInitParam   initParam;
     static char         devName[128];
 
@@ -258,7 +259,7 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
 
     #if (TARGET_SYSTEM == _WIN32_)
         if (netselect_selectNetworkInterface(devName, sizeof(devName)) < 0)
-            return 0xE202;
+            return errSelNetInterface;
     #else
         strncpy(devName, devName_p, 128);
     #endif
@@ -309,53 +310,53 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
     initParam.pfnCbSync = processSync;
 
     // Initialize object dictionary
-    res = obdcreate_initObd(&initParam.obdInitParam);
-    if (res != kErrorOk)
+    ret = obdcreate_initObd(&initParam.obdInitParam);
+    if (ret != kErrorOk)
     {
         fprintf(stderr,
             "obdcreate_initObd() failed with \"%s\" (0x%04x)\n",
-            debugstr_getRetValStr(res),
-            res);
+            debugstr_getRetValStr(ret),
+            ret);
         eventlog_printMessage(kEventlogLevelFatal,
             kEventlogCategoryControl,
             "obdcreate_initObd() failed with \"%s\" (0x%04x)\n",
-            debugstr_getRetValStr(res),
-            res);
-        return 0xE203;
+            debugstr_getRetValStr(ret),
+            ret);
+        return errInitObjDictionary;
     }
 
     // initialize POWERLINK stack
-    res = oplk_initialize();
-    if (res != kErrorOk)
+    ret = oplk_initialize();
+    if (ret != kErrorOk)
     {
         fprintf(stderr,
             "oplk_initialize() failed with \"%s\" (0x%04x)\n",
-            debugstr_getRetValStr(res),
-            res);
+            debugstr_getRetValStr(ret),
+            ret);
         eventlog_printMessage(kEventlogLevelFatal,
             kEventlogCategoryControl,
             "oplk_initialize() failed with \"%s\" (0x%04x)\n",
-            debugstr_getRetValStr(res),
-            res);
-        return 0xE204;
+            debugstr_getRetValStr(ret),
+            ret);
+        return errOplkInit;
     }
 
-    res = oplk_create(&initParam);
-    if (res != kErrorOk)
+    ret = oplk_create(&initParam);
+    if (ret != kErrorOk)
     {
         fprintf(stderr,
             "oplk_create() failed with \"%s\" (0x%04x)\n",
-            debugstr_getRetValStr(res),
-            res);
+            debugstr_getRetValStr(ret),
+            ret);
         eventlog_printMessage(kEventlogLevelFatal,
             kEventlogCategoryControl,
             "oplk_create() failed with \"%s\" (0x%04x)\n",
-            debugstr_getRetValStr(res),
-            res);
-        return 0xE205;
+            debugstr_getRetValStr(ret),
+            ret);
+        return errOplkCreate;
     }
 
-    return kErrorOk;
+    return noError;
 }
 
 //------------------------------------------------------------------------------
@@ -366,26 +367,47 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
     application.
 */
 //------------------------------------------------------------------------------
-int16_t initOplThread(void)
+statusErrDef initOplThread(void)
 {
-    tOplkError  res = kErrorOk;
+    tOplkError  ret = kErrorOk;
 
     // start stack processing by sending a NMT reset command
-    res = oplk_execNmtCommand(kNmtEventSwReset);
-    if (res != kErrorOk)
+    ret = oplk_execNmtCommand(kNmtEventSwReset);
+    if (ret != kErrorOk)
     {
         fprintf(stderr,
             "oplk_execNmtCommand() failed with \"%s\" (0x%04x)\n",
-            debugstr_getRetValStr(res),
-            res);
-        return 0xE20A;
+            debugstr_getRetValStr(ret),
+            ret);
+        return errSendNMTResetCommand;
     }
 
     setupInputs();
 
     processSync();
 
-    return 0;
+    return noError;
+}
+
+statusErrDef checkStateOpl()
+{
+    if (system_getTermSignalState() != FALSE)
+    {
+        printf("Received termination signal, exiting...\n");
+        eventlog_printMessage(kEventlogLevelInfo,
+            kEventlogCategoryControl,
+            "Received termination signal, exiting...");
+        return errSystemSendTerminate;
+    }
+    if (oplk_checkKernelStack() == FALSE)
+    {
+        fprintf(stderr, "Kernel stack has gone! Exiting...\n");
+        eventlog_printMessage(kEventlogLevelFatal,
+            kEventlogCategoryControl,
+            "Kernel stack has gone! Exiting...");
+        return errOplKernelStackDown;
+    }
+    return noError;
 }
 
 //------------------------------------------------------------------------------
@@ -476,9 +498,9 @@ The function initializes the process image of the application.
 \return The function returns a tOplkError error code.
 */
 //------------------------------------------------------------------------------
-tOplkError initProcessImage(void)
+statusErrDef initProcessImage(void)
 {
-    tOplkError  res = kErrorOk;
+    tOplkError  ret = kErrorOk;
     tObdSize    obdSize;
 
     /* Allocate process image */
@@ -492,9 +514,9 @@ tOplkError initProcessImage(void)
         (ULONG)sizeof(PI_IN),
         (ULONG)sizeof(PI_OUT));
 
-    res = oplk_allocProcessImage(sizeof(PI_IN), sizeof(PI_OUT));
-    if (res != kErrorOk)
-        return 0xE206;
+    ret = oplk_allocProcessImage(sizeof(PI_IN), sizeof(PI_OUT));
+    if (ret != kErrorOk)
+        return errOplkAllocProcessImage;
 
     pProcessImageIn_l = (const PI_IN*)oplk_getProcessImageIn();
     pProcessImageOut_l = (PI_OUT*)oplk_getProcessImageOut();
@@ -514,29 +536,29 @@ tOplkError initProcessImage(void)
         {
             //Link valves images
             if (i > nbValuesCN_Out_ByCN && i <= nbValuesCN_Out_ByCN + nbValuesCN_Out / 2)
-                res = linkPDO_out(obdSize, i, 0x6500, 0x01 + i % (nbValuesCN_Out / 2));
+                ret = linkPDO_out(obdSize, i, 0x6500, 0x01 + i % (nbValuesCN_Out / 2));
             //Link sensors images
             else if (i > nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 && i <= nbValuesCN_Out_ByCN + nbValuesCN_Out)
-                res = linkPDO_out(obdSize, i, 0x6502, 0x01 + i % (nbValuesCN_Out / 2));
+                ret = linkPDO_out(obdSize, i, 0x6502, 0x01 + i % (nbValuesCN_Out / 2));
             else if (i == nbValuesCN_Out_ByCN)
-                res = linkPDO_out(obdSize, i, 0x6501, NODEID);
-            if (res != kErrorOk)
-                return 0xE207;
+                ret = linkPDO_out(obdSize, i, 0x6501, NODEID);
+            if (ret != kErrorOk)
+                return errLinkPDOout;
         }
     }
     // Init process image input
-    res = linkPDO_in(obdSize, nbValuesCN_In_ByCN, 0x6511, 0xF0);
-    if (res != kErrorOk)
-        return 0xE208;
+    ret = linkPDO_in(obdSize, nbValuesCN_In_ByCN, 0x6511, 0xF0);
+    if (ret != kErrorOk)
+        return errLinkPDOEGin;
 
     for (int i = nbValuesCN_In_ByCN + 1; i < nbValuesCN_In_ByCN + nbValuesCN_In + 1; i++)
     {
         if (activated_Out_CN_l[i + nbValuesCN_In_ByCN + 1 - (NODEID - 1)])
         {
             //Link valves images in from MN
-            res = linkPDO_in(obdSize, i, 0x6510, 0x01 + i % nbValuesCN_In);
-            if (res != kErrorOk)
-                return 0xE209;
+            ret = linkPDO_in(obdSize, i, 0x6510, 0x01 + i % nbValuesCN_In);
+            if (ret != kErrorOk)
+                return errLinkPDOin;
         }
     }
 
@@ -581,59 +603,59 @@ tOplkError initProcessImage(void)
 
     fprintf(stderr, "Linking process vars... ok\n\n");
 
-    return kErrorOk;
+    return noError;
 }
 
 
 tOplkError linkPDO_in(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
-    tOplkError  res = kErrorOk;
+    tOplkError  ret = kErrorOk;
     UINT varEntries = 1;
     size_t sizeElementArray = sizeof(int16_t) * arrayIndex;
     printf("linkPDO_in sizeof(int16_t) * arrayIndex:%u)= %" PRIu64 "\n", arrayIndex, sizeElementArray);
-    res = oplk_linkProcessImageObject(index,
+    ret = oplk_linkProcessImageObject(index,
         subIndex,
         sizeElementArray,
         FALSE,
         obdSize,
         &varEntries);
-    if (res != kErrorOk)
+    if (ret != kErrorOk)
     {
         fprintf(stderr,
             "Linking process vars failed with \"%s\" (0x%04x)\n",
-            debugstr_getRetValStr(res),
-            res);
-        return res;
+            debugstr_getRetValStr(ret),
+            ret);
+        return ret;
     }
 
-    return res;
+    return ret;
 }
 
 tOplkError linkPDO_out(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 subIndex) {
-    tOplkError  res = kErrorOk;
+    tOplkError  ret = kErrorOk;
     UINT varEntries = 1;
     size_t sizeElementArray = sizeof(int16_t) * arrayIndex;
     printf("linkPDO_out sizeof(int16_t) * arrayIndex:%d)= %" PRIu64 "\n", arrayIndex, sizeElementArray);
-    res = oplk_linkProcessImageObject(index,
+    ret = oplk_linkProcessImageObject(index,
         subIndex,
         sizeElementArray,
         TRUE,
         obdSize,
         &varEntries);
-    if (res != kErrorOk)
+    if (ret != kErrorOk)
     {
         fprintf(stderr,
             "Linking process vars failed with \"%s\" (0x%04x)\n",
-            debugstr_getRetValStr(res),
-            res);
-        return res;
+            debugstr_getRetValStr(ret),
+            ret);
+        return ret;
     }
 
-    return res;
+    return ret;
 }
 
-int16_t extinctOPL()
+statusErrDef extinctOPL()
 {
-    int16_t res = 0;
+    statusErrDef res = noError;
 
     res = shutdownOplImage();
     shutdownPowerlink();
@@ -653,20 +675,20 @@ The function shuts down the synchronous data application
 \ingroup module_demo_mn_console
 */
 //------------------------------------------------------------------------------
-int16_t shutdownOplImage(void)
+statusErrDef shutdownOplImage(void)
 {
-    tOplkError  res;
+    tOplkError ret = kErrorOk;
 
-    res = oplk_freeProcessImage();
-    if (res != kErrorOk)
+    ret = oplk_freeProcessImage();
+    if (ret != kErrorOk)
     {
         fprintf(stderr,
             "oplk_freeProcessImage() failed with \"%s\" (0x%04x)\n",
-            debugstr_getRetValStr(res),
-            res);
-        return 0xE20B;
+            debugstr_getRetValStr(ret),
+            ret);
+        return errOplkFreeProcessImage;
     }
-    return 0;
+    return noError;
 }
 
 //------------------------------------------------------------------------------

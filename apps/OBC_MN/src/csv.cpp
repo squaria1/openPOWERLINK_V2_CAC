@@ -2,75 +2,71 @@
 
 struct LigneActivation* dataActivation;
 
-int16_t initCSV() {
+statusErrDef initCSV() {
+    statusErrDef res = noError;
 
     /********************Partie_PhysicalConfig_Activation********************/
 
 
     dataActivation = (struct LigneActivation*)malloc(sizeof(struct LigneActivation));
-    if (dataActivation == NULL) {
+    if (dataActivation == NULL)
+    {
         perror("Error allocating memory");
-        exit(EXIT_FAILURE);
+        return errAllocDataActivation;
     }
 
     memset(dataActivation, 0, sizeof(struct LigneActivation));
 
-    lireFichierCommon(COMMON_PHYSICAL_CONFIG_DIRECTORY);
-    printf("Active? : %d\n", getActivation(2));
+    res = lireFichierActivation(COMMON_PHYSICAL_CONFIG_DIRECTORY);
+    if (res != noError)
+        return res;
 
-    return 0;
+    return noError;
 }
 
-int16_t extinctCSV() {
+statusErrDef extinctCSV()
+{
     free(dataActivation);
 
-    return 0;
+    return noError;
 }
 
-void removeCarriageReturn(char* str) {
-    int i = 0;
-    while (str[i] != '\0') {
-        if (str[i] == '\r') {
-            str[i] = '\0'; // Replace carriage return with null terminator
-            break; // Stop after the first carriage return
-        }
-        i++;
-    }
-}
-
-void lireFichierCommon(const char* fileName) {
-
+statusErrDef lireFichierActivation(const char* fileName)
+{
     FILE* file = fopen(fileName, "r");
-    if (file == NULL) {
-        perror("Erreur lors de l'ouverture du fichier lireFichierCommon");
-        exit(EXIT_FAILURE);
+    if (file == NULL)
+    {
+        perror("Erreur lors de l'ouverture du fichier lireFichierActivation");
+        return errOpenActivationFile;
     }
     int id = 0;
 
     char ligne[MAX_LINE_SIZE];
-    while (fgets(ligne, sizeof(ligne), file) != NULL) {
+    while (fgets(ligne, sizeof(ligne), file) != NULL)
+    {
         ligne[strcspn(ligne, "\n")] = 0;
         remplirStructureCommon(ligne, id);
         id++;
     }
 
     fclose(file);
+    return noError;
 }
 
-void remplirStructureCommon(char* ligne, int id) {
+void remplirStructureCommon(char* ligne, int id)
+{
     char* token = strtok(ligne, ";");
     int colonne = 0;
 
-    while (token != NULL) {
+    while (token != NULL)
+    {
         if (colonne == 2)
-        {
             dataActivation->activation[id] = atoi(token);
-            printf("dataActivation->activation[id]: %d\n", dataActivation->activation[id]);
-        }
         colonne++;
         token = strtok(NULL, ";");
     }
 }
+
 uint8_t getActivation(int ligne) {
     return dataActivation->activation[ligne];
 }

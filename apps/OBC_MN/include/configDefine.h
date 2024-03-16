@@ -40,6 +40,12 @@
 #define TELEMFILES_DIRECTORY "../../include/telemFiles"
 #endif
 
+// TelemFiles
+#define EVENTLOG_MAX_LENGTH 1024
+
+// Main
+#define DELAYMSINIT 2000
+#define DELAYMSCONTROL 10
 
 constexpr int offsetValues = (NB_NODES * (NB_NODES + 1)) / 2;
 

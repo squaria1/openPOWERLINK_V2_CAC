@@ -8,6 +8,7 @@
 #include "xapOpl.h"
 #include "eventOpl.h"
 #include "configDefine.h"
+#include "statusErrorDefine.h"
 #include "csv.h"
 #include "sensor.h"
 #include "valve.h"
@@ -51,51 +52,51 @@ extern "C"
         char            devName[128];
     } tOptions;
 
-    tOplkError  initPowerlink(UINT32 cycleLen_p,
-                              const char* devName_p,
-                              const UINT8* macAddr_p,
-                              UINT32 nodeId_p);
-    int16_t     initOplThread(void);
-    tOplkError  initProcessImage(void);
-    int16_t     shutdownOplImage(void);
-    void        shutdownPowerlink(void);
-    void        setupInputs(void);
-    tOplkError  processSync(void);
-    tOplkError  linkPDO_in(tObdSize obdSize, 
-                           const UINT16 arrayIndex, 
-                           UINT16 index, 
-                           UINT8 subIndex);
-    tOplkError  linkPDO_out(tObdSize obdSize, 
-                            const UINT16 arrayIndex, 
-                            UINT16 index, 
-                            UINT8 subIndex);
-    tOplkError  initApp();
-    int16_t     initOPL();
-    int16_t     extinctOPL();
-    //void      setValues_In_CN(int ligne);
-    int16_t     getValues_In_CN(int ligne);
-    void        setValues_Out_CN();
-    int16_t     getValues_Out_CN(int ligne);
-    //void      setActivated_In_CN(int ligne, uint8_t mode);
-    void        setActivated_Out_CN();
-    void        affValeursIn();
-    void        affValeursProcessIn();
-    void        affValeursOut();
+    statusErrDef        initPowerlink(UINT32 cycleLen_p,
+                                      const char* devName_p,
+                                      const UINT8* macAddr_p,
+                                      UINT32 nodeId_p);
+    statusErrDef        initOplThread(void);
+    statusErrDef        initProcessImage(void);
+    statusErrDef        shutdownOplImage(void);
+    statusErrDef        checkStateOpl(void);
+    void                shutdownPowerlink(void);
+    void                setupInputs(void);
+    tOplkError          processSync(void);
+    tOplkError          linkPDO_in(tObdSize obdSize, 
+                                   const UINT16 arrayIndex, 
+                                   UINT16 index, 
+                                   UINT8 subIndex);
+    tOplkError          linkPDO_out(tObdSize obdSize, 
+                                    const UINT16 arrayIndex, 
+                                    UINT16 index, 
+                                    UINT8 subIndex);
+    statusErrDef        initApp();
+    statusErrDef        initOPL();
+    statusErrDef        extinctOPL();
+    //void              setValues_In_CN(int ligne);
+    int16_t             getValues_In_CN(int ligne);
+    void                setValues_Out_CN();
+    int16_t             getValues_Out_CN(int ligne);
+    void                setActivated_Out_CN();
+    void                affValeursIn();
+    void                affValeursProcessIn();
+    void                affValeursOut();
 
     //------------------------------------------------------------------------------
     // local vars
     //------------------------------------------------------------------------------
-    static const UINT8       aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-    static BOOL              fGsOff_l;
+    static const UINT8             aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+    static BOOL                    fGsOff_l;
 
     /* process image */
     static const PI_IN*            pProcessImageIn_l;
     static PI_OUT*                 pProcessImageOut_l;
 
     /* application variables */
-    static int16_t             values_In_CN_l[SIZE_IN];
-    static int16_t             values_Out_CN_l[SIZE_OUT];
-    static bool                activated_Out_CN_l[SIZE_OUT+1];
+    static int16_t                 values_In_CN_l[SIZE_IN];
+    static int16_t                 values_Out_CN_l[SIZE_OUT];
+    static bool                    activated_Out_CN_l[SIZE_OUT+1];
 
     //------------------------------------------------------------------------------
     // global vars
@@ -115,7 +116,7 @@ extern "C"
     //------------------------------------------------------------------------------
 
     int16_t                  getEG();
-    int16_t                  isEGchanged();
+    statusErrDef             isEGchanged();
     void                     setEC1(int16_t EC1);
 
 #ifdef __cplusplus
@@ -128,9 +129,9 @@ class opl
         opl();
         ~opl();
 
-        void        sendTelem(int16_t statusCode);
-        void        sendError(int16_t errorCode);
-        int16_t     demandeExtinctOPL();
+        void            sendTelem(int16_t statusCode);
+        void            sendError(int16_t errorCode);
+        statusErrDef    demandeExtinctOPL();
 
     protected:
 

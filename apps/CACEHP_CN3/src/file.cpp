@@ -10,9 +10,9 @@ file::~file()
     //destructor
 }
 
-int16_t file::initFile()
+statusErrDef file::initFile()
 {
-    int16_t res = 0;
+    statusErrDef res = noError;
     // recuperation du temps actuel dans la variable now
     time_t now = time(0); 
     // transformation du temps actuel en struct tm contenant les composantes temporelles d'une date : seconde,minute,heure,jour,mois,annee 
@@ -62,16 +62,17 @@ int16_t file::initFile()
     return res;
 }
 
-int16_t file::testWriteFile()
+statusErrDef file::testWriteFile()
 {
+    statusErrDef res = noError;
     try
     {
         file::dataFile << "File write successful" << endl;
-        return 0;
+        return res;
     }
     catch (const std::exception& e)
     {
-        return 1;
+        return errTestWriteFile;
     }
 }
 
@@ -134,8 +135,9 @@ void file::writeError(const char* fmt_p, ...) ///< ajouter uniquement : uint16_t
     }
 }
 
-int16_t file::openFile()
+statusErrDef file::openFile()
 {
+    statusErrDef res = noError;
     // ouverture du fichier en mode ecriture avec curseur repositionne automatiquement a la fin du fichier
     try
     {
@@ -144,13 +146,14 @@ int16_t file::openFile()
     catch (const std::exception& e)
     {
         perror("telemFiles open failed");
-        return 0xE001;
+        return errOpenTelemFile;
     }
-    return 0;
+    return res;
 }
 
-int16_t file::closeFile()
+statusErrDef file::closeFile()
 {
+    statusErrDef res = noError;
     try
     {
         file::dataFile.close();
@@ -158,8 +161,8 @@ int16_t file::closeFile()
     catch (const std::exception& e)
     {
         perror("telemFiles close failed");
-        return 0xE0FF;
+        return errCloseTelemFile;
     }
-    return 0;
+    return res;
 }
 

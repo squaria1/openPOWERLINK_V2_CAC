@@ -4,6 +4,7 @@
 #include "valve.h"
 #include "sensor.h"
 #include "configDefine.h"
+#include "statusErrorDefine.h"
 
 typedef enum
 {
@@ -14,63 +15,62 @@ typedef enum
 } stateDef;
 
 int main() {
-    stateDef    state = init;
-    opl         opl;
-    file        file;
-    valve       valve;
-    sensor      sensor;
-    char        cKey = 0;
-    BOOL        fExit = FALSE;
-    int16_t     res = 0;
+    stateDef        state = init;
+    opl             opl;
+    file            file;
+    valve           valve;
+    sensor          sensor;
+    char            cKey = 0;
+    BOOL            fExit = FALSE;
+    statusErrDef    res = noError;
 
     
     while(state != ending){
         switch(state){
             case init: // Initialisation
                 res = file.initFile();
-                if (res == 0)
+                if (res == noError)
                     printf("TelemFile OK\n");
                 else
                     printf("Error telemfiles\n");
                 res = file.testWriteFile();
-                if(res == 0)
-                {
+                if(res == noError)
                     printf("Writing in TelemFile OK\n");
-                    file.writeTelem("CAC initialisation is ongoing", 0x7001);
-                    opl.sendTelem(0x7001);
-                }
                 else
                     printf("Error writing in telemfiles\n");
                 res = initCSV();
-                if (res == 0)
-                    file.writeTelem("CSV subsystem has successfully initialized", 0x0101);
+                if (res == noError)
+                    file.writeTelem("CSV subsystem has successfully initialized", infoInitCSV);
                 else 
                     file.writeError("CSV subsystem initialization has failed!", res);
                 res = initOPL();
-                if (res == 0)
+                if (res == noError)
                 {
-                    file.writeTelem("OpenPOWERLINK has successfully initialized", 0x0201);
-                    opl.sendTelem(0x0201);
+                    file.writeTelem("OpenPOWERLINK has successfully initialized", infoInitOPL);
+                    opl.sendTelem(infoInitOPL);
+
+                    file.writeTelem("CAC initialisation is ongoing", infoStateToInit);
+                    opl.sendTelem(infoStateToInit);
                 }
                 else
                     file.writeError("OpenPOWERLINK initialization has failed!", res);
                 #if (TARGET_SYSTEM == _WIN32_)
                 #else
                 res = valve.initValve();
-                if(res == 0)
+                if(res == noError)
                 {
-                    file.writeTelem("Valve subsystem has successfully initialized", 0x0301);
-                    opl.sendTelem(0x0301);
+                    file.writeTelem("Valve subsystem has successfully initialized", infoInitValve);
+                    opl.sendTelem(infoInitValve);
                 }else
                 {
                     file.writeError("Valve subsystem initialization has failed!", res);
                     opl.sendError(res);
                 }
                 res = sensor.initSensor();
-                if (res == 0)
+                if (res == noError)
                 {
-                    file.writeTelem("Sensor subsystem has successfully initialized", 0x0401);
-                    opl.sendTelem(0x0401);
+                    file.writeTelem("Sensor subsystem has successfully initialized", infoInitSensor);
+                    opl.sendTelem(infoInitSensor);
                 }
                 else
                 {
@@ -82,14 +82,14 @@ int main() {
                 system_msleep(DELAYMSINIT);
 
                 res = opl.demandeExtinctOPL();
-                if(res == 0)
+                if(res == noError)
                     state = shutdown;
                 else
                 {
                     state = controlAndAcquisition;
 
-                    file.writeTelem("CAC is going into state control and acquisition", 0x7002);
-                    opl.sendTelem(0x7002);
+                    file.writeTelem("CAC is going into state control and acquisition", infoStateToControl);
+                    opl.sendTelem(infoStateToControl);
                 }
                 break;
             case controlAndAcquisition: // Acquisition et controle
@@ -117,13 +117,13 @@ int main() {
                 }
 
                 res = isEGchanged();
-                if (res == 0)
+                if (res == noError)
                 {
                     res = refreshCSV();
-                    if (res == 0)
+                    if (res == noError)
                     {
-                        file.writeTelem("CSV has been changed", 0x0102);
-                        opl.sendTelem(0x0102);
+                        file.writeTelem("CSV has been changed", infoCSVChanged);
+                        opl.sendTelem(infoCSVChanged);
                     }
                     else
                     {
@@ -135,10 +135,10 @@ int main() {
                 #if (TARGET_SYSTEM == _WIN32_)
                 #else
                     res = valve.verifDependanceValves();
-                    if (res == 0)
+                    if (res == noError)
                     {
-                        file.writeTelem("Verification of valve dependance has succeeded", 0x0302);
-                        opl.sendTelem(0x0302);
+                        file.writeTelem("Verification of valve dependance has succeeded", infoVerifDependSucess);
+                        opl.sendTelem(infoVerifDependSucess);
                     }
                     else
                     {
@@ -146,10 +146,10 @@ int main() {
                         opl.sendError(res);
                     }
                     res = readChannels();
-                    if (res == 0)
+                    if (res == noError)
                     {
-                        file.writeTelem("Reading sensor channels has succeeded", 0x0402);
-                        opl.sendTelem(0x0402);
+                        file.writeTelem("Reading sensor channels has succeeded", infoReadChannels);
+                        opl.sendTelem(infoReadChannels);
                     }
                     else
                     {
@@ -160,40 +160,28 @@ int main() {
                 system_msleep(DELAYMSCONTROL);
 
                 res = opl.demandeExtinctOPL();
-                if(res == 0)
+                if(res == noError)
                     state = shutdown;
-
-                if (system_getTermSignalState() != FALSE)
+                
+                res = checkStateOpl();
+                if (res != noError)
                 {
-                    fExit = TRUE;
-                    printf("Received termination signal, exiting...\n");
-                    eventlog_printMessage(kEventlogLevelInfo,
-                        kEventlogCategoryControl,
-                        "Received termination signal, exiting...");
-                    file.writeError("OpenPOWERLINK has failed!", 0xE001);
-                    opl.sendError(0xE001);
-                }
-                if (oplk_checkKernelStack() == FALSE)
-                {
-                    fExit = TRUE;
-                    fprintf(stderr, "Kernel stack has gone! Exiting...\n");
-                    eventlog_printMessage(kEventlogLevelFatal,
-                        kEventlogCategoryControl,
-                        "Kernel stack has gone! Exiting...");
-                    file.writeError("OpenPOWERLINK has failed!", 0xE002);
-                    opl.sendError(0xE002);
+                    file.writeError("OpenPOWERLINK has failed!", res);
+                    opl.sendError(res);
+                    if (res == errSystemSendTerminate)
+                        state = shutdown;
                 }
                 break;
             case shutdown: // Extinction
-                file.writeTelem("CAC is going into shutdown state", 0x7FFF);
-                opl.sendTelem(0x7FFF);
+                file.writeTelem("CAC is going into shutdown state", infoStateToShutdown);
+                opl.sendTelem(infoStateToShutdown);
                 #if (TARGET_SYSTEM == _WIN32_)
                 #else
                 res = sensor.extinctSensor();
-                if (res == 0)
+                if (res == noError)
                 {
-                    file.writeTelem("Sensor subsystem has exited correctly", 0x04FF);
-                    opl.sendTelem(0x04FF);
+                    file.writeTelem("Sensor subsystem has exited correctly", infoShutdownSensor);
+                    opl.sendTelem(infoShutdownSensor);
                 }
                 else
                 {
@@ -201,10 +189,10 @@ int main() {
                     opl.sendError(res);
                 }
                 res = valve.extinctValve();
-                if(res == 0)
+                if(res == noError)
                 {
-                    file.writeTelem("Valve subsystem has exited correctly", 0x03FF);
-                    opl.sendTelem(0x03FF);
+                    file.writeTelem("Valve subsystem has exited correctly", infoShutdownValve);
+                    opl.sendTelem(infoShutdownValve);
                 }
                 else
                 {
@@ -213,23 +201,17 @@ int main() {
                 }
                 #endif
                 res = extinctOPL();
-                if (res == 0)
-                    file.writeTelem("OpenPOWERLINK has exited correctly", 0x02FF);
+                if (res == noError)
+                    file.writeTelem("OpenPOWERLINK has exited correctly", infoShutdownOPL);
                 else
                     file.writeError("OpenPOWERLINK has failed to exit!", res);
                 res = extinctCSV();
-                if (res == 0)
-                {
-                    file.writeTelem("CSV subsystem has exited correctly", 0x01FF);
-                    opl.sendTelem(0x01FF);
-                }
+                if (res == noError)
+                    file.writeTelem("CSV subsystem has exited correctly", infoShutdownCSV);
                 else
-                {
                     file.writeError("CSV subsystem has failed to exit!", res);
-                    opl.sendError(res);
-                }
                 res = file.closeFile();
-                if (res == 0)
+                if (res == noError)
                     printf("TelemFile close OK\n");
                 else
                     printf("Error telemfiles close!\n");

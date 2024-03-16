@@ -18,8 +18,8 @@ sensor::~sensor()
 }
 
 
-int16_t sensor::initSensor() {
-    int16_t res = 0;
+statusErrDef sensor::initSensor() {
+    statusErrDef res = noError;
     for (int i = 0; i < MAX_SENSORS; i++) 
     {
         tabSensorActivated[i] = getActivation(i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 + 2);
@@ -29,11 +29,11 @@ int16_t sensor::initSensor() {
     if (res != 0)
         return res;
 
-    return 0;
+    return res;
 }
 
-int16_t sensor::extinctSensor() {
-    int16_t res = 0;
+statusErrDef sensor::extinctSensor() {
+    statusErrDef res = noError;
 
     res = closeAdc();
 
@@ -44,10 +44,10 @@ int16_t getAdc_value(int index) {
     return valSensors[index];
 }
 
-int16_t readChannels()
+statusErrDef readChannels()
 {
     int i;
-    int16_t res = 0;
+    statusErrDef res = noError;
     memset(fd, 0, sizeof(fd));
     memset(valSensors, 0, sizeof(valSensors));
 
@@ -56,7 +56,7 @@ int16_t readChannels()
             fd[i] = openAdc(i);
             if (fd[i] == ADC_READ_ERROR)
             {
-                res = 0xE401;
+                res = errOpenAdc;
                 break;
             }
         }
@@ -73,7 +73,7 @@ int16_t readChannels()
 
         if (valSensors[i] == ADC_READ_ERROR)
         {
-            res = 0xE402;
+            res = errReadAdc;
             break;
         }
     }
@@ -83,17 +83,18 @@ int16_t readChannels()
     return res;
 }
 
-int16_t closeAdc()
+statusErrDef closeAdc()
 {
-    int16_t res = 0;
+    statusErrDef res = noError;
+    int ret = 0;
 
     for (i = 0; i < MAX_SENSORS; i++) {
         if (fd[i] > 0)
         {
-            res = close(fd[i]);
-            if (res < 0)
+            ret = close(fd[i]);
+            if (ret < 0)
             {
-                res = 0xE4FF;
+                res = errCloseAdc;
                 break;
             }
         }

@@ -10,10 +10,13 @@ file::~file()
     //destructor
 }
 
-int16_t file::initFile()
+statusErrDef file::initFile()
 {
-    time_t now = time(0); // r�cup�ration du temps actuel dans la variable now
-    tm* tm_NOW = localtime(&now); // transformation du temps actuel en struct tm contenant les composantes temporelles d'une date : seconde,minute,heure,jour,mois,ann�e 
+    statusErrDef res = noError;
+    // recuperation du temps actuel dans la variable now
+    time_t now = time(0); 
+    // transformation du temps actuel en struct tm contenant les composantes temporelles d'une date : seconde,minute,heure,jour,mois,annee 
+    tm* tm_NOW = localtime(&now); 
 
     int  year = 1900 + tm_NOW->tm_year;
     int  month = 1 + tm_NOW->tm_mon;
@@ -52,23 +55,24 @@ int16_t file::initFile()
 
     file::pathFile = path;
 
-    file::openFile();
+    res = file::openFile();
 
     /******************************************************************************************/
 
-    return 0;
+    return res;
 }
 
-int16_t file::testWriteFile()
+statusErrDef file::testWriteFile()
 {
+    statusErrDef res = noError;
     try
     {
-        file::dataFile << "test" << endl;
-        return 0;
+        file::dataFile << "File write successful" << endl;
+        return res;
     }
     catch (const std::exception& e)
     {
-        return 1;
+        return errTestWriteFile;
     }
 }
 
@@ -76,6 +80,11 @@ void file::writeTelem(const char* fmt_p, ...)///< ajouter uniquement : uint16_t 
 {
 
     char logMsg[EVENTLOG_MAX_LENGTH];
+    char msg[EVENTLOG_MAX_LENGTH];
+
+    strncpy(msg, fmt_p, EVENTLOG_MAX_LENGTH - 1);
+    msg[EVENTLOG_MAX_LENGTH - 1] = '\0';
+    strncat(msg, " | code_success:0x%04X", EVENTLOG_MAX_LENGTH - strlen(msg) - 1);
 
     va_list arglist;
     va_start(arglist, fmt_p);
@@ -83,17 +92,28 @@ void file::writeTelem(const char* fmt_p, ...)///< ajouter uniquement : uint16_t 
         EVENTLOG_MAX_LENGTH,
         kEventlogLevelInfo,
         kEventlogCategoryGeneric,
-        "code_success:0x%02X",
+        msg,
         arglist);
     va_end(arglist);
 
-    file::dataFile << string(logMsg) << endl;
-
+    try
+    {
+        file::dataFile << string(logMsg) << endl;
+    }
+    catch (const std::exception& e)
+    {
+        perror("telemFiles writeTelem failed");
+    }
 }
 
 void file::writeError(const char* fmt_p, ...) ///< ajouter uniquement : uint16_t codeError
 {
     char logMsg[EVENTLOG_MAX_LENGTH];
+    char msg[EVENTLOG_MAX_LENGTH];
+
+    strncpy(msg, fmt_p, EVENTLOG_MAX_LENGTH - 1);
+    msg[EVENTLOG_MAX_LENGTH - 1] = '\0';
+    strncat(msg, " | code_error:0x%04X", EVENTLOG_MAX_LENGTH - strlen(msg) - 1);
 
     va_list arglist;
     va_start(arglist, fmt_p);
@@ -101,23 +121,48 @@ void file::writeError(const char* fmt_p, ...) ///< ajouter uniquement : uint16_t
         EVENTLOG_MAX_LENGTH,
         kEventlogLevelError,
         kEventlogCategoryGeneric,
-        "code_Error:0x%02X",
+        msg,
         arglist);
     va_end(arglist);
 
-    file::dataFile << string(logMsg) << endl;
-
+    try
+    {
+        file::dataFile << string(logMsg) << endl;
+    }
+    catch (const std::exception& e)
+    {
+        perror("telemFiles writeError failed");
+    }
 }
 
-int16_t file::openFile()
+statusErrDef file::openFile()
 {
-    file::dataFile.open(file::pathFile, ios::out | ios::app);// ouverture du fichier en mode �criture avec curseur repositionn� automatiquement � la fin du fichier
-    return 0;
+    statusErrDef res = noError;
+    // ouverture du fichier en mode ecriture avec curseur repositionne automatiquement a la fin du fichier
+    try
+    {
+        file::dataFile.open(file::pathFile, ios::out | ios::app);
+    }
+    catch (const std::exception& e)
+    {
+        perror("telemFiles open failed");
+        return errOpenTelemFile;
+    }
+    return res;
 }
 
-int16_t file::closeFile()
+statusErrDef file::closeFile()
 {
-    file::dataFile.close();
-    return 0;
+    statusErrDef res = noError;
+    try
+    {
+        file::dataFile.close();
+    }
+    catch (const std::exception& e)
+    {
+        perror("telemFiles close failed");
+        return errCloseTelemFile;
+    }
+    return res;
 }
 
