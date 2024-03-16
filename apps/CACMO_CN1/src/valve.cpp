@@ -145,7 +145,6 @@ statusErrDef valve::verifDependanceValves()
         if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {
             res = isDependanceActive(i + nbValuesCN_In_ByCN + 2);
-            printf("\n\nres : %d\n\n", res);
             switch (res)
             {
             case noError:

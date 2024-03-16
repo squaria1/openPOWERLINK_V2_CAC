@@ -147,7 +147,7 @@ statusErrDef valve::verifDependanceValves()
             res = isDependanceActive(i + nbValuesCN_In_ByCN + 2);
             switch (res)
             {
-            case 0:
+            case noError:
                 printf("\n==========\n");
                 printf("ligne:%d\n", i + nbValuesCN_In_ByCN + 2);
                 printf("BEFORE : getValeur(i + nbValuesCN_In_ByCN + 2):%d , gpiod_line_get_value(lines[i]):%d\n",
@@ -168,11 +168,11 @@ statusErrDef valve::verifDependanceValves()
                         getValeur(i + nbValuesCN_In_ByCN + 2), gpiod_line_get_value(lines[i]));
                 }
                 break;
-            case 0x0303:
+            case infoNoDepend:
                 break;
-            case 0x0304:
+            case infoValveAlreadyActivated:
                 break;
-            case 0x0305:
+            case infoAllDependNotActivated:
                 break;
             default:
                 return res;
@@ -189,10 +189,6 @@ statusErrDef valve::verifDependanceValves()
 statusErrDef valve::isDependanceActive(int ligne)
 {
     statusErrDef res = noError;
-    /*printf("\n==========\n");
-    printf("ligne:%d\n", ligne);
-    printf("BEFORE : getValeur(ligne):%d , gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In+1)]):%d\n",
-        getValeur(ligne), gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In + 1)]));*/
 
     int* tab;
     int cmpt = 0;
@@ -205,7 +201,7 @@ statusErrDef valve::isDependanceActive(int ligne)
     {
         if (gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In + 1)]) < 0)
             return errGPIOGetValue;
-        else if (getValeur(ligne) == res)
+        else if (getValeur(ligne) == gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In + 1)]))
             return infoValveAlreadyActivated;
     }
 
@@ -222,7 +218,7 @@ statusErrDef valve::isDependanceActive(int ligne)
                 {
                     if (gpiod_line_get_value(lines[(tab[i] - 1) % (nbValuesCN_In + 1)]) < 0)
                         return errGPIODependValue;
-                    else if (getValeur(tab[i] + 1) != res)
+                    else if (getValeur(tab[i] + 1) != gpiod_line_get_value(lines[(tab[i] - 1) % (nbValuesCN_In + 1)]))
                         return infoAllDependNotActivated;
                 }
             }
