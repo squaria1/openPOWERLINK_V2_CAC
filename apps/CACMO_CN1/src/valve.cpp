@@ -105,7 +105,7 @@ statusErrDef valve::actionnementValvesInit()
         }
     }
 
-    return 0;
+    return res;
 }
 
 statusErrDef valve::actionnementValve(int valveNum)
@@ -129,7 +129,7 @@ statusErrDef valve::actionnementValve(int valveNum)
         }
     }
 
-    return noError;
+    return res;
 }
 
 statusErrDef valve::verifDependanceValves()
