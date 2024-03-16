@@ -7,7 +7,6 @@ struct gpiod_line* lines[MAX_VALVES];;
 #endif
 unsigned int offsets[MAX_VALVES];
 int values[MAX_VALVES];
-int err;
 // Declaration des variables pour le timer
 struct timespec beginTimer[MAX_VALVES], endTimer[MAX_VALVES];
 double currentTime[MAX_VALVES];
@@ -23,35 +22,23 @@ valve::~valve()
 
 }
 
-void valve::test()
-{
-    for (int i = 0; i < MAX_VALVES; i++)
-    {
-        if (getActivation(i + nbValuesCN_Out_ByCN + 2))
-        {
-            offsets[i] = getPortGPIO(i + 1);
-            values[i] = getEtatInitialVannes(i + 1);
-            printf("offsets[%d]:%d\n", i, offsets[i]);
-            printf("values[%d]:%d\n", i, values[i]);
-        }
-    }
-}
-
 #if (TARGET_SYSTEM == _WIN32_)
 #else
 int16_t valve::initValve()
 {
+    int16_t res = 0;
+
     if (CHIP_PATH == "" || CHIP_PATH == " ") 
     {
         perror("Error: GPIO chip path is not set.");
-        return 1;
+        return 0xE301;
     }
 
     chip = gpiod_chip_open(CHIP_PATH);
     if (!chip)
     {
         perror("gpiod_chip_open");
-        return 1;
+        return 0xE302;
     }
 
     for (int i = 0; i < MAX_VALVES; i++) 
@@ -67,7 +54,7 @@ int16_t valve::initValve()
                 perror("gpiod_chip_get_lines");
                 gpiod_line_release(lines[i]);
                 gpiod_chip_close(chip);
-                return 1;
+                return 0xE303;
             }
 
             // Request the line for output
@@ -75,13 +62,17 @@ int16_t valve::initValve()
                 perror("Request line as output failed");
                 gpiod_line_release(lines[i]);
                 gpiod_chip_close(chip);
-                return 1;
+                return 0xE304;
             }
         }
     }
 
-    setValvesInitValue();
-    actionnementValvesInit();
+    res = setValvesInitValue();
+    if (res != 0)
+        return res;
+    res = actionnementValvesInit();
+    if (res != 0)
+        return res;
 
     return 0;
 }
@@ -96,7 +87,7 @@ int16_t valve::actionnementValvesInit()
             if (values[i] < 0 || values[i] > 1)
             {
                 perror("Error: Invalid input value. Must be between 0 and 1.");
-                return 1;
+                return 0xE306;
             }
             else
             {
@@ -105,7 +96,7 @@ int16_t valve::actionnementValvesInit()
                 if (err)
                 {
                     perror("gpiod_line_set_value");
-                    return 1;
+                    return 0xE307;
                 }
                 else
                     printf("line init %d activee a %d\n", i, gpiod_line_get_value(lines[i]));
@@ -118,22 +109,23 @@ int16_t valve::actionnementValvesInit()
 
 int16_t valve::actionnementValve(int valveNum)
 {
+    int16_t res = 0;
     values[valveNum] = getValeur(valveNum + nbValuesCN_In_ByCN + 2);
 
     // Verifiez les valeurs 
     if (values[valveNum] < 0 || values[valveNum] > 1)
     {
         perror("Error: Invalid input value. Must be 0 or 1.");
-        return 1;
+        return 0xE30B;
     }
     else
     {
         // Actionnez la vanne 
-        err = gpiod_line_set_value(lines[valveNum], values[valveNum]);
-        if (err)
+        res = gpiod_line_set_value(lines[valveNum], values[valveNum]);
+        if (res == -1)
         {
             perror("gpiod_line_set_value");
-            return 1;
+            return 0xE30C;
         }
     }
 
@@ -142,6 +134,7 @@ int16_t valve::actionnementValve(int valveNum)
 
 int16_t valve::verifDependanceValves()
 {
+    int16_t res = 0;
     for (int i = 0; i < MAX_VALVES; i++)
     {
         //if (getActivation(i + nbValuesCN_Out_ByCN + 2))
@@ -149,28 +142,43 @@ int16_t valve::verifDependanceValves()
         //else
         //    printf("getActivation(%d):faux\n", i + nbValuesCN_Out_ByCN + 2);
 
-        if (getActivation(i + nbValuesCN_Out_ByCN + 2) &&
-            isDependanceActive(i + nbValuesCN_In_ByCN + 2) == 0)
+        if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {
-            printf("\n==========\n");
-            printf("ligne:%d\n", i + nbValuesCN_In_ByCN + 2);
-            printf("BEFORE : getValeur(i + nbValuesCN_In_ByCN + 2):%d , gpiod_line_get_value(lines[i]):%d\n",
-                getValeur(i + nbValuesCN_In_ByCN + 2), gpiod_line_get_value(lines[i]));
-
-            if (!timerStarted[i])
+            res = isDependanceActive(i + nbValuesCN_In_ByCN + 2);
+            switch (res)
             {
-                printf("start timer %d !\n", i);
-                startTimerDependance(i);
-            }
-
-            if (isTimerExeeded(i) == 0)
-            {
-                printf("actionnement valve %d !\n", i);
-                actionnementValve(i);
-                printf("i:%d\n", i);
-                printf("AFTER : getValeur(i + nbValuesCN_In_ByCN + 2):%d , gpiod_line_get_value(lines[i]):%d\n",
+            case 0:
+                printf("\n==========\n");
+                printf("ligne:%d\n", i + nbValuesCN_In_ByCN + 2);
+                printf("BEFORE : getValeur(i + nbValuesCN_In_ByCN + 2):%d , gpiod_line_get_value(lines[i]):%d\n",
                     getValeur(i + nbValuesCN_In_ByCN + 2), gpiod_line_get_value(lines[i]));
+
+                if (!timerStarted[i])
+                {
+                    printf("start timer %d !\n", i);
+                    startTimerDependance(i);
+                }
+
+                if (isTimerExeeded(i) == 0)
+                {
+                    printf("actionnement valve %d !\n", i);
+                    actionnementValve(i);
+                    printf("i:%d\n", i);
+                    printf("AFTER : getValeur(i + nbValuesCN_In_ByCN + 2):%d , gpiod_line_get_value(lines[i]):%d\n",
+                        getValeur(i + nbValuesCN_In_ByCN + 2), gpiod_line_get_value(lines[i]));
+                }
+                break;
+            case 0x0303:
+                break;
+            case 0x0304:
+                break;
+            case 0x0305:
+                break;
+            default:
+                return res;
+                break;
             }
+            
 
         }
     }
@@ -182,6 +190,7 @@ int16_t valve::verifDependanceValves()
 
 int16_t valve::isDependanceActive(int ligne)
 {
+    int16_t res = 0;
     /*printf("\n==========\n");
     printf("ligne:%d\n", ligne);
     printf("BEFORE : getValeur(ligne):%d , gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In+1)]):%d\n",
@@ -192,12 +201,15 @@ int16_t valve::isDependanceActive(int ligne)
     if (getDependanceVannes(ligne) != NULL)
         tab = getDependanceVannes(ligne);
     else
-        return 2;
+        return 0x0303;
 
     if (ligne > nbValuesCN_In_ByCN && ligne < nbValuesCN_In_ByCN + nbValuesCN_In)
     {
-        if (getValeur(ligne) == gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In + 1)]))
-            return 1;
+        res = gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In + 1)]);
+        if (res == -1)
+            return 0xE308;
+        else if (getValeur(ligne) == res)
+            return 0x0304;
     }
 
     do {
@@ -211,12 +223,15 @@ int16_t valve::isDependanceActive(int ligne)
             {
                 if (nbValuesCN_In_ByCN != 0)
                 {
-                    printf("(tab[i] - 1) % (nbValuesCN_In + 1) = %d\n", 
-                        (tab[i] - 1) % (nbValuesCN_In + 1));
-                    if (getValeur(tab[i] + 1) != gpiod_line_get_value(lines[(tab[i]-1) % (nbValuesCN_In + 1)]))
-                        return 1;
+                    res = gpiod_line_get_value(lines[(tab[i] - 1) % (nbValuesCN_In + 1)]);
+                    if (res == -1)
+                        return 0xE309;
+                    else if (getValeur(tab[i] + 1) != res)
+                        return 0x0305;
                 }
             }
+            else
+                return 0xE30A;
         }
     }
 
@@ -249,14 +264,22 @@ int16_t valve::isTimerExeeded(int valveNum)
 
 int16_t valve::extinctValve()
 {
-    for (int i = 0; i < MAX_VALVES; i++) {
-        if (getActivation(i + nbValuesCN_Out_ByCN + 2))
+    try
+    {
+        for (int i = 0; i < MAX_VALVES; i++)
         {
-            gpiod_line_release(lines[i]);
+            if (getActivation(i + nbValuesCN_Out_ByCN + 2))
+            {
+                gpiod_line_release(lines[i]);
+            }
         }
+        gpiod_chip_close(chip);
     }
-    gpiod_chip_close(chip);
-
+    catch (const std::exception& e)
+    {
+        perror("extinctValve failed");
+        return 0xE3FF;
+    }
     return 0;
 }
 #endif
@@ -276,14 +299,21 @@ int16_t setValvesValue()
 
 int16_t setValvesInitValue()
 {
-    for (int i = 0; i < MAX_VALVES; i++)
+    try
     {
-        if (getActivation(i + nbValuesCN_Out_ByCN + 2))
+        for (int i = 0; i < MAX_VALVES; i++)
         {
-            values[i] = getEtatInitialVannes(i + 1);
+            if (getActivation(i + nbValuesCN_Out_ByCN + 2))
+            {
+                values[i] = getEtatInitialVannes(i + 1);
+            }
         }
     }
-
+    catch (const std::exception& e)
+    {
+        perror("telemFiles writeError failed");
+        return 0xE305;
+    }
     return 0;
 }
 

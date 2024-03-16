@@ -1,6 +1,0 @@
-test
-2024/03/12-22:23:37 INFO     GENERIC        code_success:0x03
-2024/03/12-22:23:39 INFO     GENERIC        code_success:0x03
-2024/03/12-22:24:55 INFO     GENERIC        code_success:0x1FFF
-2024/03/12-22:24:55 INFO     GENERIC        code_success:0x03
-2024/03/12-22:24:55 INFO     GENERIC        code_success:0x03

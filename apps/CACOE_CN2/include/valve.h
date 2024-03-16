@@ -34,7 +34,6 @@ public:
 	int16_t startTimerDependance(int ligne);
 	int16_t isTimerExeeded(int ligne);
 	int16_t extinctValve();
-	void test();
 
 protected:
 

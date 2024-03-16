@@ -9,9 +9,6 @@
 #include <ctime>
 #include <string>
 
-
-#define EVENTLOG_MAX_LENGTH 256
-
 using namespace std;
 
 class file

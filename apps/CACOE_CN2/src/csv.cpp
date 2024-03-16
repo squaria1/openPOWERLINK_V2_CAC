@@ -15,7 +15,7 @@ int16_t initCSV() {
     dataPhysicalConfigVannes = (struct LigneVannes*)malloc(sizeof(struct LigneVannes));
     if (dataPhysicalConfigVannes == NULL) {
         perror("Error allocating memory");
-        exit(EXIT_FAILURE);
+        return 0xE103;
     }
 
     memset(dataPhysicalConfigVannes, 0, sizeof(struct LigneVannes));
@@ -28,7 +28,7 @@ int16_t initCSV() {
     dataPhysicalConfigSensors = (struct LigneSensors*)malloc(sizeof(struct LigneSensors));
     if (dataPhysicalConfigSensors == NULL) {
         perror("Error allocating memory");
-        exit(EXIT_FAILURE);
+        return 0xE104;
     }
 
     memset(dataPhysicalConfigSensors, 0, sizeof(struct LigneSensors));
@@ -42,7 +42,7 @@ int16_t initCSV() {
     dataActivation = (struct LigneActivation*)malloc(sizeof(struct LigneActivation));
     if (dataActivation == NULL) {
         perror("Error allocating memory");
-        exit(EXIT_FAILURE);
+        return 0xE105;
     }
 
     memset(dataActivation, 0, sizeof(struct LigneActivation));
@@ -61,7 +61,7 @@ int16_t refreshCSV() {
     dataEG = (struct LigneEG*)malloc(sizeof(struct LigneEG));
     if (dataEG == NULL) {
         perror("Error allocating memory");
-        exit(EXIT_FAILURE);
+        return 0xE101;
     }
 
     memset(dataEG, 0, sizeof(struct LigneEG));
@@ -73,7 +73,7 @@ int16_t refreshCSV() {
     dataEtats = (struct LigneCSV*)malloc(sizeof(struct LigneCSV));
     if (dataEtats == NULL) {
         perror("Error allocating memory");
-        exit(EXIT_FAILURE);
+        return 0xE102;
     }
 
     memset(dataEtats, 0, sizeof(struct LigneCSV));
@@ -312,14 +312,14 @@ int* getDependanceVannes(int ligne) {
 
     if (tab != NULL)
     {
-        for (int i = 0; i < MAX_DEPENDANCE; i++)
+        for (int i = 0; i < MAX_DEPENDANCE; i++) 
         {
             tab[i] = dataEtats->dependanceVannes[ligne][i];
         }
     }
     else
         return NULL;
-
+    
     return tab;
 }
 

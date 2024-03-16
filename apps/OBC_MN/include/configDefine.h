@@ -15,6 +15,9 @@
 #define MAX_NODES               255
 #define MAX_VALUES              255
 
+#define DEVNAME					"eth0"
+#define CDCFILE					"mnobd.cdc"
+
 // xapOpl
 #define COMPUTED_PI_OUT_SIZE 152
 #define SIZE_OUT 75

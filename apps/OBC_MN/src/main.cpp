@@ -5,8 +5,16 @@
 #include <iostream>
 using namespace std;
 
+typedef enum
+{
+    init,
+    control,
+    shutdown,
+    ending,
+} stateDef;
+
 int main() {
-    int etat = 1;
+    stateDef state = init;
     opl opl;
     file file;    
     tOplkError  ret = kErrorOk;
@@ -15,9 +23,9 @@ int main() {
     int16_t     res = 0;
 
 
-    while(etat < 256){
-        switch(etat){
-            case 1: // Initialisation
+    while(state != ending){
+        switch(state){
+            case init: // Initialisation
                 res = file.initFile();
                 if (res == 0)
                     printf("TelemFile OK\n");
@@ -38,16 +46,9 @@ int main() {
                     file.writeTelem("code_success:0x % 08X", 0x0003);
                 else 
                     file.writeError();
-                res = opl.demandeExtinctOPL();
-                if (res == 0)
-                    etat=255;
-                else
-                    etat=2;
+                state=control;
                 break;
-            case 2: // Sequencement des etats generaux
-                res = opl.demandeExtinctOPL();
-                if (res == 0)
-                    etat = 255;
+            case control: // Sequencement des etats generaux
                 if (console_kbhit())
                 {
                     cKey = (char)console_getch();
@@ -55,7 +56,7 @@ int main() {
                     switch (cKey)
                     {
                     case 0x1B:
-                        etat = 255;
+                        state = shutdown;
                         break;
                     case 'a':
                         affValeursOut();
@@ -95,9 +96,9 @@ int main() {
                         "Kernel stack has gone! Exiting...");
                 }
                 processSync();
-				system_msleep(100);
+				system_msleep(1000);
                 break;
-            case 255: // Extinction
+            case shutdown: // Extinction
                 file.writeTelem("Shutdown:0x % 08X", 0x1FFF);
                 res = extinctCSV();
                 if (res == 0)
@@ -121,7 +122,7 @@ int main() {
                     printf("TelemFile close OK\n");
                 else
                     printf("Error telemfiles close\n");
-                etat = 256;
+                state = ending;
                 break;
             default:
                 break;

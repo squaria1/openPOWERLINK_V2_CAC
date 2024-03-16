@@ -179,9 +179,9 @@ int16_t initOPL()
     tEventConfig    eventConfig;
     tFirmwareRet    fwRet;
 
-    strncpy(opts.cdcFile, "mnobd.cdc", 256);
+    strncpy(opts.cdcFile, CDCFILE, 256);
     strncpy(opts.fwInfoFile, "fw.info", 256);
-    strncpy(opts.devName, "eth0", 128);
+    strncpy(opts.devName, DEVNAME, 128);
     opts.pLogFile = NULL;
     opts.logFormat = kEventlogFormatReadable;
     opts.logCategory = 0xffffffff;
@@ -314,10 +314,12 @@ tOplkError initPowerlink(UINT32 cycleLen_p,
         kEventlogCategoryGeneric,
         "Select the network interface");
 
-    if (netselect_selectNetworkInterface(devName, sizeof(devName)) < 0)
-        return kErrorIllegalInstance;
-
-    //strncpy(devName, devName_p, 128);
+    #if (TARGET_SYSTEM == _WIN32_)
+        if (netselect_selectNetworkInterface(devName, sizeof(devName)) < 0)
+            return kErrorIllegalInstance;
+    #else
+        strncpy(devName, devName_p, 128);
+    #endif
 
     printf("DEVNAME : %s \n", devName);
     memset(&initParam, 0, sizeof(initParam));

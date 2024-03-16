@@ -55,9 +55,9 @@ extern "C"
                               const char* devName_p,
                               const UINT8* macAddr_p,
                               UINT32 nodeId_p);
-    void        initOplThread(void);
+    int16_t     initOplThread(void);
     tOplkError  initProcessImage(void);
-    void        shutdownOplImage(void);
+    int16_t     shutdownOplImage(void);
     void        shutdownPowerlink(void);
     void        setupInputs(void);
     tOplkError  processSync(void);
