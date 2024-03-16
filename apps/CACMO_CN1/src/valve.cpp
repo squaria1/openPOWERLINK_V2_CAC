@@ -79,6 +79,8 @@ int16_t valve::initValve()
 
 int16_t valve::actionnementValvesInit()
 {
+    int16_t res = 0;
+
     for (int i = 0; i < MAX_VALVES; i++) 
     {
         if (getActivation(i + nbValuesCN_Out_ByCN + 2))
@@ -92,8 +94,8 @@ int16_t valve::actionnementValvesInit()
             else
             {
                 // Actionnez la vanne 
-                err = gpiod_line_set_value(lines[i], values[i]);
-                if (err)
+                res = gpiod_line_set_value(lines[i], values[i]);
+                if (res < 0)
                 {
                     perror("gpiod_line_set_value");
                     return 0xE307;
@@ -122,7 +124,7 @@ int16_t valve::actionnementValve(int valveNum)
     {
         // Actionnez la vanne 
         res = gpiod_line_set_value(lines[valveNum], values[valveNum]);
-        if (res == -1)
+        if (res < 0)
         {
             perror("gpiod_line_set_value");
             return 0xE30C;
