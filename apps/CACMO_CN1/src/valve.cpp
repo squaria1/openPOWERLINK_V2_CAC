@@ -147,7 +147,7 @@ statusErrDef valve::verifDependanceValves()
             res = isDependanceActive(i + nbValuesCN_In_ByCN + 2);
             switch (res)
             {
-            case 0:
+            case noError:
                 printf("\n==========\n");
                 printf("ligne:%d\n", i + nbValuesCN_In_ByCN + 2);
                 printf("BEFORE : getValeur(i + nbValuesCN_In_ByCN + 2):%d , gpiod_line_get_value(lines[i]):%d\n",
@@ -168,11 +168,11 @@ statusErrDef valve::verifDependanceValves()
                         getValeur(i + nbValuesCN_In_ByCN + 2), gpiod_line_get_value(lines[i]));
                 }
                 break;
-            case 0x0303:
+            case infoNoDepend:
                 break;
-            case 0x0304:
+            case infoValveAlreadyActivated:
                 break;
-            case 0x0305:
+            case infoAllDependNotActivated:
                 break;
             default:
                 return res;
@@ -232,7 +232,7 @@ statusErrDef valve::isDependanceActive(int ligne)
     }
 
     printf("Dependances toutes activees ! \n");
-    return noError;
+    return res;
 }
 
 int16_t valve::startTimerDependance(int valveNum)
