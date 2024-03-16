@@ -145,6 +145,7 @@ statusErrDef valve::verifDependanceValves()
         if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {
             res = isDependanceActive(i + nbValuesCN_In_ByCN + 2);
+            printf("\n\nres : %d\n\n", res);
             switch (res)
             {
             case noError:
@@ -189,10 +190,6 @@ statusErrDef valve::verifDependanceValves()
 statusErrDef valve::isDependanceActive(int ligne)
 {
     statusErrDef res = noError;
-    /*printf("\n==========\n");
-    printf("ligne:%d\n", ligne);
-    printf("BEFORE : getValeur(ligne):%d , gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In+1)]):%d\n",
-        getValeur(ligne), gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In + 1)]));*/
 
     int* tab;
     int cmpt = 0;
@@ -205,7 +202,7 @@ statusErrDef valve::isDependanceActive(int ligne)
     {
         if (gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In + 1)]) < 0)
             return errGPIOGetValue;
-        else if (getValeur(ligne) == res)
+        else if (getValeur(ligne) == gpiod_line_get_value(lines[(ligne - 2) % (nbValuesCN_In + 1)]))
             return infoValveAlreadyActivated;
     }
 
@@ -222,7 +219,7 @@ statusErrDef valve::isDependanceActive(int ligne)
                 {
                     if (gpiod_line_get_value(lines[(tab[i] - 1) % (nbValuesCN_In + 1)]) < 0)
                         return errGPIODependValue;
-                    else if (getValeur(tab[i] + 1) != res)
+                    else if (getValeur(tab[i] + 1) != gpiod_line_get_value(lines[(tab[i] - 1) % (nbValuesCN_In + 1)]))
                         return infoAllDependNotActivated;
                 }
             }
