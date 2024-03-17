@@ -56,6 +56,6 @@
 
 // Main
 #define DELAYMSINIT 2000
-#define DELAYMSCONTROL 10
+#define DELAYMSCONTROL 30
 
 #endif
