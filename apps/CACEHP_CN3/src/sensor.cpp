@@ -35,7 +35,7 @@ statusErrDef sensor::initSensor() {
 statusErrDef sensor::extinctSensor() {
     statusErrDef res = noError;
 
-    res = closeAdc();
+    closeAdc();
 
     return res;
 }

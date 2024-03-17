@@ -28,7 +28,7 @@ statusErrDef valve::initValve()
 {
     statusErrDef res = noError;
 
-    if (CHIP_PATH == "" || CHIP_PATH == " ")
+    if (CHIP_PATH == "" || CHIP_PATH == " ") 
     {
         perror("Error: GPIO chip path is not set.");
         return errGPIOPathEmpty;
@@ -41,7 +41,7 @@ statusErrDef valve::initValve()
         return errOpenGPIO;
     }
 
-    for (int i = 0; i < MAX_VALVES; i++)
+    for (int i = 0; i < MAX_VALVES; i++) 
     {
         if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {
@@ -81,7 +81,7 @@ statusErrDef valve::actionnementValvesInit()
 {
     statusErrDef res = noError;
 
-    for (int i = 0; i < MAX_VALVES; i++)
+    for (int i = 0; i < MAX_VALVES; i++) 
     {
         if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {
@@ -111,7 +111,18 @@ statusErrDef valve::actionnementValvesInit()
 statusErrDef valve::actionnementValve(int valveNum)
 {
     statusErrDef res = noError;
-    values[valveNum] = getValeur(valveNum + nbValuesCN_In_ByCN + 2);
+
+    switch (mode)
+    {
+    case 0:
+        values[valveNum] = getValeur(valveNum + nbValuesCN_In_ByCN + 2);
+        break;
+    case 1:
+        values[valveNum] = getValues_In_CN(valveNum + nbValuesCN_In_ByCN + 1);
+        break;
+    default:
+        break;
+    }
 
     // Verifiez les valeurs 
     if (values[valveNum] != 0 && values[valveNum] != 1)
@@ -161,6 +172,8 @@ statusErrDef valve::verifDependanceValves()
                     {
                         printf("actionnement valve %d !\n", i);
                         res = actionnementValve(i);
+                        if (res != noError)
+                            return res;
                         printf("i:%d\n", i);
                         printf("AFTER : getValeur(i + nbValuesCN_In_ByCN + 2):%d , gpiod_line_get_value(lines[i]):%d\n",
                             getValeur(i + nbValuesCN_In_ByCN + 2), gpiod_line_get_value(lines[i]));
@@ -181,15 +194,19 @@ statusErrDef valve::verifDependanceValves()
                 if (gpiod_line_get_value(lines[i]) < 0)
                     return errGPIOGetValue;
                 else if (getValues_In_CN(i + nbValuesCN_In_ByCN + 1) == gpiod_line_get_value(lines[i]))
-                    return infoValveAlreadyActivated;
-                values[i] = getValues_In_CN(i + nbValuesCN_In_ByCN + 1);
-                res = actionnementValve(i);
+                    res = infoValveAlreadyActivated;
+                else
+                {
+                    res = actionnementValve(i);
+                    if (res != noError)
+                        return res;
+                }
                 break;
             default:
                 break;
             }
         }
-
+        
     }
 
     return res;
@@ -265,8 +282,16 @@ int16_t valve::isTimerExeeded(int valveNum)
 
 statusErrDef valve::extinctValve()
 {
+    statusErrDef res = noError;
     try
     {
+        res = getValvesInitValue();
+        if (res != noError)
+            return res;
+        res = actionnementValvesInit();
+        if (res != noError)
+            return res;
+
         for (int i = 0; i < MAX_VALVES; i++)
         {
             if (getActivation(i + nbValuesCN_Out_ByCN + 2))
@@ -279,7 +304,7 @@ statusErrDef valve::extinctValve()
         perror("extinctValve failed");
         return errGPIORelease;
     }
-    return noError;
+    return res;
 }
 #endif
 
@@ -320,7 +345,7 @@ int16_t getValveValue(int index)
 
 
 statusErrDef resetTimers() {
-    for (int i = 0; i < MAX_VALVES; i++)
+    for(int i = 0; i < MAX_VALVES; i++)
     {
         if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {

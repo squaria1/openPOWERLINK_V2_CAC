@@ -131,6 +131,12 @@ int main() {
                         opl.sendError(res);
                     }
                 }
+                else if (res == infoModeSetToManual)
+                {
+                    printf("Mode set to manual valve activation from MN.\n");
+                    file.writeTelem("Mode set to manual valve activation from MN", res);
+                    opl.sendTelem(res);
+                }
 
                 #if (TARGET_SYSTEM == _WIN32_)
                 #else
