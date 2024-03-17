@@ -91,9 +91,11 @@ statusErrDef closeAdc()
     for (i = 0; i < MAX_SENSORS; i++) {
         if (fd[i] > 0)
         {
+            printf("fd[%d] > 0\n", i);
             ret = close(fd[i]);
             if (ret < 0)
             {
+                printf("\nError !\n");
                 res = errCloseAdc;
                 break;
             }
