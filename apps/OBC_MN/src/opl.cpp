@@ -157,11 +157,16 @@ void changeEG()
 
 void setEGToManualMode()
 {
-    setEG(0x7777);
     if (mode == 0)
+    {
         mode = 1;
+        setEG(0x7777);
+    }
     else if (mode == 1)
+    {
         mode = 0;
+        setEG(1);
+    }
 
     printf("\n\nmode : %d\n\n", mode);
 }

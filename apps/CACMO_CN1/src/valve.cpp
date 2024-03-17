@@ -111,7 +111,18 @@ statusErrDef valve::actionnementValvesInit()
 statusErrDef valve::actionnementValve(int valveNum)
 {
     statusErrDef res = noError;
-    values[valveNum] = getValeur(valveNum + nbValuesCN_In_ByCN + 2);
+
+    switch (mode)
+    {
+    case 0:
+        values[valveNum] = getValeur(valveNum + nbValuesCN_In_ByCN + 2);
+        break;
+    case 1:
+        values[valveNum] = getValues_In_CN(valveNum + nbValuesCN_In_ByCN + 1);
+        break;
+    default:
+        break;
+    }
 
     // Verifiez les valeurs 
     if (values[valveNum] != 0 && values[valveNum] != 1)
@@ -184,7 +195,6 @@ statusErrDef valve::verifDependanceValves()
                     return infoValveAlreadyActivated;
                 printf("\ngetValues_In_CN(%d) : %d, gpiod_line_get_value(lines[%d]) : %d\n", i + nbValuesCN_In_ByCN + 1,
                     getValues_In_CN(i + nbValuesCN_In_ByCN + 1), i, gpiod_line_get_value(lines[i]));
-                values[i] = getValues_In_CN(i + nbValuesCN_In_ByCN + 1);
                 res = actionnementValve(i);
                 break;
             default:
@@ -269,6 +279,13 @@ statusErrDef valve::extinctValve()
 {
     try
     {
+        res = getValvesInitValue();
+        if (res != noError)
+            return res;
+        res = actionnementValvesInit();
+        if (res != noError)
+            return res;
+
         for (int i = 0; i < MAX_VALVES; i++)
         {
             if (getActivation(i + nbValuesCN_Out_ByCN + 2))
