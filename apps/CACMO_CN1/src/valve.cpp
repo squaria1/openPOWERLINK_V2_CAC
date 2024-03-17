@@ -277,6 +277,7 @@ int16_t valve::isTimerExeeded(int valveNum)
 
 statusErrDef valve::extinctValve()
 {
+    statusErrDef res = noError;
     try
     {
         res = getValvesInitValue();
@@ -298,7 +299,7 @@ statusErrDef valve::extinctValve()
         perror("extinctValve failed");
         return errGPIORelease;
     }
-    return noError;
+    return res;
 }
 #endif
 
