@@ -77,6 +77,39 @@ int main() {
                     case 't':
                         changeEG();
                         break;
+                    case 'q':
+                        manualActivation(1, 1);
+                        break;
+                    case 's':
+                        manualActivation(1, 2);
+                        break;
+                    case 'd':
+                        manualActivation(1, 3);
+                        break;
+                    case 'f':
+                        manualActivation(1, 4);
+                        break;
+                    case 'g':
+                        manualActivation(2, 1);
+                        break;
+                    case 'h':
+                        manualActivation(2, 2);
+                        break;
+                    case 'j':
+                        manualActivation(3, 1);
+                        break;
+                    case 'k':
+                        manualActivation(3, 2);
+                        break;
+                    case 'l':
+                        manualActivation(3, 3);
+                        break;
+                    case 'm':
+                        manualActivation(3, 4);
+                        break;
+                    case 'i':
+                        setEGToManualMode();
+                        break;
                     default:
                         break;
                     }

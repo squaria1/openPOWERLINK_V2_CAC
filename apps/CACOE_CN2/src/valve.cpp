@@ -139,44 +139,59 @@ statusErrDef valve::verifDependanceValves()
     {
         if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {
-            res = isDependanceActive(i + nbValuesCN_In_ByCN + 2);
-            switch (res)
+            switch (mode)
             {
-            case noError:
-                printf("\n==========\n");
-                printf("ligne:%d\n", i + nbValuesCN_In_ByCN + 2);
-                printf("BEFORE : getValeur(i + nbValuesCN_In_ByCN + 2):%d , gpiod_line_get_value(lines[i]):%d\n",
-                    getValeur(i + nbValuesCN_In_ByCN + 2), gpiod_line_get_value(lines[i]));
-
-                if (!timerStarted[i])
+            case 0:
+                res = isDependanceActive(i + nbValuesCN_In_ByCN + 2);
+                switch (res)
                 {
-                    printf("start timer %d !\n", i);
-                    startTimerDependance(i);
-                }
-
-                if (isTimerExeeded(i) == 0)
-                {
-                    printf("actionnement valve %d !\n", i);
-                    actionnementValve(i);
-                    printf("i:%d\n", i);
-                    printf("AFTER : getValeur(i + nbValuesCN_In_ByCN + 2):%d , gpiod_line_get_value(lines[i]):%d\n",
+                case noError:
+                    printf("\n==========\n");
+                    printf("ligne:%d\n", i + nbValuesCN_In_ByCN + 2);
+                    printf("BEFORE : getValeur(i + nbValuesCN_In_ByCN + 2):%d , gpiod_line_get_value(lines[i]):%d\n",
                         getValeur(i + nbValuesCN_In_ByCN + 2), gpiod_line_get_value(lines[i]));
+
+                    if (!timerStarted[i])
+                    {
+                        printf("start timer %d !\n", i);
+                        startTimerDependance(i);
+                    }
+
+                    if (isTimerExeeded(i) == 0)
+                    {
+                        printf("actionnement valve %d !\n", i);
+                        res = actionnementValve(i);
+                        printf("i:%d\n", i);
+                        printf("AFTER : getValeur(i + nbValuesCN_In_ByCN + 2):%d , gpiod_line_get_value(lines[i]):%d\n",
+                            getValeur(i + nbValuesCN_In_ByCN + 2), gpiod_line_get_value(lines[i]));
+                    }
+                    break;
+                case infoNoDepend:
+                    break;
+                case infoValveAlreadyActivated:
+                    break;
+                case infoAllDependNotActivated:
+                    break;
+                default:
+                    return res;
+                    break;
                 }
                 break;
-            case infoNoDepend:
-                break;
-            case infoValveAlreadyActivated:
-                break;
-            case infoAllDependNotActivated:
+            case 1:
+                if (gpiod_line_get_value(lines[i]) < 0)
+                    return errGPIOGetValue;
+                else if (getValues_In_CN(i + nbValuesCN_In_ByCN + 1) == gpiod_line_get_value(lines[i]))
+                    return infoValveAlreadyActivated;
+                res = actionnementValve(i);
                 break;
             default:
-                return res;
                 break;
             }
         }
+        
     }
 
-    return noError;
+    return res;
 }
 
 statusErrDef valve::isDependanceActive(int ligne)

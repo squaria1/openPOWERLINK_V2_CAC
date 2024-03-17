@@ -9,12 +9,14 @@ typedef enum
 	// CSV
 	infoInitCSV					= 0x0101,
 	infoCSVChanged				= 0x0102,
+	infoShutdownCSV				= 0x01FF,
 
 	// OPL
 	infoInitOPL					= 0x0201,
 	infoEGNotChanged			= 0x0202,
 	infoStopOrderReceived		= 0x0203,
 	infoNoStopOrder				= 0x0204,
+	infoShutdownOPL				= 0x02FF,
 
 	// Valve
 	infoInitValve				= 0x0301,
@@ -22,10 +24,12 @@ typedef enum
 	infoNoDepend				= 0x0303,
 	infoValveAlreadyActivated	= 0x0304,
 	infoAllDependNotActivated	= 0x0305,
+	infoShutdownValve			= 0x03FF,
 
 	// Sensor
 	infoInitSensor				= 0x0401,
 	infoReadChannels			= 0x0402,
+	infoShutdownSensor			= 0x04FF,
 
 	// Main state
 	infoStateToInit				= 0x7001,

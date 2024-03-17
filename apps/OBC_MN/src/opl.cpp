@@ -155,6 +155,28 @@ void changeEG()
     cmptEG++;
 }
 
+void setEGToManualMode()
+{
+    setEG(0x7777);
+    if (mode == 0)
+        mode = 1;
+    else if (mode == 1)
+        mode = 0;
+
+    printf("\n\nmode : %d\n\n", mode);
+}
+
+void manualActivation(int nodeId, int valve)
+{
+    printf("\nOld value for valve[%d] : %d, nodeId : %d\n", valve + (nbValuesCN_In + 1) * (nodeId - 1),
+        values_Out_MN_l[valve + (nbValuesCN_In + 1) * (nodeId - 1)], nodeId);
+
+    values_Out_MN_l[valve + (nbValuesCN_In + 1) * (nodeId - 1)] = !values_Out_MN_l[valve + (nbValuesCN_In + 1) * (nodeId - 1)];
+
+    printf("New value for valve[%d] : %d, nodeId : %d\n", valve + (nbValuesCN_In + 1) * (nodeId - 1),
+        values_Out_MN_l[valve + (nbValuesCN_In + 1) * (nodeId - 1)], nodeId);
+}
+
 
 //------------------------------------------------------------------------------
 // local function prototypes

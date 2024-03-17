@@ -81,7 +81,6 @@ void affValeursOut()
     printf("\n------------OUT CN1--------------\n");
     for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out + 1; i++)
     {
-        printf("activated_Out_CN_l[%d]=%d\n", i + 1, activated_Out_CN_l[i + 1]);
         printf("values_Out_CN_l[%d]=%d\n", i, values_Out_CN_l[i]);
     }
     printf("\n--------------------------------\n");
@@ -129,6 +128,10 @@ statusErrDef isEGchanged()
     {
         EG = values_In_CN_l[nbValuesCN_In_ByCN];
         statusErrDef res = resetTimers();
+        if (values_In_CN_l[nbValuesCN_In_ByCN] == 0x7777)
+            mode = 1;
+        else
+            mode = 0;
         return res;
     }
     else
@@ -147,8 +150,6 @@ void setEC1(int16_t EC1)
 
 statusErrDef initOPL()
 {
-
-    tOplkError      ret = kErrorOk;
     statusErrDef    res = noError;
     tOptions        opts;
 
@@ -185,15 +186,15 @@ statusErrDef initOPL()
 
     setActivated_Out_CN();
 
-    ret = initPowerlink(CYCLE_LEN,
+    res = initPowerlink(CYCLE_LEN,
         opts.devName,
         aMacAddr_l,
         opts.nodeId);
-    if (ret != kErrorOk)
+    if (res != noError)
         return res;
 
-    ret = initApp();
-    if (ret != kErrorOk)
+    res = initApp();
+    if (res != noError)
         return res;
 
     res = initOplThread();
@@ -214,9 +215,9 @@ The function initializes the synchronous data application
 \ingroup module_demo_cn_console
 */
 //------------------------------------------------------------------------------
-tOplkError initApp()
+statusErrDef initApp()
 {
-    tOplkError  res;
+    statusErrDef  res = noError;
 
     res = initProcessImage();
 
@@ -701,11 +702,19 @@ The function shuts down the demo application.
 void shutdownPowerlink(void)
 {
     UINT    i;
+    tOplkError  ret = kErrorOk;
 
     fGsOff_l = FALSE;
 
     // halt the NMT state machine so the processing of POWERLINK frames stops
-    oplk_execNmtCommand(kNmtEventSwitchOff);
+    ret = oplk_execNmtCommand(kNmtEventSwitchOff);
+    if (ret != kErrorOk)
+    {
+        fprintf(stderr,
+            "oplk_execNmtCommand() failed with \"%s\" (0x%04x)\n",
+            debugstr_getRetValStr(ret),
+            ret);
+    }
 
     // small loop to implement timeout waiting for thread to terminate
     for (i = 0; i < 1000; i++)

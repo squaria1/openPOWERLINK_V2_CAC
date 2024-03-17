@@ -180,8 +180,8 @@ int main() {
                 res = sensor.extinctSensor();
                 if (res == noError)
                 {
-                    file.writeTelem("Sensor subsystem has exited correctly", 0x04FF);
-                    opl.sendTelem(0x04FF);
+                    file.writeTelem("Sensor subsystem has exited correctly", infoShutdownSensor);
+                    opl.sendTelem(infoShutdownSensor);
                 }
                 else
                 {
@@ -191,8 +191,8 @@ int main() {
                 res = valve.extinctValve();
                 if(res == noError)
                 {
-                    file.writeTelem("Valve subsystem has exited correctly", 0x03FF);
-                    opl.sendTelem(0x03FF);
+                    file.writeTelem("Valve subsystem has exited correctly", infoShutdownValve);
+                    opl.sendTelem(infoShutdownValve);
                 }
                 else
                 {
@@ -202,20 +202,14 @@ int main() {
                 #endif
                 res = extinctOPL();
                 if (res == noError)
-                    file.writeTelem("OpenPOWERLINK has exited correctly", 0x02FF);
+                    file.writeTelem("OpenPOWERLINK has exited correctly", infoShutdownOPL);
                 else
                     file.writeError("OpenPOWERLINK has failed to exit!", res);
                 res = extinctCSV();
                 if (res == noError)
-                {
-                    file.writeTelem("CSV subsystem has exited correctly", 0x01FF);
-                    opl.sendTelem(0x01FF);
-                }
+                    file.writeTelem("CSV subsystem has exited correctly", infoShutdownCSV);
                 else
-                {
                     file.writeError("CSV subsystem has failed to exit!", res);
-                    opl.sendError(res);
-                }
                 res = file.closeFile();
                 if (res == noError)
                     printf("TelemFile close OK\n");

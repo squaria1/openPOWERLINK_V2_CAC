@@ -71,7 +71,7 @@ extern "C"
                                     const UINT16 arrayIndex, 
                                     UINT16 index, 
                                     UINT8 subIndex);
-    tOplkError          initApp();
+    statusErrDef        initApp();
     statusErrDef        initOPL();
     statusErrDef        extinctOPL();
     //void              setValues_In_CN(int ligne);

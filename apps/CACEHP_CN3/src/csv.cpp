@@ -23,7 +23,9 @@ statusErrDef initCSV()
 
     memset(dataPhysicalConfigVannes, 0, sizeof(struct LigneVannes));
 
-    lireFichierVannes(PHYSICAL_CONFIG_VANNES_DIRECTORY);
+    res = lireFichierVannes(PHYSICAL_CONFIG_VANNES_DIRECTORY);
+    if (res != noError)
+        return res;
 
     /********************Partie_PhysicalConfig_Sensors********************/
 
@@ -37,7 +39,9 @@ statusErrDef initCSV()
 
     memset(dataPhysicalConfigSensors, 0, sizeof(struct LigneSensors));
 
-    lireFichierSensors(PHYSICAL_CONFIG_SENSORS_DIRECTORY);
+    res = lireFichierSensors(PHYSICAL_CONFIG_SENSORS_DIRECTORY);
+    if (res != noError)
+        return res;
 
 
     /********************Partie_PhysicalConfig_Activation********************/
@@ -52,7 +56,9 @@ statusErrDef initCSV()
 
     memset(dataActivation, 0, sizeof(struct LigneActivation));
 
-    lireFichierActivation(COMMON_PHYSICAL_CONFIG_DIRECTORY);
+    res = lireFichierActivation(COMMON_PHYSICAL_CONFIG_DIRECTORY);
+    if (res != noError)
+        return res;
 
     return noError;
 }

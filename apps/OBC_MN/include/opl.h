@@ -80,7 +80,9 @@ extern "C"
     void                    affValeursOut();
     void                    affValeursInProcess();
     void                    affValeursOutProcess();
-    void                    changeEG();
+    void                    changeEG(); 
+    void                    setEGToManualMode();
+    void                    manualActivation(int nodeId, int valve);
 
     //------------------------------------------------------------------------------
     // global vars

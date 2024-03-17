@@ -81,7 +81,6 @@ void affValeursOut()
     printf("\n------------OUT CN1--------------\n");
     for (int i = nbValuesCN_Out_ByCN; i < nbValuesCN_Out_ByCN + nbValuesCN_Out + 1; i++)
     {
-        printf("activated_Out_CN_l[%d]=%d\n", i + 1, activated_Out_CN_l[i + 1]);
         printf("values_Out_CN_l[%d]=%d\n", i, values_Out_CN_l[i]);
     }
     printf("\n--------------------------------\n");
@@ -129,6 +128,10 @@ statusErrDef isEGchanged()
     {
         EG = values_In_CN_l[nbValuesCN_In_ByCN];
         statusErrDef res = resetTimers();
+        if (values_In_CN_l[nbValuesCN_In_ByCN] == 0x7777)
+            mode = 1;
+        else
+            mode = 0;
         return res;
     }
     else
