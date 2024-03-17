@@ -172,6 +172,8 @@ statusErrDef valve::verifDependanceValves()
                     {
                         printf("actionnement valve %d !\n", i);
                         res = actionnementValve(i);
+                        if (res != noError)
+                            return res;
                         printf("i:%d\n", i);
                         printf("AFTER : getValeur(i + nbValuesCN_In_ByCN + 2):%d , gpiod_line_get_value(lines[i]):%d\n",
                             getValeur(i + nbValuesCN_In_ByCN + 2), gpiod_line_get_value(lines[i]));
@@ -190,7 +192,7 @@ statusErrDef valve::verifDependanceValves()
                 break;
             case 1:
                 if (gpiod_line_get_value(lines[i]) < 0)
-                    res = errGPIOGetValue;
+                    return errGPIOGetValue;
                 else if (getValues_In_CN(i + nbValuesCN_In_ByCN + 1) == gpiod_line_get_value(lines[i]))
                     res = infoValveAlreadyActivated;
                 printf("\ngetValues_In_CN(%d) : %d, gpiod_line_get_value(lines[%d]) : %d\n", i + nbValuesCN_In_ByCN + 1,
