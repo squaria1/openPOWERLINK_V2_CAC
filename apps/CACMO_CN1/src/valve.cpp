@@ -182,6 +182,7 @@ statusErrDef valve::verifDependanceValves()
                     return errGPIOGetValue;
                 else if (getValues_In_CN(i + nbValuesCN_In_ByCN + 1) == gpiod_line_get_value(lines[i]))
                     return infoValveAlreadyActivated;
+                values[i] = getValues_In_CN(i + nbValuesCN_In_ByCN + 1);
                 res = actionnementValve(i);
                 break;
             default:

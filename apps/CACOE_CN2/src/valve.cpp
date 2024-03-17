@@ -28,7 +28,7 @@ statusErrDef valve::initValve()
 {
     statusErrDef res = noError;
 
-    if (CHIP_PATH == "" || CHIP_PATH == " ") 
+    if (CHIP_PATH == "" || CHIP_PATH == " ")
     {
         perror("Error: GPIO chip path is not set.");
         return errGPIOPathEmpty;
@@ -41,7 +41,7 @@ statusErrDef valve::initValve()
         return errOpenGPIO;
     }
 
-    for (int i = 0; i < MAX_VALVES; i++) 
+    for (int i = 0; i < MAX_VALVES; i++)
     {
         if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {
@@ -81,7 +81,7 @@ statusErrDef valve::actionnementValvesInit()
 {
     statusErrDef res = noError;
 
-    for (int i = 0; i < MAX_VALVES; i++) 
+    for (int i = 0; i < MAX_VALVES; i++)
     {
         if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {
@@ -182,13 +182,14 @@ statusErrDef valve::verifDependanceValves()
                     return errGPIOGetValue;
                 else if (getValues_In_CN(i + nbValuesCN_In_ByCN + 1) == gpiod_line_get_value(lines[i]))
                     return infoValveAlreadyActivated;
+                values[i] = getValues_In_CN(i + nbValuesCN_In_ByCN + 1);
                 res = actionnementValve(i);
                 break;
             default:
                 break;
             }
         }
-        
+
     }
 
     return res;
@@ -319,7 +320,7 @@ int16_t getValveValue(int index)
 
 
 statusErrDef resetTimers() {
-    for(int i = 0; i < MAX_VALVES; i++)
+    for (int i = 0; i < MAX_VALVES; i++)
     {
         if (getActivation(i + nbValuesCN_Out_ByCN + 2))
         {

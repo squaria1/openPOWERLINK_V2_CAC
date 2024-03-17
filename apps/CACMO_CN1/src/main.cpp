@@ -135,27 +135,27 @@ int main() {
                 #if (TARGET_SYSTEM == _WIN32_)
                 #else
                     res = valve.verifDependanceValves();
-                    if (res == noError)
-                    {
-                        file.writeTelem("Verification of valve dependance has succeeded", infoVerifDependSucess);
-                        opl.sendTelem(infoVerifDependSucess);
-                    }
-                    else
-                    {
-                        file.writeError("Verification of valve dependance has failed!", res);
-                        opl.sendError(res);
-                    }
+                    //if (res == noError)
+                    //{
+                    //    file.writeTelem("Verification of valve dependance has succeeded", infoVerifDependSucess);
+                    //    opl.sendTelem(infoVerifDependSucess);
+                    //}
+                    //else
+                    //{
+                    //    file.writeError("Verification of valve dependance has failed!", res);
+                    //    opl.sendError(res);
+                    //}
                     res = readChannels();
-                    if (res == noError)
-                    {
-                        file.writeTelem("Reading sensor channels has succeeded", infoReadChannels);
-                        opl.sendTelem(infoReadChannels);
-                    }
-                    else
-                    {
-                        file.writeError("Reading sensor channels has failed!", res);
-                        opl.sendError(res);
-                    }
+                    //if (res == noError)
+                    //{
+                    //    file.writeTelem("Reading sensor channels has succeeded", infoReadChannels);
+                    //    opl.sendTelem(infoReadChannels);
+                    //}
+                    //else
+                    //{
+                    //    file.writeError("Reading sensor channels has failed!", res);
+                    //    opl.sendError(res);
+                    //}
                 #endif
                 system_msleep(DELAYMSCONTROL);
 
