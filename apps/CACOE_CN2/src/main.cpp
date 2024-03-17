@@ -24,202 +24,201 @@ int main() {
     BOOL            fExit = FALSE;
     statusErrDef    res = noError;
 
-
-    while (state != ending) {
-        switch (state) {
-        case init: // Initialisation
-            res = file.initFile();
-            if (res == noError)
-                printf("TelemFile OK\n");
-            else
-                printf("Error telemfiles\n");
-            res = file.testWriteFile();
-            if (res == noError)
-                printf("Writing in TelemFile OK\n");
-            else
-                printf("Error writing in telemfiles\n");
-            res = initCSV();
-            if (res == noError)
-                file.writeTelem("CSV subsystem has successfully initialized", infoInitCSV);
-            else
-                file.writeError("CSV subsystem initialization has failed!", res);
-            res = initOPL();
-            if (res == noError)
-            {
-                file.writeTelem("OpenPOWERLINK has successfully initialized", infoInitOPL);
-                opl.sendTelem(infoInitOPL);
-
-                file.writeTelem("CAC initialisation is ongoing", infoStateToInit);
-                opl.sendTelem(infoStateToInit);
-            }
-            else
-                file.writeError("OpenPOWERLINK initialization has failed!", res);
-#if (TARGET_SYSTEM == _WIN32_)
-#else
-            res = valve.initValve();
-            if (res == noError)
-            {
-                file.writeTelem("Valve subsystem has successfully initialized", infoInitValve);
-                opl.sendTelem(infoInitValve);
-            }
-            else
-            {
-                file.writeError("Valve subsystem initialization has failed!", res);
-                opl.sendError(res);
-            }
-            res = sensor.initSensor();
-            if (res == noError)
-            {
-                file.writeTelem("Sensor subsystem has successfully initialized", infoInitSensor);
-                opl.sendTelem(infoInitSensor);
-            }
-            else
-            {
-                file.writeError("Sensor subsystem initialization has failed!", res);
-                opl.sendError(res);
-            }
-#endif
-
-            system_msleep(DELAYMSINIT);
-
-            res = opl.demandeExtinctOPL();
-            if (res == noError)
-                state = shutdown;
-            else
-            {
-                state = controlAndAcquisition;
-
-                file.writeTelem("CAC is going into state control and acquisition", infoStateToControl);
-                opl.sendTelem(infoStateToControl);
-            }
-            break;
-        case controlAndAcquisition: // Acquisition et controle
-            if (console_kbhit())
-            {
-                cKey = (char)console_getch();
-                switch (cKey)
-                {
-                case 0x1B:
-                    state = shutdown;
-                    break;
-                case 'a':
-                    affValeursOut();
-                    break;
-                case 'z':
-                    printf("\n\n EG CN : %d \n\n", EG);
-                    affValeursIn();
-                    break;
-                case 'e':
-                    affValeursProcessIn();
-                    break;
-                default:
-                    break;
-                }
-            }
-
-            res = isEGchanged();
-            if (res == noError)
-            {
-                res = refreshCSV();
+    
+    while(state != ending){
+        switch(state){
+            case init: // Initialisation
+                res = file.initFile();
+                if (res == noError)
+                    printf("TelemFile OK\n");
+                else
+                    printf("Error telemfiles\n");
+                res = file.testWriteFile();
+                if(res == noError)
+                    printf("Writing in TelemFile OK\n");
+                else
+                    printf("Error writing in telemfiles\n");
+                res = initCSV();
+                if (res == noError)
+                    file.writeTelem("CSV subsystem has successfully initialized", infoInitCSV);
+                else 
+                    file.writeError("CSV subsystem initialization has failed!", res);
+                res = initOPL();
                 if (res == noError)
                 {
-                    file.writeTelem("CSV has been changed", infoCSVChanged);
-                    opl.sendTelem(infoCSVChanged);
+                    file.writeTelem("OpenPOWERLINK has successfully initialized", infoInitOPL);
+                    opl.sendTelem(infoInitOPL);
+
+                    file.writeTelem("CAC initialisation is ongoing", infoStateToInit);
+                    opl.sendTelem(infoStateToInit);
+                }
+                else
+                    file.writeError("OpenPOWERLINK initialization has failed!", res);
+                #if (TARGET_SYSTEM == _WIN32_)
+                #else
+                res = valve.initValve();
+                if(res == noError)
+                {
+                    file.writeTelem("Valve subsystem has successfully initialized", infoInitValve);
+                    opl.sendTelem(infoInitValve);
+                }else
+                {
+                    file.writeError("Valve subsystem initialization has failed!", res);
+                    opl.sendError(res);
+                }
+                res = sensor.initSensor();
+                if (res == noError)
+                {
+                    file.writeTelem("Sensor subsystem has successfully initialized", infoInitSensor);
+                    opl.sendTelem(infoInitSensor);
                 }
                 else
                 {
-                    file.writeError("CSV has failed to change with the new EG!", res);
+                    file.writeError("Sensor subsystem initialization has failed!", res);
                     opl.sendError(res);
                 }
-            }
+                #endif
 
-#if (TARGET_SYSTEM == _WIN32_)
-#else
-            res = valve.verifDependanceValves();
-            //if (res == noError)
-            //{
-            //    file.writeTelem("Verification of valve dependance has succeeded", infoVerifDependSucess);
-            //    opl.sendTelem(infoVerifDependSucess);
-            //}
-            //else
-            //{
-            //    file.writeError("Verification of valve dependance has failed!", res);
-            //    opl.sendError(res);
-            //}
-            res = readChannels();
-            //if (res == noError)
-            //{
-            //    file.writeTelem("Reading sensor channels has succeeded", infoReadChannels);
-            //    opl.sendTelem(infoReadChannels);
-            //}
-            //else
-            //{
-            //    file.writeError("Reading sensor channels has failed!", res);
-            //    opl.sendError(res);
-            //}
-#endif
-            system_msleep(DELAYMSCONTROL);
+                system_msleep(DELAYMSINIT);
 
-            res = opl.demandeExtinctOPL();
-            if (res == noError)
-                state = shutdown;
-
-            res = checkStateOpl();
-            if (res != noError)
-            {
-                file.writeError("OpenPOWERLINK has failed!", res);
-                opl.sendError(res);
-                if (res == errSystemSendTerminate)
+                res = opl.demandeExtinctOPL();
+                if(res == noError)
                     state = shutdown;
-            }
-            break;
-        case shutdown: // Extinction
-            file.writeTelem("CAC is going into shutdown state", infoStateToShutdown);
-            opl.sendTelem(infoStateToShutdown);
-#if (TARGET_SYSTEM == _WIN32_)
-#else
-            res = sensor.extinctSensor();
-            if (res == noError)
-            {
-                file.writeTelem("Sensor subsystem has exited correctly", infoShutdownSensor);
-                opl.sendTelem(infoShutdownSensor);
-            }
-            else
-            {
-                file.writeError("Sensor subsystem has failed to exit!", res);
-                opl.sendError(res);
-            }
-            res = valve.extinctValve();
-            if (res == noError)
-            {
-                file.writeTelem("Valve subsystem has exited correctly", infoShutdownValve);
-                opl.sendTelem(infoShutdownValve);
-            }
-            else
-            {
-                file.writeError("Valve subsystem has failed to exit!", res);
-                opl.sendError(res);
-            }
-#endif
-            res = extinctOPL();
-            if (res == noError)
-                file.writeTelem("OpenPOWERLINK has exited correctly", infoShutdownOPL);
-            else
-                file.writeError("OpenPOWERLINK has failed to exit!", res);
-            res = extinctCSV();
-            if (res == noError)
-                file.writeTelem("CSV subsystem has exited correctly", infoShutdownCSV);
-            else
-                file.writeError("CSV subsystem has failed to exit!", res);
-            res = file.closeFile();
-            if (res == noError)
-                printf("TelemFile close OK\n");
-            else
-                printf("Error telemfiles close!\n");
-            state = ending;
-            break;
-        default:
-            break;
+                else
+                {
+                    state = controlAndAcquisition;
+
+                    file.writeTelem("CAC is going into state control and acquisition", infoStateToControl);
+                    opl.sendTelem(infoStateToControl);
+                }
+                break;
+            case controlAndAcquisition: // Acquisition et controle
+                if (console_kbhit())
+                {
+                    cKey = (char)console_getch();
+                    switch (cKey)
+                    {
+                    case 0x1B:
+                        state = shutdown;
+                        break;
+                    case 'a':
+                        affValeursOut();
+                        break;
+                    case 'z':
+                        printf("\n\n EG CN : %d \n\n", EG);
+                        affValeursIn();
+                        break;
+                    case 'e':
+                        affValeursProcessIn();
+                        break;
+                    default:
+                        break;
+                    }
+                }
+
+                res = isEGchanged();
+                if (res == noError)
+                {
+                    res = refreshCSV();
+                    if (res == noError)
+                    {
+                        file.writeTelem("CSV has been changed", infoCSVChanged);
+                        opl.sendTelem(infoCSVChanged);
+                    }
+                    else
+                    {
+                        file.writeError("CSV has failed to change with the new EG!", res);
+                        opl.sendError(res);
+                    }
+                }
+
+                #if (TARGET_SYSTEM == _WIN32_)
+                #else
+                    res = valve.verifDependanceValves();
+                    //if (res == noError)
+                    //{
+                    //    file.writeTelem("Verification of valve dependance has succeeded", infoVerifDependSucess);
+                    //    opl.sendTelem(infoVerifDependSucess);
+                    //}
+                    //else
+                    //{
+                    //    file.writeError("Verification of valve dependance has failed!", res);
+                    //    opl.sendError(res);
+                    //}
+                    res = readChannels();
+                    //if (res == noError)
+                    //{
+                    //    file.writeTelem("Reading sensor channels has succeeded", infoReadChannels);
+                    //    opl.sendTelem(infoReadChannels);
+                    //}
+                    //else
+                    //{
+                    //    file.writeError("Reading sensor channels has failed!", res);
+                    //    opl.sendError(res);
+                    //}
+                #endif
+                system_msleep(DELAYMSCONTROL);
+
+                res = opl.demandeExtinctOPL();
+                if(res == noError)
+                    state = shutdown;
+                
+                res = checkStateOpl();
+                if (res != noError)
+                {
+                    file.writeError("OpenPOWERLINK has failed!", res);
+                    opl.sendError(res);
+                    if (res == errSystemSendTerminate)
+                        state = shutdown;
+                }
+                break;
+            case shutdown: // Extinction
+                file.writeTelem("CAC is going into shutdown state", infoStateToShutdown);
+                opl.sendTelem(infoStateToShutdown);
+                #if (TARGET_SYSTEM == _WIN32_)
+                #else
+                res = sensor.extinctSensor();
+                if (res == noError)
+                {
+                    file.writeTelem("Sensor subsystem has exited correctly", infoShutdownSensor);
+                    opl.sendTelem(infoShutdownSensor);
+                }
+                else
+                {
+                    file.writeError("Sensor subsystem has failed to exit!", res);
+                    opl.sendError(res);
+                }
+                res = valve.extinctValve();
+                if(res == noError)
+                {
+                    file.writeTelem("Valve subsystem has exited correctly", infoShutdownValve);
+                    opl.sendTelem(infoShutdownValve);
+                }
+                else
+                {
+                    file.writeError("Valve subsystem has failed to exit!", res);
+                    opl.sendError(res);
+                }
+                #endif
+                res = extinctOPL();
+                if (res == noError)
+                    file.writeTelem("OpenPOWERLINK has exited correctly", infoShutdownOPL);
+                else
+                    file.writeError("OpenPOWERLINK has failed to exit!", res);
+                res = extinctCSV();
+                if (res == noError)
+                    file.writeTelem("CSV subsystem has exited correctly", infoShutdownCSV);
+                else
+                    file.writeError("CSV subsystem has failed to exit!", res);
+                res = file.closeFile();
+                if (res == noError)
+                    printf("TelemFile close OK\n");
+                else
+                    printf("Error telemfiles close!\n");
+                state = ending;
+                break;
+            default:
+                break;
         }
     }
 }

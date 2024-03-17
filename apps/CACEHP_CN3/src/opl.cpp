@@ -129,7 +129,10 @@ statusErrDef isEGchanged()
         EG = values_In_CN_l[nbValuesCN_In_ByCN];
         statusErrDef res = resetTimers();
         if (values_In_CN_l[nbValuesCN_In_ByCN] == 0x7777)
+        {
+            res = infoModeSetToManual;
             mode = 1;
+        }
         else
             mode = 0;
         return res;

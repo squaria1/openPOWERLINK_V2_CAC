@@ -16,6 +16,7 @@ typedef enum
 	infoEGNotChanged			= 0x0202,
 	infoStopOrderReceived		= 0x0203,
 	infoNoStopOrder				= 0x0204,
+	infoModeSetToManual			= 0x0205,
 	infoShutdownOPL				= 0x02FF,
 
 	// Valve
