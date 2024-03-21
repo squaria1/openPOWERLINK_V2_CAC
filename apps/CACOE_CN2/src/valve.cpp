@@ -240,13 +240,10 @@ statusErrDef valve::isDependanceActive(int ligne)
         {
             if (tab[i] > nbValuesCN_In_ByCN && tab[i] < nbValuesCN_In_ByCN + nbValuesCN_In)
             {
-                if (nbValuesCN_In_ByCN != 0)
-                {
-                    if (gpiod_line_get_value(lines[(tab[i] - 1) % (nbValuesCN_In + 1)]) < 0)
-                        return errGPIODependValue;
-                    else if (getValeur(tab[i] + 1) != gpiod_line_get_value(lines[(tab[i] - 1) % (nbValuesCN_In + 1)]))
-                        return infoAllDependNotActivated;
-                }
+                if (gpiod_line_get_value(lines[(tab[i] - 1) % (nbValuesCN_In + 1)]) < 0)
+                    return errGPIODependValue;
+                else if (getValeur(tab[i] + 1) != gpiod_line_get_value(lines[(tab[i] - 1) % (nbValuesCN_In + 1)]))
+                    return infoAllDependNotActivated;
             }
             else
                 return errDependOutsideOfRange;
