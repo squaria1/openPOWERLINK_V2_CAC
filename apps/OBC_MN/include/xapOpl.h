@@ -11,14 +11,12 @@
 
 typedef struct
 {
-	int16_t out_MN_array[SIZE_OUT + offsetValues];
-	unsigned PADDING_VAR_1:16;
+	int16_t out_MN_array[SIZE_OUT];
 } PI_OUT;
 
 typedef struct
 {
-	int16_t in_MN_array[SIZE_IN + offsetValues];
-	unsigned PADDING_VAR_1:16;
+	int16_t in_MN_array[SIZE_IN];
 } PI_IN;
 
 #endif

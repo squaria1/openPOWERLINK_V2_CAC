@@ -16,6 +16,7 @@ typedef enum
 	infoEGNotChanged			= 0x0202,
 	infoStopOrderReceived		= 0x0203,
 	infoNoStopOrder				= 0x0204,
+	infoModeSetToManual			= 0x0205,
 	infoShutdownOPL				= 0x02FF,
 
 	// Valve
@@ -69,9 +70,6 @@ typedef enum
 	errOplkFreeProcessImage		= 0xE20B,
 	errSystemSendTerminate		= 0xE20C,
 	errOplKernelStackDown		= 0xE20D,
-	errInitFirmwareManager		= 0xE20E,
-	errOplkSetCDCFileName		= 0xE20F,
-	errSetupProcessImage		= 0xE210,
 
 	// Valve
 	errGPIOPathEmpty			= 0xE301,

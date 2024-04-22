@@ -1,0 +1,13 @@
+﻿Carte;Capteur;Etat initial;Min value;Max value
+CACMO;sensorCH0;1;100;1000
+CACMO;sensorCH1;1;101;1011
+CACMO;sensorCH2;2;102;1000
+CACMO;sensorCH3;3;100;1000
+CACMO;sensorCH4;-1;104;1003
+CACMO;sensorCH5;-1;;
+CACMO;sensorCH6;;;
+CACMO;sensorCH7;;;
+CACMO;sensorCH8;;;
+CACMO;sensorCH9;;;
+CACMO;sensorCH10;;;
+CACMO;sensorCH11;;;

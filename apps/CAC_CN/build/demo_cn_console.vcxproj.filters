@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\apps\CAC_CN\src\main.cpp">
+      <Filter>Demo Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\apps\CAC_CN\src\file.cpp">
+      <Filter>Demo Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\apps\CAC_CN\src\opl.cpp">
+      <Filter>Demo Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\apps\CAC_CN\src\eventOpl.c">
+      <Filter>Demo Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\apps\CAC_CN\src\sensor.cpp">
+      <Filter>Demo Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\apps\CAC_CN\src\valve.cpp">
+      <Filter>Demo Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\apps\CAC_CN\src\csv.cpp">
+      <Filter>Demo Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\apps\common\src\obdcreate\obdcreate.c">
+      <Filter>Object Dictionary</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\apps\common\src\eventlog\eventlog.c">
+      <Filter>Demo Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\apps\common\src\eventlog\eventlogstring.c">
+      <Filter>Demo Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\apps\common\src\netselect\netselect.c">
+      <Filter>Demo Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\contrib\console\printlog.c">
+      <Filter>Demo Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\apps\common\src\system\system-windows.c">
+      <Filter>Architecture Specific Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\contrib\console\console-windows.c">
+      <Filter>Architecture Specific Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\contrib\trace\trace-windows.c">
+      <Filter>Architecture Specific Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\contrib\getopt\getopt.c">
+      <Filter>Architecture Specific Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Squaria\Documents\openPOWERLINK_V2_CAC\apps\CAC_CN\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Architecture Specific Sources">
+      <UniqueIdentifier>{DD64B779-5764-39C6-B021-2AA01C659065}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demo Sources">
+      <UniqueIdentifier>{D66E4981-4089-3562-8DFE-7865F25E93D6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Dictionary">
+      <UniqueIdentifier>{AA081753-FFF9-33AF-82E2-F5A76778D785}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

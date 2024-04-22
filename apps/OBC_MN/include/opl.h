@@ -101,9 +101,9 @@ extern "C"
     static PI_IN*                   pProcessImageIn_l;
     static PI_OUT*                  pProcessImageOut_l;
 
-    static int16_t                  values_In_MN_l[SIZE_OUT + offsetValues];
-    static int16_t                  values_Out_MN_l[SIZE_IN + offsetValues];
-    static bool                     activated_In_MN_l[SIZE_OUT+1];
+    static int16_t                  values_In_MN_l[SIZE_OUT];
+    static int16_t                  values_Out_MN_l[SIZE_IN];
+    static bool                     activated_In_MN_l[SIZE_OUT+2];
 
     int16_t     getTest();
     int16_t     getEC1();
