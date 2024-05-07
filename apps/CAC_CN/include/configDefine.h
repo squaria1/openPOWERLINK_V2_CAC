@@ -30,7 +30,6 @@
 #define MAX_LINE_SIZE 2832
 #define MAX_PHYSICAL_LINE_SIZE 1024
 #define MAX_ROWS 5
-#define MAX_DEPENDANCE 2832
 
 #ifdef _WIN32
 	#define STATE_CSV_DIRECTORY "..\\..\\..\\..\\common\\commonCSVFiles\\stateCSV\\"

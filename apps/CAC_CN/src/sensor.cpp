@@ -20,6 +20,7 @@ static int abort_read;
 sensor::sensor()
 {
     //constructor
+    //initialize the tabSensorActivated array
     memset(tabSensorActivated, 0, sizeof(tabSensorActivated));
 }
 
@@ -28,7 +29,14 @@ sensor::~sensor()
     //destructor
 }
 
-
+/**
+ * \brief function to initialize the sensor module.
+ * 
+ * \return statusErrDef that values errOpenAdc
+when a sysfs file of the MCP3008 fails to open
+or errReadAdc when a sysfs file read of the MCP3008 fails
+or noError when the function exits successfully.
+ */
 statusErrDef sensor::initSensor() {
     statusErrDef res = noError;
     for (int i = 0; i < MAX_SENSORS; i++) 
@@ -43,6 +51,13 @@ statusErrDef sensor::initSensor() {
     return res;
 }
 
+/**
+ * \brief function to shutdown the sensor module.
+ * 
+ * \return statusErrDef that values errCloseAdc
+ * when a sysfs file of the MCP3008 fails to close
+ * or noError when the function exits successfully.
+ */
 statusErrDef sensor::extinctSensor() {
     statusErrDef res = noError;
 
@@ -51,10 +66,26 @@ statusErrDef sensor::extinctSensor() {
     return res;
 }
 
+/**
+ * \brief function getter of the value of a sensor
+ * from the array of sensors.
+ * 
+ * \param index the index of the array of sensors
+ * \return the value of the sensor in 2 bytes signed.
+ */
 int16_t getAdc_value(int index) {
     return valSensors[index];
 }
 
+/**
+ * \brief function the read the channels of the
+ * MCP3008 by opening, reading and closing the sysfs files.
+ * 
+ * \return statusErrDef that values errOpenAdc 
+ * when a sysfs file of the MCP3008 fails to open
+ * or errReadAdc when a sysfs file read of the MCP3008 fails
+ * or noError when the function exits successfully. 
+ */
 statusErrDef readChannels()
 {
     int i;
@@ -94,6 +125,14 @@ statusErrDef readChannels()
     return res;
 }
 
+/**
+ * \brief function to close the sysfs files
+ * of the MCP3008 kernel module.
+ * 
+ * \return statusErrDef that values errCloseAdc 
+ * when a sysfs file of the MCP3008 fails to close
+ * or noError when the function exits successfully.  
+ */
 statusErrDef closeAdc()
 {
     statusErrDef res = noError;
@@ -114,6 +153,14 @@ statusErrDef closeAdc()
     return res;
 }
 
+/**
+ * \brief function to read the value of a sensor
+ * from a sysfs file of the MCP3008 kernel module.
+ * 
+ * \param fd the file location
+ * \return ADC_READ_ERROR when the file reading fails
+ * or the value of a sensor.
+ */
 int readAdc(int fd)
 {
     char buff[8];
@@ -131,6 +178,14 @@ int readAdc(int fd)
     return val;
 }
 
+/**
+ * \brief function to open a sysfs file 
+ * of the MCP3008 kernel module.
+ * 
+ * \param adc the MCP3008 channel number
+ * \return ADC_READ_ERROR when the file opening fails
+ * or the file location.
+ */
 int openAdc(int adc)
 {
     char path[128];

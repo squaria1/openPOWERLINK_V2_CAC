@@ -94,4 +94,11 @@ typedef enum
 
 } statusErrDef;
 
+typedef enum
+{
+	automatic					= 0x00,
+	manual 						= 0x01,
+	
+} mode;
+
 #endif

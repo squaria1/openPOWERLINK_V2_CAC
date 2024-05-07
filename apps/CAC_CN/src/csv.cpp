@@ -496,11 +496,11 @@ int getValeur(int ligne)
  */
 int* getDependanceVannes(int ligne) 
 {
-    int* tab = (int*)malloc(MAX_DEPENDANCE * sizeof(int));
+    int* tab = (int*)malloc(MAX_VALVES * sizeof(int));
 
     if (tab != NULL)
     {
-        for (int i = 0; i < MAX_DEPENDANCE; i++) 
+        for (int i = 0; i < MAX_VALVES; i++) 
         {
             tab[i] = dataEtats->dependanceVannes[ligne][i];
         }

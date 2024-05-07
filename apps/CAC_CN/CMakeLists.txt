@@ -33,7 +33,7 @@
 # Setup project and generic options
 
 PROJECT(demo_cn_console CXX)
-MESSAGE(STATUS "Configuring CACMO")
+MESSAGE(STATUS "Configuring CACProgram")
 
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.7)
 

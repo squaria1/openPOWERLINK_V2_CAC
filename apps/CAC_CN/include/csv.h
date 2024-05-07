@@ -22,7 +22,7 @@ extern "C"
 
     struct LigneCSV {
         int valeur[MAX_LINE_SIZE];
-        int dependanceVannes[MAX_LINE_SIZE][MAX_LINE_SIZE];
+        int dependanceVannes[MAX_LINE_SIZE][MAX_VALVES];
         double timerVannes[MAX_LINE_SIZE];
     };
 

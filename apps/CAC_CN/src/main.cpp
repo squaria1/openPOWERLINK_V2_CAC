@@ -97,6 +97,7 @@ int main() {
                     file.writeError("Sensor subsystem initialization has failed!", res);
                     opl.sendError(res);
                 }
+                
                 #endif
 
                 system_msleep(DELAYMSINIT);
@@ -203,6 +204,7 @@ int main() {
                 opl.sendTelem(infoStateToShutdown);
                 #if (TARGET_SYSTEM == _WIN32_)
                 #else
+                
                 res = sensor.extinctSensor();
                 if (res == noError)
                 {
