@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structt_demo_node_info" kind="struct" language="C++" prot="public">
+    <compoundname>tDemoNodeInfo</compoundname>
+    <includes refid="opl_8h" local="no">opl.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structt_demo_node_info_1a60bbcadab2d687ca6352dd70c3d92804" prot="public" static="no" mutable="no">
+        <type>tNmtState</type>
+        <definition>tNmtState tDemoNodeInfo::nodeState[254]</definition>
+        <argsstring>[254]</argsstring>
+        <name>nodeState</name>
+        <qualifiedname>tDemoNodeInfo::nodeState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" line="58" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" line="56" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" bodystart="57" bodyend="59"/>
+    <listofallmembers>
+      <member refid="structt_demo_node_info_1a60bbcadab2d687ca6352dd70c3d92804" prot="public" virt="non-virtual"><scope>tDemoNodeInfo</scope><name>nodeState</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -72,7 +72,6 @@ extern "C"
                                     const UINT16 arrayIndex, 
                                     UINT16 index, 
                                     UINT8 subIndex);
-    statusErrDef        initApp();
     statusErrDef        initOPL();
     statusErrDef        extinctOPL();
     //void              setValues_In_CN(int ligne);
@@ -102,7 +101,6 @@ extern "C"
     //------------------------------------------------------------------------------
     // global vars
     //------------------------------------------------------------------------------
-    extern uint8_t              mode;
     extern int16_t              EG;
     extern int16_t              EC;
     

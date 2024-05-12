@@ -1,0 +1,20 @@
+**Release v1.1:**
+Improving the stability, readability and usability of the program.
+
+changelog:
+- changing timer synchronisation from CLOCK_MONOTONIC to CLOCK_REALTIME to syncronize multiple CNs (CACs) with the PTP protocol so
+  that valves of every CNs activate at the same time.
+- adding Doxygen C++ documentation to every source files.
+- removing some unused functions.
+- differentiating the CNs with a unique nodeId.h header file that contains the ID of the CN.
+
+bug fixes:
+- OpenPOWERLINK module bug fix: every activated valve or sensor values are now all transmitted regardless of the CN number.
+- Memory leak in valve module when checking for dependances fixed.
+
+
+**Release v1:**
+The first working version to test its logic and the correct integration of every modules.
+
+changelog:
+- CSV, sensor, valve, OpenPOWERLINK modules working with user keyboard input from MN

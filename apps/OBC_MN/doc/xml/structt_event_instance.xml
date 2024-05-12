@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structt_event_instance" kind="struct" language="C++" prot="public">
+    <compoundname>tEventInstance</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structt_event_instance_1a43a0e58094120d407660a8a246fdfff0" prot="public" static="no" mutable="no">
+        <type><ref refid="structt_event_config" kindref="compound">tEventConfig</ref></type>
+        <definition>tEventConfig tEventInstance::config</definition>
+        <argsstring></argsstring>
+        <name>config</name>
+        <qualifiedname>tEventInstance::config</qualifiedname>
+        <briefdescription>
+<para>Configuration provided in <ref refid="event_opl_8c_1a708072d52104add21873311bb5ad111a" kindref="member">initEvents()</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/eventOpl.c" line="79" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/eventOpl.c" bodystart="79" bodyend="-1"/>
+        <referencedby refid="event_opl_8c_1a4779cb6285a203e5b0d37a4fddf64e2b" compoundref="event_opl_8c" startline="480" endline="514">processFirmwareManagerEvents</referencedby>
+        <referencedby refid="event_opl_8c_1a0e1b53cf0cea4698362f22fa97c0ceb4" compoundref="event_opl_8c" startline="212" endline="263">processStateChangeEvent</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Event instance. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>tEventConfig</label>
+        <link refid="structt_event_config"/>
+      </node>
+      <node id="1">
+        <label>tEventInstance</label>
+        <link refid="structt_event_instance"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>config</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/eventOpl.c" line="77" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/eventOpl.c" bodystart="78" bodyend="80"/>
+    <listofallmembers>
+      <member refid="structt_event_instance_1a43a0e58094120d407660a8a246fdfff0" prot="public" virt="non-virtual"><scope>tEventInstance</scope><name>config</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

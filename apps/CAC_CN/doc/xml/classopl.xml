@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="classopl" kind="class" language="C++" prot="public">
+    <compoundname>opl</compoundname>
+    <includes refid="opl_8h" local="no">opl.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classopl_1a43a83ace00cba207a89cf65e3b995d7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>opl::opl</definition>
+        <argsstring>()</argsstring>
+        <name>opl</name>
+        <qualifiedname>opl::opl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="128" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classopl_1a8d5d5db31b3d8150af42d2bb000d94fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>opl::~opl</definition>
+        <argsstring>()</argsstring>
+        <name>~opl</name>
+        <qualifiedname>opl::~opl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="129" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classopl_1afcb3f7b05602f12b72bc97404795ef42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void opl::sendTelem</definition>
+        <argsstring>(int16_t statusCode)</argsstring>
+        <name>sendTelem</name>
+        <qualifiedname>opl::sendTelem</qualifiedname>
+        <param>
+          <type>int16_t</type>
+          <declname>statusCode</declname>
+        </param>
+        <briefdescription>
+<para>function to send the current status code to the MN in the board state (EC) object </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>statusCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current status code </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="131" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="54" bodyend="57"/>
+        <references refid="opl_8h_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
+        <references refid="opl_8h_1aa59e89f762bdbdf6cf15a756fd633b00" compoundref="opl_8h" startline="98">values_Out_CN_l</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classopl_1ad188b100fd92fcc210bd48ea4e08a36f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void opl::sendError</definition>
+        <argsstring>(int16_t errorCode)</argsstring>
+        <name>sendError</name>
+        <qualifiedname>opl::sendError</qualifiedname>
+        <param>
+          <type>int16_t</type>
+          <declname>errorCode</declname>
+        </param>
+        <briefdescription>
+<para>function to send the current error code to the MN in the board state (EC) object </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>errorCode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current error code </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="132" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="65" bodyend="68"/>
+        <references refid="opl_8h_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
+        <references refid="opl_8h_1aa59e89f762bdbdf6cf15a756fd633b00" compoundref="opl_8h" startline="98">values_Out_CN_l</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classopl_1ac3e6c6fb9c8d2a10d4437877651167bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef opl::demandeExtinctOPL</definition>
+        <argsstring>()</argsstring>
+        <name>demandeExtinctOPL</name>
+        <qualifiedname>opl::demandeExtinctOPL</qualifiedname>
+        <briefdescription>
+<para>function to check if a stop order has been received from the master node (MN) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>statusErrDef infoStopOrderReceived if a stop order has been received or infoNoStopOrder if no stop order has been received </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="133" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="39" bodyend="46"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a7aa913f5c87b2f9c4bec8e180721e199" compoundref="status_error_define_8h" startline="18">infoNoStopOrder</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94acd2d81872afb7b452fdc7e9a11d13d79" compoundref="status_error_define_8h" startline="17">infoStopOrderReceived</references>
+        <references refid="opl_8h_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
+        <references refid="opl_8h_1ada6913a92bdf309ad87fb42dc7be501d" compoundref="opl_8h" startline="97">values_In_CN_l</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="125" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" bodystart="126" bodyend="139"/>
+    <listofallmembers>
+      <member refid="classopl_1ac3e6c6fb9c8d2a10d4437877651167bb" prot="public" virt="non-virtual"><scope>opl</scope><name>demandeExtinctOPL</name></member>
+      <member refid="classopl_1a43a83ace00cba207a89cf65e3b995d7e" prot="public" virt="non-virtual"><scope>opl</scope><name>opl</name></member>
+      <member refid="classopl_1ad188b100fd92fcc210bd48ea4e08a36f" prot="public" virt="non-virtual"><scope>opl</scope><name>sendError</name></member>
+      <member refid="classopl_1afcb3f7b05602f12b72bc97404795ef42" prot="public" virt="non-virtual"><scope>opl</scope><name>sendTelem</name></member>
+      <member refid="classopl_1a8d5d5db31b3d8150af42d2bb000d94fa" prot="public" virt="non-virtual"><scope>opl</scope><name>~opl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

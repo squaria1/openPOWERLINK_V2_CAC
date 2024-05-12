@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="struct_p_i___i_n" kind="struct" language="C++" prot="public">
+    <compoundname>PI_IN</compoundname>
+    <includes refid="xap_opl_8h" local="no">xapOpl.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_p_i___i_n_1a5a0fedeabec540480a57f2700abf8565" prot="public" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t PI_IN::in_CN_array[SIZE_IN]</definition>
+        <argsstring>[SIZE_IN]</argsstring>
+        <name>in_CN_array</name>
+        <qualifiedname>PI_IN::in_CN_array</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" line="19" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" bodystart="19" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a7a60aa76d8b9af7a1930275e02aa2ab5" compoundref="opl_8cpp" startline="90" endline="98">affValeursProcessIn</referencedby>
+        <referencedby refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="518" endline="569">processSync</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" line="17" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" bodystart="18" bodyend="20"/>
+    <listofallmembers>
+      <member refid="struct_p_i___i_n_1a5a0fedeabec540480a57f2700abf8565" prot="public" virt="non-virtual"><scope>PI_IN</scope><name>in_CN_array</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

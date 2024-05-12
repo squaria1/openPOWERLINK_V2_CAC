@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src</compoundname>
+    <innerfile refid="csv_8cpp">csv.cpp</innerfile>
+    <innerfile refid="event_opl_8c">eventOpl.c</innerfile>
+    <innerfile refid="file_8cpp">file.cpp</innerfile>
+    <innerfile refid="main_8cpp">main.cpp</innerfile>
+    <innerfile refid="opl_8cpp">opl.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/"/>
+  </compounddef>
+</doxygen>

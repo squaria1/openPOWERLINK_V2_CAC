@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="struct_ligne_activation" kind="struct" language="C++" prot="public">
+    <compoundname>LigneActivation</compoundname>
+    <includes refid="csv_8h" local="no">csv.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_ligne_activation_1a75f37006d60ba54e0cc20b3cf0e6c449" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t LigneActivation::activation[MAX_LINE_SIZE]</definition>
+        <argsstring>[MAX_LINE_SIZE]</argsstring>
+        <name>activation</name>
+        <qualifiedname>LigneActivation::activation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="41" column="17" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="40" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="40" bodyend="42"/>
+    <listofallmembers>
+      <member refid="struct_ligne_activation_1a75f37006d60ba54e0cc20b3cf0e6c449" prot="public" virt="non-virtual"><scope>LigneActivation</scope><name>activation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

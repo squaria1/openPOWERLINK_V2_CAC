@@ -1,0 +1,449 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="config_define_8h" kind="file" language="C++">
+    <compoundname>configDefine.h</compoundname>
+    <includedby refid="csv_8h" local="yes">C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/csv.h</includedby>
+    <includedby refid="file_8h" local="yes">C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/file.h</includedby>
+    <includedby refid="opl_8h" local="yes">C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h</includedby>
+    <includedby refid="xap_opl_8h" local="yes">C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/xapOpl.h</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h</label>
+        <link refid="config_define_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/csv.h</label>
+        <link refid="csv_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/file.h</label>
+        <link refid="file_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h</label>
+        <link refid="opl_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/xapOpl.h</label>
+        <link refid="xap_opl_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/csv.cpp</label>
+        <link refid="csv_8cpp"/>
+      </node>
+      <node id="8">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/file.cpp</label>
+        <link refid="file_8cpp"/>
+      </node>
+      <node id="4">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="5">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/opl.cpp</label>
+        <link refid="opl_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="config_define_8h_1ac9ac8ba41c4385306791b6640b1d51dc" prot="public" static="no">
+        <name>CYCLE_LEN</name>
+        <initializer>UINT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="5" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a2f7945514ea8b2c7145cf68d47c96a08" prot="public" static="no">
+        <name>NODEID</name>
+        <initializer>0xF0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="6" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a6206026f72c671f64485c7be7f4288d2" prot="public" static="no">
+        <name>NB_NODES</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="7" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a14b0a7da8cf3edbfec9630c2ec290148" prot="public" static="no">
+        <name>IP_ADDR</name>
+        <initializer>0xc0a801F0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="8" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a2277cfa773d618a987524fc0590fe253" prot="public" static="no">
+        <name>SUBNET_MASK</name>
+        <initializer>0xFFFFFF00</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="9" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1ab0092e2619bef8d5375800f507d3080c" prot="public" static="no">
+        <name>DEFAULT_GATEWAY</name>
+        <initializer>0xC0A864FE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="10" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1aa379d16dbf6d11890daeb88603a35b56" prot="public" static="no">
+        <name>DEFAULT_MAX_CYCLE_COUNT</name>
+        <initializer>20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="12" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a44e3a41b5281c8055e818e0f75bb796b" prot="public" static="no">
+        <name>APP_LED_COUNT_1</name>
+        <initializer>8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="13" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1ab32da2e90b505fa22b01dd99925206db" prot="public" static="no">
+        <name>APP_LED_MASK_1</name>
+        <initializer>(1 &lt;&lt; (<ref refid="config_define_8h_1a44e3a41b5281c8055e818e0f75bb796b" kindref="member">APP_LED_COUNT_1</ref> - 1))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="14" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1abd2aacdca9cb2a1a30f3392256b96ea3" prot="public" static="no">
+        <name>MAX_NODES</name>
+        <initializer>255</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="15" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a71a9a98ac1615819a1b7259916b3c33e" prot="public" static="no">
+        <name>MAX_VALUES</name>
+        <initializer>255</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="16" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a563cad7e347a704508920c0c59f74808" prot="public" static="no">
+        <name>DEVNAME</name>
+        <initializer>&quot;eth0&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="18" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1aa8a09c72ec4b0fb08add063f03dec883" prot="public" static="no">
+        <name>CDCFILE</name>
+        <initializer>&quot;mnobd.cdc&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="19" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a4e49face896c52c0f543cd14338d503d" prot="public" static="no">
+        <name>COMPUTED_PI_OUT_SIZE</name>
+        <initializer>152</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="22" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1ab5cbebecab98e4234ae1b2e5ff94ccbc" prot="public" static="no">
+        <name>SIZE_OUT</name>
+        <initializer>75</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="23" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a14557d5857db9a5a599b852033ce8de5" prot="public" static="no">
+        <name>COMPUTED_PI_IN_SIZE</name>
+        <initializer>80</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="24" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1ac072f7043a3fb31b4fc2d1bcb687c157" prot="public" static="no">
+        <name>SIZE_IN</name>
+        <initializer>39</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="25" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a9eb6992d76f02128388ae95c0415604a" prot="public" static="no">
+        <name>MAX_PATH_LENGTH</name>
+        <initializer>1024</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="28" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" prot="public" static="no">
+        <name>MAX_LINE_SIZE</name>
+        <initializer>2832</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="29" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" prot="public" static="no">
+        <name>MAX_PHYSICAL_LINE_SIZE</name>
+        <initializer>30</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="30" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a3b94af9dcb0358f28d175d80eed98330" prot="public" static="no">
+        <name>MAX_ROWS</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="31" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a19d73c6a12d1954cae600527e48493cd" prot="public" static="no">
+        <name>MAX_DEPENDANCE</name>
+        <initializer>2832</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="32" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1af03b9ef4da5daeff7665f07931101fdb" prot="public" static="no">
+        <name>COMMON_PHYSICAL_CONFIG_DIRECTORY</name>
+        <initializer>&quot;../../../common/commonCSVFiles/activation.csv&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="38" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1aeead33868b09a953457fd5235525bd39" prot="public" static="no">
+        <name>TELEMFILES_DIRECTORY</name>
+        <initializer>&quot;../../include/telemFiles&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="40" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a33e0ce62bb48bae39a3086aa66f18abf" prot="public" static="no">
+        <name>EVENTLOG_MAX_LENGTH</name>
+        <initializer>1024</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="44" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a2c15aa6025df557ee17f49ec0de3ca3e" prot="public" static="no">
+        <name>DELAYMSINIT</name>
+        <initializer>2000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="47" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a0cb3b08249c5a31d756d998565ed6a35" prot="public" static="no">
+        <name>DELAYMSCONTROL</name>
+        <initializer>10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="48" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="config_define_8h_1adff26a42837c55761374b2f999210374" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int offsetValues</definition>
+        <argsstring></argsstring>
+        <name>offsetValues</name>
+        <initializer>= (<ref refid="config_define_8h_1a6206026f72c671f64485c7be7f4288d2" kindref="member">NB_NODES</ref> * (<ref refid="config_define_8h_1a6206026f72c671f64485c7be7f4288d2" kindref="member">NB_NODES</ref> + 1)) / 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" line="50" column="15" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>CONFIGOPL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIGOPL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>OPL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="config_define_8h_1ac9ac8ba41c4385306791b6640b1d51dc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CYCLE_LEN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UINT_MAX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="config_define_8h_1a2f7945514ea8b2c7145cf68d47c96a08" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NODEID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xF0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//=&gt;<sp/>MN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="config_define_8h_1a6206026f72c671f64485c7be7f4288d2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NB_NODES<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="config_define_8h_1a14b0a7da8cf3edbfec9630c2ec290148" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IP_ADDR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xc0a801F0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>192.168.100.1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="config_define_8h_1a2277cfa773d618a987524fc0590fe253" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SUBNET_MASK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xFFFFFF00<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>255.255.255.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="config_define_8h_1ab0092e2619bef8d5375800f507d3080c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_GATEWAY<sp/><sp/><sp/><sp/><sp/>0xC0A864FE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>192.168.100.C_ADR_RT1_DEF_NODE_ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="config_define_8h_1aa379d16dbf6d11890daeb88603a35b56" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_MAX_CYCLE_COUNT<sp/>20<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>6<sp/>is<sp/>very<sp/>fast</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="config_define_8h_1a44e3a41b5281c8055e818e0f75bb796b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>APP_LED_COUNT_1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>8<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>number<sp/>of<sp/>LEDs<sp/>for<sp/>CN1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="config_define_8h_1ab32da2e90b505fa22b01dd99925206db" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>APP_LED_MASK_1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1<sp/>&lt;&lt;<sp/>(APP_LED_COUNT_1<sp/>-<sp/>1))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="config_define_8h_1abd2aacdca9cb2a1a30f3392256b96ea3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_NODES<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>255</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="config_define_8h_1a71a9a98ac1615819a1b7259916b3c33e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_VALUES<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>255</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="config_define_8h_1a563cad7e347a704508920c0c59f74808" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEVNAME<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;eth0&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="config_define_8h_1aa8a09c72ec4b0fb08add063f03dec883" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CDCFILE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;mnobd.cdc&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/>xapOpl</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="config_define_8h_1a4e49face896c52c0f543cd14338d503d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COMPUTED_PI_OUT_SIZE<sp/>152</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="config_define_8h_1ab5cbebecab98e4234ae1b2e5ff94ccbc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIZE_OUT<sp/>75</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="config_define_8h_1a14557d5857db9a5a599b852033ce8de5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COMPUTED_PI_IN_SIZE<sp/>80</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="config_define_8h_1ac072f7043a3fb31b4fc2d1bcb687c157" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIZE_IN<sp/>39</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CSV</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="config_define_8h_1a9eb6992d76f02128388ae95c0415604a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_PATH_LENGTH<sp/>1024</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_LINE_SIZE<sp/>2832</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_PHYSICAL_LINE_SIZE<sp/>30</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="config_define_8h_1a3b94af9dcb0358f28d175d80eed98330" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_ROWS<sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="config_define_8h_1a19d73c6a12d1954cae600527e48493cd" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_DEPENDANCE<sp/>2832</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COMMON_PHYSICAL_CONFIG_DIRECTORY<sp/>&quot;..\\..\\..\\..\\common\\commonCSVFiles\\activation.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TelemFiles</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TELEMFILES_DIRECTORY<sp/>&quot;..\\..\\..\\include\\telemFiles\\&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="config_define_8h_1af03b9ef4da5daeff7665f07931101fdb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COMMON_PHYSICAL_CONFIG_DIRECTORY<sp/>&quot;../../../common/commonCSVFiles/activation.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TelemFiles</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="config_define_8h_1aeead33868b09a953457fd5235525bd39" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TELEMFILES_DIRECTORY<sp/>&quot;../../include/telemFiles&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TelemFiles</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="config_define_8h_1a33e0ce62bb48bae39a3086aa66f18abf" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EVENTLOG_MAX_LENGTH<sp/>1024</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Main</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="config_define_8h_1a2c15aa6025df557ee17f49ec0de3ca3e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DELAYMSINIT<sp/>2000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="config_define_8h_1a0cb3b08249c5a31d756d998565ed6a35" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DELAYMSCONTROL<sp/>10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="config_define_8h_1adff26a42837c55761374b2f999210374" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="config_define_8h_1adff26a42837c55761374b2f999210374" kindref="member">offsetValues</ref><sp/>=<sp/>(<ref refid="config_define_8h_1a6206026f72c671f64485c7be7f4288d2" kindref="member">NB_NODES</ref><sp/>*<sp/>(<ref refid="config_define_8h_1a6206026f72c671f64485c7be7f4288d2" kindref="member">NB_NODES</ref><sp/>+<sp/>1))<sp/>/<sp/>2;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h"/>
+  </compounddef>
+</doxygen>

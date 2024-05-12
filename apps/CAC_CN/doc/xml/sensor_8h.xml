@@ -1,0 +1,572 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="sensor_8h" kind="file" language="C++">
+    <compoundname>sensor.h</compoundname>
+    <includes refid="csv_8h" local="yes">csv.h</includes>
+    <includes refid="config_define_8h" local="yes">configDefine.h</includes>
+    <includes refid="status_error_define_8h" local="yes">statusErrorDefine.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">fcntl.h</includes>
+    <includes local="no">errno.h</includes>
+    <includes local="no">sys/types.h</includes>
+    <includes local="no">signal.h</includes>
+    <includes local="no">string</includes>
+    <includes local="no">getopt/getopt.h</includes>
+    <includes local="no">io.h</includes>
+    <includedby refid="opl_8h" local="yes">C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h</includedby>
+    <includedby refid="valve_8h" local="no">C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h</includedby>
+    <includedby refid="main_8cpp" local="yes">C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/main.cpp</includedby>
+    <includedby refid="sensor_8cpp" local="yes">C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp</includedby>
+    <incdepgraph>
+      <node id="8">
+        <label>configDefine.h</label>
+        <link refid="config_define_8h"/>
+      </node>
+      <node id="2">
+        <label>csv.h</label>
+        <link refid="csv_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>eventOpl.h</label>
+        <link refid="event_opl_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>nodeId.h</label>
+        <link refid="node_id_8h"/>
+      </node>
+      <node id="10">
+        <label>opl.h</label>
+        <link refid="opl_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h</label>
+        <link refid="sensor_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>statusErrorDefine.h</label>
+        <link refid="status_error_define_8h"/>
+      </node>
+      <node id="18">
+        <label>valve.h</label>
+        <link refid="valve_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xapOpl.h</label>
+        <link refid="xap_opl_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>console/console.h</label>
+      </node>
+      <node id="24">
+        <label>cstdlib</label>
+      </node>
+      <node id="7">
+        <label>ctype.h</label>
+      </node>
+      <node id="20">
+        <label>errno.h</label>
+      </node>
+      <node id="16">
+        <label>eventlog/eventlog.h</label>
+      </node>
+      <node id="19">
+        <label>fcntl.h</label>
+      </node>
+      <node id="25">
+        <label>filesystem</label>
+      </node>
+      <node id="32">
+        <label>getopt/getopt.h</label>
+      </node>
+      <node id="29">
+        <label>inttypes.h</label>
+      </node>
+      <node id="35">
+        <label>io.h</label>
+      </node>
+      <node id="26">
+        <label>iostream</label>
+      </node>
+      <node id="34">
+        <label>limits.h</label>
+      </node>
+      <node id="33">
+        <label>netselect/netselect.h</label>
+      </node>
+      <node id="31">
+        <label>obdcreate/obdcreate.h</label>
+      </node>
+      <node id="14">
+        <label>oplk/debugstr.h</label>
+      </node>
+      <node id="13">
+        <label>oplk/oplk.h</label>
+      </node>
+      <node id="23">
+        <label>signal.h</label>
+      </node>
+      <node id="28">
+        <label>stdbool.h</label>
+      </node>
+      <node id="27">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>stdint.h</label>
+      </node>
+      <node id="3">
+        <label>stdio.h</label>
+      </node>
+      <node id="4">
+        <label>stdlib.h</label>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="22">
+        <label>sys/types.h</label>
+      </node>
+      <node id="30">
+        <label>system/system.h</label>
+      </node>
+      <node id="21">
+        <label>time.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h</label>
+        <link refid="csv_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h</label>
+        <link refid="opl_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h</label>
+        <link refid="sensor_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h</label>
+        <link refid="valve_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp</label>
+        <link refid="csv_8cpp"/>
+      </node>
+      <node id="5">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="8">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp</label>
+        <link refid="opl_8cpp"/>
+      </node>
+      <node id="9">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp</label>
+        <link refid="sensor_8cpp"/>
+      </node>
+      <node id="6">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp</label>
+        <link refid="valve_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsensor" prot="public">sensor</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="sensor_8h_1af1a8dcdbb54fb5c1b49459cde87d1e75" prot="public" static="yes" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t valSensors[MAX_SENSORS]</definition>
+        <argsstring>[MAX_SENSORS]</argsstring>
+        <name>valSensors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="28" column="16" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" bodystart="28" bodyend="-1"/>
+        <referencedby refid="sensor_8cpp_1a95ae932c940a8d52f42f256155300708" compoundref="sensor_8cpp" startline="76" endline="78">getAdc_value</referencedby>
+        <referencedby refid="sensor_8cpp_1a084710571b3a23b14fe1bc00ef626f52" compoundref="sensor_8cpp" startline="89" endline="126">readChannels</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="sensor_8h_1a084710571b3a23b14fe1bc00ef626f52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef readChannels</definition>
+        <argsstring>()</argsstring>
+        <name>readChannels</name>
+        <briefdescription>
+<para>function the read the channels of the MCP3008 by opening, reading and closing the sysfs files. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>statusErrDef that values errOpenAdc when a sysfs file of the MCP3008 fails to open or errReadAdc when a sysfs file read of the MCP3008 fails or noError when the function exits successfully. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="29" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="89" bodyend="126" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" declline="29" declcolumn="14"/>
+        <references refid="config_define_8h_1a8538e713d830bd0982bbc0e185db5d05" compoundref="config_define_8h" startline="22">ADC_READ_ERROR</references>
+        <references refid="sensor_8cpp_1abf077aeb27cbf890c5006ed980d1c6f4" compoundref="sensor_8cpp" startline="136" endline="154">closeAdc</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94abb3be0d1d4505ac1644533c725c8652d" compoundref="status_error_define_8h" startline="90">errOpenAdc</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a853bb660c03c4d6dbdf70e139b46600d" compoundref="status_error_define_8h" startline="91">errReadAdc</references>
+        <references refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" compoundref="sensor_8cpp" startline="16">fd</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" compoundref="config_define_8h" startline="21">MAX_SENSORS</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <references refid="sensor_8cpp_1aaee06476c9ddb6ab8457694fdd20cccc" compoundref="sensor_8cpp" startline="189" endline="202">openAdc</references>
+        <references refid="sensor_8cpp_1ab4df458eba25efa399c8531f2417d648" compoundref="sensor_8cpp" startline="164" endline="179">readAdc</references>
+        <references refid="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" compoundref="sensor_8cpp" startline="15">tabSensorActivated</references>
+        <references refid="sensor_8h_1af1a8dcdbb54fb5c1b49459cde87d1e75" compoundref="sensor_8h" startline="28">valSensors</references>
+        <referencedby refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" compoundref="sensor_8cpp" startline="40" endline="52">sensor::initSensor</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="sensor_8h_1abf077aeb27cbf890c5006ed980d1c6f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef closeAdc</definition>
+        <argsstring>()</argsstring>
+        <name>closeAdc</name>
+        <briefdescription>
+<para>function to close the sysfs files of the MCP3008 kernel module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>statusErrDef that values errCloseAdc when a sysfs file of the MCP3008 fails to close or noError when the function exits successfully. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="30" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="136" bodyend="154" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" declline="30" declcolumn="14"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a282120158405e4a34ce8e365c3684fb8" compoundref="status_error_define_8h" startline="92">errCloseAdc</references>
+        <references refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" compoundref="sensor_8cpp" startline="16">fd</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" compoundref="config_define_8h" startline="21">MAX_SENSORS</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <referencedby refid="classsensor_1ad3b9b11298007378ec5b9127694580af" compoundref="sensor_8cpp" startline="61" endline="67">sensor::extinctSensor</referencedby>
+        <referencedby refid="sensor_8cpp_1a084710571b3a23b14fe1bc00ef626f52" compoundref="sensor_8cpp" startline="89" endline="126">readChannels</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="sensor_8h_1ab4df458eba25efa399c8531f2417d648" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int readAdc</definition>
+        <argsstring>(int fd)</argsstring>
+        <name>readAdc</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <briefdescription>
+<para>function to read the value of a sensor from a sysfs file of the MCP3008 kernel module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file location </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ADC_READ_ERROR when the file reading fails or the value of a sensor. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="31" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="164" bodyend="179" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" declline="31" declcolumn="5"/>
+        <references refid="config_define_8h_1a8538e713d830bd0982bbc0e185db5d05" compoundref="config_define_8h" startline="22">ADC_READ_ERROR</references>
+        <references refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" compoundref="sensor_8cpp" startline="16">fd</references>
+        <referencedby refid="sensor_8cpp_1a084710571b3a23b14fe1bc00ef626f52" compoundref="sensor_8cpp" startline="89" endline="126">readChannels</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="sensor_8h_1aaee06476c9ddb6ab8457694fdd20cccc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int openAdc</definition>
+        <argsstring>(int adc)</argsstring>
+        <name>openAdc</name>
+        <param>
+          <type>int</type>
+          <declname>adc</declname>
+        </param>
+        <briefdescription>
+<para>function to open a sysfs file of the MCP3008 kernel module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>adc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the MCP3008 channel number </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ADC_READ_ERROR when the file opening fails or the file location. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="32" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="189" bodyend="202" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" declline="32" declcolumn="5"/>
+        <references refid="sensor_8cpp_1ae5d88649401f796b100a8ffb867b5507" compoundref="sensor_8cpp" startline="14">adc</references>
+        <references refid="config_define_8h_1a8538e713d830bd0982bbc0e185db5d05" compoundref="config_define_8h" startline="22">ADC_READ_ERROR</references>
+        <references refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" compoundref="sensor_8cpp" startline="16">fd</references>
+        <references refid="config_define_8h_1a2e79cb96de76e27ba54960b579c9f530" compoundref="config_define_8h" startline="20">IIOSYSPATH</references>
+        <referencedby refid="sensor_8cpp_1a084710571b3a23b14fe1bc00ef626f52" compoundref="sensor_8cpp" startline="89" endline="126">readChannels</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="sensor_8h_1a95ae932c940a8d52f42f256155300708" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t getAdc_value</definition>
+        <argsstring>(int index)</argsstring>
+        <name>getAdc_value</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>function getter of the value of a sensor from the array of sensors. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the index of the array of sensors </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the value of the sensor in 2 bytes signed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="33" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="76" bodyend="78" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" declline="33" declcolumn="9"/>
+        <references refid="sensor_8h_1af1a8dcdbb54fb5c1b49459cde87d1e75" compoundref="sensor_8h" startline="28">valSensors</references>
+        <referencedby refid="opl_8cpp_1aee2f3fe4573dcc68e0ead2380eb83317" compoundref="opl_8cpp" startline="132" endline="142">setValues_Out_CN</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>SENSOR_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SENSOR_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="csv_8h" kindref="compound">csv.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="config_define_8h" kindref="compound">configDefine.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="status_error_define_8h" kindref="compound">statusErrorDefine.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fcntl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;errno.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/types.h&gt;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;signal.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>(TARGET_SYSTEM<sp/>==<sp/>_WIN32_)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;getopt/getopt.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;io.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/ioctl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="sensor_8h_1af1a8dcdbb54fb5c1b49459cde87d1e75" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>int16_t<sp/><ref refid="sensor_8h_1af1a8dcdbb54fb5c1b49459cde87d1e75" kindref="member">valSensors</ref>[<ref refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" kindref="member">MAX_SENSORS</ref>];<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="sensor_8h_1a084710571b3a23b14fe1bc00ef626f52" kindref="member">readChannels</ref>();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="sensor_8h_1abf077aeb27cbf890c5006ed980d1c6f4" kindref="member">closeAdc</ref>();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sensor_8h_1ab4df458eba25efa399c8531f2417d648" kindref="member">readAdc</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" kindref="member">fd</ref>);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sensor_8h_1aaee06476c9ddb6ab8457694fdd20cccc" kindref="member">openAdc</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sensor_8cpp_1ae5d88649401f796b100a8ffb867b5507" kindref="member">adc</ref>);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">int16_t<sp/><ref refid="sensor_8h_1a95ae932c940a8d52f42f256155300708" kindref="member">getAdc_value</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="classsensor" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsensor" kindref="compound">sensor</ref></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsensor_1aeaa38c2a2b5e33314a4fe9ff905dc0c6" kindref="member">sensor</ref>();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsensor_1a9252346748c0bd090109ee5bcf45f13a" kindref="member">~sensor</ref>();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" kindref="member">initSensor</ref>();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="classsensor_1ad3b9b11298007378ec5b9127694580af" kindref="member">extinctSensor</ref>();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>SENSOR_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h"/>
+  </compounddef>
+</doxygen>

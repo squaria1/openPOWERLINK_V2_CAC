@@ -1,3 +1,6 @@
+#ifndef VALVES_H
+#define VALVES_H
+
 #include "csv.h"
 #include "configDefine.h"
 #include "statusErrorDefine.h"
@@ -19,9 +22,10 @@
 #include <unistd.h>
 #endif
 
-#ifndef VALVES_H
-#define VALVES_H
-
+/**
+ * \brief valve module class.
+ * 
+ */
 class valve
 {
 public:

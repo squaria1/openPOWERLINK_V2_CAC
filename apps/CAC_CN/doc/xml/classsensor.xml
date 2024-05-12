@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="classsensor" kind="class" language="C++" prot="public">
+    <compoundname>sensor</compoundname>
+    <includes refid="sensor_8h" local="no">sensor.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsensor_1aeaa38c2a2b5e33314a4fe9ff905dc0c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>sensor::sensor</definition>
+        <argsstring>()</argsstring>
+        <name>sensor</name>
+        <qualifiedname>sensor::sensor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="46" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="20" bodyend="25"/>
+        <references refid="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" compoundref="sensor_8cpp" startline="15">tabSensorActivated</references>
+      </memberdef>
+      <memberdef kind="function" id="classsensor_1a9252346748c0bd090109ee5bcf45f13a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>sensor::~sensor</definition>
+        <argsstring>()</argsstring>
+        <name>~sensor</name>
+        <qualifiedname>sensor::~sensor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="47" column="17" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classsensor_1a136fdef7c492900f3ff9baa211607cb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef sensor::initSensor</definition>
+        <argsstring>()</argsstring>
+        <name>initSensor</name>
+        <qualifiedname>sensor::initSensor</qualifiedname>
+        <briefdescription>
+<para>function to initialize the sensor module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>statusErrDef that values errOpenAdc when a sysfs file of the MCP3008 fails to open or errReadAdc when a sysfs file read of the MCP3008 fails or noError when the function exits successfully. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="48" column="22" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="40" bodyend="52"/>
+        <references refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" compoundref="csv_8cpp" startline="587" endline="590">getActivation</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" compoundref="config_define_8h" startline="21">MAX_SENSORS</references>
+        <references refid="opl_8cpp_1a8dd1817cec0b1c38e0b7eb2470855b25" compoundref="opl_8cpp" startline="17">nbValuesCN_Out</references>
+        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <references refid="sensor_8h_1a084710571b3a23b14fe1bc00ef626f52" compoundref="sensor_8cpp" startline="89" endline="126">readChannels</references>
+        <references refid="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" compoundref="sensor_8cpp" startline="15">tabSensorActivated</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsensor_1ad3b9b11298007378ec5b9127694580af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef sensor::extinctSensor</definition>
+        <argsstring>()</argsstring>
+        <name>extinctSensor</name>
+        <qualifiedname>sensor::extinctSensor</qualifiedname>
+        <briefdescription>
+<para>function to shutdown the sensor module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>statusErrDef that values errCloseAdc when a sysfs file of the MCP3008 fails to close or noError when the function exits successfully. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="49" column="22" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="61" bodyend="67"/>
+        <references refid="sensor_8h_1abf077aeb27cbf890c5006ed980d1c6f4" compoundref="sensor_8cpp" startline="136" endline="154">closeAdc</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>sensor module class. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="43" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" bodystart="44" bodyend="55"/>
+    <listofallmembers>
+      <member refid="classsensor_1ad3b9b11298007378ec5b9127694580af" prot="public" virt="non-virtual"><scope>sensor</scope><name>extinctSensor</name></member>
+      <member refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" prot="public" virt="non-virtual"><scope>sensor</scope><name>initSensor</name></member>
+      <member refid="classsensor_1aeaa38c2a2b5e33314a4fe9ff905dc0c6" prot="public" virt="non-virtual"><scope>sensor</scope><name>sensor</name></member>
+      <member refid="classsensor_1a9252346748c0bd090109ee5bcf45f13a" prot="public" virt="virtual"><scope>sensor</scope><name>~sensor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,3 +1,6 @@
+#ifndef SENSOR_H
+#define SENSOR_H
+
 #include "csv.h"
 #include "configDefine.h"
 #include "statusErrorDefine.h"
@@ -17,9 +20,6 @@
 #include <sys/ioctl.h>
 #endif
 
-#ifndef SENSOR_H
-#define SENSOR_H
-
 #ifdef __cplusplus
 extern "C"
 {
@@ -36,6 +36,10 @@ int16_t getAdc_value(int index);
 }
 #endif
 
+/**
+ * \brief sensor module class.
+ * 
+ */
 class sensor
 {
     public:

@@ -1,6 +1,6 @@
 /**
 ********************************************************************************
-\file   event.h
+\file   eventOpl.h
 
 \brief  Definitions of the CN demo event handler
 

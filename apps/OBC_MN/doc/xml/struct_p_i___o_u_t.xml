@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="struct_p_i___o_u_t" kind="struct" language="C++" prot="public">
+    <compoundname>PI_OUT</compoundname>
+    <includes refid="xap_opl_8h" local="no">xapOpl.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_p_i___o_u_t_1a694b2a7f1ee5ed56e399348bb5c7649d" prot="public" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t PI_OUT::out_MN_array[SIZE_OUT]</definition>
+        <argsstring>[SIZE_OUT]</argsstring>
+        <name>out_MN_array</name>
+        <qualifiedname>PI_OUT::out_MN_array</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/xapOpl.h" line="14" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/xapOpl.h" bodystart="14" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a4f204b11f6909d44c14be101d4d01055" compoundref="opl_8cpp" startline="95" endline="103">affValeursInProcess</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/xapOpl.h" line="12" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/xapOpl.h" bodystart="13" bodyend="15"/>
+    <listofallmembers>
+      <member refid="struct_p_i___o_u_t_1a694b2a7f1ee5ed56e399348bb5c7649d" prot="public" virt="non-virtual"><scope>PI_OUT</scope><name>out_MN_array</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

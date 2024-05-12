@@ -1,7 +1,31 @@
+/**
+ * \file csv.cpp
+ * \brief Module to read CSV configuration files
+ * \author Mael Parot, Benoit Brice
+ * \version 1.1
+ * \date 11/04/2024
+ *
+ * Contains all functions related to reading CSV files and 
+ * writing the content into structures.
+ */
+
 #include "csv.h"
 
+ /**
+  * \struct dataActivation
+  * \brief struct containing the boolean values taken from "activation.csv"
+  * 
+  */
 struct LigneActivation* dataActivation;
 
+/**
+ * \brief function to initialize the struct containing the values
+ * and read the the activation CSV file.
+ * 
+ * \return statusErrDef that values errAllocDataPhysValves, errAllocDataPhysSensors,
+ * errAllocDataActivation in case of a malloc allocation error
+ * or noError when the function exits successfully.
+ */
 statusErrDef initCSV() {
     statusErrDef res = noError;
 
@@ -24,6 +48,12 @@ statusErrDef initCSV() {
     return noError;
 }
 
+/**
+ * \brief function to free the 5 structs
+ * 
+ * \return statusErrDef 
+ * noError when the function exits successfully.
+ */
 statusErrDef extinctCSV()
 {
     free(dataActivation);
@@ -31,6 +61,15 @@ statusErrDef extinctCSV()
     return noError;
 }
 
+/**
+ * \brief function to read "activation.csv"
+ * until the end of the file.
+ * 
+ * \param fileName location and name of the CSV file to read
+ * \return statusErrDef 
+ * errOpenPhysSensorsFile when the file fails to open,
+ * noError when the function exits successfully.
+ */
 statusErrDef lireFichierActivation(const char* fileName)
 {
     FILE* file = fopen(fileName, "r");
@@ -53,6 +92,12 @@ statusErrDef lireFichierActivation(const char* fileName)
     return noError;
 }
 
+/**
+ * \brief function to fill in the activation CSV structure.
+ * 
+ * \param ligne the CSV line to read.
+ * \param id the position of the line in the CSV file.
+ */
 void remplirStructureCommon(char* ligne, int id)
 {
     char* token = strtok(ligne, ";");
@@ -67,6 +112,12 @@ void remplirStructureCommon(char* ligne, int id)
     }
 }
 
+/**
+ * \brief function getter of the activation of a sensor or a valve
+ * from "activation.csv"
+ * \param ligne the line in the CSV file
+ * \return uint8_t the activation of a sensor or a valve (1 if activated or 0 if not)
+ */
 uint8_t getActivation(int ligne) {
     return dataActivation->activation[ligne];
 }

@@ -2,7 +2,7 @@
  * \file sensor.cpp
  * \brief Module to read sensors values
  * \author Mael Parot, Corentin Berthon
- * \version 1
+ * \version 1.1
  * \date 11/04/2024
  *
  * Contains all functions related to reading sensors values
@@ -33,9 +33,9 @@ sensor::~sensor()
  * \brief function to initialize the sensor module.
  * 
  * \return statusErrDef that values errOpenAdc
-when a sysfs file of the MCP3008 fails to open
-or errReadAdc when a sysfs file read of the MCP3008 fails
-or noError when the function exits successfully.
+ * when a sysfs file of the MCP3008 fails to open
+ * or errReadAdc when a sysfs file read of the MCP3008 fails
+ * or noError when the function exits successfully.
  */
 statusErrDef sensor::initSensor() {
     statusErrDef res = noError;

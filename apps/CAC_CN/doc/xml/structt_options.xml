@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structt_options" kind="struct" language="C++" prot="public">
+    <compoundname>tOptions</compoundname>
+    <includes refid="opl_8h" local="no">opl.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structt_options_1a1ddf0a10016825f0e7bae38a02387126" prot="public" static="no" mutable="no">
+        <type>UINT32</type>
+        <definition>UINT32 tOptions::nodeId</definition>
+        <argsstring></argsstring>
+        <name>nodeId</name>
+        <qualifiedname>tOptions::nodeId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="49" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" bodystart="49" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="248" endline="302">initOPL</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structt_options_1ad4dfda079fb51a7c23ff0321a2fc920e" prot="public" static="no" mutable="no">
+        <type>tEventlogFormat</type>
+        <definition>tEventlogFormat tOptions::logFormat</definition>
+        <argsstring></argsstring>
+        <name>logFormat</name>
+        <qualifiedname>tOptions::logFormat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="50" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" bodystart="50" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="248" endline="302">initOPL</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structt_options_1ac41ac397dd5398c735a7845a023e7877" prot="public" static="no" mutable="no">
+        <type>UINT32</type>
+        <definition>UINT32 tOptions::logLevel</definition>
+        <argsstring></argsstring>
+        <name>logLevel</name>
+        <qualifiedname>tOptions::logLevel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="51" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" bodystart="51" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="248" endline="302">initOPL</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structt_options_1ac2d0a48a3d2ed344da01233e48372775" prot="public" static="no" mutable="no">
+        <type>UINT32</type>
+        <definition>UINT32 tOptions::logCategory</definition>
+        <argsstring></argsstring>
+        <name>logCategory</name>
+        <qualifiedname>tOptions::logCategory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="52" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" bodystart="52" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="248" endline="302">initOPL</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structt_options_1aa940aee04646184456749f832ccb80ee" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char tOptions::devName[128]</definition>
+        <argsstring>[128]</argsstring>
+        <name>devName</name>
+        <qualifiedname>tOptions::devName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="53" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" bodystart="53" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="248" endline="302">initOPL</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="47" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" bodystart="48" bodyend="54"/>
+    <listofallmembers>
+      <member refid="structt_options_1aa940aee04646184456749f832ccb80ee" prot="public" virt="non-virtual"><scope>tOptions</scope><name>devName</name></member>
+      <member refid="structt_options_1ac2d0a48a3d2ed344da01233e48372775" prot="public" virt="non-virtual"><scope>tOptions</scope><name>logCategory</name></member>
+      <member refid="structt_options_1ad4dfda079fb51a7c23ff0321a2fc920e" prot="public" virt="non-virtual"><scope>tOptions</scope><name>logFormat</name></member>
+      <member refid="structt_options_1ac41ac397dd5398c735a7845a023e7877" prot="public" virt="non-virtual"><scope>tOptions</scope><name>logLevel</name></member>
+      <member refid="structt_options_1a1ddf0a10016825f0e7bae38a02387126" prot="public" virt="non-virtual"><scope>tOptions</scope><name>nodeId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

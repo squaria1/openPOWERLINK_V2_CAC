@@ -12,6 +12,10 @@
 
 using namespace std;
 
+/**
+ * \brief file module class.
+ * 
+ */
 class file
 {
 public:

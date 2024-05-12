@@ -2,7 +2,7 @@
  * \file opl.cpp
  * \brief Module to communicate with the master board using OpenPOWERLINK
  * \author Mael Parot
- * \version 1
+ * \version 1.1
  * \date 11/04/2024
  *
  * Contains all functions related to communicating with the master board
@@ -13,6 +13,7 @@
 
 int16_t              EG = 1;
 int16_t              EC = EG;
+Mode                 mode = automatic;
 const uint16_t       nbValuesCN_Out = SIZE_OUT / NB_NODES - 1;
 const uint16_t       nbValuesCN_In = SIZE_IN / NB_NODES - 1;
 const uint16_t       nbValuesCN_Out_ByCN = (SIZE_OUT / NB_NODES) * (NODEID - 1);
@@ -182,7 +183,7 @@ int16_t getEG()
  * 
  * \return statusErrDef 
  * infoModeSetToManual if the mode to manual order has been received from the MN
- * or infoEGNotChanged if the mode to manual order has not been received
+ * or infoEGNotChanged if the EG is still the same.
  */
 statusErrDef isEGchanged()
 {
@@ -215,6 +216,35 @@ void setEC1(int16_t EC)
     values_Out_CN_l[nbValuesCN_Out_ByCN] = EC;
 }
 
+
+//------------------------------------------------------------------------------
+// OpenPOWERLINK stack and module functions
+//------------------------------------------------------------------------------
+
+/**
+ * \brief function to initialize the CN OpenPOWERLINK module
+ * 
+ * \return statusErrDef that values errOPLSystemInit
+ * when OpenPOWERLINK fails to set the correct configuration
+ * for the current operating system.
+ * or errSelNetInterface when the selection
+ * of the network interface fails when
+ * in a Windows machine. Can be caused by the absence of WinPcap.
+ * or errInitObjDictionary when the object dictionary header file (objdict.h)
+ * has incorrect values or syntax.
+ * or errOplkInit when The OpenPOWERLINK stack fails to initialize, 
+ * main cause: the stack is not found by the application, check the CN .lib files
+ * or errOplkCreate when the OpenPOWERLINK stack fails to create a new instance
+ * or errOplkAllocProcessImage when the allocation of the input
+ * and/or output structure fails because parts of the structure 
+ * doesn't exist in the objdict.h file
+ * or errLinkPDOout when an output object (TPDO) 
+ * doesn't exist for the same reasons above
+ * or errLinkPDOin when an input object (RPDO) 
+ * doesn't exist for the same reasons above
+ * or errSendNMTResetCommand when the OpenPOWERLINK reset command fails
+ * or noError when the function exits successfully. 
+ */
 statusErrDef initOPL()
 {
     statusErrDef    res = noError;
@@ -260,7 +290,7 @@ statusErrDef initOPL()
     if (res != noError)
         return res;
 
-    res = initApp();
+    res = initProcessImage();
     if (res != noError)
         return res;
 
@@ -271,28 +301,7 @@ statusErrDef initOPL()
     return noError;
 }
 
-//------------------------------------------------------------------------------
-/**
-\brief  Initialize the synchronous data application
 
-The function initializes the synchronous data application
-
-\return The function returns a tOplkError error code.
-
-\ingroup module_demo_cn_console
-*/
-//------------------------------------------------------------------------------
-statusErrDef initApp()
-{
-    statusErrDef  res = noError;
-
-    res = initProcessImage();
-
-    return res;
-}
-
-
-//------------------------------------------------------------------------------
 /**
 \brief  Initialize the openPOWERLINK stack
 
@@ -303,9 +312,16 @@ The function initializes the openPOWERLINK stack.
 \param[in]      macAddr_p           MAC address to use for POWERLINK interface.
 \param[in]      nodeId_p            POWERLINK node ID.
 
-\return The function returns a tOplkError error code.
+\return statusErrDef that values errSelNetInterface
+when the selection of the network interface fails when
+in a Windows machine can be caused by the absence of WinPcap.
+or errInitObjDictionary when the object dictionary header file (objdict.h)
+has incorrect values or syntax.
+or errOplkInit when the OpenPOWERLINK stack fails maybe because the stack is
+not found by the application, check the CN .lib files.
+or errOplkCreate when the OpenPOWERLINK stack fails to create a new instance
+or noError when the function exits successfully. 
 */
-//------------------------------------------------------------------------------
 statusErrDef initPowerlink(UINT32 cycleLen_p,
     const char* devName_p,
     const UINT8* macAddr_p,
@@ -427,14 +443,16 @@ statusErrDef initPowerlink(UINT32 cycleLen_p,
     return noError;
 }
 
-//------------------------------------------------------------------------------
 /**
 \brief
 
 - It creates the sync thread which is responsible for the synchronous data
     application.
+
+\return statusErrDef that values errSendNMTResetCommand
+when the OpenPOWERLINK reset command fails
+or noError when the function exits successfully. 
 */
-//------------------------------------------------------------------------------
 statusErrDef initOplThread(void)
 {
     tOplkError  ret = kErrorOk;
@@ -462,9 +480,10 @@ statusErrDef initOplThread(void)
  * crashed or a termination signal has been received from
  * the OS app manager.
  * 
- * \return errSystemSendTerminate if a termination signal
- * has been received or errOplKernelStackDown if the 
- * OpenPOWERLINK stack crashed.
+ * \return statusErrDef that values errSystemSendTerminate
+ * if a termination signal has been received 
+ * or errOplKernelStackDown if the OpenPOWERLINK stack crashed
+ * or noError when the function exits successfully.
  */
 statusErrDef checkStateOpl()
 {
@@ -487,7 +506,6 @@ statusErrDef checkStateOpl()
     return noError;
 }
 
-//------------------------------------------------------------------------------
 /**
 \brief  Synchronous data handler
 
@@ -497,7 +515,6 @@ The function implements the synchronous data handler.
 
 \ingroup module_demo_mn_console
 */
-//------------------------------------------------------------------------------
 tOplkError processSync()
 {
     tOplkError  res = kErrorOk;
@@ -551,7 +568,6 @@ tOplkError processSync()
     return res;
 }
 
-//------------------------------------------------------------------------------
 /**
 \brief  Setup inputs
 
@@ -559,21 +575,25 @@ The function initializes the digital input port.
 
 \ingroup module_demo_cn_console
 */
-//------------------------------------------------------------------------------
 void setupInputs(void)
 {
     memset(&values_In_CN_l, 0, sizeof(values_In_CN_l));
 }
 
-//------------------------------------------------------------------------------
 /**
 \brief  Initialize process image
 
 The function initializes the process image of the application.
 
-\return The function returns a tOplkError error code.
+\return statusErrDef that values errOplkAllocProcessImage
+when the allocation of the input and/or output structure 
+doesn't exist in the objdict.h file
+or errLinkPDOout when an output object (TPDO) 
+doesn't exist for the same reasons above.
+or errLinkPDOin when an input object (RPDO) 
+doesn't exist for the same reasons above.
+or noError when the function exits successfully.
 */
-//------------------------------------------------------------------------------
 statusErrDef initProcessImage(void)
 {
     tOplkError  ret = kErrorOk;
@@ -616,6 +636,7 @@ statusErrDef initProcessImage(void)
             //Link sensors images
             else if (i > nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 && i <= nbValuesCN_Out_ByCN + nbValuesCN_Out)
                 ret = linkPDO_out(obdSize, i, 0x6502, 0x01 + ((i % (nbValuesCN_Out+1)) % (nbValuesCN_In+1)));
+            //Link the board state
             else if (i == nbValuesCN_Out_ByCN)
                 ret = linkPDO_out(obdSize, i, 0x6501, NODEID);
             if (ret != kErrorOk)
@@ -629,9 +650,10 @@ statusErrDef initProcessImage(void)
     {
         if (activated_Out_CN_l[i + nbValuesCN_In_ByCN + 2 - NODEID])
         {
-            //Link valves images in from MN
+            //Link valves images in from the MN
             if(i > nbValuesCN_In_ByCN && i <= nbValuesCN_In_ByCN + nbValuesCN_In)
                 ret = linkPDO_in(obdSize, i, 0x6510, 0x00 + (i % (nbValuesCN_In+1)));
+            //Link the incoming general state from the MN
             else if(i == nbValuesCN_In_ByCN)
                 ret = linkPDO_in(obdSize, nbValuesCN_In_ByCN, 0x6511, 0xF0);
             if (ret != kErrorOk)
@@ -728,7 +750,7 @@ tOplkError linkPDO_out(tObdSize obdSize, UINT16 arrayIndex, UINT16 index, UINT8 
  * \brief function to shutdown the OpenPOWERLINK module.
  * 
  * \return statusErrDef that values errOplkFreeProcessImage
- * when the freeing of memory of the OpenPOWERLINK fails.
+ * when the freeing of memory of the OpenPOWERLINK stack fails.
  * or noError when the function exits successfully.
  */
 statusErrDef extinctOPL()
@@ -742,7 +764,6 @@ statusErrDef extinctOPL()
     return res;
 }
 
-//------------------------------------------------------------------------------
 /**
 \brief  Shutdown the synchronous data application
 
@@ -754,7 +775,6 @@ or noError when the function exits successfully.
 
 \ingroup module_demo_mn_console
 */
-//------------------------------------------------------------------------------
 statusErrDef shutdownOplImage(void)
 {
     tOplkError ret = kErrorOk;
@@ -771,13 +791,11 @@ statusErrDef shutdownOplImage(void)
     return noError;
 }
 
-//------------------------------------------------------------------------------
 /**
 \brief  Shutdown the demo application
 
 The function shuts down the demo application.
 */
-//------------------------------------------------------------------------------
 void shutdownPowerlink(void)
 {
     UINT    i;

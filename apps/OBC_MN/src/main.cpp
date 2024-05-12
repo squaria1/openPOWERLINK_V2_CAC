@@ -1,3 +1,15 @@
+/**
+ * \file main.cpp
+ * \brief Main program with state machine
+ * \author Mael Parot
+ * \version 1.1
+ * \date 11/04/2024
+ *
+ * Main program of the MN (Master Node) 
+ * that controls the CNs (the acquisition and control boards)
+ *
+ */
+
 #include "opl.h"
 #include "file.h"
 #include "csv.h"
@@ -5,14 +17,11 @@
 #include <iostream>
 using namespace std;
 
-typedef enum
-{
-    init,
-    control,
-    shutdown,
-    ending,
-} stateDef;
-
+/**
+ * \brief main function of the program
+ * 
+ * \return int 0 if the program exits properly
+ */
 int main() {
     stateDef state = init;
     opl opl;
@@ -52,7 +61,7 @@ int main() {
                 system_msleep(DELAYMSINIT);
                 state=control;
                 break;
-            case control: // Sequencement des etats generaux
+            case control: // General state sequencing through user keyboard input
                 if (console_kbhit())
                 {
                     cKey = (char)console_getch();

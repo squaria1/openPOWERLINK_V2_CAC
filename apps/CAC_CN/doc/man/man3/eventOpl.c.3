@@ -1,0 +1,174 @@
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/eventOpl.c" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/eventOpl.c \- CN application event handler\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'eventOpl\&.h'\fP
+.br
+\fR#include <oplk/oplk\&.h>\fP
+.br
+\fR#include <oplk/debugstr\&.h>\fP
+.br
+\fR#include <console/console\&.h>\fP
+.br
+\fR#include <eventlog/eventlog\&.h>\fP
+.br
+\fR#include <stdio\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinitEvents\fP (BOOL *pfGsOff_p)"
+.br
+.RI "Initialize applications event module\&. "
+.ti -1c
+.RI "tOplkError \fBprocessEvents\fP (tOplkApiEventType eventType_p, const tOplkApiEventArg *pEventArg_p, void *pUserArg_p)"
+.br
+.RI "Process openPOWERLINK events\&. "
+.in -1c
+.PP
+.RI "\fBPrivate Functions\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "static tOplkError \fBprocessStateChangeEvent\fP (const tEventNmtStateChange *pNmtStateChange_p, void *pUserArg_p)"
+.br
+.RI "Process state change events\&. "
+.ti -1c
+.RI "static tOplkError \fBprocessErrorWarningEvent\fP (const tEventError *pInternalError_p, void *pUserArg_p)"
+.br
+.RI "Process error and warning events\&. "
+.ti -1c
+.RI "static tOplkError \fBprocessPdoChangeEvent\fP (const tOplkApiEventPdoChange *pPdoChange_p, void *pUserArg_p)"
+.br
+.RI "Process PDO change events\&. "
+.in -1c
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static BOOL * \fBpfGsOff_l\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CN application event handler\&. 
+
+This file contains a demo CN application event handler\&. 
+.PP
+Definition in file \fBeventOpl\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void initEvents (BOOL * pfGsOff_p)"
+
+.PP
+Initialize applications event module\&. The function initializes the applications event module
+.PP
+\fBParameters\fP
+.RS 4
+\fIpfGsOff_p\fP Pointer to GsOff flag (determines that stack is down) 
+.RE
+.PP
+
+.PP
+Definition at line \fB112\fP of file \fBeventOpl\&.c\fP\&.
+.SS "static tOplkError processErrorWarningEvent (const tEventError * pInternalError_p, void * pUserArg_p)\fR [static]\fP"
+
+.PP
+Process error and warning events\&. The function processes error and warning events\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIpInternalError_p\fP Pointer to the internal error structure 
+.br
+\fIpUserArg_p\fP User specific argument
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The function returns a tOplkError error code\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB235\fP of file \fBeventOpl\&.c\fP\&.
+.SS "tOplkError processEvents (tOplkApiEventType eventType_p, const tOplkApiEventArg * pEventArg_p, void * pUserArg_p)"
+
+.PP
+Process openPOWERLINK events\&. The function implements the application's stack event handler\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIeventType_p\fP Type of event 
+.br
+\fIpEventArg_p\fP Pointer to union which describes the event in detail 
+.br
+\fIpUserArg_p\fP User specific argument
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The function returns a tOplkError error code\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB132\fP of file \fBeventOpl\&.c\fP\&.
+.SS "static tOplkError processPdoChangeEvent (const tOplkApiEventPdoChange * pPdoChange_p, void * pUserArg_p)\fR [static]\fP"
+
+.PP
+Process PDO change events\&. The function processes PDO change events\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIpPdoChange_p\fP Pointer to the PDO change event structure 
+.br
+\fIpUserArg_p\fP User specific argument
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The function returns a tOplkError error code\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB261\fP of file \fBeventOpl\&.c\fP\&.
+.SS "static tOplkError processStateChangeEvent (const tEventNmtStateChange * pNmtStateChange_p, void * pUserArg_p)\fR [static]\fP"
+
+.PP
+Process state change events\&. The function processes state change events\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIpNmtStateChange_p\fP Pointer to the state change event structure 
+.br
+\fIpUserArg_p\fP User specific argument
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The function returns a tOplkError error code\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB178\fP of file \fBeventOpl\&.c\fP\&.
+.SH "Variable Documentation"
+.PP 
+.SS "BOOL* pfGsOff_l\fR [static]\fP"
+
+.PP
+Definition at line \fB64\fP of file \fBeventOpl\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CAC_CN from the source code\&.

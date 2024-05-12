@@ -1,0 +1,165 @@
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'csv\&.h'\fP
+.br
+\fR#include 'configDefine\&.h'\fP
+.br
+\fR#include 'statusErrorDefine\&.h'\fP
+.br
+\fR#include <stdio\&.h>\fP
+.br
+\fR#include <stdlib\&.h>\fP
+.br
+\fR#include <fcntl\&.h>\fP
+.br
+\fR#include <errno\&.h>\fP
+.br
+\fR#include <sys/types\&.h>\fP
+.br
+\fR#include <signal\&.h>\fP
+.br
+\fR#include <string>\fP
+.br
+\fR#include <getopt/getopt\&.h>\fP
+.br
+\fR#include <io\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBsensor\fP"
+.br
+.RI "sensor module class\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBreadChannels\fP ()"
+.br
+.RI "function the read the channels of the MCP3008 by opening, reading and closing the sysfs files\&. "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBcloseAdc\fP ()"
+.br
+.RI "function to close the sysfs files of the MCP3008 kernel module\&. "
+.ti -1c
+.RI "int \fBreadAdc\fP (int \fBfd\fP)"
+.br
+.RI "function to read the value of a sensor from a sysfs file of the MCP3008 kernel module\&. "
+.ti -1c
+.RI "int \fBopenAdc\fP (int \fBadc\fP)"
+.br
+.RI "function to open a sysfs file of the MCP3008 kernel module\&. "
+.ti -1c
+.RI "int16_t \fBgetAdc_value\fP (int index)"
+.br
+.RI "function getter of the value of a sensor from the array of sensors\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static int16_t \fBvalSensors\fP [\fBMAX_SENSORS\fP]"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBstatusErrDef\fP closeAdc ()"
+
+.PP
+function to close the sysfs files of the MCP3008 kernel module\&. 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errCloseAdc when a sysfs file of the MCP3008 fails to close or noError when the function exits successfully\&. 
+.br
+ 
+.RE
+.PP
+
+.PP
+Definition at line \fB136\fP of file \fBsensor\&.cpp\fP\&.
+.SS "int16_t getAdc_value (int index)"
+
+.PP
+function getter of the value of a sensor from the array of sensors\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP the index of the array of sensors 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the value of the sensor in 2 bytes signed\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB76\fP of file \fBsensor\&.cpp\fP\&.
+.SS "int openAdc (int adc)"
+
+.PP
+function to open a sysfs file of the MCP3008 kernel module\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIadc\fP the MCP3008 channel number 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ADC_READ_ERROR when the file opening fails or the file location\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB189\fP of file \fBsensor\&.cpp\fP\&.
+.SS "int readAdc (int fd)"
+
+.PP
+function to read the value of a sensor from a sysfs file of the MCP3008 kernel module\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfd\fP the file location 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ADC_READ_ERROR when the file reading fails or the value of a sensor\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB164\fP of file \fBsensor\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP readChannels ()"
+
+.PP
+function the read the channels of the MCP3008 by opening, reading and closing the sysfs files\&. 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errOpenAdc when a sysfs file of the MCP3008 fails to open or errReadAdc when a sysfs file read of the MCP3008 fails or noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB89\fP of file \fBsensor\&.cpp\fP\&.
+.SH "Variable Documentation"
+.PP 
+.SS "int16_t valSensors[\fBMAX_SENSORS\fP]\fR [static]\fP"
+
+.PP
+Definition at line \fB28\fP of file \fBsensor\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CAC_CN from the source code\&.

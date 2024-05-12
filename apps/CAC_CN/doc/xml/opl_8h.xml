@@ -1,0 +1,1442 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="opl_8h" kind="file" language="C++">
+    <compoundname>opl.h</compoundname>
+    <includes refid="xap_opl_8h" local="yes">xapOpl.h</includes>
+    <includes refid="event_opl_8h" local="yes">eventOpl.h</includes>
+    <includes refid="config_define_8h" local="yes">configDefine.h</includes>
+    <includes refid="node_id_8h" local="yes">nodeId.h</includes>
+    <includes refid="status_error_define_8h" local="yes">statusErrorDefine.h</includes>
+    <includes refid="csv_8h" local="yes">csv.h</includes>
+    <includes refid="sensor_8h" local="yes">sensor.h</includes>
+    <includes refid="valve_8h" local="yes">valve.h</includes>
+    <includes local="no">oplk/oplk.h</includes>
+    <includes local="no">oplk/debugstr.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">inttypes.h</includes>
+    <includes local="no">system/system.h</includes>
+    <includes local="no">obdcreate/obdcreate.h</includes>
+    <includes local="no">getopt/getopt.h</includes>
+    <includes local="no">console/console.h</includes>
+    <includes local="no">eventlog/eventlog.h</includes>
+    <includes local="no">netselect/netselect.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">limits.h</includes>
+    <includes local="no">string</includes>
+    <includedby refid="csv_8h" local="yes">C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h</includedby>
+    <includedby refid="main_8cpp" local="yes">C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/main.cpp</includedby>
+    <includedby refid="opl_8cpp" local="yes">C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>configDefine.h</label>
+        <link refid="config_define_8h"/>
+      </node>
+      <node id="13">
+        <label>csv.h</label>
+        <link refid="csv_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>eventOpl.h</label>
+        <link refid="event_opl_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>nodeId.h</label>
+        <link refid="node_id_8h"/>
+      </node>
+      <node id="1">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h</label>
+        <link refid="opl_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>sensor.h</label>
+        <link refid="sensor_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>statusErrorDefine.h</label>
+        <link refid="status_error_define_8h"/>
+      </node>
+      <node id="24">
+        <label>valve.h</label>
+        <link refid="valve_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xapOpl.h</label>
+        <link refid="xap_opl_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>console/console.h</label>
+      </node>
+      <node id="26">
+        <label>cstdlib</label>
+      </node>
+      <node id="16">
+        <label>ctype.h</label>
+      </node>
+      <node id="19">
+        <label>errno.h</label>
+      </node>
+      <node id="9">
+        <label>eventlog/eventlog.h</label>
+      </node>
+      <node id="18">
+        <label>fcntl.h</label>
+      </node>
+      <node id="27">
+        <label>filesystem</label>
+      </node>
+      <node id="22">
+        <label>getopt/getopt.h</label>
+      </node>
+      <node id="31">
+        <label>inttypes.h</label>
+      </node>
+      <node id="23">
+        <label>io.h</label>
+      </node>
+      <node id="28">
+        <label>iostream</label>
+      </node>
+      <node id="35">
+        <label>limits.h</label>
+      </node>
+      <node id="34">
+        <label>netselect/netselect.h</label>
+      </node>
+      <node id="33">
+        <label>obdcreate/obdcreate.h</label>
+      </node>
+      <node id="7">
+        <label>oplk/debugstr.h</label>
+      </node>
+      <node id="6">
+        <label>oplk/oplk.h</label>
+      </node>
+      <node id="21">
+        <label>signal.h</label>
+      </node>
+      <node id="30">
+        <label>stdbool.h</label>
+      </node>
+      <node id="29">
+        <label>stddef.h</label>
+      </node>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="10">
+        <label>stdio.h</label>
+      </node>
+      <node id="14">
+        <label>stdlib.h</label>
+      </node>
+      <node id="15">
+        <label>string</label>
+      </node>
+      <node id="20">
+        <label>sys/types.h</label>
+      </node>
+      <node id="32">
+        <label>system/system.h</label>
+      </node>
+      <node id="25">
+        <label>time.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h</label>
+        <link refid="csv_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h</label>
+        <link refid="opl_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h</label>
+        <link refid="sensor_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h</label>
+        <link refid="valve_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp</label>
+        <link refid="csv_8cpp"/>
+      </node>
+      <node id="5">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="9">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp</label>
+        <link refid="opl_8cpp"/>
+      </node>
+      <node id="7">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp</label>
+        <link refid="sensor_8cpp"/>
+      </node>
+      <node id="6">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp</label>
+        <link refid="valve_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structt_options" prot="public">tOptions</innerclass>
+    <innerclass refid="classopl" prot="public">opl</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="opl_8h_1af33cb4a9ced83e8a564a44f95a7c740c" prot="public" static="yes" mutable="no">
+        <type>const UINT8</type>
+        <definition>const UINT8 aMacAddr_l[]</definition>
+        <argsstring>[]</argsstring>
+        <name>aMacAddr_l</name>
+        <initializer>= { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="89" column="36" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" bodystart="89" bodyend="89"/>
+        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="248" endline="302">initOPL</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="opl_8h_1a8f25e48b0b5122c1580e0728bcba0244" prot="public" static="yes" mutable="no">
+        <type>BOOL</type>
+        <definition>BOOL fGsOff_l</definition>
+        <argsstring></argsstring>
+        <name>fGsOff_l</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="90" column="36" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" bodystart="90" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="248" endline="302">initOPL</referencedby>
+        <referencedby refid="opl_8cpp_1aaf3f45fd8772392506e2cd143b46a455" compoundref="opl_8cpp" startline="799" endline="830">shutdownPowerlink</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="opl_8h_1a322e5734aa46ee4be79084a6a1bd62ab" prot="public" static="yes" mutable="no">
+        <type>const <ref refid="struct_p_i___i_n" kindref="compound">PI_IN</ref> *</type>
+        <definition>const PI_IN* pProcessImageIn_l</definition>
+        <argsstring></argsstring>
+        <name>pProcessImageIn_l</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="93" column="35" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" bodystart="93" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a7a60aa76d8b9af7a1930275e02aa2ab5" compoundref="opl_8cpp" startline="90" endline="98">affValeursProcessIn</referencedby>
+        <referencedby refid="opl_8cpp_1a6928095e76089df62d549c72bf870b44" compoundref="opl_8cpp" startline="597" endline="667">initProcessImage</referencedby>
+        <referencedby refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="518" endline="569">processSync</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="opl_8h_1a55f888b6071185bbddd12bc7c6edd372" prot="public" static="yes" mutable="no">
+        <type><ref refid="struct_p_i___o_u_t" kindref="compound">PI_OUT</ref> *</type>
+        <definition>PI_OUT* pProcessImageOut_l</definition>
+        <argsstring></argsstring>
+        <name>pProcessImageOut_l</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="94" column="35" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" bodystart="94" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a6928095e76089df62d549c72bf870b44" compoundref="opl_8cpp" startline="597" endline="667">initProcessImage</referencedby>
+        <referencedby refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="518" endline="569">processSync</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="opl_8h_1ada6913a92bdf309ad87fb42dc7be501d" prot="public" static="yes" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t values_In_CN_l[SIZE_IN]</definition>
+        <argsstring>[SIZE_IN]</argsstring>
+        <name>values_In_CN_l</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="97" column="36" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" bodystart="97" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a0e626359c6d8f3e0bc7e7c19c01fa820" compoundref="opl_8cpp" startline="75" endline="83">affValeursIn</referencedby>
+        <referencedby refid="classopl_1ac3e6c6fb9c8d2a10d4437877651167bb" compoundref="opl_8cpp" startline="39" endline="46">opl::demandeExtinctOPL</referencedby>
+        <referencedby refid="opl_8cpp_1aa1f5fd46ab8ace6894efe23293d8a9b8" compoundref="opl_8cpp" startline="174" endline="178">getEG</referencedby>
+        <referencedby refid="opl_8cpp_1ad0b902027740ec16636d93ee162aeb5d" compoundref="opl_8cpp" startline="122" endline="125">getValues_In_CN</referencedby>
+        <referencedby refid="opl_8cpp_1af37cdd5c32789328a95994329b009c24" compoundref="opl_8cpp" startline="188" endline="207">isEGchanged</referencedby>
+        <referencedby refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="518" endline="569">processSync</referencedby>
+        <referencedby refid="opl_8cpp_1ae81275d52dd3a37962b186af93bfad39" compoundref="opl_8cpp" startline="578" endline="581">setupInputs</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="opl_8h_1aa59e89f762bdbdf6cf15a756fd633b00" prot="public" static="yes" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t values_Out_CN_l[SIZE_OUT]</definition>
+        <argsstring>[SIZE_OUT]</argsstring>
+        <name>values_Out_CN_l</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="98" column="36" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" bodystart="98" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a7f68cfdc214d014a4d8676853a577e31" compoundref="opl_8cpp" startline="105" endline="113">affValeursOut</referencedby>
+        <referencedby refid="opl_8cpp_1a77c6ae0352e357ac9d8bdb83fe406e64" compoundref="opl_8cpp" startline="151" endline="154">getValues_Out_CN</referencedby>
+        <referencedby refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="518" endline="569">processSync</referencedby>
+        <referencedby refid="classopl_1ad188b100fd92fcc210bd48ea4e08a36f" compoundref="opl_8cpp" startline="65" endline="68">opl::sendError</referencedby>
+        <referencedby refid="classopl_1afcb3f7b05602f12b72bc97404795ef42" compoundref="opl_8cpp" startline="54" endline="57">opl::sendTelem</referencedby>
+        <referencedby refid="opl_8cpp_1aac45ce4a2ea59483fa86582af2108aec" compoundref="opl_8cpp" startline="214" endline="217">setEC1</referencedby>
+        <referencedby refid="opl_8cpp_1aee2f3fe4573dcc68e0ead2380eb83317" compoundref="opl_8cpp" startline="132" endline="142">setValues_Out_CN</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="opl_8h_1a16fd4c0216b92f54732e20dcd77fb18c" prot="public" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool activated_Out_CN_l[SIZE_OUT+2]</definition>
+        <argsstring>[SIZE_OUT+2]</argsstring>
+        <name>activated_Out_CN_l</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="99" column="36" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" bodystart="99" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a6928095e76089df62d549c72bf870b44" compoundref="opl_8cpp" startline="597" endline="667">initProcessImage</referencedby>
+        <referencedby refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="518" endline="569">processSync</referencedby>
+        <referencedby refid="opl_8cpp_1a72f880ddaa32ea28cd0e12658c3e8d67" compoundref="opl_8cpp" startline="161" endline="167">setActivated_Out_CN</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="opl_8h_1a063c1e70bcbeb72b1c2483b200839a85" prot="public" static="no" extern="yes" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t EG</definition>
+        <argsstring></argsstring>
+        <name>EG</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="104" column="33" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="14" bodyend="-1" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="104" declcolumn="33"/>
+        <referencedby refid="opl_8cpp_1af37cdd5c32789328a95994329b009c24" compoundref="opl_8cpp" startline="188" endline="207">isEGchanged</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+        <referencedby refid="csv_8cpp_1a6b63c44df8b905d77b2c66f1cea86204" compoundref="csv_8cpp" startline="644" endline="653">searchEG</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="opl_8h_1aba40364eb56f2caf1d7528fd61b2e22e" prot="public" static="no" extern="yes" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t EC</definition>
+        <argsstring></argsstring>
+        <name>EC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="105" column="33" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="15" bodyend="-1" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="105" declcolumn="33"/>
+        <referencedby refid="opl_8cpp_1af37cdd5c32789328a95994329b009c24" compoundref="opl_8cpp" startline="188" endline="207">isEGchanged</referencedby>
+        <referencedby refid="opl_8cpp_1aac45ce4a2ea59483fa86582af2108aec" compoundref="opl_8cpp" startline="214" endline="217">setEC1</referencedby>
+        <referencedby refid="opl_8cpp_1aee2f3fe4573dcc68e0ead2380eb83317" compoundref="opl_8cpp" startline="132" endline="142">setValues_Out_CN</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="opl_8h_1a8dd1817cec0b1c38e0b7eb2470855b25" prot="public" static="no" extern="yes" mutable="no">
+        <type>const uint16_t</type>
+        <definition>const uint16_t nbValuesCN_Out</definition>
+        <argsstring></argsstring>
+        <name>nbValuesCN_Out</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="108" column="33" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="17" bodyend="-1" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="108" declcolumn="33"/>
+        <referencedby refid="opl_8cpp_1a7f68cfdc214d014a4d8676853a577e31" compoundref="opl_8cpp" startline="105" endline="113">affValeursOut</referencedby>
+        <referencedby refid="opl_8cpp_1a6928095e76089df62d549c72bf870b44" compoundref="opl_8cpp" startline="597" endline="667">initProcessImage</referencedby>
+        <referencedby refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" compoundref="sensor_8cpp" startline="40" endline="52">sensor::initSensor</referencedby>
+        <referencedby refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="518" endline="569">processSync</referencedby>
+        <referencedby refid="opl_8cpp_1aee2f3fe4573dcc68e0ead2380eb83317" compoundref="opl_8cpp" startline="132" endline="142">setValues_Out_CN</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="opl_8h_1a38621a01003975db3d4d97d7c7b5c874" prot="public" static="no" extern="yes" mutable="no">
+        <type>const uint16_t</type>
+        <definition>const uint16_t nbValuesCN_In</definition>
+        <argsstring></argsstring>
+        <name>nbValuesCN_In</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="109" column="33" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="18" bodyend="-1" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="109" declcolumn="33"/>
+        <referencedby refid="valve_8cpp_1a659d21ba354b3f756293314bf2c8dfc4" compoundref="valve_8cpp" startline="491" endline="498">getValveValue</referencedby>
+        <referencedby refid="opl_8cpp_1a6928095e76089df62d549c72bf870b44" compoundref="opl_8cpp" startline="597" endline="667">initProcessImage</referencedby>
+        <referencedby refid="classvalve_1ae69c309265ce0269e0207043fb6b06ca" compoundref="valve_8cpp" startline="301" endline="363">valve::isDependanceActive</referencedby>
+        <referencedby refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="518" endline="569">processSync</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="opl_8h_1afbb7865bc950120040f337a3631fc921" prot="public" static="no" extern="yes" mutable="no">
+        <type>const uint16_t</type>
+        <definition>const uint16_t nbValuesCN_Out_ByCN</definition>
+        <argsstring></argsstring>
+        <name>nbValuesCN_Out_ByCN</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="110" column="33" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="19" bodyend="-1" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="110" declcolumn="33"/>
+        <referencedby refid="classvalve_1a82140bbfd1329eea0100b8359cc9ebc2" compoundref="valve_8cpp" startline="117" endline="146">valve::actionnementValvesInit</referencedby>
+        <referencedby refid="opl_8cpp_1a7f68cfdc214d014a4d8676853a577e31" compoundref="opl_8cpp" startline="105" endline="113">affValeursOut</referencedby>
+        <referencedby refid="classopl_1ac3e6c6fb9c8d2a10d4437877651167bb" compoundref="opl_8cpp" startline="39" endline="46">opl::demandeExtinctOPL</referencedby>
+        <referencedby refid="classvalve_1a3db8975d7c2cc46b33fd65e683e8c6df" compoundref="valve_8cpp" startline="413" endline="438">valve::extinctValve</referencedby>
+        <referencedby refid="valve_8cpp_1ad4e5b817af0b9501d2a6e6deb0c89445" compoundref="valve_8cpp" startline="465" endline="481">getValvesInitValue</referencedby>
+        <referencedby refid="opl_8cpp_1a6928095e76089df62d549c72bf870b44" compoundref="opl_8cpp" startline="597" endline="667">initProcessImage</referencedby>
+        <referencedby refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" compoundref="sensor_8cpp" startline="40" endline="52">sensor::initSensor</referencedby>
+        <referencedby refid="classvalve_1a86e16a5cc95d9bec4ee8eec6722760fe" compoundref="valve_8cpp" startline="55" endline="106">valve::initValve</referencedby>
+        <referencedby refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="518" endline="569">processSync</referencedby>
+        <referencedby refid="valve_8cpp_1ad6ff3dc82333091b53b2fbdc3ef5842e" compoundref="valve_8cpp" startline="507" endline="518">resetTimers</referencedby>
+        <referencedby refid="classopl_1ad188b100fd92fcc210bd48ea4e08a36f" compoundref="opl_8cpp" startline="65" endline="68">opl::sendError</referencedby>
+        <referencedby refid="classopl_1afcb3f7b05602f12b72bc97404795ef42" compoundref="opl_8cpp" startline="54" endline="57">opl::sendTelem</referencedby>
+        <referencedby refid="opl_8cpp_1aac45ce4a2ea59483fa86582af2108aec" compoundref="opl_8cpp" startline="214" endline="217">setEC1</referencedby>
+        <referencedby refid="opl_8cpp_1aee2f3fe4573dcc68e0ead2380eb83317" compoundref="opl_8cpp" startline="132" endline="142">setValues_Out_CN</referencedby>
+        <referencedby refid="valve_8cpp_1add60b51091e6e3c9653ed8400895e3a1" compoundref="valve_8cpp" startline="446" endline="455">setValvesValue</referencedby>
+        <referencedby refid="classvalve_1a1364f1770f8218d7a0077ca2a953371b" compoundref="valve_8cpp" startline="208" endline="280">valve::verifDependanceValves</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="opl_8h_1ae734e3ff803ba9ee9ce69f720764c48a" prot="public" static="no" extern="yes" mutable="no">
+        <type>const uint16_t</type>
+        <definition>const uint16_t nbValuesCN_In_ByCN</definition>
+        <argsstring></argsstring>
+        <name>nbValuesCN_In_ByCN</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="111" column="33" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="20" bodyend="-1" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="111" declcolumn="33"/>
+        <referencedby refid="classvalve_1aac2cd5441d1c1a1180e18af2468a4547" compoundref="valve_8cpp" startline="161" endline="194">valve::actionnementValve</referencedby>
+        <referencedby refid="opl_8cpp_1aa1f5fd46ab8ace6894efe23293d8a9b8" compoundref="opl_8cpp" startline="174" endline="178">getEG</referencedby>
+        <referencedby refid="opl_8cpp_1a6928095e76089df62d549c72bf870b44" compoundref="opl_8cpp" startline="597" endline="667">initProcessImage</referencedby>
+        <referencedby refid="classvalve_1ae69c309265ce0269e0207043fb6b06ca" compoundref="valve_8cpp" startline="301" endline="363">valve::isDependanceActive</referencedby>
+        <referencedby refid="opl_8cpp_1af37cdd5c32789328a95994329b009c24" compoundref="opl_8cpp" startline="188" endline="207">isEGchanged</referencedby>
+        <referencedby refid="classvalve_1a5dae9e8165e79289e59e2426f9d75d29" compoundref="valve_8cpp" startline="390" endline="401">valve::isTimerExeeded</referencedby>
+        <referencedby refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="518" endline="569">processSync</referencedby>
+        <referencedby refid="opl_8cpp_1aee2f3fe4573dcc68e0ead2380eb83317" compoundref="opl_8cpp" startline="132" endline="142">setValues_Out_CN</referencedby>
+        <referencedby refid="valve_8cpp_1add60b51091e6e3c9653ed8400895e3a1" compoundref="valve_8cpp" startline="446" endline="455">setValvesValue</referencedby>
+        <referencedby refid="classvalve_1a1364f1770f8218d7a0077ca2a953371b" compoundref="valve_8cpp" startline="208" endline="280">valve::verifDependanceValves</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="opl_8h_1a730d6cf41b1191a63dae8e8f789e47f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef initPowerlink</definition>
+        <argsstring>(UINT32 cycleLen_p, const char *devName_p, const UINT8 *macAddr_p, UINT32 nodeId_p)</argsstring>
+        <name>initPowerlink</name>
+        <param>
+          <type>UINT32</type>
+          <declname>cycleLen_p</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>devName_p</declname>
+        </param>
+        <param>
+          <type>const UINT8 *</type>
+          <declname>macAddr_p</declname>
+        </param>
+        <param>
+          <type>UINT32</type>
+          <declname>nodeId_p</declname>
+        </param>
+        <briefdescription>
+<para>Initialize the openPOWERLINK stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The function initializes the openPOWERLINK stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cycleLen_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of POWERLINK cycle. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">devName_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Device name string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">macAddr_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MAC address to use for POWERLINK interface. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nodeId_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>POWERLINK node ID.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>statusErrDef that values errSelNetInterface when the selection of the network interface fails when in a Windows machine can be caused by the absence of WinPcap. or errInitObjDictionary when the object dictionary header file (objdict.h) has incorrect values or syntax. or errOplkInit when the OpenPOWERLINK stack fails maybe because the stack is not found by the application, check the CN .lib files. or errOplkCreate when the OpenPOWERLINK stack fails to create a new instance or noError when the function exits successfully. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="56" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="325" bodyend="444" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="56" declcolumn="25"/>
+        <references refid="config_define_8h_1ab0092e2619bef8d5375800f507d3080c" compoundref="config_define_8h" startline="8">DEFAULT_GATEWAY</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a3ebf20f82ef4ab6c130e48091c95cba7" compoundref="status_error_define_8h" startline="62">errInitObjDictionary</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ae58a341d48e59f97d21886e8e27b0db8" compoundref="status_error_define_8h" startline="64">errOplkCreate</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a93dde49c48ef9bb619348e72d664c43d" compoundref="status_error_define_8h" startline="63">errOplkInit</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a3ccc2755005e3b8f7aedd3787bef4869" compoundref="status_error_define_8h" startline="61">errSelNetInterface</references>
+        <references refid="config_define_8h_1a14b0a7da8cf3edbfec9630c2ec290148" compoundref="config_define_8h" startline="7">IP_ADDR</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <references refid="event_opl_8c_1ad6f574bee28d3a8f66b5885f365a8df2" compoundref="event_opl_8c" startline="132" endline="158">processEvents</references>
+        <references refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="518" endline="569">processSync</references>
+        <references refid="config_define_8h_1a2277cfa773d618a987524fc0590fe253" compoundref="config_define_8h" startline="9">SUBNET_MASK</references>
+        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="248" endline="302">initOPL</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1ac31969ba716dc382cc1e4c9fcf8f06cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef initOplThread</definition>
+        <argsstring>(void)</argsstring>
+        <name>initOplThread</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>It creates the sync thread which is responsible for the synchronous data application.</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="return"><para>statusErrDef that values errSendNMTResetCommand when the OpenPOWERLINK reset command fails or noError when the function exits successfully. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="60" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="456" bodyend="476" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="60" declcolumn="25"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94adc47549c3ae339d7b2b8d77ac0ad63bf" compoundref="status_error_define_8h" startline="69">errSendNMTResetCommand</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <references refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="518" endline="569">processSync</references>
+        <references refid="opl_8cpp_1ae81275d52dd3a37962b186af93bfad39" compoundref="opl_8cpp" startline="578" endline="581">setupInputs</references>
+        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="248" endline="302">initOPL</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1a6928095e76089df62d549c72bf870b44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef initProcessImage</definition>
+        <argsstring>(void)</argsstring>
+        <name>initProcessImage</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialize process image. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The function initializes the process image of the application.</para>
+<para><simplesect kind="return"><para>statusErrDef that values errOplkAllocProcessImage when the allocation of the input and/or output structure doesn&apos;t exist in the objdict.h file or errLinkPDOout when an output object (TPDO) doesn&apos;t exist for the same reasons above. or errLinkPDOin when an input object (RPDO) doesn&apos;t exist for the same reasons above. or noError when the function exits successfully. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="61" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="597" bodyend="667" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="61" declcolumn="25"/>
+        <references refid="opl_8h_1a16fd4c0216b92f54732e20dcd77fb18c" compoundref="opl_8h" startline="99">activated_Out_CN_l</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a2d71b8bf78bab50fc7914c15391b7e4c" compoundref="status_error_define_8h" startline="68">errLinkPDOin</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a6f6e0379e57e89a0eb4d33299a5716d3" compoundref="status_error_define_8h" startline="66">errLinkPDOout</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94aeea752eff283031109152c89cad12c40" compoundref="status_error_define_8h" startline="65">errOplkAllocProcessImage</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="opl_8cpp_1abf4b25efd59a9185bbca55f9c969a8b9" compoundref="opl_8cpp" startline="685" endline="707">linkPDO_in</references>
+        <references refid="opl_8cpp_1a224b601cc1822441cbed3a23b22b34ac" compoundref="opl_8cpp" startline="725" endline="747">linkPDO_out</references>
+        <references refid="opl_8cpp_1a38621a01003975db3d4d97d7c7b5c874" compoundref="opl_8cpp" startline="18">nbValuesCN_In</references>
+        <references refid="opl_8cpp_1ae734e3ff803ba9ee9ce69f720764c48a" compoundref="opl_8cpp" startline="20">nbValuesCN_In_ByCN</references>
+        <references refid="opl_8cpp_1a8dd1817cec0b1c38e0b7eb2470855b25" compoundref="opl_8cpp" startline="17">nbValuesCN_Out</references>
+        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
+        <references refid="node_id_8h_1a2f7945514ea8b2c7145cf68d47c96a08" compoundref="node_id_8h" startline="1">NODEID</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <references refid="opl_8h_1a322e5734aa46ee4be79084a6a1bd62ab" compoundref="opl_8h" startline="93">pProcessImageIn_l</references>
+        <references refid="opl_8h_1a55f888b6071185bbddd12bc7c6edd372" compoundref="opl_8h" startline="94">pProcessImageOut_l</references>
+        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="248" endline="302">initOPL</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1aaf99cd726620ac95ff0d54f65485fb2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef shutdownOplImage</definition>
+        <argsstring>(void)</argsstring>
+        <name>shutdownOplImage</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Shutdown the synchronous data application. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The function shuts down the synchronous data application</para>
+<para><simplesect kind="return"><para>statusErrDef that values errOplkFreeProcessImage when the freeing of memory of the OpenPOWERLINK fails. or noError when the function exits successfully. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="62" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="778" bodyend="792" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="62" declcolumn="25"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94acb7ab15cc47c08906b755f31f53b39b3" compoundref="status_error_define_8h" startline="70">errOplkFreeProcessImage</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <referencedby refid="opl_8cpp_1a43f9337be3f9efa2653d87b1f95af44c" compoundref="opl_8cpp" startline="756" endline="765">extinctOPL</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1a0ef4d7da28dda5ddc116bd105c9f90ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef checkStateOpl</definition>
+        <argsstring>(void)</argsstring>
+        <name>checkStateOpl</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>function to check if the OpenPOWERLINK stack crashed or a termination signal has been received from the OS app manager. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>statusErrDef that values errSystemSendTerminate if a termination signal has been received or errOplKernelStackDown if the OpenPOWERLINK stack crashed or noError when the function exits successfully. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="63" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="488" bodyend="507" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="63" declcolumn="25"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a34e5cf990e434aa370892b7d204206c8" compoundref="status_error_define_8h" startline="72">errOplKernelStackDown</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a577af9c3c84d95925e05d66000b3d411" compoundref="status_error_define_8h" startline="71">errSystemSendTerminate</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1aaf3f45fd8772392506e2cd143b46a455" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void shutdownPowerlink</definition>
+        <argsstring>(void)</argsstring>
+        <name>shutdownPowerlink</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Shutdown the demo application. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The function shuts down the demo application. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="64" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="799" bodyend="830" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="64" declcolumn="25"/>
+        <references refid="opl_8h_1a8f25e48b0b5122c1580e0728bcba0244" compoundref="opl_8h" startline="90">fGsOff_l</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <referencedby refid="opl_8cpp_1a43f9337be3f9efa2653d87b1f95af44c" compoundref="opl_8cpp" startline="756" endline="765">extinctOPL</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1ae81275d52dd3a37962b186af93bfad39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setupInputs</definition>
+        <argsstring>(void)</argsstring>
+        <name>setupInputs</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Setup inputs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The function initializes the digital input port. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="65" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="578" bodyend="581" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="65" declcolumn="25"/>
+        <references refid="opl_8h_1ada6913a92bdf309ad87fb42dc7be501d" compoundref="opl_8h" startline="97">values_In_CN_l</references>
+        <referencedby refid="opl_8cpp_1ac31969ba716dc382cc1e4c9fcf8f06cc" compoundref="opl_8cpp" startline="456" endline="476">initOplThread</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1ac86056da77ac48c34bffd6a85f4567fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>tOplkError</type>
+        <definition>tOplkError processSync</definition>
+        <argsstring>(void)</argsstring>
+        <name>processSync</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Synchronous data handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The function implements the synchronous data handler.</para>
+<para><simplesect kind="return"><para>The function returns a tOplkError error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="66" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="518" bodyend="569" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="66" declcolumn="25"/>
+        <references refid="opl_8h_1a16fd4c0216b92f54732e20dcd77fb18c" compoundref="opl_8h" startline="99">activated_Out_CN_l</references>
+        <references refid="status_error_define_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911a9761086e420b925e438327ad385b304d" compoundref="status_error_define_8h" startline="99">automatic</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="struct_p_i___i_n_1a5a0fedeabec540480a57f2700abf8565" compoundref="xap_opl_8h" startline="19">PI_IN::in_CN_array</references>
+        <references refid="status_error_define_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911af2ff5ec687c78928f81c2842750e3f67" compoundref="status_error_define_8h" startline="100">manual</references>
+        <references refid="opl_8cpp_1a2618e89b4c26dc851feae865df3a1a49" compoundref="opl_8cpp" startline="16">mode</references>
+        <references refid="opl_8cpp_1a38621a01003975db3d4d97d7c7b5c874" compoundref="opl_8cpp" startline="18">nbValuesCN_In</references>
+        <references refid="opl_8cpp_1ae734e3ff803ba9ee9ce69f720764c48a" compoundref="opl_8cpp" startline="20">nbValuesCN_In_ByCN</references>
+        <references refid="opl_8cpp_1a8dd1817cec0b1c38e0b7eb2470855b25" compoundref="opl_8cpp" startline="17">nbValuesCN_Out</references>
+        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
+        <references refid="struct_p_i___o_u_t_1a6acd9eeaf14a6221c85373ee72ca3b1a" compoundref="xap_opl_8h" startline="14">PI_OUT::out_CN_array</references>
+        <references refid="opl_8h_1a322e5734aa46ee4be79084a6a1bd62ab" compoundref="opl_8h" startline="93">pProcessImageIn_l</references>
+        <references refid="opl_8h_1a55f888b6071185bbddd12bc7c6edd372" compoundref="opl_8h" startline="94">pProcessImageOut_l</references>
+        <references refid="opl_8cpp_1aee2f3fe4573dcc68e0ead2380eb83317" compoundref="opl_8cpp" startline="132" endline="142">setValues_Out_CN</references>
+        <references refid="config_define_8h_1ac072f7043a3fb31b4fc2d1bcb687c157" compoundref="config_define_8h" startline="17">SIZE_IN</references>
+        <references refid="opl_8h_1ada6913a92bdf309ad87fb42dc7be501d" compoundref="opl_8h" startline="97">values_In_CN_l</references>
+        <references refid="opl_8h_1aa59e89f762bdbdf6cf15a756fd633b00" compoundref="opl_8h" startline="98">values_Out_CN_l</references>
+        <referencedby refid="opl_8cpp_1ac31969ba716dc382cc1e4c9fcf8f06cc" compoundref="opl_8cpp" startline="456" endline="476">initOplThread</referencedby>
+        <referencedby refid="opl_8cpp_1a730d6cf41b1191a63dae8e8f789e47f0" compoundref="opl_8cpp" startline="325" endline="444">initPowerlink</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1a49664de4542533264f5f1815b1a137b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>tOplkError</type>
+        <definition>tOplkError linkPDO_in</definition>
+        <argsstring>(tObdSize obdSize, const UINT16 arrayIndex, UINT16 index, UINT8 subIndex)</argsstring>
+        <name>linkPDO_in</name>
+        <param>
+          <type>tObdSize</type>
+          <declname>obdSize</declname>
+        </param>
+        <param>
+          <type>const UINT16</type>
+          <declname>arrayIndex</declname>
+        </param>
+        <param>
+          <type>UINT16</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>UINT8</type>
+          <declname>subIndex</declname>
+        </param>
+        <briefdescription>
+<para>function to link a CN RPDO (recieved process data object) gotten from the mnobd.cdc binary file generated by OpenCONFIGURATOR to the OpenPOWERLINK application. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>obdSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the size of the PDO in bytes </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>arrayIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the index of the CN RPDO array </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the index of the CN RPDO in the OpenPOWERLINK object library gotten from this file: 00000000_POWERLINK_CiA401_CN.xdd </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the sub index of the specific object to be linked gotten from this file: 00000000_POWERLINK_CiA401_CN.xdd</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The function returns a tOplkError error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="67" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="685" bodyend="707" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="67" declcolumn="25"/>
+        <referencedby refid="opl_8cpp_1a6928095e76089df62d549c72bf870b44" compoundref="opl_8cpp" startline="597" endline="667">initProcessImage</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1aaf257da318c70fd67b780dadb03ed60e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>tOplkError</type>
+        <definition>tOplkError linkPDO_out</definition>
+        <argsstring>(tObdSize obdSize, const UINT16 arrayIndex, UINT16 index, UINT8 subIndex)</argsstring>
+        <name>linkPDO_out</name>
+        <param>
+          <type>tObdSize</type>
+          <declname>obdSize</declname>
+        </param>
+        <param>
+          <type>const UINT16</type>
+          <declname>arrayIndex</declname>
+        </param>
+        <param>
+          <type>UINT16</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>UINT8</type>
+          <declname>subIndex</declname>
+        </param>
+        <briefdescription>
+<para>function to link a CN TPDO (transmitted process data object) gotten from the mnobd.cdc binary file generated by OpenCONFIGURATOR to the OpenPOWERLINK application. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>obdSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the size of the PDO in bytes </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>arrayIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the index of the CN TPDO array </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the index of the CN RPDO in the OpenPOWERLINK object library gotten from this file: 00000000_POWERLINK_CiA401_CN.xdd </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the sub index of the specific object to be linked gotten from this file: 00000000_POWERLINK_CiA401_CN.xdd</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The function returns a tOplkError error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="71" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="725" bodyend="747" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="71" declcolumn="25"/>
+        <referencedby refid="opl_8cpp_1a6928095e76089df62d549c72bf870b44" compoundref="opl_8cpp" startline="597" endline="667">initProcessImage</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1a670c5cd6fdf306df596560ec23f0cd2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef initOPL</definition>
+        <argsstring>()</argsstring>
+        <name>initOPL</name>
+        <briefdescription>
+<para>function to initialize the CN OpenPOWERLINK module </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>statusErrDef that values errOPLSystemInit when OpenPOWERLINK fails to set the correct configuration for the current operating system. or errSelNetInterface when the selection of the network interface fails when in a Windows machine. Can be caused by the absence of WinPcap. or errInitObjDictionary when the object dictionary header file (objdict.h) has incorrect values or syntax. or errOplkInit when The OpenPOWERLINK stack fails to initialize, main cause: the stack is not found by the application, check the CN .lib files or errOplkCreate when the OpenPOWERLINK stack fails to create a new instance or errOplkAllocProcessImage when the allocation of the input and/or output structure fails because parts of the structure doesn&apos;t exist in the objdict.h file or errLinkPDOout when an output object (TPDO) doesn&apos;t exist for the same reasons above or errLinkPDOin when an input object (RPDO) doesn&apos;t exist for the same reasons above or errSendNMTResetCommand when the OpenPOWERLINK reset command fails or noError when the function exits successfully. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="75" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="248" bodyend="302" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="75" declcolumn="25"/>
+        <references refid="opl_8h_1af33cb4a9ced83e8a564a44f95a7c740c" compoundref="opl_8h" startline="89" endline="89">aMacAddr_l</references>
+        <references refid="config_define_8h_1ac9ac8ba41c4385306791b6640b1d51dc" compoundref="config_define_8h" startline="5">CYCLE_LEN</references>
+        <references refid="config_define_8h_1a563cad7e347a704508920c0c59f74808" compoundref="config_define_8h" startline="11">DEVNAME</references>
+        <references refid="structt_options_1aa940aee04646184456749f832ccb80ee" compoundref="opl_8h" startline="53">tOptions::devName</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ae1a5bbac3235cbdf4dfdaf395813d328" compoundref="status_error_define_8h" startline="60">errOPLSystemInit</references>
+        <references refid="opl_8h_1a8f25e48b0b5122c1580e0728bcba0244" compoundref="opl_8h" startline="90">fGsOff_l</references>
+        <references refid="event_opl_8c_1aa6211577a11055a43fb577b465ade606" compoundref="event_opl_8c" startline="112" endline="115">initEvents</references>
+        <references refid="opl_8cpp_1ac31969ba716dc382cc1e4c9fcf8f06cc" compoundref="opl_8cpp" startline="456" endline="476">initOplThread</references>
+        <references refid="opl_8cpp_1a730d6cf41b1191a63dae8e8f789e47f0" compoundref="opl_8cpp" startline="325" endline="444">initPowerlink</references>
+        <references refid="opl_8cpp_1a6928095e76089df62d549c72bf870b44" compoundref="opl_8cpp" startline="597" endline="667">initProcessImage</references>
+        <references refid="structt_options_1ac2d0a48a3d2ed344da01233e48372775" compoundref="opl_8h" startline="52">tOptions::logCategory</references>
+        <references refid="structt_options_1ad4dfda079fb51a7c23ff0321a2fc920e" compoundref="opl_8h" startline="50">tOptions::logFormat</references>
+        <references refid="structt_options_1ac41ac397dd5398c735a7845a023e7877" compoundref="opl_8h" startline="51">tOptions::logLevel</references>
+        <references refid="node_id_8h_1a2f7945514ea8b2c7145cf68d47c96a08" compoundref="node_id_8h" startline="1">NODEID</references>
+        <references refid="structt_options_1a1ddf0a10016825f0e7bae38a02387126" compoundref="opl_8h" startline="49">tOptions::nodeId</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <references refid="opl_8cpp_1a72f880ddaa32ea28cd0e12658c3e8d67" compoundref="opl_8cpp" startline="161" endline="167">setActivated_Out_CN</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1a43f9337be3f9efa2653d87b1f95af44c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef extinctOPL</definition>
+        <argsstring>()</argsstring>
+        <name>extinctOPL</name>
+        <briefdescription>
+<para>function to shutdown the OpenPOWERLINK module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>statusErrDef that values errOplkFreeProcessImage when the freeing of memory of the OpenPOWERLINK stack fails. or noError when the function exits successfully. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="76" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="756" bodyend="765" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="76" declcolumn="25"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <references refid="opl_8cpp_1aaf99cd726620ac95ff0d54f65485fb2a" compoundref="opl_8cpp" startline="778" endline="792">shutdownOplImage</references>
+        <references refid="opl_8cpp_1aaf3f45fd8772392506e2cd143b46a455" compoundref="opl_8cpp" startline="799" endline="830">shutdownPowerlink</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1ad0b902027740ec16636d93ee162aeb5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t getValues_In_CN</definition>
+        <argsstring>(int ligne)</argsstring>
+        <name>getValues_In_CN</name>
+        <param>
+          <type>int</type>
+          <declname>ligne</declname>
+        </param>
+        <briefdescription>
+<para>function getter of the value coming from the MN from line according to the structure <ref refid="struct_p_i___i_n" kindref="compound">PI_IN</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ligne</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the line according to the structure <ref refid="struct_p_i___i_n" kindref="compound">PI_IN</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>int16_t the value coming from the MN </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="78" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="122" bodyend="125" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="78" declcolumn="25"/>
+        <references refid="opl_8h_1ada6913a92bdf309ad87fb42dc7be501d" compoundref="opl_8h" startline="97">values_In_CN_l</references>
+        <referencedby refid="classvalve_1aac2cd5441d1c1a1180e18af2468a4547" compoundref="valve_8cpp" startline="161" endline="194">valve::actionnementValve</referencedby>
+        <referencedby refid="classvalve_1a1364f1770f8218d7a0077ca2a953371b" compoundref="valve_8cpp" startline="208" endline="280">valve::verifDependanceValves</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1aee2f3fe4573dcc68e0ead2380eb83317" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setValues_Out_CN</definition>
+        <argsstring>()</argsstring>
+        <name>setValues_Out_CN</name>
+        <briefdescription>
+<para>function setter of the values coming out of the CN namely, the valves and sensors values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="79" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="132" bodyend="142" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="79" declcolumn="25"/>
+        <references refid="opl_8cpp_1aba40364eb56f2caf1d7528fd61b2e22e" compoundref="opl_8cpp" startline="15">EC</references>
+        <references refid="sensor_8cpp_1a95ae932c940a8d52f42f256155300708" compoundref="sensor_8cpp" startline="76" endline="78">getAdc_value</references>
+        <references refid="valve_8cpp_1a659d21ba354b3f756293314bf2c8dfc4" compoundref="valve_8cpp" startline="491" endline="498">getValveValue</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" compoundref="config_define_8h" startline="21">MAX_SENSORS</references>
+        <references refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" compoundref="config_define_8h" startline="26">MAX_VALVES</references>
+        <references refid="opl_8cpp_1ae734e3ff803ba9ee9ce69f720764c48a" compoundref="opl_8cpp" startline="20">nbValuesCN_In_ByCN</references>
+        <references refid="opl_8cpp_1a8dd1817cec0b1c38e0b7eb2470855b25" compoundref="opl_8cpp" startline="17">nbValuesCN_Out</references>
+        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
+        <references refid="opl_8h_1aa59e89f762bdbdf6cf15a756fd633b00" compoundref="opl_8h" startline="98">values_Out_CN_l</references>
+        <referencedby refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="518" endline="569">processSync</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1a77c6ae0352e357ac9d8bdb83fe406e64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t getValues_Out_CN</definition>
+        <argsstring>(int ligne)</argsstring>
+        <name>getValues_Out_CN</name>
+        <param>
+          <type>int</type>
+          <declname>ligne</declname>
+        </param>
+        <briefdescription>
+<para>function getter of the value coming out of the CN from line according to the structure <ref refid="struct_p_i___o_u_t" kindref="compound">PI_OUT</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ligne</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the line according to the structure <ref refid="struct_p_i___o_u_t" kindref="compound">PI_OUT</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>int16_t the value coming out of the CN </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="80" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="151" bodyend="154" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="80" declcolumn="25"/>
+        <references refid="opl_8h_1aa59e89f762bdbdf6cf15a756fd633b00" compoundref="opl_8h" startline="98">values_Out_CN_l</references>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1a72f880ddaa32ea28cd0e12658c3e8d67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setActivated_Out_CN</definition>
+        <argsstring>()</argsstring>
+        <name>setActivated_Out_CN</name>
+        <briefdescription>
+<para>function setter to fill the activation array from the CSV activation file &quot;activation.csv&quot; </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="81" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="161" bodyend="167" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="81" declcolumn="25"/>
+        <references refid="opl_8h_1a16fd4c0216b92f54732e20dcd77fb18c" compoundref="opl_8h" startline="99">activated_Out_CN_l</references>
+        <references refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" compoundref="csv_8cpp" startline="587" endline="590">getActivation</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="config_define_8h_1ab5cbebecab98e4234ae1b2e5ff94ccbc" compoundref="config_define_8h" startline="15">SIZE_OUT</references>
+        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="248" endline="302">initOPL</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1a0e626359c6d8f3e0bc7e7c19c01fa820" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void affValeursIn</definition>
+        <argsstring>()</argsstring>
+        <name>affValeursIn</name>
+        <briefdescription>
+<para>function to display in the console the values coming from the MN </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="82" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="75" bodyend="83" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="82" declcolumn="25"/>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="config_define_8h_1ac072f7043a3fb31b4fc2d1bcb687c157" compoundref="config_define_8h" startline="17">SIZE_IN</references>
+        <references refid="opl_8h_1ada6913a92bdf309ad87fb42dc7be501d" compoundref="opl_8h" startline="97">values_In_CN_l</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1a7a60aa76d8b9af7a1930275e02aa2ab5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void affValeursProcessIn</definition>
+        <argsstring>()</argsstring>
+        <name>affValeursProcessIn</name>
+        <briefdescription>
+<para>function to display in the console the values coming from the MN </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="83" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="90" bodyend="98" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="83" declcolumn="25"/>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="struct_p_i___i_n_1a5a0fedeabec540480a57f2700abf8565" compoundref="xap_opl_8h" startline="19">PI_IN::in_CN_array</references>
+        <references refid="opl_8h_1a322e5734aa46ee4be79084a6a1bd62ab" compoundref="opl_8h" startline="93">pProcessImageIn_l</references>
+        <references refid="config_define_8h_1ac072f7043a3fb31b4fc2d1bcb687c157" compoundref="config_define_8h" startline="17">SIZE_IN</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1a7f68cfdc214d014a4d8676853a577e31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void affValeursOut</definition>
+        <argsstring>()</argsstring>
+        <name>affValeursOut</name>
+        <briefdescription>
+<para>function to display in the console the values coming out of the CN </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="84" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="105" bodyend="113" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="84" declcolumn="25"/>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="opl_8cpp_1a8dd1817cec0b1c38e0b7eb2470855b25" compoundref="opl_8cpp" startline="17">nbValuesCN_Out</references>
+        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
+        <references refid="opl_8h_1aa59e89f762bdbdf6cf15a756fd633b00" compoundref="opl_8h" startline="98">values_Out_CN_l</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1aa1f5fd46ab8ace6894efe23293d8a9b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t getEG</definition>
+        <argsstring>()</argsstring>
+        <name>getEG</name>
+        <briefdescription>
+<para>function getter of the current general state (EG) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>int16_t the current general state (EG) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="117" column="30" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="174" bodyend="178" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="117" declcolumn="30"/>
+        <references refid="opl_8cpp_1ae734e3ff803ba9ee9ce69f720764c48a" compoundref="opl_8cpp" startline="20">nbValuesCN_In_ByCN</references>
+        <references refid="opl_8h_1ada6913a92bdf309ad87fb42dc7be501d" compoundref="opl_8h" startline="97">values_In_CN_l</references>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1af37cdd5c32789328a95994329b009c24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef isEGchanged</definition>
+        <argsstring>()</argsstring>
+        <name>isEGchanged</name>
+        <briefdescription>
+<para>function to check if the general state (EG) has been changed </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>statusErrDef infoModeSetToManual if the mode to manual order has been received from the MN or infoEGNotChanged if the EG is still the same. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="118" column="30" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="188" bodyend="207" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="118" declcolumn="30"/>
+        <references refid="status_error_define_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911a9761086e420b925e438327ad385b304d" compoundref="status_error_define_8h" startline="99">automatic</references>
+        <references refid="opl_8cpp_1aba40364eb56f2caf1d7528fd61b2e22e" compoundref="opl_8cpp" startline="15">EC</references>
+        <references refid="opl_8cpp_1a063c1e70bcbeb72b1c2483b200839a85" compoundref="opl_8cpp" startline="14">EG</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a999c5392645c39b07e6b15445143cb58" compoundref="status_error_define_8h" startline="16">infoEGNotChanged</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a2c3908b363a14d9a6d75acef16c66a44" compoundref="status_error_define_8h" startline="19">infoModeSetToManual</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a07e3be144c2a7d4c69691470f0bcd261" compoundref="status_error_define_8h" startline="38">infoStateToManualMode</references>
+        <references refid="status_error_define_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911af2ff5ec687c78928f81c2842750e3f67" compoundref="status_error_define_8h" startline="100">manual</references>
+        <references refid="opl_8cpp_1a2618e89b4c26dc851feae865df3a1a49" compoundref="opl_8cpp" startline="16">mode</references>
+        <references refid="opl_8cpp_1ae734e3ff803ba9ee9ce69f720764c48a" compoundref="opl_8cpp" startline="20">nbValuesCN_In_ByCN</references>
+        <references refid="valve_8cpp_1ad6ff3dc82333091b53b2fbdc3ef5842e" compoundref="valve_8cpp" startline="507" endline="518">resetTimers</references>
+        <references refid="opl_8h_1ada6913a92bdf309ad87fb42dc7be501d" compoundref="opl_8h" startline="97">values_In_CN_l</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="opl_8h_1a3243cd2b508b2d5b1c59cacd70956e98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setEC1</definition>
+        <argsstring>(int16_t EC1)</argsstring>
+        <name>setEC1</name>
+        <param>
+          <type>int16_t</type>
+          <declname>EC1</declname>
+          <defname>EC</defname>
+        </param>
+        <briefdescription>
+<para>function setter of the board state (EC) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>EC</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the board state (EC) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="119" column="30" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="214" bodyend="217" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" declline="119" declcolumn="30"/>
+        <references refid="opl_8cpp_1aba40364eb56f2caf1d7528fd61b2e22e" compoundref="opl_8cpp" startline="15">EC</references>
+        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
+        <references refid="opl_8h_1aa59e89f762bdbdf6cf15a756fd633b00" compoundref="opl_8h" startline="98">values_Out_CN_l</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>OPL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OPL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>includes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="xap_opl_8h" kindref="compound">xapOpl.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="event_opl_8h" kindref="compound">eventOpl.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="config_define_8h" kindref="compound">configDefine.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="node_id_8h" kindref="compound">nodeId.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="status_error_define_8h" kindref="compound">statusErrorDefine.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="csv_8h" kindref="compound">csv.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="sensor_8h" kindref="compound">sensor.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="valve_8h" kindref="compound">valve.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;oplk/oplk.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;oplk/debugstr.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;inttypes.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;system/system.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;obdcreate/obdcreate.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>(TARGET_SYSTEM<sp/>==<sp/>_WIN32_)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;getopt/getopt.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;console/console.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eventlog/eventlog.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;netselect/netselect.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;limits.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="structt_options" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="49" refid="structt_options_1a1ddf0a10016825f0e7bae38a02387126" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UINT32<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structt_options_1a1ddf0a10016825f0e7bae38a02387126" kindref="member">nodeId</ref>;</highlight></codeline>
+<codeline lineno="50" refid="structt_options_1ad4dfda079fb51a7c23ff0321a2fc920e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tEventlogFormat<sp/><ref refid="structt_options_1ad4dfda079fb51a7c23ff0321a2fc920e" kindref="member">logFormat</ref>;</highlight></codeline>
+<codeline lineno="51" refid="structt_options_1ac41ac397dd5398c735a7845a023e7877" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UINT32<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structt_options_1ac41ac397dd5398c735a7845a023e7877" kindref="member">logLevel</ref>;</highlight></codeline>
+<codeline lineno="52" refid="structt_options_1ac2d0a48a3d2ed344da01233e48372775" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UINT32<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structt_options_1ac2d0a48a3d2ed344da01233e48372775" kindref="member">logCategory</ref>;</highlight></codeline>
+<codeline lineno="53" refid="structt_options_1aa940aee04646184456749f832ccb80ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>devName[128];</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><ref refid="structt_options" kindref="compound">tOptions</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a730d6cf41b1191a63dae8e8f789e47f0" kindref="member">initPowerlink</ref>(UINT32<sp/>cycleLen_p,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>devName_p,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>UINT8*<sp/>macAddr_p,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UINT32<sp/>nodeId_p);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1ac31969ba716dc382cc1e4c9fcf8f06cc" kindref="member">initOplThread</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a6928095e76089df62d549c72bf870b44" kindref="member">initProcessImage</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1aaf99cd726620ac95ff0d54f65485fb2a" kindref="member">shutdownOplImage</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a0ef4d7da28dda5ddc116bd105c9f90ec" kindref="member">checkStateOpl</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1aaf3f45fd8772392506e2cd143b46a455" kindref="member">shutdownPowerlink</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1ae81275d52dd3a37962b186af93bfad39" kindref="member">setupInputs</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>tOplkError<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1ac86056da77ac48c34bffd6a85f4567fe" kindref="member">processSync</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>tOplkError<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a49664de4542533264f5f1815b1a137b2" kindref="member">linkPDO_in</ref>(tObdSize<sp/>obdSize,<sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>UINT16<sp/>arrayIndex,<sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UINT16<sp/>index,<sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UINT8<sp/>subIndex);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>tOplkError<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1aaf257da318c70fd67b780dadb03ed60e" kindref="member">linkPDO_out</ref>(tObdSize<sp/>obdSize,<sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>UINT16<sp/>arrayIndex,<sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UINT16<sp/>index,<sp/></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UINT8<sp/>subIndex);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a670c5cd6fdf306df596560ec23f0cd2f" kindref="member">initOPL</ref>();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a43f9337be3f9efa2653d87b1f95af44c" kindref="member">extinctOPL</ref>();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//void<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setValues_In_CN(int<sp/>ligne);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1ad0b902027740ec16636d93ee162aeb5d" kindref="member">getValues_In_CN</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1aee2f3fe4573dcc68e0ead2380eb83317" kindref="member">setValues_Out_CN</ref>();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a77c6ae0352e357ac9d8bdb83fe406e64" kindref="member">getValues_Out_CN</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a72f880ddaa32ea28cd0e12658c3e8d67" kindref="member">setActivated_Out_CN</ref>();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a0e626359c6d8f3e0bc7e7c19c01fa820" kindref="member">affValeursIn</ref>();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a7a60aa76d8b9af7a1930275e02aa2ab5" kindref="member">affValeursProcessIn</ref>();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a7f68cfdc214d014a4d8676853a577e31" kindref="member">affValeursOut</ref>();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>local<sp/>vars</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="opl_8h_1af33cb4a9ced83e8a564a44f95a7c740c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>UINT8<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1af33cb4a9ced83e8a564a44f95a7c740c" kindref="member">aMacAddr_l</ref>[]<sp/>=<sp/>{<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00<sp/>};</highlight></codeline>
+<codeline lineno="90" refid="opl_8h_1a8f25e48b0b5122c1580e0728bcba0244" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>BOOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a8f25e48b0b5122c1580e0728bcba0244" kindref="member">fGsOff_l</ref>;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>process<sp/>image<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="opl_8h_1a322e5734aa46ee4be79084a6a1bd62ab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_p_i___i_n" kindref="compound">PI_IN</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a322e5734aa46ee4be79084a6a1bd62ab" kindref="member">pProcessImageIn_l</ref>;</highlight></codeline>
+<codeline lineno="94" refid="opl_8h_1a55f888b6071185bbddd12bc7c6edd372" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_p_i___o_u_t" kindref="compound">PI_OUT</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a55f888b6071185bbddd12bc7c6edd372" kindref="member">pProcessImageOut_l</ref>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>application<sp/>variables<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="opl_8h_1ada6913a92bdf309ad87fb42dc7be501d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>int16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1ada6913a92bdf309ad87fb42dc7be501d" kindref="member">values_In_CN_l</ref>[<ref refid="config_define_8h_1ac072f7043a3fb31b4fc2d1bcb687c157" kindref="member">SIZE_IN</ref>];</highlight></codeline>
+<codeline lineno="98" refid="opl_8h_1aa59e89f762bdbdf6cf15a756fd633b00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>int16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1aa59e89f762bdbdf6cf15a756fd633b00" kindref="member">values_Out_CN_l</ref>[<ref refid="config_define_8h_1ab5cbebecab98e4234ae1b2e5ff94ccbc" kindref="member">SIZE_OUT</ref>];</highlight></codeline>
+<codeline lineno="99" refid="opl_8h_1a16fd4c0216b92f54732e20dcd77fb18c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a16fd4c0216b92f54732e20dcd77fb18c" kindref="member">activated_Out_CN_l</ref>[<ref refid="config_define_8h_1ab5cbebecab98e4234ae1b2e5ff94ccbc" kindref="member">SIZE_OUT</ref>+2];</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>global<sp/>vars</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>int16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a063c1e70bcbeb72b1c2483b200839a85" kindref="member">EG</ref>;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>int16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1aba40364eb56f2caf1d7528fd61b2e22e" kindref="member">EC</ref>;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Xap<sp/>segmentation<sp/>variables<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a8dd1817cec0b1c38e0b7eb2470855b25" kindref="member">nbValuesCN_Out</ref>;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a38621a01003975db3d4d97d7c7b5c874" kindref="member">nbValuesCN_In</ref>;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1afbb7865bc950120040f337a3631fc921" kindref="member">nbValuesCN_Out_ByCN</ref>;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1ae734e3ff803ba9ee9ce69f720764c48a" kindref="member">nbValuesCN_In_ByCN</ref>;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>local<sp/>function<sp/>prototypes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1aa1f5fd46ab8ace6894efe23293d8a9b8" kindref="member">getEG</ref>();</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1af37cdd5c32789328a95994329b009c24" kindref="member">isEGchanged</ref>();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="opl_8h_1a3243cd2b508b2d5b1c59cacd70956e98" kindref="member">setEC1</ref>(int16_t<sp/>EC1);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125" refid="classopl" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classopl" kindref="compound">opl</ref></highlight></codeline>
+<codeline lineno="126"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classopl_1a43a83ace00cba207a89cf65e3b995d7e" kindref="member">opl</ref>();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classopl_1a8d5d5db31b3d8150af42d2bb000d94fa" kindref="member">~opl</ref>();</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classopl_1afcb3f7b05602f12b72bc97404795ef42" kindref="member">sendTelem</ref>(int16_t<sp/>statusCode);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classopl_1ad188b100fd92fcc210bd48ea4e08a36f" kindref="member">sendError</ref>(int16_t<sp/>errorCode);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><sp/><sp/><sp/><ref refid="classopl_1ac3e6c6fb9c8d2a10d4437877651167bb" kindref="member">demandeExtinctOPL</ref>();</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>OPL_H</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h"/>
+  </compounddef>
+</doxygen>

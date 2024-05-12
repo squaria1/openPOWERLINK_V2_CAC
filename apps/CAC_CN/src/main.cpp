@@ -2,7 +2,7 @@
  * \file main.cpp
  * \brief Main program with state machine
  * \author Mael Parot
- * \version 1
+ * \version 1.1
  * \date 11/04/2024
  *
  * Main program of the acquisition and control boards
@@ -16,18 +16,6 @@
 #include "sensor.h"
 #include "configDefine.h"
 #include "statusErrorDefine.h"
-
-/**
- * \brief list of states for the main state machine
- * 
- */
-typedef enum
-{
-    init,
-    controlAndAcquisition,
-    shutdown,
-    ending,
-} stateDef;
 
 /**
  * \brief main function of the program
@@ -164,12 +152,12 @@ int main() {
                     res = valve.verifDependanceValves();
                     //if (res == noError)
                     //{
-                    //    file.writeTelem("Verification of valve dependance has succeeded", infoVerifDependSucess);
+                    //    file.writeTelem("Verification of valve dependances has succeeded", infoVerifDependSucess);
                     //    opl.sendTelem(infoVerifDependSucess);
                     //}
                     //else
                     //{
-                    //    file.writeError("Verification of valve dependance has failed!", res);
+                    //    file.writeError("Verification of valve dependances has failed!", res);
                     //    opl.sendError(res);
                     //}
                     res = readChannels();

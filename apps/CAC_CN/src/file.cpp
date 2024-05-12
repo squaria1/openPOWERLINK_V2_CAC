@@ -2,7 +2,7 @@
  * \file file.cpp
  * \brief Module to write telemetry into a file
  * \author Mael Parot, Julien Mindze
- * \version 1
+ * \version 1.1
  * \date 11/04/2024
  *
  * Contains all functions related to writing the telemetry

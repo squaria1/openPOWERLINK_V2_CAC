@@ -1,0 +1,155 @@
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/csv.cpp" 3 "Version 1.1" "CAC_MN" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/csv.cpp \- Module to read CSV configuration files\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'csv\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBinitCSV\fP ()"
+.br
+.RI "function to initialize the struct containing the values and read the the activation CSV file\&. "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBextinctCSV\fP ()"
+.br
+.RI "function to free the 5 structs "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBlireFichierActivation\fP (const char *fileName)"
+.br
+.RI "function to read 'activation\&.csv' until the end of the file\&. "
+.ti -1c
+.RI "void \fBremplirStructureCommon\fP (char *ligne, int id)"
+.br
+.RI "function to fill in the activation CSV structure\&. "
+.ti -1c
+.RI "uint8_t \fBgetActivation\fP (int ligne)"
+.br
+.RI "function getter of the activation of a sensor or a valve from 'activation\&.csv' "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLigneActivation\fP * \fBdataActivation\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Module to read CSV configuration files\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Mael Parot, Benoit Brice 
+.RE
+.PP
+\fBVersion\fP
+.RS 4
+1\&.1 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+11/04/2024
+.RE
+.PP
+Contains all functions related to reading CSV files and writing the content into structures\&. 
+.PP
+Definition in file \fBcsv\&.cpp\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBstatusErrDef\fP extinctCSV ()"
+
+.PP
+function to free the 5 structs 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB57\fP of file \fBcsv\&.cpp\fP\&.
+.SS "uint8_t getActivation (int ligne)"
+
+.PP
+function getter of the activation of a sensor or a valve from 'activation\&.csv' 
+.PP
+\fBParameters\fP
+.RS 4
+\fIligne\fP the line in the CSV file 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+uint8_t the activation of a sensor or a valve (1 if activated or 0 if not) 
+.RE
+.PP
+
+.PP
+Definition at line \fB121\fP of file \fBcsv\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP initCSV ()"
+
+.PP
+function to initialize the struct containing the values and read the the activation CSV file\&. 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errAllocDataPhysValves, errAllocDataPhysSensors, errAllocDataActivation in case of a malloc allocation error or noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB29\fP of file \fBcsv\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP lireFichierActivation (const char * fileName)"
+
+.PP
+function to read 'activation\&.csv' until the end of the file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfileName\fP location and name of the CSV file to read 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef errOpenPhysSensorsFile when the file fails to open, noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB73\fP of file \fBcsv\&.cpp\fP\&.
+.SS "void remplirStructureCommon (char * ligne, int id)"
+
+.PP
+function to fill in the activation CSV structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIligne\fP the CSV line to read\&. 
+.br
+\fIid\fP the position of the line in the CSV file\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB101\fP of file \fBcsv\&.cpp\fP\&.
+.SH "Variable Documentation"
+.PP 
+.SS "struct \fBLigneActivation\fP* dataActivation"
+
+.PP
+Definition at line \fB19\fP of file \fBcsv\&.cpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CAC_MN from the source code\&.

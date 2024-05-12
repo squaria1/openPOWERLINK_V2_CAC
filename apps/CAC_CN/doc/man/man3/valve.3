@@ -1,0 +1,206 @@
+.TH "valve" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+valve \- valve module class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <valve\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBvalve\fP ()"
+.br
+.ti -1c
+.RI "virtual \fB~valve\fP ()"
+.br
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBinitValve\fP ()"
+.br
+.RI "function to initialize to valve module "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBactionnementValvesInit\fP ()"
+.br
+.RI "function to set the valves values from the CSV module initial values\&. "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBactionnementValve\fP (int valveNum)"
+.br
+.RI "function to get a valve value either from a general state CSV file if mode is automatic or from a OpenPOWERLINK value from the MN and set the valve to the corresponding gpio line\&. "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBverifDependanceValves\fP ()"
+.br
+.RI "function that verifies if the valves are already set, if not the timer starts and once the timer is greater than the value taken from a general state CSV file, it sets the valve value to the corresponding gpio line\&. "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBisDependanceActive\fP (int ligne)"
+.br
+.RI "function to check if every dependance of a valve is activated according to the array of dependance from a general state CSV file\&. "
+.ti -1c
+.RI "int16_t \fBstartTimerDependance\fP (int ligne)"
+.br
+.RI "function to start the timer when all the dependances of a valve are activated\&. "
+.ti -1c
+.RI "int16_t \fBisTimerExeeded\fP (int ligne)"
+.br
+.RI "function to check if the current value of a timer has exceeded the timer value from a general state CSV file\&. "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBextinctValve\fP ()"
+.br
+.RI "function to shutdown the valve module\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+valve module class\&. 
+.PP
+Definition at line \fB29\fP of file \fBvalve\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "valve::valve ()"
+
+.PP
+Definition at line \fB32\fP of file \fBvalve\&.cpp\fP\&.
+.SS "valve::~valve ()\fR [virtual]\fP"
+
+.PP
+Definition at line \fB37\fP of file \fBvalve\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBstatusErrDef\fP valve::actionnementValve (int valveNum)"
+
+.PP
+function to get a valve value either from a general state CSV file if mode is automatic or from a OpenPOWERLINK value from the MN and set the valve to the corresponding gpio line\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalveNum\fP the valve number 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errValueInitIsNotBinary when an initial valve value is not 0 or 1\&. or errGPIOSetValue when the valve value has not been set to the gpio line or noError when the function exits successfully\&. 
+.br
+ 
+.RE
+.PP
+
+.PP
+Definition at line \fB161\fP of file \fBvalve\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP valve::actionnementValvesInit ()"
+
+.PP
+function to set the valves values from the CSV module initial values\&. 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errValueInitIsNotBinary when a value is not 0 or 1\&. or errGPIOSetInitValue when the line doesn't set the value or noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB117\fP of file \fBvalve\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP valve::extinctValve ()"
+
+.PP
+function to shutdown the valve module\&. 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errValueInitIsNotBinary when a value is not 0 or 1 or errGPIOSetInitValue when an initial valve value is not set to a line or errGPIORelease when a gpio line fails to be released or noError when the function exits successfully\&. 
+.br
+ 
+.RE
+.PP
+
+.PP
+Definition at line \fB413\fP of file \fBvalve\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP valve::initValve ()"
+
+.PP
+function to initialize to valve module 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errGPIOPathEmpty when the gpio chip path is not correctly set or errOpenGPIO when the gpio chip fails to open or errGPIOGetLine when the gpio lines are busy, line get fails or errGPIORequestOutput when the gpio lines can't be set to output mode or noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB55\fP of file \fBvalve\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP valve::isDependanceActive (int ligne)"
+
+.PP
+function to check if every dependance of a valve is activated according to the array of dependance from a general state CSV file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIligne\fP the line in the general state CSV file 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errGPIOGetValue when the getter of a gpio line value fails or infoValveAlreadyActivated when every dependances or errGPIODependValue when the getter of a gpio line dependance value fails or infoAllDependNotActivated when all the dependances of a valve are not activated\&. or errDependOutsideOfRange when a dependance is not among the valves of the same board\&. or infoNoDepend when the valve has no dependances\&. or noError when the function exits successfully\&. 
+.br
+ 
+.RE
+.PP
+
+.PP
+Definition at line \fB301\fP of file \fBvalve\&.cpp\fP\&.
+.SS "int16_t valve::isTimerExeeded (int valveNum)"
+
+.PP
+function to check if the current value of a timer has exceeded the timer value from a general state CSV file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalveNum\fP the valve number 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 if the value has been exceeded, 1 if not 
+.RE
+.PP
+
+.PP
+Definition at line \fB390\fP of file \fBvalve\&.cpp\fP\&.
+.SS "int16_t valve::startTimerDependance (int valveNum)"
+
+.PP
+function to start the timer when all the dependances of a valve are activated\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalveNum\fP the valve number 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 if the timer starts successfully 
+.RE
+.PP
+
+.PP
+Definition at line \fB372\fP of file \fBvalve\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP valve::verifDependanceValves ()"
+
+.PP
+function that verifies if the valves are already set, if not the timer starts and once the timer is greater than the value taken from a general state CSV file, it sets the valve value to the corresponding gpio line\&. 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errValueInitIsNotBinary when a value is not 0 or 1\&. or errGPIOSetValue when the line doesn't set the value or noError when the function exits successfully\&. 
+.br
+ 
+.RE
+.PP
+
+.PP
+Definition at line \fB208\fP of file \fBvalve\&.cpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CAC_CN from the source code\&.

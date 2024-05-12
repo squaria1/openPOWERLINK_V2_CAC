@@ -1,0 +1,219 @@
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h" 3 "Version 1.1" "CAC_MN" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCYCLE_LEN\fP   UINT_MAX"
+.br
+.ti -1c
+.RI "#define \fBNODEID\fP   0xF0"
+.br
+.ti -1c
+.RI "#define \fBNB_NODES\fP   3"
+.br
+.ti -1c
+.RI "#define \fBIP_ADDR\fP   0xc0a801F0"
+.br
+.ti -1c
+.RI "#define \fBSUBNET_MASK\fP   0xFFFFFF00"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_GATEWAY\fP   0xC0A864FE"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_MAX_CYCLE_COUNT\fP   20"
+.br
+.ti -1c
+.RI "#define \fBAPP_LED_COUNT_1\fP   8"
+.br
+.ti -1c
+.RI "#define \fBAPP_LED_MASK_1\fP   (1 << (\fBAPP_LED_COUNT_1\fP \- 1))"
+.br
+.ti -1c
+.RI "#define \fBMAX_NODES\fP   255"
+.br
+.ti -1c
+.RI "#define \fBMAX_VALUES\fP   255"
+.br
+.ti -1c
+.RI "#define \fBDEVNAME\fP   'eth0'"
+.br
+.ti -1c
+.RI "#define \fBCDCFILE\fP   'mnobd\&.cdc'"
+.br
+.ti -1c
+.RI "#define \fBCOMPUTED_PI_OUT_SIZE\fP   152"
+.br
+.ti -1c
+.RI "#define \fBSIZE_OUT\fP   75"
+.br
+.ti -1c
+.RI "#define \fBCOMPUTED_PI_IN_SIZE\fP   80"
+.br
+.ti -1c
+.RI "#define \fBSIZE_IN\fP   39"
+.br
+.ti -1c
+.RI "#define \fBMAX_PATH_LENGTH\fP   1024"
+.br
+.ti -1c
+.RI "#define \fBMAX_LINE_SIZE\fP   2832"
+.br
+.ti -1c
+.RI "#define \fBMAX_PHYSICAL_LINE_SIZE\fP   30"
+.br
+.ti -1c
+.RI "#define \fBMAX_ROWS\fP   5"
+.br
+.ti -1c
+.RI "#define \fBMAX_DEPENDANCE\fP   2832"
+.br
+.ti -1c
+.RI "#define \fBCOMMON_PHYSICAL_CONFIG_DIRECTORY\fP   '\&.\&./\&.\&./\&.\&./common/commonCSVFiles/activation\&.csv'"
+.br
+.ti -1c
+.RI "#define \fBTELEMFILES_DIRECTORY\fP   '\&.\&./\&.\&./include/telemFiles'"
+.br
+.ti -1c
+.RI "#define \fBEVENTLOG_MAX_LENGTH\fP   1024"
+.br
+.ti -1c
+.RI "#define \fBDELAYMSINIT\fP   2000"
+.br
+.ti -1c
+.RI "#define \fBDELAYMSCONTROL\fP   10"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "constexpr int \fBoffsetValues\fP = (\fBNB_NODES\fP * (\fBNB_NODES\fP + 1)) / 2"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define APP_LED_COUNT_1   8"
+
+.PP
+Definition at line \fB13\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define APP_LED_MASK_1   (1 << (\fBAPP_LED_COUNT_1\fP \- 1))"
+
+.PP
+Definition at line \fB14\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define CDCFILE   'mnobd\&.cdc'"
+
+.PP
+Definition at line \fB19\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define COMMON_PHYSICAL_CONFIG_DIRECTORY   '\&.\&./\&.\&./\&.\&./common/commonCSVFiles/activation\&.csv'"
+
+.PP
+Definition at line \fB38\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define COMPUTED_PI_IN_SIZE   80"
+
+.PP
+Definition at line \fB24\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define COMPUTED_PI_OUT_SIZE   152"
+
+.PP
+Definition at line \fB22\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define CYCLE_LEN   UINT_MAX"
+
+.PP
+Definition at line \fB5\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define DEFAULT_GATEWAY   0xC0A864FE"
+
+.PP
+Definition at line \fB10\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define DEFAULT_MAX_CYCLE_COUNT   20"
+
+.PP
+Definition at line \fB12\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define DELAYMSCONTROL   10"
+
+.PP
+Definition at line \fB48\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define DELAYMSINIT   2000"
+
+.PP
+Definition at line \fB47\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define DEVNAME   'eth0'"
+
+.PP
+Definition at line \fB18\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define EVENTLOG_MAX_LENGTH   1024"
+
+.PP
+Definition at line \fB44\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define IP_ADDR   0xc0a801F0"
+
+.PP
+Definition at line \fB8\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define MAX_DEPENDANCE   2832"
+
+.PP
+Definition at line \fB32\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define MAX_LINE_SIZE   2832"
+
+.PP
+Definition at line \fB29\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define MAX_NODES   255"
+
+.PP
+Definition at line \fB15\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define MAX_PATH_LENGTH   1024"
+
+.PP
+Definition at line \fB28\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define MAX_PHYSICAL_LINE_SIZE   30"
+
+.PP
+Definition at line \fB30\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define MAX_ROWS   5"
+
+.PP
+Definition at line \fB31\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define MAX_VALUES   255"
+
+.PP
+Definition at line \fB16\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define NB_NODES   3"
+
+.PP
+Definition at line \fB7\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define NODEID   0xF0"
+
+.PP
+Definition at line \fB6\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define SIZE_IN   39"
+
+.PP
+Definition at line \fB25\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define SIZE_OUT   75"
+
+.PP
+Definition at line \fB23\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define SUBNET_MASK   0xFFFFFF00"
+
+.PP
+Definition at line \fB9\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define TELEMFILES_DIRECTORY   '\&.\&./\&.\&./include/telemFiles'"
+
+.PP
+Definition at line \fB40\fP of file \fBconfigDefine\&.h\fP\&.
+.SH "Variable Documentation"
+.PP 
+.SS "constexpr int offsetValues = (\fBNB_NODES\fP * (\fBNB_NODES\fP + 1)) / 2\fR [constexpr]\fP"
+
+.PP
+Definition at line \fB50\fP of file \fBconfigDefine\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CAC_MN from the source code\&.

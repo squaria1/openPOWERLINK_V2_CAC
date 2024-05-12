@@ -1,0 +1,200 @@
+.TH "file" 3 "Version 1.1" "CAC_MN" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+file
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <file\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfile\fP ()"
+.br
+.ti -1c
+.RI "\fB~file\fP ()"
+.br
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBinitFile\fP ()"
+.br
+.RI "function to create the telemetry file and name it after the current date and time "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBtestWriteFile\fP ()"
+.br
+.RI "function to test if we can write in the telemetry file "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBopenFile\fP ()"
+.br
+.RI "function to open the telemetry file "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBcloseFile\fP ()"
+.br
+.RI "function to close the telemetry file "
+.ti -1c
+.RI "void \fBwriteTelem\fP (const char *fmt_p,\&.\&.\&.)"
+.br
+.RI "ajouter uniquement : uint16_t codeSuccess "
+.ti -1c
+.RI "void \fBwriteError\fP (const char *fmt_p='code_Error:0x%08X',\&.\&.\&.)"
+.br
+.RI "ajouter uniquement : uint16_t codeError "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "string \fBpathFile\fP"
+.br
+.ti -1c
+.RI "ofstream \fBdataFile\fP"
+.br
+.ti -1c
+.RI "string \fBnameFiles\fP"
+.br
+.ti -1c
+.RI "string \fByear_month_day\fP"
+.br
+.ti -1c
+.RI "string \fBhour_minute_second\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB15\fP of file \fBfile\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "file::file ()"
+
+.PP
+Definition at line \fB14\fP of file \fBfile\&.cpp\fP\&.
+.SS "file::~file ()"
+
+.PP
+Definition at line \fB19\fP of file \fBfile\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBstatusErrDef\fP file::closeFile ()"
+
+.PP
+function to close the telemetry file 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errCloseTelemFile when the file close fails\&. or noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB208\fP of file \fBfile\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP file::initFile ()"
+
+.PP
+function to create the telemetry file and name it after the current date and time 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errOpenTelemFile when the file creation and opening fails\&. or noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB32\fP of file \fBfile\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP file::openFile ()"
+
+.PP
+function to open the telemetry file 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errOpenTelemFile when the file open fails\&. or noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB185\fP of file \fBfile\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP file::testWriteFile ()"
+
+.PP
+function to test if we can write in the telemetry file 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errTestWriteFile when the file write fails\&. or noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB91\fP of file \fBfile\&.cpp\fP\&.
+.SS "void file::writeError (const char * fmt_p = \fR'code_Error:0x%08X'\fP,  \&.\&.\&.)"
+
+.PP
+ajouter uniquement : uint16_t codeError function to write error telemetry into the telemetry file\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIfmt_p\fP formated string about the error 
+.br
+\fI\&.\&.\&.\fP other parameters such as the error code 
+.RE
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fI\&.\&.\&.\fP ajouter uniquement : uint16_t codeError 
+.RE
+.PP
+
+.PP
+Definition at line \fB149\fP of file \fBfile\&.cpp\fP\&.
+.SS "void file::writeTelem (const char * fmt_p,  \&.\&.\&.)"
+
+.PP
+ajouter uniquement : uint16_t codeSuccess function to write status telemetry into the telemetry file\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIfmt_p\fP formated string about the status 
+.br
+\fI\&.\&.\&.\fP other parameters such as the success code 
+.RE
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fI\&.\&.\&.\fP ajouter uniquement : uint16_t codeSuccess 
+.RE
+.PP
+
+.PP
+Definition at line \fB112\fP of file \fBfile\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "ofstream file::dataFile\fR [private]\fP"
+
+.PP
+Definition at line \fB32\fP of file \fBfile\&.h\fP\&.
+.SS "string file::hour_minute_second\fR [private]\fP"
+
+.PP
+Definition at line \fB35\fP of file \fBfile\&.h\fP\&.
+.SS "string file::nameFiles\fR [private]\fP"
+
+.PP
+Definition at line \fB33\fP of file \fBfile\&.h\fP\&.
+.SS "string file::pathFile\fR [private]\fP"
+
+.PP
+Definition at line \fB31\fP of file \fBfile\&.h\fP\&.
+.SS "string file::year_month_day\fR [private]\fP"
+
+.PP
+Definition at line \fB34\fP of file \fBfile\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CAC_MN from the source code\&.

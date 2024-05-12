@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="classopl" kind="class" language="C++" prot="public">
+    <compoundname>opl</compoundname>
+    <includes refid="opl_8h" local="no">opl.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classopl_1a43a83ace00cba207a89cf65e3b995d7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>opl::opl</definition>
+        <argsstring>()</argsstring>
+        <name>opl</name>
+        <qualifiedname>opl::opl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" line="115" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/opl.cpp" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classopl_1a8d5d5db31b3d8150af42d2bb000d94fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>opl::~opl</definition>
+        <argsstring>()</argsstring>
+        <name>~opl</name>
+        <qualifiedname>opl::~opl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" line="116" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/opl.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" line="112" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" bodystart="113" bodyend="122"/>
+    <listofallmembers>
+      <member refid="classopl_1a43a83ace00cba207a89cf65e3b995d7e" prot="public" virt="non-virtual"><scope>opl</scope><name>opl</name></member>
+      <member refid="classopl_1a8d5d5db31b3d8150af42d2bb000d94fa" prot="public" virt="non-virtual"><scope>opl</scope><name>~opl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

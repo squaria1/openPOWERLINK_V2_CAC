@@ -1,0 +1,566 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "demo_cn_console.exe"
+		},
+		{
+			"path" : "demo_cn_console.pdb"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"_add_executable",
+			"ADD_EXECUTABLE",
+			"INSTALL",
+			"LINK_DIRECTORIES",
+			"include",
+			"TARGET_LINK_LIBRARIES",
+			"OPLK_LINK_LIBRARIES",
+			"ADD_DEFINITIONS",
+			"INCLUDE",
+			"INCLUDE_DIRECTORIES"
+		],
+		"files" : 
+		[
+			"C:/Users/Squaria/vcpkg/scripts/buildsystems/vcpkg.cmake",
+			"CMakeLists.txt",
+			"windows.cmake",
+			"C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/common/cmake/linkoplklib.cmake",
+			"C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/common/cmake/configure-compiler.cmake",
+			"C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/common/cmake/options.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 145,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 559,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 158,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 120,
+				"parent" : 0
+			},
+			{
+				"file" : 2,
+				"parent" : 4
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 51,
+				"parent" : 5
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 152,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 3,
+				"line" : 36,
+				"parent" : 7
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 153,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 1,
+				"line" : 85,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 1,
+				"line" : 83,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 1,
+				"line" : 84,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 1,
+				"line" : 101,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 2,
+				"line" : 34,
+				"parent" : 5
+			},
+			{
+				"command" : 7,
+				"file" : 1,
+				"line" : 82,
+				"parent" : 0
+			},
+			{
+				"command" : 8,
+				"file" : 1,
+				"line" : 138,
+				"parent" : 0
+			},
+			{
+				"file" : 4,
+				"parent" : 16
+			},
+			{
+				"command" : 7,
+				"file" : 4,
+				"line" : 64,
+				"parent" : 17
+			},
+			{
+				"command" : 8,
+				"file" : 1,
+				"line" : 46,
+				"parent" : 0
+			},
+			{
+				"file" : 5,
+				"parent" : 19
+			},
+			{
+				"command" : 9,
+				"file" : 5,
+				"line" : 88,
+				"parent" : 20
+			},
+			{
+				"command" : 9,
+				"file" : 1,
+				"line" : 73,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/nologo /W3 /WX- /std:c++17 /D_CRT_SECURE_NO_WARNINGS  /Gm- /EHsc  /Zc:wchar_t /GR- /Gd /TP /errorReport:queue  /MDd /Od /Ob0 /GS  /fp:precise /D_DEBUG /Zi"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 10,
+					"define" : "CONFIG_INCLUDE_MASND"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "CONFIG_INCLUDE_PDO"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "CONFIG_INCLUDE_SDO_ASND"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "CONFIG_KERNELSTACK_DIRECTLINK"
+				},
+				{
+					"define" : "DEBUG"
+				},
+				{
+					"define" : "DEF_DEBUG_LVL=0xC0000000L"
+				},
+				{
+					"backtrace" : 14,
+					"define" : "HAVE_REMOTE"
+				},
+				{
+					"backtrace" : 15,
+					"define" : "NMT_MAX_NODE_ID=0"
+				},
+				{
+					"backtrace" : 18,
+					"define" : "WIN32"
+				},
+				{
+					"backtrace" : 14,
+					"define" : "_CONSOLE"
+				},
+				{
+					"backtrace" : 14,
+					"define" : "_CRT_SECURE_NO_WARNINGS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 21,
+					"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/../../stack/include"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/../../contrib"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/../common/src"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/../common/objdicts"
+				},
+				{
+					"backtrace" : 22,
+					"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src"
+				},
+				{
+					"backtrace" : 22,
+					"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/../common/objdicts/CiA401_CN"
+				},
+				{
+					"backtrace" : 22,
+					"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				4,
+				5,
+				6
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 10,
+					"define" : "CONFIG_INCLUDE_MASND"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "CONFIG_INCLUDE_PDO"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "CONFIG_INCLUDE_SDO_ASND"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "CONFIG_KERNELSTACK_DIRECTLINK"
+				},
+				{
+					"define" : "DEBUG"
+				},
+				{
+					"define" : "DEF_DEBUG_LVL=0xC0000000L"
+				},
+				{
+					"backtrace" : 14,
+					"define" : "HAVE_REMOTE"
+				},
+				{
+					"backtrace" : 15,
+					"define" : "NMT_MAX_NODE_ID=0"
+				},
+				{
+					"backtrace" : 18,
+					"define" : "WIN32"
+				},
+				{
+					"backtrace" : 14,
+					"define" : "_CONSOLE"
+				},
+				{
+					"backtrace" : 14,
+					"define" : "_CRT_SECURE_NO_WARNINGS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 21,
+					"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/../../stack/include"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/../../contrib"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/../common/src"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/../common/objdicts"
+				},
+				{
+					"backtrace" : 22,
+					"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src"
+				},
+				{
+					"backtrace" : 22,
+					"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/../common/objdicts/CiA401_CN"
+				},
+				{
+					"backtrace" : 22,
+					"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				3,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15
+			]
+		}
+	],
+	"id" : "demo_cn_console::@6890427a1f51a3e7e1df",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 3,
+				"path" : "demo_cn_console"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/out/install/x64-Debug"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/nologo /W3 /WX- /std:c++17 /D_CRT_SECURE_NO_WARNINGS  /Gm- /EHsc  /Zc:wchar_t /GR- /Gd /TP /errorReport:queue  /MDd /Od /Ob0 /GS  /fp:precise /D_DEBUG /Zi",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "/machine:x64 /debug /INCREMENTAL /subsystem:console",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-LIBPATH:C:\\Users\\Squaria\\Documents\\openPOWERLINK_V2_CAC\\apps\\CAC_CN\\..\\..\\contrib\\pcap\\windows\\WpdPack\\Lib\\x64",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-LIBPATH:C:\\Users\\Squaria\\Documents\\openPOWERLINK_V2_CAC\\stack\\lib\\windows\\amd64",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 8,
+				"fragment" : "C:\\Users\\Squaria\\Documents\\openPOWERLINK_V2_CAC\\stack\\lib\\windows\\amd64\\oplkcn_d.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 9,
+				"fragment" : "wpcap.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 9,
+				"fragment" : "iphlpapi.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "demo_cn_console",
+	"nameOnDisk" : "demo_cn_console.exe",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Demo Sources",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				8,
+				9,
+				10,
+				11
+			]
+		},
+		{
+			"name" : "Object Dictionary",
+			"sourceIndexes" : 
+			[
+				7
+			]
+		},
+		{
+			"name" : "Architecture Specific Sources",
+			"sourceIndexes" : 
+			[
+				12,
+				13,
+				14,
+				15
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/main.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/file.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/opl.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "src/eventOpl.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/sensor.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/valve.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/csv.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/common/src/obdcreate/obdcreate.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/common/src/eventlog/eventlog.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/common/src/eventlog/eventlogstring.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/common/src/netselect/netselect.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/contrib/console/printlog.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/common/src/system/system-windows.c",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/contrib/console/console-windows.c",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/contrib/trace/trace-windows.c",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 1,
+			"path" : "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/contrib/getopt/getopt.c",
+			"sourceGroupIndex" : 2
+		}
+	],
+	"type" : "EXECUTABLE"
+}

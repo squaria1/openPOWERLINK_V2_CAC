@@ -1,3 +1,14 @@
+/**
+ * \file file.cpp
+ * \brief Module to write telemetry into a file
+ * \author Mael Parot, Julien Mindze
+ * \version 1.1
+ * \date 11/04/2024
+ *
+ * Contains all functions related to writing the telemetry
+ * into a file named after the current date and time.
+ */
+
 #include "file.h"
 
 file::file()
@@ -10,6 +21,14 @@ file::~file()
     //destructor
 }
 
+/**
+ * \brief function to create the telemetry file
+ * and name it after the current date and time
+ * 
+ * \return statusErrDef that values errOpenTelemFile
+ * when the file creation and opening fails.
+ * or noError when the function exits successfully.
+ */
 statusErrDef file::initFile()
 {
     statusErrDef res = noError;
@@ -62,6 +81,13 @@ statusErrDef file::initFile()
     return res;
 }
 
+/**
+ * \brief function to test if we can write in the telemetry file
+ * 
+ * \return statusErrDef that values errTestWriteFile
+ * when the file write fails.
+ * or noError when the function exits successfully.
+ */
 statusErrDef file::testWriteFile()
 {
     statusErrDef res = noError;
@@ -76,6 +102,13 @@ statusErrDef file::testWriteFile()
     }
 }
 
+/**
+ * \brief function to write status telemetry into the
+ * telemetry file.
+ * 
+ * \param fmt_p formated string about the status
+ * \param ... other parameters such as the success code
+ */
 void file::writeTelem(const char* fmt_p, ...)///< ajouter uniquement : uint16_t codeSuccess 
 {
 
@@ -106,6 +139,13 @@ void file::writeTelem(const char* fmt_p, ...)///< ajouter uniquement : uint16_t 
     }
 }
 
+/**
+ * \brief function to write error telemetry into the
+ * telemetry file.
+ * 
+ * \param fmt_p formated string about the error
+ * \param ... other parameters such as the error code
+ */
 void file::writeError(const char* fmt_p, ...) ///< ajouter uniquement : uint16_t codeError
 {
     char logMsg[EVENTLOG_MAX_LENGTH];
@@ -135,6 +175,13 @@ void file::writeError(const char* fmt_p, ...) ///< ajouter uniquement : uint16_t
     }
 }
 
+/**
+ * \brief function to open the telemetry file
+ * 
+ * \return statusErrDef that values errOpenTelemFile
+ * when the file open fails.
+ * or noError when the function exits successfully.
+ */
 statusErrDef file::openFile()
 {
     statusErrDef res = noError;
@@ -151,6 +198,13 @@ statusErrDef file::openFile()
     return res;
 }
 
+/**
+ * \brief function to close the telemetry file
+ * 
+ * \return statusErrDef that values errCloseTelemFile
+ * when the file close fails.
+ * or noError when the function exits successfully.
+ */
 statusErrDef file::closeFile()
 {
     statusErrDef res = noError;

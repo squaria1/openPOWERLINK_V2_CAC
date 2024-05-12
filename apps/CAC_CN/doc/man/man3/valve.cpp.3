@@ -1,0 +1,168 @@
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp \- Module to control the valves of the CAC Board\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'valve\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int16_t \fBsetValvesValue\fP ()"
+.br
+.RI "function setter of the valve values from a general state CSV file\&. "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBgetValvesInitValue\fP ()"
+.br
+.RI "function getter of the initial valve values from the valve physical config CSV file\&. "
+.ti -1c
+.RI "int16_t \fBgetValveValue\fP (int ligne)"
+.br
+.RI "function getter of the valve value from a general state CSV file on Windows or directly from the gpio line value on Linux\&. "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBresetTimers\fP ()"
+.br
+.RI "function to reset the timers after the activation of all the valves\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "unsigned int \fBoffsets\fP [\fBMAX_VALVES\fP]"
+.br
+.ti -1c
+.RI "int \fBvalues\fP [\fBMAX_VALVES\fP]"
+.br
+.ti -1c
+.RI "struct timespec \fBbeginTimer\fP [\fBMAX_VALVES\fP]"
+.br
+.ti -1c
+.RI "struct timespec \fBendTimer\fP [\fBMAX_VALVES\fP]"
+.br
+.ti -1c
+.RI "double \fBcurrentTime\fP [\fBMAX_VALVES\fP]"
+.br
+.ti -1c
+.RI "bool \fBtimerStarted\fP [\fBMAX_VALVES\fP]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Module to control the valves of the CAC Board\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Mael Parot 
+.RE
+.PP
+\fBVersion\fP
+.RS 4
+1\&.1 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+11/04/2024
+.RE
+.PP
+Contains all functions related to controling valves with the gpiod library\&. 
+.PP
+Definition in file \fBvalve\&.cpp\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBstatusErrDef\fP getValvesInitValue ()"
+
+.PP
+function getter of the initial valve values from the valve physical config CSV file\&. 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errGetValveInitValue when the getter of the initial values fails or noError when the function exits successfully\&. 
+.br
+ 
+.RE
+.PP
+
+.PP
+Definition at line \fB465\fP of file \fBvalve\&.cpp\fP\&.
+.SS "int16_t getValveValue (int ligne)"
+
+.PP
+function getter of the valve value from a general state CSV file on Windows or directly from the gpio line value on Linux\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIligne\fP the line in a general state CSV file 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the value of the valve 
+.RE
+.PP
+
+.PP
+Definition at line \fB491\fP of file \fBvalve\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP resetTimers ()"
+
+.PP
+function to reset the timers after the activation of all the valves\&. 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB507\fP of file \fBvalve\&.cpp\fP\&.
+.SS "int16_t setValvesValue ()"
+
+.PP
+function setter of the valve values from a general state CSV file\&. 
+.PP
+\fBReturns\fP
+.RS 4
+0 if the valves are set successfully 
+.RE
+.PP
+
+.PP
+Definition at line \fB446\fP of file \fBvalve\&.cpp\fP\&.
+.SH "Variable Documentation"
+.PP 
+.SS "struct timespec beginTimer[\fBMAX_VALVES\fP]"
+
+.PP
+Definition at line \fB26\fP of file \fBvalve\&.cpp\fP\&.
+.SS "double currentTime[\fBMAX_VALVES\fP]"
+
+.PP
+Definition at line \fB28\fP of file \fBvalve\&.cpp\fP\&.
+.SS "struct timespec endTimer[\fBMAX_VALVES\fP]"
+
+.PP
+Definition at line \fB26\fP of file \fBvalve\&.cpp\fP\&.
+.SS "unsigned int offsets[\fBMAX_VALVES\fP]"
+
+.PP
+Definition at line \fB22\fP of file \fBvalve\&.cpp\fP\&.
+.SS "bool timerStarted[\fBMAX_VALVES\fP]"
+
+.PP
+Definition at line \fB30\fP of file \fBvalve\&.cpp\fP\&.
+.SS "int values[\fBMAX_VALVES\fP]"
+
+.PP
+Definition at line \fB24\fP of file \fBvalve\&.cpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CAC_CN from the source code\&.

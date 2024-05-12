@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="struct_ligne_sensors" kind="struct" language="C++" prot="public">
+    <compoundname>LigneSensors</compoundname>
+    <includes refid="csv_8h" local="no">csv.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_ligne_sensors_1ac9c86088dd1113febf304c9da01a3cb3" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t LigneSensors::etatInitial[MAX_PHYSICAL_LINE_SIZE]</definition>
+        <argsstring>[MAX_PHYSICAL_LINE_SIZE]</argsstring>
+        <name>etatInitial</name>
+        <qualifiedname>LigneSensors::etatInitial</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="35" column="17" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_ligne_sensors_1afd60eeb6d4029750e659fc029b261171" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LigneSensors::minValue[MAX_PHYSICAL_LINE_SIZE]</definition>
+        <argsstring>[MAX_PHYSICAL_LINE_SIZE]</argsstring>
+        <name>minValue</name>
+        <qualifiedname>LigneSensors::minValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="36" column="15" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_ligne_sensors_1a118149e0588323c79b8519d7a167f948" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LigneSensors::maxValue[MAX_PHYSICAL_LINE_SIZE]</definition>
+        <argsstring>[MAX_PHYSICAL_LINE_SIZE]</argsstring>
+        <name>maxValue</name>
+        <qualifiedname>LigneSensors::maxValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="37" column="15" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="34" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="34" bodyend="38"/>
+    <listofallmembers>
+      <member refid="struct_ligne_sensors_1ac9c86088dd1113febf304c9da01a3cb3" prot="public" virt="non-virtual"><scope>LigneSensors</scope><name>etatInitial</name></member>
+      <member refid="struct_ligne_sensors_1a118149e0588323c79b8519d7a167f948" prot="public" virt="non-virtual"><scope>LigneSensors</scope><name>maxValue</name></member>
+      <member refid="struct_ligne_sensors_1afd60eeb6d4029750e659fc029b261171" prot="public" virt="non-virtual"><scope>LigneSensors</scope><name>minValue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

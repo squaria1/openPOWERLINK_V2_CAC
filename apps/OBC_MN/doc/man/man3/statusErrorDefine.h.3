@@ -1,0 +1,285 @@
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/statusErrorDefine.h" 3 "Version 1.1" "CAC_MN" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/statusErrorDefine.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBstatusErrDef\fP { \fBnoError\fP = 0x0000, \fBinfoInitCSV\fP = 0x0101, \fBinfoCSVChanged\fP = 0x0102, \fBinfoShutdownCSV\fP = 0x01FF, \fBinfoInitOPL\fP = 0x0201, \fBinfoEGNotChanged\fP = 0x0202, \fBinfoStopOrderReceived\fP = 0x0203, \fBinfoNoStopOrder\fP = 0x0204, \fBinfoShutdownOPL\fP = 0x02FF, \fBinfoInitValve\fP = 0x0301, \fBinfoVerifDependSucess\fP = 0x0302, \fBinfoNoDepend\fP = 0x0303, \fBinfoValveAlreadyActivated\fP = 0x0304, \fBinfoAllDependNotActivated\fP = 0x0305, \fBinfoShutdownValve\fP = 0x03FF, \fBinfoInitSensor\fP = 0x0401, \fBinfoReadChannels\fP = 0x0402, \fBinfoShutdownSensor\fP = 0x04FF, \fBinfoStateToInit\fP = 0x7001, \fBinfoStateToControl\fP = 0x7002, \fBinfoStateToManualMode\fP = 0x7777, \fBinfoStateToShutdown\fP = 0x7FFF, \fBerrOpenTelemFile\fP = 0xE001, \fBerrTestWriteFile\fP = 0xE002, \fBerrCloseTelemFile\fP = 0xE0FF, \fBerrAllocDataEG\fP = 0xE101, \fBerrAllocDataEtats\fP = 0xE102, \fBerrAllocDataPhysValves\fP = 0xE103, \fBerrAllocDataPhysSensors\fP = 0xE104, \fBerrAllocDataActivation\fP = 0xE105, \fBerrOpenEGFile\fP = 0xE106, \fBerrEGNotFoundInFile\fP = 0xE107, \fBerrOpenEtatsFile\fP = 0xE108, \fBerrOpenPhysValvesFile\fP = 0xE109, \fBerrOpenPhysSensorsFile\fP = 0xE10A, \fBerrOpenActivationFile\fP = 0xE10B, \fBerrOPLSystemInit\fP = 0xE201, \fBerrSelNetInterface\fP = 0xE202, \fBerrInitObjDictionary\fP = 0xE203, \fBerrOplkInit\fP = 0xE204, \fBerrOplkCreate\fP = 0xE205, \fBerrOplkAllocProcessImage\fP = 0xE206, \fBerrLinkPDOout\fP = 0xE207, \fBerrLinkPDOEGin\fP = 0xE208, \fBerrLinkPDOin\fP = 0xE209, \fBerrSendNMTResetCommand\fP = 0xE20A, \fBerrOplkFreeProcessImage\fP = 0xE20B, \fBerrSystemSendTerminate\fP = 0xE20C, \fBerrOplKernelStackDown\fP = 0xE20D, \fBerrInitFirmwareManager\fP = 0xE20E, \fBerrOplkSetCDCFileName\fP = 0xE20F, \fBerrSetupProcessImage\fP = 0xE210, \fBerrGPIOPathEmpty\fP = 0xE301, \fBerrOpenGPIO\fP = 0xE302, \fBerrGPIOGetLine\fP = 0xE303, \fBerrGPIORequestOutput\fP = 0xE304, \fBerrGetValveInitValue\fP = 0xE305, \fBerrValueInitIsNotBinary\fP = 0xE306, \fBerrGPIOSetInitValue\fP = 0xE307, \fBerrGPIOGetValue\fP = 0xE308, \fBerrGPIODependValue\fP = 0xE309, \fBerrDependOutsideOfRange\fP = 0xE30A, \fBerrValueIsNotBinary\fP = 0xE30B, \fBerrGPIOSetValue\fP = 0xE30C, \fBerrGPIORelease\fP = 0xE3FF, \fBerrOpenAdc\fP = 0xE401, \fBerrReadAdc\fP = 0xE402, \fBerrCloseAdc\fP = 0xE4FF }"
+.br
+.ti -1c
+.RI "enum \fBMode\fP { \fBautomatic\fP = 0x00, \fBmanual\fP = 0x01 }"
+.br
+.ti -1c
+.RI "enum \fBstateDef\fP { \fBinit\fP, \fBcontrol\fP, \fBshutdown\fP, \fBending\fP }"
+.br
+.RI "list of states for the main state machine "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBMode\fP \fBmode\fP"
+.br
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBMode\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIautomatic \fP\fP
+The valve values are taken from a general state CSV file\&. 
+.TP
+\fB\fImanual \fP\fP
+The valve values are taken from from the OpenPOWERLINK input values from the MN\&. 
+.PP
+Definition at line \fB98\fP of file \fBstatusErrorDefine\&.h\fP\&.
+.SS "enum \fBstateDef\fP"
+
+.PP
+list of states for the main state machine 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIinit \fP\fP
+Initialize all modules with status and error telemetry\&. 
+.TP
+\fB\fIcontrol \fP\fP
+Activate valves and read sensors values\&. 
+.TP
+\fB\fIshutdown \fP\fP
+Shutdown all modules with status and error telemetry\&. 
+.TP
+\fB\fIending \fP\fP
+Stop the program\&. 
+.PP
+Definition at line \fB110\fP of file \fBstatusErrorDefine\&.h\fP\&.
+.SS "enum \fBstatusErrDef\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fInoError \fP\fP
+No error has been detected, the function is working\&. 
+.TP
+\fB\fIinfoInitCSV \fP\fP
+The CSV module has successfully initialized\&. 
+.TP
+\fB\fIinfoCSVChanged \fP\fP
+The general state CSV has been changed\&. 
+.TP
+\fB\fIinfoShutdownCSV \fP\fP
+The CSV module has successfully shutdown\&. 
+.TP
+\fB\fIinfoInitOPL \fP\fP
+The OpenPOWERLINK module has successfully initialized\&. 
+.TP
+\fB\fIinfoEGNotChanged \fP\fP
+The general state from the MN has not changed\&. 
+.TP
+\fB\fIinfoStopOrderReceived \fP\fP
+A stop order from the MN has been received\&. 
+.TP
+\fB\fIinfoNoStopOrder \fP\fP
+No stop order from the MN has been received\&. 
+.TP
+\fB\fIinfoShutdownOPL \fP\fP
+The OpenPOWERLINK module has successfully shutdown\&. 
+.TP
+\fB\fIinfoInitValve \fP\fP
+The valve module has successfully initialized\&. 
+.TP
+\fB\fIinfoVerifDependSucess \fP\fP
+The verification of valve dependances has succeeded\&. 
+.TP
+\fB\fIinfoNoDepend \fP\fP
+There is no dependances for this valve\&. 
+.TP
+\fB\fIinfoValveAlreadyActivated \fP\fP
+The valve is already activated\&. 
+.TP
+\fB\fIinfoAllDependNotActivated \fP\fP
+All the valve dependances are not yet activated\&. 
+.TP
+\fB\fIinfoShutdownValve \fP\fP
+The valve module has successfully shutdown\&. 
+.TP
+\fB\fIinfoInitSensor \fP\fP
+The sensor module has successfully initialized\&. 
+.TP
+\fB\fIinfoReadChannels \fP\fP
+Reading sensor channels has succeeded\&. 
+.TP
+\fB\fIinfoShutdownSensor \fP\fP
+The sensor module has successfully shutdown\&. 
+.TP
+\fB\fIinfoStateToInit \fP\fP
+The main state has been changed to initialisation\&. 
+.TP
+\fB\fIinfoStateToControl \fP\fP
+The main state has been changed to acquisition and control\&. 
+.TP
+\fB\fIinfoStateToManualMode \fP\fP
+The general state has been changed to manual mode\&. 
+.TP
+\fB\fIinfoStateToShutdown \fP\fP
+The main state has been changed to shutdown state\&. 
+.TP
+\fB\fIerrOpenTelemFile \fP\fP
+Opening the telemetry file has failed\&. 
+.TP
+\fB\fIerrTestWriteFile \fP\fP
+Writing in the telemetry file has failed\&. 
+.TP
+\fB\fIerrCloseTelemFile \fP\fP
+Closing the telemetry file has failed\&. 
+.TP
+\fB\fIerrAllocDataEG \fP\fP
+Memory allocation failure for the structure LigneEG\&. 
+.TP
+\fB\fIerrAllocDataEtats \fP\fP
+Memory allocation failure for the structure LigneCSV\&. 
+.TP
+\fB\fIerrAllocDataPhysValves \fP\fP
+Memory allocation failure for the structure LigneVannes\&. 
+.TP
+\fB\fIerrAllocDataPhysSensors \fP\fP
+Memory allocation failure for the structure LigneSensors\&. 
+.TP
+\fB\fIerrAllocDataActivation \fP\fP
+Memory allocation failure for the structure \fBLigneActivation\fP\&. 
+.TP
+\fB\fIerrOpenEGFile \fP\fP
+The 'liaisonEGEtat\&.csv' CSV file has failed to open\&. 
+.TP
+\fB\fIerrEGNotFoundInFile \fP\fP
+The general state was not found in 'liaisonEGEtat\&.csv'\&. 
+.TP
+\fB\fIerrOpenEtatsFile \fP\fP
+A general state CSV file has failed to open\&. 
+.TP
+\fB\fIerrOpenPhysValvesFile \fP\fP
+The 'physicalCONFIG_valves\&.csv' CSV file has failed to open\&. 
+.TP
+\fB\fIerrOpenPhysSensorsFile \fP\fP
+The 'physicalCONFIG_sensors\&.csv' CSV file has failed to open\&. 
+.TP
+\fB\fIerrOpenActivationFile \fP\fP
+The 'activation\&.csv' CSV file has failed to open\&. 
+.TP
+\fB\fIerrOPLSystemInit \fP\fP
+OpenPOWERLINK fails to set the correct configuration for the current operating system\&. 
+.TP
+\fB\fIerrSelNetInterface \fP\fP
+The selection of the network interface fails when in a Windows machine\&. Can be caused by the absence of WinPcap\&. 
+.TP
+\fB\fIerrInitObjDictionary \fP\fP
+The object dictionary header file (objdict\&.h) has incorrect values or syntax\&. 
+.TP
+\fB\fIerrOplkInit \fP\fP
+The OpenPOWERLINK stack fails to initialize\&. Main cause: the stack is not found by the application, check the CN \&.lib files\&. 
+.TP
+\fB\fIerrOplkCreate \fP\fP
+The OpenPOWERLINK stack fails to create a new instance\&. 
+.TP
+\fB\fIerrOplkAllocProcessImage \fP\fP
+The allocation of the input and/or output structure fails because parts of the structure doesn't exist in the objdict\&.h file\&. 
+.TP
+\fB\fIerrLinkPDOout \fP\fP
+The linking of an output object (TPDO) fails because the object doesn't exist in the objdict\&.h file\&. 
+.TP
+\fB\fIerrLinkPDOEGin \fP\fP
+The linking of the input general state fails because the object doesn't exist in the objdict\&.h file\&. 
+.TP
+\fB\fIerrLinkPDOin \fP\fP
+The linking of an input object (RPDO) fails because the object doesn't exist in the objdict\&.h file\&. 
+.TP
+\fB\fIerrSendNMTResetCommand \fP\fP
+The OpenPOWERLINK reset command fails\&. 
+.TP
+\fB\fIerrOplkFreeProcessImage \fP\fP
+The freeing of memory of the OpenPOWERLINK stack fails\&. 
+.TP
+\fB\fIerrSystemSendTerminate \fP\fP
+A termination signal from the operating system has been received\&. 
+.TP
+\fB\fIerrOplKernelStackDown \fP\fP
+The OpenPOWERLINK kernel is down\&. 
+.TP
+\fB\fIerrInitFirmwareManager \fP\fP
+The firmware manager to check dependances of the operating system fails to initialize\&. 
+.TP
+\fB\fIerrOplkSetCDCFileName \fP\fP
+The mnobd\&.cdc file is not found or is incorrect\&. 
+.TP
+\fB\fIerrSetupProcessImage \fP\fP
+The input and/or output structure are not the same with what is inside the mnobd\&.cdc file\&. 
+.TP
+\fB\fIerrGPIOPathEmpty \fP\fP
+The gpio chip path is not correctly set\&. 
+.TP
+\fB\fIerrOpenGPIO \fP\fP
+The gpio chip fails to open\&. 
+.TP
+\fB\fIerrGPIOGetLine \fP\fP
+The gpio lines are busy, line get fails\&. 
+.TP
+\fB\fIerrGPIORequestOutput \fP\fP
+The gpio lines can't be set to output mode\&. 
+.TP
+\fB\fIerrGetValveInitValue \fP\fP
+The getter of the initial values fails\&. 
+.TP
+\fB\fIerrValueInitIsNotBinary \fP\fP
+An initial valve value is not 0 or 1\&. 
+.TP
+\fB\fIerrGPIOSetInitValue \fP\fP
+An initial valve value is not set to a line\&. 
+.TP
+\fB\fIerrGPIOGetValue \fP\fP
+The getter of a gpio line value fails\&. 
+.TP
+\fB\fIerrGPIODependValue \fP\fP
+The getter of a gpio line dependance value fails\&. 
+.TP
+\fB\fIerrDependOutsideOfRange \fP\fP
+A dependance is not among the valves of the same board\&. 
+.TP
+\fB\fIerrValueIsNotBinary \fP\fP
+A valve value is not 0 or 1\&. 
+.TP
+\fB\fIerrGPIOSetValue \fP\fP
+The valve value has not been set to the gpio line\&. 
+.TP
+\fB\fIerrGPIORelease \fP\fP
+A gpio line fails to be released\&. 
+.TP
+\fB\fIerrOpenAdc \fP\fP
+A sysfs file of the MCP3008 fails to open\&. 
+.TP
+\fB\fIerrReadAdc \fP\fP
+A sysfs file read of the MCP3008 fails\&. 
+.TP
+\fB\fIerrCloseAdc \fP\fP
+A sysfs file of the MCP3008 fails to close\&. 
+.PP
+Definition at line \fB4\fP of file \fBstatusErrorDefine\&.h\fP\&.
+.SH "Variable Documentation"
+.PP 
+.SS "\fBMode\fP mode\fR [extern]\fP"
+
+.PP
+Definition at line \fB14\fP of file \fBopl\&.cpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CAC_MN from the source code\&.

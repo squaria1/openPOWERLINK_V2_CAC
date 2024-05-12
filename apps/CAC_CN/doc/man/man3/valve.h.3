@@ -1,0 +1,131 @@
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'csv\&.h'\fP
+.br
+\fR#include 'configDefine\&.h'\fP
+.br
+\fR#include 'statusErrorDefine\&.h'\fP
+.br
+\fR#include <stdio\&.h>\fP
+.br
+\fR#include <stdlib\&.h>\fP
+.br
+\fR#include <fcntl\&.h>\fP
+.br
+\fR#include <errno\&.h>\fP
+.br
+\fR#include <time\&.h>\fP
+.br
+\fR#include <sys/types\&.h>\fP
+.br
+\fR#include <signal\&.h>\fP
+.br
+\fR#include <sensor\&.h>\fP
+.br
+\fR#include <cstdlib>\fP
+.br
+\fR#include <filesystem>\fP
+.br
+\fR#include <iostream>\fP
+.br
+\fR#include <string>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBvalve\fP"
+.br
+.RI "valve module class\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int16_t \fBsetValvesValue\fP ()"
+.br
+.RI "function setter of the valve values from a general state CSV file\&. "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBgetValvesInitValue\fP ()"
+.br
+.RI "function getter of the initial valve values from the valve physical config CSV file\&. "
+.ti -1c
+.RI "int16_t \fBgetValveValue\fP (int index)"
+.br
+.RI "function getter of the valve value from a general state CSV file on Windows or directly from the gpio line value on Linux\&. "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBresetTimers\fP ()"
+.br
+.RI "function to reset the timers after the activation of all the valves\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBstatusErrDef\fP getValvesInitValue ()"
+
+.PP
+function getter of the initial valve values from the valve physical config CSV file\&. 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errGetValveInitValue when the getter of the initial values fails or noError when the function exits successfully\&. 
+.br
+ 
+.RE
+.PP
+
+.PP
+Definition at line \fB465\fP of file \fBvalve\&.cpp\fP\&.
+.SS "int16_t getValveValue (int ligne)"
+
+.PP
+function getter of the valve value from a general state CSV file on Windows or directly from the gpio line value on Linux\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIligne\fP the line in a general state CSV file 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the value of the valve 
+.RE
+.PP
+
+.PP
+Definition at line \fB491\fP of file \fBvalve\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP resetTimers ()"
+
+.PP
+function to reset the timers after the activation of all the valves\&. 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB507\fP of file \fBvalve\&.cpp\fP\&.
+.SS "int16_t setValvesValue ()"
+
+.PP
+function setter of the valve values from a general state CSV file\&. 
+.PP
+\fBReturns\fP
+.RS 4
+0 if the valves are set successfully 
+.RE
+.PP
+
+.PP
+Definition at line \fB446\fP of file \fBvalve\&.cpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CAC_CN from the source code\&.

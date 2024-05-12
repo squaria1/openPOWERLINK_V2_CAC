@@ -71,10 +71,8 @@ extern "C"
     statusErrDef            initApp(void);
     statusErrDef            initOPL();
     statusErrDef            extinctOPL();
-    void                    setValues_In_MN(int ligne, int16_t valeur);
     int16_t*                getValues_In_MN(void);
     void                    setValues_Out_MN(int ligne, int16_t valeur);
-    int16_t*                getValues_Out_MN(void);
     void                    setActivated_In_MN();
     void                    affValeursIn();
     void                    affValeursOut();
@@ -87,7 +85,6 @@ extern "C"
     //------------------------------------------------------------------------------
     // global vars
     //------------------------------------------------------------------------------
-    extern uint8_t              mode;
     extern const uint16_t       nbValuesCN_Out;
     extern const uint16_t       nbValuesCN_In;
 
@@ -105,7 +102,6 @@ extern "C"
     static int16_t                  values_Out_MN_l[SIZE_IN];
     static bool                     activated_In_MN_l[SIZE_OUT+2];
 
-    int16_t     getTest();
     int16_t     getEC1();
     void        setEG(int16_t EG);
 
@@ -118,10 +114,6 @@ class opl
     public:
         opl();
         ~opl();
-
-        void        sendTelem();
-        void        sendError();
-        int16_t     demandeExtinctOPL();
 
     protected:
 

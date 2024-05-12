@@ -2,7 +2,7 @@
  * \file valve.cpp
  * \brief Module to control the valves of the CAC Board
  * \author Mael Parot
- * \version 1
+ * \version 1.1
  * \date 11/04/2024
  *
  * Contains all functions related to controling valves
@@ -45,9 +45,10 @@ valve::~valve()
  * \brief function to initialize to valve module
  * 
  * \return statusErrDef that values errGPIOPathEmpty 
- * when the gpio chip path is not set
+ * when the gpio chip path is not correctly set
  * or errOpenGPIO when the gpio chip fails to open
- * or errGPIOGetLine when the gpio lines are busy
+ * or errGPIOGetLine when the gpio lines are busy,
+ * line get fails
  * or errGPIORequestOutput when the gpio lines 
  * can't be set to output mode
  * or noError when the function exits successfully. 
@@ -153,8 +154,9 @@ statusErrDef valve::actionnementValvesInit()
  * 
  * \param valveNum the valve number
  * \return statusErrDef that values errValueInitIsNotBinary 
- * when a value is not 0 or 1.
- * or errGPIOSetValue when the line doesn't set the value
+ * when an initial valve value is not 0 or 1.
+ * or errGPIOSetValue when the valve value has not been
+ * set to the gpio line
  * or noError when the function exits successfully.  
  */
 statusErrDef valve::actionnementValve(int valveNum)
@@ -404,7 +406,8 @@ int16_t valve::isTimerExeeded(int valveNum)
  * 
  * \return statusErrDef that values errValueInitIsNotBinary 
  * when a value is not 0 or 1
- * or errGPIOSetInitValue when the line doesn't set the value
+ * or errGPIOSetInitValue when an initial valve value 
+ * is not set to a line
  * or errGPIORelease when a gpio line fails to be released
  * or noError when the function exits successfully.     
  */

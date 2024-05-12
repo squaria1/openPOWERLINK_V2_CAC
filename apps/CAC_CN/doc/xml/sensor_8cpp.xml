@@ -1,0 +1,680 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="sensor_8cpp" kind="file" language="C++">
+    <compoundname>sensor.cpp</compoundname>
+    <includes refid="sensor_8h" local="yes">sensor.h</includes>
+    <incdepgraph>
+      <node id="9">
+        <label>configDefine.h</label>
+        <link refid="config_define_8h"/>
+      </node>
+      <node id="3">
+        <label>csv.h</label>
+        <link refid="csv_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>eventOpl.h</label>
+        <link refid="event_opl_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>nodeId.h</label>
+        <link refid="node_id_8h"/>
+      </node>
+      <node id="11">
+        <label>opl.h</label>
+        <link refid="opl_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sensor.h</label>
+        <link refid="sensor_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>statusErrorDefine.h</label>
+        <link refid="status_error_define_8h"/>
+      </node>
+      <node id="19">
+        <label>valve.h</label>
+        <link refid="valve_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>xapOpl.h</label>
+        <link refid="xap_opl_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp</label>
+        <link refid="sensor_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>console/console.h</label>
+      </node>
+      <node id="25">
+        <label>cstdlib</label>
+      </node>
+      <node id="8">
+        <label>ctype.h</label>
+      </node>
+      <node id="21">
+        <label>errno.h</label>
+      </node>
+      <node id="17">
+        <label>eventlog/eventlog.h</label>
+      </node>
+      <node id="20">
+        <label>fcntl.h</label>
+      </node>
+      <node id="26">
+        <label>filesystem</label>
+      </node>
+      <node id="33">
+        <label>getopt/getopt.h</label>
+      </node>
+      <node id="30">
+        <label>inttypes.h</label>
+      </node>
+      <node id="36">
+        <label>io.h</label>
+      </node>
+      <node id="27">
+        <label>iostream</label>
+      </node>
+      <node id="35">
+        <label>limits.h</label>
+      </node>
+      <node id="34">
+        <label>netselect/netselect.h</label>
+      </node>
+      <node id="32">
+        <label>obdcreate/obdcreate.h</label>
+      </node>
+      <node id="15">
+        <label>oplk/debugstr.h</label>
+      </node>
+      <node id="14">
+        <label>oplk/oplk.h</label>
+      </node>
+      <node id="24">
+        <label>signal.h</label>
+      </node>
+      <node id="29">
+        <label>stdbool.h</label>
+      </node>
+      <node id="28">
+        <label>stddef.h</label>
+      </node>
+      <node id="6">
+        <label>stdint.h</label>
+      </node>
+      <node id="4">
+        <label>stdio.h</label>
+      </node>
+      <node id="5">
+        <label>stdlib.h</label>
+      </node>
+      <node id="7">
+        <label>string</label>
+      </node>
+      <node id="23">
+        <label>sys/types.h</label>
+      </node>
+      <node id="31">
+        <label>system/system.h</label>
+      </node>
+      <node id="22">
+        <label>time.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="sensor_8cpp_1a217e4b46670419e6c3665b3c9f96b7da" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int opt</definition>
+        <argsstring></argsstring>
+        <name>opt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" line="14" column="12" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="sensor_8cpp_1ae5d88649401f796b100a8ffb867b5507" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int adc</definition>
+        <argsstring></argsstring>
+        <name>adc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" line="14" column="16" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="14" bodyend="-1"/>
+        <referencedby refid="sensor_8cpp_1aaee06476c9ddb6ab8457694fdd20cccc" compoundref="sensor_8cpp" startline="189" endline="202">openAdc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int i</definition>
+        <argsstring></argsstring>
+        <name>i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" line="14" column="20" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="14" bodyend="-1"/>
+        <referencedby refid="classvalve_1a82140bbfd1329eea0100b8359cc9ebc2" compoundref="valve_8cpp" startline="117" endline="146">valve::actionnementValvesInit</referencedby>
+        <referencedby refid="opl_8cpp_1a0e626359c6d8f3e0bc7e7c19c01fa820" compoundref="opl_8cpp" startline="75" endline="83">affValeursIn</referencedby>
+        <referencedby refid="opl_8cpp_1a7f68cfdc214d014a4d8676853a577e31" compoundref="opl_8cpp" startline="105" endline="113">affValeursOut</referencedby>
+        <referencedby refid="opl_8cpp_1a7a60aa76d8b9af7a1930275e02aa2ab5" compoundref="opl_8cpp" startline="90" endline="98">affValeursProcessIn</referencedby>
+        <referencedby refid="sensor_8cpp_1abf077aeb27cbf890c5006ed980d1c6f4" compoundref="sensor_8cpp" startline="136" endline="154">closeAdc</referencedby>
+        <referencedby refid="classvalve_1a3db8975d7c2cc46b33fd65e683e8c6df" compoundref="valve_8cpp" startline="413" endline="438">valve::extinctValve</referencedby>
+        <referencedby refid="csv_8cpp_1a8a1a11a2771226955ece875f170f2f0c" compoundref="csv_8cpp" startline="498" endline="513">getDependanceVannes</referencedby>
+        <referencedby refid="valve_8cpp_1ad4e5b817af0b9501d2a6e6deb0c89445" compoundref="valve_8cpp" startline="465" endline="481">getValvesInitValue</referencedby>
+        <referencedby refid="opl_8cpp_1a6928095e76089df62d549c72bf870b44" compoundref="opl_8cpp" startline="597" endline="667">initProcessImage</referencedby>
+        <referencedby refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" compoundref="sensor_8cpp" startline="40" endline="52">sensor::initSensor</referencedby>
+        <referencedby refid="classvalve_1a86e16a5cc95d9bec4ee8eec6722760fe" compoundref="valve_8cpp" startline="55" endline="106">valve::initValve</referencedby>
+        <referencedby refid="classvalve_1ae69c309265ce0269e0207043fb6b06ca" compoundref="valve_8cpp" startline="301" endline="363">valve::isDependanceActive</referencedby>
+        <referencedby refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="518" endline="569">processSync</referencedby>
+        <referencedby refid="sensor_8cpp_1a084710571b3a23b14fe1bc00ef626f52" compoundref="sensor_8cpp" startline="89" endline="126">readChannels</referencedby>
+        <referencedby refid="csv_8cpp_1a12cdfbd8ea531195d20d46386535a300" compoundref="csv_8cpp" startline="624" endline="636">removeCarriageReturn</referencedby>
+        <referencedby refid="csv_8cpp_1a134699cebaabd514d62d43ed18cee67d" compoundref="csv_8cpp" startline="357" endline="388">remplirStructure</referencedby>
+        <referencedby refid="valve_8cpp_1ad6ff3dc82333091b53b2fbdc3ef5842e" compoundref="valve_8cpp" startline="507" endline="518">resetTimers</referencedby>
+        <referencedby refid="csv_8cpp_1a6b63c44df8b905d77b2c66f1cea86204" compoundref="csv_8cpp" startline="644" endline="653">searchEG</referencedby>
+        <referencedby refid="opl_8cpp_1a72f880ddaa32ea28cd0e12658c3e8d67" compoundref="opl_8cpp" startline="161" endline="167">setActivated_Out_CN</referencedby>
+        <referencedby refid="opl_8cpp_1aee2f3fe4573dcc68e0ead2380eb83317" compoundref="opl_8cpp" startline="132" endline="142">setValues_Out_CN</referencedby>
+        <referencedby refid="valve_8cpp_1add60b51091e6e3c9653ed8400895e3a1" compoundref="valve_8cpp" startline="446" endline="455">setValvesValue</referencedby>
+        <referencedby refid="opl_8cpp_1aaf3f45fd8772392506e2cd143b46a455" compoundref="opl_8cpp" startline="799" endline="830">shutdownPowerlink</referencedby>
+        <referencedby refid="classvalve_1a1364f1770f8218d7a0077ca2a953371b" compoundref="valve_8cpp" startline="208" endline="280">valve::verifDependanceValves</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" prot="public" static="yes" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tabSensorActivated[MAX_SENSORS]</definition>
+        <argsstring>[MAX_SENSORS]</argsstring>
+        <name>tabSensorActivated</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" line="15" column="16" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="15" bodyend="-1"/>
+        <referencedby refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" compoundref="sensor_8cpp" startline="40" endline="52">sensor::initSensor</referencedby>
+        <referencedby refid="sensor_8cpp_1a084710571b3a23b14fe1bc00ef626f52" compoundref="sensor_8cpp" startline="89" endline="126">readChannels</referencedby>
+        <referencedby refid="classsensor_1aeaa38c2a2b5e33314a4fe9ff905dc0c6" compoundref="sensor_8cpp" startline="20" endline="25">sensor::sensor</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int fd[MAX_SENSORS]</definition>
+        <argsstring>[MAX_SENSORS]</argsstring>
+        <name>fd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" line="16" column="12" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="16" bodyend="-1"/>
+        <referencedby refid="sensor_8cpp_1abf077aeb27cbf890c5006ed980d1c6f4" compoundref="sensor_8cpp" startline="136" endline="154">closeAdc</referencedby>
+        <referencedby refid="sensor_8cpp_1aaee06476c9ddb6ab8457694fdd20cccc" compoundref="sensor_8cpp" startline="189" endline="202">openAdc</referencedby>
+        <referencedby refid="sensor_8cpp_1ab4df458eba25efa399c8531f2417d648" compoundref="sensor_8cpp" startline="164" endline="179">readAdc</referencedby>
+        <referencedby refid="sensor_8cpp_1a084710571b3a23b14fe1bc00ef626f52" compoundref="sensor_8cpp" startline="89" endline="126">readChannels</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="sensor_8cpp_1a1f8a988f311c080db94c0185f9c81f77" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int abort_read</definition>
+        <argsstring></argsstring>
+        <name>abort_read</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" line="17" column="12" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="sensor_8cpp_1a95ae932c940a8d52f42f256155300708" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t getAdc_value</definition>
+        <argsstring>(int index)</argsstring>
+        <name>getAdc_value</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>function getter of the value of a sensor from the array of sensors. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the index of the array of sensors </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the value of the sensor in 2 bytes signed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" line="76" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="76" bodyend="78"/>
+        <references refid="sensor_8h_1af1a8dcdbb54fb5c1b49459cde87d1e75" compoundref="sensor_8h" startline="28">valSensors</references>
+        <referencedby refid="opl_8cpp_1aee2f3fe4573dcc68e0ead2380eb83317" compoundref="opl_8cpp" startline="132" endline="142">setValues_Out_CN</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="sensor_8cpp_1a084710571b3a23b14fe1bc00ef626f52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef readChannels</definition>
+        <argsstring>()</argsstring>
+        <name>readChannels</name>
+        <briefdescription>
+<para>function the read the channels of the MCP3008 by opening, reading and closing the sysfs files. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>statusErrDef that values errOpenAdc when a sysfs file of the MCP3008 fails to open or errReadAdc when a sysfs file read of the MCP3008 fails or noError when the function exits successfully. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" line="89" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="89" bodyend="126"/>
+        <references refid="config_define_8h_1a8538e713d830bd0982bbc0e185db5d05" compoundref="config_define_8h" startline="22">ADC_READ_ERROR</references>
+        <references refid="sensor_8cpp_1abf077aeb27cbf890c5006ed980d1c6f4" compoundref="sensor_8cpp" startline="136" endline="154">closeAdc</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94abb3be0d1d4505ac1644533c725c8652d" compoundref="status_error_define_8h" startline="90">errOpenAdc</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a853bb660c03c4d6dbdf70e139b46600d" compoundref="status_error_define_8h" startline="91">errReadAdc</references>
+        <references refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" compoundref="sensor_8cpp" startline="16">fd</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" compoundref="config_define_8h" startline="21">MAX_SENSORS</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <references refid="sensor_8cpp_1aaee06476c9ddb6ab8457694fdd20cccc" compoundref="sensor_8cpp" startline="189" endline="202">openAdc</references>
+        <references refid="sensor_8cpp_1ab4df458eba25efa399c8531f2417d648" compoundref="sensor_8cpp" startline="164" endline="179">readAdc</references>
+        <references refid="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" compoundref="sensor_8cpp" startline="15">tabSensorActivated</references>
+        <references refid="sensor_8h_1af1a8dcdbb54fb5c1b49459cde87d1e75" compoundref="sensor_8h" startline="28">valSensors</references>
+        <referencedby refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" compoundref="sensor_8cpp" startline="40" endline="52">sensor::initSensor</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="sensor_8cpp_1abf077aeb27cbf890c5006ed980d1c6f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef closeAdc</definition>
+        <argsstring>()</argsstring>
+        <name>closeAdc</name>
+        <briefdescription>
+<para>function to close the sysfs files of the MCP3008 kernel module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>statusErrDef that values errCloseAdc when a sysfs file of the MCP3008 fails to close or noError when the function exits successfully. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" line="136" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="136" bodyend="154"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a282120158405e4a34ce8e365c3684fb8" compoundref="status_error_define_8h" startline="92">errCloseAdc</references>
+        <references refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" compoundref="sensor_8cpp" startline="16">fd</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" compoundref="config_define_8h" startline="21">MAX_SENSORS</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <referencedby refid="classsensor_1ad3b9b11298007378ec5b9127694580af" compoundref="sensor_8cpp" startline="61" endline="67">sensor::extinctSensor</referencedby>
+        <referencedby refid="sensor_8cpp_1a084710571b3a23b14fe1bc00ef626f52" compoundref="sensor_8cpp" startline="89" endline="126">readChannels</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="sensor_8cpp_1ab4df458eba25efa399c8531f2417d648" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int readAdc</definition>
+        <argsstring>(int fd)</argsstring>
+        <name>readAdc</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <briefdescription>
+<para>function to read the value of a sensor from a sysfs file of the MCP3008 kernel module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file location </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ADC_READ_ERROR when the file reading fails or the value of a sensor. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" line="164" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="164" bodyend="179"/>
+        <references refid="config_define_8h_1a8538e713d830bd0982bbc0e185db5d05" compoundref="config_define_8h" startline="22">ADC_READ_ERROR</references>
+        <references refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" compoundref="sensor_8cpp" startline="16">fd</references>
+        <referencedby refid="sensor_8cpp_1a084710571b3a23b14fe1bc00ef626f52" compoundref="sensor_8cpp" startline="89" endline="126">readChannels</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="sensor_8cpp_1aaee06476c9ddb6ab8457694fdd20cccc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int openAdc</definition>
+        <argsstring>(int adc)</argsstring>
+        <name>openAdc</name>
+        <param>
+          <type>int</type>
+          <declname>adc</declname>
+        </param>
+        <briefdescription>
+<para>function to open a sysfs file of the MCP3008 kernel module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>adc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the MCP3008 channel number </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ADC_READ_ERROR when the file opening fails or the file location. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" line="189" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="189" bodyend="202"/>
+        <references refid="sensor_8cpp_1ae5d88649401f796b100a8ffb867b5507" compoundref="sensor_8cpp" startline="14">adc</references>
+        <references refid="config_define_8h_1a8538e713d830bd0982bbc0e185db5d05" compoundref="config_define_8h" startline="22">ADC_READ_ERROR</references>
+        <references refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" compoundref="sensor_8cpp" startline="16">fd</references>
+        <references refid="config_define_8h_1a2e79cb96de76e27ba54960b579c9f530" compoundref="config_define_8h" startline="20">IIOSYSPATH</references>
+        <referencedby refid="sensor_8cpp_1a084710571b3a23b14fe1bc00ef626f52" compoundref="sensor_8cpp" startline="89" endline="126">readChannels</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Module to read sensors values. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Mael Parot, Corentin Berthon </para>
+</simplesect>
+<simplesect kind="version"><para>1.1 </para>
+</simplesect>
+<simplesect kind="date"><para>11/04/2024</para>
+</simplesect>
+Contains all functions related to reading sensors values from the sysfs linux module file for an MCP3008 </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="sensor_8h" kindref="compound">sensor.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="sensor_8cpp_1ae5d88649401f796b100a8ffb867b5507" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sensor_8cpp_1a217e4b46670419e6c3665b3c9f96b7da" kindref="member">opt</ref>,<sp/><ref refid="sensor_8cpp_1ae5d88649401f796b100a8ffb867b5507" kindref="member">adc</ref>,<sp/><ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>;</highlight></codeline>
+<codeline lineno="15" refid="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" kindref="member">tabSensorActivated</ref>[<ref refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" kindref="member">MAX_SENSORS</ref>];</highlight></codeline>
+<codeline lineno="16" refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" kindref="member">fd</ref>[<ref refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" kindref="member">MAX_SENSORS</ref>];</highlight></codeline>
+<codeline lineno="17" refid="sensor_8cpp_1a1f8a988f311c080db94c0185f9c81f77" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sensor_8cpp_1a1f8a988f311c080db94c0185f9c81f77" kindref="member">abort_read</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="classsensor_1aeaa38c2a2b5e33314a4fe9ff905dc0c6" refkind="member"><highlight class="normal"><ref refid="classsensor_1aeaa38c2a2b5e33314a4fe9ff905dc0c6" kindref="member">sensor::sensor</ref>()</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//constructor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//initialize<sp/>the<sp/>tabSensorActivated<sp/>array</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(<ref refid="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" kindref="member">tabSensorActivated</ref>,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" kindref="member">tabSensorActivated</ref>));</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="classsensor_1a9252346748c0bd090109ee5bcf45f13a" refkind="member"><highlight class="normal"><ref refid="classsensor_1a9252346748c0bd090109ee5bcf45f13a" kindref="member">sensor::~sensor</ref>()</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//destructor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" refkind="member"><highlight class="normal"><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" kindref="member">sensor::initSensor</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/>res<sp/>=<sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" kindref="member">noError</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref><sp/>=<sp/>0;<sp/><ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref><sp/>&lt;<sp/><ref refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" kindref="member">MAX_SENSORS</ref>;<sp/><ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>++)<sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" kindref="member">tabSensorActivated</ref>[<ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>]<sp/>=<sp/><ref refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" kindref="member">getActivation</ref>(<ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref><sp/>+<sp/><ref refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" kindref="member">nbValuesCN_Out_ByCN</ref><sp/>+<sp/><ref refid="opl_8cpp_1a8dd1817cec0b1c38e0b7eb2470855b25" kindref="member">nbValuesCN_Out</ref><sp/>/<sp/>2<sp/>+<sp/>2);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>res<sp/>=<sp/><ref refid="sensor_8h_1a084710571b3a23b14fe1bc00ef626f52" kindref="member">readChannels</ref>();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(res<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="classsensor_1ad3b9b11298007378ec5b9127694580af" refkind="member"><highlight class="normal"><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="classsensor_1ad3b9b11298007378ec5b9127694580af" kindref="member">sensor::extinctSensor</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/>res<sp/>=<sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" kindref="member">noError</ref>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="sensor_8h_1abf077aeb27cbf890c5006ed980d1c6f4" kindref="member">closeAdc</ref>();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="sensor_8cpp_1a95ae932c940a8d52f42f256155300708" refkind="member"><highlight class="normal">int16_t<sp/><ref refid="sensor_8cpp_1a95ae932c940a8d52f42f256155300708" kindref="member">getAdc_value</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="sensor_8h_1af1a8dcdbb54fb5c1b49459cde87d1e75" kindref="member">valSensors</ref>[index];</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="sensor_8cpp_1a084710571b3a23b14fe1bc00ef626f52" refkind="member"><highlight class="normal"><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="sensor_8cpp_1a084710571b3a23b14fe1bc00ef626f52" kindref="member">readChannels</ref>()</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/>res<sp/>=<sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" kindref="member">noError</ref>;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(<ref refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" kindref="member">fd</ref>,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" kindref="member">fd</ref>));</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(<ref refid="sensor_8h_1af1a8dcdbb54fb5c1b49459cde87d1e75" kindref="member">valSensors</ref>,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="sensor_8h_1af1a8dcdbb54fb5c1b49459cde87d1e75" kindref="member">valSensors</ref>));</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref><sp/>=<sp/>0;<sp/><ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref><sp/>&lt;<sp/><ref refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" kindref="member">MAX_SENSORS</ref>;<sp/><ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>++)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" kindref="member">tabSensorActivated</ref>[<ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>])<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" kindref="member">fd</ref>[<ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>]<sp/>=<sp/><ref refid="sensor_8cpp_1aaee06476c9ddb6ab8457694fdd20cccc" kindref="member">openAdc</ref>(<ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" kindref="member">fd</ref>[<ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>]<sp/>==<sp/><ref refid="config_define_8h_1a8538e713d830bd0982bbc0e185db5d05" kindref="member">ADC_READ_ERROR</ref>)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res<sp/>=<sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94abb3be0d1d4505ac1644533c725c8652d" kindref="member">errOpenAdc</ref>;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref><sp/>=<sp/>0;<sp/><ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref><sp/>&lt;<sp/><ref refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" kindref="member">MAX_SENSORS</ref>;<sp/><ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>++)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" kindref="member">tabSensorActivated</ref>[<ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>])</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="sensor_8h_1af1a8dcdbb54fb5c1b49459cde87d1e75" kindref="member">valSensors</ref>[<ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>]<sp/>=<sp/><ref refid="sensor_8cpp_1ab4df458eba25efa399c8531f2417d648" kindref="member">readAdc</ref>(<ref refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" kindref="member">fd</ref>[<ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>]);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>reset<sp/>for<sp/>next<sp/>read</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lseek(<ref refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" kindref="member">fd</ref>[<ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>],<sp/>0,<sp/>SEEK_SET);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="sensor_8h_1af1a8dcdbb54fb5c1b49459cde87d1e75" kindref="member">valSensors</ref>[<ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>]<sp/>==<sp/><ref refid="config_define_8h_1a8538e713d830bd0982bbc0e185db5d05" kindref="member">ADC_READ_ERROR</ref>)</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res<sp/>=<sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a853bb660c03c4d6dbdf70e139b46600d" kindref="member">errReadAdc</ref>;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="sensor_8cpp_1abf077aeb27cbf890c5006ed980d1c6f4" kindref="member">closeAdc</ref>();</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136" refid="sensor_8cpp_1abf077aeb27cbf890c5006ed980d1c6f4" refkind="member"><highlight class="normal"><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="sensor_8cpp_1abf077aeb27cbf890c5006ed980d1c6f4" kindref="member">closeAdc</ref>()</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/>res<sp/>=<sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" kindref="member">noError</ref>;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ret<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref><sp/>=<sp/>0;<sp/><ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref><sp/>&lt;<sp/><ref refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" kindref="member">MAX_SENSORS</ref>;<sp/><ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>++)<sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" kindref="member">fd</ref>[<ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>]<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret<sp/>=<sp/>close(<ref refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" kindref="member">fd</ref>[<ref refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kindref="member">i</ref>]);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res<sp/>=<sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a282120158405e4a34ce8e365c3684fb8" kindref="member">errCloseAdc</ref>;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164" refid="sensor_8cpp_1ab4df458eba25efa399c8531f2417d648" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sensor_8cpp_1ab4df458eba25efa399c8531f2417d648" kindref="member">readAdc</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" kindref="member">fd</ref>)</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buff[8];</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>buff[7]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>val<sp/>=<sp/><ref refid="config_define_8h_1a8538e713d830bd0982bbc0e185db5d05" kindref="member">ADC_READ_ERROR</ref>;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(buff,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(buff));</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(read(<ref refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" kindref="member">fd</ref>,<sp/>buff,<sp/>8)<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>perror(</highlight><highlight class="stringliteral">&quot;read()&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val<sp/>=<sp/>atoi(buff);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>val;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189" refid="sensor_8cpp_1aaee06476c9ddb6ab8457694fdd20cccc" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sensor_8cpp_1aaee06476c9ddb6ab8457694fdd20cccc" kindref="member">openAdc</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sensor_8cpp_1ae5d88649401f796b100a8ffb867b5507" kindref="member">adc</ref>)</highlight></codeline>
+<codeline lineno="190"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>path[128];</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>sprintf(path,<sp/></highlight><highlight class="stringliteral">&quot;%sin_voltage%d_raw&quot;</highlight><highlight class="normal">,<sp/><ref refid="config_define_8h_1a2e79cb96de76e27ba54960b579c9f530" kindref="member">IIOSYSPATH</ref>,<sp/><ref refid="sensor_8cpp_1ae5d88649401f796b100a8ffb867b5507" kindref="member">adc</ref>);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" kindref="member">fd</ref><sp/>=<sp/>open(path,<sp/>O_RDONLY);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" kindref="member">fd</ref><sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>perror(</highlight><highlight class="stringliteral">&quot;open()&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%s\n&quot;</highlight><highlight class="normal">,<sp/>path);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="config_define_8h_1a8538e713d830bd0982bbc0e185db5d05" kindref="member">ADC_READ_ERROR</ref>;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" kindref="member">fd</ref>;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp"/>
+  </compounddef>
+</doxygen>

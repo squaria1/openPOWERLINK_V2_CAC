@@ -1,0 +1,348 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="classvalve" kind="class" language="C++" prot="public">
+    <compoundname>valve</compoundname>
+    <includes refid="valve_8h" local="no">valve.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classvalve_1af2362056385e00eb0477c7d57836572d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>valve::valve</definition>
+        <argsstring>()</argsstring>
+        <name>valve</name>
+        <qualifiedname>valve::valve</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="32" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classvalve_1ad13f3b2288a13ef68ff1b5bdb87077c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>valve::~valve</definition>
+        <argsstring>()</argsstring>
+        <name>~valve</name>
+        <qualifiedname>valve::~valve</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="33" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="37" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classvalve_1a86e16a5cc95d9bec4ee8eec6722760fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef valve::initValve</definition>
+        <argsstring>()</argsstring>
+        <name>initValve</name>
+        <qualifiedname>valve::initValve</qualifiedname>
+        <briefdescription>
+<para>function to initialize to valve module </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>statusErrDef that values errGPIOPathEmpty when the gpio chip path is not correctly set or errOpenGPIO when the gpio chip fails to open or errGPIOGetLine when the gpio lines are busy, line get fails or errGPIORequestOutput when the gpio lines can&apos;t be set to output mode or noError when the function exits successfully. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="34" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="55" bodyend="106"/>
+        <references refid="classvalve_1a82140bbfd1329eea0100b8359cc9ebc2" compoundref="valve_8cpp" startline="117" endline="146">actionnementValvesInit</references>
+        <references refid="config_define_8h_1a9703a43ebf2d3b02efe3f13807bbd202" compoundref="config_define_8h" startline="25">CHIP_PATH</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ad601b41162c91eaf13e62a938db42636" compoundref="status_error_define_8h" startline="77">errGPIOGetLine</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94aebbac86c9dfcf75f2812d9ef1e93693b" compoundref="status_error_define_8h" startline="75">errGPIOPathEmpty</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a2485272769a6cfdbf6f91340bb741092" compoundref="status_error_define_8h" startline="78">errGPIORequestOutput</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a19ac259774bb0891cc3bad74473984c5" compoundref="status_error_define_8h" startline="76">errOpenGPIO</references>
+        <references refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" compoundref="csv_8cpp" startline="587" endline="590">getActivation</references>
+        <references refid="csv_8cpp_1a06ba5d2bce46c751d895dbf5678036ae" compoundref="csv_8cpp" startline="532" endline="535">getEtatInitialVannes</references>
+        <references refid="csv_8cpp_1a208a08d00b78203d1aa620f641f0b9c9" compoundref="csv_8cpp" startline="554" endline="557">getPortGPIO</references>
+        <references refid="valve_8h_1ad4e5b817af0b9501d2a6e6deb0c89445" compoundref="valve_8cpp" startline="465" endline="481">getValvesInitValue</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" compoundref="config_define_8h" startline="26">MAX_VALVES</references>
+        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <references refid="valve_8cpp_1a268ac3b63f0fabe69c23e62ca83cfb70" compoundref="valve_8cpp" startline="22">offsets</references>
+        <references refid="valve_8cpp_1a96860d8272d2d5ef1b46f17e271042da" compoundref="valve_8cpp" startline="24">values</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classvalve_1a82140bbfd1329eea0100b8359cc9ebc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef valve::actionnementValvesInit</definition>
+        <argsstring>()</argsstring>
+        <name>actionnementValvesInit</name>
+        <qualifiedname>valve::actionnementValvesInit</qualifiedname>
+        <briefdescription>
+<para>function to set the valves values from the CSV module initial values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>statusErrDef that values errValueInitIsNotBinary when a value is not 0 or 1. or errGPIOSetInitValue when the line doesn&apos;t set the value or noError when the function exits successfully. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="35" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="117" bodyend="146"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a763d85cc76cf1596ee353e9fb1b38903" compoundref="status_error_define_8h" startline="81">errGPIOSetInitValue</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94aec2040d37c7bf6607456c056344f6c42" compoundref="status_error_define_8h" startline="80">errValueInitIsNotBinary</references>
+        <references refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" compoundref="csv_8cpp" startline="587" endline="590">getActivation</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" compoundref="config_define_8h" startline="26">MAX_VALVES</references>
+        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <references refid="valve_8cpp_1a96860d8272d2d5ef1b46f17e271042da" compoundref="valve_8cpp" startline="24">values</references>
+        <referencedby refid="classvalve_1a3db8975d7c2cc46b33fd65e683e8c6df" compoundref="valve_8cpp" startline="413" endline="438">extinctValve</referencedby>
+        <referencedby refid="classvalve_1a86e16a5cc95d9bec4ee8eec6722760fe" compoundref="valve_8cpp" startline="55" endline="106">initValve</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classvalve_1aac2cd5441d1c1a1180e18af2468a4547" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef valve::actionnementValve</definition>
+        <argsstring>(int valveNum)</argsstring>
+        <name>actionnementValve</name>
+        <qualifiedname>valve::actionnementValve</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>valveNum</declname>
+        </param>
+        <briefdescription>
+<para>function to get a valve value either from a general state CSV file if mode is automatic or from a OpenPOWERLINK value from the MN and set the valve to the corresponding gpio line. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>valveNum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the valve number </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>statusErrDef that values errValueInitIsNotBinary when an initial valve value is not 0 or 1. or errGPIOSetValue when the valve value has not been set to the gpio line or noError when the function exits successfully. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="36" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="161" bodyend="194"/>
+        <references refid="status_error_define_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911a9761086e420b925e438327ad385b304d" compoundref="status_error_define_8h" startline="99">automatic</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a5c2c18ec122e2cca417baf06cc784129" compoundref="status_error_define_8h" startline="86">errGPIOSetValue</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a9a1dd444c2528ae6922e7fdec7f37611" compoundref="status_error_define_8h" startline="85">errValueIsNotBinary</references>
+        <references refid="csv_8cpp_1ab23dd7339a925518cc7ccb9c8ff617c9" compoundref="csv_8cpp" startline="487" endline="490">getValeur</references>
+        <references refid="opl_8cpp_1ad0b902027740ec16636d93ee162aeb5d" compoundref="opl_8cpp" startline="122" endline="125">getValues_In_CN</references>
+        <references refid="status_error_define_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911af2ff5ec687c78928f81c2842750e3f67" compoundref="status_error_define_8h" startline="100">manual</references>
+        <references refid="opl_8cpp_1a2618e89b4c26dc851feae865df3a1a49" compoundref="opl_8cpp" startline="16">mode</references>
+        <references refid="opl_8cpp_1ae734e3ff803ba9ee9ce69f720764c48a" compoundref="opl_8cpp" startline="20">nbValuesCN_In_ByCN</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <references refid="valve_8cpp_1a96860d8272d2d5ef1b46f17e271042da" compoundref="valve_8cpp" startline="24">values</references>
+        <referencedby refid="classvalve_1a1364f1770f8218d7a0077ca2a953371b" compoundref="valve_8cpp" startline="208" endline="280">verifDependanceValves</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classvalve_1a1364f1770f8218d7a0077ca2a953371b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef valve::verifDependanceValves</definition>
+        <argsstring>()</argsstring>
+        <name>verifDependanceValves</name>
+        <qualifiedname>valve::verifDependanceValves</qualifiedname>
+        <briefdescription>
+<para>function that verifies if the valves are already set, if not the timer starts and once the timer is greater than the value taken from a general state CSV file, it sets the valve value to the corresponding gpio line. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>statusErrDef that values errValueInitIsNotBinary when a value is not 0 or 1. or errGPIOSetValue when the line doesn&apos;t set the value or noError when the function exits successfully. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="37" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="208" bodyend="280"/>
+        <references refid="classvalve_1aac2cd5441d1c1a1180e18af2468a4547" compoundref="valve_8cpp" startline="161" endline="194">actionnementValve</references>
+        <references refid="status_error_define_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911a9761086e420b925e438327ad385b304d" compoundref="status_error_define_8h" startline="99">automatic</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab6044186bf03edb2f4ae79d23c664644" compoundref="status_error_define_8h" startline="82">errGPIOGetValue</references>
+        <references refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" compoundref="csv_8cpp" startline="587" endline="590">getActivation</references>
+        <references refid="csv_8cpp_1ab23dd7339a925518cc7ccb9c8ff617c9" compoundref="csv_8cpp" startline="487" endline="490">getValeur</references>
+        <references refid="opl_8cpp_1ad0b902027740ec16636d93ee162aeb5d" compoundref="opl_8cpp" startline="122" endline="125">getValues_In_CN</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94aa0f22b79ff1056e5dbd2add0afba892c" compoundref="status_error_define_8h" startline="27">infoAllDependNotActivated</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a9ae1f6622501f46a2c7dbcf1217a700b" compoundref="status_error_define_8h" startline="25">infoNoDepend</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94adcffca0fc897e7e44bc66c6f47ae8a1e" compoundref="status_error_define_8h" startline="26">infoValveAlreadyActivated</references>
+        <references refid="classvalve_1ae69c309265ce0269e0207043fb6b06ca" compoundref="valve_8cpp" startline="301" endline="363">isDependanceActive</references>
+        <references refid="classvalve_1a5dae9e8165e79289e59e2426f9d75d29" compoundref="valve_8cpp" startline="390" endline="401">isTimerExeeded</references>
+        <references refid="status_error_define_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911af2ff5ec687c78928f81c2842750e3f67" compoundref="status_error_define_8h" startline="100">manual</references>
+        <references refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" compoundref="config_define_8h" startline="26">MAX_VALVES</references>
+        <references refid="opl_8cpp_1a2618e89b4c26dc851feae865df3a1a49" compoundref="opl_8cpp" startline="16">mode</references>
+        <references refid="opl_8cpp_1ae734e3ff803ba9ee9ce69f720764c48a" compoundref="opl_8cpp" startline="20">nbValuesCN_In_ByCN</references>
+        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <references refid="classvalve_1a17fdfe4c2fe56901e25e94f7af0a0a86" compoundref="valve_8cpp" startline="372" endline="380">startTimerDependance</references>
+        <references refid="valve_8cpp_1af18a1c02404999c7ccfe789b84c4a817" compoundref="valve_8cpp" startline="30">timerStarted</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classvalve_1ae69c309265ce0269e0207043fb6b06ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef valve::isDependanceActive</definition>
+        <argsstring>(int ligne)</argsstring>
+        <name>isDependanceActive</name>
+        <qualifiedname>valve::isDependanceActive</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>ligne</declname>
+        </param>
+        <briefdescription>
+<para>function to check if every dependance of a valve is activated according to the array of dependance from a general state CSV file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ligne</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the line in the general state CSV file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>statusErrDef that values errGPIOGetValue when the getter of a gpio line value fails or infoValveAlreadyActivated when every dependances or errGPIODependValue when the getter of a gpio line dependance value fails or infoAllDependNotActivated when all the dependances of a valve are not activated. or errDependOutsideOfRange when a dependance is not among the valves of the same board. or infoNoDepend when the valve has no dependances. or noError when the function exits successfully. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="38" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="301" bodyend="363"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a214fda571451d3d8b705490f276a81ce" compoundref="status_error_define_8h" startline="84">errDependOutsideOfRange</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94af034509b765efa4ee9fc365cc6db4943" compoundref="status_error_define_8h" startline="83">errGPIODependValue</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab6044186bf03edb2f4ae79d23c664644" compoundref="status_error_define_8h" startline="82">errGPIOGetValue</references>
+        <references refid="csv_8cpp_1a8a1a11a2771226955ece875f170f2f0c" compoundref="csv_8cpp" startline="498" endline="513">getDependanceVannes</references>
+        <references refid="csv_8cpp_1ab23dd7339a925518cc7ccb9c8ff617c9" compoundref="csv_8cpp" startline="487" endline="490">getValeur</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94aa0f22b79ff1056e5dbd2add0afba892c" compoundref="status_error_define_8h" startline="27">infoAllDependNotActivated</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a9ae1f6622501f46a2c7dbcf1217a700b" compoundref="status_error_define_8h" startline="25">infoNoDepend</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94adcffca0fc897e7e44bc66c6f47ae8a1e" compoundref="status_error_define_8h" startline="26">infoValveAlreadyActivated</references>
+        <references refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" compoundref="config_define_8h" startline="26">MAX_VALVES</references>
+        <references refid="opl_8cpp_1a38621a01003975db3d4d97d7c7b5c874" compoundref="opl_8cpp" startline="18">nbValuesCN_In</references>
+        <references refid="opl_8cpp_1ae734e3ff803ba9ee9ce69f720764c48a" compoundref="opl_8cpp" startline="20">nbValuesCN_In_ByCN</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <referencedby refid="classvalve_1a1364f1770f8218d7a0077ca2a953371b" compoundref="valve_8cpp" startline="208" endline="280">verifDependanceValves</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classvalve_1a17fdfe4c2fe56901e25e94f7af0a0a86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t valve::startTimerDependance</definition>
+        <argsstring>(int ligne)</argsstring>
+        <name>startTimerDependance</name>
+        <qualifiedname>valve::startTimerDependance</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>ligne</declname>
+          <defname>valveNum</defname>
+        </param>
+        <briefdescription>
+<para>function to start the timer when all the dependances of a valve are activated. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>valveNum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the valve number </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if the timer starts successfully </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="39" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="372" bodyend="380"/>
+        <references refid="valve_8cpp_1a7af143dbf44fa3c96fedf51b19e7b494" compoundref="valve_8cpp" startline="26">beginTimer</references>
+        <references refid="valve_8cpp_1af18a1c02404999c7ccfe789b84c4a817" compoundref="valve_8cpp" startline="30">timerStarted</references>
+        <referencedby refid="classvalve_1a1364f1770f8218d7a0077ca2a953371b" compoundref="valve_8cpp" startline="208" endline="280">verifDependanceValves</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classvalve_1a5dae9e8165e79289e59e2426f9d75d29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t valve::isTimerExeeded</definition>
+        <argsstring>(int ligne)</argsstring>
+        <name>isTimerExeeded</name>
+        <qualifiedname>valve::isTimerExeeded</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>ligne</declname>
+          <defname>valveNum</defname>
+        </param>
+        <briefdescription>
+<para>function to check if the current value of a timer has exceeded the timer value from a general state CSV file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>valveNum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the valve number </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if the value has been exceeded, 1 if not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="40" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="390" bodyend="401"/>
+        <references refid="valve_8cpp_1a7af143dbf44fa3c96fedf51b19e7b494" compoundref="valve_8cpp" startline="26">beginTimer</references>
+        <references refid="valve_8cpp_1a718c1d403150a0052fdc750073ecede8" compoundref="valve_8cpp" startline="28">currentTime</references>
+        <references refid="valve_8cpp_1ab5efa5af4f5d074f434d5f7a433146af" compoundref="valve_8cpp" startline="26">endTimer</references>
+        <references refid="csv_8cpp_1a42f02acae60cc52772c5933fd490bac0" compoundref="csv_8cpp" startline="521" endline="524">getTimerVannes</references>
+        <references refid="opl_8cpp_1ae734e3ff803ba9ee9ce69f720764c48a" compoundref="opl_8cpp" startline="20">nbValuesCN_In_ByCN</references>
+        <referencedby refid="classvalve_1a1364f1770f8218d7a0077ca2a953371b" compoundref="valve_8cpp" startline="208" endline="280">verifDependanceValves</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classvalve_1a3db8975d7c2cc46b33fd65e683e8c6df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
+        <definition>statusErrDef valve::extinctValve</definition>
+        <argsstring>()</argsstring>
+        <name>extinctValve</name>
+        <qualifiedname>valve::extinctValve</qualifiedname>
+        <briefdescription>
+<para>function to shutdown the valve module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>statusErrDef that values errValueInitIsNotBinary when a value is not 0 or 1 or errGPIOSetInitValue when an initial valve value is not set to a line or errGPIORelease when a gpio line fails to be released or noError when the function exits successfully. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="41" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="413" bodyend="438"/>
+        <references refid="classvalve_1a82140bbfd1329eea0100b8359cc9ebc2" compoundref="valve_8cpp" startline="117" endline="146">actionnementValvesInit</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a117109c04d16b697e197f21a45362fec" compoundref="status_error_define_8h" startline="87">errGPIORelease</references>
+        <references refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" compoundref="csv_8cpp" startline="587" endline="590">getActivation</references>
+        <references refid="valve_8h_1ad4e5b817af0b9501d2a6e6deb0c89445" compoundref="valve_8cpp" startline="465" endline="481">getValvesInitValue</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
+        <references refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" compoundref="config_define_8h" startline="26">MAX_VALVES</references>
+        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>valve module class. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="29" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" bodystart="30" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classvalve_1aac2cd5441d1c1a1180e18af2468a4547" prot="public" virt="non-virtual"><scope>valve</scope><name>actionnementValve</name></member>
+      <member refid="classvalve_1a82140bbfd1329eea0100b8359cc9ebc2" prot="public" virt="non-virtual"><scope>valve</scope><name>actionnementValvesInit</name></member>
+      <member refid="classvalve_1a3db8975d7c2cc46b33fd65e683e8c6df" prot="public" virt="non-virtual"><scope>valve</scope><name>extinctValve</name></member>
+      <member refid="classvalve_1a86e16a5cc95d9bec4ee8eec6722760fe" prot="public" virt="non-virtual"><scope>valve</scope><name>initValve</name></member>
+      <member refid="classvalve_1ae69c309265ce0269e0207043fb6b06ca" prot="public" virt="non-virtual"><scope>valve</scope><name>isDependanceActive</name></member>
+      <member refid="classvalve_1a5dae9e8165e79289e59e2426f9d75d29" prot="public" virt="non-virtual"><scope>valve</scope><name>isTimerExeeded</name></member>
+      <member refid="classvalve_1a17fdfe4c2fe56901e25e94f7af0a0a86" prot="public" virt="non-virtual"><scope>valve</scope><name>startTimerDependance</name></member>
+      <member refid="classvalve_1af2362056385e00eb0477c7d57836572d" prot="public" virt="non-virtual"><scope>valve</scope><name>valve</name></member>
+      <member refid="classvalve_1a1364f1770f8218d7a0077ca2a953371b" prot="public" virt="non-virtual"><scope>valve</scope><name>verifDependanceValves</name></member>
+      <member refid="classvalve_1ad13f3b2288a13ef68ff1b5bdb87077c2" prot="public" virt="virtual"><scope>valve</scope><name>~valve</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

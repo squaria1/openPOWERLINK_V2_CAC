@@ -1,8 +1,18 @@
+/**
+ * \file opl.cpp
+ * \brief Module to communicate with the master board using OpenPOWERLINK
+ * \author Mael Parot
+ * \version 1.1
+ * \date 11/04/2024
+ *
+ * Contains all functions related to communicating with the master board
+ * using OpenPOWERLINK, transfer sensors, valves values and recieve orders from the master.
+ */
+
 #include "opl.h"
 
-uint8_t              mode;
+Mode                 mode = automatic;
 int                  cmptEG;
-
 const uint16_t       nbValuesCN_Out = SIZE_OUT / NB_NODES - 2;
 const uint16_t       nbValuesCN_In = SIZE_IN / NB_NODES - 1;
 
@@ -17,51 +27,29 @@ opl::~opl()
 }
 
 
-int16_t opl::demandeExtinctOPL()
-{
-    processSync();
-    
-    if (values_Out_MN_l[0] == 0x1FFF)
-    {
-        printf("\n\n values_Out_MN_l[0] : %d \n\n", values_Out_MN_l[0]);
-        printf("\n\n extinction ! \n\n");
-        return 0;
-    }
-    else
-        return 1;
-
-}
-
-void opl::sendTelem()
-{
-
-}
-
-void opl::sendError()
-{
-
-}
-
-void setValues_In_MN(int ligne, int16_t valeur)
-{
-        values_In_MN_l[ligne] = valeur;
-}
-
 int16_t* getValues_In_MN()
 {
     return values_In_MN_l;
 }
 
+/**
+ * \brief function setter of the values
+ * coming out of the MN namely, the general state order 
+ * and valve values in manual mode to the CNs.
+ * 
+ * \param ligne the location in the PI_IN structure
+ * \param valeur the manual valve value to set
+ */
 void setValues_Out_MN(int ligne, int16_t valeur)
 {
-        values_Out_MN_l[ligne] = valeur;
+    values_Out_MN_l[ligne] = valeur;
 }
 
-int16_t* getValues_Out_MN()
-{
-    return values_Out_MN_l;
-}
-
+/**
+ * \brief function setter to fill the activation array
+ * from the CSV activation file "activation.csv"
+ * 
+ */
 void setActivated_In_MN()
 {
     for (int i = 0; i < SIZE_OUT + 1; i++)
@@ -70,6 +58,11 @@ void setActivated_In_MN()
     }
 }
 
+/**
+ * \brief function setter of the current general state (EG)
+ * 
+ * \param EG the current general state (EG)
+ */
 void setEG(int16_t EG)
 {
     for (int i = 0; i < SIZE_IN; i++)
@@ -79,11 +72,11 @@ void setEG(int16_t EG)
     }
 }
 
-int16_t getTest()
-{
-    return values_Out_MN_l[1];
-}
-
+/**
+ * \brief function to display in the console
+ * the values coming from the CNs
+ * 
+ */
 void affValeursIn()
 {
     printf("\n-------------IN MN--------------\n");
@@ -94,6 +87,11 @@ void affValeursIn()
     printf("\n--------------------------------\n");
 }
 
+/**
+ * \brief function to display in the console
+ * the raw values coming from the CNs
+ * 
+ */
 void affValeursInProcess()
 {
     printf("\n-------------IN PROCESS MN--------------\n");
@@ -104,7 +102,11 @@ void affValeursInProcess()
     printf("\n--------------------------------\n");
 }
 
-
+/**
+ * \brief function to display in the console
+ * the raw values coming out of the MN
+ * 
+ */
 void affValeursOutProcess()
 {
     printf("\n-------------OUT PROCESS MN--------------\n");
@@ -115,6 +117,11 @@ void affValeursOutProcess()
     printf("\n--------------------------------\n");
 }
 
+/**
+ * \brief function to display in the console
+ * the values coming out of the MN
+ * 
+ */
 void affValeursOut()
 {
     printf("\n------------OUT MN--------------\n");
@@ -125,6 +132,11 @@ void affValeursOut()
     printf("\n--------------------------------\n");
 }
 
+/**
+ * \brief function to cycle through some general states to test
+ * the MN and CNs programs for the early versions.
+ * 
+ */
 void changeEG()
 {
     int sel = cmptEG % 5;
@@ -150,22 +162,34 @@ void changeEG()
     cmptEG++;
 }
 
+/**
+ * \brief function to switch between 
+ * automatic and manual modes.
+ * 
+ */
 void setEGToManualMode()
 {
-    if (mode == 0)
+    if (mode == automatic)
     {
-        mode = 1;
+        mode = manual;
         setEG(infoStateToManualMode);
     }
-    else if (mode == 1)
+    else if (mode == manual)
     {
-        mode = 0;
+        mode = automatic;
         setEG(1);
     }
 
     printf("\n\nmode : %d\n\n", mode);
 }
 
+/**
+ * \brief function to set to 0 or 1 a valve value of a CN
+ * when mode is set to manual mode.
+ * 
+ * \param nodeId the id of the CN
+ * \param valve the valve number (from 0 to 11)
+ */
 void manualActivation(int nodeId, int valve)
 {
     printf("\nOld value for valve[%d] : %d, nodeId : %d\n", valve + (nbValuesCN_In + 1) * (nodeId - 1),
@@ -179,10 +203,30 @@ void manualActivation(int nodeId, int valve)
 
 
 //------------------------------------------------------------------------------
-// local function prototypes
+// OpenPOWERLINK stack and module functions
 //------------------------------------------------------------------------------
 
-
+/**
+ * \brief function to initialize the CN OpenPOWERLINK module
+ * 
+ * \return statusErrDef that values errOPLSystemInit
+ * when OpenPOWERLINK fails to set the correct configuration
+ * for the current operating system.
+ * or errInitFirmwareManager when the firmware manager to
+ * check dependances of the operating system fails to initialize
+ * or errSelNetInterface when the selection
+ * of the network interface fails when
+ * in a Windows machine can be caused by the absence of WinPcap.
+ * or errInitObjDictionary when the object dictionary header file (objdict.h)
+ * has incorrect values or syntax.
+ * or errOplkInit when the OpenPOWERLINK stack fails maybe because the stack is
+ * not found by the application, check the CN .lib files.
+ * or errOplkCreate when the OpenPOWERLINK stack fails to create a new instance
+ * or errOplkAllocProcessImage when the allocation of the input
+ * and/or output structure doesn't exist in the objdict.h file
+ * or errSendNMTResetCommand when the OpenPOWERLINK reset command fails
+ * or noError when the function exits successfully. 
+ */
 statusErrDef initOPL()
 {
     statusErrDef    res = noError;
@@ -259,17 +303,20 @@ statusErrDef initOPL()
     return noError;
 }
 
-//------------------------------------------------------------------------------
 /**
 \brief  Initialize the synchronous data application
 
 The function initializes the synchronous data application
 
-\return The function returns a tOplkError error code.
+\return statusErrDef that values errOplkAllocProcessImage
+when the allocation of the input and/or output structure 
+doesn't exist in the objdict.h file
+or errSetupProcessImage when the input and/or output structure
+are not the same with the mnobd.cdc file
+or noError when the function exits successfully.
 
 \ingroup module_demo_mn_console
 */
-//------------------------------------------------------------------------------
 statusErrDef initApp(void)
 {
     statusErrDef res = noError;
@@ -288,7 +335,7 @@ statusErrDef initApp(void)
         values_Out_MN_l[i] = 0;
     }
 
-    mode = 0;
+    mode = automatic;
     setEG(1);
 
     memset(&pProcessImageOut_l, 0, sizeof(pProcessImageOut_l));
@@ -298,7 +345,6 @@ statusErrDef initApp(void)
 }
 
 
-//------------------------------------------------------------------------------
 /**
 \brief  Initialize the openPOWERLINK stack
 
@@ -309,9 +355,17 @@ The function initializes the openPOWERLINK stack.
 \param[in]      devName_p           Device name string.
 \param[in]      macAddr_p           MAC address to use for POWERLINK interface.
 
-\return The function returns a tOplkError error code.
+\return statusErrDef that values errSelNetInterface
+when the selection of the network interface fails when
+in a Windows machine can be caused by the absence of WinPcap.
+or errInitObjDictionary when the object dictionary header file (objdict.h)
+has incorrect values or syntax.
+or errOplkInit when the OpenPOWERLINK stack fails maybe because the stack is
+not found by the application, check the CN .lib files.
+or errOplkCreate when the OpenPOWERLINK stack fails to create a new instance
+or errOplkSetCDCFileName when the mnobd.cdc file is not found or is incorrect
+or noError when the function exits successfully. 
 */
-//------------------------------------------------------------------------------
 statusErrDef initPowerlink(UINT32 cycleLen_p,
                               const char* cdcFileName_p,
                               const char* devName_p,
@@ -437,6 +491,16 @@ statusErrDef initPowerlink(UINT32 cycleLen_p,
     return noError;
 }
 
+/**
+ * \brief function to check if the OpenPOWERLINK stack
+ * crashed or a termination signal has been received from
+ * the OS app manager.
+ * 
+ * \return statusErrDef that values errSystemSendTerminate
+ * if a termination signal has been received 
+ * or errOplKernelStackDown if the OpenPOWERLINK stack crashed
+ * or noError when the function exits successfully. 
+ */
 statusErrDef checkStateOpl()
 {
     if (system_getTermSignalState() != FALSE)
@@ -458,14 +522,16 @@ statusErrDef checkStateOpl()
     return noError;
 }
 
-//------------------------------------------------------------------------------
 /**
 \brief  
 
 - It creates the sync thread which is responsible for the synchronous data
   application.
+
+\return statusErrDef that values errSendNMTResetCommand
+when the OpenPOWERLINK reset command fails
+or noError when the function exits successfully. 
 */
-//------------------------------------------------------------------------------
 statusErrDef initOplThread()
 {
     tOplkError  ret = kErrorOk;
@@ -487,7 +553,6 @@ statusErrDef initOplThread()
 
 }
 
-//------------------------------------------------------------------------------
 /**
 \brief  Synchronous data handler
 
@@ -497,7 +562,6 @@ The function implements the synchronous data handler.
 
 \ingroup module_demo_mn_console
 */
-//------------------------------------------------------------------------------
 tOplkError processSync(void)
 {
     tOplkError  ret;
@@ -514,19 +578,6 @@ tOplkError processSync(void)
 
     int a = 0;
     //Process PI_OUT --> variables entrant dans le MN
-    //for (int i = 0; i < NB_NODES; i++) {
-    //    a = (nbValuesCN_Out + 2) * i;
-    //    values_In_MN_l[a] = pProcessImageOut_l->out_MN_array[a];
-    //    for (int j = 0; j < nbValuesCN_Out - i; j++) {
-    //        if(activated_In_MN_l[a + j + 2])
-    //         values_In_MN_l[a + j + 1] = pProcessImageOut_l->out_MN_array[a + j + i + 2];
-    //    }
-    //}
-
-    //for (int i = 0; i < SIZE_OUT; i++)
-    //{
-    //    values_In_MN_l[i] = i;
-    //}
 
     //Process PI_IN --> variables sortant du MN
     for (int i = 0; i < SIZE_IN; i++)
@@ -535,33 +586,11 @@ tOplkError processSync(void)
             pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
     }
 
-    //int skipSensorsOutFromIn = 0, skipEC = 0;
     switch (mode)
     {
-    case 0: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
-        //for (int i = 0; i < SIZE_IN; i++)
-        //{
-        //    if (i % (nbValuesCN_In) == 0 && i != 0)
-        //    {
-        //        skipSensorsOutFromIn += nbValuesCN_In + 1;
-        //        skipEC += 1;
-        //    }
-        //    else if (activated_In_MN_l[i + skipSensorsOutFromIn + 1] && i != 0)
-        //    {
-        //        values_Out_MN_l[i + skipEC] = values_In_MN_l[i + skipSensorsOutFromIn];
-        //        pProcessImageIn_l->in_MN_array[i + skipEC] = values_Out_MN_l[i + skipEC];
-        //    }
-        //}
+    case automatic: // mode automatique : lecture de l'état des vannes depuis le CSV de l'etat general actuel
         break;
-    case 1: // mode manuel : l'état des vannes proviennent directement du MN
-        //a = 0;
-        //for (int i = 0; i < NB_NODES; i++) {
-        //    a = (nbValuesCN_In + 1) * i;
-        //    pProcessImageIn_l->in_MN_array[a] = values_Out_MN_l[a];
-        //    for (int j = 0; j < nbValuesCN_In - 1 - i; j++) {
-        //        pProcessImageIn_l->in_MN_array[a + j + i + 2] = values_Out_MN_l[a + j + 1];
-        //    }
-        //}
+    case manual: // mode manuel : l'état des vannes proviennent directement du MN
         for (int i = 1; i < SIZE_IN; i++) {
             if (i % (nbValuesCN_In + 1) != 0)
                 pProcessImageIn_l->in_MN_array[i] = values_Out_MN_l[i];
@@ -576,15 +605,18 @@ tOplkError processSync(void)
     return ret;
 }
 
-//------------------------------------------------------------------------------
 /**
 \brief  Initialize process image
 
 The function initializes the process image of the application.
 
-\return The function returns a tOplkError error code.
+\return statusErrDef that values errOplkAllocProcessImage
+when the allocation of the input and/or output structure 
+doesn't exist in the objdict.h file
+or errSetupProcessImage when the input and/or output structure
+are not the same with what is inside the mnobd.cdc file
+or noError when the function exits successfully.
 */
-//------------------------------------------------------------------------------
 statusErrDef initProcessImage(void)
 {
     tOplkError  ret = kErrorOk;
@@ -620,6 +652,13 @@ statusErrDef initProcessImage(void)
     return noError;
 }
 
+/**
+ * \brief function to shutdown the OpenPOWERLINK module.
+ * 
+ * \return statusErrDef that values errOplkFreeProcessImage
+ * when the freeing of memory of the OpenPOWERLINK fails.
+ * or noError when the function exits successfully.
+ */
 statusErrDef extinctOPL()
 {
     statusErrDef res = noError;
@@ -631,17 +670,17 @@ statusErrDef extinctOPL()
     return res;
 }
 
-//------------------------------------------------------------------------------
 /**
 \brief  Shutdown the synchronous data application
 
 The function shuts down the synchronous data application
 
-\return The function returns a tOplkError error code.
+\return statusErrDef that values errOplkFreeProcessImage
+when the freeing of memory of the OpenPOWERLINK fails.
+or noError when the function exits successfully.
 
 \ingroup module_demo_mn_console
 */
-//------------------------------------------------------------------------------
 statusErrDef shutdownOplImage()
 {
     tOplkError  ret;
@@ -659,6 +698,11 @@ statusErrDef shutdownOplImage()
     return noError;
 }
 
+/**
+\brief  Shutdown the demo application
+
+The function shuts down the demo application.
+*/
 void shutdownPowerlink(void)
 {
     UINT        i;

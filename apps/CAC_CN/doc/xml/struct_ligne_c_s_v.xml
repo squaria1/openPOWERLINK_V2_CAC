@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="struct_ligne_c_s_v" kind="struct" language="C++" prot="public">
+    <compoundname>LigneCSV</compoundname>
+    <includes refid="csv_8h" local="no">csv.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_ligne_c_s_v_1a77112e0a8c052d82fcfce6a743c78a75" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LigneCSV::valeur[MAX_LINE_SIZE]</definition>
+        <argsstring>[MAX_LINE_SIZE]</argsstring>
+        <name>valeur</name>
+        <qualifiedname>LigneCSV::valeur</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="24" column="13" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_ligne_c_s_v_1a95e7740f7fa9635c25fc409817f9178c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LigneCSV::dependanceVannes[MAX_LINE_SIZE][MAX_VALVES]</definition>
+        <argsstring>[MAX_LINE_SIZE][MAX_VALVES]</argsstring>
+        <name>dependanceVannes</name>
+        <qualifiedname>LigneCSV::dependanceVannes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="25" column="13" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_ligne_c_s_v_1a0b58ddaf08c19c940b424751ea4bf029" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double LigneCSV::timerVannes[MAX_LINE_SIZE]</definition>
+        <argsstring>[MAX_LINE_SIZE]</argsstring>
+        <name>timerVannes</name>
+        <qualifiedname>LigneCSV::timerVannes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="26" column="16" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="23" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="23" bodyend="27"/>
+    <listofallmembers>
+      <member refid="struct_ligne_c_s_v_1a95e7740f7fa9635c25fc409817f9178c" prot="public" virt="non-virtual"><scope>LigneCSV</scope><name>dependanceVannes</name></member>
+      <member refid="struct_ligne_c_s_v_1a0b58ddaf08c19c940b424751ea4bf029" prot="public" virt="non-virtual"><scope>LigneCSV</scope><name>timerVannes</name></member>
+      <member refid="struct_ligne_c_s_v_1a77112e0a8c052d82fcfce6a743c78a75" prot="public" virt="non-virtual"><scope>LigneCSV</scope><name>valeur</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

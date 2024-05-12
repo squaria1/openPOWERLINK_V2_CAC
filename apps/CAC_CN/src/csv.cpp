@@ -2,7 +2,7 @@
  * \file csv.cpp
  * \brief Module to read CSV configuration files
  * \author Mael Parot, Benoit Brice
- * \version 1
+ * \version 1.1
  * \date 11/04/2024
  *
  * Contains all functions related to reading CSV files and 
@@ -119,7 +119,8 @@ statusErrDef initCSV()
  * \brief function to get values of the new general state CSV and 
  * "liaisonEGEtat.csv"
  * 
- * \return statusErrDef that values errAllocDataEG, errAllocDataEtats,
+ * \return statusErrDef that values errAllocDataEG
+ , errAllocDataEtats,
  * in case of a malloc allocation error
  * or noError when the function exits successfully.
  */

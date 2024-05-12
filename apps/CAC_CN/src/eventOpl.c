@@ -1,6 +1,6 @@
 /**
 ********************************************************************************
-\file   event.c
+\file   eventOpl.c
 
 \brief  CN application event handler
 
