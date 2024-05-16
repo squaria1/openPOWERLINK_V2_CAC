@@ -1,10 +1,11 @@
 #ifndef CONFIGOPL_H
 #define CONFIGOPL_H
 
+#include "nbNodes.h"
+
 // OPL
 #define CYCLE_LEN           UINT_MAX
 #define NODEID              0xF0                //=> MN
-#define NB_NODES            3
 #define IP_ADDR             0xc0a801F0          // 192.168.100.1
 #define SUBNET_MASK         0xFFFFFF00          // 255.255.255.0
 #define DEFAULT_GATEWAY     0xC0A864FE          // 192.168.100.C_ADR_RT1_DEF_NODE_ID
@@ -19,10 +20,10 @@
 #define CDCFILE					"mnobd.cdc"
 
 // xapOpl
-#define COMPUTED_PI_OUT_SIZE 152
-#define SIZE_OUT 75
-#define COMPUTED_PI_IN_SIZE 80
-#define SIZE_IN 39
+#define SIZE_OUT    (NB_NODES * 25)
+#define SIZE_IN     (NB_NODES * 13)
+#define COMPUTED_PI_OUT_SIZE   ((SIZE_OUT + 1) * 2)
+#define COMPUTED_PI_IN_SIZE    ((SIZE_IN + 1) * 2)
 
 // CSV
 #define MAX_PATH_LENGTH 1024
