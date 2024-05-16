@@ -29,7 +29,6 @@ int main() {
     valve           valve;
     sensor          sensor;
     char            cKey = 0;
-    BOOL            fExit = FALSE;
     statusErrDef    res = noError;
 
     
@@ -85,7 +84,6 @@ int main() {
                     file.writeError("Sensor subsystem initialization has failed!", res);
                     opl.sendError(res);
                 }
-                
                 #endif
 
                 system_msleep(DELAYMSINIT);
@@ -124,7 +122,6 @@ int main() {
                         break;
                     }
                 }
-
                 res = isEGchanged();
                 if (res == noError)
                 {

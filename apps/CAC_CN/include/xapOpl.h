@@ -8,6 +8,7 @@
 
 #include <stdint.h>
 #include "configDefine.h"
+#include "nodeId.h"
 
 typedef struct
 {

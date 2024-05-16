@@ -27,14 +27,18 @@ extern "C"
     };
 
     struct LigneVannes {
-        uint8_t etatInitial[MAX_PHYSICAL_LINE_SIZE];
-        uint8_t portGPIO[MAX_PHYSICAL_LINE_SIZE];
+        uint8_t etatInitial[2*MAX_VALVES];
+        uint8_t portGPIO[2*MAX_VALVES];
     };
 
     struct LigneSensors {
-        uint8_t etatInitial[MAX_PHYSICAL_LINE_SIZE];
-        float minValue[MAX_PHYSICAL_LINE_SIZE];
-        float maxValue[MAX_PHYSICAL_LINE_SIZE];
+        uint8_t  type[2*MAX_SENSORS];
+        uint16_t modbusAddrRemoteSlave[2*MAX_SENSORS];
+        uint16_t modbusStartAddress[2*MAX_SENSORS];
+        uint32_t modbusBaudRate[2*MAX_SENSORS];
+        char     modbusParity[2*MAX_SENSORS];
+        uint16_t modbusDataBits[2*MAX_SENSORS];
+        uint16_t modbusStopBit[2*MAX_SENSORS];
     };
 
     struct LigneActivation {
@@ -66,10 +70,15 @@ extern "C"
     int* getDependanceVannes(int ligne);
     double getTimerVannes(int ligne);
     uint8_t getEtatInitialVannes(int ligne);
-    uint8_t getEtatInitialSensors(int ligne);
     uint8_t getPortGPIO(int ligne);
-    float getMinValue(int ligne);
-    float getMaxValue(int ligne);
+    uint8_t getSensorType(int ligne);
+    uint16_t getModbusAddrRemoteSlave(int ligne);
+    uint16_t getModbusStartAddress(int ligne);
+    uint16_t getModbusNbRegisters(int ligne);
+    uint32_t getModbusBaudRate(int ligne);
+    char getModbusParity(int ligne);
+    uint16_t getModbusDataBits(int ligne);
+    uint16_t getModbusStopBit(int ligne);
     uint8_t getActivation(int ligne);
     int16_t getEGcsv(int ligne);
     const char* getNomFichiercsv();

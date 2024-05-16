@@ -576,8 +576,11 @@ tOplkError processSync(void)
 
     cnt_l++;
 
-    int a = 0;
     //Process PI_OUT --> variables entrant dans le MN
+    for (int i = 0; i < SIZE_OUT; i++)
+    {
+        values_In_MN_l[i] = pProcessImageOut_l->out_MN_array[i];
+    }
 
     //Process PI_IN --> variables sortant du MN
     for (int i = 0; i < SIZE_IN; i++)

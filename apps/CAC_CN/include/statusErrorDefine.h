@@ -109,7 +109,7 @@ extern Mode mode;
 typedef enum
 {
     init, 								/**< Initialize all modules with status and error telemetry. */
-    control, 							/**< Activate valves and read sensors values. */
+	controlAndAcquisition, 				/**< Activate valves and read sensors values. */
     shutdown, 							/**< Shutdown all modules with status and error telemetry. */
     ending, 							/**< Stop the program. */
 } stateDef;

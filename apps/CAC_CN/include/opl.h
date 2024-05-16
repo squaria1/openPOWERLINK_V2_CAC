@@ -84,21 +84,6 @@ extern "C"
     void                affValeursOut();
 
     //------------------------------------------------------------------------------
-    // local vars
-    //------------------------------------------------------------------------------
-    static const UINT8             aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-    static BOOL                    fGsOff_l;
-
-    /* process image */
-    static const PI_IN*            pProcessImageIn_l;
-    static PI_OUT*                 pProcessImageOut_l;
-
-    /* application variables */
-    static int16_t                 values_In_CN_l[SIZE_IN];
-    static int16_t                 values_Out_CN_l[SIZE_OUT];
-    static bool                    activated_Out_CN_l[SIZE_OUT+2];
-
-    //------------------------------------------------------------------------------
     // global vars
     //------------------------------------------------------------------------------
     extern int16_t              EG;

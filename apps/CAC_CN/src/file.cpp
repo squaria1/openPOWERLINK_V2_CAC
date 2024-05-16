@@ -13,6 +13,8 @@
 
 file::file()
 {
+    pathFile = "";
+    dataFile;
     //constructor
 }
 

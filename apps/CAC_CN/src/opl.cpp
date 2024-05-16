@@ -19,6 +19,21 @@ const uint16_t       nbValuesCN_In = SIZE_IN / NB_NODES - 1;
 const uint16_t       nbValuesCN_Out_ByCN = (SIZE_OUT / NB_NODES) * (NODEID - 1);
 const uint16_t       nbValuesCN_In_ByCN = (SIZE_IN / NB_NODES) * (NODEID - 1);
 
+//------------------------------------------------------------------------------
+// local vars
+//------------------------------------------------------------------------------
+static const UINT8             aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static BOOL                    fGsOff_l;
+
+/* process image */
+static const PI_IN* pProcessImageIn_l;
+static PI_OUT* pProcessImageOut_l;
+
+/* application variables */
+static int16_t                 values_In_CN_l[SIZE_IN];
+static int16_t                 values_Out_CN_l[SIZE_OUT];
+static bool                    activated_Out_CN_l[SIZE_OUT + 2];
+
 opl::opl()
 {
 
@@ -38,7 +53,7 @@ opl::~opl()
  */
 statusErrDef opl::demandeExtinctOPL()
 {
-    if (values_In_CN_l[nbValuesCN_Out_ByCN] == infoStopOrderReceived)
+    if (values_In_CN_l[nbValuesCN_In_ByCN] == infoStopOrderReceived)
         return infoStopOrderReceived;
     else
         return infoNoStopOrder;
@@ -132,12 +147,15 @@ int16_t getValues_In_CN(int ligne)
 void setValues_Out_CN()
 {
     values_Out_CN_l[nbValuesCN_Out_ByCN] = EC;
+
     for (int i = 0; i < MAX_VALVES; i++) { //0 taille tab de benoit
-        values_Out_CN_l[i + nbValuesCN_Out_ByCN + 1] = getValveValue(i + nbValuesCN_In_ByCN + 2);
+        if (activated_Out_CN_l[i + nbValuesCN_Out_ByCN + 2])
+            values_Out_CN_l[i + nbValuesCN_Out_ByCN + 1] = getValveValue(i + nbValuesCN_In_ByCN + 2);
     }
 
     for (int i = 0; i < MAX_SENSORS; i++) { //0 taille tab de benoit
-        values_Out_CN_l[i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 + 1] = getAdc_value(i);
+        if (activated_Out_CN_l[i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 + 2])
+            values_Out_CN_l[i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 + 1] = getAdc_value(i);
     }
 }
 
@@ -293,11 +311,9 @@ statusErrDef initOPL()
     res = initProcessImage();
     if (res != noError)
         return res;
-
     res = initOplThread();
     if (res != noError)
         return res;
-
     return noError;
 }
 
@@ -467,10 +483,7 @@ statusErrDef initOplThread(void)
             ret);
         return errSendNMTResetCommand;
     }
-
     setupInputs();
-
-    processSync();
 
     return noError;
 }
@@ -527,7 +540,6 @@ tOplkError processSync()
     if (res != kErrorOk)
         return res;
 
-
     //Process PI_IN --> variables entrant dans le CN
     values_In_CN_l[nbValuesCN_In_ByCN] = pProcessImageIn_l->in_CN_array[nbValuesCN_In_ByCN];
 
@@ -551,7 +563,6 @@ tOplkError processSync()
     default:
         break;
     }
-
     //Process PI_OUT --> variables sortant du CN
     setValues_Out_CN();
 

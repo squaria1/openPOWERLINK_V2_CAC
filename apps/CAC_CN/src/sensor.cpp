@@ -11,11 +11,16 @@
 
 #include "sensor.h"
 
-static int opt, adc, i;
+static int i = 0, num = 0;
 static uint8_t tabSensorActivated[MAX_SENSORS];
 static int fd[MAX_SENSORS];
-static int abort_read;
+static int16_t valSensors[MAX_SENSORS];
 
+#if (TARGET_SYSTEM == _WIN32_)
+#else
+static modbus_t* ctx[MAX_SENSORS] = {};
+static uint16_t modbusReg[MODBUS_NBREG]; // will store read registers values
+#endif
 
 sensor::sensor()
 {
@@ -39,15 +44,37 @@ sensor::~sensor()
  */
 statusErrDef sensor::initSensor() {
     statusErrDef res = noError;
-    for (int i = 0; i < MAX_SENSORS; i++) 
-    {
-        tabSensorActivated[i] = getActivation(i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 + 2);
-    }
 
-    res = readChannels();
-    if (res != 0)
-        return res;
+    #if (TARGET_SYSTEM == _WIN32_)
+    #else
+        for (int i = 0; i < MAX_SENSORS; i++)
+        {
+            switch (getSensorType(i + 1))
+            {
+            case 1:
+                tabSensorActivated[i] = getActivation(i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 + 2);
+                break;
+            case 2:
+                ctx[i] = modbus_new_rtu(MODBUS_DEVICELOC, getModbusBaudRate(i+1), 
+                                        getModbusParity(i+1), getModbusDataBits(i+1), getModbusStopBit(i+1));
+                if (!ctx[i]) {
+                    fprintf(stderr, "Failed to create the context: %s\n", modbus_strerror(errno));
+                }
+                if (modbus_connect(ctx[i]) == -1) {
+                    fprintf(stderr, "Unable to connect: %s\n", modbus_strerror(errno));
+                    modbus_free(ctx[i]);
+                }
+                modbus_set_slave(ctx[i], getModbusAddrRemoteSlave(i+1));
+                break;
+            default:
+                break;
+            }
+        }
 
+        res = readChannels();
+        if (res != noError)
+            return res;
+    #endif
     return res;
 }
 
@@ -62,6 +89,18 @@ statusErrDef sensor::extinctSensor() {
     statusErrDef res = noError;
 
     closeAdc();
+
+#if (TARGET_SYSTEM == _WIN32_)
+#else
+    for (int i = 0; i < MAX_SENSORS; i++)
+    {
+        if (getSensorType(i + 1) == 2)
+        {
+            modbus_close(ctx[i]);
+            modbus_free(ctx[i]);
+        }
+    }
+    #endif
 
     return res;
 }
@@ -93,7 +132,7 @@ statusErrDef readChannels()
     memset(fd, 0, sizeof(fd));
     memset(valSensors, 0, sizeof(valSensors));
 
-    for (i = 0; i < MAX_SENSORS; i++) {
+    for (i = 0; i < MAX_ADC; i++) {
         if (tabSensorActivated[i]) {
             fd[i] = openAdc(i);
             if (fd[i] == ADC_READ_ERROR)
@@ -103,8 +142,8 @@ statusErrDef readChannels()
             }
         }
     }
-    
-    for (i = 0; i < MAX_SENSORS; i++) {
+
+    for (i = 0; i < MAX_ADC; i++) {
         if (!tabSensorActivated[i])
             continue;
 
@@ -122,6 +161,25 @@ statusErrDef readChannels()
 
     closeAdc();
 
+#if (TARGET_SYSTEM == _WIN32_)
+#else
+    for (int i = 0; i < MAX_SENSORS; i++)
+    {
+        if (getSensorType(i + 1) == 2)
+        {
+            num = modbus_read_registers(ctx[i], getModbusStartAddress(i+1), MODBUS_NBREG, modbusReg);
+            if (num != 1)// number of read registers is not the one expected
+                fprintf(stderr, "Failed to read: %s\n", modbus_strerror(errno));
+            else
+            {
+                printf("Modbus read registers success! \n");
+                valSensors[i] = modbusReg[0];
+            }
+        }
+    }
+
+    #endif
+
     return res;
 }
 
@@ -138,7 +196,7 @@ statusErrDef closeAdc()
     statusErrDef res = noError;
     int ret = 0;
 
-    for (i = 0; i < MAX_SENSORS; i++) {
+    for (i = 0; i < MAX_ADC; i++) {
         if (fd[i] > 0)
         {
             ret = close(fd[i]);

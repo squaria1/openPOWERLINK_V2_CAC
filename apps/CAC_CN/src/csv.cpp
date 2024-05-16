@@ -225,7 +225,6 @@ statusErrDef lireFichierEG(const char* fileName)
 statusErrDef lireFichierCSV(const char* dir) 
 {
     const char* nameCSV = getNomFichiercsv();
-    char cwd[MAX_PATH_LENGTH];
     printf("nameCSV: %s\n", nameCSV);
     if (nameCSV == NULL) 
     {
@@ -357,31 +356,36 @@ statusErrDef lireFichierActivation(const char* fileName)
 void remplirStructure(char* ligne, int id) 
 {
     char* token = strtok(ligne, ";");
-    int colonne = 0;
+    char* token2 = NULL;
+    int colonne = 0, i = 0, valeurDependance = 0;
 
     while (token != NULL) 
     {
-        if (colonne == 2) 
+        switch (colonne)
         {
+        case 2:
             if (atoi(token) == 0)
-                dataEtats->valeur[id] = NULL;
+                dataEtats->valeur[id] = 0;
             else
                 dataEtats->valeur[id] = atoi(token);
-        }
-        else if (colonne == 4) 
-        {
-            char* token2 = strtok(token, "|");
-            int i = 0;
-            while (token2 != NULL) 
+            break;
+        case 3:
+            dataEtats->timerVannes[id] = atof(token);
+            break;
+        case 4:
+            token2 = strtok(token, "|");
+            i = 0;
+            while (token2 != NULL)
             {
-                int valeurDependance = atoi(token2);
+                valeurDependance = atoi(token2);
                 dataEtats->dependanceVannes[id][i] = valeurDependance;
                 i++;
                 token2 = strtok(NULL, "|");
             }
+            break;
+        default:
+            break;
         }
-        else if (colonne == 3) 
-            dataEtats->timerVannes[id] = atof(token);
         colonne++;
         token = strtok(NULL, ";");
     }
@@ -400,10 +404,17 @@ void remplirStructureVannesPhysicalCONFIG(char* ligne, int id)
 
     while (token != NULL) 
     {
-        if (colonne == 2)
+        switch (colonne)
+        {
+        case 2:
             dataPhysicalConfigVannes->etatInitial[id] = atoi(token);
-        else if (colonne == 3)
+            break;
+        case 3:
             dataPhysicalConfigVannes->portGPIO[id] = atoi(token);
+            break;
+        default:
+            break;
+        }
         colonne++;
         token = strtok(NULL, ";");
     }
@@ -422,12 +433,32 @@ void remplirStructureSensorsPhysicalCONFIG(char* ligne, int id)
 
     while (token != NULL) 
     {
-        if (colonne == 2) 
-            dataPhysicalConfigSensors->etatInitial[id] = atoi(token);
-        else if (colonne == 3) 
-            dataPhysicalConfigSensors->minValue[id] = atof(token);
-        else if (colonne == 4) 
-            dataPhysicalConfigSensors->maxValue[id] = atof(token);
+        switch (colonne)
+        {
+        case 2:
+            dataPhysicalConfigSensors->type[id] = atoi(token);
+            break;
+        case 3:
+            dataPhysicalConfigSensors->modbusAddrRemoteSlave[id] = atoi(token);
+            break;
+        case 4:
+            dataPhysicalConfigSensors->modbusStartAddress[id] = atoi(token);
+            break;
+        case 5:
+            dataPhysicalConfigSensors->modbusBaudRate[id] = atoi(token);
+            break;
+        case 6:
+            dataPhysicalConfigSensors->modbusParity[id] = token[0];
+            break;
+        case 7:
+            dataPhysicalConfigSensors->modbusDataBits[id] = atoi(token);
+            break;
+        case 8:
+            dataPhysicalConfigSensors->modbusStopBit[id] = atoi(token);
+            break;
+        default:
+            break;
+        }
         colonne++;
         token = strtok(NULL, ";");
     }
@@ -466,12 +497,17 @@ void remplirEG(char* ligne, int id)
 
     while (token != NULL) 
     {
-        if (colonne == 0) 
-            dataEG->EG[id] = (int16_t)strtol(token, NULL, 0);
-        else if (colonne == 1) 
+        switch (colonne)
         {
+        case 0:
+            dataEG->EG[id] = (int16_t)strtol(token, NULL, 0);
+            break;
+        case 1:
             removeCarriageReturn(token);
             dataEG->nom[id] = strdup(token);
+            break;
+        default:
+            break;
         }
         colonne++;
         token = strtok(NULL, ";");
@@ -535,17 +571,6 @@ uint8_t getEtatInitialVannes(int ligne)
 }
 
 /**
- * \brief function getter of the initial value of a sensor
- * from "physicalCONFIG_sensors.csv"
- * \param ligne the line in the CSV file
- * \return uint8_t the initial value of the sensor
- */
-uint8_t getEtatInitialSensors(int ligne) 
-{
-    return dataPhysicalConfigSensors->etatInitial[ligne];
-}
-
-/**
  * \brief function getter of the GPIO port of a valve
  * from "physicalCONFIG_valves.csv"
  * \param ligne the line in the CSV file
@@ -556,26 +581,39 @@ uint8_t getPortGPIO(int ligne)
     return dataPhysicalConfigVannes->portGPIO[ligne];
 }
 
-/**
- * \brief function getter of the max value of a sensor
- * from "physicalCONFIG_sensors.csv"
- * \param ligne the line in the CSV file
- * \return uint8_t the max value of the sensor
- */
-float getMinValue(int ligne) 
+uint8_t getSensorType(int ligne)
 {
-    return dataPhysicalConfigSensors->minValue[ligne];
+    return dataPhysicalConfigSensors->type[ligne];
 }
 
-/**
- * \brief function getter of the min value of a sensor
- * from "physicalCONFIG_sensors.csv"
- * \param ligne the line in the CSV file
- * \return uint8_t the min value of the sensor
- */
-float getMaxValue(int ligne) 
+uint16_t getModbusAddrRemoteSlave(int ligne)
 {
-    return dataPhysicalConfigSensors->maxValue[ligne];
+    return dataPhysicalConfigSensors->modbusAddrRemoteSlave[ligne];
+}
+
+uint16_t getModbusStartAddress(int ligne)
+{
+    return dataPhysicalConfigSensors->modbusStartAddress[ligne];
+}
+
+uint32_t getModbusBaudRate(int ligne)
+{
+    return dataPhysicalConfigSensors->modbusBaudRate[ligne];
+}
+
+char getModbusParity(int ligne)
+{
+    return dataPhysicalConfigSensors->modbusParity[ligne];
+}
+
+uint16_t getModbusDataBits(int ligne)
+{
+    return dataPhysicalConfigSensors->modbusDataBits[ligne];
+}
+
+uint16_t getModbusStopBit(int ligne)
+{
+    return dataPhysicalConfigSensors->modbusStopBit[ligne];
 }
 
 /**

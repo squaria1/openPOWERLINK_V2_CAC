@@ -18,6 +18,7 @@
 #else
 #include <unistd.h>
 #include <sys/ioctl.h>
+#include <modbus/modbus.h>
 #endif
 
 #ifdef __cplusplus
@@ -25,7 +26,6 @@ extern "C"
 {
 #endif
 
-static int16_t valSensors[MAX_SENSORS]; 
 statusErrDef readChannels();
 statusErrDef closeAdc();
 int readAdc(int fd);
