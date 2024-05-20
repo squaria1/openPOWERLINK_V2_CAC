@@ -62,7 +62,30 @@ statusErrDef initCSV()
 {
     statusErrDef res = noError;
 
+    dataEtats = (struct LigneCSV*)malloc(sizeof(struct LigneCSV));
+    if (dataEtats == NULL)
+    {
+        perror("Error allocating memory");
+        return errAllocDataEtats;
+    }
+
     refreshCSV();
+
+    /********************Partie_PhysicalConfig_Activation********************/
+
+
+    dataActivation = (struct LigneActivation*)malloc(sizeof(struct LigneActivation));
+    if (dataActivation == NULL)
+    {
+        perror("Error allocating memory");
+        return errAllocDataActivation;
+    }
+
+    memset(dataActivation, 0, sizeof(struct LigneActivation));
+
+    res = lireFichierActivation(COMMON_PHYSICAL_CONFIG_DIRECTORY);
+    if (res != noError)
+        return res;
 
     /********************Partie_PhysicalConfig_Vannes********************/
 
@@ -126,38 +149,8 @@ statusErrDef refreshCSV()
 {
     statusErrDef res = noError;
 
-    free(dataActivation);
-    free(dataEtats);
-
-    /********************Partie_PhysicalConfig_Activation********************/
-
-
-    dataActivation = (struct LigneActivation*)malloc(sizeof(struct LigneActivation));
-    if (dataActivation == NULL)
-    {
-        perror("Error allocating memory");
-        return errAllocDataActivation;
-    }
-
-    memset(dataActivation, 0, sizeof(struct LigneActivation));
-
-    if (EG != 0)
-    {
-        res = lireFichierActivation(COMMON_PHYSICAL_CONFIG_DIRECTORY);
-        if (res != noError)
-            return res;
-    }
-    else
-        memset(&dataActivation->activation, 0, sizeof(dataActivation->activation));
-
     /********************Partie_CSV********************/
 
-    dataEtats = (struct LigneCSV*)malloc(sizeof(struct LigneCSV));
-    if (dataEtats == NULL) 
-    {
-        perror("Error allocating memory");
-        return errAllocDataEtats;
-    }
 
     memset(dataEtats, 0, sizeof(struct LigneCSV));
 

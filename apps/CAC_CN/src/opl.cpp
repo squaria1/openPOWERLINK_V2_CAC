@@ -639,6 +639,8 @@ tOplkError processSync()
     //is called here to trigger valves for every CAC boards (every CNs) at the same time
     #if (TARGET_SYSTEM == _WIN32_)
     #else
+    if (EG != 0)
+    {
         res = valve.verifDependanceValves();
         //if (res == noError)
         //{
@@ -661,6 +663,7 @@ tOplkError processSync()
         //    file.writeError("Reading sensor channels has failed!", res);
         //    opl.sendError(res);
         //}
+    }
     #endif
 
     //Process PI_OUT --> variables sortant du CN
@@ -671,6 +674,7 @@ tOplkError processSync()
         if (activated_Out_CN_l[i + 1])
             pProcessImageOut_l->out_CN_array[i] = values_Out_CN_l[i];
     }
+
     //Send OpenPOWERLINK TPDOs values
     res = oplk_exchangeProcessImageIn();
     if (res != kErrorOk)

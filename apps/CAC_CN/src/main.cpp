@@ -143,10 +143,6 @@ int main() {
                     file.writeTelem("Mode set to manual valve activation from MN", res);
                     opl.sendTelem(res);
                 }
-                else if(res == infoEGsetToZero)
-                {
-                    
-                }
 
                 res = opl.demandeExtinctOPL();
                 if(res == infoStopOrderReceived)
