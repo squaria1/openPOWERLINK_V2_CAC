@@ -2,7 +2,7 @@
  * \file csv.cpp
  * \brief Module to read CSV configuration files
  * \author Mael Parot, Benoit Brice
- * \version 1.1
+ * \version 1.2
  * \date 11/04/2024
  *
  * Contains all functions related to reading CSV files and 
@@ -11,43 +11,43 @@
 
 #include "csv.h"
 
- /**
-  * \struct dataEtats
-  * \brief struct containing values taken from a general state CSV
-  * such as the value, dependance and timer dependance of each valves.
-  * 
-  */
+/**
+ * \struct dataEtats
+ * \brief struct containing values taken from a general state CSV
+ * such as the value, dependance and timer dependance of each valves.
+ * 
+ */
 struct LigneCSV* dataEtats;
 
- /**
-  * \struct dataPhysicalConfigVannes
-  * \brief struct containing values taken from "physicalCONFIG_valves.csv"
-  * such as the initial values, GPIO ports of each valves.
-  * 
-  */
+/**
+ * \struct dataPhysicalConfigVannes
+ * \brief struct containing values taken from "physicalCONFIG_valves.csv"
+ * such as the initial values, GPIO ports of each valves.
+ * 
+ */
 struct LigneVannes* dataPhysicalConfigVannes;
 
- /**
-  * \struct dataPhysicalConfigSensors
-  * \brief struct containing values taken from "physicalCONFIG_sensors.csv"
-  * such as the calibrated, min and max values of each sensors.
-  * 
-  */
+/**
+ * \struct dataPhysicalConfigSensors
+ * \brief struct containing values taken from "physicalCONFIG_sensors.csv"
+ * such as the type and modbus parameters of each sensors.
+ * 
+ */
 struct LigneSensors* dataPhysicalConfigSensors;
 
- /**
-  * \struct dataActivation
-  * \brief struct containing the boolean values taken from "activation.csv"
-  * 
-  */
+/**
+ * \struct dataActivation
+ * \brief struct containing the boolean values taken from "activation.csv"
+ * 
+ */
 struct LigneActivation* dataActivation;
 
- /**
-  * \struct dataActivation
-  * \brief struct containing the general state code 
-  * according to the name of a general state CSV file taken from "liaisonEGEtat.csv"
-  * 
-  */
+/**
+ * \struct dataEG
+ * \brief struct containing the general state code 
+ * according to the name of a general state CSV file taken from "liaisonEGEtat.csv"
+ * 
+ */
 struct LigneEG* dataEG;
 
 /**
@@ -95,20 +95,18 @@ statusErrDef initCSV()
     if (res != noError)
         return res;
 
+    /********************Partie_EG_Etat********************/
 
-    /********************Partie_PhysicalConfig_Activation********************/
-
-
-    dataActivation = (struct LigneActivation*)malloc(sizeof(struct LigneActivation));
-    if (dataActivation == NULL) 
+    dataEG = (struct LigneEG*)malloc(sizeof(struct LigneEG));
+    if (dataEG == NULL)
     {
         perror("Error allocating memory");
-        return errAllocDataActivation;
+        return errAllocDataEG;
     }
 
-    memset(dataActivation, 0, sizeof(struct LigneActivation));
+    memset(dataEG, 0, sizeof(struct LigneEG));
 
-    res = lireFichierActivation(COMMON_PHYSICAL_CONFIG_DIRECTORY);
+    res = lireFichierEG(EG_ETAT_DIRECTORY);
     if (res != noError)
         return res;
 
@@ -128,23 +126,29 @@ statusErrDef refreshCSV()
 {
     statusErrDef res = noError;
 
-    free(dataEG);
+    free(dataActivation);
     free(dataEtats);
 
-    /********************Partie_EG_Etat********************/
+    /********************Partie_PhysicalConfig_Activation********************/
 
-    dataEG = (struct LigneEG*)malloc(sizeof(struct LigneEG));
-    if (dataEG == NULL) 
+
+    dataActivation = (struct LigneActivation*)malloc(sizeof(struct LigneActivation));
+    if (dataActivation == NULL)
     {
         perror("Error allocating memory");
-        return errAllocDataEG;
+        return errAllocDataActivation;
     }
 
-    memset(dataEG, 0, sizeof(struct LigneEG));
+    memset(dataActivation, 0, sizeof(struct LigneActivation));
 
-    res = lireFichierEG(EG_ETAT_DIRECTORY);
-    if (res != noError)
-        return res;
+    if (EG != 0)
+    {
+        res = lireFichierActivation(COMMON_PHYSICAL_CONFIG_DIRECTORY);
+        if (res != noError)
+            return res;
+    }
+    else
+        memset(&dataActivation->activation, 0, sizeof(dataActivation->activation));
 
     /********************Partie_CSV********************/
 
@@ -156,9 +160,13 @@ statusErrDef refreshCSV()
     }
 
     memset(dataEtats, 0, sizeof(struct LigneCSV));
-    res = lireFichierCSV(STATE_CSV_DIRECTORY);
-    if (res != noError)
-        return res;
+
+    if(EG != 0)
+    {
+        res = lireFichierCSV(STATE_CSV_DIRECTORY);
+        if (res != noError)
+            return res;
+    }
 
     return res;
 }
@@ -225,12 +233,13 @@ statusErrDef lireFichierEG(const char* fileName)
 statusErrDef lireFichierCSV(const char* dir) 
 {
     const char* nameCSV = getNomFichiercsv();
-    printf("nameCSV: %s\n", nameCSV);
     if (nameCSV == NULL) 
     {
         perror("Erreur code EG non trouve dans liaisonEGEtat.csv");
         return errEGNotFoundInFile;
     }
+
+    printf("nameCSV: %s\n", nameCSV);
 
     char fileName[MAX_PATH_LENGTH];
     snprintf(fileName, sizeof(fileName), "%s%s", dir, nameCSV);
@@ -571,7 +580,7 @@ uint8_t getEtatInitialVannes(int ligne)
 }
 
 /**
- * \brief function getter of the GPIO port of a valve
+ * \brief function getter of a valve GPIO port
  * from "physicalCONFIG_valves.csv"
  * \param ligne the line in the CSV file
  * \return uint8_t the GPIO port of the valve
@@ -581,36 +590,87 @@ uint8_t getPortGPIO(int ligne)
     return dataPhysicalConfigVannes->portGPIO[ligne];
 }
 
+/**
+ * \brief function getter of a sensor type
+ * from "physicalCONFIG_sensors.csv"
+ * can be 1 for an MCP3008 channel
+ * or 2 for a modbus serial sensor.
+ * \param ligne the line in the CSV file
+ * \return uint8_t the sensor type
+ */
 uint8_t getSensorType(int ligne)
 {
     return dataPhysicalConfigSensors->type[ligne];
 }
 
+/**
+ * \brief function getter of a modbus sensor
+ * address from "physicalCONFIG_sensors.csv"
+ * 
+ * \param ligne the line in the CSV file
+ * \return uint8_t the modbus sensor address
+ */
 uint16_t getModbusAddrRemoteSlave(int ligne)
 {
     return dataPhysicalConfigSensors->modbusAddrRemoteSlave[ligne];
 }
 
+/**
+ * \brief function getter of a sensor start
+ * address to read, from "physicalCONFIG_sensors.csv"
+ * 
+ * \param ligne the line in the CSV file
+ * \return uint8_t the sensor start address to read
+ */
 uint16_t getModbusStartAddress(int ligne)
 {
     return dataPhysicalConfigSensors->modbusStartAddress[ligne];
 }
 
+/**
+ * \brief function getter of a sensor start
+ * address to read, from "physicalCONFIG_sensors.csv"
+ * 
+ * \param ligne the line in the CSV file
+ * \return uint8_t the sensor start address to read
+ */
 uint32_t getModbusBaudRate(int ligne)
 {
     return dataPhysicalConfigSensors->modbusBaudRate[ligne];
 }
 
+/**
+ * \brief function getter of the modbus parity
+ * from "physicalCONFIG_sensors.csv"
+ * can be 'O' (Odd), 'E' (Even) or 'N' (None).
+ * 
+ * \param ligne the line in the CSV file
+ * \return uint8_t the modbus parity
+ */
 char getModbusParity(int ligne)
 {
     return dataPhysicalConfigSensors->modbusParity[ligne];
 }
 
+/**
+ * \brief function getter of the modbus number
+ * of data bits from "physicalCONFIG_sensors.csv"
+ * can be 5,6,7 or 8.
+ * \param ligne the line in the CSV file
+ * \return uint8_t the modbus number of data bits
+ */
 uint16_t getModbusDataBits(int ligne)
 {
     return dataPhysicalConfigSensors->modbusDataBits[ligne];
 }
 
+/**
+ * \brief function getter of the modbus number of
+ * stop bits from "physicalCONFIG_sensors.csv"
+ * can be 1 or 2.
+ * \param ligne the line in the CSV file
+ * \return uint8_t the modbus number of stop bits
+ */
 uint16_t getModbusStopBit(int ligne)
 {
     return dataPhysicalConfigSensors->modbusStopBit[ligne];

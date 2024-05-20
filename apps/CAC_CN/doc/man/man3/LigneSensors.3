@@ -1,8 +1,9 @@
-.TH "LigneSensors" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.TH "LigneSensors" 3 "Version 1.2" "CAC main program" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-LigneSensors
+LigneSensors \- struct containing values taken from 'physicalCONFIG_sensors\&.csv' such as the type and modbus parameters of each sensors\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -12,33 +13,63 @@ LigneSensors
 
 .in +1c
 .ti -1c
-.RI "uint8_t \fBetatInitial\fP [\fBMAX_PHYSICAL_LINE_SIZE\fP]"
+.RI "uint8_t \fBtype\fP [2 *\fBMAX_SENSORS\fP]"
 .br
 .ti -1c
-.RI "float \fBminValue\fP [\fBMAX_PHYSICAL_LINE_SIZE\fP]"
+.RI "uint16_t \fBmodbusAddrRemoteSlave\fP [2 *\fBMAX_SENSORS\fP]"
 .br
 .ti -1c
-.RI "float \fBmaxValue\fP [\fBMAX_PHYSICAL_LINE_SIZE\fP]"
+.RI "uint16_t \fBmodbusStartAddress\fP [2 *\fBMAX_SENSORS\fP]"
+.br
+.ti -1c
+.RI "uint32_t \fBmodbusBaudRate\fP [2 *\fBMAX_SENSORS\fP]"
+.br
+.ti -1c
+.RI "char \fBmodbusParity\fP [2 *\fBMAX_SENSORS\fP]"
+.br
+.ti -1c
+.RI "uint16_t \fBmodbusDataBits\fP [2 *\fBMAX_SENSORS\fP]"
+.br
+.ti -1c
+.RI "uint16_t \fBmodbusStopBit\fP [2 *\fBMAX_SENSORS\fP]"
 .br
 .in -1c
 .SH "Detailed Description"
 .PP 
-Definition at line \fB34\fP of file \fBcsv\&.h\fP\&.
+struct containing values taken from 'physicalCONFIG_sensors\&.csv' such as the type and modbus parameters of each sensors\&. 
+.PP
+Definition at line \fB67\fP of file \fBcsv\&.h\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "uint8_t LigneSensors::etatInitial[\fBMAX_PHYSICAL_LINE_SIZE\fP]"
-
+.SS "uint16_t LigneSensors::modbusAddrRemoteSlave[2 *\fBMAX_SENSORS\fP]"
+the connected sensor address 
 .PP
-Definition at line \fB35\fP of file \fBcsv\&.h\fP\&.
-.SS "float LigneSensors::maxValue[\fBMAX_PHYSICAL_LINE_SIZE\fP]"
-
+Definition at line \fB69\fP of file \fBcsv\&.h\fP\&.
+.SS "uint32_t LigneSensors::modbusBaudRate[2 *\fBMAX_SENSORS\fP]"
+the modbus connexion baud rate 
 .PP
-Definition at line \fB37\fP of file \fBcsv\&.h\fP\&.
-.SS "float LigneSensors::minValue[\fBMAX_PHYSICAL_LINE_SIZE\fP]"
-
+Definition at line \fB71\fP of file \fBcsv\&.h\fP\&.
+.SS "uint16_t LigneSensors::modbusDataBits[2 *\fBMAX_SENSORS\fP]"
+the modbus databits number (5,6,7 or 8) 
 .PP
-Definition at line \fB36\fP of file \fBcsv\&.h\fP\&.
+Definition at line \fB73\fP of file \fBcsv\&.h\fP\&.
+.SS "char LigneSensors::modbusParity[2 *\fBMAX_SENSORS\fP]"
+the modbus parity (N for None, E for Even and O for Odd) 
+.PP
+Definition at line \fB72\fP of file \fBcsv\&.h\fP\&.
+.SS "uint16_t LigneSensors::modbusStartAddress[2 *\fBMAX_SENSORS\fP]"
+the read start address 
+.PP
+Definition at line \fB70\fP of file \fBcsv\&.h\fP\&.
+.SS "uint16_t LigneSensors::modbusStopBit[2 *\fBMAX_SENSORS\fP]"
+the modbus stopbit number (1 or 2) 
+.PP
+Definition at line \fB74\fP of file \fBcsv\&.h\fP\&.
+.SS "uint8_t LigneSensors::type[2 *\fBMAX_SENSORS\fP]"
+the type of sensor (1 for an MCP3008 channel and 2 for modbus) 
+.PP
+Definition at line \fB68\fP of file \fBcsv\&.h\fP\&.
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for CAC_CN from the source code\&.
+Generated automatically by Doxygen for CAC main program from the source code\&.

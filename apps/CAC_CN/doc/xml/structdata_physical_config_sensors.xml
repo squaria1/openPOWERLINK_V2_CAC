@@ -3,7 +3,7 @@
   <compounddef id="structdata_physical_config_sensors" kind="struct" language="C++" prot="public">
     <compoundname>dataPhysicalConfigSensors</compoundname>
     <briefdescription>
-<para>struct containing values taken from &quot;physicalCONFIG_sensors.csv&quot; such as the calibrated, min and max values of each sensors. </para>
+<para>struct containing values taken from &quot;physicalCONFIG_sensors.csv&quot; such as the type and modbus parameters of each sensors. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>

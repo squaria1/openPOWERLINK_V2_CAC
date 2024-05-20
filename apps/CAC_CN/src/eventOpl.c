@@ -6,7 +6,6 @@
 
 This file contains a demo CN application event handler.
 
-\ingroup module_demo
 *******************************************************************************/
 
 /*------------------------------------------------------------------------------
@@ -106,7 +105,6 @@ The function initializes the applications event module
 
 \param[in]      pfGsOff_p           Pointer to GsOff flag (determines that stack is down)
 
-\ingroup module_demo_cn_console
 */
 //------------------------------------------------------------------------------
 void initEvents(BOOL* pfGsOff_p)
@@ -126,7 +124,6 @@ The function implements the application's stack event handler.
 
 \return The function returns a tOplkError error code.
 
-\ingroup module_demo_cn_console
 */
 //------------------------------------------------------------------------------
 tOplkError processEvents(tOplkApiEventType eventType_p,

@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['namefiles_0',['nameFiles',['../classfile.html#a32d4e3f75b05cec4881a282bf92617cd',1,'file']]],
-  ['nbvaluescn_5fin_1',['nbValuesCN_In',['../opl_8cpp.html#a38621a01003975db3d4d97d7c7b5c874',1,'nbValuesCN_In:&#160;opl.cpp'],['../opl_8h.html#a38621a01003975db3d4d97d7c7b5c874',1,'nbValuesCN_In:&#160;opl.cpp']]],
-  ['nbvaluescn_5fout_2',['nbValuesCN_Out',['../opl_8cpp.html#a8dd1817cec0b1c38e0b7eb2470855b25',1,'nbValuesCN_Out:&#160;opl.cpp'],['../opl_8h.html#a8dd1817cec0b1c38e0b7eb2470855b25',1,'nbValuesCN_Out:&#160;opl.cpp']]],
-  ['nodestate_3',['nodeState',['../structt_demo_node_info.html#a60bbcadab2d687ca6352dd70c3d92804',1,'tDemoNodeInfo']]]
+  ['mode_0',['mode',['../opl_8cpp.html#a2618e89b4c26dc851feae865df3a1a49',1,'mode:&#160;opl.cpp'],['../status_error_define_8h.html#a2618e89b4c26dc851feae865df3a1a49',1,'mode:&#160;opl.cpp']]]
 ];

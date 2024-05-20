@@ -1,8 +1,9 @@
-.TH "tOptions" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.TH "tOptions" 3 "Version 1.2" "CAC main program" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-tOptions
+tOptions \- the OpenPOWERLINK initialization parameters  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -24,35 +25,37 @@ tOptions
 .RI "UINT32 \fBlogCategory\fP"
 .br
 .ti -1c
-.RI "char \fBdevName\fP [128]"
+.RI "char \fBdevName\fP [200]"
 .br
 .in -1c
 .SH "Detailed Description"
 .PP 
-Definition at line \fB47\fP of file \fBopl\&.h\fP\&.
+the OpenPOWERLINK initialization parameters 
+.PP
+Definition at line \fB63\fP of file \fBopl\&.h\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "char tOptions::devName[128]"
-
+.SS "char tOptions::devName[200]"
+the network card device name from the DEVNAME define in '\fBconfigDefine\&.h\fP' 
 .PP
-Definition at line \fB53\fP of file \fBopl\&.h\fP\&.
+Definition at line \fB69\fP of file \fBopl\&.h\fP\&.
 .SS "UINT32 tOptions::logCategory"
-
+the OpenPOWERLINK log category (see OpenPOWERLINK doc) 
 .PP
-Definition at line \fB52\fP of file \fBopl\&.h\fP\&.
+Definition at line \fB68\fP of file \fBopl\&.h\fP\&.
 .SS "tEventlogFormat tOptions::logFormat"
-
+the OpenPOWERLINK log format (see OpenPOWERLINK doc) 
 .PP
-Definition at line \fB50\fP of file \fBopl\&.h\fP\&.
+Definition at line \fB66\fP of file \fBopl\&.h\fP\&.
 .SS "UINT32 tOptions::logLevel"
-
+the OpenPOWERLINK log level (see OpenPOWERLINK doc) 
 .PP
-Definition at line \fB51\fP of file \fBopl\&.h\fP\&.
+Definition at line \fB67\fP of file \fBopl\&.h\fP\&.
 .SS "UINT32 tOptions::nodeId"
-
+the CN number taken from the NODEID define in '\fBnodeId\&.h\fP' 
 .PP
-Definition at line \fB49\fP of file \fBopl\&.h\fP\&.
+Definition at line \fB65\fP of file \fBopl\&.h\fP\&.
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for CAC_CN from the source code\&.
+Generated automatically by Doxygen for CAC main program from the source code\&.

@@ -1,3 +1,14 @@
+/**
+ * \file opl.h
+ * \brief header file of the OpenPOWERLINK module that communicates with the master board using OpenPOWERLINK
+ * \author Mael Parot
+ * \version 1.2
+ * \date 11/04/2024
+ *
+ * Contains all functions definitions related to communicating with the master board
+ * using OpenPOWERLINK, transfer sensors, valves values and recieve orders from the master.
+ */
+
 #ifndef OPL_H
 #define OPL_H
 
@@ -42,20 +53,30 @@ extern "C"
 {
 #endif
 
+     /**
+     * \struct tOptions
+     * \brief the OpenPOWERLINK initialization parameters
+     * 
+     */
     typedef struct
     {
-        char            cdcFile[256];
-        char            fwInfoFile[256];
-        char*           pLogFile;
-        tEventlogFormat logFormat;
-        UINT32          logLevel;
-        UINT32          logCategory;
-        char            devName[128];
+        char            cdcFile[256];       /**< The OpenPOWERLINK binary file name */
+        char            fwInfoFile[256];    /**< The OpenPOWERLINK info file name */
+        char*           pLogFile;           /**< the custom log file output of OpenPOWERLINK */
+        tEventlogFormat logFormat;          /**< the OpenPOWERLINK log format (see OpenPOWERLINK doc) */
+        UINT32          logLevel;           /**< the OpenPOWERLINK log level (see OpenPOWERLINK doc) */
+        UINT32          logCategory;        /**< the OpenPOWERLINK log category (see OpenPOWERLINK doc) */
+        char            devName[200];       /**< the network card device name from the DEVNAME define in 'configDefine.h' */
     } tOptions;
 
+    /**
+     * \struct tDemoNodeInfo
+     * \brief the OpenPOWERLINK node information structure
+     * 
+     */
     typedef struct
     {
-        tNmtState       nodeState[254];
+        tNmtState       nodeState[254];     /**< The current OpenPOWERLINK node state */
     } tDemoNodeInfo;
 
     statusErrDef            initPowerlink(UINT32 cycleLen_p,
@@ -88,27 +109,16 @@ extern "C"
     extern const uint16_t       nbValuesCN_Out;
     extern const uint16_t       nbValuesCN_In;
 
-    //------------------------------------------------------------------------------
-    // local vars
-    //------------------------------------------------------------------------------
-    static const UINT8              aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-    static BOOL                     fGsOff_l;
-
-    static UINT                     cnt_l;
-    static PI_IN*                   pProcessImageIn_l;
-    static PI_OUT*                  pProcessImageOut_l;
-
-    static int16_t                  values_In_MN_l[SIZE_OUT];
-    static int16_t                  values_Out_MN_l[SIZE_IN];
-    static bool                     activated_In_MN_l[SIZE_OUT+2];
-
-    int16_t     getEC1();
     void        setEG(int16_t EG);
 
 #ifdef __cplusplus
 }
 #endif
 
+/**
+ * \brief OpenPOWERLINK module class.
+ * 
+ */
 class opl
 {
     public:

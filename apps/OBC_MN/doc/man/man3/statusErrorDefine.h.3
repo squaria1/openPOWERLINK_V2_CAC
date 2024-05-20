@@ -1,8 +1,9 @@
-.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/statusErrorDefine.h" 3 "Version 1.1" "CAC_MN" \" -*- nroff -*-
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/statusErrorDefine.h" 3 "Version 1.2" "OpenPOWERLINK MN application for CAC boards" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/statusErrorDefine.h
+C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/statusErrorDefine.h \- header file containing all of the program enumerations  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -12,9 +13,11 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/statusErrorD
 .ti -1c
 .RI "enum \fBstatusErrDef\fP { \fBnoError\fP = 0x0000, \fBinfoInitCSV\fP = 0x0101, \fBinfoCSVChanged\fP = 0x0102, \fBinfoShutdownCSV\fP = 0x01FF, \fBinfoInitOPL\fP = 0x0201, \fBinfoEGNotChanged\fP = 0x0202, \fBinfoStopOrderReceived\fP = 0x0203, \fBinfoNoStopOrder\fP = 0x0204, \fBinfoShutdownOPL\fP = 0x02FF, \fBinfoInitValve\fP = 0x0301, \fBinfoVerifDependSucess\fP = 0x0302, \fBinfoNoDepend\fP = 0x0303, \fBinfoValveAlreadyActivated\fP = 0x0304, \fBinfoAllDependNotActivated\fP = 0x0305, \fBinfoShutdownValve\fP = 0x03FF, \fBinfoInitSensor\fP = 0x0401, \fBinfoReadChannels\fP = 0x0402, \fBinfoShutdownSensor\fP = 0x04FF, \fBinfoStateToInit\fP = 0x7001, \fBinfoStateToControl\fP = 0x7002, \fBinfoStateToManualMode\fP = 0x7777, \fBinfoStateToShutdown\fP = 0x7FFF, \fBerrOpenTelemFile\fP = 0xE001, \fBerrTestWriteFile\fP = 0xE002, \fBerrCloseTelemFile\fP = 0xE0FF, \fBerrAllocDataEG\fP = 0xE101, \fBerrAllocDataEtats\fP = 0xE102, \fBerrAllocDataPhysValves\fP = 0xE103, \fBerrAllocDataPhysSensors\fP = 0xE104, \fBerrAllocDataActivation\fP = 0xE105, \fBerrOpenEGFile\fP = 0xE106, \fBerrEGNotFoundInFile\fP = 0xE107, \fBerrOpenEtatsFile\fP = 0xE108, \fBerrOpenPhysValvesFile\fP = 0xE109, \fBerrOpenPhysSensorsFile\fP = 0xE10A, \fBerrOpenActivationFile\fP = 0xE10B, \fBerrOPLSystemInit\fP = 0xE201, \fBerrSelNetInterface\fP = 0xE202, \fBerrInitObjDictionary\fP = 0xE203, \fBerrOplkInit\fP = 0xE204, \fBerrOplkCreate\fP = 0xE205, \fBerrOplkAllocProcessImage\fP = 0xE206, \fBerrLinkPDOout\fP = 0xE207, \fBerrLinkPDOEGin\fP = 0xE208, \fBerrLinkPDOin\fP = 0xE209, \fBerrSendNMTResetCommand\fP = 0xE20A, \fBerrOplkFreeProcessImage\fP = 0xE20B, \fBerrSystemSendTerminate\fP = 0xE20C, \fBerrOplKernelStackDown\fP = 0xE20D, \fBerrInitFirmwareManager\fP = 0xE20E, \fBerrOplkSetCDCFileName\fP = 0xE20F, \fBerrSetupProcessImage\fP = 0xE210, \fBerrGPIOPathEmpty\fP = 0xE301, \fBerrOpenGPIO\fP = 0xE302, \fBerrGPIOGetLine\fP = 0xE303, \fBerrGPIORequestOutput\fP = 0xE304, \fBerrGetValveInitValue\fP = 0xE305, \fBerrValueInitIsNotBinary\fP = 0xE306, \fBerrGPIOSetInitValue\fP = 0xE307, \fBerrGPIOGetValue\fP = 0xE308, \fBerrGPIODependValue\fP = 0xE309, \fBerrDependOutsideOfRange\fP = 0xE30A, \fBerrValueIsNotBinary\fP = 0xE30B, \fBerrGPIOSetValue\fP = 0xE30C, \fBerrGPIORelease\fP = 0xE3FF, \fBerrOpenAdc\fP = 0xE401, \fBerrReadAdc\fP = 0xE402, \fBerrCloseAdc\fP = 0xE4FF }"
 .br
+.RI "the program status and error codes "
 .ti -1c
 .RI "enum \fBMode\fP { \fBautomatic\fP = 0x00, \fBmanual\fP = 0x01 }"
 .br
+.RI "the modes of the program "
 .ti -1c
 .RI "enum \fBstateDef\fP { \fBinit\fP, \fBcontrol\fP, \fBshutdown\fP, \fBending\fP }"
 .br
@@ -26,11 +29,38 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/statusErrorD
 .ti -1c
 .RI "\fBMode\fP \fBmode\fP"
 .br
+.RI "the mode of the program\&. It is initialized to the automatic mode, the general state CSV files are first used\&. "
 .in -1c
+.SH "Detailed Description"
+.PP 
+header file containing all of the program enumerations 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Mael Parot 
+.RE
+.PP
+\fBVersion\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+11/04/2024
+.RE
+.PP
+Contains all of the program enumerations namely, the program status and error codes, the program modes and the state machine states\&. 
+.PP
+Definition in file \fBstatusErrorDefine\&.h\fP\&.
 .SH "Enumeration Type Documentation"
 .PP 
 .SS "enum \fBMode\fP"
 
+.PP
+the modes of the program 
 .PP
 \fBEnumerator\fP
 .in +1c
@@ -41,7 +71,7 @@ The valve values are taken from a general state CSV file\&.
 \fB\fImanual \fP\fP
 The valve values are taken from from the OpenPOWERLINK input values from the MN\&. 
 .PP
-Definition at line \fB98\fP of file \fBstatusErrorDefine\&.h\fP\&.
+Definition at line \fB118\fP of file \fBstatusErrorDefine\&.h\fP\&.
 .SS "enum \fBstateDef\fP"
 
 .PP
@@ -62,9 +92,11 @@ Shutdown all modules with status and error telemetry\&.
 \fB\fIending \fP\fP
 Stop the program\&. 
 .PP
-Definition at line \fB110\fP of file \fBstatusErrorDefine\&.h\fP\&.
+Definition at line \fB131\fP of file \fBstatusErrorDefine\&.h\fP\&.
 .SS "enum \fBstatusErrDef\fP"
 
+.PP
+the program status and error codes 
 .PP
 \fBEnumerator\fP
 .in +1c
@@ -145,7 +177,7 @@ Writing in the telemetry file has failed\&.
 Closing the telemetry file has failed\&. 
 .TP
 \fB\fIerrAllocDataEG \fP\fP
-Memory allocation failure for the structure LigneEG\&. 
+Memory allocation failure for the structure \fBLigneEG\fP\&. 
 .TP
 \fB\fIerrAllocDataEtats \fP\fP
 Memory allocation failure for the structure LigneCSV\&. 
@@ -273,13 +305,15 @@ A sysfs file read of the MCP3008 fails\&.
 \fB\fIerrCloseAdc \fP\fP
 A sysfs file of the MCP3008 fails to close\&. 
 .PP
-Definition at line \fB4\fP of file \fBstatusErrorDefine\&.h\fP\&.
+Definition at line \fB20\fP of file \fBstatusErrorDefine\&.h\fP\&.
 .SH "Variable Documentation"
 .PP 
 .SS "\fBMode\fP mode\fR [extern]\fP"
 
 .PP
-Definition at line \fB14\fP of file \fBopl\&.cpp\fP\&.
+the mode of the program\&. It is initialized to the automatic mode, the general state CSV files are first used\&. 
+.PP
+Definition at line \fB19\fP of file \fBopl\&.cpp\fP\&.
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for CAC_MN from the source code\&.
+Generated automatically by Doxygen for OpenPOWERLINK MN application for CAC boards from the source code\&.

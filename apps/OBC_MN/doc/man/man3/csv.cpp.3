@@ -1,4 +1,4 @@
-.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/csv.cpp" 3 "Version 1.1" "CAC_MN" \" -*- nroff -*-
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/csv.cpp" 3 "Version 1.2" "OpenPOWERLINK MN application for CAC boards" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -26,19 +26,38 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/csv.cpp \- Modul
 .br
 .RI "function to read 'activation\&.csv' until the end of the file\&. "
 .ti -1c
+.RI "\fBstatusErrDef\fP \fBlireFichierEG\fP (const char *fileName)"
+.br
+.RI "function to read 'liaisonEGEtat\&.csv' until the end of the file\&. "
+.ti -1c
 .RI "void \fBremplirStructureCommon\fP (char *ligne, int id)"
 .br
 .RI "function to fill in the activation CSV structure\&. "
 .ti -1c
+.RI "void \fBremplirEG\fP (char *ligne, int id)"
+.br
+.RI "function to fill in the link between EG and CSV file name structure\&. "
+.ti -1c
 .RI "uint8_t \fBgetActivation\fP (int ligne)"
 .br
 .RI "function getter of the activation of a sensor or a valve from 'activation\&.csv' "
+.ti -1c
+.RI "int16_t \fBgetEGcsv\fP (int ligne)"
+.br
+.RI "function getter of the general state from 'liaisonEGEtat\&.csv' "
+.ti -1c
+.RI "void \fBremoveCarriageReturn\fP (char *str)"
+.br
+.RI "function that removes the carriage return from the end a line of a general state CSV file before strdup is called\&. "
 .in -1c
 .SS "Variables"
 
 .in +1c
 .ti -1c
 .RI "struct \fBLigneActivation\fP * \fBdataActivation\fP"
+.br
+.ti -1c
+.RI "struct \fBLigneEG\fP * \fBdataEG\fP"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -54,7 +73,7 @@ Mael Parot, Benoit Brice
 .PP
 \fBVersion\fP
 .RS 4
-1\&.1 
+1\&.2 
 .RE
 .PP
 \fBDate\fP
@@ -79,7 +98,7 @@ statusErrDef noError when the function exits successfully\&.
 .PP
 
 .PP
-Definition at line \fB57\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB79\fP of file \fBcsv\&.cpp\fP\&.
 .SS "uint8_t getActivation (int ligne)"
 
 .PP
@@ -97,7 +116,25 @@ uint8_t the activation of a sensor or a valve (1 if activated or 0 if not)
 .PP
 
 .PP
-Definition at line \fB121\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB206\fP of file \fBcsv\&.cpp\fP\&.
+.SS "int16_t getEGcsv (int ligne)"
+
+.PP
+function getter of the general state from 'liaisonEGEtat\&.csv' 
+.PP
+\fBParameters\fP
+.RS 4
+\fIligne\fP the line in the CSV file 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+uint16_t the value of the general state of a specific line 
+.RE
+.PP
+
+.PP
+Definition at line \fB216\fP of file \fBcsv\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP initCSV ()"
 
 .PP
@@ -110,7 +147,7 @@ statusErrDef that values errAllocDataPhysValves, errAllocDataPhysSensors, errAll
 .PP
 
 .PP
-Definition at line \fB29\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB37\fP of file \fBcsv\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP lireFichierActivation (const char * fileName)"
 
 .PP
@@ -128,7 +165,53 @@ statusErrDef errOpenPhysSensorsFile when the file fails to open, noError when th
 .PP
 
 .PP
-Definition at line \fB73\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB96\fP of file \fBcsv\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP lireFichierEG (const char * fileName)"
+
+.PP
+function to read 'liaisonEGEtat\&.csv' until the end of the file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfileName\fP location and name of the CSV file to read 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef errOpenEGFile when the file fails to open, noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB127\fP of file \fBcsv\&.cpp\fP\&.
+.SS "void removeCarriageReturn (char * str)"
+
+.PP
+function that removes the carriage return from the end a line of a general state CSV file before strdup is called\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP the line in the CSV file 
+.RE
+.PP
+
+.PP
+Definition at line \fB226\fP of file \fBcsv\&.cpp\fP\&.
+.SS "void remplirEG (char * ligne, int id)"
+
+.PP
+function to fill in the link between EG and CSV file name structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIligne\fP the CSV line to read\&. 
+.br
+\fIid\fP the position of the line in the CSV file\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB176\fP of file \fBcsv\&.cpp\fP\&.
 .SS "void remplirStructureCommon (char * ligne, int id)"
 
 .PP
@@ -143,13 +226,17 @@ function to fill in the activation CSV structure\&.
 .PP
 
 .PP
-Definition at line \fB101\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB156\fP of file \fBcsv\&.cpp\fP\&.
 .SH "Variable Documentation"
 .PP 
 .SS "struct \fBLigneActivation\fP* dataActivation"
 
 .PP
 Definition at line \fB19\fP of file \fBcsv\&.cpp\fP\&.
+.SS "struct \fBLigneEG\fP* dataEG"
+
+.PP
+Definition at line \fB27\fP of file \fBcsv\&.cpp\fP\&.
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for CAC_MN from the source code\&.
+Generated automatically by Doxygen for OpenPOWERLINK MN application for CAC boards from the source code\&.

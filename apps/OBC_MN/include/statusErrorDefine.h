@@ -1,6 +1,22 @@
+/**
+ * \file statusErrorDefine.h
+ * \brief header file containing all of the program enumerations
+ * \author Mael Parot
+ * \version 1.2
+ * \date 11/04/2024
+ *
+ * Contains all of the program enumerations namely, the program
+ * status and error codes, the program modes and the state machine states.
+ */
+
 #ifndef STATUSERRORDEFINE_H
 #define STATUSERRORDEFINE_H
 
+/**
+ * \enum statusErrDef
+ * \brief the program status and error codes
+ * 
+ */
 typedef enum
 {
 	noError						= 0x0000, /**< No error has been detected, the function is working. */
@@ -95,6 +111,10 @@ typedef enum
 
 } statusErrDef;
 
+/**
+ * \enum Mode
+ * \brief the modes of the program
+ */
 typedef enum
 {
 	automatic					= 0x00, /**< The valve values are taken from a general state CSV file. */
@@ -104,6 +124,7 @@ typedef enum
 extern Mode mode;
 
 /**
+ * \enum stateDef
  * \brief list of states for the main state machine
  * 
  */

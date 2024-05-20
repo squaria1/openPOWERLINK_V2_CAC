@@ -7,7 +7,7 @@ var searchData=
   ['sensor_2ecpp_4',['sensor.cpp',['../sensor_8cpp.html',1,'']]],
   ['sensor_2eh_5',['sensor.h',['../sensor_8h.html',1,'']]],
   ['setactivated_5fout_5fcn_6',['setActivated_Out_CN',['../opl_8cpp.html#a72f880ddaa32ea28cd0e12658c3e8d67',1,'setActivated_Out_CN():&#160;opl.cpp'],['../opl_8h.html#a72f880ddaa32ea28cd0e12658c3e8d67',1,'setActivated_Out_CN():&#160;opl.cpp']]],
-  ['setec1_7',['setEC1',['../opl_8cpp.html#aac45ce4a2ea59483fa86582af2108aec',1,'setEC1(int16_t EC):&#160;opl.cpp'],['../opl_8h.html#a3243cd2b508b2d5b1c59cacd70956e98',1,'setEC1(int16_t EC1):&#160;opl.cpp']]],
+  ['setec_7',['setEC',['../opl_8cpp.html#acf0a7eab36c0d4e61e865dbfca0fc575',1,'setEC(int16_t EC):&#160;opl.cpp'],['../opl_8h.html#ae9b61003fe95b3102ea909630e17ba93',1,'setEC(int16_t EC1):&#160;opl.cpp']]],
   ['setupinputs_8',['setupInputs',['../opl_8cpp.html#ae81275d52dd3a37962b186af93bfad39',1,'setupInputs(void):&#160;opl.cpp'],['../opl_8h.html#ae81275d52dd3a37962b186af93bfad39',1,'setupInputs(void):&#160;opl.cpp']]],
   ['setvalues_5fout_5fcn_9',['setValues_Out_CN',['../opl_8cpp.html#aee2f3fe4573dcc68e0ead2380eb83317',1,'setValues_Out_CN():&#160;opl.cpp'],['../opl_8h.html#aee2f3fe4573dcc68e0ead2380eb83317',1,'setValues_Out_CN():&#160;opl.cpp']]],
   ['setvalvesvalue_10',['setValvesValue',['../valve_8cpp.html#add60b51091e6e3c9653ed8400895e3a1',1,'setValvesValue():&#160;valve.cpp'],['../valve_8h.html#add60b51091e6e3c9653ed8400895e3a1',1,'setValvesValue():&#160;valve.cpp']]],

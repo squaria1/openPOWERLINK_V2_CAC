@@ -4,58 +4,126 @@
     <compoundname>LigneSensors</compoundname>
     <includes refid="csv_8h" local="no">csv.h</includes>
     <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="struct_ligne_sensors_1ac9c86088dd1113febf304c9da01a3cb3" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="struct_ligne_sensors_1acd08584fa26b33d7fe6a457b8acf6c1d" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
-        <definition>uint8_t LigneSensors::etatInitial[MAX_PHYSICAL_LINE_SIZE]</definition>
-        <argsstring>[MAX_PHYSICAL_LINE_SIZE]</argsstring>
-        <name>etatInitial</name>
-        <qualifiedname>LigneSensors::etatInitial</qualifiedname>
+        <definition>uint8_t LigneSensors::type[2 *MAX_SENSORS]</definition>
+        <argsstring>[2 *MAX_SENSORS]</argsstring>
+        <name>type</name>
+        <qualifiedname>LigneSensors::type</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>the type of sensor (1 for an MCP3008 channel and 2 for modbus) </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="35" column="17" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="35" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="68" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="68" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="struct_ligne_sensors_1afd60eeb6d4029750e659fc029b261171" prot="public" static="no" mutable="no">
-        <type>float</type>
-        <definition>float LigneSensors::minValue[MAX_PHYSICAL_LINE_SIZE]</definition>
-        <argsstring>[MAX_PHYSICAL_LINE_SIZE]</argsstring>
-        <name>minValue</name>
-        <qualifiedname>LigneSensors::minValue</qualifiedname>
+      <memberdef kind="variable" id="struct_ligne_sensors_1a98e8c6864249a7484da384c913c9ea94" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t LigneSensors::modbusAddrRemoteSlave[2 *MAX_SENSORS]</definition>
+        <argsstring>[2 *MAX_SENSORS]</argsstring>
+        <name>modbusAddrRemoteSlave</name>
+        <qualifiedname>LigneSensors::modbusAddrRemoteSlave</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>the connected sensor address </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="36" column="15" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="36" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="69" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="69" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="struct_ligne_sensors_1a118149e0588323c79b8519d7a167f948" prot="public" static="no" mutable="no">
-        <type>float</type>
-        <definition>float LigneSensors::maxValue[MAX_PHYSICAL_LINE_SIZE]</definition>
-        <argsstring>[MAX_PHYSICAL_LINE_SIZE]</argsstring>
-        <name>maxValue</name>
-        <qualifiedname>LigneSensors::maxValue</qualifiedname>
+      <memberdef kind="variable" id="struct_ligne_sensors_1adc8f6947ec48d80236cd6dcd3ac67549" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t LigneSensors::modbusStartAddress[2 *MAX_SENSORS]</definition>
+        <argsstring>[2 *MAX_SENSORS]</argsstring>
+        <name>modbusStartAddress</name>
+        <qualifiedname>LigneSensors::modbusStartAddress</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>the read start address </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="37" column="15" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="37" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="70" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_ligne_sensors_1ab61ec429882cffad92537793daa1c2ca" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t LigneSensors::modbusBaudRate[2 *MAX_SENSORS]</definition>
+        <argsstring>[2 *MAX_SENSORS]</argsstring>
+        <name>modbusBaudRate</name>
+        <qualifiedname>LigneSensors::modbusBaudRate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the modbus connexion baud rate </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="71" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_ligne_sensors_1ad0ee05deedbd75f69e8b5826d391347f" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char LigneSensors::modbusParity[2 *MAX_SENSORS]</definition>
+        <argsstring>[2 *MAX_SENSORS]</argsstring>
+        <name>modbusParity</name>
+        <qualifiedname>LigneSensors::modbusParity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the modbus parity (N for None, E for Even and O for Odd) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="72" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_ligne_sensors_1a0f1c20c298cf84a63083b359a872094c" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t LigneSensors::modbusDataBits[2 *MAX_SENSORS]</definition>
+        <argsstring>[2 *MAX_SENSORS]</argsstring>
+        <name>modbusDataBits</name>
+        <qualifiedname>LigneSensors::modbusDataBits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the modbus databits number (5,6,7 or 8) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="73" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_ligne_sensors_1a2f41df6d3b7bb2f8415a482948bd560e" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t LigneSensors::modbusStopBit[2 *MAX_SENSORS]</definition>
+        <argsstring>[2 *MAX_SENSORS]</argsstring>
+        <name>modbusStopBit</name>
+        <qualifiedname>LigneSensors::modbusStopBit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the modbus stopbit number (1 or 2) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="74" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="74" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para>struct containing values taken from &quot;physicalCONFIG_sensors.csv&quot; such as the type and modbus parameters of each sensors. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="34" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="34" bodyend="38"/>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="67" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="67" bodyend="75"/>
     <listofallmembers>
-      <member refid="struct_ligne_sensors_1ac9c86088dd1113febf304c9da01a3cb3" prot="public" virt="non-virtual"><scope>LigneSensors</scope><name>etatInitial</name></member>
-      <member refid="struct_ligne_sensors_1a118149e0588323c79b8519d7a167f948" prot="public" virt="non-virtual"><scope>LigneSensors</scope><name>maxValue</name></member>
-      <member refid="struct_ligne_sensors_1afd60eeb6d4029750e659fc029b261171" prot="public" virt="non-virtual"><scope>LigneSensors</scope><name>minValue</name></member>
+      <member refid="struct_ligne_sensors_1a98e8c6864249a7484da384c913c9ea94" prot="public" virt="non-virtual"><scope>LigneSensors</scope><name>modbusAddrRemoteSlave</name></member>
+      <member refid="struct_ligne_sensors_1ab61ec429882cffad92537793daa1c2ca" prot="public" virt="non-virtual"><scope>LigneSensors</scope><name>modbusBaudRate</name></member>
+      <member refid="struct_ligne_sensors_1a0f1c20c298cf84a63083b359a872094c" prot="public" virt="non-virtual"><scope>LigneSensors</scope><name>modbusDataBits</name></member>
+      <member refid="struct_ligne_sensors_1ad0ee05deedbd75f69e8b5826d391347f" prot="public" virt="non-virtual"><scope>LigneSensors</scope><name>modbusParity</name></member>
+      <member refid="struct_ligne_sensors_1adc8f6947ec48d80236cd6dcd3ac67549" prot="public" virt="non-virtual"><scope>LigneSensors</scope><name>modbusStartAddress</name></member>
+      <member refid="struct_ligne_sensors_1a2f41df6d3b7bb2f8415a482948bd560e" prot="public" virt="non-virtual"><scope>LigneSensors</scope><name>modbusStopBit</name></member>
+      <member refid="struct_ligne_sensors_1acd08584fa26b33d7fe6a457b8acf6c1d" prot="public" virt="non-virtual"><scope>LigneSensors</scope><name>type</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

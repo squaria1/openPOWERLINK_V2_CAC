@@ -13,19 +13,21 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>the array of OpenPOWERLINK values coming from the MN </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" line="19" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" bodystart="19" bodyend="-1"/>
-        <referencedby refid="opl_8cpp_1a7a60aa76d8b9af7a1930275e02aa2ab5" compoundref="opl_8cpp" startline="90" endline="98">affValeursProcessIn</referencedby>
-        <referencedby refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="518" endline="569">processSync</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" line="45" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" bodystart="45" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a7a60aa76d8b9af7a1930275e02aa2ab5" compoundref="opl_8cpp" startline="154" endline="162">affValeursProcessIn</referencedby>
+        <referencedby refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="600" endline="680">processSync</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para><ref refid="struct_p_i___i_n" kindref="compound">PI_IN</ref> contains the RPDOs (Received Process Data Object) so the OpenPOWERLINK values coming from the MN (Master Node) to the CN. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" line="17" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" bodystart="18" bodyend="20"/>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" line="43" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" bodystart="44" bodyend="46"/>
     <listofallmembers>
       <member refid="struct_p_i___i_n_1a5a0fedeabec540480a57f2700abf8565" prot="public" virt="non-virtual"><scope>PI_IN</scope><name>in_CN_array</name></member>
     </listofallmembers>

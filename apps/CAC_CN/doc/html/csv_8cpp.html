@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CAC_CN: C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp File Reference</title>
+<title>CAC main program: C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">CAC_CN<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">CAC main program<span id="projectnumber">&#160;1.2</span>
    </div>
    <div id="projectbrief">The main program for acquisition and control boards.</div>
   </td>
@@ -159,18 +159,30 @@ Functions</h2></td></tr>
 <tr class="memitem:a06ba5d2bce46c751d895dbf5678036ae" id="r_a06ba5d2bce46c751d895dbf5678036ae"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06ba5d2bce46c751d895dbf5678036ae">getEtatInitialVannes</a> (int ligne)</td></tr>
 <tr class="memdesc:a06ba5d2bce46c751d895dbf5678036ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of the initial value of a valve from "physicalCONFIG_valves.csv"  <br /></td></tr>
 <tr class="separator:a06ba5d2bce46c751d895dbf5678036ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a050486592cf733f404f0f5b0b6406272" id="r_a050486592cf733f404f0f5b0b6406272"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a050486592cf733f404f0f5b0b6406272">getEtatInitialSensors</a> (int ligne)</td></tr>
-<tr class="memdesc:a050486592cf733f404f0f5b0b6406272"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of the initial value of a sensor from "physicalCONFIG_sensors.csv"  <br /></td></tr>
-<tr class="separator:a050486592cf733f404f0f5b0b6406272"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a208a08d00b78203d1aa620f641f0b9c9" id="r_a208a08d00b78203d1aa620f641f0b9c9"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a208a08d00b78203d1aa620f641f0b9c9">getPortGPIO</a> (int ligne)</td></tr>
-<tr class="memdesc:a208a08d00b78203d1aa620f641f0b9c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of the GPIO port of a valve from "physicalCONFIG_valves.csv"  <br /></td></tr>
+<tr class="memdesc:a208a08d00b78203d1aa620f641f0b9c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of a valve GPIO port from "physicalCONFIG_valves.csv"  <br /></td></tr>
 <tr class="separator:a208a08d00b78203d1aa620f641f0b9c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf462157030206acbd3f8ef56719914a" id="r_aaf462157030206acbd3f8ef56719914a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf462157030206acbd3f8ef56719914a">getMinValue</a> (int ligne)</td></tr>
-<tr class="memdesc:aaf462157030206acbd3f8ef56719914a"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of the max value of a sensor from "physicalCONFIG_sensors.csv"  <br /></td></tr>
-<tr class="separator:aaf462157030206acbd3f8ef56719914a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35dcea7747c07d8fb2fecdb75d30b86d" id="r_a35dcea7747c07d8fb2fecdb75d30b86d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35dcea7747c07d8fb2fecdb75d30b86d">getMaxValue</a> (int ligne)</td></tr>
-<tr class="memdesc:a35dcea7747c07d8fb2fecdb75d30b86d"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of the min value of a sensor from "physicalCONFIG_sensors.csv"  <br /></td></tr>
-<tr class="separator:a35dcea7747c07d8fb2fecdb75d30b86d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef9ab8154afc84c92aa1ad1875286257" id="r_aef9ab8154afc84c92aa1ad1875286257"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef9ab8154afc84c92aa1ad1875286257">getSensorType</a> (int ligne)</td></tr>
+<tr class="memdesc:aef9ab8154afc84c92aa1ad1875286257"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of a sensor type from "physicalCONFIG_sensors.csv" can be 1 for an MCP3008 channel or 2 for a modbus serial sensor.  <br /></td></tr>
+<tr class="separator:aef9ab8154afc84c92aa1ad1875286257"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af50249c502d41696db81f66102243725" id="r_af50249c502d41696db81f66102243725"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af50249c502d41696db81f66102243725">getModbusAddrRemoteSlave</a> (int ligne)</td></tr>
+<tr class="memdesc:af50249c502d41696db81f66102243725"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of a modbus sensor address from "physicalCONFIG_sensors.csv"  <br /></td></tr>
+<tr class="separator:af50249c502d41696db81f66102243725"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a782f9afa439eff3d3e807e2149de16" id="r_a1a782f9afa439eff3d3e807e2149de16"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a782f9afa439eff3d3e807e2149de16">getModbusStartAddress</a> (int ligne)</td></tr>
+<tr class="memdesc:a1a782f9afa439eff3d3e807e2149de16"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of a sensor start address to read, from "physicalCONFIG_sensors.csv"  <br /></td></tr>
+<tr class="separator:a1a782f9afa439eff3d3e807e2149de16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2029326f9ecfe8df759544bfbcdd93b9" id="r_a2029326f9ecfe8df759544bfbcdd93b9"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2029326f9ecfe8df759544bfbcdd93b9">getModbusBaudRate</a> (int ligne)</td></tr>
+<tr class="memdesc:a2029326f9ecfe8df759544bfbcdd93b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of a sensor start address to read, from "physicalCONFIG_sensors.csv"  <br /></td></tr>
+<tr class="separator:a2029326f9ecfe8df759544bfbcdd93b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6a5195ce6685aec2a8e126bc67118e8" id="r_aa6a5195ce6685aec2a8e126bc67118e8"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6a5195ce6685aec2a8e126bc67118e8">getModbusParity</a> (int ligne)</td></tr>
+<tr class="memdesc:aa6a5195ce6685aec2a8e126bc67118e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of the modbus parity from "physicalCONFIG_sensors.csv" can be 'O' (Odd), 'E' (Even) or 'N' (None).  <br /></td></tr>
+<tr class="separator:aa6a5195ce6685aec2a8e126bc67118e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefc2a7d71cf262dae1961f894ad59250" id="r_aefc2a7d71cf262dae1961f894ad59250"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefc2a7d71cf262dae1961f894ad59250">getModbusDataBits</a> (int ligne)</td></tr>
+<tr class="memdesc:aefc2a7d71cf262dae1961f894ad59250"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of the modbus number of data bits from "physicalCONFIG_sensors.csv" can be 5,6,7 or 8.  <br /></td></tr>
+<tr class="separator:aefc2a7d71cf262dae1961f894ad59250"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7db02ded3c19f89ba4b3cde6585fd7e4" id="r_a7db02ded3c19f89ba4b3cde6585fd7e4"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7db02ded3c19f89ba4b3cde6585fd7e4">getModbusStopBit</a> (int ligne)</td></tr>
+<tr class="memdesc:a7db02ded3c19f89ba4b3cde6585fd7e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of the modbus number of stop bits from "physicalCONFIG_sensors.csv" can be 1 or 2.  <br /></td></tr>
+<tr class="separator:a7db02ded3c19f89ba4b3cde6585fd7e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59b3cd375160ea778a774e62c7c64f7d" id="r_a59b3cd375160ea778a774e62c7c64f7d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59b3cd375160ea778a774e62c7c64f7d">getActivation</a> (int ligne)</td></tr>
 <tr class="memdesc:a59b3cd375160ea778a774e62c7c64f7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of the activation of a sensor or a valve from "activation.csv"  <br /></td></tr>
 <tr class="separator:a59b3cd375160ea778a774e62c7c64f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,7 +215,7 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Module to read CSV configuration files. </p>
 <dl class="section author"><dt>Author</dt><dd>Mael Parot, Benoit Brice </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.2 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>11/04/2024</dd></dl>
 <p>Contains all functions related to reading CSV files and writing the content into structures. </p>
 
@@ -227,7 +239,7 @@ Variables</h2></td></tr>
 <p>function to free the 5 structs </p>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00172">172</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00187">187</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -255,7 +267,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint8_t the activation of a sensor or a valve (1 if activated or 0 if not) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00587">587</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00692">692</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -283,7 +295,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int* an array of all the dependances for a valve </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00498">498</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00550">550</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -311,35 +323,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint16_t the value of the general state of a specific line </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00598">598</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a050486592cf733f404f0f5b0b6406272" name="a050486592cf733f404f0f5b0b6406272"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a050486592cf733f404f0f5b0b6406272">&#9670;&#160;</a></span>getEtatInitialSensors()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t getEtatInitialSensors </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ligne</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>function getter of the initial value of a sensor from "physicalCONFIG_sensors.csv" </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ligne</td><td>the line in the CSV file </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>uint8_t the initial value of the sensor </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00543">543</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00703">703</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -367,18 +351,18 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint8_t the initial value of the valve </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00532">532</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00584">584</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a35dcea7747c07d8fb2fecdb75d30b86d" name="a35dcea7747c07d8fb2fecdb75d30b86d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35dcea7747c07d8fb2fecdb75d30b86d">&#9670;&#160;</a></span>getMaxValue()</h2>
+<a id="af50249c502d41696db81f66102243725" name="af50249c502d41696db81f66102243725"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af50249c502d41696db81f66102243725">&#9670;&#160;</a></span>getModbusAddrRemoteSlave()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float getMaxValue </td>
+          <td class="memname">uint16_t getModbusAddrRemoteSlave </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ligne</em></span></td><td>)</td>
           <td></td>
@@ -386,27 +370,27 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>function getter of the min value of a sensor from "physicalCONFIG_sensors.csv" </p>
+<p>function getter of a modbus sensor address from "physicalCONFIG_sensors.csv" </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ligne</td><td>the line in the CSV file </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>uint8_t the min value of the sensor </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t the modbus sensor address </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00576">576</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00620">620</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
-<a id="aaf462157030206acbd3f8ef56719914a" name="aaf462157030206acbd3f8ef56719914a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf462157030206acbd3f8ef56719914a">&#9670;&#160;</a></span>getMinValue()</h2>
+<a id="a2029326f9ecfe8df759544bfbcdd93b9" name="a2029326f9ecfe8df759544bfbcdd93b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2029326f9ecfe8df759544bfbcdd93b9">&#9670;&#160;</a></span>getModbusBaudRate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float getMinValue </td>
+          <td class="memname">uint32_t getModbusBaudRate </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ligne</em></span></td><td>)</td>
           <td></td>
@@ -414,16 +398,128 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>function getter of the max value of a sensor from "physicalCONFIG_sensors.csv" </p>
+<p>function getter of a sensor start address to read, from "physicalCONFIG_sensors.csv" </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ligne</td><td>the line in the CSV file </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>uint8_t the max value of the sensor </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t the sensor start address to read </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00565">565</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00644">644</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aefc2a7d71cf262dae1961f894ad59250" name="aefc2a7d71cf262dae1961f894ad59250"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefc2a7d71cf262dae1961f894ad59250">&#9670;&#160;</a></span>getModbusDataBits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t getModbusDataBits </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ligne</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function getter of the modbus number of data bits from "physicalCONFIG_sensors.csv" can be 5,6,7 or 8. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ligne</td><td>the line in the CSV file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t the modbus number of data bits </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00669">669</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa6a5195ce6685aec2a8e126bc67118e8" name="aa6a5195ce6685aec2a8e126bc67118e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6a5195ce6685aec2a8e126bc67118e8">&#9670;&#160;</a></span>getModbusParity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char getModbusParity </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ligne</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function getter of the modbus parity from "physicalCONFIG_sensors.csv" can be 'O' (Odd), 'E' (Even) or 'N' (None). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ligne</td><td>the line in the CSV file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t the modbus parity </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00657">657</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1a782f9afa439eff3d3e807e2149de16" name="a1a782f9afa439eff3d3e807e2149de16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a782f9afa439eff3d3e807e2149de16">&#9670;&#160;</a></span>getModbusStartAddress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t getModbusStartAddress </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ligne</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function getter of a sensor start address to read, from "physicalCONFIG_sensors.csv" </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ligne</td><td>the line in the CSV file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t the sensor start address to read </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00632">632</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7db02ded3c19f89ba4b3cde6585fd7e4" name="a7db02ded3c19f89ba4b3cde6585fd7e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7db02ded3c19f89ba4b3cde6585fd7e4">&#9670;&#160;</a></span>getModbusStopBit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t getModbusStopBit </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ligne</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function getter of the modbus number of stop bits from "physicalCONFIG_sensors.csv" can be 1 or 2. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ligne</td><td>the line in the CSV file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t the modbus number of stop bits </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00681">681</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -445,7 +541,7 @@ Variables</h2></td></tr>
 <p>function getter of the name of a general state CSV file of the current general state (EG) </p>
 <dl class="section return"><dt>Returns</dt><dd>const char* the name of a general state CSV file </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00608">608</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00713">713</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -464,7 +560,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>function getter of the GPIO port of a valve from "physicalCONFIG_valves.csv" </p>
+<p>function getter of a valve GPIO port from "physicalCONFIG_valves.csv" </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ligne</td><td>the line in the CSV file </td></tr>
@@ -473,7 +569,35 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint8_t the GPIO port of the valve </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00554">554</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00595">595</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aef9ab8154afc84c92aa1ad1875286257" name="aef9ab8154afc84c92aa1ad1875286257"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef9ab8154afc84c92aa1ad1875286257">&#9670;&#160;</a></span>getSensorType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t getSensorType </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>ligne</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function getter of a sensor type from "physicalCONFIG_sensors.csv" can be 1 for an MCP3008 channel or 2 for a modbus serial sensor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ligne</td><td>the line in the CSV file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t the sensor type </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00608">608</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -501,7 +625,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>double the value of the timer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00521">521</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00573">573</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -529,7 +653,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int the value of the valve from a specific line </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00487">487</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00539">539</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -579,7 +703,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef errOpenPhysSensorsFile when the file fails to open, noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00329">329</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00344">344</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -607,7 +731,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef errEGNotFoundInFile general code (EG) not found in liaisonEGEtat.csv linked with the CSV file name, errOpenEtatsFile when the file fails to open, noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00225">225</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00240">240</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -635,7 +759,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef errOpenEGFile when the file fails to open, noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00192">192</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00207">207</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -663,7 +787,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef errOpenPhysSensorsFile when the file fails to open, noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00298">298</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00313">313</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -691,7 +815,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef errOpenPhysValvesFile when the file fails to open, noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00267">267</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00282">282</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -713,7 +837,7 @@ Variables</h2></td></tr>
 <p>function to get values of the new general state CSV and "liaisonEGEtat.csv" </p>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errAllocDataEG , errAllocDataEtats, in case of a malloc allocation error or noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00127">127</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00135">135</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -740,7 +864,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00624">624</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00729">729</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -772,7 +896,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00462">462</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00509">509</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -804,7 +928,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00357">357</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00372">372</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -836,7 +960,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00442">442</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00489">489</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -868,7 +992,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00418">418</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00445">445</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -900,7 +1024,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00396">396</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00416">416</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>
@@ -922,7 +1046,7 @@ Variables</h2></td></tr>
 <p>search the general state (EG) from the link between EG and CSV file name structure </p>
 <dl class="section return"><dt>Returns</dt><dd>int the general state (EG) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00644">644</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8cpp_source.html#l00749">749</a> of file <a class="el" href="csv_8cpp_source.html">csv.cpp</a>.</p>
 
 </div>
 </div>

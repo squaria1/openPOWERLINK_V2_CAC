@@ -13,17 +13,19 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>The current OpenPOWERLINK node state </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" line="58" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" bodystart="58" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" line="79" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" bodystart="79" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para>the OpenPOWERLINK node information structure </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" line="56" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" bodystart="57" bodyend="59"/>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" line="77" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" bodystart="78" bodyend="80"/>
     <listofallmembers>
       <member refid="structt_demo_node_info_1a60bbcadab2d687ca6352dd70c3d92804" prot="public" virt="non-virtual"><scope>tDemoNodeInfo</scope><name>nodeState</name></member>
     </listofallmembers>

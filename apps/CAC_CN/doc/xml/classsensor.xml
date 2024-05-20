@@ -16,8 +16,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="46" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="20" bodyend="25"/>
-        <references refid="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" compoundref="sensor_8cpp" startline="15">tabSensorActivated</references>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="61" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="49" bodyend="54"/>
+        <references refid="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" compoundref="sensor_8cpp" startline="25">tabSensorActivated</references>
       </memberdef>
       <memberdef kind="function" id="classsensor_1a9252346748c0bd090109ee5bcf45f13a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="47" column="17" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="27" bodyend="30"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="62" column="17" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="56" bodyend="59"/>
       </memberdef>
       <memberdef kind="function" id="classsensor_1a136fdef7c492900f3ff9baa211607cb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
@@ -49,16 +49,30 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="48" column="22" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="40" bodyend="52"/>
-        <references refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" compoundref="csv_8cpp" startline="587" endline="590">getActivation</references>
-        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
-        <references refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" compoundref="config_define_8h" startline="21">MAX_SENSORS</references>
-        <references refid="opl_8cpp_1a8dd1817cec0b1c38e0b7eb2470855b25" compoundref="opl_8cpp" startline="17">nbValuesCN_Out</references>
-        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
-        <references refid="sensor_8h_1a084710571b3a23b14fe1bc00ef626f52" compoundref="sensor_8cpp" startline="89" endline="126">readChannels</references>
-        <references refid="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" compoundref="sensor_8cpp" startline="15">tabSensorActivated</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="63" column="22" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="69" bodyend="120"/>
+        <references refid="sensor_8cpp_1abbcd977f5e414946647edf65cdeb74ce" compoundref="sensor_8cpp" startline="38" endline="38">ctx</references>
+        <references refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" compoundref="csv_8cpp" startline="692" endline="695">getActivation</references>
+        <references refid="csv_8cpp_1af50249c502d41696db81f66102243725" compoundref="csv_8cpp" startline="620" endline="623">getModbusAddrRemoteSlave</references>
+        <references refid="csv_8cpp_1a2029326f9ecfe8df759544bfbcdd93b9" compoundref="csv_8cpp" startline="644" endline="647">getModbusBaudRate</references>
+        <references refid="csv_8cpp_1aefc2a7d71cf262dae1961f894ad59250" compoundref="csv_8cpp" startline="669" endline="672">getModbusDataBits</references>
+        <references refid="csv_8cpp_1aa6a5195ce6685aec2a8e126bc67118e8" compoundref="csv_8cpp" startline="657" endline="660">getModbusParity</references>
+        <references refid="csv_8cpp_1a1a782f9afa439eff3d3e807e2149de16" compoundref="csv_8cpp" startline="632" endline="635">getModbusStartAddress</references>
+        <references refid="csv_8cpp_1a7db02ded3c19f89ba4b3cde6585fd7e4" compoundref="csv_8cpp" startline="681" endline="684">getModbusStopBit</references>
+        <references refid="csv_8cpp_1aef9ab8154afc84c92aa1ad1875286257" compoundref="csv_8cpp" startline="608" endline="611">getSensorType</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="17">i</references>
+        <references refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" compoundref="config_define_8h" startline="72">MAX_SENSORS</references>
+        <references refid="config_define_8h_1a60a00eebde352da82280909d3b60a2e7" compoundref="config_define_8h" startline="64">MODBUS_DEVICELOC</references>
+        <references refid="config_define_8h_1afa578deb5cc34a8d1a2c27d959ba68bf" compoundref="config_define_8h" startline="68">MODBUS_NBREG</references>
+        <references refid="sensor_8cpp_1a00d425c5212b392df244df6c811bf1cd" compoundref="sensor_8cpp" startline="42">modbusReg</references>
+        <references refid="opl_8cpp_1a8dd1817cec0b1c38e0b7eb2470855b25" compoundref="opl_8cpp" startline="34">nbValuesCN_Out</references>
+        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="42">nbValuesCN_Out_ByCN</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="22">noError</references>
+        <references refid="sensor_8cpp_1a86cf672daa4e0ad11ad10efc894d19c8" compoundref="sensor_8cpp" startline="21">num</references>
+        <references refid="sensor_8h_1a084710571b3a23b14fe1bc00ef626f52" compoundref="sensor_8cpp" startline="170" endline="229">readChannels</references>
+        <references refid="sensor_8cpp_1a598cc7808ae2f24d9e50a96acbffe018" compoundref="sensor_8cpp" startline="47">rs485Connected</references>
+        <references refid="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" compoundref="sensor_8cpp" startline="25">tabSensorActivated</references>
+        <references refid="sensor_8cpp_1af1a8dcdbb54fb5c1b49459cde87d1e75" compoundref="sensor_8cpp" startline="33">valSensors</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="216">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="classsensor_1ad3b9b11298007378ec5b9127694580af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
@@ -76,10 +90,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="49" column="22" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="61" bodyend="67"/>
-        <references refid="sensor_8h_1abf077aeb27cbf890c5006ed980d1c6f4" compoundref="sensor_8cpp" startline="136" endline="154">closeAdc</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="64" column="22" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" bodystart="129" bodyend="148"/>
+        <references refid="sensor_8h_1abf077aeb27cbf890c5006ed980d1c6f4" compoundref="sensor_8cpp" startline="239" endline="257">closeAdc</references>
+        <references refid="sensor_8cpp_1abbcd977f5e414946647edf65cdeb74ce" compoundref="sensor_8cpp" startline="38" endline="38">ctx</references>
+        <references refid="csv_8cpp_1aef9ab8154afc84c92aa1ad1875286257" compoundref="csv_8cpp" startline="608" endline="611">getSensorType</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="17">i</references>
+        <references refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" compoundref="config_define_8h" startline="72">MAX_SENSORS</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="22">noError</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="216">main</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -87,7 +105,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="43" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" bodystart="44" bodyend="55"/>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" line="58" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" bodystart="59" bodyend="70"/>
     <listofallmembers>
       <member refid="classsensor_1ad3b9b11298007378ec5b9127694580af" prot="public" virt="non-virtual"><scope>sensor</scope><name>extinctSensor</name></member>
       <member refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" prot="public" virt="non-virtual"><scope>sensor</scope><name>initSensor</name></member>

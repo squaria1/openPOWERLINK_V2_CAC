@@ -2,7 +2,7 @@
  * \file opl.cpp
  * \brief Module to communicate with the master board using OpenPOWERLINK
  * \author Mael Parot
- * \version 1.1
+ * \version 1.2
  * \date 11/04/2024
  *
  * Contains all functions related to communicating with the master board
@@ -11,27 +11,76 @@
 
 #include "opl.h"
 
-int16_t              EG = 1;
+/**
+ * \brief the general state from the MN (the OBC).
+ * It is initialized to 0 so a general state CSV file
+ * with EG = 0x0000 should not exist.
+ */
+int16_t              EG = 0;
+/**
+ * \brief the board state of this CN (this CAC board).
+ * It is initialized to the copy of the general state EG.
+ */
 int16_t              EC = EG;
+/**
+ * \brief the mode of the program.
+ * It is initialized to the automatic mode, 
+ * the general state CSV files are first used.
+ */
 Mode                 mode = automatic;
+/**
+ * \brief the number of values coming out of each CNs
+ */
 const uint16_t       nbValuesCN_Out = SIZE_OUT / NB_NODES - 1;
+/**
+ * \brief the number of values coming into each CNs
+ */
 const uint16_t       nbValuesCN_In = SIZE_IN / NB_NODES - 1;
+/**
+ * \brief the first value position coming out of this CN (the position of EC)
+ */
 const uint16_t       nbValuesCN_Out_ByCN = (SIZE_OUT / NB_NODES) * (NODEID - 1);
+/**
+ * \brief the first value position coming into this CN (the position of EG)
+ */
 const uint16_t       nbValuesCN_In_ByCN = (SIZE_IN / NB_NODES) * (NODEID - 1);
 
 //------------------------------------------------------------------------------
 // local vars
 //------------------------------------------------------------------------------
+/**
+ * \brief the LAN card mac address
+ */
 static const UINT8             aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+/**
+ * \brief Pointer to GsOff flag 
+ * (determines that OpenPOWERLINK stack is down)
+ */
 static BOOL                    fGsOff_l;
 
 /* process image */
+/**
+ * \brief the TPDO process variables (coming out of the CN)
+ */
 static const PI_IN* pProcessImageIn_l;
+/**
+ * \brief the RPDO process variables (coming into the CN)
+ */
 static PI_OUT* pProcessImageOut_l;
 
 /* application variables */
+/**
+ * \brief array of incoming values from the MN
+ */
 static int16_t                 values_In_CN_l[SIZE_IN];
+/**
+ * \brief array of values coming out of the CN
+ */
 static int16_t                 values_Out_CN_l[SIZE_OUT];
+/**
+ * \brief array of value activation coming out of the CN
+ * true if activated, false otherwise
+ */
 static bool                    activated_Out_CN_l[SIZE_OUT + 2];
 
 opl::opl()
@@ -148,12 +197,13 @@ void setValues_Out_CN()
 {
     values_Out_CN_l[nbValuesCN_Out_ByCN] = EC;
 
-    for (int i = 0; i < MAX_VALVES; i++) { //0 taille tab de benoit
+    //copy the valve values into the values coming out of the CN
+    for (int i = 0; i < MAX_VALVES; i++) {
         if (activated_Out_CN_l[i + nbValuesCN_Out_ByCN + 2])
             values_Out_CN_l[i + nbValuesCN_Out_ByCN + 1] = getValveValue(i + nbValuesCN_In_ByCN + 2);
     }
-
-    for (int i = 0; i < MAX_SENSORS; i++) { //0 taille tab de benoit
+    //copy the sensor values into the values coming out of the CN
+    for (int i = 0; i < MAX_SENSORS; i++) {
         if (activated_Out_CN_l[i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 + 2])
             values_Out_CN_l[i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 + 1] = getAdc_value(i);
     }
@@ -205,11 +255,16 @@ int16_t getEG()
  */
 statusErrDef isEGchanged()
 {
+    //check if the current EG is the same as the one from the incoming OpenPOWERLINK value
     if (values_In_CN_l[nbValuesCN_In_ByCN] != EG && values_In_CN_l[nbValuesCN_In_ByCN] != 0)
     {
+        //copy the EG value to the current value
         EG = values_In_CN_l[nbValuesCN_In_ByCN];
+        //feedback to the MN that the CN has received the EG change order
         EC = EG;
+        //reset the valve timers for the next general state CSV file read
         statusErrDef res = resetTimers();
+        //set to manual mode if the order has been received, set to automatic otherwise
         if (values_In_CN_l[nbValuesCN_In_ByCN] == infoStateToManualMode)
         {
             res = infoModeSetToManual;
@@ -229,7 +284,7 @@ statusErrDef isEGchanged()
  * 
  * \param EC the board state (EC)
  */
-void setEC1(int16_t EC)
+void setEC(int16_t EC)
 {
     values_Out_CN_l[nbValuesCN_Out_ByCN] = EC;
 }
@@ -268,24 +323,28 @@ statusErrDef initOPL()
     statusErrDef    res = noError;
     tOptions        opts;
 
-    strncpy(opts.devName, DEVNAME, 128);
-    opts.nodeId = NODEID;
-    opts.logFormat = kEventlogFormatReadable;
+    //initialize the OpenPOWERLINK parameters
+    strncpy(opts.devName, DEVNAME, 128); //the network device or interface (in linux it is eth0)
+    opts.nodeId = NODEID; //set the CN number
+    //set the OpenPOWERLINK log settings
+    opts.logFormat = kEventlogFormatReadable; 
     opts.logCategory = 0xffffffff;
     opts.logLevel = 0xffffffff;
 
+    //initialize the connexion between the OpenPOWERLINK stack and the operating system
     if (system_init() != 0)
     {
         fprintf(stderr, "Error initializing system!");
         return errOPLSystemInit;
     }
 
+    //initialize the logs
     eventlog_init(opts.logFormat,
         opts.logLevel,
         opts.logCategory,
         (tEventlogOutputCb)console_printlogadd);
 
-
+    //initialize the application event module
     initEvents(&fGsOff_l);
 
     printf("----------------------------------------------------\n");
@@ -293,14 +352,17 @@ statusErrDef initOPL()
     printf("Using openPOWERLINK stack: %s\n", oplk_getVersionString());
     printf("----------------------------------------------------\n");
 
+    //print into the console, the OPL stack parameters
     eventlog_printMessage(kEventlogLevelInfo,
         kEventlogCategoryGeneric,
         "demo_cn_console: Stack version:%s Stack configuration:0x%08X",
         oplk_getVersionString(),
         oplk_getStackConfiguration());
 
+    //activate the values coming out of the CN
     setActivated_Out_CN();
 
+    //initialize the POWERLINK instance
     res = initPowerlink(CYCLE_LEN,
         opts.devName,
         aMacAddr_l,
@@ -308,12 +370,16 @@ statusErrDef initOPL()
     if (res != noError)
         return res;
 
+    //Process the RPDO and TPDO to the OpenPOWERLINK stack
     res = initProcessImage();
     if (res != noError)
         return res;
+
+    //Initialize the OpenPOWERLINK cycle thread
     res = initOplThread();
     if (res != noError)
         return res;
+
     return noError;
 }
 
@@ -356,7 +422,7 @@ statusErrDef initPowerlink(UINT32 cycleLen_p,
         kEventlogCategoryGeneric,
         "Select the network interface");
 
-
+    //select manually the network interface in Windows otherwise it is eth0
     #if (TARGET_SYSTEM == _WIN32_)
         if (netselect_selectNetworkInterface(devName, sizeof(devName)) < 0)
             return errSelNetInterface;
@@ -370,8 +436,8 @@ statusErrDef initPowerlink(UINT32 cycleLen_p,
 
     // pass selected device name to Edrv
     initParam.hwParam.pDevName = devName;
-    initParam.nodeId = nodeId_p;
-    initParam.ipAddress = (0xFFFFFF00 & IP_ADDR) | initParam.nodeId;
+    initParam.nodeId = nodeId_p; // the CN number
+    initParam.ipAddress = (0xFFFFFF00 & IP_ADDR) | initParam.nodeId; // the ip address with a /24 network mask
 
     /* write 00:00:00:00:00:00 to MAC address, so that the driver uses the real hardware address */
     memcpy(initParam.aMacAddress, macAddr_p, sizeof(initParam.aMacAddress));
@@ -398,7 +464,7 @@ statusErrDef initPowerlink(UINT32 cycleLen_p,
     initParam.serialNumber = UINT_MAX;               // NMT_IdentityObject_REC.SerialNo_U32
     initParam.applicationSwDate = 0;
     initParam.applicationSwTime = 0;
-    initParam.subnetMask = SUBNET_MASK;
+    initParam.subnetMask = SUBNET_MASK; // 255.255.255.0 or /24 network mask
     initParam.defaultGateway = DEFAULT_GATEWAY;
     sprintf((char*)initParam.sHostname, "%02x-%08x", initParam.nodeId, initParam.vendorId);
     initParam.syncNodeId = C_ADR_SYNC_ON_SOA;
@@ -407,6 +473,7 @@ statusErrDef initPowerlink(UINT32 cycleLen_p,
     // set callback functions
     initParam.pfnCbEvent = processEvents;
 
+    // important: set the OpenPOWERLINK cycle actions synced between all CNs
     initParam.pfnCbSync = processSync;
 
     // Initialize object dictionary
@@ -500,6 +567,7 @@ statusErrDef initOplThread(void)
  */
 statusErrDef checkStateOpl()
 {
+    //Check if a termination signal has been received 
     if (system_getTermSignalState() != FALSE)
     {
         printf("Received termination signal, exiting...\n");
@@ -508,6 +576,7 @@ statusErrDef checkStateOpl()
             "Received termination signal, exiting...");
         return errSystemSendTerminate;
     }
+    //Check if the OpenPOWERLINK stack crashed
     if (oplk_checkKernelStack() == FALSE)
     {
         fprintf(stderr, "Kernel stack has gone! Exiting...\n");
@@ -523,19 +592,21 @@ statusErrDef checkStateOpl()
 \brief  Synchronous data handler
 
 The function implements the synchronous data handler.
+the valve dependance verification and the sensor reading is called here 
+to trigger valves for every CAC boards (every CNs) at the same time.
 
 \return The function returns a tOplkError error code.
-
-\ingroup module_demo_mn_console
 */
 tOplkError processSync()
 {
     tOplkError  res = kErrorOk;
+    valve valve;
 
+    //Wait for the OpenPOWERLINK cycle to start
     if (oplk_waitSyncEvent(100000) != kErrorOk)
         return res;
 
-
+    //Receive OpenPOWERLINK RPDOs values
     res = oplk_exchangeProcessImageOut();
     if (res != kErrorOk)
         return res;
@@ -563,6 +634,35 @@ tOplkError processSync()
     default:
         break;
     }
+
+    //Important : the valve dependance verification and the sensor reading 
+    //is called here to trigger valves for every CAC boards (every CNs) at the same time
+    #if (TARGET_SYSTEM == _WIN32_)
+    #else
+        res = valve.verifDependanceValves();
+        //if (res == noError)
+        //{
+        //    file.writeTelem("Verification of valve dependances has succeeded", infoVerifDependSucess);
+        //    opl.sendTelem(infoVerifDependSucess);
+        //}
+        //else
+        //{
+        //    file.writeError("Verification of valve dependances has failed!", res);
+        //    opl.sendError(res);
+        //}
+        res = readChannels();
+        //if (res == noError)
+        //{
+        //    file.writeTelem("Reading sensor channels has succeeded", infoReadChannels);
+        //    opl.sendTelem(infoReadChannels);
+        //}
+        //else
+        //{
+        //    file.writeError("Reading sensor channels has failed!", res);
+        //    opl.sendError(res);
+        //}
+    #endif
+
     //Process PI_OUT --> variables sortant du CN
     setValues_Out_CN();
 
@@ -571,7 +671,7 @@ tOplkError processSync()
         if (activated_Out_CN_l[i + 1])
             pProcessImageOut_l->out_CN_array[i] = values_Out_CN_l[i];
     }
-
+    //Send OpenPOWERLINK TPDOs values
     res = oplk_exchangeProcessImageIn();
     if (res != kErrorOk)
         return res;
@@ -583,8 +683,6 @@ tOplkError processSync()
 \brief  Setup inputs
 
 The function initializes the digital input port.
-
-\ingroup module_demo_cn_console
 */
 void setupInputs(void)
 {
@@ -621,6 +719,7 @@ statusErrDef initProcessImage(void)
         (ULONG)sizeof(PI_IN),
         (ULONG)sizeof(PI_OUT));
 
+    //Allocate into memory the RPDO and TPDO from their cumulative size
     ret = oplk_allocProcessImage(sizeof(PI_IN), sizeof(PI_OUT));
     if (ret != kErrorOk)
         return errOplkAllocProcessImage;
@@ -783,8 +882,6 @@ The function shuts down the synchronous data application
 \return statusErrDef that values errOplkFreeProcessImage
 when the freeing of memory of the OpenPOWERLINK fails.
 or noError when the function exits successfully.
-
-\ingroup module_demo_mn_console
 */
 statusErrDef shutdownOplImage(void)
 {

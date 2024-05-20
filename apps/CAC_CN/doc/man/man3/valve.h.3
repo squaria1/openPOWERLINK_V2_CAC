@@ -1,8 +1,9 @@
-.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" 3 "Version 1.2" "CAC main program" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h
+C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h \- header file of the valve module that controls the valves of the CAC Board  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -65,6 +66,30 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h
 .br
 .RI "function to reset the timers after the activation of all the valves\&. "
 .in -1c
+.SH "Detailed Description"
+.PP 
+header file of the valve module that controls the valves of the CAC Board 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Mael Parot 
+.RE
+.PP
+\fBVersion\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+11/04/2024
+.RE
+.PP
+Contains all functions definitions related to controling valves with the gpiod library\&. 
+.PP
+Definition in file \fBvalve\&.h\fP\&.
 .SH "Function Documentation"
 .PP 
 .SS "\fBstatusErrDef\fP getValvesInitValue ()"
@@ -81,7 +106,7 @@ statusErrDef that values errGetValveInitValue when the getter of the initial val
 .PP
 
 .PP
-Definition at line \fB465\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB483\fP of file \fBvalve\&.cpp\fP\&.
 .SS "int16_t getValveValue (int ligne)"
 
 .PP
@@ -99,7 +124,7 @@ the value of the valve
 .PP
 
 .PP
-Definition at line \fB491\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB509\fP of file \fBvalve\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP resetTimers ()"
 
 .PP
@@ -112,7 +137,7 @@ statusErrDef that values noError when the function exits successfully\&.
 .PP
 
 .PP
-Definition at line \fB507\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB525\fP of file \fBvalve\&.cpp\fP\&.
 .SS "int16_t setValvesValue ()"
 
 .PP
@@ -125,7 +150,7 @@ function setter of the valve values from a general state CSV file\&.
 .PP
 
 .PP
-Definition at line \fB446\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB464\fP of file \fBvalve\&.cpp\fP\&.
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for CAC_CN from the source code\&.
+Generated automatically by Doxygen for CAC main program from the source code\&.

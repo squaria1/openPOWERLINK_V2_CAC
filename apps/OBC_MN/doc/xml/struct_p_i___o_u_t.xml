@@ -13,18 +13,21 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>the array of OpenPOWERLINK values coming out of the MN </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/xapOpl.h" line="14" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/xapOpl.h" bodystart="14" bodyend="-1"/>
-        <referencedby refid="opl_8cpp_1a4f204b11f6909d44c14be101d4d01055" compoundref="opl_8cpp" startline="95" endline="103">affValeursInProcess</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/xapOpl.h" line="34" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/xapOpl.h" bodystart="34" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a4f204b11f6909d44c14be101d4d01055" compoundref="opl_8cpp" startline="159" endline="167">affValeursInProcess</referencedby>
+        <referencedby refid="opl_8cpp_1ac86056da77ac48c34bffd6a85f4567fe" compoundref="opl_8cpp" startline="632" endline="679">processSync</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para><ref refid="struct_p_i___o_u_t" kindref="compound">PI_OUT</ref> contains the RPDOs (Received Process Data Object) so the OpenPOWERLINK values coming out of the MN (Master Node) to the CN. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/xapOpl.h" line="12" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/xapOpl.h" bodystart="13" bodyend="15"/>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/xapOpl.h" line="32" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/xapOpl.h" bodystart="33" bodyend="35"/>
     <listofallmembers>
       <member refid="struct_p_i___o_u_t_1a694b2a7f1ee5ed56e399348bb5c7649d" prot="public" virt="non-virtual"><scope>PI_OUT</scope><name>out_MN_array</name></member>
     </listofallmembers>

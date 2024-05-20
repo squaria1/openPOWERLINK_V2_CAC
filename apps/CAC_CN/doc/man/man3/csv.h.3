@@ -1,8 +1,9 @@
-.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" 3 "Version 1.2" "CAC main program" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h
+C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h \- header file of the CSV module that reads CSV configuration files  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -29,18 +30,23 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h
 .ti -1c
 .RI "struct \fBLigneCSV\fP"
 .br
+.RI "struct containing values taken from a general state CSV such as the value, dependance and timer dependance of each valves\&. "
 .ti -1c
 .RI "struct \fBLigneVannes\fP"
 .br
+.RI "struct containing values taken from 'physicalCONFIG_valves\&.csv' such as the initial values, GPIO ports of each valves\&. "
 .ti -1c
 .RI "struct \fBLigneSensors\fP"
 .br
+.RI "struct containing values taken from 'physicalCONFIG_sensors\&.csv' such as the type and modbus parameters of each sensors\&. "
 .ti -1c
 .RI "struct \fBLigneActivation\fP"
 .br
+.RI "struct containing the boolean values taken from 'activation\&.csv' "
 .ti -1c
 .RI "struct \fBLigneEG\fP"
 .br
+.RI "struct containing the general state code according to the name of a general state CSV file taken from 'liaisonEGEtat\&.csv' "
 .in -1c
 .SS "Functions"
 
@@ -114,21 +120,40 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h
 .br
 .RI "function getter of the initial value of a valve from 'physicalCONFIG_valves\&.csv' "
 .ti -1c
-.RI "uint8_t \fBgetEtatInitialSensors\fP (int ligne)"
-.br
-.RI "function getter of the initial value of a sensor from 'physicalCONFIG_sensors\&.csv' "
-.ti -1c
 .RI "uint8_t \fBgetPortGPIO\fP (int ligne)"
 .br
-.RI "function getter of the GPIO port of a valve from 'physicalCONFIG_valves\&.csv' "
+.RI "function getter of a valve GPIO port from 'physicalCONFIG_valves\&.csv' "
 .ti -1c
-.RI "float \fBgetMinValue\fP (int ligne)"
+.RI "uint8_t \fBgetSensorType\fP (int ligne)"
 .br
-.RI "function getter of the max value of a sensor from 'physicalCONFIG_sensors\&.csv' "
+.RI "function getter of a sensor type from 'physicalCONFIG_sensors\&.csv' can be 1 for an MCP3008 channel or 2 for a modbus serial sensor\&. "
 .ti -1c
-.RI "float \fBgetMaxValue\fP (int ligne)"
+.RI "uint16_t \fBgetModbusAddrRemoteSlave\fP (int ligne)"
 .br
-.RI "function getter of the min value of a sensor from 'physicalCONFIG_sensors\&.csv' "
+.RI "function getter of a modbus sensor address from 'physicalCONFIG_sensors\&.csv' "
+.ti -1c
+.RI "uint16_t \fBgetModbusStartAddress\fP (int ligne)"
+.br
+.RI "function getter of a sensor start address to read, from 'physicalCONFIG_sensors\&.csv' "
+.ti -1c
+.RI "uint16_t \fBgetModbusNbRegisters\fP (int ligne)"
+.br
+.ti -1c
+.RI "uint32_t \fBgetModbusBaudRate\fP (int ligne)"
+.br
+.RI "function getter of a sensor start address to read, from 'physicalCONFIG_sensors\&.csv' "
+.ti -1c
+.RI "char \fBgetModbusParity\fP (int ligne)"
+.br
+.RI "function getter of the modbus parity from 'physicalCONFIG_sensors\&.csv' can be 'O' (Odd), 'E' (Even) or 'N' (None)\&. "
+.ti -1c
+.RI "uint16_t \fBgetModbusDataBits\fP (int ligne)"
+.br
+.RI "function getter of the modbus number of data bits from 'physicalCONFIG_sensors\&.csv' can be 5,6,7 or 8\&. "
+.ti -1c
+.RI "uint16_t \fBgetModbusStopBit\fP (int ligne)"
+.br
+.RI "function getter of the modbus number of stop bits from 'physicalCONFIG_sensors\&.csv' can be 1 or 2\&. "
 .ti -1c
 .RI "uint8_t \fBgetActivation\fP (int ligne)"
 .br
@@ -169,6 +194,30 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h
 .RI "struct \fBLigneEG\fP * \fBdataEG\fP"
 .br
 .in -1c
+.SH "Detailed Description"
+.PP 
+header file of the CSV module that reads CSV configuration files 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Mael Parot 
+.RE
+.PP
+\fBVersion\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+11/04/2024
+.RE
+.PP
+Contains all functions related to reading CSV files and writing the content into structures\&. 
+.PP
+Definition in file \fBcsv\&.h\fP\&.
 .SH "Function Documentation"
 .PP 
 .SS "\fBstatusErrDef\fP extinctCSV ()"
@@ -183,7 +232,7 @@ statusErrDef noError when the function exits successfully\&.
 .PP
 
 .PP
-Definition at line \fB172\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB187\fP of file \fBcsv\&.cpp\fP\&.
 .SS "uint8_t getActivation (int ligne)"
 
 .PP
@@ -201,7 +250,7 @@ uint8_t the activation of a sensor or a valve (1 if activated or 0 if not)
 .PP
 
 .PP
-Definition at line \fB587\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB692\fP of file \fBcsv\&.cpp\fP\&.
 .SS "int * getDependanceVannes (int ligne)"
 
 .PP
@@ -219,7 +268,7 @@ int* an array of all the dependances for a valve
 .PP
 
 .PP
-Definition at line \fB498\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB550\fP of file \fBcsv\&.cpp\fP\&.
 .SS "int16_t getEGcsv (int ligne)"
 
 .PP
@@ -237,25 +286,7 @@ uint16_t the value of the general state of a specific line
 .PP
 
 .PP
-Definition at line \fB598\fP of file \fBcsv\&.cpp\fP\&.
-.SS "uint8_t getEtatInitialSensors (int ligne)"
-
-.PP
-function getter of the initial value of a sensor from 'physicalCONFIG_sensors\&.csv' 
-.PP
-\fBParameters\fP
-.RS 4
-\fIligne\fP the line in the CSV file 
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-uint8_t the initial value of the sensor 
-.RE
-.PP
-
-.PP
-Definition at line \fB543\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB703\fP of file \fBcsv\&.cpp\fP\&.
 .SS "uint8_t getEtatInitialVannes (int ligne)"
 
 .PP
@@ -273,11 +304,11 @@ uint8_t the initial value of the valve
 .PP
 
 .PP
-Definition at line \fB532\fP of file \fBcsv\&.cpp\fP\&.
-.SS "float getMaxValue (int ligne)"
+Definition at line \fB584\fP of file \fBcsv\&.cpp\fP\&.
+.SS "uint16_t getModbusAddrRemoteSlave (int ligne)"
 
 .PP
-function getter of the min value of a sensor from 'physicalCONFIG_sensors\&.csv' 
+function getter of a modbus sensor address from 'physicalCONFIG_sensors\&.csv' 
 .PP
 \fBParameters\fP
 .RS 4
@@ -286,16 +317,16 @@ function getter of the min value of a sensor from 'physicalCONFIG_sensors\&.csv'
 .PP
 \fBReturns\fP
 .RS 4
-uint8_t the min value of the sensor 
+uint8_t the modbus sensor address 
 .RE
 .PP
 
 .PP
-Definition at line \fB576\fP of file \fBcsv\&.cpp\fP\&.
-.SS "float getMinValue (int ligne)"
+Definition at line \fB620\fP of file \fBcsv\&.cpp\fP\&.
+.SS "uint32_t getModbusBaudRate (int ligne)"
 
 .PP
-function getter of the max value of a sensor from 'physicalCONFIG_sensors\&.csv' 
+function getter of a sensor start address to read, from 'physicalCONFIG_sensors\&.csv' 
 .PP
 \fBParameters\fP
 .RS 4
@@ -304,12 +335,86 @@ function getter of the max value of a sensor from 'physicalCONFIG_sensors\&.csv'
 .PP
 \fBReturns\fP
 .RS 4
-uint8_t the max value of the sensor 
+uint8_t the sensor start address to read 
 .RE
 .PP
 
 .PP
-Definition at line \fB565\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB644\fP of file \fBcsv\&.cpp\fP\&.
+.SS "uint16_t getModbusDataBits (int ligne)"
+
+.PP
+function getter of the modbus number of data bits from 'physicalCONFIG_sensors\&.csv' can be 5,6,7 or 8\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIligne\fP the line in the CSV file 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+uint8_t the modbus number of data bits 
+.RE
+.PP
+
+.PP
+Definition at line \fB669\fP of file \fBcsv\&.cpp\fP\&.
+.SS "uint16_t getModbusNbRegisters (int ligne)"
+
+.SS "char getModbusParity (int ligne)"
+
+.PP
+function getter of the modbus parity from 'physicalCONFIG_sensors\&.csv' can be 'O' (Odd), 'E' (Even) or 'N' (None)\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIligne\fP the line in the CSV file 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+uint8_t the modbus parity 
+.RE
+.PP
+
+.PP
+Definition at line \fB657\fP of file \fBcsv\&.cpp\fP\&.
+.SS "uint16_t getModbusStartAddress (int ligne)"
+
+.PP
+function getter of a sensor start address to read, from 'physicalCONFIG_sensors\&.csv' 
+.PP
+\fBParameters\fP
+.RS 4
+\fIligne\fP the line in the CSV file 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+uint8_t the sensor start address to read 
+.RE
+.PP
+
+.PP
+Definition at line \fB632\fP of file \fBcsv\&.cpp\fP\&.
+.SS "uint16_t getModbusStopBit (int ligne)"
+
+.PP
+function getter of the modbus number of stop bits from 'physicalCONFIG_sensors\&.csv' can be 1 or 2\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIligne\fP the line in the CSV file 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+uint8_t the modbus number of stop bits 
+.RE
+.PP
+
+.PP
+Definition at line \fB681\fP of file \fBcsv\&.cpp\fP\&.
 .SS "const char * getNomFichiercsv ()"
 
 .PP
@@ -322,11 +427,11 @@ const char* the name of a general state CSV file
 .PP
 
 .PP
-Definition at line \fB608\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB713\fP of file \fBcsv\&.cpp\fP\&.
 .SS "uint8_t getPortGPIO (int ligne)"
 
 .PP
-function getter of the GPIO port of a valve from 'physicalCONFIG_valves\&.csv' 
+function getter of a valve GPIO port from 'physicalCONFIG_valves\&.csv' 
 .PP
 \fBParameters\fP
 .RS 4
@@ -340,7 +445,25 @@ uint8_t the GPIO port of the valve
 .PP
 
 .PP
-Definition at line \fB554\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB595\fP of file \fBcsv\&.cpp\fP\&.
+.SS "uint8_t getSensorType (int ligne)"
+
+.PP
+function getter of a sensor type from 'physicalCONFIG_sensors\&.csv' can be 1 for an MCP3008 channel or 2 for a modbus serial sensor\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIligne\fP the line in the CSV file 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+uint8_t the sensor type 
+.RE
+.PP
+
+.PP
+Definition at line \fB608\fP of file \fBcsv\&.cpp\fP\&.
 .SS "double getTimerVannes (int ligne)"
 
 .PP
@@ -358,7 +481,7 @@ double the value of the timer
 .PP
 
 .PP
-Definition at line \fB521\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB573\fP of file \fBcsv\&.cpp\fP\&.
 .SS "int getValeur (int ligne)"
 
 .PP
@@ -376,7 +499,7 @@ int the value of the valve from a specific line
 .PP
 
 .PP
-Definition at line \fB487\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB539\fP of file \fBcsv\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP initCSV ()"
 
 .PP
@@ -407,7 +530,7 @@ statusErrDef errOpenPhysSensorsFile when the file fails to open, noError when th
 .PP
 
 .PP
-Definition at line \fB329\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB344\fP of file \fBcsv\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP lireFichierCSV (const char * dir)"
 
 .PP
@@ -425,7 +548,7 @@ statusErrDef errEGNotFoundInFile general code (EG) not found in liaisonEGEtat\&.
 .PP
 
 .PP
-Definition at line \fB225\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB240\fP of file \fBcsv\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP lireFichierEG (const char * fileName)"
 
 .PP
@@ -443,7 +566,7 @@ statusErrDef errOpenEGFile when the file fails to open, noError when the functio
 .PP
 
 .PP
-Definition at line \fB192\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB207\fP of file \fBcsv\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP lireFichierSensors (const char * fileName)"
 
 .PP
@@ -461,7 +584,7 @@ statusErrDef errOpenPhysSensorsFile when the file fails to open, noError when th
 .PP
 
 .PP
-Definition at line \fB298\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB313\fP of file \fBcsv\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP lireFichierVannes (const char * fileName)"
 
 .PP
@@ -479,7 +602,7 @@ statusErrDef errOpenPhysValvesFile when the file fails to open, noError when the
 .PP
 
 .PP
-Definition at line \fB267\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB282\fP of file \fBcsv\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP refreshCSV ()"
 
 .PP
@@ -492,7 +615,7 @@ statusErrDef that values errAllocDataEG , errAllocDataEtats, in case of a malloc
 .PP
 
 .PP
-Definition at line \fB127\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB135\fP of file \fBcsv\&.cpp\fP\&.
 .SS "void removeCarriageReturn (char * str)"
 
 .PP
@@ -505,7 +628,7 @@ function that removes the carriage return from the end a line of a general state
 .PP
 
 .PP
-Definition at line \fB624\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB729\fP of file \fBcsv\&.cpp\fP\&.
 .SS "void remplirEG (char * ligne, int id)"
 
 .PP
@@ -520,7 +643,7 @@ function to fill in the link between EG and CSV file name structure\&.
 .PP
 
 .PP
-Definition at line \fB462\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB509\fP of file \fBcsv\&.cpp\fP\&.
 .SS "void remplirStructure (char * ligne, int id)"
 
 .PP
@@ -535,7 +658,7 @@ function to fill in the general CSV structure\&.
 .PP
 
 .PP
-Definition at line \fB357\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB372\fP of file \fBcsv\&.cpp\fP\&.
 .SS "void remplirStructureCommon (char * ligne, int id)"
 
 .PP
@@ -550,7 +673,7 @@ function to fill in the activation CSV structure\&.
 .PP
 
 .PP
-Definition at line \fB442\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB489\fP of file \fBcsv\&.cpp\fP\&.
 .SS "void remplirStructureSensorsPhysicalCONFIG (char * ligne, int id)"
 
 .PP
@@ -565,7 +688,7 @@ function to fill in the physical config sensors structure\&.
 .PP
 
 .PP
-Definition at line \fB418\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB445\fP of file \fBcsv\&.cpp\fP\&.
 .SS "void remplirStructureVannesPhysicalCONFIG (char * ligne, int id)"
 
 .PP
@@ -580,7 +703,7 @@ function to fill in the physical config valves structure\&.
 .PP
 
 .PP
-Definition at line \fB396\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB416\fP of file \fBcsv\&.cpp\fP\&.
 .SS "int searchEG ()"
 
 .PP
@@ -593,7 +716,7 @@ int the general state (EG)
 .PP
 
 .PP
-Definition at line \fB644\fP of file \fBcsv\&.cpp\fP\&.
+Definition at line \fB749\fP of file \fBcsv\&.cpp\fP\&.
 .SH "Variable Documentation"
 .PP 
 .SS "struct \fBLigneActivation\fP* dataActivation\fR [extern]\fP"
@@ -618,4 +741,4 @@ Definition at line \fB36\fP of file \fBcsv\&.cpp\fP\&.
 Definition at line \fB28\fP of file \fBcsv\&.cpp\fP\&.
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for CAC_CN from the source code\&.
+Generated automatically by Doxygen for CAC main program from the source code\&.

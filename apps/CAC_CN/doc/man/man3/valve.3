@@ -1,4 +1,4 @@
-.TH "valve" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.TH "valve" 3 "Version 1.2" "CAC main program" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -55,17 +55,17 @@ valve \- valve module class\&.
 .PP 
 valve module class\&. 
 .PP
-Definition at line \fB29\fP of file \fBvalve\&.h\fP\&.
+Definition at line \fB44\fP of file \fBvalve\&.h\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "valve::valve ()"
 
 .PP
-Definition at line \fB32\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB51\fP of file \fBvalve\&.cpp\fP\&.
 .SS "valve::~valve ()\fR [virtual]\fP"
 
 .PP
-Definition at line \fB37\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB56\fP of file \fBvalve\&.cpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "\fBstatusErrDef\fP valve::actionnementValve (int valveNum)"
@@ -87,7 +87,7 @@ statusErrDef that values errValueInitIsNotBinary when an initial valve value is 
 .PP
 
 .PP
-Definition at line \fB161\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB179\fP of file \fBvalve\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP valve::actionnementValvesInit ()"
 
 .PP
@@ -100,7 +100,7 @@ statusErrDef that values errValueInitIsNotBinary when a value is not 0 or 1\&. o
 .PP
 
 .PP
-Definition at line \fB117\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB135\fP of file \fBvalve\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP valve::extinctValve ()"
 
 .PP
@@ -115,7 +115,7 @@ statusErrDef that values errValueInitIsNotBinary when a value is not 0 or 1 or e
 .PP
 
 .PP
-Definition at line \fB413\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB431\fP of file \fBvalve\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP valve::initValve ()"
 
 .PP
@@ -128,7 +128,7 @@ statusErrDef that values errGPIOPathEmpty when the gpio chip path is not correct
 .PP
 
 .PP
-Definition at line \fB55\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB73\fP of file \fBvalve\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP valve::isDependanceActive (int ligne)"
 
 .PP
@@ -148,7 +148,7 @@ statusErrDef that values errGPIOGetValue when the getter of a gpio line value fa
 .PP
 
 .PP
-Definition at line \fB301\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB319\fP of file \fBvalve\&.cpp\fP\&.
 .SS "int16_t valve::isTimerExeeded (int valveNum)"
 
 .PP
@@ -166,7 +166,7 @@ function to check if the current value of a timer has exceeded the timer value f
 .PP
 
 .PP
-Definition at line \fB390\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB408\fP of file \fBvalve\&.cpp\fP\&.
 .SS "int16_t valve::startTimerDependance (int valveNum)"
 
 .PP
@@ -184,7 +184,7 @@ function to start the timer when all the dependances of a valve are activated\&.
 .PP
 
 .PP
-Definition at line \fB372\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB390\fP of file \fBvalve\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP valve::verifDependanceValves ()"
 
 .PP
@@ -199,8 +199,8 @@ statusErrDef that values errValueInitIsNotBinary when a value is not 0 or 1\&. o
 .PP
 
 .PP
-Definition at line \fB208\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB226\fP of file \fBvalve\&.cpp\fP\&.
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for CAC_CN from the source code\&.
+Generated automatically by Doxygen for CAC main program from the source code\&.

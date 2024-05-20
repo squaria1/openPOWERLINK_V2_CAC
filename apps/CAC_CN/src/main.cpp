@@ -2,7 +2,7 @@
  * \file main.cpp
  * \brief Main program with state machine
  * \author Mael Parot
- * \version 1.1
+ * \version 1.2
  * \date 11/04/2024
  *
  * Main program of the acquisition and control boards
@@ -20,7 +20,7 @@
 /**
  * \brief main function of the program
  * 
- * \return int 0 if the program exits properly
+ * \return 0 if the program exits properly
  */
 int main() {
     stateDef        state = init;
@@ -143,33 +143,10 @@ int main() {
                     file.writeTelem("Mode set to manual valve activation from MN", res);
                     opl.sendTelem(res);
                 }
-
-                #if (TARGET_SYSTEM == _WIN32_)
-                #else
-                    res = valve.verifDependanceValves();
-                    //if (res == noError)
-                    //{
-                    //    file.writeTelem("Verification of valve dependances has succeeded", infoVerifDependSucess);
-                    //    opl.sendTelem(infoVerifDependSucess);
-                    //}
-                    //else
-                    //{
-                    //    file.writeError("Verification of valve dependances has failed!", res);
-                    //    opl.sendError(res);
-                    //}
-                    res = readChannels();
-                    //if (res == noError)
-                    //{
-                    //    file.writeTelem("Reading sensor channels has succeeded", infoReadChannels);
-                    //    opl.sendTelem(infoReadChannels);
-                    //}
-                    //else
-                    //{
-                    //    file.writeError("Reading sensor channels has failed!", res);
-                    //    opl.sendError(res);
-                    //}
-                #endif
-                system_msleep(DELAYMSCONTROL);
+                else if(res == infoEGsetToZero)
+                {
+                    
+                }
 
                 res = opl.demandeExtinctOPL();
                 if(res == infoStopOrderReceived)
@@ -183,6 +160,8 @@ int main() {
                     if (res == errSystemSendTerminate)
                         state = shutdown;
                 }
+
+                system_msleep(DELAYMSCONTROL);
                 break;
             case shutdown: // Extinction
                 file.writeTelem("CAC is going into shutdown state", infoStateToShutdown);

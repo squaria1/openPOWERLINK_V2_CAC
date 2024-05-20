@@ -1,8 +1,9 @@
-.TH "LigneEG" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.TH "LigneEG" 3 "Version 1.2" "CAC main program" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-LigneEG
+LigneEG \- struct containing the general state code according to the name of a general state CSV file taken from 'liaisonEGEtat\&.csv'  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -20,18 +21,20 @@ LigneEG
 .in -1c
 .SH "Detailed Description"
 .PP 
-Definition at line \fB44\fP of file \fBcsv\&.h\fP\&.
+struct containing the general state code according to the name of a general state CSV file taken from 'liaisonEGEtat\&.csv' 
+.PP
+Definition at line \fB92\fP of file \fBcsv\&.h\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "int16_t LigneEG::EG[\fBMAX_LINE_SIZE\fP]"
-
+the MN general state code 
 .PP
-Definition at line \fB45\fP of file \fBcsv\&.h\fP\&.
+Definition at line \fB93\fP of file \fBcsv\&.h\fP\&.
 .SS "char* LigneEG::nom[\fBMAX_LINE_SIZE\fP]"
-
+the general state CSV file name associated with the MN general state code 
 .PP
-Definition at line \fB46\fP of file \fBcsv\&.h\fP\&.
+Definition at line \fB94\fP of file \fBcsv\&.h\fP\&.
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for CAC_CN from the source code\&.
+Generated automatically by Doxygen for CAC main program from the source code\&.

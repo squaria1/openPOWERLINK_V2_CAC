@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CAC_CN: LigneSensors Struct Reference</title>
+<title>CAC main program: LigneSensors Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">CAC_CN<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">CAC main program<span id="projectnumber">&#160;1.2</span>
    </div>
    <div id="projectbrief">The main program for acquisition and control boards.</div>
   </td>
@@ -100,66 +100,149 @@ $(function(){initNavTree('struct_ligne_sensors.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 
+<p>struct containing values taken from "physicalCONFIG_sensors.csv" such as the type and modbus parameters of each sensors.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="csv_8h_source.html">csv.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ac9c86088dd1113febf304c9da01a3cb3" id="r_ac9c86088dd1113febf304c9da01a3cb3"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9c86088dd1113febf304c9da01a3cb3">etatInitial</a> [<a class="el" href="config_define_8h.html#a56d2ae7dc00f8f120314a9de4a9efcbe">MAX_PHYSICAL_LINE_SIZE</a>]</td></tr>
-<tr class="separator:ac9c86088dd1113febf304c9da01a3cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd60eeb6d4029750e659fc029b261171" id="r_afd60eeb6d4029750e659fc029b261171"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd60eeb6d4029750e659fc029b261171">minValue</a> [<a class="el" href="config_define_8h.html#a56d2ae7dc00f8f120314a9de4a9efcbe">MAX_PHYSICAL_LINE_SIZE</a>]</td></tr>
-<tr class="separator:afd60eeb6d4029750e659fc029b261171"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a118149e0588323c79b8519d7a167f948" id="r_a118149e0588323c79b8519d7a167f948"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a118149e0588323c79b8519d7a167f948">maxValue</a> [<a class="el" href="config_define_8h.html#a56d2ae7dc00f8f120314a9de4a9efcbe">MAX_PHYSICAL_LINE_SIZE</a>]</td></tr>
-<tr class="separator:a118149e0588323c79b8519d7a167f948"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd08584fa26b33d7fe6a457b8acf6c1d" id="r_acd08584fa26b33d7fe6a457b8acf6c1d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd08584fa26b33d7fe6a457b8acf6c1d">type</a> [2 *<a class="el" href="config_define_8h.html#aa3d1fc2927eec213e6b5f9e854c392d2">MAX_SENSORS</a>]</td></tr>
+<tr class="separator:acd08584fa26b33d7fe6a457b8acf6c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98e8c6864249a7484da384c913c9ea94" id="r_a98e8c6864249a7484da384c913c9ea94"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98e8c6864249a7484da384c913c9ea94">modbusAddrRemoteSlave</a> [2 *<a class="el" href="config_define_8h.html#aa3d1fc2927eec213e6b5f9e854c392d2">MAX_SENSORS</a>]</td></tr>
+<tr class="separator:a98e8c6864249a7484da384c913c9ea94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc8f6947ec48d80236cd6dcd3ac67549" id="r_adc8f6947ec48d80236cd6dcd3ac67549"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc8f6947ec48d80236cd6dcd3ac67549">modbusStartAddress</a> [2 *<a class="el" href="config_define_8h.html#aa3d1fc2927eec213e6b5f9e854c392d2">MAX_SENSORS</a>]</td></tr>
+<tr class="separator:adc8f6947ec48d80236cd6dcd3ac67549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab61ec429882cffad92537793daa1c2ca" id="r_ab61ec429882cffad92537793daa1c2ca"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab61ec429882cffad92537793daa1c2ca">modbusBaudRate</a> [2 *<a class="el" href="config_define_8h.html#aa3d1fc2927eec213e6b5f9e854c392d2">MAX_SENSORS</a>]</td></tr>
+<tr class="separator:ab61ec429882cffad92537793daa1c2ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0ee05deedbd75f69e8b5826d391347f" id="r_ad0ee05deedbd75f69e8b5826d391347f"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0ee05deedbd75f69e8b5826d391347f">modbusParity</a> [2 *<a class="el" href="config_define_8h.html#aa3d1fc2927eec213e6b5f9e854c392d2">MAX_SENSORS</a>]</td></tr>
+<tr class="separator:ad0ee05deedbd75f69e8b5826d391347f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f1c20c298cf84a63083b359a872094c" id="r_a0f1c20c298cf84a63083b359a872094c"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f1c20c298cf84a63083b359a872094c">modbusDataBits</a> [2 *<a class="el" href="config_define_8h.html#aa3d1fc2927eec213e6b5f9e854c392d2">MAX_SENSORS</a>]</td></tr>
+<tr class="separator:a0f1c20c298cf84a63083b359a872094c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f41df6d3b7bb2f8415a482948bd560e" id="r_a2f41df6d3b7bb2f8415a482948bd560e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f41df6d3b7bb2f8415a482948bd560e">modbusStopBit</a> [2 *<a class="el" href="config_define_8h.html#aa3d1fc2927eec213e6b5f9e854c392d2">MAX_SENSORS</a>]</td></tr>
+<tr class="separator:a2f41df6d3b7bb2f8415a482948bd560e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="csv_8h_source.html#l00034">34</a> of file <a class="el" href="csv_8h_source.html">csv.h</a>.</p>
+<div class="textblock"><p>struct containing values taken from "physicalCONFIG_sensors.csv" such as the type and modbus parameters of each sensors. </p>
+
+<p class="definition">Definition at line <a class="el" href="csv_8h_source.html#l00067">67</a> of file <a class="el" href="csv_8h_source.html">csv.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac9c86088dd1113febf304c9da01a3cb3" name="ac9c86088dd1113febf304c9da01a3cb3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9c86088dd1113febf304c9da01a3cb3">&#9670;&#160;</a></span>etatInitial</h2>
+<a id="a98e8c6864249a7484da384c913c9ea94" name="a98e8c6864249a7484da384c913c9ea94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98e8c6864249a7484da384c913c9ea94">&#9670;&#160;</a></span>modbusAddrRemoteSlave</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t LigneSensors::etatInitial[<a class="el" href="config_define_8h.html#a56d2ae7dc00f8f120314a9de4a9efcbe">MAX_PHYSICAL_LINE_SIZE</a>]</td>
+          <td class="memname">uint16_t LigneSensors::modbusAddrRemoteSlave[2 *<a class="el" href="config_define_8h.html#aa3d1fc2927eec213e6b5f9e854c392d2">MAX_SENSORS</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>the connected sensor address </p>
 
-<p class="definition">Definition at line <a class="el" href="csv_8h_source.html#l00035">35</a> of file <a class="el" href="csv_8h_source.html">csv.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8h_source.html#l00069">69</a> of file <a class="el" href="csv_8h_source.html">csv.h</a>.</p>
 
 </div>
 </div>
-<a id="a118149e0588323c79b8519d7a167f948" name="a118149e0588323c79b8519d7a167f948"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a118149e0588323c79b8519d7a167f948">&#9670;&#160;</a></span>maxValue</h2>
+<a id="ab61ec429882cffad92537793daa1c2ca" name="ab61ec429882cffad92537793daa1c2ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab61ec429882cffad92537793daa1c2ca">&#9670;&#160;</a></span>modbusBaudRate</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float LigneSensors::maxValue[<a class="el" href="config_define_8h.html#a56d2ae7dc00f8f120314a9de4a9efcbe">MAX_PHYSICAL_LINE_SIZE</a>]</td>
+          <td class="memname">uint32_t LigneSensors::modbusBaudRate[2 *<a class="el" href="config_define_8h.html#aa3d1fc2927eec213e6b5f9e854c392d2">MAX_SENSORS</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>the modbus connexion baud rate </p>
 
-<p class="definition">Definition at line <a class="el" href="csv_8h_source.html#l00037">37</a> of file <a class="el" href="csv_8h_source.html">csv.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8h_source.html#l00071">71</a> of file <a class="el" href="csv_8h_source.html">csv.h</a>.</p>
 
 </div>
 </div>
-<a id="afd60eeb6d4029750e659fc029b261171" name="afd60eeb6d4029750e659fc029b261171"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd60eeb6d4029750e659fc029b261171">&#9670;&#160;</a></span>minValue</h2>
+<a id="a0f1c20c298cf84a63083b359a872094c" name="a0f1c20c298cf84a63083b359a872094c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f1c20c298cf84a63083b359a872094c">&#9670;&#160;</a></span>modbusDataBits</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float LigneSensors::minValue[<a class="el" href="config_define_8h.html#a56d2ae7dc00f8f120314a9de4a9efcbe">MAX_PHYSICAL_LINE_SIZE</a>]</td>
+          <td class="memname">uint16_t LigneSensors::modbusDataBits[2 *<a class="el" href="config_define_8h.html#aa3d1fc2927eec213e6b5f9e854c392d2">MAX_SENSORS</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>the modbus databits number (5,6,7 or 8) </p>
 
-<p class="definition">Definition at line <a class="el" href="csv_8h_source.html#l00036">36</a> of file <a class="el" href="csv_8h_source.html">csv.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="csv_8h_source.html#l00073">73</a> of file <a class="el" href="csv_8h_source.html">csv.h</a>.</p>
+
+</div>
+</div>
+<a id="ad0ee05deedbd75f69e8b5826d391347f" name="ad0ee05deedbd75f69e8b5826d391347f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0ee05deedbd75f69e8b5826d391347f">&#9670;&#160;</a></span>modbusParity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char LigneSensors::modbusParity[2 *<a class="el" href="config_define_8h.html#aa3d1fc2927eec213e6b5f9e854c392d2">MAX_SENSORS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>the modbus parity (N for None, E for Even and O for Odd) </p>
+
+<p class="definition">Definition at line <a class="el" href="csv_8h_source.html#l00072">72</a> of file <a class="el" href="csv_8h_source.html">csv.h</a>.</p>
+
+</div>
+</div>
+<a id="adc8f6947ec48d80236cd6dcd3ac67549" name="adc8f6947ec48d80236cd6dcd3ac67549"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc8f6947ec48d80236cd6dcd3ac67549">&#9670;&#160;</a></span>modbusStartAddress</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t LigneSensors::modbusStartAddress[2 *<a class="el" href="config_define_8h.html#aa3d1fc2927eec213e6b5f9e854c392d2">MAX_SENSORS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>the read start address </p>
+
+<p class="definition">Definition at line <a class="el" href="csv_8h_source.html#l00070">70</a> of file <a class="el" href="csv_8h_source.html">csv.h</a>.</p>
+
+</div>
+</div>
+<a id="a2f41df6d3b7bb2f8415a482948bd560e" name="a2f41df6d3b7bb2f8415a482948bd560e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f41df6d3b7bb2f8415a482948bd560e">&#9670;&#160;</a></span>modbusStopBit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t LigneSensors::modbusStopBit[2 *<a class="el" href="config_define_8h.html#aa3d1fc2927eec213e6b5f9e854c392d2">MAX_SENSORS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>the modbus stopbit number (1 or 2) </p>
+
+<p class="definition">Definition at line <a class="el" href="csv_8h_source.html#l00074">74</a> of file <a class="el" href="csv_8h_source.html">csv.h</a>.</p>
+
+</div>
+</div>
+<a id="acd08584fa26b33d7fe6a457b8acf6c1d" name="acd08584fa26b33d7fe6a457b8acf6c1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd08584fa26b33d7fe6a457b8acf6c1d">&#9670;&#160;</a></span>type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t LigneSensors::type[2 *<a class="el" href="config_define_8h.html#aa3d1fc2927eec213e6b5f9e854c392d2">MAX_SENSORS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>the type of sensor (1 for an MCP3008 channel and 2 for modbus) </p>
+
+<p class="definition">Definition at line <a class="el" href="csv_8h_source.html#l00068">68</a> of file <a class="el" href="csv_8h_source.html">csv.h</a>.</p>
 
 </div>
 </div>

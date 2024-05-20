@@ -40,21 +40,21 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="11">
+      <node id="12">
         <label>eventOpl.h</label>
         <link refid="event_opl_8h"/>
-        <childnode refid="12" relation="include">
-        </childnode>
         <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="16">
+      <node id="11">
         <label>nodeId.h</label>
         <link refid="node_id_8h"/>
       </node>
@@ -63,11 +63,11 @@
         <link refid="opl_8h"/>
         <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
@@ -77,9 +77,9 @@
         </childnode>
         <childnode refid="24" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
         <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="29" relation="include">
         </childnode>
@@ -95,9 +95,9 @@
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
         <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
         </childnode>
         <childnode refid="34" relation="include">
         </childnode>
@@ -181,8 +181,10 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
       </node>
-      <node id="14">
+      <node id="15">
         <label>console/console.h</label>
       </node>
       <node id="26">
@@ -194,7 +196,7 @@
       <node id="19">
         <label>errno.h</label>
       </node>
-      <node id="15">
+      <node id="16">
         <label>eventlog/eventlog.h</label>
       </node>
       <node id="18">
@@ -224,10 +226,10 @@
       <node id="33">
         <label>obdcreate/obdcreate.h</label>
       </node>
-      <node id="13">
+      <node id="14">
         <label>oplk/debugstr.h</label>
       </node>
-      <node id="12">
+      <node id="13">
         <label>oplk/oplk.h</label>
       </node>
       <node id="21">
@@ -346,7 +348,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="79" column="27" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="20" bodyend="-1" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="79" declcolumn="27"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="132" column="23" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="20" bodyend="-1" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="132" declcolumn="23"/>
       </memberdef>
       <memberdef kind="variable" id="csv_8h_1a0604c88114d265423bd058430aef5358" prot="public" static="no" extern="yes" mutable="no">
         <type>struct <ref refid="struct_ligne_vannes" kindref="compound">LigneVannes</ref> *</type>
@@ -359,7 +361,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="80" column="30" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="28" bodyend="-1" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="80" declcolumn="30"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="133" column="26" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="28" bodyend="-1" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="133" declcolumn="26"/>
       </memberdef>
       <memberdef kind="variable" id="csv_8h_1a545bddd902931ddd3692b3792d3958b4" prot="public" static="no" extern="yes" mutable="no">
         <type>struct <ref refid="struct_ligne_sensors" kindref="compound">LigneSensors</ref> *</type>
@@ -372,7 +374,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="81" column="31" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="36" bodyend="-1" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="81" declcolumn="31"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="134" column="27" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="36" bodyend="-1" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="134" declcolumn="27"/>
       </memberdef>
       <memberdef kind="variable" id="csv_8h_1a6d01cb64bb5d3e9ccda826e7b892ae18" prot="public" static="no" extern="yes" mutable="no">
         <type>struct <ref refid="struct_ligne_activation" kindref="compound">LigneActivation</ref> *</type>
@@ -385,7 +387,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="82" column="34" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="43" bodyend="-1" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="82" declcolumn="34"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="135" column="30" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="43" bodyend="-1" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="135" declcolumn="30"/>
       </memberdef>
       <memberdef kind="variable" id="csv_8h_1ac119725e56f891ac0af277ad61a9eaf4" prot="public" static="no" extern="yes" mutable="no">
         <type>struct <ref refid="struct_ligne_e_g" kindref="compound">LigneEG</ref> *</type>
@@ -398,13 +400,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="83" column="26" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="51" bodyend="-1" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="83" declcolumn="26"/>
-        <referencedby refid="csv_8cpp_1a39604608c86deb3e5925261c5a9413ca" compoundref="csv_8cpp" startline="172" endline="181">extinctCSV</referencedby>
-        <referencedby refid="csv_8cpp_1a70bcd737e5a40f36e1cccaf3a7f63379" compoundref="csv_8cpp" startline="598" endline="601">getEGcsv</referencedby>
-        <referencedby refid="csv_8cpp_1a3020b0ac72052eacef78e25c399ce4a6" compoundref="csv_8cpp" startline="608" endline="617">getNomFichiercsv</referencedby>
-        <referencedby refid="csv_8cpp_1a44cd2131057b27749a53caad3ec77eb9" compoundref="csv_8cpp" startline="127" endline="164">refreshCSV</referencedby>
-        <referencedby refid="csv_8cpp_1acbc16f61c722ba86bac4676c366b09bb" compoundref="csv_8cpp" startline="462" endline="479">remplirEG</referencedby>
-        <referencedby refid="csv_8cpp_1a6b63c44df8b905d77b2c66f1cea86204" compoundref="csv_8cpp" startline="644" endline="653">searchEG</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="136" column="22" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="51" bodyend="-1" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="136" declcolumn="22"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -423,19 +419,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="49" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="61" bodyend="116" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="49" declcolumn="18"/>
-        <references refid="config_define_8h_1af03b9ef4da5daeff7665f07931101fdb" compoundref="config_define_8h" startline="46">COMMON_PHYSICAL_CONFIG_DIRECTORY</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94aa748b576dd63269692bf94745ebde592" compoundref="status_error_define_8h" startline="51">errAllocDataActivation</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ae97856e69e4799dd26242af002ea490d" compoundref="status_error_define_8h" startline="50">errAllocDataPhysSensors</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a52c0a0dc9ef385f587dda867044b4643" compoundref="status_error_define_8h" startline="49">errAllocDataPhysValves</references>
-        <references refid="csv_8cpp_1a2e7bd32b81cf14bdd3867119fe4c75c2" compoundref="csv_8cpp" startline="329" endline="349">lireFichierActivation</references>
-        <references refid="csv_8cpp_1ade728b48c3405b05be12be8e6b5d5206" compoundref="csv_8cpp" startline="298" endline="318">lireFichierSensors</references>
-        <references refid="csv_8cpp_1ad8987ecbd2c5ce44f2a930a28a012b99" compoundref="csv_8cpp" startline="267" endline="287">lireFichierVannes</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
-        <references refid="config_define_8h_1adb2604b345fe7f2f732f29ff27f245ab" compoundref="config_define_8h" startline="45">PHYSICAL_CONFIG_SENSORS_DIRECTORY</references>
-        <references refid="config_define_8h_1ab5026e01006a4457989b22c57cc98f02" compoundref="config_define_8h" startline="44">PHYSICAL_CONFIG_VANNES_DIRECTORY</references>
-        <references refid="csv_8cpp_1a44cd2131057b27749a53caad3ec77eb9" compoundref="csv_8cpp" startline="127" endline="164">refreshCSV</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="97" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="61" bodyend="124" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="97" declcolumn="14"/>
+        <references refid="config_define_8h_1af03b9ef4da5daeff7665f07931101fdb" compoundref="config_define_8h" startline="121">COMMON_PHYSICAL_CONFIG_DIRECTORY</references>
+        <references refid="opl_8cpp_1a063c1e70bcbeb72b1c2483b200839a85" compoundref="opl_8cpp" startline="19">EG</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94aa748b576dd63269692bf94745ebde592" compoundref="status_error_define_8h" startline="68">errAllocDataActivation</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ae97856e69e4799dd26242af002ea490d" compoundref="status_error_define_8h" startline="67">errAllocDataPhysSensors</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a52c0a0dc9ef385f587dda867044b4643" compoundref="status_error_define_8h" startline="66">errAllocDataPhysValves</references>
+        <references refid="csv_8cpp_1a2e7bd32b81cf14bdd3867119fe4c75c2" compoundref="csv_8cpp" startline="344" endline="364">lireFichierActivation</references>
+        <references refid="csv_8cpp_1ade728b48c3405b05be12be8e6b5d5206" compoundref="csv_8cpp" startline="313" endline="333">lireFichierSensors</references>
+        <references refid="csv_8cpp_1ad8987ecbd2c5ce44f2a930a28a012b99" compoundref="csv_8cpp" startline="282" endline="302">lireFichierVannes</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="22">noError</references>
+        <references refid="config_define_8h_1adb2604b345fe7f2f732f29ff27f245ab" compoundref="config_define_8h" startline="120">PHYSICAL_CONFIG_SENSORS_DIRECTORY</references>
+        <references refid="config_define_8h_1ab5026e01006a4457989b22c57cc98f02" compoundref="config_define_8h" startline="119">PHYSICAL_CONFIG_VANNES_DIRECTORY</references>
+        <references refid="csv_8cpp_1a44cd2131057b27749a53caad3ec77eb9" compoundref="csv_8cpp" startline="135" endline="179">refreshCSV</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="216">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a44cd2131057b27749a53caad3ec77eb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
@@ -452,17 +449,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="50" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="127" bodyend="164" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="50" declcolumn="18"/>
-        <references refid="csv_8cpp_1ac119725e56f891ac0af277ad61a9eaf4" compoundref="csv_8cpp" startline="51">dataEG</references>
-        <references refid="config_define_8h_1a4714f9212329c04dc628e204388611a1" compoundref="config_define_8h" startline="47">EG_ETAT_DIRECTORY</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a7f5fa8b07e851d30728b48a6706f3406" compoundref="status_error_define_8h" startline="47">errAllocDataEG</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94aa17dee312ce9f8b84311bcfeeea687e4" compoundref="status_error_define_8h" startline="48">errAllocDataEtats</references>
-        <references refid="csv_8cpp_1a810cafce9c6d5bb3e3ec3e8754ca924c" compoundref="csv_8cpp" startline="225" endline="256">lireFichierCSV</references>
-        <references refid="csv_8cpp_1a6c7104900937bff943d7f36f4f9cb7f0" compoundref="csv_8cpp" startline="192" endline="213">lireFichierEG</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
-        <references refid="config_define_8h_1a61233d5f57b883028d50415837de9da1" compoundref="config_define_8h" startline="43">STATE_CSV_DIRECTORY</references>
-        <referencedby refid="csv_8cpp_1a57ce52f959b46f63b41ea53578833174" compoundref="csv_8cpp" startline="61" endline="116">initCSV</referencedby>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="98" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="135" bodyend="179" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="98" declcolumn="14"/>
+        <references refid="opl_8cpp_1a063c1e70bcbeb72b1c2483b200839a85" compoundref="opl_8cpp" startline="19">EG</references>
+        <references refid="config_define_8h_1a4714f9212329c04dc628e204388611a1" compoundref="config_define_8h" startline="122">EG_ETAT_DIRECTORY</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a7f5fa8b07e851d30728b48a6706f3406" compoundref="status_error_define_8h" startline="64">errAllocDataEG</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94aa17dee312ce9f8b84311bcfeeea687e4" compoundref="status_error_define_8h" startline="65">errAllocDataEtats</references>
+        <references refid="csv_8cpp_1a810cafce9c6d5bb3e3ec3e8754ca924c" compoundref="csv_8cpp" startline="240" endline="271">lireFichierCSV</references>
+        <references refid="csv_8cpp_1a6c7104900937bff943d7f36f4f9cb7f0" compoundref="csv_8cpp" startline="207" endline="228">lireFichierEG</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="22">noError</references>
+        <references refid="config_define_8h_1a61233d5f57b883028d50415837de9da1" compoundref="config_define_8h" startline="118">STATE_CSV_DIRECTORY</references>
+        <referencedby refid="csv_8cpp_1a57ce52f959b46f63b41ea53578833174" compoundref="csv_8cpp" startline="61" endline="124">initCSV</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="216">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a39604608c86deb3e5925261c5a9413ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
@@ -479,10 +476,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="51" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="172" bodyend="181" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="51" declcolumn="18"/>
-        <references refid="csv_8cpp_1ac119725e56f891ac0af277ad61a9eaf4" compoundref="csv_8cpp" startline="51">dataEG</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="99" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="187" bodyend="196" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="99" declcolumn="14"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="22">noError</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="216">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a810cafce9c6d5bb3e3ec3e8754ca924c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
@@ -512,15 +508,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="53" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="225" bodyend="256" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="53" declcolumn="18"/>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a14f3c6267c7217f788ac3ce46bd60835" compoundref="status_error_define_8h" startline="53">errEGNotFoundInFile</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a12741a8473115ee22c636b93fbef02a4" compoundref="status_error_define_8h" startline="54">errOpenEtatsFile</references>
-        <references refid="csv_8cpp_1a3020b0ac72052eacef78e25c399ce4a6" compoundref="csv_8cpp" startline="608" endline="617">getNomFichiercsv</references>
-        <references refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" compoundref="config_define_8h" startline="30">MAX_LINE_SIZE</references>
-        <references refid="config_define_8h_1a9eb6992d76f02128388ae95c0415604a" compoundref="config_define_8h" startline="29">MAX_PATH_LENGTH</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
-        <references refid="csv_8cpp_1a134699cebaabd514d62d43ed18cee67d" compoundref="csv_8cpp" startline="357" endline="388">remplirStructure</references>
-        <referencedby refid="csv_8cpp_1a44cd2131057b27749a53caad3ec77eb9" compoundref="csv_8cpp" startline="127" endline="164">refreshCSV</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="101" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="240" bodyend="271" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="101" declcolumn="14"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a14f3c6267c7217f788ac3ce46bd60835" compoundref="status_error_define_8h" startline="70">errEGNotFoundInFile</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a12741a8473115ee22c636b93fbef02a4" compoundref="status_error_define_8h" startline="71">errOpenEtatsFile</references>
+        <references refid="csv_8cpp_1a3020b0ac72052eacef78e25c399ce4a6" compoundref="csv_8cpp" startline="713" endline="722">getNomFichiercsv</references>
+        <references refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" compoundref="config_define_8h" startline="100">MAX_LINE_SIZE</references>
+        <references refid="config_define_8h_1a9eb6992d76f02128388ae95c0415604a" compoundref="config_define_8h" startline="96">MAX_PATH_LENGTH</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="22">noError</references>
+        <references refid="csv_8cpp_1a134699cebaabd514d62d43ed18cee67d" compoundref="csv_8cpp" startline="372" endline="408">remplirStructure</references>
+        <referencedby refid="csv_8cpp_1a44cd2131057b27749a53caad3ec77eb9" compoundref="csv_8cpp" startline="135" endline="179">refreshCSV</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1ad8987ecbd2c5ce44f2a930a28a012b99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
@@ -550,12 +546,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="54" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="267" bodyend="287" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="54" declcolumn="18"/>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94aec51d52bd267e359598a1910f12b65b4" compoundref="status_error_define_8h" startline="55">errOpenPhysValvesFile</references>
-        <references refid="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" compoundref="config_define_8h" startline="31">MAX_PHYSICAL_LINE_SIZE</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
-        <references refid="csv_8cpp_1a6a858555dd145f61931120807004cf55" compoundref="csv_8cpp" startline="396" endline="410">remplirStructureVannesPhysicalCONFIG</references>
-        <referencedby refid="csv_8cpp_1a57ce52f959b46f63b41ea53578833174" compoundref="csv_8cpp" startline="61" endline="116">initCSV</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="102" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="282" bodyend="302" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="102" declcolumn="14"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94aec51d52bd267e359598a1910f12b65b4" compoundref="status_error_define_8h" startline="72">errOpenPhysValvesFile</references>
+        <references refid="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" compoundref="config_define_8h" startline="104">MAX_PHYSICAL_LINE_SIZE</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="22">noError</references>
+        <references refid="csv_8cpp_1a6a858555dd145f61931120807004cf55" compoundref="csv_8cpp" startline="416" endline="437">remplirStructureVannesPhysicalCONFIG</references>
+        <referencedby refid="csv_8cpp_1a57ce52f959b46f63b41ea53578833174" compoundref="csv_8cpp" startline="61" endline="124">initCSV</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1ade728b48c3405b05be12be8e6b5d5206" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
@@ -585,12 +581,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="55" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="298" bodyend="318" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="55" declcolumn="18"/>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a9883c20b0333d35a1a7b2342627a536c" compoundref="status_error_define_8h" startline="56">errOpenPhysSensorsFile</references>
-        <references refid="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" compoundref="config_define_8h" startline="31">MAX_PHYSICAL_LINE_SIZE</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
-        <references refid="csv_8cpp_1a268de499892be836f042bfc112a904ea" compoundref="csv_8cpp" startline="418" endline="434">remplirStructureSensorsPhysicalCONFIG</references>
-        <referencedby refid="csv_8cpp_1a57ce52f959b46f63b41ea53578833174" compoundref="csv_8cpp" startline="61" endline="116">initCSV</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="103" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="313" bodyend="333" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="103" declcolumn="14"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a9883c20b0333d35a1a7b2342627a536c" compoundref="status_error_define_8h" startline="73">errOpenPhysSensorsFile</references>
+        <references refid="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" compoundref="config_define_8h" startline="104">MAX_PHYSICAL_LINE_SIZE</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="22">noError</references>
+        <references refid="csv_8cpp_1a268de499892be836f042bfc112a904ea" compoundref="csv_8cpp" startline="445" endline="481">remplirStructureSensorsPhysicalCONFIG</references>
+        <referencedby refid="csv_8cpp_1a57ce52f959b46f63b41ea53578833174" compoundref="csv_8cpp" startline="61" endline="124">initCSV</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a2e7bd32b81cf14bdd3867119fe4c75c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
@@ -620,12 +616,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="56" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="329" bodyend="349" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="56" declcolumn="18"/>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94aa8dbde321e31e69aeaa49dc7f37bbc16" compoundref="status_error_define_8h" startline="57">errOpenActivationFile</references>
-        <references refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" compoundref="config_define_8h" startline="30">MAX_LINE_SIZE</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
-        <references refid="csv_8cpp_1ab2ab3ac11ce7f23bde4ddf923050b533" compoundref="csv_8cpp" startline="442" endline="454">remplirStructureCommon</references>
-        <referencedby refid="csv_8cpp_1a57ce52f959b46f63b41ea53578833174" compoundref="csv_8cpp" startline="61" endline="116">initCSV</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="104" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="344" bodyend="364" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="104" declcolumn="14"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94aa8dbde321e31e69aeaa49dc7f37bbc16" compoundref="status_error_define_8h" startline="74">errOpenActivationFile</references>
+        <references refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" compoundref="config_define_8h" startline="100">MAX_LINE_SIZE</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="22">noError</references>
+        <references refid="csv_8cpp_1ab2ab3ac11ce7f23bde4ddf923050b533" compoundref="csv_8cpp" startline="489" endline="501">remplirStructureCommon</references>
+        <referencedby refid="csv_8cpp_1a57ce52f959b46f63b41ea53578833174" compoundref="csv_8cpp" startline="61" endline="124">initCSV</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a6c7104900937bff943d7f36f4f9cb7f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
@@ -655,12 +651,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="57" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="192" bodyend="213" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="57" declcolumn="18"/>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a30f34309a812bd0a316489459b8bb55d" compoundref="status_error_define_8h" startline="52">errOpenEGFile</references>
-        <references refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" compoundref="config_define_8h" startline="30">MAX_LINE_SIZE</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
-        <references refid="csv_8cpp_1acbc16f61c722ba86bac4676c366b09bb" compoundref="csv_8cpp" startline="462" endline="479">remplirEG</references>
-        <referencedby refid="csv_8cpp_1a44cd2131057b27749a53caad3ec77eb9" compoundref="csv_8cpp" startline="127" endline="164">refreshCSV</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="105" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="207" bodyend="228" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="105" declcolumn="14"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a30f34309a812bd0a316489459b8bb55d" compoundref="status_error_define_8h" startline="69">errOpenEGFile</references>
+        <references refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" compoundref="config_define_8h" startline="100">MAX_LINE_SIZE</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="22">noError</references>
+        <references refid="csv_8cpp_1acbc16f61c722ba86bac4676c366b09bb" compoundref="csv_8cpp" startline="509" endline="531">remplirEG</references>
+        <referencedby refid="csv_8cpp_1a44cd2131057b27749a53caad3ec77eb9" compoundref="csv_8cpp" startline="135" endline="179">refreshCSV</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a134699cebaabd514d62d43ed18cee67d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -700,9 +696,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="59" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="357" bodyend="388" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="59" declcolumn="10"/>
-        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
-        <referencedby refid="csv_8cpp_1a810cafce9c6d5bb3e3ec3e8754ca924c" compoundref="csv_8cpp" startline="225" endline="256">lireFichierCSV</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="107" column="6" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="372" bodyend="408" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="107" declcolumn="6"/>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="17">i</references>
+        <referencedby refid="csv_8cpp_1a810cafce9c6d5bb3e3ec3e8754ca924c" compoundref="csv_8cpp" startline="240" endline="271">lireFichierCSV</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a6a858555dd145f61931120807004cf55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -742,8 +738,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="60" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="396" bodyend="410" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="60" declcolumn="10"/>
-        <referencedby refid="csv_8cpp_1ad8987ecbd2c5ce44f2a930a28a012b99" compoundref="csv_8cpp" startline="267" endline="287">lireFichierVannes</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="108" column="6" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="416" bodyend="437" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="108" declcolumn="6"/>
+        <referencedby refid="csv_8cpp_1ad8987ecbd2c5ce44f2a930a28a012b99" compoundref="csv_8cpp" startline="282" endline="302">lireFichierVannes</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a268de499892be836f042bfc112a904ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -783,8 +779,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="61" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="418" bodyend="434" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="61" declcolumn="10"/>
-        <referencedby refid="csv_8cpp_1ade728b48c3405b05be12be8e6b5d5206" compoundref="csv_8cpp" startline="298" endline="318">lireFichierSensors</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="109" column="6" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="445" bodyend="481" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="109" declcolumn="6"/>
+        <referencedby refid="csv_8cpp_1ade728b48c3405b05be12be8e6b5d5206" compoundref="csv_8cpp" startline="313" endline="333">lireFichierSensors</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1ab2ab3ac11ce7f23bde4ddf923050b533" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -824,8 +820,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="62" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="442" bodyend="454" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="62" declcolumn="10"/>
-        <referencedby refid="csv_8cpp_1a2e7bd32b81cf14bdd3867119fe4c75c2" compoundref="csv_8cpp" startline="329" endline="349">lireFichierActivation</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="110" column="6" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="489" bodyend="501" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="110" declcolumn="6"/>
+        <referencedby refid="csv_8cpp_1a2e7bd32b81cf14bdd3867119fe4c75c2" compoundref="csv_8cpp" startline="344" endline="364">lireFichierActivation</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1acbc16f61c722ba86bac4676c366b09bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -865,12 +861,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="63" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="462" bodyend="479" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="63" declcolumn="10"/>
-        <references refid="csv_8cpp_1ac119725e56f891ac0af277ad61a9eaf4" compoundref="csv_8cpp" startline="51">dataEG</references>
-        <references refid="struct_ligne_e_g_1a798f7a58703288236d76c6fb141f5756" compoundref="csv_8h" startline="45">LigneEG::EG</references>
-        <references refid="struct_ligne_e_g_1a466c1a46947d19a6cb596d48f8726c92" compoundref="csv_8h" startline="46">LigneEG::nom</references>
-        <references refid="csv_8cpp_1a12cdfbd8ea531195d20d46386535a300" compoundref="csv_8cpp" startline="624" endline="636">removeCarriageReturn</references>
-        <referencedby refid="csv_8cpp_1a6c7104900937bff943d7f36f4f9cb7f0" compoundref="csv_8cpp" startline="192" endline="213">lireFichierEG</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="111" column="6" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="509" bodyend="531" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="111" declcolumn="6"/>
+        <references refid="csv_8cpp_1a12cdfbd8ea531195d20d46386535a300" compoundref="csv_8cpp" startline="729" endline="741">removeCarriageReturn</references>
+        <referencedby refid="csv_8cpp_1a6c7104900937bff943d7f36f4f9cb7f0" compoundref="csv_8cpp" startline="207" endline="228">lireFichierEG</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1ab23dd7339a925518cc7ccb9c8ff617c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -900,12 +893,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="65" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="487" bodyend="490" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="65" declcolumn="9"/>
-        <referencedby refid="classvalve_1aac2cd5441d1c1a1180e18af2468a4547" compoundref="valve_8cpp" startline="161" endline="194">valve::actionnementValve</referencedby>
-        <referencedby refid="valve_8cpp_1a659d21ba354b3f756293314bf2c8dfc4" compoundref="valve_8cpp" startline="491" endline="498">getValveValue</referencedby>
-        <referencedby refid="classvalve_1ae69c309265ce0269e0207043fb6b06ca" compoundref="valve_8cpp" startline="301" endline="363">valve::isDependanceActive</referencedby>
-        <referencedby refid="valve_8cpp_1add60b51091e6e3c9653ed8400895e3a1" compoundref="valve_8cpp" startline="446" endline="455">setValvesValue</referencedby>
-        <referencedby refid="classvalve_1a1364f1770f8218d7a0077ca2a953371b" compoundref="valve_8cpp" startline="208" endline="280">valve::verifDependanceValves</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="113" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="539" bodyend="542" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="113" declcolumn="5"/>
+        <referencedby refid="classvalve_1aac2cd5441d1c1a1180e18af2468a4547" compoundref="valve_8cpp" startline="179" endline="212">valve::actionnementValve</referencedby>
+        <referencedby refid="valve_8cpp_1a659d21ba354b3f756293314bf2c8dfc4" compoundref="valve_8cpp" startline="509" endline="516">getValveValue</referencedby>
+        <referencedby refid="classvalve_1ae69c309265ce0269e0207043fb6b06ca" compoundref="valve_8cpp" startline="319" endline="381">valve::isDependanceActive</referencedby>
+        <referencedby refid="valve_8cpp_1add60b51091e6e3c9653ed8400895e3a1" compoundref="valve_8cpp" startline="464" endline="473">setValvesValue</referencedby>
+        <referencedby refid="classvalve_1a1364f1770f8218d7a0077ca2a953371b" compoundref="valve_8cpp" startline="226" endline="298">valve::verifDependanceValves</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a8a1a11a2771226955ece875f170f2f0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int *</type>
@@ -935,10 +928,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="66" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="498" bodyend="513" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="66" declcolumn="9"/>
-        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
-        <references refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" compoundref="config_define_8h" startline="26">MAX_VALVES</references>
-        <referencedby refid="classvalve_1ae69c309265ce0269e0207043fb6b06ca" compoundref="valve_8cpp" startline="301" endline="363">valve::isDependanceActive</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="114" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="550" bodyend="565" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="114" declcolumn="5"/>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="17">i</references>
+        <references refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" compoundref="config_define_8h" startline="90">MAX_VALVES</references>
+        <referencedby refid="classvalve_1ae69c309265ce0269e0207043fb6b06ca" compoundref="valve_8cpp" startline="319" endline="381">valve::isDependanceActive</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a42f02acae60cc52772c5933fd490bac0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -968,8 +961,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="67" column="12" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="521" bodyend="524" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="67" declcolumn="12"/>
-        <referencedby refid="classvalve_1a5dae9e8165e79289e59e2426f9d75d29" compoundref="valve_8cpp" startline="390" endline="401">valve::isTimerExeeded</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="115" column="8" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="573" bodyend="576" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="115" declcolumn="8"/>
+        <referencedby refid="classvalve_1a5dae9e8165e79289e59e2426f9d75d29" compoundref="valve_8cpp" startline="408" endline="419">valve::isTimerExeeded</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a06ba5d2bce46c751d895dbf5678036ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>uint8_t</type>
@@ -999,39 +992,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="68" column="13" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="532" bodyend="535" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="68" declcolumn="13"/>
-        <referencedby refid="valve_8cpp_1ad4e5b817af0b9501d2a6e6deb0c89445" compoundref="valve_8cpp" startline="465" endline="481">getValvesInitValue</referencedby>
-        <referencedby refid="classvalve_1a86e16a5cc95d9bec4ee8eec6722760fe" compoundref="valve_8cpp" startline="55" endline="106">valve::initValve</referencedby>
-      </memberdef>
-      <memberdef kind="function" id="csv_8h_1a050486592cf733f404f0f5b0b6406272" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>uint8_t</type>
-        <definition>uint8_t getEtatInitialSensors</definition>
-        <argsstring>(int ligne)</argsstring>
-        <name>getEtatInitialSensors</name>
-        <param>
-          <type>int</type>
-          <declname>ligne</declname>
-        </param>
-        <briefdescription>
-<para>function getter of the initial value of a sensor from &quot;physicalCONFIG_sensors.csv&quot; </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>ligne</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>the line in the CSV file </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>uint8_t the initial value of the sensor </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="69" column="13" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="543" bodyend="546" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="69" declcolumn="13"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="116" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="584" bodyend="587" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="116" declcolumn="9"/>
+        <referencedby refid="valve_8cpp_1ad4e5b817af0b9501d2a6e6deb0c89445" compoundref="valve_8cpp" startline="483" endline="499">getValvesInitValue</referencedby>
+        <referencedby refid="classvalve_1a86e16a5cc95d9bec4ee8eec6722760fe" compoundref="valve_8cpp" startline="73" endline="124">valve::initValve</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a208a08d00b78203d1aa620f641f0b9c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>uint8_t</type>
@@ -1043,7 +1006,7 @@
           <declname>ligne</declname>
         </param>
         <briefdescription>
-<para>function getter of the GPIO port of a valve from &quot;physicalCONFIG_valves.csv&quot; </para>
+<para>function getter of a valve GPIO port from &quot;physicalCONFIG_valves.csv&quot; </para>
         </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
@@ -1061,20 +1024,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="70" column="13" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="554" bodyend="557" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="70" declcolumn="13"/>
-        <referencedby refid="classvalve_1a86e16a5cc95d9bec4ee8eec6722760fe" compoundref="valve_8cpp" startline="55" endline="106">valve::initValve</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="117" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="595" bodyend="598" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="117" declcolumn="9"/>
+        <referencedby refid="classvalve_1a86e16a5cc95d9bec4ee8eec6722760fe" compoundref="valve_8cpp" startline="73" endline="124">valve::initValve</referencedby>
       </memberdef>
-      <memberdef kind="function" id="csv_8h_1aaf462157030206acbd3f8ef56719914a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>float</type>
-        <definition>float getMinValue</definition>
+      <memberdef kind="function" id="csv_8h_1aef9ab8154afc84c92aa1ad1875286257" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t getSensorType</definition>
         <argsstring>(int ligne)</argsstring>
-        <name>getMinValue</name>
+        <name>getSensorType</name>
         <param>
           <type>int</type>
           <declname>ligne</declname>
         </param>
         <briefdescription>
-<para>function getter of the max value of a sensor from &quot;physicalCONFIG_sensors.csv&quot; </para>
+<para>function getter of a sensor type from &quot;physicalCONFIG_sensors.csv&quot; can be 1 for an MCP3008 channel or 2 for a modbus serial sensor. </para>
         </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
@@ -1086,25 +1049,28 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>uint8_t the max value of the sensor </para>
+<simplesect kind="return"><para>uint8_t the sensor type </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="71" column="11" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="565" bodyend="568" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="71" declcolumn="11"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="118" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="608" bodyend="611" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="118" declcolumn="9"/>
+        <referencedby refid="classsensor_1ad3b9b11298007378ec5b9127694580af" compoundref="sensor_8cpp" startline="129" endline="148">sensor::extinctSensor</referencedby>
+        <referencedby refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" compoundref="sensor_8cpp" startline="69" endline="120">sensor::initSensor</referencedby>
+        <referencedby refid="sensor_8cpp_1a084710571b3a23b14fe1bc00ef626f52" compoundref="sensor_8cpp" startline="170" endline="229">readChannels</referencedby>
       </memberdef>
-      <memberdef kind="function" id="csv_8h_1a35dcea7747c07d8fb2fecdb75d30b86d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>float</type>
-        <definition>float getMaxValue</definition>
+      <memberdef kind="function" id="csv_8h_1af50249c502d41696db81f66102243725" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t getModbusAddrRemoteSlave</definition>
         <argsstring>(int ligne)</argsstring>
-        <name>getMaxValue</name>
+        <name>getModbusAddrRemoteSlave</name>
         <param>
           <type>int</type>
           <declname>ligne</declname>
         </param>
         <briefdescription>
-<para>function getter of the min value of a sensor from &quot;physicalCONFIG_sensors.csv&quot; </para>
+<para>function getter of a modbus sensor address from &quot;physicalCONFIG_sensors.csv&quot; </para>
         </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
@@ -1116,13 +1082,187 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>uint8_t the min value of the sensor </para>
+<simplesect kind="return"><para>uint8_t the modbus sensor address </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="72" column="11" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="576" bodyend="579" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="72" declcolumn="11"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="119" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="620" bodyend="623" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="119" declcolumn="10"/>
+        <referencedby refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" compoundref="sensor_8cpp" startline="69" endline="120">sensor::initSensor</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="csv_8h_1a1a782f9afa439eff3d3e807e2149de16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t getModbusStartAddress</definition>
+        <argsstring>(int ligne)</argsstring>
+        <name>getModbusStartAddress</name>
+        <param>
+          <type>int</type>
+          <declname>ligne</declname>
+        </param>
+        <briefdescription>
+<para>function getter of a sensor start address to read, from &quot;physicalCONFIG_sensors.csv&quot; </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ligne</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the line in the CSV file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t the sensor start address to read </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="120" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="632" bodyend="635" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="120" declcolumn="10"/>
+        <referencedby refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" compoundref="sensor_8cpp" startline="69" endline="120">sensor::initSensor</referencedby>
+        <referencedby refid="sensor_8cpp_1a084710571b3a23b14fe1bc00ef626f52" compoundref="sensor_8cpp" startline="170" endline="229">readChannels</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="csv_8h_1a2ad8c1b450a7a8b11739ad7c242ac542" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t getModbusNbRegisters</definition>
+        <argsstring>(int ligne)</argsstring>
+        <name>getModbusNbRegisters</name>
+        <param>
+          <type>int</type>
+          <declname>ligne</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="121" column="10" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="121" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="csv_8h_1a2029326f9ecfe8df759544bfbcdd93b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t getModbusBaudRate</definition>
+        <argsstring>(int ligne)</argsstring>
+        <name>getModbusBaudRate</name>
+        <param>
+          <type>int</type>
+          <declname>ligne</declname>
+        </param>
+        <briefdescription>
+<para>function getter of a sensor start address to read, from &quot;physicalCONFIG_sensors.csv&quot; </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ligne</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the line in the CSV file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t the sensor start address to read </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="122" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="644" bodyend="647" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="122" declcolumn="10"/>
+        <referencedby refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" compoundref="sensor_8cpp" startline="69" endline="120">sensor::initSensor</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="csv_8h_1aa6a5195ce6685aec2a8e126bc67118e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char getModbusParity</definition>
+        <argsstring>(int ligne)</argsstring>
+        <name>getModbusParity</name>
+        <param>
+          <type>int</type>
+          <declname>ligne</declname>
+        </param>
+        <briefdescription>
+<para>function getter of the modbus parity from &quot;physicalCONFIG_sensors.csv&quot; can be &apos;O&apos; (Odd), &apos;E&apos; (Even) or &apos;N&apos; (None). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ligne</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the line in the CSV file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t the modbus parity </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="123" column="6" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="657" bodyend="660" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="123" declcolumn="6"/>
+        <referencedby refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" compoundref="sensor_8cpp" startline="69" endline="120">sensor::initSensor</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="csv_8h_1aefc2a7d71cf262dae1961f894ad59250" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t getModbusDataBits</definition>
+        <argsstring>(int ligne)</argsstring>
+        <name>getModbusDataBits</name>
+        <param>
+          <type>int</type>
+          <declname>ligne</declname>
+        </param>
+        <briefdescription>
+<para>function getter of the modbus number of data bits from &quot;physicalCONFIG_sensors.csv&quot; can be 5,6,7 or 8. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ligne</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the line in the CSV file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t the modbus number of data bits </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="124" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="669" bodyend="672" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="124" declcolumn="10"/>
+        <referencedby refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" compoundref="sensor_8cpp" startline="69" endline="120">sensor::initSensor</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="csv_8h_1a7db02ded3c19f89ba4b3cde6585fd7e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t getModbusStopBit</definition>
+        <argsstring>(int ligne)</argsstring>
+        <name>getModbusStopBit</name>
+        <param>
+          <type>int</type>
+          <declname>ligne</declname>
+        </param>
+        <briefdescription>
+<para>function getter of the modbus number of stop bits from &quot;physicalCONFIG_sensors.csv&quot; can be 1 or 2. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ligne</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the line in the CSV file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t the modbus number of stop bits </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="125" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="681" bodyend="684" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="125" declcolumn="10"/>
+        <referencedby refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" compoundref="sensor_8cpp" startline="69" endline="120">sensor::initSensor</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a59b3cd375160ea778a774e62c7c64f7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>uint8_t</type>
@@ -1152,16 +1292,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="73" column="13" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="587" bodyend="590" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="73" declcolumn="13"/>
-        <referencedby refid="classvalve_1a82140bbfd1329eea0100b8359cc9ebc2" compoundref="valve_8cpp" startline="117" endline="146">valve::actionnementValvesInit</referencedby>
-        <referencedby refid="classvalve_1a3db8975d7c2cc46b33fd65e683e8c6df" compoundref="valve_8cpp" startline="413" endline="438">valve::extinctValve</referencedby>
-        <referencedby refid="valve_8cpp_1ad4e5b817af0b9501d2a6e6deb0c89445" compoundref="valve_8cpp" startline="465" endline="481">getValvesInitValue</referencedby>
-        <referencedby refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" compoundref="sensor_8cpp" startline="40" endline="52">sensor::initSensor</referencedby>
-        <referencedby refid="classvalve_1a86e16a5cc95d9bec4ee8eec6722760fe" compoundref="valve_8cpp" startline="55" endline="106">valve::initValve</referencedby>
-        <referencedby refid="valve_8cpp_1ad6ff3dc82333091b53b2fbdc3ef5842e" compoundref="valve_8cpp" startline="507" endline="518">resetTimers</referencedby>
-        <referencedby refid="opl_8cpp_1a72f880ddaa32ea28cd0e12658c3e8d67" compoundref="opl_8cpp" startline="161" endline="167">setActivated_Out_CN</referencedby>
-        <referencedby refid="valve_8cpp_1add60b51091e6e3c9653ed8400895e3a1" compoundref="valve_8cpp" startline="446" endline="455">setValvesValue</referencedby>
-        <referencedby refid="classvalve_1a1364f1770f8218d7a0077ca2a953371b" compoundref="valve_8cpp" startline="208" endline="280">valve::verifDependanceValves</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="126" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="692" bodyend="695" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="126" declcolumn="9"/>
+        <referencedby refid="classvalve_1a82140bbfd1329eea0100b8359cc9ebc2" compoundref="valve_8cpp" startline="135" endline="164">valve::actionnementValvesInit</referencedby>
+        <referencedby refid="classvalve_1a3db8975d7c2cc46b33fd65e683e8c6df" compoundref="valve_8cpp" startline="431" endline="456">valve::extinctValve</referencedby>
+        <referencedby refid="valve_8cpp_1ad4e5b817af0b9501d2a6e6deb0c89445" compoundref="valve_8cpp" startline="483" endline="499">getValvesInitValue</referencedby>
+        <referencedby refid="classsensor_1a136fdef7c492900f3ff9baa211607cb5" compoundref="sensor_8cpp" startline="69" endline="120">sensor::initSensor</referencedby>
+        <referencedby refid="classvalve_1a86e16a5cc95d9bec4ee8eec6722760fe" compoundref="valve_8cpp" startline="73" endline="124">valve::initValve</referencedby>
+        <referencedby refid="valve_8cpp_1ad6ff3dc82333091b53b2fbdc3ef5842e" compoundref="valve_8cpp" startline="525" endline="536">resetTimers</referencedby>
+        <referencedby refid="opl_8cpp_1a72f880ddaa32ea28cd0e12658c3e8d67" compoundref="opl_8cpp" startline="229" endline="235">setActivated_Out_CN</referencedby>
+        <referencedby refid="valve_8cpp_1add60b51091e6e3c9653ed8400895e3a1" compoundref="valve_8cpp" startline="464" endline="473">setValvesValue</referencedby>
+        <referencedby refid="classvalve_1a1364f1770f8218d7a0077ca2a953371b" compoundref="valve_8cpp" startline="226" endline="298">valve::verifDependanceValves</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a70bcd737e5a40f36e1cccaf3a7f63379" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int16_t</type>
@@ -1191,9 +1331,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="74" column="13" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="598" bodyend="601" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="74" declcolumn="13"/>
-        <references refid="csv_8cpp_1ac119725e56f891ac0af277ad61a9eaf4" compoundref="csv_8cpp" startline="51">dataEG</references>
-        <references refid="struct_ligne_e_g_1a798f7a58703288236d76c6fb141f5756" compoundref="csv_8h" startline="45">LigneEG::EG</references>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="127" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="703" bodyend="706" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="127" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a3020b0ac72052eacef78e25c399ce4a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const char *</type>
@@ -1210,11 +1348,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="75" column="16" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="608" bodyend="617" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="75" declcolumn="16"/>
-        <references refid="csv_8cpp_1ac119725e56f891ac0af277ad61a9eaf4" compoundref="csv_8cpp" startline="51">dataEG</references>
-        <references refid="struct_ligne_e_g_1a466c1a46947d19a6cb596d48f8726c92" compoundref="csv_8h" startline="46">LigneEG::nom</references>
-        <references refid="csv_8cpp_1a6b63c44df8b905d77b2c66f1cea86204" compoundref="csv_8cpp" startline="644" endline="653">searchEG</references>
-        <referencedby refid="csv_8cpp_1a810cafce9c6d5bb3e3ec3e8754ca924c" compoundref="csv_8cpp" startline="225" endline="256">lireFichierCSV</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="128" column="12" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="713" bodyend="722" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="128" declcolumn="12"/>
+        <references refid="csv_8cpp_1a6b63c44df8b905d77b2c66f1cea86204" compoundref="csv_8cpp" startline="749" endline="758">searchEG</references>
+        <referencedby refid="csv_8cpp_1a810cafce9c6d5bb3e3ec3e8754ca924c" compoundref="csv_8cpp" startline="240" endline="271">lireFichierCSV</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a6b63c44df8b905d77b2c66f1cea86204" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1231,13 +1367,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="76" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="644" bodyend="653" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="76" declcolumn="9"/>
-        <references refid="csv_8cpp_1ac119725e56f891ac0af277ad61a9eaf4" compoundref="csv_8cpp" startline="51">dataEG</references>
-        <references refid="struct_ligne_e_g_1a798f7a58703288236d76c6fb141f5756" compoundref="csv_8h" startline="45">LigneEG::EG</references>
-        <references refid="opl_8cpp_1a063c1e70bcbeb72b1c2483b200839a85" compoundref="opl_8cpp" startline="14">EG</references>
-        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
-        <references refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" compoundref="config_define_8h" startline="30">MAX_LINE_SIZE</references>
-        <referencedby refid="csv_8cpp_1a3020b0ac72052eacef78e25c399ce4a6" compoundref="csv_8cpp" startline="608" endline="617">getNomFichiercsv</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="129" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="749" bodyend="758" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="129" declcolumn="5"/>
+        <references refid="opl_8cpp_1a063c1e70bcbeb72b1c2483b200839a85" compoundref="opl_8cpp" startline="19">EG</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="17">i</references>
+        <references refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" compoundref="config_define_8h" startline="100">MAX_LINE_SIZE</references>
+        <referencedby refid="csv_8cpp_1a3020b0ac72052eacef78e25c399ce4a6" compoundref="csv_8cpp" startline="713" endline="722">getNomFichiercsv</referencedby>
       </memberdef>
       <memberdef kind="function" id="csv_8h_1a12cdfbd8ea531195d20d46386535a300" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1265,105 +1399,127 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="77" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="624" bodyend="636" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="77" declcolumn="10"/>
-        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
-        <referencedby refid="csv_8cpp_1acbc16f61c722ba86bac4676c366b09bb" compoundref="csv_8cpp" startline="462" endline="479">remplirEG</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="130" column="6" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/csv.cpp" bodystart="729" bodyend="741" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" declline="130" declcolumn="6"/>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="17">i</references>
+        <referencedby refid="csv_8cpp_1acbc16f61c722ba86bac4676c366b09bb" compoundref="csv_8cpp" startline="509" endline="531">remplirEG</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para>header file of the CSV module that reads CSV configuration files </para>
     </briefdescription>
     <detaileddescription>
+<para><simplesect kind="author"><para>Mael Parot </para>
+</simplesect>
+<simplesect kind="version"><para>1.2 </para>
+</simplesect>
+<simplesect kind="date"><para>11/04/2024</para>
+</simplesect>
+Contains all functions related to reading CSV files and writing the content into structures. </para>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>CSV_H</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CSV_H</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ctype.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="config_define_8h" kindref="compound">configDefine.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="status_error_define_8h" kindref="compound">statusErrorDefine.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="opl_8h" kindref="compound">opl.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>(TARGET_SYSTEM<sp/>==<sp/>_WIN32_)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="23" refid="struct_ligne_c_s_v" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_c_s_v" kindref="compound">LigneCSV</ref><sp/>{</highlight></codeline>
-<codeline lineno="24" refid="struct_ligne_c_s_v_1a77112e0a8c052d82fcfce6a743c78a75" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_ligne_c_s_v_1a77112e0a8c052d82fcfce6a743c78a75" kindref="member">valeur</ref>[<ref refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" kindref="member">MAX_LINE_SIZE</ref>];</highlight></codeline>
-<codeline lineno="25" refid="struct_ligne_c_s_v_1a95e7740f7fa9635c25fc409817f9178c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_ligne_c_s_v_1a95e7740f7fa9635c25fc409817f9178c" kindref="member">dependanceVannes</ref>[<ref refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" kindref="member">MAX_LINE_SIZE</ref>][<ref refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" kindref="member">MAX_VALVES</ref>];</highlight></codeline>
-<codeline lineno="26" refid="struct_ligne_c_s_v_1a0b58ddaf08c19c940b424751ea4bf029" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_ligne_c_s_v_1a0b58ddaf08c19c940b424751ea4bf029" kindref="member">timerVannes</ref>[<ref refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" kindref="member">MAX_LINE_SIZE</ref>];</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29" refid="struct_ligne_vannes" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_vannes" kindref="compound">LigneVannes</ref><sp/>{</highlight></codeline>
-<codeline lineno="30" refid="struct_ligne_vannes_1a413b83e1e29442b6c79f508e70132b99" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="struct_ligne_vannes_1a413b83e1e29442b6c79f508e70132b99" kindref="member">etatInitial</ref>[<ref refid="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" kindref="member">MAX_PHYSICAL_LINE_SIZE</ref>];</highlight></codeline>
-<codeline lineno="31" refid="struct_ligne_vannes_1ab74f4156992a1d50dc08493868258282" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="struct_ligne_vannes_1ab74f4156992a1d50dc08493868258282" kindref="member">portGPIO</ref>[<ref refid="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" kindref="member">MAX_PHYSICAL_LINE_SIZE</ref>];</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34" refid="struct_ligne_sensors" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_sensors" kindref="compound">LigneSensors</ref><sp/>{</highlight></codeline>
-<codeline lineno="35" refid="struct_ligne_sensors_1ac9c86088dd1113febf304c9da01a3cb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="struct_ligne_sensors_1ac9c86088dd1113febf304c9da01a3cb3" kindref="member">etatInitial</ref>[<ref refid="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" kindref="member">MAX_PHYSICAL_LINE_SIZE</ref>];</highlight></codeline>
-<codeline lineno="36" refid="struct_ligne_sensors_1afd60eeb6d4029750e659fc029b261171" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_ligne_sensors_1afd60eeb6d4029750e659fc029b261171" kindref="member">minValue</ref>[<ref refid="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" kindref="member">MAX_PHYSICAL_LINE_SIZE</ref>];</highlight></codeline>
-<codeline lineno="37" refid="struct_ligne_sensors_1a118149e0588323c79b8519d7a167f948" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_ligne_sensors_1a118149e0588323c79b8519d7a167f948" kindref="member">maxValue</ref>[<ref refid="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" kindref="member">MAX_PHYSICAL_LINE_SIZE</ref>];</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40" refid="struct_ligne_activation" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_activation" kindref="compound">LigneActivation</ref><sp/>{</highlight></codeline>
-<codeline lineno="41" refid="struct_ligne_activation_1a75f37006d60ba54e0cc20b3cf0e6c449" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="struct_ligne_activation_1a75f37006d60ba54e0cc20b3cf0e6c449" kindref="member">activation</ref>[<ref refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" kindref="member">MAX_LINE_SIZE</ref>];</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44" refid="struct_ligne_e_g" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_e_g" kindref="compound">LigneEG</ref><sp/>{</highlight></codeline>
-<codeline lineno="45" refid="struct_ligne_e_g_1a798f7a58703288236d76c6fb141f5756" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int16_t<sp/><ref refid="struct_ligne_e_g_1a798f7a58703288236d76c6fb141f5756" kindref="member">EG</ref>[<ref refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" kindref="member">MAX_LINE_SIZE</ref>];</highlight></codeline>
-<codeline lineno="46" refid="struct_ligne_e_g_1a466c1a46947d19a6cb596d48f8726c92" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_ligne_e_g_1a466c1a46947d19a6cb596d48f8726c92" kindref="member">nom</ref>[<ref refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" kindref="member">MAX_LINE_SIZE</ref>];</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="csv_8h_1a57ce52f959b46f63b41ea53578833174" kindref="member">initCSV</ref>();</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="csv_8h_1a44cd2131057b27749a53caad3ec77eb9" kindref="member">refreshCSV</ref>();</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="csv_8h_1a39604608c86deb3e5925261c5a9413ca" kindref="member">extinctCSV</ref>();</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="csv_8h_1a810cafce9c6d5bb3e3ec3e8754ca924c" kindref="member">lireFichierCSV</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>dir);</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="csv_8h_1ad8987ecbd2c5ce44f2a930a28a012b99" kindref="member">lireFichierVannes</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>fileName);</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="csv_8h_1ade728b48c3405b05be12be8e6b5d5206" kindref="member">lireFichierSensors</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>fileName);</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="csv_8h_1a2e7bd32b81cf14bdd3867119fe4c75c2" kindref="member">lireFichierActivation</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>fileName);</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="csv_8h_1a6c7104900937bff943d7f36f4f9cb7f0" kindref="member">lireFichierEG</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>fileName);</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1a134699cebaabd514d62d43ed18cee67d" kindref="member">remplirStructure</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ligne,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1a6a858555dd145f61931120807004cf55" kindref="member">remplirStructureVannesPhysicalCONFIG</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ligne,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1a268de499892be836f042bfc112a904ea" kindref="member">remplirStructureSensorsPhysicalCONFIG</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ligne,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1ab2ab3ac11ce7f23bde4ddf923050b533" kindref="member">remplirStructureCommon</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ligne,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1acbc16f61c722ba86bac4676c366b09bb" kindref="member">remplirEG</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ligne,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1ab23dd7339a925518cc7ccb9c8ff617c9" kindref="member">getValeur</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="csv_8h_1a8a1a11a2771226955ece875f170f2f0c" kindref="member">getDependanceVannes</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1a42f02acae60cc52772c5933fd490bac0" kindref="member">getTimerVannes</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="csv_8h_1a06ba5d2bce46c751d895dbf5678036ae" kindref="member">getEtatInitialVannes</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="csv_8h_1a050486592cf733f404f0f5b0b6406272" kindref="member">getEtatInitialSensors</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="csv_8h_1a208a08d00b78203d1aa620f641f0b9c9" kindref="member">getPortGPIO</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1aaf462157030206acbd3f8ef56719914a" kindref="member">getMinValue</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1a35dcea7747c07d8fb2fecdb75d30b86d" kindref="member">getMaxValue</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="csv_8h_1a59b3cd375160ea778a774e62c7c64f7d" kindref="member">getActivation</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><ref refid="csv_8h_1a70bcd737e5a40f36e1cccaf3a7f63379" kindref="member">getEGcsv</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="csv_8h_1a3020b0ac72052eacef78e25c399ce4a6" kindref="member">getNomFichiercsv</ref>();</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1a6b63c44df8b905d77b2c66f1cea86204" kindref="member">searchEG</ref>();</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1a12cdfbd8ea531195d20d46386535a300" kindref="member">removeCarriageReturn</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str);</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_c_s_v" kindref="compound">LigneCSV</ref>*<sp/><ref refid="csv_8h_1ae4cbc04f9c4323ec7a331ddef6b578c4" kindref="member">dataEtats</ref>;</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_vannes" kindref="compound">LigneVannes</ref>*<sp/><ref refid="csv_8h_1a0604c88114d265423bd058430aef5358" kindref="member">dataPhysicalConfigVannes</ref>;</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_sensors" kindref="compound">LigneSensors</ref>*<sp/><ref refid="csv_8h_1a545bddd902931ddd3692b3792d3958b4" kindref="member">dataPhysicalConfigSensors</ref>;</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_activation" kindref="compound">LigneActivation</ref>*<sp/><ref refid="csv_8h_1a6d01cb64bb5d3e9ccda826e7b892ae18" kindref="member">dataActivation</ref>;</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_e_g" kindref="compound">LigneEG</ref>*<sp/><ref refid="csv_8h_1ac119725e56f891ac0af277ad61a9eaf4" kindref="member">dataEG</ref>;</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"></highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>CSV_H</highlight></codeline>
+<codeline lineno="1"></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CSV_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CSV_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>includes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ctype.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="config_define_8h" kindref="compound">configDefine.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="status_error_define_8h" kindref="compound">statusErrorDefine.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="opl_8h" kindref="compound">opl.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>(TARGET_SYSTEM<sp/>==<sp/>_WIN32_)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="struct_ligne_c_s_v" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_c_s_v" kindref="compound">LigneCSV</ref><sp/>{</highlight></codeline>
+<codeline lineno="45" refid="struct_ligne_c_s_v_1a77112e0a8c052d82fcfce6a743c78a75" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_ligne_c_s_v_1a77112e0a8c052d82fcfce6a743c78a75" kindref="member">valeur</ref>[<ref refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" kindref="member">MAX_LINE_SIZE</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46" refid="struct_ligne_c_s_v_1a95e7740f7fa9635c25fc409817f9178c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_ligne_c_s_v_1a95e7740f7fa9635c25fc409817f9178c" kindref="member">dependanceVannes</ref>[<ref refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" kindref="member">MAX_LINE_SIZE</ref>][<ref refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" kindref="member">MAX_VALVES</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47" refid="struct_ligne_c_s_v_1a0b58ddaf08c19c940b424751ea4bf029" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_ligne_c_s_v_1a0b58ddaf08c19c940b424751ea4bf029" kindref="member">timerVannes</ref>[<ref refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" kindref="member">MAX_LINE_SIZE</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="struct_ligne_vannes" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_vannes" kindref="compound">LigneVannes</ref><sp/>{</highlight></codeline>
+<codeline lineno="57" refid="struct_ligne_vannes_1afc9c8286c2e0a17637b3e74b9a9b0b0c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="struct_ligne_vannes_1afc9c8286c2e0a17637b3e74b9a9b0b0c" kindref="member">etatInitial</ref>[2*<ref refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" kindref="member">MAX_VALVES</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58" refid="struct_ligne_vannes_1adaaab73d539c5e27287fd42b1f5ca64e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="struct_ligne_vannes_1adaaab73d539c5e27287fd42b1f5ca64e" kindref="member">portGPIO</ref>[2*<ref refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" kindref="member">MAX_VALVES</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="struct_ligne_sensors" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_sensors" kindref="compound">LigneSensors</ref><sp/>{</highlight></codeline>
+<codeline lineno="68" refid="struct_ligne_sensors_1acd08584fa26b33d7fe6a457b8acf6c1d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><ref refid="struct_ligne_sensors_1acd08584fa26b33d7fe6a457b8acf6c1d" kindref="member">type</ref>[2*<ref refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" kindref="member">MAX_SENSORS</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="69" refid="struct_ligne_sensors_1a98e8c6864249a7484da384c913c9ea94" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="struct_ligne_sensors_1a98e8c6864249a7484da384c913c9ea94" kindref="member">modbusAddrRemoteSlave</ref>[2*<ref refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" kindref="member">MAX_SENSORS</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70" refid="struct_ligne_sensors_1adc8f6947ec48d80236cd6dcd3ac67549" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="struct_ligne_sensors_1adc8f6947ec48d80236cd6dcd3ac67549" kindref="member">modbusStartAddress</ref>[2*<ref refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" kindref="member">MAX_SENSORS</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71" refid="struct_ligne_sensors_1ab61ec429882cffad92537793daa1c2ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_ligne_sensors_1ab61ec429882cffad92537793daa1c2ca" kindref="member">modbusBaudRate</ref>[2*<ref refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" kindref="member">MAX_SENSORS</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="72" refid="struct_ligne_sensors_1ad0ee05deedbd75f69e8b5826d391347f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="struct_ligne_sensors_1ad0ee05deedbd75f69e8b5826d391347f" kindref="member">modbusParity</ref>[2*<ref refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" kindref="member">MAX_SENSORS</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="73" refid="struct_ligne_sensors_1a0f1c20c298cf84a63083b359a872094c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="struct_ligne_sensors_1a0f1c20c298cf84a63083b359a872094c" kindref="member">modbusDataBits</ref>[2*<ref refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" kindref="member">MAX_SENSORS</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="74" refid="struct_ligne_sensors_1a2f41df6d3b7bb2f8415a482948bd560e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="struct_ligne_sensors_1a2f41df6d3b7bb2f8415a482948bd560e" kindref="member">modbusStopBit</ref>[2*<ref refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" kindref="member">MAX_SENSORS</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="struct_ligne_activation" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_activation" kindref="compound">LigneActivation</ref><sp/>{</highlight></codeline>
+<codeline lineno="83" refid="struct_ligne_activation_1a75f37006d60ba54e0cc20b3cf0e6c449" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="struct_ligne_activation_1a75f37006d60ba54e0cc20b3cf0e6c449" kindref="member">activation</ref>[<ref refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" kindref="member">MAX_LINE_SIZE</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="struct_ligne_e_g" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_e_g" kindref="compound">LigneEG</ref><sp/>{</highlight></codeline>
+<codeline lineno="93" refid="struct_ligne_e_g_1a798f7a58703288236d76c6fb141f5756" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int16_t<sp/><ref refid="struct_ligne_e_g_1a798f7a58703288236d76c6fb141f5756" kindref="member">EG</ref>[<ref refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" kindref="member">MAX_LINE_SIZE</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="94" refid="struct_ligne_e_g_1a466c1a46947d19a6cb596d48f8726c92" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_ligne_e_g_1a466c1a46947d19a6cb596d48f8726c92" kindref="member">nom</ref>[<ref refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" kindref="member">MAX_LINE_SIZE</ref>];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="95"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="csv_8h_1a57ce52f959b46f63b41ea53578833174" kindref="member">initCSV</ref>();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="csv_8h_1a44cd2131057b27749a53caad3ec77eb9" kindref="member">refreshCSV</ref>();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="csv_8h_1a39604608c86deb3e5925261c5a9413ca" kindref="member">extinctCSV</ref>();</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="csv_8h_1a810cafce9c6d5bb3e3ec3e8754ca924c" kindref="member">lireFichierCSV</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>dir);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="csv_8h_1ad8987ecbd2c5ce44f2a930a28a012b99" kindref="member">lireFichierVannes</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>fileName);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="csv_8h_1ade728b48c3405b05be12be8e6b5d5206" kindref="member">lireFichierSensors</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>fileName);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="csv_8h_1a2e7bd32b81cf14bdd3867119fe4c75c2" kindref="member">lireFichierActivation</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>fileName);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="csv_8h_1a6c7104900937bff943d7f36f4f9cb7f0" kindref="member">lireFichierEG</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>fileName);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1a134699cebaabd514d62d43ed18cee67d" kindref="member">remplirStructure</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ligne,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1a6a858555dd145f61931120807004cf55" kindref="member">remplirStructureVannesPhysicalCONFIG</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ligne,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1a268de499892be836f042bfc112a904ea" kindref="member">remplirStructureSensorsPhysicalCONFIG</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ligne,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1ab2ab3ac11ce7f23bde4ddf923050b533" kindref="member">remplirStructureCommon</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ligne,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1acbc16f61c722ba86bac4676c366b09bb" kindref="member">remplirEG</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ligne,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1ab23dd7339a925518cc7ccb9c8ff617c9" kindref="member">getValeur</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="csv_8h_1a8a1a11a2771226955ece875f170f2f0c" kindref="member">getDependanceVannes</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1a42f02acae60cc52772c5933fd490bac0" kindref="member">getTimerVannes</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">uint8_t<sp/><ref refid="csv_8h_1a06ba5d2bce46c751d895dbf5678036ae" kindref="member">getEtatInitialVannes</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">uint8_t<sp/><ref refid="csv_8h_1a208a08d00b78203d1aa620f641f0b9c9" kindref="member">getPortGPIO</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">uint8_t<sp/><ref refid="csv_8h_1aef9ab8154afc84c92aa1ad1875286257" kindref="member">getSensorType</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">uint16_t<sp/><ref refid="csv_8h_1af50249c502d41696db81f66102243725" kindref="member">getModbusAddrRemoteSlave</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">uint16_t<sp/><ref refid="csv_8h_1a1a782f9afa439eff3d3e807e2149de16" kindref="member">getModbusStartAddress</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="121" refid="csv_8h_1a2ad8c1b450a7a8b11739ad7c242ac542" refkind="member"><highlight class="normal">uint16_t<sp/><ref refid="csv_8h_1a2ad8c1b450a7a8b11739ad7c242ac542" kindref="member">getModbusNbRegisters</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">uint32_t<sp/><ref refid="csv_8h_1a2029326f9ecfe8df759544bfbcdd93b9" kindref="member">getModbusBaudRate</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1aa6a5195ce6685aec2a8e126bc67118e8" kindref="member">getModbusParity</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">uint16_t<sp/><ref refid="csv_8h_1aefc2a7d71cf262dae1961f894ad59250" kindref="member">getModbusDataBits</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">uint16_t<sp/><ref refid="csv_8h_1a7db02ded3c19f89ba4b3cde6585fd7e4" kindref="member">getModbusStopBit</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal">uint8_t<sp/><ref refid="csv_8h_1a59b3cd375160ea778a774e62c7c64f7d" kindref="member">getActivation</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">int16_t<sp/><ref refid="csv_8h_1a70bcd737e5a40f36e1cccaf3a7f63379" kindref="member">getEGcsv</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="csv_8h_1a3020b0ac72052eacef78e25c399ce4a6" kindref="member">getNomFichiercsv</ref>();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1a6b63c44df8b905d77b2c66f1cea86204" kindref="member">searchEG</ref>();</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="csv_8h_1a12cdfbd8ea531195d20d46386535a300" kindref="member">removeCarriageReturn</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_c_s_v" kindref="compound">LigneCSV</ref>*<sp/><ref refid="csv_8h_1ae4cbc04f9c4323ec7a331ddef6b578c4" kindref="member">dataEtats</ref>;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_vannes" kindref="compound">LigneVannes</ref>*<sp/><ref refid="csv_8h_1a0604c88114d265423bd058430aef5358" kindref="member">dataPhysicalConfigVannes</ref>;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_sensors" kindref="compound">LigneSensors</ref>*<sp/><ref refid="csv_8h_1a545bddd902931ddd3692b3792d3958b4" kindref="member">dataPhysicalConfigSensors</ref>;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_activation" kindref="compound">LigneActivation</ref>*<sp/><ref refid="csv_8h_1a6d01cb64bb5d3e9ccda826e7b892ae18" kindref="member">dataActivation</ref>;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_ligne_e_g" kindref="compound">LigneEG</ref>*<sp/><ref refid="csv_8h_1ac119725e56f891ac0af277ad61a9eaf4" kindref="member">dataEG</ref>;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>CSV_H</highlight></codeline>
     </programlisting>
     <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h"/>
   </compounddef>

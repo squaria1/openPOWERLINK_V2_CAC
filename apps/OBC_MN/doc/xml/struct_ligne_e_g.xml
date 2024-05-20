@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="struct_ligne_e_g" kind="struct" language="C++" prot="public">
+    <compoundname>LigneEG</compoundname>
+    <includes refid="csv_8h" local="no">csv.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_ligne_e_g_1a798f7a58703288236d76c6fb141f5756" prot="public" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t LigneEG::EG[MAX_LINE_SIZE]</definition>
+        <argsstring>[MAX_LINE_SIZE]</argsstring>
+        <name>EG</name>
+        <qualifiedname>LigneEG::EG</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the MN general state code </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/csv.h" line="54" column="13" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/csv.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_ligne_e_g_1a466c1a46947d19a6cb596d48f8726c92" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* LigneEG::nom[MAX_LINE_SIZE]</definition>
+        <argsstring>[MAX_LINE_SIZE]</argsstring>
+        <name>nom</name>
+        <qualifiedname>LigneEG::nom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the general state CSV file name associated with the MN general state code </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/csv.h" line="55" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/csv.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>struct containing the general state code according to the name of a general state CSV file taken from &quot;liaisonEGEtat.csv&quot; </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/csv.h" line="53" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/csv.h" bodystart="53" bodyend="56"/>
+    <listofallmembers>
+      <member refid="struct_ligne_e_g_1a798f7a58703288236d76c6fb141f5756" prot="public" virt="non-virtual"><scope>LigneEG</scope><name>EG</name></member>
+      <member refid="struct_ligne_e_g_1a466c1a46947d19a6cb596d48f8726c92" prot="public" virt="non-virtual"><scope>LigneEG</scope><name>nom</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

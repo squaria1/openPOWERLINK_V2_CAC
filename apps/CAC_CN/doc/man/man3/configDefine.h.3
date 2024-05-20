@@ -1,8 +1,9 @@
-.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" 3 "Version 1.2" "CAC main program" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h
+C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h \- header file that contains all the program defines  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -12,63 +13,87 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine
 .ti -1c
 .RI "#define \fBCYCLE_LEN\fP   10000"
 .br
-.ti -1c
-.RI "#define \fBNB_NODES\fP   3"
-.br
+.RI "OpenPOWERLINK cycle length of 10ms\&. "
 .ti -1c
 .RI "#define \fBIP_ADDR\fP   0xc0a801A6"
 .br
+.RI "The CN default ip address (not important) "
 .ti -1c
 .RI "#define \fBDEFAULT_GATEWAY\fP   0xC0A801FE"
 .br
+.RI "The CN default gateway (not important) "
 .ti -1c
 .RI "#define \fBSUBNET_MASK\fP   0xFFFFFF00"
 .br
+.RI "Network mask of /24\&. "
 .ti -1c
 .RI "#define \fBDEVNAME\fP   'eth0'"
 .br
+.RI "The CN device name (look in /etc/network/interfaces for the name in Linux) "
 .ti -1c
-.RI "#define \fBCOMPUTED_PI_OUT_SIZE\fP   152"
+.RI "#define \fBSIZE_OUT\fP   (\fBNB_NODES\fP * 25)"
 .br
+.RI "Total size of RPDOs coming into every CNs\&. "
 .ti -1c
-.RI "#define \fBSIZE_OUT\fP   75"
+.RI "#define \fBSIZE_IN\fP   (\fBNB_NODES\fP * 13)"
 .br
+.RI "Total size of TPDOs coming out of every CNs\&. "
 .ti -1c
-.RI "#define \fBCOMPUTED_PI_IN_SIZE\fP   80"
+.RI "#define \fBCOMPUTED_PI_OUT_SIZE\fP   ((\fBSIZE_OUT\fP + 1) * 2)"
 .br
+.RI "Total size in bytes for every RPDOs (int16_t is 2 bytes) "
 .ti -1c
-.RI "#define \fBSIZE_IN\fP   39"
+.RI "#define \fBCOMPUTED_PI_IN_SIZE\fP   ((\fBSIZE_IN\fP + 1) * 2)"
 .br
+.RI "Total size in bytes for every TPDOs (int16_t is 2 bytes) "
 .ti -1c
 .RI "#define \fBIIOSYSPATH\fP   '/sys/bus/iio/devices/iio:device0/'"
 .br
+.RI "sysfs MCP3008 files path "
 .ti -1c
-.RI "#define \fBMAX_SENSORS\fP   8"
+.RI "#define \fBMODBUS_DEVICELOC\fP   '/dev/ttyUSB0'"
 .br
+.RI "rs485 to USB serial device location "
 .ti -1c
-.RI "#define \fBADC_READ_ERROR\fP   \-100000"
+.RI "#define \fBMODBUS_NBREG\fP   1"
 .br
+.RI "number of modbus serial registers to read "
+.ti -1c
+.RI "#define \fBMAX_SENSORS\fP   12"
+.br
+.RI "maximum number of sensors allowed "
+.ti -1c
+.RI "#define \fBMAX_ADC\fP   8"
+.br
+.RI "maximum number of channels for the MCP3008 "
+.ti -1c
+.RI "#define \fBADC_READ_ERROR\fP   \-32768"
+.br
+.RI "channel read error code in 2 bytes signed "
 .ti -1c
 .RI "#define \fBCHIP_PATH\fP   '/dev/gpiochip0'"
 .br
+.RI "GPIO device location\&. "
 .ti -1c
 .RI "#define \fBMAX_VALVES\fP   12"
 .br
+.RI "maximum number of valves allowed "
 .ti -1c
 .RI "#define \fBMAX_PATH_LENGTH\fP   1024"
 .br
+.RI "maximum path length for a general state CSV file "
 .ti -1c
 .RI "#define \fBMAX_LINE_SIZE\fP   2832"
 .br
+.RI "maximum line size for every common CSV file "
 .ti -1c
-.RI "#define \fBMAX_PHYSICAL_LINE_SIZE\fP   1024"
+.RI "#define \fBMAX_PHYSICAL_LINE_SIZE\fP   512"
 .br
-.ti -1c
-.RI "#define \fBMAX_ROWS\fP   5"
-.br
+.RI "maximum line size for every physical CSV file "
 .ti -1c
 .RI "#define \fBSTATE_CSV_DIRECTORY\fP   '\&.\&./\&.\&./\&.\&./common/commonCSVFiles/stateCSV/'"
 .br
+.RI "relative directory and file location used by the program "
 .ti -1c
 .RI "#define \fBPHYSICAL_CONFIG_VANNES_DIRECTORY\fP   '\&.\&./\&.\&./include/physicalCONFIG/physicalCONFIG_valves\&.csv'"
 .br
@@ -87,127 +112,206 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine
 .ti -1c
 .RI "#define \fBEVENTLOG_MAX_LENGTH\fP   1024"
 .br
+.RI "maximum length of telemetry status or error message "
 .ti -1c
 .RI "#define \fBDELAYMSINIT\fP   2000"
 .br
+.RI "delay in milliseconds at the end of the initialisation state to wait for the CN to connect to the MN\&. "
 .ti -1c
-.RI "#define \fBDELAYMSCONTROL\fP   30"
+.RI "#define \fBDELAYMSCONTROL\fP   1"
 .br
+.RI "delay in milliseconds at the end of the controlAndAcquisition state to avoid dropping the connexion between the CN and the MN\&. "
 .in -1c
-.SH "Macro Definition Documentation"
+.SH "Detailed Description"
 .PP 
-.SS "#define ADC_READ_ERROR   \-100000"
+header file that contains all the program defines 
+
 
 .PP
-Definition at line \fB22\fP of file \fBconfigDefine\&.h\fP\&.
+\fBAuthor\fP
+.RS 4
+Mael Parot 
+.RE
+.PP
+\fBVersion\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+11/04/2024
+.RE
+.PP
+Contains all of the program defines from each module\&. The defines are set at compile time so they can't be changed at runtime\&. 
+.PP
+Definition in file \fBconfigDefine\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ADC_READ_ERROR   \-32768"
+
+.PP
+channel read error code in 2 bytes signed 
+.PP
+Definition at line \fB80\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define CHIP_PATH   '/dev/gpiochip0'"
 
 .PP
-Definition at line \fB25\fP of file \fBconfigDefine\&.h\fP\&.
+GPIO device location\&. 
+.PP
+Definition at line \fB86\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define COMMON_PHYSICAL_CONFIG_DIRECTORY   '\&.\&./\&.\&./\&.\&./common/commonCSVFiles/activation\&.csv'"
 
 .PP
-Definition at line \fB46\fP of file \fBconfigDefine\&.h\fP\&.
-.SS "#define COMPUTED_PI_IN_SIZE   80"
+Definition at line \fB121\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define COMPUTED_PI_IN_SIZE   ((\fBSIZE_IN\fP + 1) * 2)"
 
 .PP
-Definition at line \fB16\fP of file \fBconfigDefine\&.h\fP\&.
-.SS "#define COMPUTED_PI_OUT_SIZE   152"
+Total size in bytes for every TPDOs (int16_t is 2 bytes) 
+.PP
+Definition at line \fB54\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define COMPUTED_PI_OUT_SIZE   ((\fBSIZE_OUT\fP + 1) * 2)"
 
 .PP
-Definition at line \fB14\fP of file \fBconfigDefine\&.h\fP\&.
+Total size in bytes for every RPDOs (int16_t is 2 bytes) 
+.PP
+Definition at line \fB50\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define CYCLE_LEN   10000"
 
 .PP
-Definition at line \fB5\fP of file \fBconfigDefine\&.h\fP\&.
+OpenPOWERLINK cycle length of 10ms\&. 
+.PP
+Definition at line \fB20\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define DEFAULT_GATEWAY   0xC0A801FE"
 
 .PP
-Definition at line \fB8\fP of file \fBconfigDefine\&.h\fP\&.
-.SS "#define DELAYMSCONTROL   30"
+The CN default gateway (not important) 
+.PP
+Definition at line \fB28\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define DELAYMSCONTROL   1"
 
 .PP
-Definition at line \fB57\fP of file \fBconfigDefine\&.h\fP\&.
+delay in milliseconds at the end of the controlAndAcquisition state to avoid dropping the connexion between the CN and the MN\&. 
+.PP
+Definition at line \fB143\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define DELAYMSINIT   2000"
 
 .PP
-Definition at line \fB56\fP of file \fBconfigDefine\&.h\fP\&.
+delay in milliseconds at the end of the initialisation state to wait for the CN to connect to the MN\&. 
+.PP
+Definition at line \fB138\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define DEVNAME   'eth0'"
 
 .PP
-Definition at line \fB11\fP of file \fBconfigDefine\&.h\fP\&.
+The CN device name (look in /etc/network/interfaces for the name in Linux) 
+.PP
+Definition at line \fB36\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define EG_ETAT_DIRECTORY   '\&.\&./\&.\&./\&.\&./common/commonCSVFiles/liaisonEGEtat\&.csv'"
 
 .PP
-Definition at line \fB47\fP of file \fBconfigDefine\&.h\fP\&.
+Definition at line \fB122\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define EVENTLOG_MAX_LENGTH   1024"
 
 .PP
-Definition at line \fB53\fP of file \fBconfigDefine\&.h\fP\&.
+maximum length of telemetry status or error message 
+.PP
+Definition at line \fB131\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define IIOSYSPATH   '/sys/bus/iio/devices/iio:device0/'"
 
 .PP
-Definition at line \fB20\fP of file \fBconfigDefine\&.h\fP\&.
+sysfs MCP3008 files path 
+.PP
+Definition at line \fB60\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define IP_ADDR   0xc0a801A6"
 
 .PP
-Definition at line \fB7\fP of file \fBconfigDefine\&.h\fP\&.
+The CN default ip address (not important) 
+.PP
+Definition at line \fB24\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define MAX_ADC   8"
+
+.PP
+maximum number of channels for the MCP3008 
+.PP
+Definition at line \fB76\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define MAX_LINE_SIZE   2832"
 
 .PP
-Definition at line \fB30\fP of file \fBconfigDefine\&.h\fP\&.
+maximum line size for every common CSV file 
+.PP
+Definition at line \fB100\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define MAX_PATH_LENGTH   1024"
 
 .PP
-Definition at line \fB29\fP of file \fBconfigDefine\&.h\fP\&.
-.SS "#define MAX_PHYSICAL_LINE_SIZE   1024"
+maximum path length for a general state CSV file 
+.PP
+Definition at line \fB96\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define MAX_PHYSICAL_LINE_SIZE   512"
 
 .PP
-Definition at line \fB31\fP of file \fBconfigDefine\&.h\fP\&.
-.SS "#define MAX_ROWS   5"
+maximum line size for every physical CSV file 
+.PP
+Definition at line \fB104\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define MAX_SENSORS   12"
 
 .PP
-Definition at line \fB32\fP of file \fBconfigDefine\&.h\fP\&.
-.SS "#define MAX_SENSORS   8"
-
+maximum number of sensors allowed 
 .PP
-Definition at line \fB21\fP of file \fBconfigDefine\&.h\fP\&.
+Definition at line \fB72\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define MAX_VALVES   12"
 
 .PP
-Definition at line \fB26\fP of file \fBconfigDefine\&.h\fP\&.
-.SS "#define NB_NODES   3"
+maximum number of valves allowed 
+.PP
+Definition at line \fB90\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define MODBUS_DEVICELOC   '/dev/ttyUSB0'"
 
 .PP
-Definition at line \fB6\fP of file \fBconfigDefine\&.h\fP\&.
+rs485 to USB serial device location 
+.PP
+Definition at line \fB64\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define MODBUS_NBREG   1"
+
+.PP
+number of modbus serial registers to read 
+.PP
+Definition at line \fB68\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define PHYSICAL_CONFIG_SENSORS_DIRECTORY   '\&.\&./\&.\&./include/physicalCONFIG/physicalCONFIG_sensors\&.csv'"
 
 .PP
-Definition at line \fB45\fP of file \fBconfigDefine\&.h\fP\&.
+Definition at line \fB120\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define PHYSICAL_CONFIG_VANNES_DIRECTORY   '\&.\&./\&.\&./include/physicalCONFIG/physicalCONFIG_valves\&.csv'"
 
 .PP
-Definition at line \fB44\fP of file \fBconfigDefine\&.h\fP\&.
-.SS "#define SIZE_IN   39"
+Definition at line \fB119\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define SIZE_IN   (\fBNB_NODES\fP * 13)"
 
 .PP
-Definition at line \fB17\fP of file \fBconfigDefine\&.h\fP\&.
-.SS "#define SIZE_OUT   75"
+Total size of TPDOs coming out of every CNs\&. 
+.PP
+Definition at line \fB46\fP of file \fBconfigDefine\&.h\fP\&.
+.SS "#define SIZE_OUT   (\fBNB_NODES\fP * 25)"
 
 .PP
-Definition at line \fB15\fP of file \fBconfigDefine\&.h\fP\&.
+Total size of RPDOs coming into every CNs\&. 
+.PP
+Definition at line \fB42\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define STATE_CSV_DIRECTORY   '\&.\&./\&.\&./\&.\&./common/commonCSVFiles/stateCSV/'"
 
 .PP
-Definition at line \fB43\fP of file \fBconfigDefine\&.h\fP\&.
+relative directory and file location used by the program 
+.PP
+Definition at line \fB118\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define SUBNET_MASK   0xFFFFFF00"
 
 .PP
-Definition at line \fB9\fP of file \fBconfigDefine\&.h\fP\&.
+Network mask of /24\&. 
+.PP
+Definition at line \fB32\fP of file \fBconfigDefine\&.h\fP\&.
 .SS "#define TELEMFILES_DIRECTORY   '\&.\&./\&.\&./include/telemFiles/'"
 
 .PP
-Definition at line \fB49\fP of file \fBconfigDefine\&.h\fP\&.
+Definition at line \fB124\fP of file \fBconfigDefine\&.h\fP\&.
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for CAC_CN from the source code\&.
+Generated automatically by Doxygen for CAC main program from the source code\&.

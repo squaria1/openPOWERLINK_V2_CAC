@@ -2,7 +2,7 @@
  * \file valve.cpp
  * \brief Module to control the valves of the CAC Board
  * \author Mael Parot
- * \version 1.1
+ * \version 1.2
  * \date 11/04/2024
  *
  * Contains all functions related to controling valves
@@ -13,20 +13,39 @@
 
 #if (TARGET_SYSTEM == _WIN32_)
 #else
-// gpio chip of the raspberry gpio controler
+/**
+ * \brief gpio chip of the raspberry gpio controller.
+ */
 struct gpiod_chip* chip;
-// gpio chip lines of the raspberry gpio controler
+/**
+ * \brief array of the GPIO lines.
+ */
 struct gpiod_line* lines[MAX_VALVES];
 #endif
-// gpio port array
+/**
+ * \brief array of the GPIO ports.
+ */
 unsigned int offsets[MAX_VALVES];
-// gpio values array
+/**
+ * \brief array of the values to put into the GPIO lines.
+ */
 int values[MAX_VALVES];
-// Declaration des variables pour le timer
-struct timespec beginTimer[MAX_VALVES], endTimer[MAX_VALVES];
-// current times of the timers
+/**
+ * \brief beginning references of the dependance timers.
+ */
+struct timespec beginTimer[MAX_VALVES];
+/**
+ * \brief ending references of the dependance timers.
+ */
+struct timespec endTimer[MAX_VALVES];
+/**
+ * \brief the difference between the ending and beginning
+ * of the dependance timers.
+ */
 double currentTime[MAX_VALVES];
-// values true if a timer is started, false otherwise
+/**
+ * \brief values true if a timer is started, false otherwise
+ */
 bool timerStarted[MAX_VALVES];
 
 valve::valve()
@@ -57,7 +76,7 @@ statusErrDef valve::initValve()
 {
     statusErrDef res = noError;
 
-    if (CHIP_PATH == "" || CHIP_PATH == " ") 
+    if (strcmp(CHIP_PATH, "") == 0 || strcmp(CHIP_PATH, " ") == 0)
     {
         perror("Error: GPIO chip path is not set.");
         return errGPIOPathEmpty;

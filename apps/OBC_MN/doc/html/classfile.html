@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CAC_MN: file Class Reference</title>
+<title>OpenPOWERLINK MN application for CAC boards: file Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">CAC_MN<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">OpenPOWERLINK MN application for CAC boards<span id="projectnumber">&#160;1.2</span>
    </div>
    <div id="projectbrief">The main program for the Master Node that controls the acquisition and control boards.</div>
   </td>
@@ -101,6 +101,9 @@ $(function(){initNavTree('classfile.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 
+<p>file module class.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="file_8h_source.html">file.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -122,28 +125,34 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a86ce3c36d7e87f24600c8755d8601e7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">function to close the telemetry file  <br /></td></tr>
 <tr class="separator:a86ce3c36d7e87f24600c8755d8601e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a873fcc71c11302b9e65f54f165cc1236" id="r_a873fcc71c11302b9e65f54f165cc1236"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a873fcc71c11302b9e65f54f165cc1236">writeTelem</a> (const char *fmt_p,...)</td></tr>
-<tr class="memdesc:a873fcc71c11302b9e65f54f165cc1236"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajouter uniquement : uint16_t codeSuccess  <br /></td></tr>
+<tr class="memdesc:a873fcc71c11302b9e65f54f165cc1236"><td class="mdescLeft">&#160;</td><td class="mdescRight">function to write status telemetry into the telemetry file.  <br /></td></tr>
 <tr class="separator:a873fcc71c11302b9e65f54f165cc1236"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8c8b22309c8efd3fb87a567a74c16b5" id="r_af8c8b22309c8efd3fb87a567a74c16b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8c8b22309c8efd3fb87a567a74c16b5">writeError</a> (const char *fmt_p=&quot;code_Error:0x%08X&quot;,...)</td></tr>
-<tr class="memdesc:af8c8b22309c8efd3fb87a567a74c16b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajouter uniquement : uint16_t codeError  <br /></td></tr>
+<tr class="memdesc:af8c8b22309c8efd3fb87a567a74c16b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">function to write error telemetry into the telemetry file.  <br /></td></tr>
 <tr class="separator:af8c8b22309c8efd3fb87a567a74c16b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a483afd9f96538c51735fb686edd2cc25" id="r_a483afd9f96538c51735fb686edd2cc25"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a483afd9f96538c51735fb686edd2cc25">pathFile</a></td></tr>
+<tr class="memdesc:a483afd9f96538c51735fb686edd2cc25"><td class="mdescLeft">&#160;</td><td class="mdescRight">path to the telemetry file  <br /></td></tr>
 <tr class="separator:a483afd9f96538c51735fb686edd2cc25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60c20221b3650d600b0e10c300a66faa" id="r_a60c20221b3650d600b0e10c300a66faa"><td class="memItemLeft" align="right" valign="top">ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60c20221b3650d600b0e10c300a66faa">dataFile</a></td></tr>
+<tr class="memdesc:a60c20221b3650d600b0e10c300a66faa"><td class="mdescLeft">&#160;</td><td class="mdescRight">telemetry file object  <br /></td></tr>
 <tr class="separator:a60c20221b3650d600b0e10c300a66faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32d4e3f75b05cec4881a282bf92617cd" id="r_a32d4e3f75b05cec4881a282bf92617cd"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32d4e3f75b05cec4881a282bf92617cd">nameFiles</a></td></tr>
+<tr class="memdesc:a32d4e3f75b05cec4881a282bf92617cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">name of the telemetry file  <br /></td></tr>
 <tr class="separator:a32d4e3f75b05cec4881a282bf92617cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bca228e2cfb8cd254e4770f8d1f058b" id="r_a3bca228e2cfb8cd254e4770f8d1f058b"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3bca228e2cfb8cd254e4770f8d1f058b">year_month_day</a></td></tr>
+<tr class="memdesc:a3bca228e2cfb8cd254e4770f8d1f058b"><td class="mdescLeft">&#160;</td><td class="mdescRight">current year, month and day  <br /></td></tr>
 <tr class="separator:a3bca228e2cfb8cd254e4770f8d1f058b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcaf2953711c9b12908a0858523b1265" id="r_abcaf2953711c9b12908a0858523b1265"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcaf2953711c9b12908a0858523b1265">hour_minute_second</a></td></tr>
+<tr class="memdesc:abcaf2953711c9b12908a0858523b1265"><td class="mdescLeft">&#160;</td><td class="mdescRight">current hour, minute and second  <br /></td></tr>
 <tr class="separator:abcaf2953711c9b12908a0858523b1265"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="file_8h_source.html#l00015">15</a> of file <a class="el" href="file_8h_source.html">file.h</a>.</p>
+<div class="textblock"><p>file module class. </p>
+
+<p class="definition">Definition at line <a class="el" href="file_8h_source.html#l00033">33</a> of file <a class="el" href="file_8h_source.html">file.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a22090815b0614f552f2cb2cc8f170572" name="a22090815b0614f552f2cb2cc8f170572"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a22090815b0614f552f2cb2cc8f170572">&#9670;&#160;</a></span>file()</h2>
@@ -179,7 +188,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="file_8cpp_source.html#l00019">19</a> of file <a class="el" href="file_8cpp_source.html">file.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="file_8cpp_source.html#l00024">24</a> of file <a class="el" href="file_8cpp_source.html">file.cpp</a>.</p>
 
 </div>
 </div>
@@ -224,7 +233,7 @@ Private Attributes</h2></td></tr>
 <p>function to create the telemetry file and name it after the current date and time </p>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errOpenTelemFile when the file creation and opening fails. or noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="file_8cpp_source.html#l00032">32</a> of file <a class="el" href="file_8cpp_source.html">file.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="file_8cpp_source.html#l00037">37</a> of file <a class="el" href="file_8cpp_source.html">file.cpp</a>.</p>
 
 </div>
 </div>
@@ -268,7 +277,7 @@ Private Attributes</h2></td></tr>
 <p>function to test if we can write in the telemetry file </p>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errTestWriteFile when the file write fails. or noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="file_8cpp_source.html#l00091">91</a> of file <a class="el" href="file_8cpp_source.html">file.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="file_8cpp_source.html#l00087">87</a> of file <a class="el" href="file_8cpp_source.html">file.cpp</a>.</p>
 
 </div>
 </div>
@@ -291,8 +300,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>ajouter uniquement : uint16_t codeError </p>
-<p>function to write error telemetry into the telemetry file.</p>
+<p>function to write error telemetry into the telemetry file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fmt_p</td><td>formated string about the error </td></tr>
@@ -300,14 +308,8 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">...</td><td>ajouter uniquement : uint16_t codeError </td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="file_8cpp_source.html#l00149">149</a> of file <a class="el" href="file_8cpp_source.html">file.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="file_8cpp_source.html#l00147">147</a> of file <a class="el" href="file_8cpp_source.html">file.cpp</a>.</p>
 
 </div>
 </div>
@@ -330,8 +332,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>ajouter uniquement : uint16_t codeSuccess </p>
-<p>function to write status telemetry into the telemetry file.</p>
+<p>function to write status telemetry into the telemetry file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fmt_p</td><td>formated string about the status </td></tr>
@@ -339,14 +340,8 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">...</td><td>ajouter uniquement : uint16_t codeSuccess </td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="file_8cpp_source.html#l00112">112</a> of file <a class="el" href="file_8cpp_source.html">file.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="file_8cpp_source.html#l00108">108</a> of file <a class="el" href="file_8cpp_source.html">file.cpp</a>.</p>
 
 </div>
 </div>
@@ -371,7 +366,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="file_8h_source.html#l00032">32</a> of file <a class="el" href="file_8h_source.html">file.h</a>.</p>
+<p>telemetry file object </p>
+
+<p class="definition">Definition at line <a class="el" href="file_8h_source.html#l00056">56</a> of file <a class="el" href="file_8h_source.html">file.h</a>.</p>
 
 </div>
 </div>
@@ -395,7 +392,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="file_8h_source.html#l00035">35</a> of file <a class="el" href="file_8h_source.html">file.h</a>.</p>
+<p>current hour, minute and second </p>
+
+<p class="definition">Definition at line <a class="el" href="file_8h_source.html#l00068">68</a> of file <a class="el" href="file_8h_source.html">file.h</a>.</p>
 
 </div>
 </div>
@@ -419,7 +418,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="file_8h_source.html#l00033">33</a> of file <a class="el" href="file_8h_source.html">file.h</a>.</p>
+<p>name of the telemetry file </p>
+
+<p class="definition">Definition at line <a class="el" href="file_8h_source.html#l00060">60</a> of file <a class="el" href="file_8h_source.html">file.h</a>.</p>
 
 </div>
 </div>
@@ -443,7 +444,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="file_8h_source.html#l00031">31</a> of file <a class="el" href="file_8h_source.html">file.h</a>.</p>
+<p>path to the telemetry file </p>
+
+<p class="definition">Definition at line <a class="el" href="file_8h_source.html#l00052">52</a> of file <a class="el" href="file_8h_source.html">file.h</a>.</p>
 
 </div>
 </div>
@@ -467,7 +470,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="file_8h_source.html#l00034">34</a> of file <a class="el" href="file_8h_source.html">file.h</a>.</p>
+<p>current year, month and day </p>
+
+<p class="definition">Definition at line <a class="el" href="file_8h_source.html#l00064">64</a> of file <a class="el" href="file_8h_source.html">file.h</a>.</p>
 
 </div>
 </div>

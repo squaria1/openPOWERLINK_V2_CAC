@@ -4,43 +4,46 @@
     <compoundname>LigneVannes</compoundname>
     <includes refid="csv_8h" local="no">csv.h</includes>
     <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="struct_ligne_vannes_1a413b83e1e29442b6c79f508e70132b99" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="struct_ligne_vannes_1afc9c8286c2e0a17637b3e74b9a9b0b0c" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
-        <definition>uint8_t LigneVannes::etatInitial[MAX_PHYSICAL_LINE_SIZE]</definition>
-        <argsstring>[MAX_PHYSICAL_LINE_SIZE]</argsstring>
+        <definition>uint8_t LigneVannes::etatInitial[2 *MAX_VALVES]</definition>
+        <argsstring>[2 *MAX_VALVES]</argsstring>
         <name>etatInitial</name>
         <qualifiedname>LigneVannes::etatInitial</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>the initial value of a valve </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="30" column="17" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="30" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="57" column="13" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="57" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="struct_ligne_vannes_1ab74f4156992a1d50dc08493868258282" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="struct_ligne_vannes_1adaaab73d539c5e27287fd42b1f5ca64e" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
-        <definition>uint8_t LigneVannes::portGPIO[MAX_PHYSICAL_LINE_SIZE]</definition>
-        <argsstring>[MAX_PHYSICAL_LINE_SIZE]</argsstring>
+        <definition>uint8_t LigneVannes::portGPIO[2 *MAX_VALVES]</definition>
+        <argsstring>[2 *MAX_VALVES]</argsstring>
         <name>portGPIO</name>
         <qualifiedname>LigneVannes::portGPIO</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>the GPIO port associated with the valve </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="31" column="17" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="31" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="58" column="13" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="58" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para>struct containing values taken from &quot;physicalCONFIG_valves.csv&quot; such as the initial values, GPIO ports of each valves. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="29" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="29" bodyend="32"/>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="56" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="56" bodyend="59"/>
     <listofallmembers>
-      <member refid="struct_ligne_vannes_1a413b83e1e29442b6c79f508e70132b99" prot="public" virt="non-virtual"><scope>LigneVannes</scope><name>etatInitial</name></member>
-      <member refid="struct_ligne_vannes_1ab74f4156992a1d50dc08493868258282" prot="public" virt="non-virtual"><scope>LigneVannes</scope><name>portGPIO</name></member>
+      <member refid="struct_ligne_vannes_1afc9c8286c2e0a17637b3e74b9a9b0b0c" prot="public" virt="non-virtual"><scope>LigneVannes</scope><name>etatInitial</name></member>
+      <member refid="struct_ligne_vannes_1adaaab73d539c5e27287fd42b1f5ca64e" prot="public" virt="non-virtual"><scope>LigneVannes</scope><name>portGPIO</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

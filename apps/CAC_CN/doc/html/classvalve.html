@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CAC_CN: valve Class Reference</title>
+<title>CAC main program: valve Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">CAC_CN<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">CAC main program<span id="projectnumber">&#160;1.2</span>
    </div>
    <div id="projectbrief">The main program for acquisition and control boards.</div>
   </td>
@@ -139,7 +139,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>valve module class. </p>
 
-<p class="definition">Definition at line <a class="el" href="valve_8h_source.html#l00029">29</a> of file <a class="el" href="valve_8h_source.html">valve.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8h_source.html#l00044">44</a> of file <a class="el" href="valve_8h_source.html">valve.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af2362056385e00eb0477c7d57836572d" name="af2362056385e00eb0477c7d57836572d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af2362056385e00eb0477c7d57836572d">&#9670;&#160;</a></span>valve()</h2>
@@ -156,7 +156,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00032">32</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00051">51</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -183,7 +183,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00037">37</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00056">56</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -213,7 +213,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errValueInitIsNotBinary when an initial valve value is not 0 or 1. or errGPIOSetValue when the valve value has not been set to the gpio line or noError when the function exits successfully. <br  />
  </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00161">161</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00179">179</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -235,7 +235,7 @@ Public Member Functions</h2></td></tr>
 <p>function to set the valves values from the CSV module initial values. </p>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errValueInitIsNotBinary when a value is not 0 or 1. or errGPIOSetInitValue when the line doesn't set the value or noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00117">117</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00135">135</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -258,7 +258,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errValueInitIsNotBinary when a value is not 0 or 1 or errGPIOSetInitValue when an initial valve value is not set to a line or errGPIORelease when a gpio line fails to be released or noError when the function exits successfully. <br  />
  </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00413">413</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00431">431</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -280,7 +280,7 @@ Public Member Functions</h2></td></tr>
 <p>function to initialize to valve module </p>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errGPIOPathEmpty when the gpio chip path is not correctly set or errOpenGPIO when the gpio chip fails to open or errGPIOGetLine when the gpio lines are busy, line get fails or errGPIORequestOutput when the gpio lines can't be set to output mode or noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00055">55</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00073">73</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -309,7 +309,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errGPIOGetValue when the getter of a gpio line value fails or infoValveAlreadyActivated when every dependances or errGPIODependValue when the getter of a gpio line dependance value fails or infoAllDependNotActivated when all the dependances of a valve are not activated. or errDependOutsideOfRange when a dependance is not among the valves of the same board. or infoNoDepend when the valve has no dependances. or noError when the function exits successfully. <br  />
  </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00301">301</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00319">319</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -337,7 +337,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 if the value has been exceeded, 1 if not </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00390">390</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00408">408</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -365,7 +365,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 if the timer starts successfully </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00372">372</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00390">390</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -388,7 +388,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errValueInitIsNotBinary when a value is not 0 or 1. or errGPIOSetValue when the line doesn't set the value or noError when the function exits successfully. <br  />
  </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00208">208</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00226">226</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>

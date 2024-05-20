@@ -2,7 +2,7 @@
  * \file opl.cpp
  * \brief Module to communicate with the master board using OpenPOWERLINK
  * \author Mael Parot
- * \version 1.1
+ * \version 1.2
  * \date 11/04/2024
  *
  * Contains all functions related to communicating with the master board
@@ -11,10 +11,68 @@
 
 #include "opl.h"
 
+/**
+ * \brief the mode of the program.
+ * It is initialized to the automatic mode, 
+ * the general state CSV files are first used.
+ */
 Mode                 mode = automatic;
+/**
+ * \brief the EG counter to test the EG change
+ * from the MN to the CN
+ */
 int                  cmptEG;
+/**
+ * \brief the number of values coming out of each CNs
+ */
 const uint16_t       nbValuesCN_Out = SIZE_OUT / NB_NODES - 2;
+/**
+ * \brief the number of values coming into each CNs
+ */
 const uint16_t       nbValuesCN_In = SIZE_IN / NB_NODES - 1;
+
+//------------------------------------------------------------------------------
+// local vars
+//------------------------------------------------------------------------------
+/**
+ * \brief the LAN card mac address
+ */
+static const UINT8              aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+/**
+ * \brief Pointer to GsOff flag
+ * (determines that OpenPOWERLINK stack is down)
+ */
+static BOOL                     fGsOff_l;
+/**
+ * \brief The OpenPOWERLINK process data handler
+ * counter. Counts the number of OpenPOWERLINK cycles.
+ */
+static UINT                     cnt_l;
+
+/* process image */
+/**
+ * \brief the TPDO process variables (coming into the MN)
+ */
+static PI_IN* pProcessImageIn_l;
+/**
+ * \brief the RPDO process variables (coming out of the MN)
+ */
+static PI_OUT* pProcessImageOut_l;
+
+/* application variables */
+/**
+ * \brief array of incoming values from the CNs
+ */
+static int16_t                  values_In_MN_l[SIZE_OUT];
+/**
+ * \brief array of values coming out of the MN
+ */
+static int16_t                  values_Out_MN_l[SIZE_IN];
+/**
+ * \brief array of value activation coming out of the CN
+ * true if activated, false otherwise
+ */
+static bool                     activated_In_MN_l[SIZE_OUT + 2];
 
 opl::opl()
 {
@@ -26,7 +84,13 @@ opl::~opl()
     //destructor
 }
 
-
+/**
+ * \brief function getter of the values
+ * coming from the CNs namely, the board states,
+ * valve values and sensor values of every connected CNs.
+ *
+ * \return the array of the CNs incoming values
+ */
 int16_t* getValues_In_MN()
 {
     return values_In_MN_l;
@@ -139,26 +203,16 @@ void affValeursOut()
  */
 void changeEG()
 {
-    int sel = cmptEG % 5;
-    switch (sel)
+    int i = 1;
+    while (getEGcsv(i) != 0)
     {
-    case 0:
-        setEG(1);
-        break;
-    case 1:
-        setEG(2);
-        break;
-    case 2:
-        setEG(3);
-        break;
-    case 3:
-        setEG(4);
-        break;
-    case 4:
-        setEG(5);
-        break;
+        i++;
     }
-    printf("\n\nEG = %d\n\n", sel+1);
+    i--;
+    int selIndex = cmptEG % i;
+    int16_t selEG = getEGcsv(selIndex + 1);
+    setEG(selEG);
+    printf("\n\nEG = %d\n\n", selEG);
     cmptEG++;
 }
 
@@ -234,20 +288,24 @@ statusErrDef initOPL()
     tEventConfig    eventConfig;
     tFirmwareRet    fwRet;
 
-    strncpy(opts.cdcFile, CDCFILE, 256);
-    strncpy(opts.fwInfoFile, "fw.info", 256);
-    strncpy(opts.devName, DEVNAME, 128);
+    //initialize the OpenPOWERLINK parameters
+    strncpy(opts.cdcFile, CDCFILE, 256); // the cdc binary file name
+    strncpy(opts.fwInfoFile, "fw.info", 256); // the info file name
+    strncpy(opts.devName, DEVNAME, 128); //the network device or interface (in linux it is eth0)
+    //set the OpenPOWERLINK log settings
     opts.pLogFile = NULL;
     opts.logFormat = kEventlogFormatReadable;
     opts.logCategory = 0xffffffff;
     opts.logLevel = 0xffffffff;
 
+    //initialize the connexion between the OpenPOWERLINK stack and the operating system
     if (system_init() != 0)
     {
         fprintf(stderr, "Error initializing system!");
         return errOPLSystemInit;
     }
 
+    //initialize the OpenPOWERLINK firmware manager
     fwRet = firmwaremanager_init(opts.fwInfoFile);
     if (fwRet != kFwReturnOk)
     {
@@ -255,11 +313,13 @@ statusErrDef initOPL()
         return errInitFirmwareManager;
     }
 
+    //initialize the logs
     eventlog_init(opts.logFormat,
         opts.logLevel,
         opts.logCategory,
         (tEventlogOutputCb)console_printlogadd);
 
+    //initialize the application event module
     memset(&eventConfig, 0, sizeof(tEventConfig));
 
     eventConfig.pfGsOff = &fGsOff_l;
@@ -272,19 +332,23 @@ statusErrDef initOPL()
     printf("Using openPOWERLINK stack: %s\n", oplk_getVersionString());
     printf("----------------------------------------------------\n");
 
+    //print into the console, the OPL stack parameters
     eventlog_printMessage(kEventlogLevelInfo,
         kEventlogCategoryGeneric,
         "demo_mn_console: Stack version:%s Stack configuration:0x%08X",
         oplk_getVersionString(),
         oplk_getStackConfiguration());
 
+    //activate the values coming out of the CN
     setActivated_In_MN();
 
+    //print into the console, the cdc binary file name
     eventlog_printMessage(kEventlogLevelInfo,
         kEventlogCategoryGeneric,
         "Using CDC file: %s",
         opts.cdcFile);
 
+    //initialize the POWERLINK instance
     res = initPowerlink(CYCLE_LEN,
         opts.cdcFile,
         opts.devName,
@@ -292,10 +356,12 @@ statusErrDef initOPL()
     if (res != noError)
         return res;
 
+    //Process the RPDO and TPDO to the OpenPOWERLINK stack
     res = initApp();
     if (res != noError)
         return res;
 
+    //Initialize the OpenPOWERLINK cycle thread
     res = initOplThread();
     if (res != noError)
         return res;
@@ -314,8 +380,6 @@ doesn't exist in the objdict.h file
 or errSetupProcessImage when the input and/or output structure
 are not the same with the mnobd.cdc file
 or noError when the function exits successfully.
-
-\ingroup module_demo_mn_console
 */
 statusErrDef initApp(void)
 {
@@ -325,6 +389,7 @@ statusErrDef initApp(void)
     cnt_l = 0;
     i = 0;
 
+    // set to 0 the array values at the initialization state
     for (i = 0; i < SIZE_OUT; i++)
     {
         values_In_MN_l[i] = 0;
@@ -384,7 +449,8 @@ statusErrDef initPowerlink(UINT32 cycleLen_p,
         kEventlogCategoryGeneric,
         "Select the network interface");
 
-    #if (TARGET_SYSTEM == _WIN32_)
+    //select manually the network interface in Windows otherwise it is eth0
+#if (TARGET_SYSTEM == _WIN32_)
         if (netselect_selectNetworkInterface(devName, sizeof(devName)) < 0)
             return errSelNetInterface;
     #else
@@ -397,8 +463,8 @@ statusErrDef initPowerlink(UINT32 cycleLen_p,
 
     // pass selected device name to Edrv
     initParam.hwParam.pDevName = devName;
-    initParam.nodeId = NODEID;
-    initParam.ipAddress = (0xFFFFFF00 & IP_ADDR) | initParam.nodeId;
+    initParam.nodeId = NODEID; // the MN number (240 by default)
+    initParam.ipAddress = (0xFFFFFF00 & IP_ADDR) | initParam.nodeId; // the ip address with a /24 network mask
 
     /* write 00:00:00:00:00:00 to MAC address, so that the driver uses the real hardware address */
     memcpy(initParam.aMacAddress, macAddr_p, sizeof(initParam.aMacAddress));
@@ -424,7 +490,7 @@ statusErrDef initPowerlink(UINT32 cycleLen_p,
     initParam.revisionNumber = UINT_MAX;         // NMT_IdentityObject_REC.RevisionNo_U32
     initParam.serialNumber = UINT_MAX;         // NMT_IdentityObject_REC.SerialNo_U32
 
-    initParam.subnetMask = SUBNET_MASK;
+    initParam.subnetMask = SUBNET_MASK; // 255.255.255.0 or /24 network mask
     initParam.defaultGateway = DEFAULT_GATEWAY;
     sprintf((char*)initParam.sHostname, "%02x-%08x", initParam.nodeId, initParam.vendorId);
     initParam.syncNodeId = C_ADR_SYNC_ON_SOA;
@@ -433,6 +499,7 @@ statusErrDef initPowerlink(UINT32 cycleLen_p,
     // set callback functions
     initParam.pfnCbEvent = processEvents;
 
+    // important: set the OpenPOWERLINK cycle actions synced between all CNs
     initParam.pfnCbSync = processSync;
 
     // Initialize object dictionary
@@ -503,6 +570,7 @@ statusErrDef initPowerlink(UINT32 cycleLen_p,
  */
 statusErrDef checkStateOpl()
 {
+    //Check if a termination signal has been received 
     if (system_getTermSignalState() != FALSE)
     {
         printf("Received termination signal, exiting...\n");
@@ -511,6 +579,7 @@ statusErrDef checkStateOpl()
             "Received termination signal, exiting...");
         return errSystemSendTerminate;
     }
+    //Check if the OpenPOWERLINK stack crashed
     if (oplk_checkKernelStack() == FALSE)
     {
         fprintf(stderr, "Kernel stack has gone! Exiting...\n");
@@ -550,7 +619,7 @@ statusErrDef initOplThread()
         return errSendNMTResetCommand;
     }
 
-
+    return noError;
 }
 
 /**
@@ -559,17 +628,17 @@ statusErrDef initOplThread()
 The function implements the synchronous data handler.
 
 \return The function returns a tOplkError error code.
-
-\ingroup module_demo_mn_console
 */
 tOplkError processSync(void)
 {
     tOplkError  ret;
 
+    //Wait for the OpenPOWERLINK cycle to start
     ret = oplk_waitSyncEvent(100000);
     if (ret != kErrorOk)
         return ret;
 
+    //Receive OpenPOWERLINK RPDOs values
     ret = oplk_exchangeProcessImageOut();
     if (ret != kErrorOk)
         return ret;
@@ -603,6 +672,7 @@ tOplkError processSync(void)
         break;
     }
     
+    //Send OpenPOWERLINK TPDOs values
     ret = oplk_exchangeProcessImageIn();
 
     return ret;
@@ -625,6 +695,7 @@ statusErrDef initProcessImage(void)
     tOplkError  ret = kErrorOk;
     UINT        errorIndex = 0;
 
+    /* Allocate process image */
     printf("Initializing process image...\n");
     printf("Size of process image: Input = %lu Output = %lu\n",
         (ULONG)sizeof(PI_IN),
@@ -635,6 +706,7 @@ statusErrDef initProcessImage(void)
         (ULONG)sizeof(PI_IN),
         (ULONG)sizeof(PI_OUT));
 
+    //Allocate into memory the RPDO and TPDO from their cumulative size
     ret = oplk_allocProcessImage(sizeof(PI_IN), sizeof(PI_OUT));
     if (ret != kErrorOk)
         return errOplkAllocProcessImage;
@@ -681,8 +753,6 @@ The function shuts down the synchronous data application
 \return statusErrDef that values errOplkFreeProcessImage
 when the freeing of memory of the OpenPOWERLINK fails.
 or noError when the function exits successfully.
-
-\ingroup module_demo_mn_console
 */
 statusErrDef shutdownOplImage()
 {

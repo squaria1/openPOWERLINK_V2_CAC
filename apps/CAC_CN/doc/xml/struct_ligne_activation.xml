@@ -13,17 +13,19 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>the activation of a valve, sensor or board state (1 for activated, 0 otherwise) </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="41" column="17" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="41" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="83" column="13" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="83" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para>struct containing the boolean values taken from &quot;activation.csv&quot; </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="40" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="40" bodyend="42"/>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="82" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="82" bodyend="84"/>
     <listofallmembers>
       <member refid="struct_ligne_activation_1a75f37006d60ba54e0cc20b3cf0e6c449" prot="public" virt="non-virtual"><scope>LigneActivation</scope><name>activation</name></member>
     </listofallmembers>

@@ -1,8 +1,9 @@
-.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" 3 "Version 1.1" "CAC_MN" \" -*- nroff -*-
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h" 3 "Version 1.2" "OpenPOWERLINK MN application for CAC boards" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h
+C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h \- header file of the OpenPOWERLINK module that communicates with the master board using OpenPOWERLINK  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -53,12 +54,15 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h
 .ti -1c
 .RI "struct \fBtOptions\fP"
 .br
+.RI "the OpenPOWERLINK initialization parameters "
 .ti -1c
 .RI "struct \fBtDemoNodeInfo\fP"
 .br
+.RI "the OpenPOWERLINK node information structure "
 .ti -1c
 .RI "class \fBopl\fP"
 .br
+.RI "OpenPOWERLINK module class\&. "
 .in -1c
 .SS "Functions"
 
@@ -108,6 +112,7 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h
 .ti -1c
 .RI "int16_t * \fBgetValues_In_MN\fP (void)"
 .br
+.RI "function getter of the values coming from the CNs namely, the board states, valve values and sensor values of every connected CNs\&. "
 .ti -1c
 .RI "void \fBsetValues_Out_MN\fP (int ligne, int16_t valeur)"
 .br
@@ -145,9 +150,6 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h
 .br
 .RI "function to set to 0 or 1 a valve value of a CN when mode is set to manual mode\&. "
 .ti -1c
-.RI "int16_t \fBgetEC1\fP ()"
-.br
-.ti -1c
 .RI "void \fBsetEG\fP (int16_t EG)"
 .br
 .RI "function setter of the current general state (EG) "
@@ -158,34 +160,36 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h
 .ti -1c
 .RI "const uint16_t \fBnbValuesCN_Out\fP"
 .br
+.RI "the number of values coming out of each CNs "
 .ti -1c
 .RI "const uint16_t \fBnbValuesCN_In\fP"
 .br
-.ti -1c
-.RI "static const UINT8 \fBaMacAddr_l\fP [] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }"
-.br
-.ti -1c
-.RI "static BOOL \fBfGsOff_l\fP"
-.br
-.ti -1c
-.RI "static UINT \fBcnt_l\fP"
-.br
-.ti -1c
-.RI "static \fBPI_IN\fP * \fBpProcessImageIn_l\fP"
-.br
-.ti -1c
-.RI "static \fBPI_OUT\fP * \fBpProcessImageOut_l\fP"
-.br
-.ti -1c
-.RI "static int16_t \fBvalues_In_MN_l\fP [\fBSIZE_OUT\fP]"
-.br
-.ti -1c
-.RI "static int16_t \fBvalues_Out_MN_l\fP [\fBSIZE_IN\fP]"
-.br
-.ti -1c
-.RI "static bool \fBactivated_In_MN_l\fP [\fBSIZE_OUT\fP+2]"
-.br
+.RI "the number of values coming into each CNs "
 .in -1c
+.SH "Detailed Description"
+.PP 
+header file of the OpenPOWERLINK module that communicates with the master board using OpenPOWERLINK 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Mael Parot 
+.RE
+.PP
+\fBVersion\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+11/04/2024
+.RE
+.PP
+Contains all functions definitions related to communicating with the master board using OpenPOWERLINK, transfer sensors, valves values and recieve orders from the master\&. 
+.PP
+Definition in file \fBopl\&.h\fP\&.
 .SH "Function Documentation"
 .PP 
 .SS "void affValeursIn ()"
@@ -193,31 +197,31 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h
 .PP
 function to display in the console the values coming from the CNs 
 .PP
-Definition at line \fB80\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB144\fP of file \fBopl\&.cpp\fP\&.
 .SS "void affValeursInProcess ()"
 
 .PP
 function to display in the console the raw values coming from the CNs 
 .PP
-Definition at line \fB95\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB159\fP of file \fBopl\&.cpp\fP\&.
 .SS "void affValeursOut ()"
 
 .PP
 function to display in the console the values coming out of the MN 
 .PP
-Definition at line \fB125\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB189\fP of file \fBopl\&.cpp\fP\&.
 .SS "void affValeursOutProcess ()"
 
 .PP
 function to display in the console the raw values coming out of the MN 
 .PP
-Definition at line \fB110\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB174\fP of file \fBopl\&.cpp\fP\&.
 .SS "void changeEG ()"
 
 .PP
 function to cycle through some general states to test the MN and CNs programs for the early versions\&. 
 .PP
-Definition at line \fB140\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB204\fP of file \fBopl\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP checkStateOpl ()"
 
 .PP
@@ -230,7 +234,7 @@ statusErrDef that values errSystemSendTerminate if a termination signal has been
 .PP
 
 .PP
-Definition at line \fB504\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB571\fP of file \fBopl\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP extinctOPL ()"
 
 .PP
@@ -243,13 +247,20 @@ statusErrDef that values errOplkFreeProcessImage when the freeing of memory of t
 .PP
 
 .PP
-Definition at line \fB662\fP of file \fBopl\&.cpp\fP\&.
-.SS "int16_t getEC1 ()"
-
+Definition at line \fB737\fP of file \fBopl\&.cpp\fP\&.
 .SS "int16_t * getValues_In_MN (void)"
 
 .PP
-Definition at line \fB30\fP of file \fBopl\&.cpp\fP\&.
+function getter of the values coming from the CNs namely, the board states, valve values and sensor values of every connected CNs\&. 
+.PP
+\fBReturns\fP
+.RS 4
+the array of the CNs incoming values 
+.RE
+.PP
+
+.PP
+Definition at line \fB94\fP of file \fBopl\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP initApp (void)"
 
 .PP
@@ -262,7 +273,7 @@ statusErrDef that values errOplkAllocProcessImage when the allocation of the inp
 .PP
 
 .PP
-Definition at line \fB320\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB384\fP of file \fBopl\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP initOPL ()"
 
 .PP
@@ -275,7 +286,7 @@ statusErrDef that values errOPLSystemInit when OpenPOWERLINK fails to set the co
 .PP
 
 .PP
-Definition at line \fB230\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB284\fP of file \fBopl\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP initOplThread (void)"
 
 .PP
@@ -293,7 +304,7 @@ statusErrDef that values errSendNMTResetCommand when the OpenPOWERLINK reset com
 .PP
 
 .PP
-Definition at line \fB535\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB604\fP of file \fBopl\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP initPowerlink (UINT32 cycleLen_p, const char * cdcFileName_p, const char * devName_p, const UINT8 * macAddr_p)"
 
 .PP
@@ -317,7 +328,7 @@ statusErrDef that values errSelNetInterface when the selection of the network in
 .PP
 
 .PP
-Definition at line \fB369\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB434\fP of file \fBopl\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP initProcessImage (void)"
 
 .PP
@@ -330,7 +341,7 @@ statusErrDef that values errOplkAllocProcessImage when the allocation of the inp
 .PP
 
 .PP
-Definition at line \fB620\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB693\fP of file \fBopl\&.cpp\fP\&.
 .SS "void manualActivation (int nodeId, int valve)"
 
 .PP
@@ -345,7 +356,7 @@ function to set to 0 or 1 a valve value of a CN when mode is set to manual mode\
 .PP
 
 .PP
-Definition at line \fB193\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB247\fP of file \fBopl\&.cpp\fP\&.
 .SS "tOplkError processSync (void)"
 
 .PP
@@ -358,13 +369,13 @@ The function returns a tOplkError error code\&.
 .PP
 
 .PP
-Definition at line \fB565\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB632\fP of file \fBopl\&.cpp\fP\&.
 .SS "void setActivated_In_MN ()"
 
 .PP
 function setter to fill the activation array from the CSV activation file 'activation\&.csv' 
 .PP
-Definition at line \fB53\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB117\fP of file \fBopl\&.cpp\fP\&.
 .SS "void setEG (int16_t EG)"
 
 .PP
@@ -377,13 +388,13 @@ function setter of the current general state (EG)
 .PP
 
 .PP
-Definition at line \fB66\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB130\fP of file \fBopl\&.cpp\fP\&.
 .SS "void setEGToManualMode ()"
 
 .PP
 function to switch between automatic and manual modes\&. 
 .PP
-Definition at line \fB170\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB224\fP of file \fBopl\&.cpp\fP\&.
 .SS "void setValues_Out_MN (int ligne, int16_t valeur)"
 
 .PP
@@ -398,7 +409,7 @@ function setter of the values coming out of the MN namely, the general state ord
 .PP
 
 .PP
-Definition at line \fB43\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB107\fP of file \fBopl\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP shutdownOplImage (void)"
 
 .PP
@@ -411,55 +422,27 @@ statusErrDef that values errOplkFreeProcessImage when the freeing of memory of t
 .PP
 
 .PP
-Definition at line \fB684\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB757\fP of file \fBopl\&.cpp\fP\&.
 .SS "void shutdownPowerlink (void)"
 
 .PP
 Shutdown the demo application\&. The function shuts down the demo application\&. 
 .PP
-Definition at line \fB706\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB779\fP of file \fBopl\&.cpp\fP\&.
 .SH "Variable Documentation"
 .PP 
-.SS "bool activated_In_MN_l[\fBSIZE_OUT\fP+2]\fR [static]\fP"
-
-.PP
-Definition at line \fB103\fP of file \fBopl\&.h\fP\&.
-.SS "const UINT8 aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }\fR [static]\fP"
-
-.PP
-Definition at line \fB94\fP of file \fBopl\&.h\fP\&.
-.SS "UINT cnt_l\fR [static]\fP"
-
-.PP
-Definition at line \fB97\fP of file \fBopl\&.h\fP\&.
-.SS "BOOL fGsOff_l\fR [static]\fP"
-
-.PP
-Definition at line \fB95\fP of file \fBopl\&.h\fP\&.
 .SS "const uint16_t nbValuesCN_In\fR [extern]\fP"
 
 .PP
-Definition at line \fB17\fP of file \fBopl\&.cpp\fP\&.
+the number of values coming into each CNs 
+.PP
+Definition at line \fB32\fP of file \fBopl\&.cpp\fP\&.
 .SS "const uint16_t nbValuesCN_Out\fR [extern]\fP"
 
 .PP
-Definition at line \fB16\fP of file \fBopl\&.cpp\fP\&.
-.SS "\fBPI_IN\fP* pProcessImageIn_l\fR [static]\fP"
-
+the number of values coming out of each CNs 
 .PP
-Definition at line \fB98\fP of file \fBopl\&.h\fP\&.
-.SS "\fBPI_OUT\fP* pProcessImageOut_l\fR [static]\fP"
-
-.PP
-Definition at line \fB99\fP of file \fBopl\&.h\fP\&.
-.SS "int16_t values_In_MN_l[\fBSIZE_OUT\fP]\fR [static]\fP"
-
-.PP
-Definition at line \fB101\fP of file \fBopl\&.h\fP\&.
-.SS "int16_t values_Out_MN_l[\fBSIZE_IN\fP]\fR [static]\fP"
-
-.PP
-Definition at line \fB102\fP of file \fBopl\&.h\fP\&.
+Definition at line \fB28\fP of file \fBopl\&.cpp\fP\&.
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for CAC_MN from the source code\&.
+Generated automatically by Doxygen for OpenPOWERLINK MN application for CAC boards from the source code\&.

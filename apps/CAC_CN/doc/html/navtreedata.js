@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "CAC_CN", "index.html", [
+  [ "CAC main program", "index.html", [
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -51,7 +51,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"opl_8h.html#af33cb4a9ced83e8a564a44f95a7c740c"
+"opl_8h.html#aa1f5fd46ab8ace6894efe23293d8a9b8"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CAC_MN: C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/statusErrorDefine.h File Reference</title>
+<title>OpenPOWERLINK MN application for CAC boards: C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/statusErrorDefine.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">CAC_MN<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">OpenPOWERLINK MN application for CAC boards<span id="projectnumber">&#160;1.2</span>
    </div>
    <div id="projectbrief">The main program for the Master Node that controls the acquisition and control boards.</div>
   </td>
@@ -99,6 +99,9 @@ $(function(){initNavTree('status_error_define_8h.html',''); initResizable(); });
   <div class="headertitle"><div class="title">statusErrorDefine.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>header file containing all of the program enumerations  
+<a href="#details">More...</a></p>
 
 <p><a href="status_error_define_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -191,10 +194,12 @@ Enumerations</h2></td></tr>
 , <a class="el" href="#adf0c44f8de9b8e78b0e56caacfa1ac94a282120158405e4a34ce8e365c3684fb8">errCloseAdc</a> = 0xE4FF
 <br />
  }</td></tr>
+<tr class="memdesc:adf0c44f8de9b8e78b0e56caacfa1ac94"><td class="mdescLeft">&#160;</td><td class="mdescRight">the program status and error codes  <a href="#adf0c44f8de9b8e78b0e56caacfa1ac94">More...</a><br /></td></tr>
 <tr class="separator:adf0c44f8de9b8e78b0e56caacfa1ac94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46c8a310cf4c094f8c80e1cb8dc1f911" id="r_a46c8a310cf4c094f8c80e1cb8dc1f911"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46c8a310cf4c094f8c80e1cb8dc1f911">Mode</a> { <a class="el" href="#a46c8a310cf4c094f8c80e1cb8dc1f911a9761086e420b925e438327ad385b304d">automatic</a> = 0x00
 , <a class="el" href="#a46c8a310cf4c094f8c80e1cb8dc1f911af2ff5ec687c78928f81c2842750e3f67">manual</a> = 0x01
  }</td></tr>
+<tr class="memdesc:a46c8a310cf4c094f8c80e1cb8dc1f911"><td class="mdescLeft">&#160;</td><td class="mdescRight">the modes of the program  <a href="#a46c8a310cf4c094f8c80e1cb8dc1f911">More...</a><br /></td></tr>
 <tr class="separator:a46c8a310cf4c094f8c80e1cb8dc1f911"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a5ff9e57db5d201dadd5d4dcacafd50" id="r_a8a5ff9e57db5d201dadd5d4dcacafd50"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a5ff9e57db5d201dadd5d4dcacafd50">stateDef</a> { <a class="el" href="#a8a5ff9e57db5d201dadd5d4dcacafd50a2e804b7c8163d212e6231f5228f73ce9">init</a>
 , <a class="el" href="#a8a5ff9e57db5d201dadd5d4dcacafd50a5d8add8effb2a9964dbebfd27c9ddd31">control</a>
@@ -207,9 +212,18 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a2618e89b4c26dc851feae865df3a1a49" id="r_a2618e89b4c26dc851feae865df3a1a49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a46c8a310cf4c094f8c80e1cb8dc1f911">Mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2618e89b4c26dc851feae865df3a1a49">mode</a></td></tr>
+<tr class="memdesc:a2618e89b4c26dc851feae865df3a1a49"><td class="mdescLeft">&#160;</td><td class="mdescRight">the mode of the program. It is initialized to the automatic mode, the general state CSV files are first used.  <br /></td></tr>
 <tr class="separator:a2618e89b4c26dc851feae865df3a1a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>header file containing all of the program enumerations </p>
+<dl class="section author"><dt>Author</dt><dd>Mael Parot </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.2 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>11/04/2024</dd></dl>
+<p>Contains all of the program enumerations namely, the program status and error codes, the program modes and the state machine states. </p>
+
+<p class="definition">Definition in file <a class="el" href="status_error_define_8h_source.html">statusErrorDefine.h</a>.</p>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a46c8a310cf4c094f8c80e1cb8dc1f911" name="a46c8a310cf4c094f8c80e1cb8dc1f911"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a46c8a310cf4c094f8c80e1cb8dc1f911">&#9670;&#160;</a></span>Mode</h2>
 
@@ -221,6 +235,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>the modes of the program </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a46c8a310cf4c094f8c80e1cb8dc1f911a9761086e420b925e438327ad385b304d" name="a46c8a310cf4c094f8c80e1cb8dc1f911a9761086e420b925e438327ad385b304d"></a>automatic&#160;</td><td class="fielddoc"><p>The valve values are taken from a general state CSV file. </p>
 </td></tr>
@@ -228,7 +244,7 @@ Variables</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="status_error_define_8h_source.html#l00098">98</a> of file <a class="el" href="status_error_define_8h_source.html">statusErrorDefine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="status_error_define_8h_source.html#l00118">118</a> of file <a class="el" href="status_error_define_8h_source.html">statusErrorDefine.h</a>.</p>
 
 </div>
 </div>
@@ -256,7 +272,7 @@ Variables</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="status_error_define_8h_source.html#l00110">110</a> of file <a class="el" href="status_error_define_8h_source.html">statusErrorDefine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="status_error_define_8h_source.html#l00131">131</a> of file <a class="el" href="status_error_define_8h_source.html">statusErrorDefine.h</a>.</p>
 
 </div>
 </div>
@@ -271,6 +287,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>the program status and error codes </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" name="adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b"></a>noError&#160;</td><td class="fielddoc"><p>No error has been detected, the function is working. </p>
 </td></tr>
@@ -322,7 +340,7 @@ Variables</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="adf0c44f8de9b8e78b0e56caacfa1ac94a2a9edd04aaa6fed4564c1a9018a287f5" name="adf0c44f8de9b8e78b0e56caacfa1ac94a2a9edd04aaa6fed4564c1a9018a287f5"></a>errCloseTelemFile&#160;</td><td class="fielddoc"><p>Closing the telemetry file has failed. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="adf0c44f8de9b8e78b0e56caacfa1ac94a7f5fa8b07e851d30728b48a6706f3406" name="adf0c44f8de9b8e78b0e56caacfa1ac94a7f5fa8b07e851d30728b48a6706f3406"></a>errAllocDataEG&#160;</td><td class="fielddoc"><p>Memory allocation failure for the structure LigneEG. </p>
+<tr><td class="fieldname"><a id="adf0c44f8de9b8e78b0e56caacfa1ac94a7f5fa8b07e851d30728b48a6706f3406" name="adf0c44f8de9b8e78b0e56caacfa1ac94a7f5fa8b07e851d30728b48a6706f3406"></a>errAllocDataEG&#160;</td><td class="fielddoc"><p>Memory allocation failure for the structure <a class="el" href="struct_ligne_e_g.html" title="struct containing the general state code according to the name of a general state CSV file taken from...">LigneEG</a>. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="adf0c44f8de9b8e78b0e56caacfa1ac94aa17dee312ce9f8b84311bcfeeea687e4" name="adf0c44f8de9b8e78b0e56caacfa1ac94aa17dee312ce9f8b84311bcfeeea687e4"></a>errAllocDataEtats&#160;</td><td class="fielddoc"><p>Memory allocation failure for the structure LigneCSV. </p>
 </td></tr>
@@ -330,7 +348,7 @@ Variables</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="adf0c44f8de9b8e78b0e56caacfa1ac94ae97856e69e4799dd26242af002ea490d" name="adf0c44f8de9b8e78b0e56caacfa1ac94ae97856e69e4799dd26242af002ea490d"></a>errAllocDataPhysSensors&#160;</td><td class="fielddoc"><p>Memory allocation failure for the structure LigneSensors. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="adf0c44f8de9b8e78b0e56caacfa1ac94aa748b576dd63269692bf94745ebde592" name="adf0c44f8de9b8e78b0e56caacfa1ac94aa748b576dd63269692bf94745ebde592"></a>errAllocDataActivation&#160;</td><td class="fielddoc"><p>Memory allocation failure for the structure <a class="el" href="struct_ligne_activation.html">LigneActivation</a>. </p>
+<tr><td class="fieldname"><a id="adf0c44f8de9b8e78b0e56caacfa1ac94aa748b576dd63269692bf94745ebde592" name="adf0c44f8de9b8e78b0e56caacfa1ac94aa748b576dd63269692bf94745ebde592"></a>errAllocDataActivation&#160;</td><td class="fielddoc"><p>Memory allocation failure for the structure <a class="el" href="struct_ligne_activation.html" title="struct containing the boolean values taken from &quot;activation.csv&quot;">LigneActivation</a>. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="adf0c44f8de9b8e78b0e56caacfa1ac94a30f34309a812bd0a316489459b8bb55d" name="adf0c44f8de9b8e78b0e56caacfa1ac94a30f34309a812bd0a316489459b8bb55d"></a>errOpenEGFile&#160;</td><td class="fielddoc"><p>The "liaisonEGEtat.csv" CSV file has failed to open. </p>
 </td></tr>
@@ -410,7 +428,7 @@ Variables</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="status_error_define_8h_source.html#l00004">4</a> of file <a class="el" href="status_error_define_8h_source.html">statusErrorDefine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="status_error_define_8h_source.html#l00020">20</a> of file <a class="el" href="status_error_define_8h_source.html">statusErrorDefine.h</a>.</p>
 
 </div>
 </div>
@@ -435,7 +453,9 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00014">14</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p>the mode of the program. It is initialized to the automatic mode, the general state CSV files are first used. </p>
+
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00019">19</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>

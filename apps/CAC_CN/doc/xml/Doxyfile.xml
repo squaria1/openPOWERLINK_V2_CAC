@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxyfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="doxyfile.xsd" version="1.10.0" xml:lang="en-US">
   <option  id='DOXYFILE_ENCODING' default='yes' type='string'><value><![CDATA[UTF-8]]></value></option>
-  <option  id='PROJECT_NAME' default='no' type='string'><value><![CDATA[CAC_CN]]></value></option>
-  <option  id='PROJECT_NUMBER' default='no' type='string'><value><![CDATA[1.1]]></value></option>
+  <option  id='PROJECT_NAME' default='no' type='string'><value><![CDATA["CAC main program"]]></value></option>
+  <option  id='PROJECT_NUMBER' default='no' type='string'><value><![CDATA[1.2]]></value></option>
   <option  id='PROJECT_BRIEF' default='no' type='string'><value><![CDATA["The main program for acquisition and control boards."]]></value></option>
   <option  id='PROJECT_LOGO' default='no' type='string'><value><![CDATA[C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/doc/logo.png]]></value></option>
   <option  id='PROJECT_ICON' default='yes' type='string'><value><![CDATA[]]></value></option>

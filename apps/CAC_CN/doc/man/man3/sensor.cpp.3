@@ -1,8 +1,8 @@
-.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp" 3 "Version 1.2" "CAC main program" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp \- Module to read sensors values\&.  
+C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp \- Module to read sensor values\&.  
 
 .SH SYNOPSIS
 .br
@@ -30,7 +30,7 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp \- Mo
 .br
 .RI "function to read the value of a sensor from a sysfs file of the MCP3008 kernel module\&. "
 .ti -1c
-.RI "int \fBopenAdc\fP (int \fBadc\fP)"
+.RI "int \fBopenAdc\fP (int adc)"
 .br
 .RI "function to open a sysfs file of the MCP3008 kernel module\&. "
 .in -1c
@@ -38,27 +38,41 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/sensor.cpp \- Mo
 
 .in +1c
 .ti -1c
-.RI "static int \fBopt\fP"
+.RI "static int \fBi\fP = 0"
 .br
+.RI "the for loops index "
 .ti -1c
-.RI "static int \fBadc\fP"
+.RI "static int \fBnum\fP = 0"
 .br
-.ti -1c
-.RI "static int \fBi\fP"
-.br
+.RI "number of modbus register read "
 .ti -1c
 .RI "static uint8_t \fBtabSensorActivated\fP [\fBMAX_SENSORS\fP]"
 .br
+.RI "MCP3008 channels activation array\&. "
 .ti -1c
 .RI "static int \fBfd\fP [\fBMAX_SENSORS\fP]"
 .br
+.RI "sysfs channel file array "
 .ti -1c
-.RI "static int \fBabort_read\fP"
+.RI "static int16_t \fBvalSensors\fP [\fBMAX_SENSORS\fP]"
 .br
+.RI "sensor values array "
+.ti -1c
+.RI "static modbus_t * \fBctx\fP [\fBMAX_SENSORS\fP] = {}"
+.br
+.RI "modbus instance array "
+.ti -1c
+.RI "static uint16_t \fBmodbusReg\fP [\fBMODBUS_NBREG\fP]"
+.br
+.RI "modbus registers read array "
+.ti -1c
+.RI "static bool \fBrs485Connected\fP [\fBMAX_SENSORS\fP]"
+.br
+.RI "modbus sensor connexion boolean array, true if a modbus sensor is connected, false otherwise "
 .in -1c
 .SH "Detailed Description"
 .PP 
-Module to read sensors values\&. 
+Module to read sensor values\&. 
 
 
 .PP
@@ -69,7 +83,7 @@ Mael Parot, Corentin Berthon
 .PP
 \fBVersion\fP
 .RS 4
-1\&.1 
+1\&.2 
 .RE
 .PP
 \fBDate\fP
@@ -96,7 +110,7 @@ statusErrDef that values errCloseAdc when a sysfs file of the MCP3008 fails to c
 .PP
 
 .PP
-Definition at line \fB136\fP of file \fBsensor\&.cpp\fP\&.
+Definition at line \fB239\fP of file \fBsensor\&.cpp\fP\&.
 .SS "int16_t getAdc_value (int index)"
 
 .PP
@@ -114,7 +128,7 @@ the value of the sensor in 2 bytes signed\&.
 .PP
 
 .PP
-Definition at line \fB76\fP of file \fBsensor\&.cpp\fP\&.
+Definition at line \fB157\fP of file \fBsensor\&.cpp\fP\&.
 .SS "int openAdc (int adc)"
 
 .PP
@@ -132,7 +146,7 @@ ADC_READ_ERROR when the file opening fails or the file location\&.
 .PP
 
 .PP
-Definition at line \fB189\fP of file \fBsensor\&.cpp\fP\&.
+Definition at line \fB293\fP of file \fBsensor\&.cpp\fP\&.
 .SS "int readAdc (int fd)"
 
 .PP
@@ -150,7 +164,7 @@ ADC_READ_ERROR when the file reading fails or the value of a sensor\&.
 .PP
 
 .PP
-Definition at line \fB164\fP of file \fBsensor\&.cpp\fP\&.
+Definition at line \fB267\fP of file \fBsensor\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP readChannels ()"
 
 .PP
@@ -163,33 +177,57 @@ statusErrDef that values errOpenAdc when a sysfs file of the MCP3008 fails to op
 .PP
 
 .PP
-Definition at line \fB89\fP of file \fBsensor\&.cpp\fP\&.
+Definition at line \fB170\fP of file \fBsensor\&.cpp\fP\&.
 .SH "Variable Documentation"
 .PP 
-.SS "int abort_read\fR [static]\fP"
+.SS "modbus_t* ctx[\fBMAX_SENSORS\fP] = {}\fR [static]\fP"
 
 .PP
-Definition at line \fB17\fP of file \fBsensor\&.cpp\fP\&.
-.SS "int adc\fR [static]\fP"
-
+modbus instance array 
 .PP
-Definition at line \fB14\fP of file \fBsensor\&.cpp\fP\&.
+Definition at line \fB38\fP of file \fBsensor\&.cpp\fP\&.
 .SS "int fd[\fBMAX_SENSORS\fP]\fR [static]\fP"
 
 .PP
-Definition at line \fB16\fP of file \fBsensor\&.cpp\fP\&.
-.SS "int i\fR [static]\fP"
+sysfs channel file array 
+.PP
+Definition at line \fB29\fP of file \fBsensor\&.cpp\fP\&.
+.SS "int i = 0\fR [static]\fP"
 
 .PP
-Definition at line \fB14\fP of file \fBsensor\&.cpp\fP\&.
-.SS "int opt\fR [static]\fP"
+the for loops index 
+.PP
+Definition at line \fB17\fP of file \fBsensor\&.cpp\fP\&.
+.SS "uint16_t modbusReg[\fBMODBUS_NBREG\fP]\fR [static]\fP"
 
 .PP
-Definition at line \fB14\fP of file \fBsensor\&.cpp\fP\&.
+modbus registers read array 
+.PP
+Definition at line \fB42\fP of file \fBsensor\&.cpp\fP\&.
+.SS "int num = 0\fR [static]\fP"
+
+.PP
+number of modbus register read 
+.PP
+Definition at line \fB21\fP of file \fBsensor\&.cpp\fP\&.
+.SS "bool rs485Connected[\fBMAX_SENSORS\fP]\fR [static]\fP"
+
+.PP
+modbus sensor connexion boolean array, true if a modbus sensor is connected, false otherwise 
+.PP
+Definition at line \fB47\fP of file \fBsensor\&.cpp\fP\&.
 .SS "uint8_t tabSensorActivated[\fBMAX_SENSORS\fP]\fR [static]\fP"
 
 .PP
-Definition at line \fB15\fP of file \fBsensor\&.cpp\fP\&.
+MCP3008 channels activation array\&. 
+.PP
+Definition at line \fB25\fP of file \fBsensor\&.cpp\fP\&.
+.SS "int16_t valSensors[\fBMAX_SENSORS\fP]\fR [static]\fP"
+
+.PP
+sensor values array 
+.PP
+Definition at line \fB33\fP of file \fBsensor\&.cpp\fP\&.
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for CAC_CN from the source code\&.
+Generated automatically by Doxygen for CAC main program from the source code\&.

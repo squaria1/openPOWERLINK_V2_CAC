@@ -1,8 +1,9 @@
-.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h" 3 "Version 1.2" "CAC main program" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h
+C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h \- header file of the sensor module that reads sensor values  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -55,7 +56,7 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h
 .br
 .RI "function to read the value of a sensor from a sysfs file of the MCP3008 kernel module\&. "
 .ti -1c
-.RI "int \fBopenAdc\fP (int \fBadc\fP)"
+.RI "int \fBopenAdc\fP (int adc)"
 .br
 .RI "function to open a sysfs file of the MCP3008 kernel module\&. "
 .ti -1c
@@ -63,13 +64,30 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/sensor.h
 .br
 .RI "function getter of the value of a sensor from the array of sensors\&. "
 .in -1c
-.SS "Variables"
+.SH "Detailed Description"
+.PP 
+header file of the sensor module that reads sensor values 
 
-.in +1c
-.ti -1c
-.RI "static int16_t \fBvalSensors\fP [\fBMAX_SENSORS\fP]"
-.br
-.in -1c
+
+.PP
+\fBAuthor\fP
+.RS 4
+Mael Parot, Corentin Berthon 
+.RE
+.PP
+\fBVersion\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+11/04/2024
+.RE
+.PP
+Contains all functions definitions related to reading sensors values from the sysfs linux module file for an MCP3008 
+.PP
+Definition in file \fBsensor\&.h\fP\&.
 .SH "Function Documentation"
 .PP 
 .SS "\fBstatusErrDef\fP closeAdc ()"
@@ -86,7 +104,7 @@ statusErrDef that values errCloseAdc when a sysfs file of the MCP3008 fails to c
 .PP
 
 .PP
-Definition at line \fB136\fP of file \fBsensor\&.cpp\fP\&.
+Definition at line \fB239\fP of file \fBsensor\&.cpp\fP\&.
 .SS "int16_t getAdc_value (int index)"
 
 .PP
@@ -104,7 +122,7 @@ the value of the sensor in 2 bytes signed\&.
 .PP
 
 .PP
-Definition at line \fB76\fP of file \fBsensor\&.cpp\fP\&.
+Definition at line \fB157\fP of file \fBsensor\&.cpp\fP\&.
 .SS "int openAdc (int adc)"
 
 .PP
@@ -122,7 +140,7 @@ ADC_READ_ERROR when the file opening fails or the file location\&.
 .PP
 
 .PP
-Definition at line \fB189\fP of file \fBsensor\&.cpp\fP\&.
+Definition at line \fB293\fP of file \fBsensor\&.cpp\fP\&.
 .SS "int readAdc (int fd)"
 
 .PP
@@ -140,7 +158,7 @@ ADC_READ_ERROR when the file reading fails or the value of a sensor\&.
 .PP
 
 .PP
-Definition at line \fB164\fP of file \fBsensor\&.cpp\fP\&.
+Definition at line \fB267\fP of file \fBsensor\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP readChannels ()"
 
 .PP
@@ -153,13 +171,7 @@ statusErrDef that values errOpenAdc when a sysfs file of the MCP3008 fails to op
 .PP
 
 .PP
-Definition at line \fB89\fP of file \fBsensor\&.cpp\fP\&.
-.SH "Variable Documentation"
-.PP 
-.SS "int16_t valSensors[\fBMAX_SENSORS\fP]\fR [static]\fP"
-
-.PP
-Definition at line \fB28\fP of file \fBsensor\&.h\fP\&.
+Definition at line \fB170\fP of file \fBsensor\&.cpp\fP\&.
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for CAC_CN from the source code\&.
+Generated automatically by Doxygen for CAC main program from the source code\&.

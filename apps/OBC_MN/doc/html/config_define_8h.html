@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CAC_MN: C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h File Reference</title>
+<title>OpenPOWERLINK MN application for CAC boards: C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/configDefine.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">CAC_MN<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">OpenPOWERLINK MN application for CAC boards<span id="projectnumber">&#160;1.2</span>
    </div>
    <div id="projectbrief">The main program for the Master Node that controls the acquisition and control boards.</div>
   </td>
@@ -94,109 +94,87 @@ $(function(){initNavTree('config_define_8h.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle"><div class="title">configDefine.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
+<p>header file that contains all the program defines  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="nb_nodes_8h_source.html">nbNodes.h</a>&quot;</code><br />
+</div>
 <p><a href="config_define_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ac9ac8ba41c4385306791b6640b1d51dc" id="r_ac9ac8ba41c4385306791b6640b1d51dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9ac8ba41c4385306791b6640b1d51dc">CYCLE_LEN</a>&#160;&#160;&#160;UINT_MAX</td></tr>
+<tr class="memdesc:ac9ac8ba41c4385306791b6640b1d51dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">OpenPOWERLINK cycle length, not shown in the MN but in the CNs.  <br /></td></tr>
 <tr class="separator:ac9ac8ba41c4385306791b6640b1d51dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f7945514ea8b2c7145cf68d47c96a08" id="r_a2f7945514ea8b2c7145cf68d47c96a08"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f7945514ea8b2c7145cf68d47c96a08">NODEID</a>&#160;&#160;&#160;0xF0</td></tr>
+<tr class="memdesc:a2f7945514ea8b2c7145cf68d47c96a08"><td class="mdescLeft">&#160;</td><td class="mdescRight">the MN node ID (240 by default)  <br /></td></tr>
 <tr class="separator:a2f7945514ea8b2c7145cf68d47c96a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6206026f72c671f64485c7be7f4288d2" id="r_a6206026f72c671f64485c7be7f4288d2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a>&#160;&#160;&#160;3</td></tr>
-<tr class="separator:a6206026f72c671f64485c7be7f4288d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14b0a7da8cf3edbfec9630c2ec290148" id="r_a14b0a7da8cf3edbfec9630c2ec290148"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14b0a7da8cf3edbfec9630c2ec290148">IP_ADDR</a>&#160;&#160;&#160;0xc0a801F0</td></tr>
+<tr class="memdesc:a14b0a7da8cf3edbfec9630c2ec290148"><td class="mdescLeft">&#160;</td><td class="mdescRight">The MN default ip address (not important)  <br /></td></tr>
 <tr class="separator:a14b0a7da8cf3edbfec9630c2ec290148"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2277cfa773d618a987524fc0590fe253" id="r_a2277cfa773d618a987524fc0590fe253"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2277cfa773d618a987524fc0590fe253">SUBNET_MASK</a>&#160;&#160;&#160;0xFFFFFF00</td></tr>
+<tr class="memdesc:a2277cfa773d618a987524fc0590fe253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Network mask of /24.  <br /></td></tr>
 <tr class="separator:a2277cfa773d618a987524fc0590fe253"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0092e2619bef8d5375800f507d3080c" id="r_ab0092e2619bef8d5375800f507d3080c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0092e2619bef8d5375800f507d3080c">DEFAULT_GATEWAY</a>&#160;&#160;&#160;0xC0A864FE</td></tr>
+<tr class="memdesc:ab0092e2619bef8d5375800f507d3080c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The MN default gateway (not important)  <br /></td></tr>
 <tr class="separator:ab0092e2619bef8d5375800f507d3080c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa379d16dbf6d11890daeb88603a35b56" id="r_aa379d16dbf6d11890daeb88603a35b56"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa379d16dbf6d11890daeb88603a35b56">DEFAULT_MAX_CYCLE_COUNT</a>&#160;&#160;&#160;20</td></tr>
-<tr class="separator:aa379d16dbf6d11890daeb88603a35b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44e3a41b5281c8055e818e0f75bb796b" id="r_a44e3a41b5281c8055e818e0f75bb796b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44e3a41b5281c8055e818e0f75bb796b">APP_LED_COUNT_1</a>&#160;&#160;&#160;8</td></tr>
-<tr class="separator:a44e3a41b5281c8055e818e0f75bb796b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab32da2e90b505fa22b01dd99925206db" id="r_ab32da2e90b505fa22b01dd99925206db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab32da2e90b505fa22b01dd99925206db">APP_LED_MASK_1</a>&#160;&#160;&#160;(1 &lt;&lt; (<a class="el" href="#a44e3a41b5281c8055e818e0f75bb796b">APP_LED_COUNT_1</a> - 1))</td></tr>
-<tr class="separator:ab32da2e90b505fa22b01dd99925206db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd2aacdca9cb2a1a30f3392256b96ea3" id="r_abd2aacdca9cb2a1a30f3392256b96ea3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd2aacdca9cb2a1a30f3392256b96ea3">MAX_NODES</a>&#160;&#160;&#160;255</td></tr>
+<tr class="memdesc:abd2aacdca9cb2a1a30f3392256b96ea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum number of MN and CN.  <br /></td></tr>
 <tr class="separator:abd2aacdca9cb2a1a30f3392256b96ea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71a9a98ac1615819a1b7259916b3c33e" id="r_a71a9a98ac1615819a1b7259916b3c33e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71a9a98ac1615819a1b7259916b3c33e">MAX_VALUES</a>&#160;&#160;&#160;255</td></tr>
-<tr class="separator:a71a9a98ac1615819a1b7259916b3c33e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a563cad7e347a704508920c0c59f74808" id="r_a563cad7e347a704508920c0c59f74808"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a563cad7e347a704508920c0c59f74808">DEVNAME</a>&#160;&#160;&#160;&quot;eth0&quot;</td></tr>
+<tr class="memdesc:a563cad7e347a704508920c0c59f74808"><td class="mdescLeft">&#160;</td><td class="mdescRight">The MN device name (look in /etc/network/interfaces for the name in Linux)  <br /></td></tr>
 <tr class="separator:a563cad7e347a704508920c0c59f74808"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8a09c72ec4b0fb08add063f03dec883" id="r_aa8a09c72ec4b0fb08add063f03dec883"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8a09c72ec4b0fb08add063f03dec883">CDCFILE</a>&#160;&#160;&#160;&quot;mnobd.cdc&quot;</td></tr>
+<tr class="memdesc:aa8a09c72ec4b0fb08add063f03dec883"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpenPOWERLINK binary file name containing all RPDO and TPDO structures between the MN and the CNs. This file is generated by OpenCONFIGURATOR.  <br /></td></tr>
 <tr class="separator:aa8a09c72ec4b0fb08add063f03dec883"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e49face896c52c0f543cd14338d503d" id="r_a4e49face896c52c0f543cd14338d503d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e49face896c52c0f543cd14338d503d">COMPUTED_PI_OUT_SIZE</a>&#160;&#160;&#160;152</td></tr>
-<tr class="separator:a4e49face896c52c0f543cd14338d503d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5cbebecab98e4234ae1b2e5ff94ccbc" id="r_ab5cbebecab98e4234ae1b2e5ff94ccbc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5cbebecab98e4234ae1b2e5ff94ccbc">SIZE_OUT</a>&#160;&#160;&#160;75</td></tr>
+<tr class="memitem:ab5cbebecab98e4234ae1b2e5ff94ccbc" id="r_ab5cbebecab98e4234ae1b2e5ff94ccbc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5cbebecab98e4234ae1b2e5ff94ccbc">SIZE_OUT</a>&#160;&#160;&#160;(<a class="el" href="nb_nodes_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a> * 25)</td></tr>
+<tr class="memdesc:ab5cbebecab98e4234ae1b2e5ff94ccbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total size of RPDOs coming into every CNs.  <br /></td></tr>
 <tr class="separator:ab5cbebecab98e4234ae1b2e5ff94ccbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14557d5857db9a5a599b852033ce8de5" id="r_a14557d5857db9a5a599b852033ce8de5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14557d5857db9a5a599b852033ce8de5">COMPUTED_PI_IN_SIZE</a>&#160;&#160;&#160;80</td></tr>
-<tr class="separator:a14557d5857db9a5a599b852033ce8de5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac072f7043a3fb31b4fc2d1bcb687c157" id="r_ac072f7043a3fb31b4fc2d1bcb687c157"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac072f7043a3fb31b4fc2d1bcb687c157">SIZE_IN</a>&#160;&#160;&#160;39</td></tr>
+<tr class="memitem:ac072f7043a3fb31b4fc2d1bcb687c157" id="r_ac072f7043a3fb31b4fc2d1bcb687c157"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac072f7043a3fb31b4fc2d1bcb687c157">SIZE_IN</a>&#160;&#160;&#160;(<a class="el" href="nb_nodes_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a> * 13)</td></tr>
+<tr class="memdesc:ac072f7043a3fb31b4fc2d1bcb687c157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total size of TPDOs coming out of every CNs.  <br /></td></tr>
 <tr class="separator:ac072f7043a3fb31b4fc2d1bcb687c157"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e49face896c52c0f543cd14338d503d" id="r_a4e49face896c52c0f543cd14338d503d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e49face896c52c0f543cd14338d503d">COMPUTED_PI_OUT_SIZE</a>&#160;&#160;&#160;((<a class="el" href="#ab5cbebecab98e4234ae1b2e5ff94ccbc">SIZE_OUT</a> + 1) * 2)</td></tr>
+<tr class="memdesc:a4e49face896c52c0f543cd14338d503d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total size in bytes for every RPDOs (int16_t is 2 bytes)  <br /></td></tr>
+<tr class="separator:a4e49face896c52c0f543cd14338d503d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14557d5857db9a5a599b852033ce8de5" id="r_a14557d5857db9a5a599b852033ce8de5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14557d5857db9a5a599b852033ce8de5">COMPUTED_PI_IN_SIZE</a>&#160;&#160;&#160;((<a class="el" href="#ac072f7043a3fb31b4fc2d1bcb687c157">SIZE_IN</a> + 1) * 2)</td></tr>
+<tr class="memdesc:a14557d5857db9a5a599b852033ce8de5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total size in bytes for every TPDOs (int16_t is 2 bytes)  <br /></td></tr>
+<tr class="separator:a14557d5857db9a5a599b852033ce8de5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9eb6992d76f02128388ae95c0415604a" id="r_a9eb6992d76f02128388ae95c0415604a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9eb6992d76f02128388ae95c0415604a">MAX_PATH_LENGTH</a>&#160;&#160;&#160;1024</td></tr>
+<tr class="memdesc:a9eb6992d76f02128388ae95c0415604a"><td class="mdescLeft">&#160;</td><td class="mdescRight">maximum path length for a general state CSV file  <br /></td></tr>
 <tr class="separator:a9eb6992d76f02128388ae95c0415604a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a706068f562dd5c64a8b7bbd4b2298dd1" id="r_a706068f562dd5c64a8b7bbd4b2298dd1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a706068f562dd5c64a8b7bbd4b2298dd1">MAX_LINE_SIZE</a>&#160;&#160;&#160;2832</td></tr>
+<tr class="memdesc:a706068f562dd5c64a8b7bbd4b2298dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">maximum line size for every common CSV file  <br /></td></tr>
 <tr class="separator:a706068f562dd5c64a8b7bbd4b2298dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56d2ae7dc00f8f120314a9de4a9efcbe" id="r_a56d2ae7dc00f8f120314a9de4a9efcbe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56d2ae7dc00f8f120314a9de4a9efcbe">MAX_PHYSICAL_LINE_SIZE</a>&#160;&#160;&#160;30</td></tr>
-<tr class="separator:a56d2ae7dc00f8f120314a9de4a9efcbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b94af9dcb0358f28d175d80eed98330" id="r_a3b94af9dcb0358f28d175d80eed98330"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b94af9dcb0358f28d175d80eed98330">MAX_ROWS</a>&#160;&#160;&#160;5</td></tr>
-<tr class="separator:a3b94af9dcb0358f28d175d80eed98330"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19d73c6a12d1954cae600527e48493cd" id="r_a19d73c6a12d1954cae600527e48493cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19d73c6a12d1954cae600527e48493cd">MAX_DEPENDANCE</a>&#160;&#160;&#160;2832</td></tr>
-<tr class="separator:a19d73c6a12d1954cae600527e48493cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af03b9ef4da5daeff7665f07931101fdb" id="r_af03b9ef4da5daeff7665f07931101fdb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af03b9ef4da5daeff7665f07931101fdb">COMMON_PHYSICAL_CONFIG_DIRECTORY</a>&#160;&#160;&#160;&quot;../../../common/commonCSVFiles/activation.csv&quot;</td></tr>
+<tr class="memdesc:af03b9ef4da5daeff7665f07931101fdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">maximum line size for every physical CSV file  <br /></td></tr>
 <tr class="separator:af03b9ef4da5daeff7665f07931101fdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4714f9212329c04dc628e204388611a1" id="r_a4714f9212329c04dc628e204388611a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4714f9212329c04dc628e204388611a1">EG_ETAT_DIRECTORY</a>&#160;&#160;&#160;&quot;../../../common/commonCSVFiles/liaisonEGEtat.csv&quot;</td></tr>
+<tr class="separator:a4714f9212329c04dc628e204388611a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeead33868b09a953457fd5235525bd39" id="r_aeead33868b09a953457fd5235525bd39"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeead33868b09a953457fd5235525bd39">TELEMFILES_DIRECTORY</a>&#160;&#160;&#160;&quot;../../include/telemFiles&quot;</td></tr>
 <tr class="separator:aeead33868b09a953457fd5235525bd39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33e0ce62bb48bae39a3086aa66f18abf" id="r_a33e0ce62bb48bae39a3086aa66f18abf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33e0ce62bb48bae39a3086aa66f18abf">EVENTLOG_MAX_LENGTH</a>&#160;&#160;&#160;1024</td></tr>
+<tr class="memdesc:a33e0ce62bb48bae39a3086aa66f18abf"><td class="mdescLeft">&#160;</td><td class="mdescRight">maximum length of telemetry status or error message  <br /></td></tr>
 <tr class="separator:a33e0ce62bb48bae39a3086aa66f18abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c15aa6025df557ee17f49ec0de3ca3e" id="r_a2c15aa6025df557ee17f49ec0de3ca3e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c15aa6025df557ee17f49ec0de3ca3e">DELAYMSINIT</a>&#160;&#160;&#160;2000</td></tr>
+<tr class="memdesc:a2c15aa6025df557ee17f49ec0de3ca3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">delay in milliseconds at the end of the initialisation state to wait for the CN to connect to the MN.  <br /></td></tr>
 <tr class="separator:a2c15aa6025df557ee17f49ec0de3ca3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cb3b08249c5a31d756d998565ed6a35" id="r_a0cb3b08249c5a31d756d998565ed6a35"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cb3b08249c5a31d756d998565ed6a35">DELAYMSCONTROL</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memitem:a0cb3b08249c5a31d756d998565ed6a35" id="r_a0cb3b08249c5a31d756d998565ed6a35"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cb3b08249c5a31d756d998565ed6a35">DELAYMSCONTROL</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a0cb3b08249c5a31d756d998565ed6a35"><td class="mdescLeft">&#160;</td><td class="mdescRight">delay in milliseconds at the end of the controlAndAcquisition state to avoid dropping the connexion between the CN and the MN.  <br /></td></tr>
 <tr class="separator:a0cb3b08249c5a31d756d998565ed6a35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:adff26a42837c55761374b2f999210374" id="r_adff26a42837c55761374b2f999210374"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adff26a42837c55761374b2f999210374">offsetValues</a> = (<a class="el" href="#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a> * (<a class="el" href="#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a> + 1)) / 2</td></tr>
-<tr class="separator:adff26a42837c55761374b2f999210374"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a44e3a41b5281c8055e818e0f75bb796b" name="a44e3a41b5281c8055e818e0f75bb796b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44e3a41b5281c8055e818e0f75bb796b">&#9670;&#160;</a></span>APP_LED_COUNT_1</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>header file that contains all the program defines </p>
+<dl class="section author"><dt>Author</dt><dd>Mael Parot </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.2 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>11/04/2024</dd></dl>
+<p>Contains all of the program defines from each module. The defines are set at compile time so they can't be changed at runtime. </p>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define APP_LED_COUNT_1&#160;&#160;&#160;8</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00013">13</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
-
-</div>
-</div>
-<a id="ab32da2e90b505fa22b01dd99925206db" name="ab32da2e90b505fa22b01dd99925206db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab32da2e90b505fa22b01dd99925206db">&#9670;&#160;</a></span>APP_LED_MASK_1</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define APP_LED_MASK_1&#160;&#160;&#160;(1 &lt;&lt; (<a class="el" href="#a44e3a41b5281c8055e818e0f75bb796b">APP_LED_COUNT_1</a> - 1))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00014">14</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
-
-</div>
-</div>
+<p class="definition">Definition in file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="aa8a09c72ec4b0fb08add063f03dec883" name="aa8a09c72ec4b0fb08add063f03dec883"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8a09c72ec4b0fb08add063f03dec883">&#9670;&#160;</a></span>CDCFILE</h2>
 
@@ -209,7 +187,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00019">19</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>The OpenPOWERLINK binary file name containing all RPDO and TPDO structures between the MN and the CNs. This file is generated by OpenCONFIGURATOR. </p>
+
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00052">52</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -225,7 +205,10 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00038">38</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>maximum line size for every physical CSV file </p>
+<p>relative directory and file location used by the program </p>
+
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00094">94</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -236,12 +219,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define COMPUTED_PI_IN_SIZE&#160;&#160;&#160;80</td>
+          <td class="memname">#define COMPUTED_PI_IN_SIZE&#160;&#160;&#160;((<a class="el" href="#ac072f7043a3fb31b4fc2d1bcb687c157">SIZE_IN</a> + 1) * 2)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00024">24</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>Total size in bytes for every TPDOs (int16_t is 2 bytes) </p>
+
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00070">70</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -252,12 +237,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define COMPUTED_PI_OUT_SIZE&#160;&#160;&#160;152</td>
+          <td class="memname">#define COMPUTED_PI_OUT_SIZE&#160;&#160;&#160;((<a class="el" href="#ab5cbebecab98e4234ae1b2e5ff94ccbc">SIZE_OUT</a> + 1) * 2)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00022">22</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>Total size in bytes for every RPDOs (int16_t is 2 bytes) </p>
+
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00066">66</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -273,7 +260,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00005">5</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>OpenPOWERLINK cycle length, not shown in the MN but in the CNs. </p>
+
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00023">23</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -289,23 +278,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00010">10</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>The MN default gateway (not important) </p>
 
-</div>
-</div>
-<a id="aa379d16dbf6d11890daeb88603a35b56" name="aa379d16dbf6d11890daeb88603a35b56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa379d16dbf6d11890daeb88603a35b56">&#9670;&#160;</a></span>DEFAULT_MAX_CYCLE_COUNT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DEFAULT_MAX_CYCLE_COUNT&#160;&#160;&#160;20</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00012">12</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00039">39</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -316,12 +291,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DELAYMSCONTROL&#160;&#160;&#160;10</td>
+          <td class="memname">#define DELAYMSCONTROL&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00048">48</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>delay in milliseconds at the end of the controlAndAcquisition state to avoid dropping the connexion between the CN and the MN. </p>
+
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00116">116</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -337,7 +314,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00047">47</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>delay in milliseconds at the end of the initialisation state to wait for the CN to connect to the MN. </p>
+
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00111">111</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -353,7 +332,25 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00018">18</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>The MN device name (look in /etc/network/interfaces for the name in Linux) </p>
+
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00047">47</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+
+</div>
+</div>
+<a id="a4714f9212329c04dc628e204388611a1" name="a4714f9212329c04dc628e204388611a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4714f9212329c04dc628e204388611a1">&#9670;&#160;</a></span>EG_ETAT_DIRECTORY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EG_ETAT_DIRECTORY&#160;&#160;&#160;&quot;../../../common/commonCSVFiles/liaisonEGEtat.csv&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00095">95</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -369,7 +366,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00044">44</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>maximum length of telemetry status or error message </p>
+
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00104">104</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -385,23 +384,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00008">8</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>The MN default ip address (not important) </p>
 
-</div>
-</div>
-<a id="a19d73c6a12d1954cae600527e48493cd" name="a19d73c6a12d1954cae600527e48493cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19d73c6a12d1954cae600527e48493cd">&#9670;&#160;</a></span>MAX_DEPENDANCE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAX_DEPENDANCE&#160;&#160;&#160;2832</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00032">32</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00031">31</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -417,7 +402,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00029">29</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>maximum line size for every common CSV file </p>
+
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00080">80</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -433,7 +420,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00015">15</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>The maximum number of MN and CN. </p>
+
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00043">43</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -449,71 +438,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00028">28</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>maximum path length for a general state CSV file </p>
 
-</div>
-</div>
-<a id="a56d2ae7dc00f8f120314a9de4a9efcbe" name="a56d2ae7dc00f8f120314a9de4a9efcbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56d2ae7dc00f8f120314a9de4a9efcbe">&#9670;&#160;</a></span>MAX_PHYSICAL_LINE_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAX_PHYSICAL_LINE_SIZE&#160;&#160;&#160;30</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00030">30</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
-
-</div>
-</div>
-<a id="a3b94af9dcb0358f28d175d80eed98330" name="a3b94af9dcb0358f28d175d80eed98330"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b94af9dcb0358f28d175d80eed98330">&#9670;&#160;</a></span>MAX_ROWS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAX_ROWS&#160;&#160;&#160;5</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00031">31</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
-
-</div>
-</div>
-<a id="a71a9a98ac1615819a1b7259916b3c33e" name="a71a9a98ac1615819a1b7259916b3c33e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71a9a98ac1615819a1b7259916b3c33e">&#9670;&#160;</a></span>MAX_VALUES</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAX_VALUES&#160;&#160;&#160;255</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00016">16</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
-
-</div>
-</div>
-<a id="a6206026f72c671f64485c7be7f4288d2" name="a6206026f72c671f64485c7be7f4288d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6206026f72c671f64485c7be7f4288d2">&#9670;&#160;</a></span>NB_NODES</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define NB_NODES&#160;&#160;&#160;3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00007">7</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00076">76</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -529,7 +456,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00006">6</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>the MN node ID (240 by default) </p>
+
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00027">27</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -540,12 +469,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SIZE_IN&#160;&#160;&#160;39</td>
+          <td class="memname">#define SIZE_IN&#160;&#160;&#160;(<a class="el" href="nb_nodes_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a> * 13)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00025">25</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>Total size of TPDOs coming out of every CNs. </p>
+
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00062">62</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -556,12 +487,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SIZE_OUT&#160;&#160;&#160;75</td>
+          <td class="memname">#define SIZE_OUT&#160;&#160;&#160;(<a class="el" href="nb_nodes_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a> * 25)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00023">23</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>Total size of RPDOs coming into every CNs. </p>
+
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00058">58</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -577,7 +510,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00009">9</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p>Network mask of /24. </p>
+
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00035">35</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>
@@ -593,32 +528,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00040">40</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="adff26a42837c55761374b2f999210374" name="adff26a42837c55761374b2f999210374"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adff26a42837c55761374b2f999210374">&#9670;&#160;</a></span>offsetValues</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr int offsetValues = (<a class="el" href="#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a> * (<a class="el" href="#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a> + 1)) / 2</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00050">50</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_define_8h_source.html#l00097">97</a> of file <a class="el" href="config_define_8h_source.html">configDefine.h</a>.</p>
 
 </div>
 </div>

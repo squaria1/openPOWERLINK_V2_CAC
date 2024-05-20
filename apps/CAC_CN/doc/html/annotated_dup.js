@@ -1,6 +1,7 @@
 var annotated_dup =
 [
     [ "dataActivation", "structdata_activation.html", null ],
+    [ "dataEG", "structdata_e_g.html", null ],
     [ "dataEtats", "structdata_etats.html", null ],
     [ "dataPhysicalConfigSensors", "structdata_physical_config_sensors.html", null ],
     [ "dataPhysicalConfigVannes", "structdata_physical_config_vannes.html", null ],

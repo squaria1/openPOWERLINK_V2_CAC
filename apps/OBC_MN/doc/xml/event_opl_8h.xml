@@ -132,7 +132,7 @@
         </inbodydescription>
         <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h" line="77" column="13" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/eventOpl.c" bodystart="124" bodyend="127" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h" declline="77" declcolumn="13"/>
         <references refid="event_opl_8c_1a2e48e96f9ffa5ddea61959e3d669faa3" compoundref="event_opl_8c" startline="85">instance_l</references>
-        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="230" endline="304">initOPL</referencedby>
+        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="284" endline="370">initOPL</referencedby>
       </memberdef>
       <memberdef kind="function" id="event_opl_8h_1ad6f574bee28d3a8f66b5885f365a8df2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>tOplkError</type>
@@ -196,7 +196,7 @@
         <references refid="event_opl_8c_1ab8eee0c0c8ef3b470b89c2f03151622f" compoundref="event_opl_8c" startline="324" endline="365">processNodeEvent</references>
         <references refid="event_opl_8c_1aa2cf6c59fdc9a28d59a00bc8787eec9d" compoundref="event_opl_8c" startline="379" endline="416">processPdoChangeEvent</references>
         <references refid="event_opl_8c_1a0e1b53cf0cea4698362f22fa97c0ceb4" compoundref="event_opl_8c" startline="212" endline="263">processStateChangeEvent</references>
-        <referencedby refid="opl_8cpp_1a79db23e985d7f28a067c6a822761b5f9" compoundref="opl_8cpp" startline="369" endline="492">initPowerlink</referencedby>
+        <referencedby refid="opl_8cpp_1a79db23e985d7f28a067c6a822761b5f9" compoundref="opl_8cpp" startline="434" endline="559">initPowerlink</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>

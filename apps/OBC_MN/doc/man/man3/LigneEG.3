@@ -1,0 +1,40 @@
+.TH "LigneEG" 3 "Version 1.2" "OpenPOWERLINK MN application for CAC boards" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LigneEG \- struct containing the general state code according to the name of a general state CSV file taken from 'liaisonEGEtat\&.csv'  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <csv\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int16_t \fBEG\fP [\fBMAX_LINE_SIZE\fP]"
+.br
+.ti -1c
+.RI "char * \fBnom\fP [\fBMAX_LINE_SIZE\fP]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+struct containing the general state code according to the name of a general state CSV file taken from 'liaisonEGEtat\&.csv' 
+.PP
+Definition at line \fB53\fP of file \fBcsv\&.h\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "int16_t LigneEG::EG[\fBMAX_LINE_SIZE\fP]"
+the MN general state code 
+.PP
+Definition at line \fB54\fP of file \fBcsv\&.h\fP\&.
+.SS "char* LigneEG::nom[\fBMAX_LINE_SIZE\fP]"
+the general state CSV file name associated with the MN general state code 
+.PP
+Definition at line \fB55\fP of file \fBcsv\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OpenPOWERLINK MN application for CAC boards from the source code\&.

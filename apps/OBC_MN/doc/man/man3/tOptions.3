@@ -1,8 +1,9 @@
-.TH "tOptions" 3 "Version 1.1" "CAC_MN" \" -*- nroff -*-
+.TH "tOptions" 3 "Version 1.2" "OpenPOWERLINK MN application for CAC boards" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-tOptions
+tOptions \- the OpenPOWERLINK initialization parameters  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -30,43 +31,45 @@ tOptions
 .RI "UINT32 \fBlogCategory\fP"
 .br
 .ti -1c
-.RI "char \fBdevName\fP [128]"
+.RI "char \fBdevName\fP [200]"
 .br
 .in -1c
 .SH "Detailed Description"
 .PP 
-Definition at line \fB45\fP of file \fBopl\&.h\fP\&.
+the OpenPOWERLINK initialization parameters 
+.PP
+Definition at line \fB61\fP of file \fBopl\&.h\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "char tOptions::cdcFile[256]"
-
+The OpenPOWERLINK binary file name 
 .PP
-Definition at line \fB47\fP of file \fBopl\&.h\fP\&.
-.SS "char tOptions::devName[128]"
-
+Definition at line \fB63\fP of file \fBopl\&.h\fP\&.
+.SS "char tOptions::devName[200]"
+the network card device name from the DEVNAME define in '\fBconfigDefine\&.h\fP' 
 .PP
-Definition at line \fB53\fP of file \fBopl\&.h\fP\&.
+Definition at line \fB69\fP of file \fBopl\&.h\fP\&.
 .SS "char tOptions::fwInfoFile[256]"
-
+The OpenPOWERLINK info file name 
 .PP
-Definition at line \fB48\fP of file \fBopl\&.h\fP\&.
+Definition at line \fB64\fP of file \fBopl\&.h\fP\&.
 .SS "UINT32 tOptions::logCategory"
-
+the OpenPOWERLINK log category (see OpenPOWERLINK doc) 
 .PP
-Definition at line \fB52\fP of file \fBopl\&.h\fP\&.
+Definition at line \fB68\fP of file \fBopl\&.h\fP\&.
 .SS "tEventlogFormat tOptions::logFormat"
-
+the OpenPOWERLINK log format (see OpenPOWERLINK doc) 
 .PP
-Definition at line \fB50\fP of file \fBopl\&.h\fP\&.
+Definition at line \fB66\fP of file \fBopl\&.h\fP\&.
 .SS "UINT32 tOptions::logLevel"
-
+the OpenPOWERLINK log level (see OpenPOWERLINK doc) 
 .PP
-Definition at line \fB51\fP of file \fBopl\&.h\fP\&.
+Definition at line \fB67\fP of file \fBopl\&.h\fP\&.
 .SS "char* tOptions::pLogFile"
-
+the custom log file output of OpenPOWERLINK 
 .PP
-Definition at line \fB49\fP of file \fBopl\&.h\fP\&.
+Definition at line \fB65\fP of file \fBopl\&.h\fP\&.
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for CAC_MN from the source code\&.
+Generated automatically by Doxygen for OpenPOWERLINK MN application for CAC boards from the source code\&.

@@ -1,4 +1,4 @@
-.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" 3 "Version 1.2" "CAC main program" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -36,21 +36,27 @@ C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp \- Mod
 .ti -1c
 .RI "unsigned int \fBoffsets\fP [\fBMAX_VALVES\fP]"
 .br
+.RI "array of the GPIO ports\&. "
 .ti -1c
 .RI "int \fBvalues\fP [\fBMAX_VALVES\fP]"
 .br
+.RI "array of the values to put into the GPIO lines\&. "
 .ti -1c
 .RI "struct timespec \fBbeginTimer\fP [\fBMAX_VALVES\fP]"
 .br
+.RI "beginning references of the dependance timers\&. "
 .ti -1c
 .RI "struct timespec \fBendTimer\fP [\fBMAX_VALVES\fP]"
 .br
+.RI "ending references of the dependance timers\&. "
 .ti -1c
 .RI "double \fBcurrentTime\fP [\fBMAX_VALVES\fP]"
 .br
+.RI "the difference between the ending and beginning of the dependance timers\&. "
 .ti -1c
 .RI "bool \fBtimerStarted\fP [\fBMAX_VALVES\fP]"
 .br
+.RI "values true if a timer is started, false otherwise "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -65,7 +71,7 @@ Mael Parot
 .PP
 \fBVersion\fP
 .RS 4
-1\&.1 
+1\&.2 
 .RE
 .PP
 \fBDate\fP
@@ -92,7 +98,7 @@ statusErrDef that values errGetValveInitValue when the getter of the initial val
 .PP
 
 .PP
-Definition at line \fB465\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB483\fP of file \fBvalve\&.cpp\fP\&.
 .SS "int16_t getValveValue (int ligne)"
 
 .PP
@@ -110,7 +116,7 @@ the value of the valve
 .PP
 
 .PP
-Definition at line \fB491\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB509\fP of file \fBvalve\&.cpp\fP\&.
 .SS "\fBstatusErrDef\fP resetTimers ()"
 
 .PP
@@ -123,7 +129,7 @@ statusErrDef that values noError when the function exits successfully\&.
 .PP
 
 .PP
-Definition at line \fB507\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB525\fP of file \fBvalve\&.cpp\fP\&.
 .SS "int16_t setValvesValue ()"
 
 .PP
@@ -136,33 +142,45 @@ function setter of the valve values from a general state CSV file\&.
 .PP
 
 .PP
-Definition at line \fB446\fP of file \fBvalve\&.cpp\fP\&.
+Definition at line \fB464\fP of file \fBvalve\&.cpp\fP\&.
 .SH "Variable Documentation"
 .PP 
 .SS "struct timespec beginTimer[\fBMAX_VALVES\fP]"
 
 .PP
-Definition at line \fB26\fP of file \fBvalve\&.cpp\fP\&.
+beginning references of the dependance timers\&. 
+.PP
+Definition at line \fB36\fP of file \fBvalve\&.cpp\fP\&.
 .SS "double currentTime[\fBMAX_VALVES\fP]"
 
 .PP
-Definition at line \fB28\fP of file \fBvalve\&.cpp\fP\&.
+the difference between the ending and beginning of the dependance timers\&. 
+.PP
+Definition at line \fB45\fP of file \fBvalve\&.cpp\fP\&.
 .SS "struct timespec endTimer[\fBMAX_VALVES\fP]"
 
 .PP
-Definition at line \fB26\fP of file \fBvalve\&.cpp\fP\&.
+ending references of the dependance timers\&. 
+.PP
+Definition at line \fB40\fP of file \fBvalve\&.cpp\fP\&.
 .SS "unsigned int offsets[\fBMAX_VALVES\fP]"
 
 .PP
-Definition at line \fB22\fP of file \fBvalve\&.cpp\fP\&.
+array of the GPIO ports\&. 
+.PP
+Definition at line \fB28\fP of file \fBvalve\&.cpp\fP\&.
 .SS "bool timerStarted[\fBMAX_VALVES\fP]"
 
 .PP
-Definition at line \fB30\fP of file \fBvalve\&.cpp\fP\&.
+values true if a timer is started, false otherwise 
+.PP
+Definition at line \fB49\fP of file \fBvalve\&.cpp\fP\&.
 .SS "int values[\fBMAX_VALVES\fP]"
 
 .PP
-Definition at line \fB24\fP of file \fBvalve\&.cpp\fP\&.
+array of the values to put into the GPIO lines\&. 
+.PP
+Definition at line \fB32\fP of file \fBvalve\&.cpp\fP\&.
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for CAC_CN from the source code\&.
+Generated automatically by Doxygen for CAC main program from the source code\&.

@@ -2,6 +2,8 @@
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.10.0" xml:lang="en-US">
   <compound refid="structdata_activation" kind="struct"><name>dataActivation</name>
   </compound>
+  <compound refid="structdata_e_g" kind="struct"><name>dataEG</name>
+  </compound>
   <compound refid="classfile" kind="class"><name>file</name>
     <member refid="classfile_1a483afd9f96538c51735fb686edd2cc25" kind="variable"><name>pathFile</name></member>
     <member refid="classfile_1a60c20221b3650d600b0e10c300a66faa" kind="variable"><name>dataFile</name></member>
@@ -19,6 +21,10 @@
   </compound>
   <compound refid="struct_ligne_activation" kind="struct"><name>LigneActivation</name>
     <member refid="struct_ligne_activation_1a75f37006d60ba54e0cc20b3cf0e6c449" kind="variable"><name>activation</name></member>
+  </compound>
+  <compound refid="struct_ligne_e_g" kind="struct"><name>LigneEG</name>
+    <member refid="struct_ligne_e_g_1a798f7a58703288236d76c6fb141f5756" kind="variable"><name>EG</name></member>
+    <member refid="struct_ligne_e_g_1a466c1a46947d19a6cb596d48f8726c92" kind="variable"><name>nom</name></member>
   </compound>
   <compound refid="classopl" kind="class"><name>opl</name>
     <member refid="classopl_1a43a83ace00cba207a89cf65e3b995d7e" kind="function"><name>opl</name></member>
@@ -47,47 +53,44 @@
     <member refid="structt_options_1ad4dfda079fb51a7c23ff0321a2fc920e" kind="variable"><name>logFormat</name></member>
     <member refid="structt_options_1ac41ac397dd5398c735a7845a023e7877" kind="variable"><name>logLevel</name></member>
     <member refid="structt_options_1ac2d0a48a3d2ed344da01233e48372775" kind="variable"><name>logCategory</name></member>
-    <member refid="structt_options_1aa940aee04646184456749f832ccb80ee" kind="variable"><name>devName</name></member>
+    <member refid="structt_options_1a675c269016681a9bf07a16d975c20963" kind="variable"><name>devName</name></member>
   </compound>
   <compound refid="namespacestd" kind="namespace"><name>std</name>
   </compound>
   <compound refid="config_define_8h" kind="file"><name>configDefine.h</name>
     <member refid="config_define_8h_1ac9ac8ba41c4385306791b6640b1d51dc" kind="define"><name>CYCLE_LEN</name></member>
     <member refid="config_define_8h_1a2f7945514ea8b2c7145cf68d47c96a08" kind="define"><name>NODEID</name></member>
-    <member refid="config_define_8h_1a6206026f72c671f64485c7be7f4288d2" kind="define"><name>NB_NODES</name></member>
     <member refid="config_define_8h_1a14b0a7da8cf3edbfec9630c2ec290148" kind="define"><name>IP_ADDR</name></member>
     <member refid="config_define_8h_1a2277cfa773d618a987524fc0590fe253" kind="define"><name>SUBNET_MASK</name></member>
     <member refid="config_define_8h_1ab0092e2619bef8d5375800f507d3080c" kind="define"><name>DEFAULT_GATEWAY</name></member>
-    <member refid="config_define_8h_1aa379d16dbf6d11890daeb88603a35b56" kind="define"><name>DEFAULT_MAX_CYCLE_COUNT</name></member>
-    <member refid="config_define_8h_1a44e3a41b5281c8055e818e0f75bb796b" kind="define"><name>APP_LED_COUNT_1</name></member>
-    <member refid="config_define_8h_1ab32da2e90b505fa22b01dd99925206db" kind="define"><name>APP_LED_MASK_1</name></member>
     <member refid="config_define_8h_1abd2aacdca9cb2a1a30f3392256b96ea3" kind="define"><name>MAX_NODES</name></member>
-    <member refid="config_define_8h_1a71a9a98ac1615819a1b7259916b3c33e" kind="define"><name>MAX_VALUES</name></member>
     <member refid="config_define_8h_1a563cad7e347a704508920c0c59f74808" kind="define"><name>DEVNAME</name></member>
     <member refid="config_define_8h_1aa8a09c72ec4b0fb08add063f03dec883" kind="define"><name>CDCFILE</name></member>
-    <member refid="config_define_8h_1a4e49face896c52c0f543cd14338d503d" kind="define"><name>COMPUTED_PI_OUT_SIZE</name></member>
     <member refid="config_define_8h_1ab5cbebecab98e4234ae1b2e5ff94ccbc" kind="define"><name>SIZE_OUT</name></member>
-    <member refid="config_define_8h_1a14557d5857db9a5a599b852033ce8de5" kind="define"><name>COMPUTED_PI_IN_SIZE</name></member>
     <member refid="config_define_8h_1ac072f7043a3fb31b4fc2d1bcb687c157" kind="define"><name>SIZE_IN</name></member>
+    <member refid="config_define_8h_1a4e49face896c52c0f543cd14338d503d" kind="define"><name>COMPUTED_PI_OUT_SIZE</name></member>
+    <member refid="config_define_8h_1a14557d5857db9a5a599b852033ce8de5" kind="define"><name>COMPUTED_PI_IN_SIZE</name></member>
     <member refid="config_define_8h_1a9eb6992d76f02128388ae95c0415604a" kind="define"><name>MAX_PATH_LENGTH</name></member>
     <member refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" kind="define"><name>MAX_LINE_SIZE</name></member>
-    <member refid="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" kind="define"><name>MAX_PHYSICAL_LINE_SIZE</name></member>
-    <member refid="config_define_8h_1a3b94af9dcb0358f28d175d80eed98330" kind="define"><name>MAX_ROWS</name></member>
-    <member refid="config_define_8h_1a19d73c6a12d1954cae600527e48493cd" kind="define"><name>MAX_DEPENDANCE</name></member>
     <member refid="config_define_8h_1af03b9ef4da5daeff7665f07931101fdb" kind="define"><name>COMMON_PHYSICAL_CONFIG_DIRECTORY</name></member>
+    <member refid="config_define_8h_1a4714f9212329c04dc628e204388611a1" kind="define"><name>EG_ETAT_DIRECTORY</name></member>
     <member refid="config_define_8h_1aeead33868b09a953457fd5235525bd39" kind="define"><name>TELEMFILES_DIRECTORY</name></member>
     <member refid="config_define_8h_1a33e0ce62bb48bae39a3086aa66f18abf" kind="define"><name>EVENTLOG_MAX_LENGTH</name></member>
     <member refid="config_define_8h_1a2c15aa6025df557ee17f49ec0de3ca3e" kind="define"><name>DELAYMSINIT</name></member>
     <member refid="config_define_8h_1a0cb3b08249c5a31d756d998565ed6a35" kind="define"><name>DELAYMSCONTROL</name></member>
-    <member refid="config_define_8h_1adff26a42837c55761374b2f999210374" kind="variable"><name>offsetValues</name></member>
   </compound>
   <compound refid="csv_8h" kind="file"><name>csv.h</name>
     <member refid="csv_8h_1a6d01cb64bb5d3e9ccda826e7b892ae18" kind="variable"><name>dataActivation</name></member>
+    <member refid="csv_8h_1ac119725e56f891ac0af277ad61a9eaf4" kind="variable"><name>dataEG</name></member>
     <member refid="csv_8h_1a57ce52f959b46f63b41ea53578833174" kind="function"><name>initCSV</name></member>
     <member refid="csv_8h_1a39604608c86deb3e5925261c5a9413ca" kind="function"><name>extinctCSV</name></member>
     <member refid="csv_8h_1a2e7bd32b81cf14bdd3867119fe4c75c2" kind="function"><name>lireFichierActivation</name></member>
+    <member refid="csv_8h_1a6c7104900937bff943d7f36f4f9cb7f0" kind="function"><name>lireFichierEG</name></member>
     <member refid="csv_8h_1ab2ab3ac11ce7f23bde4ddf923050b533" kind="function"><name>remplirStructureCommon</name></member>
+    <member refid="csv_8h_1acbc16f61c722ba86bac4676c366b09bb" kind="function"><name>remplirEG</name></member>
     <member refid="csv_8h_1a59b3cd375160ea778a774e62c7c64f7d" kind="function"><name>getActivation</name></member>
+    <member refid="csv_8h_1a70bcd737e5a40f36e1cccaf3a7f63379" kind="function"><name>getEGcsv</name></member>
+    <member refid="csv_8h_1a12cdfbd8ea531195d20d46386535a300" kind="function"><name>removeCarriageReturn</name></member>
   </compound>
   <compound refid="event_opl_8h" kind="file"><name>eventOpl.h</name>
     <member refid="event_opl_8h_1a708072d52104add21873311bb5ad111a" kind="function"><name>initEvents</name></member>
@@ -95,17 +98,12 @@
   </compound>
   <compound refid="file_8h" kind="file"><name>file.h</name>
   </compound>
+  <compound refid="nb_nodes_8h" kind="file"><name>nbNodes.h</name>
+    <member refid="nb_nodes_8h_1a6206026f72c671f64485c7be7f4288d2" kind="define"><name>NB_NODES</name></member>
+  </compound>
   <compound refid="opl_8h" kind="file"><name>opl.h</name>
     <member refid="opl_8h_1a8dd1817cec0b1c38e0b7eb2470855b25" kind="variable"><name>nbValuesCN_Out</name></member>
     <member refid="opl_8h_1a38621a01003975db3d4d97d7c7b5c874" kind="variable"><name>nbValuesCN_In</name></member>
-    <member refid="opl_8h_1af33cb4a9ced83e8a564a44f95a7c740c" kind="variable"><name>aMacAddr_l</name></member>
-    <member refid="opl_8h_1a8f25e48b0b5122c1580e0728bcba0244" kind="variable"><name>fGsOff_l</name></member>
-    <member refid="opl_8h_1ae0e41ea82741f096047404d89c71b4b1" kind="variable"><name>cnt_l</name></member>
-    <member refid="opl_8h_1ad5746db5390826ccda7b61bc0d3c8af2" kind="variable"><name>pProcessImageIn_l</name></member>
-    <member refid="opl_8h_1a55f888b6071185bbddd12bc7c6edd372" kind="variable"><name>pProcessImageOut_l</name></member>
-    <member refid="opl_8h_1af4b594e09b0017400404bcf5415d116d" kind="variable"><name>values_In_MN_l</name></member>
-    <member refid="opl_8h_1a2b050eb987e68b5cfcc0cc906a23d8b5" kind="variable"><name>values_Out_MN_l</name></member>
-    <member refid="opl_8h_1a0e551e0042317a6798c4be989015e64b" kind="variable"><name>activated_In_MN_l</name></member>
     <member refid="opl_8h_1a79db23e985d7f28a067c6a822761b5f9" kind="function"><name>initPowerlink</name></member>
     <member refid="opl_8h_1ac31969ba716dc382cc1e4c9fcf8f06cc" kind="function"><name>initOplThread</name></member>
     <member refid="opl_8h_1a6928095e76089df62d549c72bf870b44" kind="function"><name>initProcessImage</name></member>
@@ -126,7 +124,6 @@
     <member refid="opl_8h_1a42ffa874fd1654b63c707c7444c5f5a7" kind="function"><name>changeEG</name></member>
     <member refid="opl_8h_1aa811a9aae2371f56969a0f49d2fb6a01" kind="function"><name>setEGToManualMode</name></member>
     <member refid="opl_8h_1a2d1d0692ab49f35acb65290d9ffdc46e" kind="function"><name>manualActivation</name></member>
-    <member refid="opl_8h_1af0270f250879f915939c55aeae0cab4a" kind="function"><name>getEC1</name></member>
     <member refid="opl_8h_1a70d6c24319699ddf386b7ed176641580" kind="function"><name>setEG</name></member>
   </compound>
   <compound refid="status_error_define_8h" kind="file"><name>statusErrorDefine.h</name>
@@ -213,11 +210,16 @@
   </compound>
   <compound refid="csv_8cpp" kind="file"><name>csv.cpp</name>
     <member refid="csv_8cpp_1a6d01cb64bb5d3e9ccda826e7b892ae18" kind="variable"><name>dataActivation</name></member>
+    <member refid="csv_8cpp_1ac119725e56f891ac0af277ad61a9eaf4" kind="variable"><name>dataEG</name></member>
     <member refid="csv_8cpp_1a57ce52f959b46f63b41ea53578833174" kind="function"><name>initCSV</name></member>
     <member refid="csv_8cpp_1a39604608c86deb3e5925261c5a9413ca" kind="function"><name>extinctCSV</name></member>
     <member refid="csv_8cpp_1a2e7bd32b81cf14bdd3867119fe4c75c2" kind="function"><name>lireFichierActivation</name></member>
+    <member refid="csv_8cpp_1a6c7104900937bff943d7f36f4f9cb7f0" kind="function"><name>lireFichierEG</name></member>
     <member refid="csv_8cpp_1ab2ab3ac11ce7f23bde4ddf923050b533" kind="function"><name>remplirStructureCommon</name></member>
+    <member refid="csv_8cpp_1acbc16f61c722ba86bac4676c366b09bb" kind="function"><name>remplirEG</name></member>
     <member refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" kind="function"><name>getActivation</name></member>
+    <member refid="csv_8cpp_1a70bcd737e5a40f36e1cccaf3a7f63379" kind="function"><name>getEGcsv</name></member>
+    <member refid="csv_8cpp_1a12cdfbd8ea531195d20d46386535a300" kind="function"><name>removeCarriageReturn</name></member>
   </compound>
   <compound refid="event_opl_8c" kind="file"><name>eventOpl.c</name>
     <member refid="event_opl_8c_1a0e1b53cf0cea4698362f22fa97c0ceb4" kind="function"><name>processStateChangeEvent</name></member>
@@ -242,6 +244,14 @@
     <member refid="opl_8cpp_1a205c320e4549a490660d24878aca4d9e" kind="variable"><name>cmptEG</name></member>
     <member refid="opl_8cpp_1a8dd1817cec0b1c38e0b7eb2470855b25" kind="variable"><name>nbValuesCN_Out</name></member>
     <member refid="opl_8cpp_1a38621a01003975db3d4d97d7c7b5c874" kind="variable"><name>nbValuesCN_In</name></member>
+    <member refid="opl_8cpp_1af33cb4a9ced83e8a564a44f95a7c740c" kind="variable"><name>aMacAddr_l</name></member>
+    <member refid="opl_8cpp_1a8f25e48b0b5122c1580e0728bcba0244" kind="variable"><name>fGsOff_l</name></member>
+    <member refid="opl_8cpp_1ae0e41ea82741f096047404d89c71b4b1" kind="variable"><name>cnt_l</name></member>
+    <member refid="opl_8cpp_1ad5746db5390826ccda7b61bc0d3c8af2" kind="variable"><name>pProcessImageIn_l</name></member>
+    <member refid="opl_8cpp_1a55f888b6071185bbddd12bc7c6edd372" kind="variable"><name>pProcessImageOut_l</name></member>
+    <member refid="opl_8cpp_1af4b594e09b0017400404bcf5415d116d" kind="variable"><name>values_In_MN_l</name></member>
+    <member refid="opl_8cpp_1a2b050eb987e68b5cfcc0cc906a23d8b5" kind="variable"><name>values_Out_MN_l</name></member>
+    <member refid="opl_8cpp_1a0e551e0042317a6798c4be989015e64b" kind="variable"><name>activated_In_MN_l</name></member>
     <member refid="opl_8cpp_1a9e9ba7877384a999a6a22fd08b2ce5a1" kind="function"><name>getValues_In_MN</name></member>
     <member refid="opl_8cpp_1ab19dffb79a3af5e336923b27bd441780" kind="function"><name>setValues_Out_MN</name></member>
     <member refid="opl_8cpp_1a49a4367dee21b29ba4289959d09bdbfc" kind="function"><name>setActivated_In_MN</name></member>

@@ -2,7 +2,7 @@
  * \file main.cpp
  * \brief Main program with state machine
  * \author Mael Parot
- * \version 1.1
+ * \version 1.2
  * \date 11/04/2024
  *
  * Main program of the MN (Master Node) 
@@ -26,9 +26,7 @@ int main() {
     stateDef state = init;
     opl opl;
     file file;    
-    tOplkError  ret = kErrorOk;
     char        cKey = 0;
-    BOOL        fExit = FALSE;
     statusErrDef     res = noError;
 
 
@@ -123,9 +121,6 @@ int main() {
                         break;
                     }
                 }
-
-                processSync();
-
                 res = checkStateOpl();
                 if (res != noError)
                 {

@@ -6,7 +6,7 @@ var status_error_define_8h =
     ] ],
     [ "stateDef", "status_error_define_8h.html#a8a5ff9e57db5d201dadd5d4dcacafd50", [
       [ "init", "status_error_define_8h.html#a8a5ff9e57db5d201dadd5d4dcacafd50a2e804b7c8163d212e6231f5228f73ce9", null ],
-      [ "control", "status_error_define_8h.html#a8a5ff9e57db5d201dadd5d4dcacafd50a5d8add8effb2a9964dbebfd27c9ddd31", null ],
+      [ "controlAndAcquisition", "status_error_define_8h.html#a8a5ff9e57db5d201dadd5d4dcacafd50a373c041552bf3349d36d40032aebd826", null ],
       [ "shutdown", "status_error_define_8h.html#a8a5ff9e57db5d201dadd5d4dcacafd50a806a2e610a79f2c33cb4d122a0f0f877", null ],
       [ "ending", "status_error_define_8h.html#a8a5ff9e57db5d201dadd5d4dcacafd50a6135603307626f48d62e2faa86a1d255", null ]
     ] ],
@@ -20,6 +20,7 @@ var status_error_define_8h =
       [ "infoStopOrderReceived", "status_error_define_8h.html#adf0c44f8de9b8e78b0e56caacfa1ac94acd2d81872afb7b452fdc7e9a11d13d79", null ],
       [ "infoNoStopOrder", "status_error_define_8h.html#adf0c44f8de9b8e78b0e56caacfa1ac94a7aa913f5c87b2f9c4bec8e180721e199", null ],
       [ "infoModeSetToManual", "status_error_define_8h.html#adf0c44f8de9b8e78b0e56caacfa1ac94a2c3908b363a14d9a6d75acef16c66a44", null ],
+      [ "infoEGsetToZero", "status_error_define_8h.html#adf0c44f8de9b8e78b0e56caacfa1ac94a123fe6d3e60b7489a599703203770d9f", null ],
       [ "infoShutdownOPL", "status_error_define_8h.html#adf0c44f8de9b8e78b0e56caacfa1ac94a8b055c6b5a03623894e2735710fdfaca", null ],
       [ "infoInitValve", "status_error_define_8h.html#adf0c44f8de9b8e78b0e56caacfa1ac94a53171600fab70738553b593c6c3db77d", null ],
       [ "infoVerifDependSucess", "status_error_define_8h.html#adf0c44f8de9b8e78b0e56caacfa1ac94a80338adb7be3d180e1333815812d274d", null ],

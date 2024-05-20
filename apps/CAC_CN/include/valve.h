@@ -1,5 +1,20 @@
+/**
+ * \file valve.h
+ * \brief header file of the valve module that controls the valves of the CAC Board
+ * \author Mael Parot
+ * \version 1.2
+ * \date 11/04/2024
+ *
+ * Contains all functions definitions related to controling valves
+ * with the gpiod library.
+ */
+
 #ifndef VALVES_H
 #define VALVES_H
+
+//------------------------------------------------------------------------------
+// includes
+//------------------------------------------------------------------------------
 
 #include "csv.h"
 #include "configDefine.h"

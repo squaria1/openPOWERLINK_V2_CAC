@@ -1,8 +1,8 @@
 /**
  * \file sensor.cpp
- * \brief Module to read sensors values
+ * \brief Module to read sensor values
  * \author Mael Parot, Corentin Berthon
- * \version 1.1
+ * \version 1.2
  * \date 11/04/2024
  *
  * Contains all functions related to reading sensors values
@@ -11,15 +11,42 @@
 
 #include "sensor.h"
 
-static int i = 0, num = 0;
+/**
+ * \brief the for loops index
+ */
+static int i = 0;
+/**
+ * \brief number of modbus register read
+ */
+static int num = 0;
+/**
+ * \brief MCP3008 channels activation array
+ */
 static uint8_t tabSensorActivated[MAX_SENSORS];
+/**
+ * \brief sysfs channel file array
+ */
 static int fd[MAX_SENSORS];
+/**
+ * \brief sensor values array
+ */
 static int16_t valSensors[MAX_SENSORS];
 
 #if (TARGET_SYSTEM == _WIN32_)
 #else
+/**
+ * \brief modbus instance array
+ */
 static modbus_t* ctx[MAX_SENSORS] = {};
+/**
+ * \brief modbus registers read array
+ */
 static uint16_t modbusReg[MODBUS_NBREG]; // will store read registers values
+/**
+ * \brief modbus sensor connexion boolean array,
+ * true if a modbus sensor is connected, false otherwise
+ */
+static bool rs485Connected[MAX_SENSORS];
 #endif
 
 sensor::sensor()
@@ -47,14 +74,16 @@ statusErrDef sensor::initSensor() {
 
     #if (TARGET_SYSTEM == _WIN32_)
     #else
-        for (int i = 0; i < MAX_SENSORS; i++)
+        for (i = 0; i < MAX_SENSORS; i++)
         {
             switch (getSensorType(i + 1))
             {
-            case 1:
+            case 1: // 1 if the sensor is one of the MCP3008 channels
+                //copy the activation from the 'activation.csv' file
                 tabSensorActivated[i] = getActivation(i + nbValuesCN_Out_ByCN + nbValuesCN_Out / 2 + 2);
                 break;
-            case 2:
+            case 2: // 2 if the sensor is connected the the rs485 modbus serial link
+                //create a modbus serial instance for this sensor
                 ctx[i] = modbus_new_rtu(MODBUS_DEVICELOC, getModbusBaudRate(i+1), 
                                         getModbusParity(i+1), getModbusDataBits(i+1), getModbusStopBit(i+1));
                 if (!ctx[i]) {
@@ -64,13 +93,28 @@ statusErrDef sensor::initSensor() {
                     fprintf(stderr, "Unable to connect: %s\n", modbus_strerror(errno));
                     modbus_free(ctx[i]);
                 }
+                //set the address of the slave (the sensor) to the modbus instance 
                 modbus_set_slave(ctx[i], getModbusAddrRemoteSlave(i+1));
+                //test if we can read from the sensor (if a sensor is connected) if not we disable the reading
+                //in readChannels to avoid slowing down the program
+                num = modbus_read_registers(ctx[i], getModbusStartAddress(i + 1), MODBUS_NBREG, modbusReg);
+                if (num != 1)// number of read registers is not the one expected
+                {
+                    fprintf(stderr, "Failed to read: %s\n", modbus_strerror(errno));
+                    rs485Connected[i] = false;
+                }
+                else
+                {
+                    printf("Modbus read registers success! \n");
+                    valSensors[i] = modbusReg[0];
+                    rs485Connected[i] = true;
+                }
                 break;
             default:
                 break;
             }
         }
-
+        //test if we can read channels correctly
         res = readChannels();
         if (res != noError)
             return res;
@@ -92,11 +136,12 @@ statusErrDef sensor::extinctSensor() {
 
 #if (TARGET_SYSTEM == _WIN32_)
 #else
-    for (int i = 0; i < MAX_SENSORS; i++)
+    for (i = 0; i < MAX_SENSORS; i++)
     {
         if (getSensorType(i + 1) == 2)
         {
             modbus_close(ctx[i]);
+            //free the modbus instances from the memory
             modbus_free(ctx[i]);
         }
     }
@@ -127,11 +172,11 @@ int16_t getAdc_value(int index) {
  */
 statusErrDef readChannels()
 {
-    int i;
     statusErrDef res = noError;
     memset(fd, 0, sizeof(fd));
     memset(valSensors, 0, sizeof(valSensors));
 
+    //we open the sysfs files of the MCP3008 channels
     for (i = 0; i < MAX_ADC; i++) {
         if (tabSensorActivated[i]) {
             fd[i] = openAdc(i);
@@ -143,6 +188,7 @@ statusErrDef readChannels()
         }
     }
 
+    //we read the values inside those files
     for (i = 0; i < MAX_ADC; i++) {
         if (!tabSensorActivated[i])
             continue;
@@ -159,17 +205,20 @@ statusErrDef readChannels()
         }
     }
 
+    //we close them for the next read
     closeAdc();
-
-#if (TARGET_SYSTEM == _WIN32_)
-#else
-    for (int i = 0; i < MAX_SENSORS; i++)
+    //we read read the modbus sensors if they are connected
+    #if (TARGET_SYSTEM == _WIN32_)
+    #else
+    for (i = 0; i < MAX_SENSORS; i++)
     {
-        if (getSensorType(i + 1) == 2)
+        if (getSensorType(i + 1) == 2 && rs485Connected[i])
         {
             num = modbus_read_registers(ctx[i], getModbusStartAddress(i+1), MODBUS_NBREG, modbusReg);
             if (num != 1)// number of read registers is not the one expected
+            {
                 fprintf(stderr, "Failed to read: %s\n", modbus_strerror(errno));
+            }
             else
             {
                 printf("Modbus read registers success! \n");
@@ -179,7 +228,6 @@ statusErrDef readChannels()
     }
 
     #endif
-
     return res;
 }
 
@@ -228,6 +276,7 @@ int readAdc(int fd)
 
     memset(buff, 0, sizeof(buff));
 
+    //read a specific length and convert it to an integer
     if (read(fd, buff, 8) < 0)
         perror("read()");
     else
@@ -248,6 +297,7 @@ int openAdc(int adc)
 {
     char path[128];
     
+    //a specific channel sysfs file path
     sprintf(path, "%sin_voltage%d_raw", IIOSYSPATH, adc);
     int fd = open(path, O_RDONLY);
     if (fd < 0) {

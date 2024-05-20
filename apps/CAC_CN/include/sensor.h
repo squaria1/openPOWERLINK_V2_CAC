@@ -1,5 +1,20 @@
+/**
+ * \file sensor.h
+ * \brief header file of the sensor module that reads sensor values
+ * \author Mael Parot, Corentin Berthon
+ * \version 1.2
+ * \date 11/04/2024
+ *
+ * Contains all functions definitions related to reading sensors values
+ * from the sysfs linux module file for an MCP3008
+ */
+
 #ifndef SENSOR_H
 #define SENSOR_H
+
+//------------------------------------------------------------------------------
+// includes
+//------------------------------------------------------------------------------
 
 #include "csv.h"
 #include "configDefine.h"

@@ -13,18 +13,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>the array of OpenPOWERLINK values coming out of the CN </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" line="14" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" bodystart="14" bodyend="-1"/>
-        <referencedby refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="518" endline="569">processSync</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" line="36" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" bodystart="36" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a52e9ad149905d67047d527f120a17c11" compoundref="opl_8cpp" startline="600" endline="680">processSync</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para><ref refid="struct_p_i___o_u_t" kindref="compound">PI_OUT</ref> contains the TPDOs (Transmitted Process Data Object) so the OpenPOWERLINK values coming out of the CN (Controlled Node) to the MN. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" line="12" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" bodystart="13" bodyend="15"/>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" line="34" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/xapOpl.h" bodystart="35" bodyend="37"/>
     <listofallmembers>
       <member refid="struct_p_i___o_u_t_1a6acd9eeaf14a6221c85373ee72ca3b1a" prot="public" virt="non-virtual"><scope>PI_OUT</scope><name>out_CN_array</name></member>
     </listofallmembers>

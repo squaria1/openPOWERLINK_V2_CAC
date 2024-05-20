@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CAC_CN: C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp File Reference</title>
+<title>CAC main program: C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">CAC_CN<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">CAC main program<span id="projectnumber">&#160;1.2</span>
    </div>
    <div id="projectbrief">The main program for acquisition and control boards.</div>
   </td>
@@ -118,13 +118,13 @@ Functions</h2></td></tr>
 <tr class="memdesc:a7f68cfdc214d014a4d8676853a577e31"><td class="mdescLeft">&#160;</td><td class="mdescRight">function to display in the console the values coming out of the CN  <br /></td></tr>
 <tr class="separator:a7f68cfdc214d014a4d8676853a577e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0b902027740ec16636d93ee162aeb5d" id="r_ad0b902027740ec16636d93ee162aeb5d"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0b902027740ec16636d93ee162aeb5d">getValues_In_CN</a> (int ligne)</td></tr>
-<tr class="memdesc:ad0b902027740ec16636d93ee162aeb5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of the value coming from the MN from line according to the structure <a class="el" href="struct_p_i___i_n.html">PI_IN</a>  <br /></td></tr>
+<tr class="memdesc:ad0b902027740ec16636d93ee162aeb5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of the value coming from the MN from line according to the structure <a class="el" href="struct_p_i___i_n.html" title="PI_IN contains the RPDOs (Received Process Data Object) so the OpenPOWERLINK values coming from the M...">PI_IN</a>  <br /></td></tr>
 <tr class="separator:ad0b902027740ec16636d93ee162aeb5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee2f3fe4573dcc68e0ead2380eb83317" id="r_aee2f3fe4573dcc68e0ead2380eb83317"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee2f3fe4573dcc68e0ead2380eb83317">setValues_Out_CN</a> ()</td></tr>
 <tr class="memdesc:aee2f3fe4573dcc68e0ead2380eb83317"><td class="mdescLeft">&#160;</td><td class="mdescRight">function setter of the values coming out of the CN namely, the valves and sensors values.  <br /></td></tr>
 <tr class="separator:aee2f3fe4573dcc68e0ead2380eb83317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77c6ae0352e357ac9d8bdb83fe406e64" id="r_a77c6ae0352e357ac9d8bdb83fe406e64"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77c6ae0352e357ac9d8bdb83fe406e64">getValues_Out_CN</a> (int ligne)</td></tr>
-<tr class="memdesc:a77c6ae0352e357ac9d8bdb83fe406e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of the value coming out of the CN from line according to the structure <a class="el" href="struct_p_i___o_u_t.html">PI_OUT</a>  <br /></td></tr>
+<tr class="memdesc:a77c6ae0352e357ac9d8bdb83fe406e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">function getter of the value coming out of the CN from line according to the structure <a class="el" href="struct_p_i___o_u_t.html" title="PI_OUT contains the TPDOs (Transmitted Process Data Object) so the OpenPOWERLINK values coming out of...">PI_OUT</a>  <br /></td></tr>
 <tr class="separator:a77c6ae0352e357ac9d8bdb83fe406e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72f880ddaa32ea28cd0e12658c3e8d67" id="r_a72f880ddaa32ea28cd0e12658c3e8d67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72f880ddaa32ea28cd0e12658c3e8d67">setActivated_Out_CN</a> ()</td></tr>
 <tr class="memdesc:a72f880ddaa32ea28cd0e12658c3e8d67"><td class="mdescLeft">&#160;</td><td class="mdescRight">function setter to fill the activation array from the CSV activation file "activation.csv"  <br /></td></tr>
@@ -135,9 +135,9 @@ Functions</h2></td></tr>
 <tr class="memitem:af37cdd5c32789328a95994329b009c24" id="r_af37cdd5c32789328a95994329b009c24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="status_error_define_8h.html#adf0c44f8de9b8e78b0e56caacfa1ac94">statusErrDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af37cdd5c32789328a95994329b009c24">isEGchanged</a> ()</td></tr>
 <tr class="memdesc:af37cdd5c32789328a95994329b009c24"><td class="mdescLeft">&#160;</td><td class="mdescRight">function to check if the general state (EG) has been changed  <br /></td></tr>
 <tr class="separator:af37cdd5c32789328a95994329b009c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac45ce4a2ea59483fa86582af2108aec" id="r_aac45ce4a2ea59483fa86582af2108aec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac45ce4a2ea59483fa86582af2108aec">setEC1</a> (int16_t <a class="el" href="#aba40364eb56f2caf1d7528fd61b2e22e">EC</a>)</td></tr>
-<tr class="memdesc:aac45ce4a2ea59483fa86582af2108aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">function setter of the board state (EC)  <br /></td></tr>
-<tr class="separator:aac45ce4a2ea59483fa86582af2108aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf0a7eab36c0d4e61e865dbfca0fc575" id="r_acf0a7eab36c0d4e61e865dbfca0fc575"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf0a7eab36c0d4e61e865dbfca0fc575">setEC</a> (int16_t <a class="el" href="#aba40364eb56f2caf1d7528fd61b2e22e">EC</a>)</td></tr>
+<tr class="memdesc:acf0a7eab36c0d4e61e865dbfca0fc575"><td class="mdescLeft">&#160;</td><td class="mdescRight">function setter of the board state (EC)  <br /></td></tr>
+<tr class="separator:acf0a7eab36c0d4e61e865dbfca0fc575"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a670c5cd6fdf306df596560ec23f0cd2f" id="r_a670c5cd6fdf306df596560ec23f0cd2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="status_error_define_8h.html#adf0c44f8de9b8e78b0e56caacfa1ac94">statusErrDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a670c5cd6fdf306df596560ec23f0cd2f">initOPL</a> ()</td></tr>
 <tr class="memdesc:a670c5cd6fdf306df596560ec23f0cd2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">function to initialize the CN OpenPOWERLINK module  <br /></td></tr>
 <tr class="separator:a670c5cd6fdf306df596560ec23f0cd2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,25 +176,53 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a063c1e70bcbeb72b1c2483b200839a85" id="r_a063c1e70bcbeb72b1c2483b200839a85"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a063c1e70bcbeb72b1c2483b200839a85">EG</a> = 1</td></tr>
+<tr class="memitem:a063c1e70bcbeb72b1c2483b200839a85" id="r_a063c1e70bcbeb72b1c2483b200839a85"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a063c1e70bcbeb72b1c2483b200839a85">EG</a> = 0</td></tr>
+<tr class="memdesc:a063c1e70bcbeb72b1c2483b200839a85"><td class="mdescLeft">&#160;</td><td class="mdescRight">the general state from the MN (the OBC). It is initialized to 0 so a general state CSV file with EG = 0x0000 should not exist.  <br /></td></tr>
 <tr class="separator:a063c1e70bcbeb72b1c2483b200839a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba40364eb56f2caf1d7528fd61b2e22e" id="r_aba40364eb56f2caf1d7528fd61b2e22e"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba40364eb56f2caf1d7528fd61b2e22e">EC</a> = <a class="el" href="#a063c1e70bcbeb72b1c2483b200839a85">EG</a></td></tr>
+<tr class="memdesc:aba40364eb56f2caf1d7528fd61b2e22e"><td class="mdescLeft">&#160;</td><td class="mdescRight">the board state of this CN (this CAC board). It is initialized to the copy of the general state EG.  <br /></td></tr>
 <tr class="separator:aba40364eb56f2caf1d7528fd61b2e22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2618e89b4c26dc851feae865df3a1a49" id="r_a2618e89b4c26dc851feae865df3a1a49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="status_error_define_8h.html#a46c8a310cf4c094f8c80e1cb8dc1f911">Mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2618e89b4c26dc851feae865df3a1a49">mode</a> = <a class="el" href="status_error_define_8h.html#a46c8a310cf4c094f8c80e1cb8dc1f911a9761086e420b925e438327ad385b304d">automatic</a></td></tr>
+<tr class="memdesc:a2618e89b4c26dc851feae865df3a1a49"><td class="mdescLeft">&#160;</td><td class="mdescRight">the mode of the program. It is initialized to the automatic mode, the general state CSV files are first used.  <br /></td></tr>
 <tr class="separator:a2618e89b4c26dc851feae865df3a1a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dd1817cec0b1c38e0b7eb2470855b25" id="r_a8dd1817cec0b1c38e0b7eb2470855b25"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8dd1817cec0b1c38e0b7eb2470855b25">nbValuesCN_Out</a> = <a class="el" href="config_define_8h.html#ab5cbebecab98e4234ae1b2e5ff94ccbc">SIZE_OUT</a> / <a class="el" href="config_define_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a> - 1</td></tr>
+<tr class="memitem:a8dd1817cec0b1c38e0b7eb2470855b25" id="r_a8dd1817cec0b1c38e0b7eb2470855b25"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8dd1817cec0b1c38e0b7eb2470855b25">nbValuesCN_Out</a> = <a class="el" href="config_define_8h.html#ab5cbebecab98e4234ae1b2e5ff94ccbc">SIZE_OUT</a> / <a class="el" href="node_id_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a> - 1</td></tr>
+<tr class="memdesc:a8dd1817cec0b1c38e0b7eb2470855b25"><td class="mdescLeft">&#160;</td><td class="mdescRight">the number of values coming out of each CNs  <br /></td></tr>
 <tr class="separator:a8dd1817cec0b1c38e0b7eb2470855b25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38621a01003975db3d4d97d7c7b5c874" id="r_a38621a01003975db3d4d97d7c7b5c874"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38621a01003975db3d4d97d7c7b5c874">nbValuesCN_In</a> = <a class="el" href="config_define_8h.html#ac072f7043a3fb31b4fc2d1bcb687c157">SIZE_IN</a> / <a class="el" href="config_define_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a> - 1</td></tr>
+<tr class="memitem:a38621a01003975db3d4d97d7c7b5c874" id="r_a38621a01003975db3d4d97d7c7b5c874"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38621a01003975db3d4d97d7c7b5c874">nbValuesCN_In</a> = <a class="el" href="config_define_8h.html#ac072f7043a3fb31b4fc2d1bcb687c157">SIZE_IN</a> / <a class="el" href="node_id_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a> - 1</td></tr>
+<tr class="memdesc:a38621a01003975db3d4d97d7c7b5c874"><td class="mdescLeft">&#160;</td><td class="mdescRight">the number of values coming into each CNs  <br /></td></tr>
 <tr class="separator:a38621a01003975db3d4d97d7c7b5c874"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbb7865bc950120040f337a3631fc921" id="r_afbb7865bc950120040f337a3631fc921"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbb7865bc950120040f337a3631fc921">nbValuesCN_Out_ByCN</a> = (<a class="el" href="config_define_8h.html#ab5cbebecab98e4234ae1b2e5ff94ccbc">SIZE_OUT</a> / <a class="el" href="config_define_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a>) * (<a class="el" href="node_id_8h.html#a2f7945514ea8b2c7145cf68d47c96a08">NODEID</a> - 1)</td></tr>
+<tr class="memitem:afbb7865bc950120040f337a3631fc921" id="r_afbb7865bc950120040f337a3631fc921"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbb7865bc950120040f337a3631fc921">nbValuesCN_Out_ByCN</a> = (<a class="el" href="config_define_8h.html#ab5cbebecab98e4234ae1b2e5ff94ccbc">SIZE_OUT</a> / <a class="el" href="node_id_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a>) * (<a class="el" href="node_id_8h.html#a2f7945514ea8b2c7145cf68d47c96a08">NODEID</a> - 1)</td></tr>
+<tr class="memdesc:afbb7865bc950120040f337a3631fc921"><td class="mdescLeft">&#160;</td><td class="mdescRight">the first value position coming out of this CN (the position of EC)  <br /></td></tr>
 <tr class="separator:afbb7865bc950120040f337a3631fc921"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae734e3ff803ba9ee9ce69f720764c48a" id="r_ae734e3ff803ba9ee9ce69f720764c48a"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae734e3ff803ba9ee9ce69f720764c48a">nbValuesCN_In_ByCN</a> = (<a class="el" href="config_define_8h.html#ac072f7043a3fb31b4fc2d1bcb687c157">SIZE_IN</a> / <a class="el" href="config_define_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a>) * (<a class="el" href="node_id_8h.html#a2f7945514ea8b2c7145cf68d47c96a08">NODEID</a> - 1)</td></tr>
+<tr class="memitem:ae734e3ff803ba9ee9ce69f720764c48a" id="r_ae734e3ff803ba9ee9ce69f720764c48a"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae734e3ff803ba9ee9ce69f720764c48a">nbValuesCN_In_ByCN</a> = (<a class="el" href="config_define_8h.html#ac072f7043a3fb31b4fc2d1bcb687c157">SIZE_IN</a> / <a class="el" href="node_id_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a>) * (<a class="el" href="node_id_8h.html#a2f7945514ea8b2c7145cf68d47c96a08">NODEID</a> - 1)</td></tr>
+<tr class="memdesc:ae734e3ff803ba9ee9ce69f720764c48a"><td class="mdescLeft">&#160;</td><td class="mdescRight">the first value position coming into this CN (the position of EG)  <br /></td></tr>
 <tr class="separator:ae734e3ff803ba9ee9ce69f720764c48a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af33cb4a9ced83e8a564a44f95a7c740c" id="r_af33cb4a9ced83e8a564a44f95a7c740c"><td class="memItemLeft" align="right" valign="top">static const UINT8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af33cb4a9ced83e8a564a44f95a7c740c">aMacAddr_l</a> [] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }</td></tr>
+<tr class="memdesc:af33cb4a9ced83e8a564a44f95a7c740c"><td class="mdescLeft">&#160;</td><td class="mdescRight">the LAN card mac address  <br /></td></tr>
+<tr class="separator:af33cb4a9ced83e8a564a44f95a7c740c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f25e48b0b5122c1580e0728bcba0244" id="r_a8f25e48b0b5122c1580e0728bcba0244"><td class="memItemLeft" align="right" valign="top">static BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f25e48b0b5122c1580e0728bcba0244">fGsOff_l</a></td></tr>
+<tr class="memdesc:a8f25e48b0b5122c1580e0728bcba0244"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to GsOff flag (determines that OpenPOWERLINK stack is down)  <br /></td></tr>
+<tr class="separator:a8f25e48b0b5122c1580e0728bcba0244"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a322e5734aa46ee4be79084a6a1bd62ab" id="r_a322e5734aa46ee4be79084a6a1bd62ab"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="struct_p_i___i_n.html">PI_IN</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a322e5734aa46ee4be79084a6a1bd62ab">pProcessImageIn_l</a></td></tr>
+<tr class="memdesc:a322e5734aa46ee4be79084a6a1bd62ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">the TPDO process variable (coming out of the CN)  <br /></td></tr>
+<tr class="separator:a322e5734aa46ee4be79084a6a1bd62ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55f888b6071185bbddd12bc7c6edd372" id="r_a55f888b6071185bbddd12bc7c6edd372"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_p_i___o_u_t.html">PI_OUT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55f888b6071185bbddd12bc7c6edd372">pProcessImageOut_l</a></td></tr>
+<tr class="memdesc:a55f888b6071185bbddd12bc7c6edd372"><td class="mdescLeft">&#160;</td><td class="mdescRight">the RPDO process variable (coming into the CN)  <br /></td></tr>
+<tr class="separator:a55f888b6071185bbddd12bc7c6edd372"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada6913a92bdf309ad87fb42dc7be501d" id="r_ada6913a92bdf309ad87fb42dc7be501d"><td class="memItemLeft" align="right" valign="top">static int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada6913a92bdf309ad87fb42dc7be501d">values_In_CN_l</a> [<a class="el" href="config_define_8h.html#ac072f7043a3fb31b4fc2d1bcb687c157">SIZE_IN</a>]</td></tr>
+<tr class="memdesc:ada6913a92bdf309ad87fb42dc7be501d"><td class="mdescLeft">&#160;</td><td class="mdescRight">array of incoming values from the MN  <br /></td></tr>
+<tr class="separator:ada6913a92bdf309ad87fb42dc7be501d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa59e89f762bdbdf6cf15a756fd633b00" id="r_aa59e89f762bdbdf6cf15a756fd633b00"><td class="memItemLeft" align="right" valign="top">static int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa59e89f762bdbdf6cf15a756fd633b00">values_Out_CN_l</a> [<a class="el" href="config_define_8h.html#ab5cbebecab98e4234ae1b2e5ff94ccbc">SIZE_OUT</a>]</td></tr>
+<tr class="memdesc:aa59e89f762bdbdf6cf15a756fd633b00"><td class="mdescLeft">&#160;</td><td class="mdescRight">array of values coming out of the CN  <br /></td></tr>
+<tr class="separator:aa59e89f762bdbdf6cf15a756fd633b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16fd4c0216b92f54732e20dcd77fb18c" id="r_a16fd4c0216b92f54732e20dcd77fb18c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16fd4c0216b92f54732e20dcd77fb18c">activated_Out_CN_l</a> [<a class="el" href="config_define_8h.html#ab5cbebecab98e4234ae1b2e5ff94ccbc">SIZE_OUT</a>+2]</td></tr>
+<tr class="memdesc:a16fd4c0216b92f54732e20dcd77fb18c"><td class="mdescLeft">&#160;</td><td class="mdescRight">array of value activation coming out of the CN true if activated, false otherwise  <br /></td></tr>
+<tr class="separator:a16fd4c0216b92f54732e20dcd77fb18c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Module to communicate with the master board using OpenPOWERLINK. </p>
 <dl class="section author"><dt>Author</dt><dd>Mael Parot </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.2 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>11/04/2024</dd></dl>
 <p>Contains all functions related to communicating with the master board using OpenPOWERLINK, transfer sensors, valves values and recieve orders from the master. </p>
 
@@ -217,7 +245,7 @@ Variables</h2></td></tr>
 
 <p>function to display in the console the values coming from the MN </p>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00075">75</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00139">139</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -238,7 +266,7 @@ Variables</h2></td></tr>
 
 <p>function to display in the console the values coming out of the CN </p>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00105">105</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00169">169</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -259,7 +287,7 @@ Variables</h2></td></tr>
 
 <p>function to display in the console the values coming from the MN </p>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00090">90</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00154">154</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -281,7 +309,7 @@ Variables</h2></td></tr>
 <p>function to check if the OpenPOWERLINK stack crashed or a termination signal has been received from the OS app manager. </p>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errSystemSendTerminate if a termination signal has been received or errOplKernelStackDown if the OpenPOWERLINK stack crashed or noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00488">488</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00568">568</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -303,7 +331,7 @@ Variables</h2></td></tr>
 <p>function to shutdown the OpenPOWERLINK module. </p>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errOplkFreeProcessImage when the freeing of memory of the OpenPOWERLINK stack fails. or noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00756">756</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00866">866</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -325,7 +353,7 @@ Variables</h2></td></tr>
 <p>function getter of the current general state (EG) </p>
 <dl class="section return"><dt>Returns</dt><dd>int16_t the current general state (EG) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00174">174</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00242">242</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -344,16 +372,16 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>function getter of the value coming from the MN from line according to the structure <a class="el" href="struct_p_i___i_n.html">PI_IN</a> </p>
+<p>function getter of the value coming from the MN from line according to the structure <a class="el" href="struct_p_i___i_n.html" title="PI_IN contains the RPDOs (Received Process Data Object) so the OpenPOWERLINK values coming from the M...">PI_IN</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ligne</td><td>the line according to the structure <a class="el" href="struct_p_i___i_n.html">PI_IN</a> </td></tr>
+    <tr><td class="paramname">ligne</td><td>the line according to the structure <a class="el" href="struct_p_i___i_n.html" title="PI_IN contains the RPDOs (Received Process Data Object) so the OpenPOWERLINK values coming from the M...">PI_IN</a> </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int16_t the value coming from the MN </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00122">122</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00186">186</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -372,16 +400,16 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>function getter of the value coming out of the CN from line according to the structure <a class="el" href="struct_p_i___o_u_t.html">PI_OUT</a> </p>
+<p>function getter of the value coming out of the CN from line according to the structure <a class="el" href="struct_p_i___o_u_t.html" title="PI_OUT contains the TPDOs (Transmitted Process Data Object) so the OpenPOWERLINK values coming out of...">PI_OUT</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ligne</td><td>the line according to the structure <a class="el" href="struct_p_i___o_u_t.html">PI_OUT</a> </td></tr>
+    <tr><td class="paramname">ligne</td><td>the line according to the structure <a class="el" href="struct_p_i___o_u_t.html" title="PI_OUT contains the TPDOs (Transmitted Process Data Object) so the OpenPOWERLINK values coming out of...">PI_OUT</a> </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int16_t the value coming out of the CN </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00151">151</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00219">219</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -403,7 +431,7 @@ Variables</h2></td></tr>
 <p>function to initialize the CN OpenPOWERLINK module </p>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errOPLSystemInit when OpenPOWERLINK fails to set the correct configuration for the current operating system. or errSelNetInterface when the selection of the network interface fails when in a Windows machine. Can be caused by the absence of WinPcap. or errInitObjDictionary when the object dictionary header file (objdict.h) has incorrect values or syntax. or errOplkInit when The OpenPOWERLINK stack fails to initialize, main cause: the stack is not found by the application, check the CN .lib files or errOplkCreate when the OpenPOWERLINK stack fails to create a new instance or errOplkAllocProcessImage when the allocation of the input and/or output structure fails because parts of the structure doesn't exist in the objdict.h file or errLinkPDOout when an output object (TPDO) doesn't exist for the same reasons above or errLinkPDOin when an input object (RPDO) doesn't exist for the same reasons above or errSendNMTResetCommand when the OpenPOWERLINK reset command fails or noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00248">248</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00321">321</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -426,7 +454,7 @@ Variables</h2></td></tr>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errSendNMTResetCommand when the OpenPOWERLINK reset command fails or noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00456">456</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00539">539</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -472,7 +500,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errSelNetInterface when the selection of the network interface fails when in a Windows machine can be caused by the absence of WinPcap. or errInitObjDictionary when the object dictionary header file (objdict.h) has incorrect values or syntax. or errOplkInit when the OpenPOWERLINK stack fails maybe because the stack is not found by the application, check the CN .lib files. or errOplkCreate when the OpenPOWERLINK stack fails to create a new instance or noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00325">325</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00407">407</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -495,7 +523,7 @@ Variables</h2></td></tr>
 <p>The function initializes the process image of the application.</p>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errOplkAllocProcessImage when the allocation of the input and/or output structure doesn't exist in the objdict.h file or errLinkPDOout when an output object (TPDO) doesn't exist for the same reasons above. or errLinkPDOin when an input object (RPDO) doesn't exist for the same reasons above. or noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00597">597</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00706">706</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -517,7 +545,7 @@ Variables</h2></td></tr>
 <p>function to check if the general state (EG) has been changed </p>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef infoModeSetToManual if the mode to manual order has been received from the MN or infoEGNotChanged if the EG is still the same. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00188">188</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00256">256</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -562,7 +590,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The function returns a tOplkError error code. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00685">685</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00795">795</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -607,7 +635,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The function returns a tOplkError error code. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00725">725</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00835">835</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -627,10 +655,10 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Synchronous data handler. </p>
-<p>The function implements the synchronous data handler.</p>
+<p>The function implements the synchronous data handler. the valve dependance verification and the sensor reading is called here to trigger valves for every CAC boards (every CNs) at the same time.</p>
 <dl class="section return"><dt>Returns</dt><dd>The function returns a tOplkError error code. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00518">518</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00600">600</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -651,18 +679,18 @@ Variables</h2></td></tr>
 
 <p>function setter to fill the activation array from the CSV activation file "activation.csv" </p>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00161">161</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00229">229</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
-<a id="aac45ce4a2ea59483fa86582af2108aec" name="aac45ce4a2ea59483fa86582af2108aec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac45ce4a2ea59483fa86582af2108aec">&#9670;&#160;</a></span>setEC1()</h2>
+<a id="acf0a7eab36c0d4e61e865dbfca0fc575" name="acf0a7eab36c0d4e61e865dbfca0fc575"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf0a7eab36c0d4e61e865dbfca0fc575">&#9670;&#160;</a></span>setEC()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void setEC1 </td>
+          <td class="memname">void setEC </td>
           <td>(</td>
           <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>EC</em></span></td><td>)</td>
           <td></td>
@@ -678,7 +706,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00214">214</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00287">287</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -700,7 +728,7 @@ Variables</h2></td></tr>
 <p>Setup inputs. </p>
 <p>The function initializes the digital input port. </p>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00578">578</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00687">687</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -721,7 +749,7 @@ Variables</h2></td></tr>
 
 <p>function setter of the values coming out of the CN namely, the valves and sensors values. </p>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00132">132</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00196">196</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -744,7 +772,7 @@ Variables</h2></td></tr>
 <p>The function shuts down the synchronous data application</p>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errOplkFreeProcessImage when the freeing of memory of the OpenPOWERLINK fails. or noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00778">778</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00886">886</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -766,11 +794,63 @@ Variables</h2></td></tr>
 <p>Shutdown the demo application. </p>
 <p>The function shuts down the demo application. </p>
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00799">799</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00907">907</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="a16fd4c0216b92f54732e20dcd77fb18c" name="a16fd4c0216b92f54732e20dcd77fb18c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16fd4c0216b92f54732e20dcd77fb18c">&#9670;&#160;</a></span>activated_Out_CN_l</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool activated_Out_CN_l[<a class="el" href="config_define_8h.html#ab5cbebecab98e4234ae1b2e5ff94ccbc">SIZE_OUT</a>+2]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>array of value activation coming out of the CN true if activated, false otherwise </p>
+
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00084">84</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af33cb4a9ced83e8a564a44f95a7c740c" name="af33cb4a9ced83e8a564a44f95a7c740c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af33cb4a9ced83e8a564a44f95a7c740c">&#9670;&#160;</a></span>aMacAddr_l</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const UINT8 aMacAddr_l[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the LAN card mac address </p>
+
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00054">54</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+
+</div>
+</div>
 <a id="aba40364eb56f2caf1d7528fd61b2e22e" name="aba40364eb56f2caf1d7528fd61b2e22e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba40364eb56f2caf1d7528fd61b2e22e">&#9670;&#160;</a></span>EC</h2>
 
@@ -783,7 +863,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00015">15</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p>the board state of this CN (this CAC board). It is initialized to the copy of the general state EG. </p>
+
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00024">24</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -794,12 +876,40 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int16_t EG = 1</td>
+          <td class="memname">int16_t EG = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00014">14</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p>the general state from the MN (the OBC). It is initialized to 0 so a general state CSV file with EG = 0x0000 should not exist. </p>
+
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00019">19</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8f25e48b0b5122c1580e0728bcba0244" name="a8f25e48b0b5122c1580e0728bcba0244"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f25e48b0b5122c1580e0728bcba0244">&#9670;&#160;</a></span>fGsOff_l</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL fGsOff_l</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer to GsOff flag (determines that OpenPOWERLINK stack is down) </p>
+
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00059">59</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -815,7 +925,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00016">16</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p>the mode of the program. It is initialized to the automatic mode, the general state CSV files are first used. </p>
+
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00030">30</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -826,12 +938,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const uint16_t nbValuesCN_In = <a class="el" href="config_define_8h.html#ac072f7043a3fb31b4fc2d1bcb687c157">SIZE_IN</a> / <a class="el" href="config_define_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a> - 1</td>
+          <td class="memname">const uint16_t nbValuesCN_In = <a class="el" href="config_define_8h.html#ac072f7043a3fb31b4fc2d1bcb687c157">SIZE_IN</a> / <a class="el" href="node_id_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a> - 1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00018">18</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p>the number of values coming into each CNs </p>
+
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00038">38</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -842,12 +956,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const uint16_t nbValuesCN_In_ByCN = (<a class="el" href="config_define_8h.html#ac072f7043a3fb31b4fc2d1bcb687c157">SIZE_IN</a> / <a class="el" href="config_define_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a>) * (<a class="el" href="node_id_8h.html#a2f7945514ea8b2c7145cf68d47c96a08">NODEID</a> - 1)</td>
+          <td class="memname">const uint16_t nbValuesCN_In_ByCN = (<a class="el" href="config_define_8h.html#ac072f7043a3fb31b4fc2d1bcb687c157">SIZE_IN</a> / <a class="el" href="node_id_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a>) * (<a class="el" href="node_id_8h.html#a2f7945514ea8b2c7145cf68d47c96a08">NODEID</a> - 1)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00020">20</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p>the first value position coming into this CN (the position of EG) </p>
+
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00046">46</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -858,12 +974,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const uint16_t nbValuesCN_Out = <a class="el" href="config_define_8h.html#ab5cbebecab98e4234ae1b2e5ff94ccbc">SIZE_OUT</a> / <a class="el" href="config_define_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a> - 1</td>
+          <td class="memname">const uint16_t nbValuesCN_Out = <a class="el" href="config_define_8h.html#ab5cbebecab98e4234ae1b2e5ff94ccbc">SIZE_OUT</a> / <a class="el" href="node_id_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a> - 1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00017">17</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p>the number of values coming out of each CNs </p>
+
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00034">34</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>
@@ -874,12 +992,118 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const uint16_t nbValuesCN_Out_ByCN = (<a class="el" href="config_define_8h.html#ab5cbebecab98e4234ae1b2e5ff94ccbc">SIZE_OUT</a> / <a class="el" href="config_define_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a>) * (<a class="el" href="node_id_8h.html#a2f7945514ea8b2c7145cf68d47c96a08">NODEID</a> - 1)</td>
+          <td class="memname">const uint16_t nbValuesCN_Out_ByCN = (<a class="el" href="config_define_8h.html#ab5cbebecab98e4234ae1b2e5ff94ccbc">SIZE_OUT</a> / <a class="el" href="node_id_8h.html#a6206026f72c671f64485c7be7f4288d2">NB_NODES</a>) * (<a class="el" href="node_id_8h.html#a2f7945514ea8b2c7145cf68d47c96a08">NODEID</a> - 1)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00019">19</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+<p>the first value position coming out of this CN (the position of EC) </p>
+
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00042">42</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a322e5734aa46ee4be79084a6a1bd62ab" name="a322e5734aa46ee4be79084a6a1bd62ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a322e5734aa46ee4be79084a6a1bd62ab">&#9670;&#160;</a></span>pProcessImageIn_l</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_p_i___i_n.html">PI_IN</a>* pProcessImageIn_l</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the TPDO process variable (coming out of the CN) </p>
+
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00065">65</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a55f888b6071185bbddd12bc7c6edd372" name="a55f888b6071185bbddd12bc7c6edd372"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55f888b6071185bbddd12bc7c6edd372">&#9670;&#160;</a></span>pProcessImageOut_l</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_p_i___o_u_t.html">PI_OUT</a>* pProcessImageOut_l</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the RPDO process variable (coming into the CN) </p>
+
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00069">69</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ada6913a92bdf309ad87fb42dc7be501d" name="ada6913a92bdf309ad87fb42dc7be501d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada6913a92bdf309ad87fb42dc7be501d">&#9670;&#160;</a></span>values_In_CN_l</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t values_In_CN_l[<a class="el" href="config_define_8h.html#ac072f7043a3fb31b4fc2d1bcb687c157">SIZE_IN</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>array of incoming values from the MN </p>
+
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00075">75</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa59e89f762bdbdf6cf15a756fd633b00" name="aa59e89f762bdbdf6cf15a756fd633b00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa59e89f762bdbdf6cf15a756fd633b00">&#9670;&#160;</a></span>values_Out_CN_l</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t values_Out_CN_l[<a class="el" href="config_define_8h.html#ab5cbebecab98e4234ae1b2e5ff94ccbc">SIZE_OUT</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>array of values coming out of the CN </p>
+
+<p class="definition">Definition at line <a class="el" href="opl_8cpp_source.html#l00079">79</a> of file <a class="el" href="opl_8cpp_source.html">opl.cpp</a>.</p>
 
 </div>
 </div>

@@ -2,7 +2,7 @@
  * \file file.cpp
  * \brief Module to write telemetry into a file
  * \author Mael Parot, Julien Mindze
- * \version 1.1
+ * \version 1.2
  * \date 11/04/2024
  *
  * Contains all functions related to writing the telemetry
@@ -12,9 +12,12 @@
 #include "file.h"
 
 file::file()
+    : pathFile(""),
+      dataFile(),
+      nameFiles(""),
+      year_month_day(""),
+      hour_minute_second("") 
 {
-    pathFile = "";
-    dataFile;
     //constructor
 }
 
@@ -34,9 +37,9 @@ file::~file()
 statusErrDef file::initFile()
 {
     statusErrDef res = noError;
-    // recuperation du temps actuel dans la variable now
+    // we get the current system time
     time_t now = time(0); 
-    // transformation du temps actuel en struct tm contenant les composantes temporelles d'une date : seconde,minute,heure,jour,mois,annee 
+    // transform the system time into year, month, day, hour, minute and second
     tm* tm_NOW = localtime(&now); 
 
     int  year = 1900 + tm_NOW->tm_year;
@@ -47,28 +50,21 @@ statusErrDef file::initFile()
     int  minute = tm_NOW->tm_min;
     int  second = tm_NOW->tm_sec;
 
-    /*********************** initialisation day_month_year *************************************/
-
+    // initialisation of the year, month and day
     year_month_day = year_month_day + to_string(year);
     year_month_day = year_month_day + "-";
     year_month_day = year_month_day + to_string(month);
     year_month_day = year_month_day + "-";
     year_month_day = year_month_day + to_string(day);
 
-    /*******************************************************************************************/
-
-    /*********************** initialisation hour_minute_seconde *************************************/
-
+    // initialisation of the hour, minute and second
     hour_minute_second = hour_minute_second + to_string(hour);
     hour_minute_second = hour_minute_second + "-";
     hour_minute_second = hour_minute_second + to_string(minute);
     hour_minute_second = hour_minute_second + "-";
     hour_minute_second = hour_minute_second + to_string(second);
 
-    /*******************************************************************************************/
-
-    /******************* stockage du chemin du nouveau fichier de t�l�m�trie ******************/
-
+    //we store the telemetry file path
     nameFiles = year_month_day + "__" + hour_minute_second + ".txt";
     cout << nameFiles << endl;
     std::string path = TELEMFILES_DIRECTORY;
@@ -77,8 +73,6 @@ statusErrDef file::initFile()
     file::pathFile = path;
 
     res = file::openFile();
-
-    /******************************************************************************************/
 
     return res;
 }
@@ -111,16 +105,17 @@ statusErrDef file::testWriteFile()
  * \param fmt_p formated string about the status
  * \param ... other parameters such as the success code
  */
-void file::writeTelem(const char* fmt_p, ...)///< ajouter uniquement : uint16_t codeSuccess 
+void file::writeTelem(const char* fmt_p, ...)
 {
-
     char logMsg[EVENTLOG_MAX_LENGTH];
     char msg[EVENTLOG_MAX_LENGTH];
 
+    //we copy the message from the "..." parameter and transform it to show the status code at the end
     strncpy(msg, fmt_p, EVENTLOG_MAX_LENGTH - 1);
     msg[EVENTLOG_MAX_LENGTH - 1] = '\0';
     strncat(msg, " | code_success:0x%04X", EVENTLOG_MAX_LENGTH - strlen(msg) - 1);
 
+    //we take advantage of the OpenPOWERLINK event module to have a good log syntax
     va_list arglist;
     va_start(arglist, fmt_p);
     eventlog_createMessageString(logMsg,
@@ -148,15 +143,17 @@ void file::writeTelem(const char* fmt_p, ...)///< ajouter uniquement : uint16_t 
  * \param fmt_p formated string about the error
  * \param ... other parameters such as the error code
  */
-void file::writeError(const char* fmt_p, ...) ///< ajouter uniquement : uint16_t codeError
+void file::writeError(const char* fmt_p, ...)
 {
     char logMsg[EVENTLOG_MAX_LENGTH];
     char msg[EVENTLOG_MAX_LENGTH];
 
+    //we copy the message from the "..." parameter and transform it to show the error code at the end
     strncpy(msg, fmt_p, EVENTLOG_MAX_LENGTH - 1);
     msg[EVENTLOG_MAX_LENGTH - 1] = '\0';
     strncat(msg, " | code_error:0x%04X", EVENTLOG_MAX_LENGTH - strlen(msg) - 1);
 
+    //we take advantage of the OpenPOWERLINK event module to have a good log syntax
     va_list arglist;
     va_start(arglist, fmt_p);
     eventlog_createMessageString(logMsg,
@@ -187,7 +184,7 @@ void file::writeError(const char* fmt_p, ...) ///< ajouter uniquement : uint16_t
 statusErrDef file::openFile()
 {
     statusErrDef res = noError;
-    // ouverture du fichier en mode ecriture avec curseur repositionne automatiquement a la fin du fichier
+    // file open with write permission and position the file cursor at the end of the file
     try
     {
         file::dataFile.open(file::pathFile, ios::out | ios::app);

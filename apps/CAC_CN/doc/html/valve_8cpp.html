@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CAC_CN: C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp File Reference</title>
+<title>CAC main program: C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">CAC_CN<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">CAC main program<span id="projectnumber">&#160;1.2</span>
    </div>
    <div id="projectbrief">The main program for acquisition and control boards.</div>
   </td>
@@ -124,22 +124,28 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a268ac3b63f0fabe69c23e62ca83cfb70" id="r_a268ac3b63f0fabe69c23e62ca83cfb70"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a268ac3b63f0fabe69c23e62ca83cfb70">offsets</a> [<a class="el" href="config_define_8h.html#abcc3ea803cac2ea690fac3f5ceb23211">MAX_VALVES</a>]</td></tr>
+<tr class="memdesc:a268ac3b63f0fabe69c23e62ca83cfb70"><td class="mdescLeft">&#160;</td><td class="mdescRight">array of the GPIO ports.  <br /></td></tr>
 <tr class="separator:a268ac3b63f0fabe69c23e62ca83cfb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96860d8272d2d5ef1b46f17e271042da" id="r_a96860d8272d2d5ef1b46f17e271042da"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96860d8272d2d5ef1b46f17e271042da">values</a> [<a class="el" href="config_define_8h.html#abcc3ea803cac2ea690fac3f5ceb23211">MAX_VALVES</a>]</td></tr>
+<tr class="memdesc:a96860d8272d2d5ef1b46f17e271042da"><td class="mdescLeft">&#160;</td><td class="mdescRight">array of the values to put into the GPIO lines.  <br /></td></tr>
 <tr class="separator:a96860d8272d2d5ef1b46f17e271042da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7af143dbf44fa3c96fedf51b19e7b494" id="r_a7af143dbf44fa3c96fedf51b19e7b494"><td class="memItemLeft" align="right" valign="top">struct timespec&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7af143dbf44fa3c96fedf51b19e7b494">beginTimer</a> [<a class="el" href="config_define_8h.html#abcc3ea803cac2ea690fac3f5ceb23211">MAX_VALVES</a>]</td></tr>
+<tr class="memdesc:a7af143dbf44fa3c96fedf51b19e7b494"><td class="mdescLeft">&#160;</td><td class="mdescRight">beginning references of the dependance timers.  <br /></td></tr>
 <tr class="separator:a7af143dbf44fa3c96fedf51b19e7b494"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5efa5af4f5d074f434d5f7a433146af" id="r_ab5efa5af4f5d074f434d5f7a433146af"><td class="memItemLeft" align="right" valign="top">struct timespec&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5efa5af4f5d074f434d5f7a433146af">endTimer</a> [<a class="el" href="config_define_8h.html#abcc3ea803cac2ea690fac3f5ceb23211">MAX_VALVES</a>]</td></tr>
+<tr class="memdesc:ab5efa5af4f5d074f434d5f7a433146af"><td class="mdescLeft">&#160;</td><td class="mdescRight">ending references of the dependance timers.  <br /></td></tr>
 <tr class="separator:ab5efa5af4f5d074f434d5f7a433146af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a718c1d403150a0052fdc750073ecede8" id="r_a718c1d403150a0052fdc750073ecede8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a718c1d403150a0052fdc750073ecede8">currentTime</a> [<a class="el" href="config_define_8h.html#abcc3ea803cac2ea690fac3f5ceb23211">MAX_VALVES</a>]</td></tr>
+<tr class="memdesc:a718c1d403150a0052fdc750073ecede8"><td class="mdescLeft">&#160;</td><td class="mdescRight">the difference between the ending and beginning of the dependance timers.  <br /></td></tr>
 <tr class="separator:a718c1d403150a0052fdc750073ecede8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af18a1c02404999c7ccfe789b84c4a817" id="r_af18a1c02404999c7ccfe789b84c4a817"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af18a1c02404999c7ccfe789b84c4a817">timerStarted</a> [<a class="el" href="config_define_8h.html#abcc3ea803cac2ea690fac3f5ceb23211">MAX_VALVES</a>]</td></tr>
+<tr class="memdesc:af18a1c02404999c7ccfe789b84c4a817"><td class="mdescLeft">&#160;</td><td class="mdescRight">values true if a timer is started, false otherwise  <br /></td></tr>
 <tr class="separator:af18a1c02404999c7ccfe789b84c4a817"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Module to control the valves of the CAC Board. </p>
 <dl class="section author"><dt>Author</dt><dd>Mael Parot </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.2 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>11/04/2024</dd></dl>
 <p>Contains all functions related to controling valves with the gpiod library. </p>
 
@@ -164,7 +170,7 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errGetValveInitValue when the getter of the initial values fails or noError when the function exits successfully. <br  />
  </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00465">465</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00483">483</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -192,7 +198,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the value of the valve </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00491">491</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00509">509</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -214,7 +220,7 @@ Variables</h2></td></tr>
 <p>function to reset the timers after the activation of all the valves. </p>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00507">507</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00525">525</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -236,7 +242,7 @@ Variables</h2></td></tr>
 <p>function setter of the valve values from a general state CSV file. </p>
 <dl class="section return"><dt>Returns</dt><dd>0 if the valves are set successfully </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00446">446</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00464">464</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -253,7 +259,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00026">26</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p>beginning references of the dependance timers. </p>
+
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00036">36</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -269,7 +277,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00028">28</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p>the difference between the ending and beginning of the dependance timers. </p>
+
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00045">45</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -285,7 +295,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00026">26</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p>ending references of the dependance timers. </p>
+
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00040">40</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -301,7 +313,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00022">22</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p>array of the GPIO ports. </p>
+
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00028">28</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -317,7 +331,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00030">30</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p>values true if a timer is started, false otherwise </p>
+
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00049">49</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -333,7 +349,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00024">24</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p>array of the values to put into the GPIO lines. </p>
+
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00032">32</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>

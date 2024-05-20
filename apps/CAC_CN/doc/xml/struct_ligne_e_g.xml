@@ -13,13 +13,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>the MN general state code </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="45" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="45" bodyend="-1"/>
-        <referencedby refid="csv_8cpp_1a70bcd737e5a40f36e1cccaf3a7f63379" compoundref="csv_8cpp" startline="598" endline="601">getEGcsv</referencedby>
-        <referencedby refid="csv_8cpp_1acbc16f61c722ba86bac4676c366b09bb" compoundref="csv_8cpp" startline="462" endline="479">remplirEG</referencedby>
-        <referencedby refid="csv_8cpp_1a6b63c44df8b905d77b2c66f1cea86204" compoundref="csv_8cpp" startline="644" endline="653">searchEG</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="93" column="17" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_ligne_e_g_1a466c1a46947d19a6cb596d48f8726c92" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -30,19 +28,19 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>the general state CSV file name associated with the MN general state code </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="46" column="15" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="46" bodyend="-1"/>
-        <referencedby refid="csv_8cpp_1a3020b0ac72052eacef78e25c399ce4a6" compoundref="csv_8cpp" startline="608" endline="617">getNomFichiercsv</referencedby>
-        <referencedby refid="csv_8cpp_1acbc16f61c722ba86bac4676c366b09bb" compoundref="csv_8cpp" startline="462" endline="479">remplirEG</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="94" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="94" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para>struct containing the general state code according to the name of a general state CSV file taken from &quot;liaisonEGEtat.csv&quot; </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="44" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="44" bodyend="47"/>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" line="92" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/csv.h" bodystart="92" bodyend="95"/>
     <listofallmembers>
       <member refid="struct_ligne_e_g_1a798f7a58703288236d76c6fb141f5756" prot="public" virt="non-virtual"><scope>LigneEG</scope><name>EG</name></member>
       <member refid="struct_ligne_e_g_1a466c1a46947d19a6cb596d48f8726c92" prot="public" virt="non-virtual"><scope>LigneEG</scope><name>nom</name></member>

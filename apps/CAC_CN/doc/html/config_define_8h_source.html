@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CAC_CN: C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h Source File</title>
+<title>CAC main program: C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">CAC_CN<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">CAC main program<span id="projectnumber">&#160;1.2</span>
    </div>
    <div id="projectbrief">The main program for acquisition and control boards.</div>
   </td>
@@ -101,65 +101,66 @@ $(function(){initNavTree('config_define_8h_source.html',''); initResizable(); })
   <div class="headertitle"><div class="title">configDefine.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="config_define_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CONFIGOPL_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CONFIGOPL_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// OPL</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="config_define_8h.html#ac9ac8ba41c4385306791b6640b1d51dc">    5</a></span><span class="preprocessor">#define CYCLE_LEN           10000</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="config_define_8h.html#a6206026f72c671f64485c7be7f4288d2">    6</a></span><span class="preprocessor">#define NB_NODES            3</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="config_define_8h.html#a14b0a7da8cf3edbfec9630c2ec290148">    7</a></span><span class="preprocessor">#define IP_ADDR             0xc0a801A6          </span><span class="comment">// 192.168.1.166</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="config_define_8h.html#ab0092e2619bef8d5375800f507d3080c">    8</a></span><span class="preprocessor">#define DEFAULT_GATEWAY     0xC0A801FE          </span><span class="comment">// 192.168.1.C_ADR_RT1_DEF_NODE_ID</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="config_define_8h.html#a2277cfa773d618a987524fc0590fe253">    9</a></span><span class="preprocessor">#define SUBNET_MASK         0xFFFFFF00          </span><span class="comment">// 255.255.255.0</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="config_define_8h.html#a563cad7e347a704508920c0c59f74808">   11</a></span><span class="preprocessor">#define DEVNAME             &quot;eth0&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">// xapOpl</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="config_define_8h.html#a4e49face896c52c0f543cd14338d503d">   14</a></span><span class="preprocessor">#define COMPUTED_PI_OUT_SIZE 152</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="config_define_8h.html#ab5cbebecab98e4234ae1b2e5ff94ccbc">   15</a></span><span class="preprocessor">#define SIZE_OUT 75</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="config_define_8h.html#a14557d5857db9a5a599b852033ce8de5">   16</a></span><span class="preprocessor">#define COMPUTED_PI_IN_SIZE 80</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="config_define_8h.html#ac072f7043a3fb31b4fc2d1bcb687c157">   17</a></span><span class="preprocessor">#define SIZE_IN 39</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">// Sensor</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="config_define_8h.html#a2e79cb96de76e27ba54960b579c9f530">   20</a></span><span class="preprocessor">#define IIOSYSPATH &quot;/sys/bus/iio/devices/iio:device0/&quot;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="config_define_8h.html#aa3d1fc2927eec213e6b5f9e854c392d2">   21</a></span><span class="preprocessor">#define MAX_SENSORS 8</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="config_define_8h.html#a8538e713d830bd0982bbc0e185db5d05">   22</a></span><span class="preprocessor">#define ADC_READ_ERROR -100000</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">// Valve</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="config_define_8h.html#a9703a43ebf2d3b02efe3f13807bbd202">   25</a></span><span class="preprocessor">#define CHIP_PATH &quot;/dev/gpiochip0&quot;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="config_define_8h.html#abcc3ea803cac2ea690fac3f5ceb23211">   26</a></span><span class="preprocessor">#define MAX_VALVES 12</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">// CSV</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="config_define_8h.html#a9eb6992d76f02128388ae95c0415604a">   29</a></span><span class="preprocessor">#define MAX_PATH_LENGTH 1024</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="config_define_8h.html#a706068f562dd5c64a8b7bbd4b2298dd1">   30</a></span><span class="preprocessor">#define MAX_LINE_SIZE 2832</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="config_define_8h.html#a56d2ae7dc00f8f120314a9de4a9efcbe">   31</a></span><span class="preprocessor">#define MAX_PHYSICAL_LINE_SIZE 1024</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="config_define_8h.html#a3b94af9dcb0358f28d175d80eed98330">   32</a></span><span class="preprocessor">#define MAX_ROWS 5</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">    #define STATE_CSV_DIRECTORY &quot;..\\..\\..\\..\\common\\commonCSVFiles\\stateCSV\\&quot;</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">    #define PHYSICAL_CONFIG_VANNES_DIRECTORY &quot;..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_valves.csv&quot;</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">    #define PHYSICAL_CONFIG_SENSORS_DIRECTORY &quot;..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_sensors.csv&quot;</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">    #define COMMON_PHYSICAL_CONFIG_DIRECTORY &quot;..\\..\\..\\..\\common\\commonCSVFiles\\activation.csv&quot;</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">    #define EG_ETAT_DIRECTORY &quot;..\\..\\..\\..\\common\\commonCSVFiles\\liaisonEGEtat.csv&quot;</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">// TelemFiles</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">    #define TELEMFILES_DIRECTORY &quot;..\\..\\..\\include\\telemFiles\\&quot;</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="config_define_8h.html#a61233d5f57b883028d50415837de9da1">   43</a></span><span class="preprocessor">    #define STATE_CSV_DIRECTORY &quot;../../../common/commonCSVFiles/stateCSV/&quot;</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="config_define_8h.html#ab5026e01006a4457989b22c57cc98f02">   44</a></span><span class="preprocessor">    #define PHYSICAL_CONFIG_VANNES_DIRECTORY &quot;../../include/physicalCONFIG/physicalCONFIG_valves.csv&quot;</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="config_define_8h.html#adb2604b345fe7f2f732f29ff27f245ab">   45</a></span><span class="preprocessor">    #define PHYSICAL_CONFIG_SENSORS_DIRECTORY &quot;../../include/physicalCONFIG/physicalCONFIG_sensors.csv&quot;</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="config_define_8h.html#af03b9ef4da5daeff7665f07931101fdb">   46</a></span><span class="preprocessor">    #define COMMON_PHYSICAL_CONFIG_DIRECTORY &quot;../../../common/commonCSVFiles/activation.csv&quot;</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="config_define_8h.html#a4714f9212329c04dc628e204388611a1">   47</a></span><span class="preprocessor">    #define EG_ETAT_DIRECTORY &quot;../../../common/commonCSVFiles/liaisonEGEtat.csv&quot;</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// TelemFiles</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="config_define_8h.html#aeead33868b09a953457fd5235525bd39">   49</a></span><span class="preprocessor">    #define TELEMFILES_DIRECTORY &quot;../../include/telemFiles/&quot;</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">// TelemFiles</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="config_define_8h.html#a33e0ce62bb48bae39a3086aa66f18abf">   53</a></span><span class="preprocessor">#define EVENTLOG_MAX_LENGTH 1024</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">// Main</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="config_define_8h.html#a2c15aa6025df557ee17f49ec0de3ca3e">   56</a></span><span class="preprocessor">#define DELAYMSINIT 2000</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="config_define_8h.html#a0cb3b08249c5a31d756d998565ed6a35">   57</a></span><span class="preprocessor">#define DELAYMSCONTROL 30</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#endif</span></div>
+<a href="config_define_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#ifndef CONFIGOPL_H</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define CONFIGOPL_H</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">// OPL</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="config_define_8h.html#ac9ac8ba41c4385306791b6640b1d51dc">   20</a></span><span class="preprocessor">#define CYCLE_LEN           10000</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="config_define_8h.html#a14b0a7da8cf3edbfec9630c2ec290148">   24</a></span><span class="preprocessor">#define IP_ADDR             0xc0a801A6          </span><span class="comment">// 192.168.1.166</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="config_define_8h.html#ab0092e2619bef8d5375800f507d3080c">   28</a></span>#define DEFAULT_GATEWAY     0xC0A801FE          <span class="comment">// 192.168.1.C_ADR_RT1_DEF_NODE_ID</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="config_define_8h.html#a2277cfa773d618a987524fc0590fe253">   32</a></span>#define SUBNET_MASK         0xFFFFFF00          <span class="comment">// 255.255.255.0</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="config_define_8h.html#a563cad7e347a704508920c0c59f74808">   36</a></span>#define DEVNAME             &quot;eth0&quot;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">// xapOpl</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="config_define_8h.html#ab5cbebecab98e4234ae1b2e5ff94ccbc">   42</a></span><span class="preprocessor">#define SIZE_OUT    (NB_NODES * 25)</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="config_define_8h.html#ac072f7043a3fb31b4fc2d1bcb687c157">   46</a></span><span class="preprocessor">#define SIZE_IN     (NB_NODES * 13)</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="config_define_8h.html#a4e49face896c52c0f543cd14338d503d">   50</a></span><span class="preprocessor">#define COMPUTED_PI_OUT_SIZE   ((SIZE_OUT + 1) * 2)</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="config_define_8h.html#a14557d5857db9a5a599b852033ce8de5">   54</a></span><span class="preprocessor">#define COMPUTED_PI_IN_SIZE    ((SIZE_IN + 1) * 2)</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">// Sensor</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="config_define_8h.html#a2e79cb96de76e27ba54960b579c9f530">   60</a></span><span class="preprocessor">#define IIOSYSPATH &quot;/sys/bus/iio/devices/iio:device0/&quot;</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="config_define_8h.html#a60a00eebde352da82280909d3b60a2e7">   64</a></span><span class="preprocessor">#define MODBUS_DEVICELOC &quot;/dev/ttyUSB0&quot;</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="config_define_8h.html#afa578deb5cc34a8d1a2c27d959ba68bf">   68</a></span><span class="preprocessor">#define MODBUS_NBREG 1</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="config_define_8h.html#aa3d1fc2927eec213e6b5f9e854c392d2">   72</a></span><span class="preprocessor">#define MAX_SENSORS 12</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="config_define_8h.html#aec2426c8f9412cf841cdfd2a4b88a783">   76</a></span><span class="preprocessor">#define MAX_ADC 8</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="config_define_8h.html#a8538e713d830bd0982bbc0e185db5d05">   80</a></span><span class="preprocessor">#define ADC_READ_ERROR -32768</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">// Valve</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="config_define_8h.html#a9703a43ebf2d3b02efe3f13807bbd202">   86</a></span><span class="preprocessor">#define CHIP_PATH &quot;/dev/gpiochip0&quot;</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="config_define_8h.html#abcc3ea803cac2ea690fac3f5ceb23211">   90</a></span><span class="preprocessor">#define MAX_VALVES 12</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">// CSV</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="config_define_8h.html#a9eb6992d76f02128388ae95c0415604a">   96</a></span><span class="preprocessor">#define MAX_PATH_LENGTH 1024</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="config_define_8h.html#a706068f562dd5c64a8b7bbd4b2298dd1">  100</a></span><span class="preprocessor">#define MAX_LINE_SIZE 2832</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="config_define_8h.html#a56d2ae7dc00f8f120314a9de4a9efcbe">  104</a></span><span class="preprocessor">#define MAX_PHYSICAL_LINE_SIZE 512</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">    #define STATE_CSV_DIRECTORY &quot;..\\..\\..\\..\\common\\commonCSVFiles\\stateCSV\\&quot;</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">    #define PHYSICAL_CONFIG_VANNES_DIRECTORY &quot;..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_valves.csv&quot;</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">    #define PHYSICAL_CONFIG_SENSORS_DIRECTORY &quot;..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_sensors.csv&quot;</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">    #define COMMON_PHYSICAL_CONFIG_DIRECTORY &quot;..\\..\\..\\..\\common\\commonCSVFiles\\activation.csv&quot;</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="preprocessor">    #define EG_ETAT_DIRECTORY &quot;..\\..\\..\\..\\common\\commonCSVFiles\\liaisonEGEtat.csv&quot;</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="comment">// TelemFiles</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="preprocessor">    #define TELEMFILES_DIRECTORY &quot;..\\..\\..\\include\\telemFiles\\&quot;</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="config_define_8h.html#a61233d5f57b883028d50415837de9da1">  118</a></span><span class="preprocessor">    #define STATE_CSV_DIRECTORY &quot;../../../common/commonCSVFiles/stateCSV/&quot;</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="config_define_8h.html#ab5026e01006a4457989b22c57cc98f02">  119</a></span><span class="preprocessor">    #define PHYSICAL_CONFIG_VANNES_DIRECTORY &quot;../../include/physicalCONFIG/physicalCONFIG_valves.csv&quot;</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="config_define_8h.html#adb2604b345fe7f2f732f29ff27f245ab">  120</a></span><span class="preprocessor">    #define PHYSICAL_CONFIG_SENSORS_DIRECTORY &quot;../../include/physicalCONFIG/physicalCONFIG_sensors.csv&quot;</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="config_define_8h.html#af03b9ef4da5daeff7665f07931101fdb">  121</a></span><span class="preprocessor">    #define COMMON_PHYSICAL_CONFIG_DIRECTORY &quot;../../../common/commonCSVFiles/activation.csv&quot;</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="config_define_8h.html#a4714f9212329c04dc628e204388611a1">  122</a></span><span class="preprocessor">    #define EG_ETAT_DIRECTORY &quot;../../../common/commonCSVFiles/liaisonEGEtat.csv&quot;</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="comment">// TelemFiles</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="config_define_8h.html#aeead33868b09a953457fd5235525bd39">  124</a></span><span class="preprocessor">    #define TELEMFILES_DIRECTORY &quot;../../include/telemFiles/&quot;</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment">// TelemFiles</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="config_define_8h.html#a33e0ce62bb48bae39a3086aa66f18abf">  131</a></span><span class="preprocessor">#define EVENTLOG_MAX_LENGTH 1024</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">// Main</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="config_define_8h.html#a2c15aa6025df557ee17f49ec0de3ca3e">  138</a></span><span class="preprocessor">#define DELAYMSINIT 2000</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="config_define_8h.html#a0cb3b08249c5a31d756d998565ed6a35">  143</a></span><span class="preprocessor">#define DELAYMSCONTROL 1</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

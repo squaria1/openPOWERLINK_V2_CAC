@@ -8,9 +8,10 @@ var searchData=
   ['computed_5fpi_5fin_5fsize_5',['COMPUTED_PI_IN_SIZE',['../config_define_8h.html#a14557d5857db9a5a599b852033ce8de5',1,'configDefine.h']]],
   ['computed_5fpi_5fout_5fsize_6',['COMPUTED_PI_OUT_SIZE',['../config_define_8h.html#a4e49face896c52c0f543cd14338d503d',1,'configDefine.h']]],
   ['configdefine_2eh_7',['configDefine.h',['../config_define_8h.html',1,'']]],
-  ['control_8',['control',['../status_error_define_8h.html#a8a5ff9e57db5d201dadd5d4dcacafd50a5d8add8effb2a9964dbebfd27c9ddd31',1,'statusErrorDefine.h']]],
+  ['controlandacquisition_8',['controlAndAcquisition',['../status_error_define_8h.html#a8a5ff9e57db5d201dadd5d4dcacafd50a373c041552bf3349d36d40032aebd826',1,'statusErrorDefine.h']]],
   ['csv_2ecpp_9',['csv.cpp',['../csv_8cpp.html',1,'']]],
   ['csv_2eh_10',['csv.h',['../csv_8h.html',1,'']]],
-  ['currenttime_11',['currentTime',['../valve_8cpp.html#a718c1d403150a0052fdc750073ecede8',1,'valve.cpp']]],
-  ['cycle_5flen_12',['CYCLE_LEN',['../config_define_8h.html#ac9ac8ba41c4385306791b6640b1d51dc',1,'configDefine.h']]]
+  ['ctx_11',['ctx',['../sensor_8cpp.html#abbcd977f5e414946647edf65cdeb74ce',1,'sensor.cpp']]],
+  ['currenttime_12',['currentTime',['../valve_8cpp.html#a718c1d403150a0052fdc750073ecede8',1,'valve.cpp']]],
+  ['cycle_5flen_13',['CYCLE_LEN',['../config_define_8h.html#ac9ac8ba41c4385306791b6640b1d51dc',1,'configDefine.h']]]
 ];

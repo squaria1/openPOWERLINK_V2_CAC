@@ -118,116 +118,7 @@
         <name>CYCLE_LEN</name>
         <initializer>10000</initializer>
         <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="5" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="5" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="config_define_8h_1a6206026f72c671f64485c7be7f4288d2" prot="public" static="no">
-        <name>NB_NODES</name>
-        <initializer>3</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="6" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="6" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="config_define_8h_1a14b0a7da8cf3edbfec9630c2ec290148" prot="public" static="no">
-        <name>IP_ADDR</name>
-        <initializer>0xc0a801A6</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="7" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="7" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="config_define_8h_1ab0092e2619bef8d5375800f507d3080c" prot="public" static="no">
-        <name>DEFAULT_GATEWAY</name>
-        <initializer>0xC0A801FE</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="8" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="8" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="config_define_8h_1a2277cfa773d618a987524fc0590fe253" prot="public" static="no">
-        <name>SUBNET_MASK</name>
-        <initializer>0xFFFFFF00</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="9" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="9" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="config_define_8h_1a563cad7e347a704508920c0c59f74808" prot="public" static="no">
-        <name>DEVNAME</name>
-        <initializer>&quot;eth0&quot;</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="11" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="11" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="config_define_8h_1a4e49face896c52c0f543cd14338d503d" prot="public" static="no">
-        <name>COMPUTED_PI_OUT_SIZE</name>
-        <initializer>152</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="14" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="14" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="config_define_8h_1ab5cbebecab98e4234ae1b2e5ff94ccbc" prot="public" static="no">
-        <name>SIZE_OUT</name>
-        <initializer>75</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="15" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="15" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="config_define_8h_1a14557d5857db9a5a599b852033ce8de5" prot="public" static="no">
-        <name>COMPUTED_PI_IN_SIZE</name>
-        <initializer>80</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="16" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="16" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="config_define_8h_1ac072f7043a3fb31b4fc2d1bcb687c157" prot="public" static="no">
-        <name>SIZE_IN</name>
-        <initializer>39</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="17" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="17" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="config_define_8h_1a2e79cb96de76e27ba54960b579c9f530" prot="public" static="no">
-        <name>IIOSYSPATH</name>
-        <initializer>&quot;/sys/bus/iio/devices/iio:device0/&quot;</initializer>
-        <briefdescription>
+<para>OpenPOWERLINK cycle length of 10ms. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -235,87 +126,35 @@
         </inbodydescription>
         <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="20" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="20" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" prot="public" static="no">
-        <name>MAX_SENSORS</name>
-        <initializer>8</initializer>
+      <memberdef kind="define" id="config_define_8h_1a14b0a7da8cf3edbfec9630c2ec290148" prot="public" static="no">
+        <name>IP_ADDR</name>
+        <initializer>0xc0a801A6</initializer>
         <briefdescription>
+<para>The CN default ip address (not important) </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="21" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="21" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="24" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="24" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="config_define_8h_1a8538e713d830bd0982bbc0e185db5d05" prot="public" static="no">
-        <name>ADC_READ_ERROR</name>
-        <initializer>-100000</initializer>
+      <memberdef kind="define" id="config_define_8h_1ab0092e2619bef8d5375800f507d3080c" prot="public" static="no">
+        <name>DEFAULT_GATEWAY</name>
+        <initializer>0xC0A801FE</initializer>
         <briefdescription>
+<para>The CN default gateway (not important) </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="22" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="22" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="28" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="28" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="config_define_8h_1a9703a43ebf2d3b02efe3f13807bbd202" prot="public" static="no">
-        <name>CHIP_PATH</name>
-        <initializer>&quot;/dev/gpiochip0&quot;</initializer>
+      <memberdef kind="define" id="config_define_8h_1a2277cfa773d618a987524fc0590fe253" prot="public" static="no">
+        <name>SUBNET_MASK</name>
+        <initializer>0xFFFFFF00</initializer>
         <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="25" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="25" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" prot="public" static="no">
-        <name>MAX_VALVES</name>
-        <initializer>12</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="26" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="26" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="config_define_8h_1a9eb6992d76f02128388ae95c0415604a" prot="public" static="no">
-        <name>MAX_PATH_LENGTH</name>
-        <initializer>1024</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="29" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="29" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" prot="public" static="no">
-        <name>MAX_LINE_SIZE</name>
-        <initializer>2832</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="30" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="30" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" prot="public" static="no">
-        <name>MAX_PHYSICAL_LINE_SIZE</name>
-        <initializer>1024</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="31" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="31" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="config_define_8h_1a3b94af9dcb0358f28d175d80eed98330" prot="public" static="no">
-        <name>MAX_ROWS</name>
-        <initializer>5</initializer>
-        <briefdescription>
+<para>Network mask of /24. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -323,16 +162,209 @@
         </inbodydescription>
         <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="32" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="32" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="config_define_8h_1a61233d5f57b883028d50415837de9da1" prot="public" static="no">
-        <name>STATE_CSV_DIRECTORY</name>
-        <initializer>&quot;../../../common/commonCSVFiles/stateCSV/&quot;</initializer>
+      <memberdef kind="define" id="config_define_8h_1a563cad7e347a704508920c0c59f74808" prot="public" static="no">
+        <name>DEVNAME</name>
+        <initializer>&quot;eth0&quot;</initializer>
         <briefdescription>
+<para>The CN device name (look in /etc/network/interfaces for the name in Linux) </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="43" column="11" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="43" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="36" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1ab5cbebecab98e4234ae1b2e5ff94ccbc" prot="public" static="no">
+        <name>SIZE_OUT</name>
+        <initializer>(<ref refid="node_id_8h_1a6206026f72c671f64485c7be7f4288d2" kindref="member">NB_NODES</ref> * 25)</initializer>
+        <briefdescription>
+<para>Total size of RPDOs coming into every CNs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="42" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1ac072f7043a3fb31b4fc2d1bcb687c157" prot="public" static="no">
+        <name>SIZE_IN</name>
+        <initializer>(<ref refid="node_id_8h_1a6206026f72c671f64485c7be7f4288d2" kindref="member">NB_NODES</ref> * 13)</initializer>
+        <briefdescription>
+<para>Total size of TPDOs coming out of every CNs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="46" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a4e49face896c52c0f543cd14338d503d" prot="public" static="no">
+        <name>COMPUTED_PI_OUT_SIZE</name>
+        <initializer>((<ref refid="config_define_8h_1ab5cbebecab98e4234ae1b2e5ff94ccbc" kindref="member">SIZE_OUT</ref> + 1) * 2)</initializer>
+        <briefdescription>
+<para>Total size in bytes for every RPDOs (int16_t is 2 bytes) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="50" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a14557d5857db9a5a599b852033ce8de5" prot="public" static="no">
+        <name>COMPUTED_PI_IN_SIZE</name>
+        <initializer>((<ref refid="config_define_8h_1ac072f7043a3fb31b4fc2d1bcb687c157" kindref="member">SIZE_IN</ref> + 1) * 2)</initializer>
+        <briefdescription>
+<para>Total size in bytes for every TPDOs (int16_t is 2 bytes) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="54" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a2e79cb96de76e27ba54960b579c9f530" prot="public" static="no">
+        <name>IIOSYSPATH</name>
+        <initializer>&quot;/sys/bus/iio/devices/iio:device0/&quot;</initializer>
+        <briefdescription>
+<para>sysfs MCP3008 files path </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="60" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a60a00eebde352da82280909d3b60a2e7" prot="public" static="no">
+        <name>MODBUS_DEVICELOC</name>
+        <initializer>&quot;/dev/ttyUSB0&quot;</initializer>
+        <briefdescription>
+<para>rs485 to USB serial device location </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="64" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1afa578deb5cc34a8d1a2c27d959ba68bf" prot="public" static="no">
+        <name>MODBUS_NBREG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>number of modbus serial registers to read </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="68" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" prot="public" static="no">
+        <name>MAX_SENSORS</name>
+        <initializer>12</initializer>
+        <briefdescription>
+<para>maximum number of sensors allowed </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="72" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1aec2426c8f9412cf841cdfd2a4b88a783" prot="public" static="no">
+        <name>MAX_ADC</name>
+        <initializer>8</initializer>
+        <briefdescription>
+<para>maximum number of channels for the MCP3008 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="76" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a8538e713d830bd0982bbc0e185db5d05" prot="public" static="no">
+        <name>ADC_READ_ERROR</name>
+        <initializer>-32768</initializer>
+        <briefdescription>
+<para>channel read error code in 2 bytes signed </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="80" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a9703a43ebf2d3b02efe3f13807bbd202" prot="public" static="no">
+        <name>CHIP_PATH</name>
+        <initializer>&quot;/dev/gpiochip0&quot;</initializer>
+        <briefdescription>
+<para>GPIO device location. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="86" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" prot="public" static="no">
+        <name>MAX_VALVES</name>
+        <initializer>12</initializer>
+        <briefdescription>
+<para>maximum number of valves allowed </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="90" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a9eb6992d76f02128388ae95c0415604a" prot="public" static="no">
+        <name>MAX_PATH_LENGTH</name>
+        <initializer>1024</initializer>
+        <briefdescription>
+<para>maximum path length for a general state CSV file </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="96" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" prot="public" static="no">
+        <name>MAX_LINE_SIZE</name>
+        <initializer>2832</initializer>
+        <briefdescription>
+<para>maximum line size for every common CSV file </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="100" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" prot="public" static="no">
+        <name>MAX_PHYSICAL_LINE_SIZE</name>
+        <initializer>512</initializer>
+        <briefdescription>
+<para>maximum line size for every physical CSV file </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="104" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_define_8h_1a61233d5f57b883028d50415837de9da1" prot="public" static="no">
+        <name>STATE_CSV_DIRECTORY</name>
+        <initializer>&quot;../../../common/commonCSVFiles/stateCSV/&quot;</initializer>
+        <briefdescription>
+<para>relative directory and file location used by the program </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="118" column="11" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="118" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="config_define_8h_1ab5026e01006a4457989b22c57cc98f02" prot="public" static="no">
         <name>PHYSICAL_CONFIG_VANNES_DIRECTORY</name>
@@ -343,7 +375,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="44" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="44" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="119" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="119" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="config_define_8h_1adb2604b345fe7f2f732f29ff27f245ab" prot="public" static="no">
         <name>PHYSICAL_CONFIG_SENSORS_DIRECTORY</name>
@@ -354,7 +386,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="45" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="45" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="120" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="120" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="config_define_8h_1af03b9ef4da5daeff7665f07931101fdb" prot="public" static="no">
         <name>COMMON_PHYSICAL_CONFIG_DIRECTORY</name>
@@ -365,7 +397,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="46" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="46" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="121" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="121" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="config_define_8h_1a4714f9212329c04dc628e204388611a1" prot="public" static="no">
         <name>EG_ETAT_DIRECTORY</name>
@@ -376,7 +408,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="47" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="47" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="122" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="122" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="config_define_8h_1aeead33868b09a953457fd5235525bd39" prot="public" static="no">
         <name>TELEMFILES_DIRECTORY</name>
@@ -387,106 +419,118 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="49" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="49" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="124" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="124" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="config_define_8h_1a33e0ce62bb48bae39a3086aa66f18abf" prot="public" static="no">
         <name>EVENTLOG_MAX_LENGTH</name>
         <initializer>1024</initializer>
         <briefdescription>
+<para>maximum length of telemetry status or error message </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="53" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="53" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="131" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="131" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="config_define_8h_1a2c15aa6025df557ee17f49ec0de3ca3e" prot="public" static="no">
         <name>DELAYMSINIT</name>
         <initializer>2000</initializer>
         <briefdescription>
+<para>delay in milliseconds at the end of the initialisation state to wait for the CN to connect to the MN. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="56" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="56" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="138" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="138" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="config_define_8h_1a0cb3b08249c5a31d756d998565ed6a35" prot="public" static="no">
         <name>DELAYMSCONTROL</name>
-        <initializer>30</initializer>
+        <initializer>1</initializer>
         <briefdescription>
+<para>delay in milliseconds at the end of the controlAndAcquisition state to avoid dropping the connexion between the CN and the MN. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="57" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="57" bodyend="-1"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" line="143" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h" bodystart="143" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para>header file that contains all the program defines </para>
     </briefdescription>
     <detaileddescription>
+<para><simplesect kind="author"><para>Mael Parot </para>
+</simplesect>
+<simplesect kind="version"><para>1.2 </para>
+</simplesect>
+<simplesect kind="date"><para>11/04/2024</para>
+</simplesect>
+Contains all of the program defines from each module. The defines are set at compile time so they can&apos;t be changed at runtime. </para>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>CONFIGOPL_H</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIGOPL_H</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>OPL</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5" refid="config_define_8h_1ac9ac8ba41c4385306791b6640b1d51dc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CYCLE_LEN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>10000</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6" refid="config_define_8h_1a6206026f72c671f64485c7be7f4288d2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NB_NODES<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7" refid="config_define_8h_1a14b0a7da8cf3edbfec9630c2ec290148" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IP_ADDR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xc0a801A6<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>192.168.1.166</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="8" refid="config_define_8h_1ab0092e2619bef8d5375800f507d3080c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_GATEWAY<sp/><sp/><sp/><sp/><sp/>0xC0A801FE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>192.168.1.C_ADR_RT1_DEF_NODE_ID</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9" refid="config_define_8h_1a2277cfa773d618a987524fc0590fe253" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SUBNET_MASK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xFFFFFF00<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>255.255.255.0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight></codeline>
-<codeline lineno="11" refid="config_define_8h_1a563cad7e347a704508920c0c59f74808" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEVNAME<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;eth0&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>xapOpl</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14" refid="config_define_8h_1a4e49face896c52c0f543cd14338d503d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COMPUTED_PI_OUT_SIZE<sp/>152</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15" refid="config_define_8h_1ab5cbebecab98e4234ae1b2e5ff94ccbc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIZE_OUT<sp/>75</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16" refid="config_define_8h_1a14557d5857db9a5a599b852033ce8de5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COMPUTED_PI_IN_SIZE<sp/>80</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="17" refid="config_define_8h_1ac072f7043a3fb31b4fc2d1bcb687c157" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIZE_IN<sp/>39</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Sensor</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20" refid="config_define_8h_1a2e79cb96de76e27ba54960b579c9f530" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IIOSYSPATH<sp/>&quot;/sys/bus/iio/devices/iio:device0/&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21" refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_SENSORS<sp/>8</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22" refid="config_define_8h_1a8538e713d830bd0982bbc0e185db5d05" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADC_READ_ERROR<sp/>-100000</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Valve</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="25" refid="config_define_8h_1a9703a43ebf2d3b02efe3f13807bbd202" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CHIP_PATH<sp/>&quot;/dev/gpiochip0&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26" refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_VALVES<sp/>12</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CSV</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="29" refid="config_define_8h_1a9eb6992d76f02128388ae95c0415604a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_PATH_LENGTH<sp/>1024</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="30" refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_LINE_SIZE<sp/>2832</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31" refid="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_PHYSICAL_LINE_SIZE<sp/>1024</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32" refid="config_define_8h_1a3b94af9dcb0358f28d175d80eed98330" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_ROWS<sp/>5</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>STATE_CSV_DIRECTORY<sp/>&quot;..\\..\\..\\..\\common\\commonCSVFiles\\stateCSV\\&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PHYSICAL_CONFIG_VANNES_DIRECTORY<sp/>&quot;..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_valves.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PHYSICAL_CONFIG_SENSORS_DIRECTORY<sp/>&quot;..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_sensors.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>COMMON_PHYSICAL_CONFIG_DIRECTORY<sp/>&quot;..\\..\\..\\..\\common\\commonCSVFiles\\activation.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>EG_ETAT_DIRECTORY<sp/>&quot;..\\..\\..\\..\\common\\commonCSVFiles\\liaisonEGEtat.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TelemFiles</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>TELEMFILES_DIRECTORY<sp/>&quot;..\\..\\..\\include\\telemFiles\\&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43" refid="config_define_8h_1a61233d5f57b883028d50415837de9da1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>STATE_CSV_DIRECTORY<sp/>&quot;../../../common/commonCSVFiles/stateCSV/&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="44" refid="config_define_8h_1ab5026e01006a4457989b22c57cc98f02" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PHYSICAL_CONFIG_VANNES_DIRECTORY<sp/>&quot;../../include/physicalCONFIG/physicalCONFIG_valves.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45" refid="config_define_8h_1adb2604b345fe7f2f732f29ff27f245ab" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PHYSICAL_CONFIG_SENSORS_DIRECTORY<sp/>&quot;../../include/physicalCONFIG/physicalCONFIG_sensors.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="46" refid="config_define_8h_1af03b9ef4da5daeff7665f07931101fdb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>COMMON_PHYSICAL_CONFIG_DIRECTORY<sp/>&quot;../../../common/commonCSVFiles/activation.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47" refid="config_define_8h_1a4714f9212329c04dc628e204388611a1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>EG_ETAT_DIRECTORY<sp/>&quot;../../../common/commonCSVFiles/liaisonEGEtat.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TelemFiles</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="49" refid="config_define_8h_1aeead33868b09a953457fd5235525bd39" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>TELEMFILES_DIRECTORY<sp/>&quot;../../include/telemFiles/&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TelemFiles</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="53" refid="config_define_8h_1a33e0ce62bb48bae39a3086aa66f18abf" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EVENTLOG_MAX_LENGTH<sp/>1024</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Main</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="56" refid="config_define_8h_1a2c15aa6025df557ee17f49ec0de3ca3e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DELAYMSINIT<sp/>2000</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="57" refid="config_define_8h_1a0cb3b08249c5a31d756d998565ed6a35" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DELAYMSCONTROL<sp/>30</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="1"></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CONFIGOPL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIGOPL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>OPL</highlight></codeline>
+<codeline lineno="20" refid="config_define_8h_1ac9ac8ba41c4385306791b6640b1d51dc" refkind="member"><highlight class="preprocessor">#define<sp/>CYCLE_LEN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>10000</highlight></codeline>
+<codeline lineno="24" refid="config_define_8h_1a14b0a7da8cf3edbfec9630c2ec290148" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IP_ADDR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xc0a801A6<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>192.168.1.166</highlight></codeline>
+<codeline lineno="28" refid="config_define_8h_1ab0092e2619bef8d5375800f507d3080c" refkind="member"><highlight class="normal">#define<sp/>DEFAULT_GATEWAY<sp/><sp/><sp/><sp/><sp/>0xC0A801FE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>192.168.1.C_ADR_RT1_DEF_NODE_ID</highlight></codeline>
+<codeline lineno="32" refid="config_define_8h_1a2277cfa773d618a987524fc0590fe253" refkind="member"><highlight class="normal">#define<sp/>SUBNET_MASK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xFFFFFF00<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>255.255.255.0</highlight></codeline>
+<codeline lineno="36" refid="config_define_8h_1a563cad7e347a704508920c0c59f74808" refkind="member"><highlight class="normal">#define<sp/>DEVNAME<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;eth0&quot;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//<sp/>xapOpl</highlight></codeline>
+<codeline lineno="42" refid="config_define_8h_1ab5cbebecab98e4234ae1b2e5ff94ccbc" refkind="member"><highlight class="preprocessor">#define<sp/>SIZE_OUT<sp/><sp/><sp/><sp/>(NB_NODES<sp/>*<sp/>25)</highlight></codeline>
+<codeline lineno="46" refid="config_define_8h_1ac072f7043a3fb31b4fc2d1bcb687c157" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIZE_IN<sp/><sp/><sp/><sp/><sp/>(NB_NODES<sp/>*<sp/>13)</highlight></codeline>
+<codeline lineno="50" refid="config_define_8h_1a4e49face896c52c0f543cd14338d503d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COMPUTED_PI_OUT_SIZE<sp/><sp/><sp/>((SIZE_OUT<sp/>+<sp/>1)<sp/>*<sp/>2)</highlight></codeline>
+<codeline lineno="54" refid="config_define_8h_1a14557d5857db9a5a599b852033ce8de5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COMPUTED_PI_IN_SIZE<sp/><sp/><sp/><sp/>((SIZE_IN<sp/>+<sp/>1)<sp/>*<sp/>2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Sensor</highlight></codeline>
+<codeline lineno="60" refid="config_define_8h_1a2e79cb96de76e27ba54960b579c9f530" refkind="member"><highlight class="preprocessor">#define<sp/>IIOSYSPATH<sp/>&quot;/sys/bus/iio/devices/iio:device0/&quot;</highlight></codeline>
+<codeline lineno="64" refid="config_define_8h_1a60a00eebde352da82280909d3b60a2e7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MODBUS_DEVICELOC<sp/>&quot;/dev/ttyUSB0&quot;</highlight></codeline>
+<codeline lineno="68" refid="config_define_8h_1afa578deb5cc34a8d1a2c27d959ba68bf" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MODBUS_NBREG<sp/>1</highlight></codeline>
+<codeline lineno="72" refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_SENSORS<sp/>12</highlight></codeline>
+<codeline lineno="76" refid="config_define_8h_1aec2426c8f9412cf841cdfd2a4b88a783" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_ADC<sp/>8</highlight></codeline>
+<codeline lineno="80" refid="config_define_8h_1a8538e713d830bd0982bbc0e185db5d05" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADC_READ_ERROR<sp/>-32768</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Valve</highlight></codeline>
+<codeline lineno="86" refid="config_define_8h_1a9703a43ebf2d3b02efe3f13807bbd202" refkind="member"><highlight class="preprocessor">#define<sp/>CHIP_PATH<sp/>&quot;/dev/gpiochip0&quot;</highlight></codeline>
+<codeline lineno="90" refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_VALVES<sp/>12</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CSV</highlight></codeline>
+<codeline lineno="96" refid="config_define_8h_1a9eb6992d76f02128388ae95c0415604a" refkind="member"><highlight class="preprocessor">#define<sp/>MAX_PATH_LENGTH<sp/>1024</highlight></codeline>
+<codeline lineno="100" refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_LINE_SIZE<sp/>2832</highlight></codeline>
+<codeline lineno="104" refid="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_PHYSICAL_LINE_SIZE<sp/>512</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>STATE_CSV_DIRECTORY<sp/>&quot;..\\..\\..\\..\\common\\commonCSVFiles\\stateCSV\\&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PHYSICAL_CONFIG_VANNES_DIRECTORY<sp/>&quot;..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_valves.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PHYSICAL_CONFIG_SENSORS_DIRECTORY<sp/>&quot;..\\..\\..\\include\\physicalCONFIG\\physicalCONFIG_sensors.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>COMMON_PHYSICAL_CONFIG_DIRECTORY<sp/>&quot;..\\..\\..\\..\\common\\commonCSVFiles\\activation.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>EG_ETAT_DIRECTORY<sp/>&quot;..\\..\\..\\..\\common\\commonCSVFiles\\liaisonEGEtat.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TelemFiles</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>TELEMFILES_DIRECTORY<sp/>&quot;..\\..\\..\\include\\telemFiles\\&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="config_define_8h_1a61233d5f57b883028d50415837de9da1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>STATE_CSV_DIRECTORY<sp/>&quot;../../../common/commonCSVFiles/stateCSV/&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="config_define_8h_1ab5026e01006a4457989b22c57cc98f02" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PHYSICAL_CONFIG_VANNES_DIRECTORY<sp/>&quot;../../include/physicalCONFIG/physicalCONFIG_valves.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="config_define_8h_1adb2604b345fe7f2f732f29ff27f245ab" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PHYSICAL_CONFIG_SENSORS_DIRECTORY<sp/>&quot;../../include/physicalCONFIG/physicalCONFIG_sensors.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="config_define_8h_1af03b9ef4da5daeff7665f07931101fdb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>COMMON_PHYSICAL_CONFIG_DIRECTORY<sp/>&quot;../../../common/commonCSVFiles/activation.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122" refid="config_define_8h_1a4714f9212329c04dc628e204388611a1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>EG_ETAT_DIRECTORY<sp/>&quot;../../../common/commonCSVFiles/liaisonEGEtat.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TelemFiles</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124" refid="config_define_8h_1aeead33868b09a953457fd5235525bd39" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>TELEMFILES_DIRECTORY<sp/>&quot;../../include/telemFiles/&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TelemFiles</highlight></codeline>
+<codeline lineno="131" refid="config_define_8h_1a33e0ce62bb48bae39a3086aa66f18abf" refkind="member"><highlight class="preprocessor">#define<sp/>EVENTLOG_MAX_LENGTH<sp/>1024</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Main</highlight></codeline>
+<codeline lineno="138" refid="config_define_8h_1a2c15aa6025df557ee17f49ec0de3ca3e" refkind="member"><highlight class="preprocessor">#define<sp/>DELAYMSINIT<sp/>2000</highlight></codeline>
+<codeline lineno="143" refid="config_define_8h_1a0cb3b08249c5a31d756d998565ed6a35" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DELAYMSCONTROL<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/configDefine.h"/>
   </compounddef>

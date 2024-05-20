@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="128" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="22" bodyend="25"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="132" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="86" bodyend="89"/>
       </memberdef>
       <memberdef kind="function" id="classopl_1a8d5d5db31b3d8150af42d2bb000d94fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="129" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="27" bodyend="30"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="133" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="91" bodyend="94"/>
       </memberdef>
       <memberdef kind="function" id="classopl_1afcb3f7b05602f12b72bc97404795ef42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -59,10 +59,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="131" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="54" bodyend="57"/>
-        <references refid="opl_8h_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
-        <references refid="opl_8h_1aa59e89f762bdbdf6cf15a756fd633b00" compoundref="opl_8h" startline="98">values_Out_CN_l</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="135" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="118" bodyend="121"/>
+        <references refid="opl_8h_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="42">nbValuesCN_Out_ByCN</references>
+        <references refid="opl_8cpp_1aa59e89f762bdbdf6cf15a756fd633b00" compoundref="opl_8cpp" startline="79">values_Out_CN_l</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="216">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="classopl_1ad188b100fd92fcc210bd48ea4e08a36f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -91,10 +91,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="132" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="65" bodyend="68"/>
-        <references refid="opl_8h_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
-        <references refid="opl_8h_1aa59e89f762bdbdf6cf15a756fd633b00" compoundref="opl_8h" startline="98">values_Out_CN_l</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="136" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="129" bodyend="132"/>
+        <references refid="opl_8h_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="42">nbValuesCN_Out_ByCN</references>
+        <references refid="opl_8cpp_1aa59e89f762bdbdf6cf15a756fd633b00" compoundref="opl_8cpp" startline="79">values_Out_CN_l</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="216">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="classopl_1ac3e6c6fb9c8d2a10d4437877651167bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
@@ -112,19 +112,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="133" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="39" bodyend="46"/>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a7aa913f5c87b2f9c4bec8e180721e199" compoundref="status_error_define_8h" startline="18">infoNoStopOrder</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94acd2d81872afb7b452fdc7e9a11d13d79" compoundref="status_error_define_8h" startline="17">infoStopOrderReceived</references>
-        <references refid="opl_8h_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
-        <references refid="opl_8h_1ada6913a92bdf309ad87fb42dc7be501d" compoundref="opl_8h" startline="97">values_In_CN_l</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="137" column="25" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/opl.cpp" bodystart="103" bodyend="110"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a7aa913f5c87b2f9c4bec8e180721e199" compoundref="status_error_define_8h" startline="34">infoNoStopOrder</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94acd2d81872afb7b452fdc7e9a11d13d79" compoundref="status_error_define_8h" startline="33">infoStopOrderReceived</references>
+        <references refid="opl_8h_1ae734e3ff803ba9ee9ce69f720764c48a" compoundref="opl_8cpp" startline="46">nbValuesCN_In_ByCN</references>
+        <references refid="opl_8cpp_1ada6913a92bdf309ad87fb42dc7be501d" compoundref="opl_8cpp" startline="75">values_In_CN_l</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="216">main</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para>OpenPOWERLINK module class. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="125" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" bodystart="126" bodyend="139"/>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" line="129" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/opl.h" bodystart="130" bodyend="143"/>
     <listofallmembers>
       <member refid="classopl_1ac3e6c6fb9c8d2a10d4437877651167bb" prot="public" virt="non-virtual"><scope>opl</scope><name>demandeExtinctOPL</name></member>
       <member refid="classopl_1a43a83ace00cba207a89cf65e3b995d7e" prot="public" virt="non-virtual"><scope>opl</scope><name>opl</name></member>

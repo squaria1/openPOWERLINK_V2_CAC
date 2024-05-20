@@ -21,8 +21,16 @@ var opl_8cpp =
     [ "setValues_Out_MN", "opl_8cpp.html#ab19dffb79a3af5e336923b27bd441780", null ],
     [ "shutdownOplImage", "opl_8cpp.html#a85847c888fe35030de14eb5c3190336c", null ],
     [ "shutdownPowerlink", "opl_8cpp.html#aaf3f45fd8772392506e2cd143b46a455", null ],
+    [ "activated_In_MN_l", "opl_8cpp.html#a0e551e0042317a6798c4be989015e64b", null ],
+    [ "aMacAddr_l", "opl_8cpp.html#af33cb4a9ced83e8a564a44f95a7c740c", null ],
     [ "cmptEG", "opl_8cpp.html#a205c320e4549a490660d24878aca4d9e", null ],
+    [ "cnt_l", "opl_8cpp.html#ae0e41ea82741f096047404d89c71b4b1", null ],
+    [ "fGsOff_l", "opl_8cpp.html#a8f25e48b0b5122c1580e0728bcba0244", null ],
     [ "mode", "opl_8cpp.html#a2618e89b4c26dc851feae865df3a1a49", null ],
     [ "nbValuesCN_In", "opl_8cpp.html#a38621a01003975db3d4d97d7c7b5c874", null ],
-    [ "nbValuesCN_Out", "opl_8cpp.html#a8dd1817cec0b1c38e0b7eb2470855b25", null ]
+    [ "nbValuesCN_Out", "opl_8cpp.html#a8dd1817cec0b1c38e0b7eb2470855b25", null ],
+    [ "pProcessImageIn_l", "opl_8cpp.html#ad5746db5390826ccda7b61bc0d3c8af2", null ],
+    [ "pProcessImageOut_l", "opl_8cpp.html#a55f888b6071185bbddd12bc7c6edd372", null ],
+    [ "values_In_MN_l", "opl_8cpp.html#af4b594e09b0017400404bcf5415d116d", null ],
+    [ "values_Out_MN_l", "opl_8cpp.html#a2b050eb987e68b5cfcc0cc906a23d8b5", null ]
 ];

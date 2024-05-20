@@ -2,6 +2,8 @@
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.10.0" xml:lang="en-US">
   <compound refid="structdata_activation" kind="struct"><name>dataActivation</name>
   </compound>
+  <compound refid="structdata_e_g" kind="struct"><name>dataEG</name>
+  </compound>
   <compound refid="structdata_etats" kind="struct"><name>dataEtats</name>
   </compound>
   <compound refid="structdata_physical_config_sensors" kind="struct"><name>dataPhysicalConfigSensors</name>
@@ -36,13 +38,17 @@
     <member refid="struct_ligne_e_g_1a466c1a46947d19a6cb596d48f8726c92" kind="variable"><name>nom</name></member>
   </compound>
   <compound refid="struct_ligne_sensors" kind="struct"><name>LigneSensors</name>
-    <member refid="struct_ligne_sensors_1ac9c86088dd1113febf304c9da01a3cb3" kind="variable"><name>etatInitial</name></member>
-    <member refid="struct_ligne_sensors_1afd60eeb6d4029750e659fc029b261171" kind="variable"><name>minValue</name></member>
-    <member refid="struct_ligne_sensors_1a118149e0588323c79b8519d7a167f948" kind="variable"><name>maxValue</name></member>
+    <member refid="struct_ligne_sensors_1acd08584fa26b33d7fe6a457b8acf6c1d" kind="variable"><name>type</name></member>
+    <member refid="struct_ligne_sensors_1a98e8c6864249a7484da384c913c9ea94" kind="variable"><name>modbusAddrRemoteSlave</name></member>
+    <member refid="struct_ligne_sensors_1adc8f6947ec48d80236cd6dcd3ac67549" kind="variable"><name>modbusStartAddress</name></member>
+    <member refid="struct_ligne_sensors_1ab61ec429882cffad92537793daa1c2ca" kind="variable"><name>modbusBaudRate</name></member>
+    <member refid="struct_ligne_sensors_1ad0ee05deedbd75f69e8b5826d391347f" kind="variable"><name>modbusParity</name></member>
+    <member refid="struct_ligne_sensors_1a0f1c20c298cf84a63083b359a872094c" kind="variable"><name>modbusDataBits</name></member>
+    <member refid="struct_ligne_sensors_1a2f41df6d3b7bb2f8415a482948bd560e" kind="variable"><name>modbusStopBit</name></member>
   </compound>
   <compound refid="struct_ligne_vannes" kind="struct"><name>LigneVannes</name>
-    <member refid="struct_ligne_vannes_1a413b83e1e29442b6c79f508e70132b99" kind="variable"><name>etatInitial</name></member>
-    <member refid="struct_ligne_vannes_1ab74f4156992a1d50dc08493868258282" kind="variable"><name>portGPIO</name></member>
+    <member refid="struct_ligne_vannes_1afc9c8286c2e0a17637b3e74b9a9b0b0c" kind="variable"><name>etatInitial</name></member>
+    <member refid="struct_ligne_vannes_1adaaab73d539c5e27287fd42b1f5ca64e" kind="variable"><name>portGPIO</name></member>
   </compound>
   <compound refid="classopl" kind="class"><name>opl</name>
     <member refid="classopl_1a43a83ace00cba207a89cf65e3b995d7e" kind="function"><name>opl</name></member>
@@ -68,7 +74,7 @@
     <member refid="structt_options_1ad4dfda079fb51a7c23ff0321a2fc920e" kind="variable"><name>logFormat</name></member>
     <member refid="structt_options_1ac41ac397dd5398c735a7845a023e7877" kind="variable"><name>logLevel</name></member>
     <member refid="structt_options_1ac2d0a48a3d2ed344da01233e48372775" kind="variable"><name>logCategory</name></member>
-    <member refid="structt_options_1aa940aee04646184456749f832ccb80ee" kind="variable"><name>devName</name></member>
+    <member refid="structt_options_1a675c269016681a9bf07a16d975c20963" kind="variable"><name>devName</name></member>
   </compound>
   <compound refid="classvalve" kind="class"><name>valve</name>
     <member refid="classvalve_1af2362056385e00eb0477c7d57836572d" kind="function"><name>valve</name></member>
@@ -86,24 +92,25 @@
   </compound>
   <compound refid="config_define_8h" kind="file"><name>configDefine.h</name>
     <member refid="config_define_8h_1ac9ac8ba41c4385306791b6640b1d51dc" kind="define"><name>CYCLE_LEN</name></member>
-    <member refid="config_define_8h_1a6206026f72c671f64485c7be7f4288d2" kind="define"><name>NB_NODES</name></member>
     <member refid="config_define_8h_1a14b0a7da8cf3edbfec9630c2ec290148" kind="define"><name>IP_ADDR</name></member>
     <member refid="config_define_8h_1ab0092e2619bef8d5375800f507d3080c" kind="define"><name>DEFAULT_GATEWAY</name></member>
     <member refid="config_define_8h_1a2277cfa773d618a987524fc0590fe253" kind="define"><name>SUBNET_MASK</name></member>
     <member refid="config_define_8h_1a563cad7e347a704508920c0c59f74808" kind="define"><name>DEVNAME</name></member>
-    <member refid="config_define_8h_1a4e49face896c52c0f543cd14338d503d" kind="define"><name>COMPUTED_PI_OUT_SIZE</name></member>
     <member refid="config_define_8h_1ab5cbebecab98e4234ae1b2e5ff94ccbc" kind="define"><name>SIZE_OUT</name></member>
-    <member refid="config_define_8h_1a14557d5857db9a5a599b852033ce8de5" kind="define"><name>COMPUTED_PI_IN_SIZE</name></member>
     <member refid="config_define_8h_1ac072f7043a3fb31b4fc2d1bcb687c157" kind="define"><name>SIZE_IN</name></member>
+    <member refid="config_define_8h_1a4e49face896c52c0f543cd14338d503d" kind="define"><name>COMPUTED_PI_OUT_SIZE</name></member>
+    <member refid="config_define_8h_1a14557d5857db9a5a599b852033ce8de5" kind="define"><name>COMPUTED_PI_IN_SIZE</name></member>
     <member refid="config_define_8h_1a2e79cb96de76e27ba54960b579c9f530" kind="define"><name>IIOSYSPATH</name></member>
+    <member refid="config_define_8h_1a60a00eebde352da82280909d3b60a2e7" kind="define"><name>MODBUS_DEVICELOC</name></member>
+    <member refid="config_define_8h_1afa578deb5cc34a8d1a2c27d959ba68bf" kind="define"><name>MODBUS_NBREG</name></member>
     <member refid="config_define_8h_1aa3d1fc2927eec213e6b5f9e854c392d2" kind="define"><name>MAX_SENSORS</name></member>
+    <member refid="config_define_8h_1aec2426c8f9412cf841cdfd2a4b88a783" kind="define"><name>MAX_ADC</name></member>
     <member refid="config_define_8h_1a8538e713d830bd0982bbc0e185db5d05" kind="define"><name>ADC_READ_ERROR</name></member>
     <member refid="config_define_8h_1a9703a43ebf2d3b02efe3f13807bbd202" kind="define"><name>CHIP_PATH</name></member>
     <member refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" kind="define"><name>MAX_VALVES</name></member>
     <member refid="config_define_8h_1a9eb6992d76f02128388ae95c0415604a" kind="define"><name>MAX_PATH_LENGTH</name></member>
     <member refid="config_define_8h_1a706068f562dd5c64a8b7bbd4b2298dd1" kind="define"><name>MAX_LINE_SIZE</name></member>
     <member refid="config_define_8h_1a56d2ae7dc00f8f120314a9de4a9efcbe" kind="define"><name>MAX_PHYSICAL_LINE_SIZE</name></member>
-    <member refid="config_define_8h_1a3b94af9dcb0358f28d175d80eed98330" kind="define"><name>MAX_ROWS</name></member>
     <member refid="config_define_8h_1a61233d5f57b883028d50415837de9da1" kind="define"><name>STATE_CSV_DIRECTORY</name></member>
     <member refid="config_define_8h_1ab5026e01006a4457989b22c57cc98f02" kind="define"><name>PHYSICAL_CONFIG_VANNES_DIRECTORY</name></member>
     <member refid="config_define_8h_1adb2604b345fe7f2f732f29ff27f245ab" kind="define"><name>PHYSICAL_CONFIG_SENSORS_DIRECTORY</name></member>
@@ -137,10 +144,15 @@
     <member refid="csv_8h_1a8a1a11a2771226955ece875f170f2f0c" kind="function"><name>getDependanceVannes</name></member>
     <member refid="csv_8h_1a42f02acae60cc52772c5933fd490bac0" kind="function"><name>getTimerVannes</name></member>
     <member refid="csv_8h_1a06ba5d2bce46c751d895dbf5678036ae" kind="function"><name>getEtatInitialVannes</name></member>
-    <member refid="csv_8h_1a050486592cf733f404f0f5b0b6406272" kind="function"><name>getEtatInitialSensors</name></member>
     <member refid="csv_8h_1a208a08d00b78203d1aa620f641f0b9c9" kind="function"><name>getPortGPIO</name></member>
-    <member refid="csv_8h_1aaf462157030206acbd3f8ef56719914a" kind="function"><name>getMinValue</name></member>
-    <member refid="csv_8h_1a35dcea7747c07d8fb2fecdb75d30b86d" kind="function"><name>getMaxValue</name></member>
+    <member refid="csv_8h_1aef9ab8154afc84c92aa1ad1875286257" kind="function"><name>getSensorType</name></member>
+    <member refid="csv_8h_1af50249c502d41696db81f66102243725" kind="function"><name>getModbusAddrRemoteSlave</name></member>
+    <member refid="csv_8h_1a1a782f9afa439eff3d3e807e2149de16" kind="function"><name>getModbusStartAddress</name></member>
+    <member refid="csv_8h_1a2ad8c1b450a7a8b11739ad7c242ac542" kind="function"><name>getModbusNbRegisters</name></member>
+    <member refid="csv_8h_1a2029326f9ecfe8df759544bfbcdd93b9" kind="function"><name>getModbusBaudRate</name></member>
+    <member refid="csv_8h_1aa6a5195ce6685aec2a8e126bc67118e8" kind="function"><name>getModbusParity</name></member>
+    <member refid="csv_8h_1aefc2a7d71cf262dae1961f894ad59250" kind="function"><name>getModbusDataBits</name></member>
+    <member refid="csv_8h_1a7db02ded3c19f89ba4b3cde6585fd7e4" kind="function"><name>getModbusStopBit</name></member>
     <member refid="csv_8h_1a59b3cd375160ea778a774e62c7c64f7d" kind="function"><name>getActivation</name></member>
     <member refid="csv_8h_1a70bcd737e5a40f36e1cccaf3a7f63379" kind="function"><name>getEGcsv</name></member>
     <member refid="csv_8h_1a3020b0ac72052eacef78e25c399ce4a6" kind="function"><name>getNomFichiercsv</name></member>
@@ -155,15 +167,9 @@
   </compound>
   <compound refid="node_id_8h" kind="file"><name>nodeId.h</name>
     <member refid="node_id_8h_1a2f7945514ea8b2c7145cf68d47c96a08" kind="define"><name>NODEID</name></member>
+    <member refid="node_id_8h_1a6206026f72c671f64485c7be7f4288d2" kind="define"><name>NB_NODES</name></member>
   </compound>
   <compound refid="opl_8h" kind="file"><name>opl.h</name>
-    <member refid="opl_8h_1af33cb4a9ced83e8a564a44f95a7c740c" kind="variable"><name>aMacAddr_l</name></member>
-    <member refid="opl_8h_1a8f25e48b0b5122c1580e0728bcba0244" kind="variable"><name>fGsOff_l</name></member>
-    <member refid="opl_8h_1a322e5734aa46ee4be79084a6a1bd62ab" kind="variable"><name>pProcessImageIn_l</name></member>
-    <member refid="opl_8h_1a55f888b6071185bbddd12bc7c6edd372" kind="variable"><name>pProcessImageOut_l</name></member>
-    <member refid="opl_8h_1ada6913a92bdf309ad87fb42dc7be501d" kind="variable"><name>values_In_CN_l</name></member>
-    <member refid="opl_8h_1aa59e89f762bdbdf6cf15a756fd633b00" kind="variable"><name>values_Out_CN_l</name></member>
-    <member refid="opl_8h_1a16fd4c0216b92f54732e20dcd77fb18c" kind="variable"><name>activated_Out_CN_l</name></member>
     <member refid="opl_8h_1a063c1e70bcbeb72b1c2483b200839a85" kind="variable"><name>EG</name></member>
     <member refid="opl_8h_1aba40364eb56f2caf1d7528fd61b2e22e" kind="variable"><name>EC</name></member>
     <member refid="opl_8h_1a8dd1817cec0b1c38e0b7eb2470855b25" kind="variable"><name>nbValuesCN_Out</name></member>
@@ -191,10 +197,9 @@
     <member refid="opl_8h_1a7f68cfdc214d014a4d8676853a577e31" kind="function"><name>affValeursOut</name></member>
     <member refid="opl_8h_1aa1f5fd46ab8ace6894efe23293d8a9b8" kind="function"><name>getEG</name></member>
     <member refid="opl_8h_1af37cdd5c32789328a95994329b009c24" kind="function"><name>isEGchanged</name></member>
-    <member refid="opl_8h_1a3243cd2b508b2d5b1c59cacd70956e98" kind="function"><name>setEC1</name></member>
+    <member refid="opl_8h_1ae9b61003fe95b3102ea909630e17ba93" kind="function"><name>setEC</name></member>
   </compound>
   <compound refid="sensor_8h" kind="file"><name>sensor.h</name>
-    <member refid="sensor_8h_1af1a8dcdbb54fb5c1b49459cde87d1e75" kind="variable"><name>valSensors</name></member>
     <member refid="sensor_8h_1a084710571b3a23b14fe1bc00ef626f52" kind="function"><name>readChannels</name></member>
     <member refid="sensor_8h_1abf077aeb27cbf890c5006ed980d1c6f4" kind="function"><name>closeAdc</name></member>
     <member refid="sensor_8h_1ab4df458eba25efa399c8531f2417d648" kind="function"><name>readAdc</name></member>
@@ -212,6 +217,7 @@
     <member refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94acd2d81872afb7b452fdc7e9a11d13d79" kind="enumvalue"><name>infoStopOrderReceived</name></member>
     <member refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a7aa913f5c87b2f9c4bec8e180721e199" kind="enumvalue"><name>infoNoStopOrder</name></member>
     <member refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a2c3908b363a14d9a6d75acef16c66a44" kind="enumvalue"><name>infoModeSetToManual</name></member>
+    <member refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a123fe6d3e60b7489a599703203770d9f" kind="enumvalue"><name>infoEGsetToZero</name></member>
     <member refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a8b055c6b5a03623894e2735710fdfaca" kind="enumvalue"><name>infoShutdownOPL</name></member>
     <member refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a53171600fab70738553b593c6c3db77d" kind="enumvalue"><name>infoInitValve</name></member>
     <member refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a80338adb7be3d180e1333815812d274d" kind="enumvalue"><name>infoVerifDependSucess</name></member>
@@ -274,7 +280,7 @@
     <member refid="status_error_define_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911af2ff5ec687c78928f81c2842750e3f67" kind="enumvalue"><name>manual</name></member>
     <member refid="status_error_define_8h_1a8a5ff9e57db5d201dadd5d4dcacafd50" kind="enum"><name>stateDef</name></member>
     <member refid="status_error_define_8h_1a8a5ff9e57db5d201dadd5d4dcacafd50a2e804b7c8163d212e6231f5228f73ce9" kind="enumvalue"><name>init</name></member>
-    <member refid="status_error_define_8h_1a8a5ff9e57db5d201dadd5d4dcacafd50a5d8add8effb2a9964dbebfd27c9ddd31" kind="enumvalue"><name>control</name></member>
+    <member refid="status_error_define_8h_1a8a5ff9e57db5d201dadd5d4dcacafd50a373c041552bf3349d36d40032aebd826" kind="enumvalue"><name>controlAndAcquisition</name></member>
     <member refid="status_error_define_8h_1a8a5ff9e57db5d201dadd5d4dcacafd50a806a2e610a79f2c33cb4d122a0f0f877" kind="enumvalue"><name>shutdown</name></member>
     <member refid="status_error_define_8h_1a8a5ff9e57db5d201dadd5d4dcacafd50a6135603307626f48d62e2faa86a1d255" kind="enumvalue"><name>ending</name></member>
     <member refid="status_error_define_8h_1a2618e89b4c26dc851feae865df3a1a49" kind="variable"><name>mode</name></member>
@@ -310,10 +316,14 @@
     <member refid="csv_8cpp_1a8a1a11a2771226955ece875f170f2f0c" kind="function"><name>getDependanceVannes</name></member>
     <member refid="csv_8cpp_1a42f02acae60cc52772c5933fd490bac0" kind="function"><name>getTimerVannes</name></member>
     <member refid="csv_8cpp_1a06ba5d2bce46c751d895dbf5678036ae" kind="function"><name>getEtatInitialVannes</name></member>
-    <member refid="csv_8cpp_1a050486592cf733f404f0f5b0b6406272" kind="function"><name>getEtatInitialSensors</name></member>
     <member refid="csv_8cpp_1a208a08d00b78203d1aa620f641f0b9c9" kind="function"><name>getPortGPIO</name></member>
-    <member refid="csv_8cpp_1aaf462157030206acbd3f8ef56719914a" kind="function"><name>getMinValue</name></member>
-    <member refid="csv_8cpp_1a35dcea7747c07d8fb2fecdb75d30b86d" kind="function"><name>getMaxValue</name></member>
+    <member refid="csv_8cpp_1aef9ab8154afc84c92aa1ad1875286257" kind="function"><name>getSensorType</name></member>
+    <member refid="csv_8cpp_1af50249c502d41696db81f66102243725" kind="function"><name>getModbusAddrRemoteSlave</name></member>
+    <member refid="csv_8cpp_1a1a782f9afa439eff3d3e807e2149de16" kind="function"><name>getModbusStartAddress</name></member>
+    <member refid="csv_8cpp_1a2029326f9ecfe8df759544bfbcdd93b9" kind="function"><name>getModbusBaudRate</name></member>
+    <member refid="csv_8cpp_1aa6a5195ce6685aec2a8e126bc67118e8" kind="function"><name>getModbusParity</name></member>
+    <member refid="csv_8cpp_1aefc2a7d71cf262dae1961f894ad59250" kind="function"><name>getModbusDataBits</name></member>
+    <member refid="csv_8cpp_1a7db02ded3c19f89ba4b3cde6585fd7e4" kind="function"><name>getModbusStopBit</name></member>
     <member refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" kind="function"><name>getActivation</name></member>
     <member refid="csv_8cpp_1a70bcd737e5a40f36e1cccaf3a7f63379" kind="function"><name>getEGcsv</name></member>
     <member refid="csv_8cpp_1a3020b0ac72052eacef78e25c399ce4a6" kind="function"><name>getNomFichiercsv</name></member>
@@ -341,6 +351,13 @@
     <member refid="opl_8cpp_1a38621a01003975db3d4d97d7c7b5c874" kind="variable"><name>nbValuesCN_In</name></member>
     <member refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" kind="variable"><name>nbValuesCN_Out_ByCN</name></member>
     <member refid="opl_8cpp_1ae734e3ff803ba9ee9ce69f720764c48a" kind="variable"><name>nbValuesCN_In_ByCN</name></member>
+    <member refid="opl_8cpp_1af33cb4a9ced83e8a564a44f95a7c740c" kind="variable"><name>aMacAddr_l</name></member>
+    <member refid="opl_8cpp_1a8f25e48b0b5122c1580e0728bcba0244" kind="variable"><name>fGsOff_l</name></member>
+    <member refid="opl_8cpp_1a322e5734aa46ee4be79084a6a1bd62ab" kind="variable"><name>pProcessImageIn_l</name></member>
+    <member refid="opl_8cpp_1a55f888b6071185bbddd12bc7c6edd372" kind="variable"><name>pProcessImageOut_l</name></member>
+    <member refid="opl_8cpp_1ada6913a92bdf309ad87fb42dc7be501d" kind="variable"><name>values_In_CN_l</name></member>
+    <member refid="opl_8cpp_1aa59e89f762bdbdf6cf15a756fd633b00" kind="variable"><name>values_Out_CN_l</name></member>
+    <member refid="opl_8cpp_1a16fd4c0216b92f54732e20dcd77fb18c" kind="variable"><name>activated_Out_CN_l</name></member>
     <member refid="opl_8cpp_1a0e626359c6d8f3e0bc7e7c19c01fa820" kind="function"><name>affValeursIn</name></member>
     <member refid="opl_8cpp_1a7a60aa76d8b9af7a1930275e02aa2ab5" kind="function"><name>affValeursProcessIn</name></member>
     <member refid="opl_8cpp_1a7f68cfdc214d014a4d8676853a577e31" kind="function"><name>affValeursOut</name></member>
@@ -350,7 +367,7 @@
     <member refid="opl_8cpp_1a72f880ddaa32ea28cd0e12658c3e8d67" kind="function"><name>setActivated_Out_CN</name></member>
     <member refid="opl_8cpp_1aa1f5fd46ab8ace6894efe23293d8a9b8" kind="function"><name>getEG</name></member>
     <member refid="opl_8cpp_1af37cdd5c32789328a95994329b009c24" kind="function"><name>isEGchanged</name></member>
-    <member refid="opl_8cpp_1aac45ce4a2ea59483fa86582af2108aec" kind="function"><name>setEC1</name></member>
+    <member refid="opl_8cpp_1acf0a7eab36c0d4e61e865dbfca0fc575" kind="function"><name>setEC</name></member>
     <member refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" kind="function"><name>initOPL</name></member>
     <member refid="opl_8cpp_1a730d6cf41b1191a63dae8e8f789e47f0" kind="function"><name>initPowerlink</name></member>
     <member refid="opl_8cpp_1ac31969ba716dc382cc1e4c9fcf8f06cc" kind="function"><name>initOplThread</name></member>
@@ -365,12 +382,14 @@
     <member refid="opl_8cpp_1aaf3f45fd8772392506e2cd143b46a455" kind="function"><name>shutdownPowerlink</name></member>
   </compound>
   <compound refid="sensor_8cpp" kind="file"><name>sensor.cpp</name>
-    <member refid="sensor_8cpp_1a217e4b46670419e6c3665b3c9f96b7da" kind="variable"><name>opt</name></member>
-    <member refid="sensor_8cpp_1ae5d88649401f796b100a8ffb867b5507" kind="variable"><name>adc</name></member>
     <member refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" kind="variable"><name>i</name></member>
+    <member refid="sensor_8cpp_1a86cf672daa4e0ad11ad10efc894d19c8" kind="variable"><name>num</name></member>
     <member refid="sensor_8cpp_1a63a90bdf4459f383b471c5b6ddca9f4e" kind="variable"><name>tabSensorActivated</name></member>
     <member refid="sensor_8cpp_1a274d2ff8aab7251a1c26c919ae3694f7" kind="variable"><name>fd</name></member>
-    <member refid="sensor_8cpp_1a1f8a988f311c080db94c0185f9c81f77" kind="variable"><name>abort_read</name></member>
+    <member refid="sensor_8cpp_1af1a8dcdbb54fb5c1b49459cde87d1e75" kind="variable"><name>valSensors</name></member>
+    <member refid="sensor_8cpp_1abbcd977f5e414946647edf65cdeb74ce" kind="variable"><name>ctx</name></member>
+    <member refid="sensor_8cpp_1a00d425c5212b392df244df6c811bf1cd" kind="variable"><name>modbusReg</name></member>
+    <member refid="sensor_8cpp_1a598cc7808ae2f24d9e50a96acbffe018" kind="variable"><name>rs485Connected</name></member>
     <member refid="sensor_8cpp_1a95ae932c940a8d52f42f256155300708" kind="function"><name>getAdc_value</name></member>
     <member refid="sensor_8cpp_1a084710571b3a23b14fe1bc00ef626f52" kind="function"><name>readChannels</name></member>
     <member refid="sensor_8cpp_1abf077aeb27cbf890c5006ed980d1c6f4" kind="function"><name>closeAdc</name></member>

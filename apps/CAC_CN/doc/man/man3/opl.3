@@ -1,8 +1,9 @@
-.TH "opl" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.TH "opl" 3 "Version 1.2" "CAC main program" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-opl
+opl \- OpenPOWERLINK module class\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -32,17 +33,19 @@ opl
 .in -1c
 .SH "Detailed Description"
 .PP 
-Definition at line \fB125\fP of file \fBopl\&.h\fP\&.
+OpenPOWERLINK module class\&. 
+.PP
+Definition at line \fB129\fP of file \fBopl\&.h\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "opl::opl ()"
 
 .PP
-Definition at line \fB22\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB86\fP of file \fBopl\&.cpp\fP\&.
 .SS "opl::~opl ()"
 
 .PP
-Definition at line \fB27\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB91\fP of file \fBopl\&.cpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "\fBstatusErrDef\fP opl::demandeExtinctOPL ()"
@@ -57,7 +60,7 @@ statusErrDef infoStopOrderReceived if a stop order has been received or infoNoSt
 .PP
 
 .PP
-Definition at line \fB39\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB103\fP of file \fBopl\&.cpp\fP\&.
 .SS "void opl::sendError (int16_t errorCode)"
 
 .PP
@@ -70,7 +73,7 @@ function to send the current error code to the MN in the board state (EC) object
 .PP
 
 .PP
-Definition at line \fB65\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB129\fP of file \fBopl\&.cpp\fP\&.
 .SS "void opl::sendTelem (int16_t statusCode)"
 
 .PP
@@ -83,8 +86,8 @@ function to send the current status code to the MN in the board state (EC) objec
 .PP
 
 .PP
-Definition at line \fB54\fP of file \fBopl\&.cpp\fP\&.
+Definition at line \fB118\fP of file \fBopl\&.cpp\fP\&.
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for CAC_CN from the source code\&.
+Generated automatically by Doxygen for CAC main program from the source code\&.

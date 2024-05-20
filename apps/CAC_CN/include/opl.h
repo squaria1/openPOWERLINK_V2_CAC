@@ -1,3 +1,14 @@
+/**
+ * \file opl.h
+ * \brief header file of the OpenPOWERLINK module that communicates with the master board using OpenPOWERLINK
+ * \author Mael Parot
+ * \version 1.2
+ * \date 11/04/2024
+ *
+ * Contains all functions definitions related to communicating with the master board
+ * using OpenPOWERLINK, transfer sensors, valves values and recieve orders from the master.
+ */
+
 #ifndef OPL_H
 #define OPL_H
 
@@ -44,13 +55,18 @@ extern "C"
 {
 #endif
 
+    /**
+     * \struct tOptions
+     * \brief the OpenPOWERLINK initialization parameters
+     * 
+     */
     typedef struct
     {
-        UINT32          nodeId;
-        tEventlogFormat logFormat;
-        UINT32          logLevel;
-        UINT32          logCategory;
-        char            devName[128];
+        UINT32          nodeId;             /**< the CN number taken from the NODEID define in 'nodeId.h' */
+        tEventlogFormat logFormat;          /**< the OpenPOWERLINK log format (see OpenPOWERLINK doc) */
+        UINT32          logLevel;           /**< the OpenPOWERLINK log level (see OpenPOWERLINK doc) */
+        UINT32          logCategory;        /**< the OpenPOWERLINK log category (see OpenPOWERLINK doc) */
+        char            devName[200];       /**< the network card device name from the DEVNAME define in 'configDefine.h' */
     } tOptions;
 
     statusErrDef        initPowerlink(UINT32 cycleLen_p,
@@ -74,7 +90,6 @@ extern "C"
                                     UINT8 subIndex);
     statusErrDef        initOPL();
     statusErrDef        extinctOPL();
-    //void              setValues_In_CN(int ligne);
     int16_t             getValues_In_CN(int ligne);
     void                setValues_Out_CN();
     int16_t             getValues_Out_CN(int ligne);
@@ -101,12 +116,16 @@ extern "C"
 
     int16_t                  getEG();
     statusErrDef             isEGchanged();
-    void                     setEC1(int16_t EC1);
+    void                     setEC(int16_t EC1);
 
 #ifdef __cplusplus
 }
 #endif
 
+/**
+ * \brief OpenPOWERLINK module class.
+ * 
+ */
 class opl
 {
     public:

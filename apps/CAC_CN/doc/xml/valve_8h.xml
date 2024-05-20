@@ -45,21 +45,21 @@
         <childnode refid="10" relation="include">
         </childnode>
       </node>
-      <node id="12">
+      <node id="13">
         <label>eventOpl.h</label>
         <link refid="event_opl_8h"/>
-        <childnode refid="13" relation="include">
-        </childnode>
         <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="17">
+      <node id="12">
         <label>nodeId.h</label>
         <link refid="node_id_8h"/>
       </node>
@@ -68,11 +68,11 @@
         <link refid="opl_8h"/>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
@@ -82,9 +82,9 @@
         </childnode>
         <childnode refid="1" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
         <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="25" relation="include">
         </childnode>
@@ -100,9 +100,9 @@
         </childnode>
         <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
         <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
         </childnode>
         <childnode refid="30" relation="include">
         </childnode>
@@ -186,8 +186,10 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
       </node>
-      <node id="15">
+      <node id="16">
         <label>console/console.h</label>
       </node>
       <node id="33">
@@ -199,7 +201,7 @@
       <node id="20">
         <label>errno.h</label>
       </node>
-      <node id="16">
+      <node id="17">
         <label>eventlog/eventlog.h</label>
       </node>
       <node id="19">
@@ -229,10 +231,10 @@
       <node id="29">
         <label>obdcreate/obdcreate.h</label>
       </node>
-      <node id="14">
+      <node id="15">
         <label>oplk/debugstr.h</label>
       </node>
-      <node id="13">
+      <node id="14">
         <label>oplk/oplk.h</label>
       </node>
       <node id="22">
@@ -351,14 +353,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="52" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="446" bodyend="455" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" declline="52" declcolumn="9"/>
-        <references refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" compoundref="csv_8cpp" startline="587" endline="590">getActivation</references>
-        <references refid="csv_8cpp_1ab23dd7339a925518cc7ccb9c8ff617c9" compoundref="csv_8cpp" startline="487" endline="490">getValeur</references>
-        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
-        <references refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" compoundref="config_define_8h" startline="26">MAX_VALVES</references>
-        <references refid="opl_8cpp_1ae734e3ff803ba9ee9ce69f720764c48a" compoundref="opl_8cpp" startline="20">nbValuesCN_In_ByCN</references>
-        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
-        <references refid="valve_8cpp_1a96860d8272d2d5ef1b46f17e271042da" compoundref="valve_8cpp" startline="24">values</references>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="67" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="464" bodyend="473" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" declline="67" declcolumn="9"/>
+        <references refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" compoundref="csv_8cpp" startline="692" endline="695">getActivation</references>
+        <references refid="csv_8cpp_1ab23dd7339a925518cc7ccb9c8ff617c9" compoundref="csv_8cpp" startline="539" endline="542">getValeur</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="17">i</references>
+        <references refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" compoundref="config_define_8h" startline="90">MAX_VALVES</references>
+        <references refid="opl_8cpp_1ae734e3ff803ba9ee9ce69f720764c48a" compoundref="opl_8cpp" startline="46">nbValuesCN_In_ByCN</references>
+        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="42">nbValuesCN_Out_ByCN</references>
+        <references refid="valve_8cpp_1a96860d8272d2d5ef1b46f17e271042da" compoundref="valve_8cpp" startline="32">values</references>
       </memberdef>
       <memberdef kind="function" id="valve_8h_1ad4e5b817af0b9501d2a6e6deb0c89445" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
@@ -376,17 +378,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="53" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="465" bodyend="481" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" declline="53" declcolumn="14"/>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a49c48509a2e506bb1cdbf57f6638dbe2" compoundref="status_error_define_8h" startline="79">errGetValveInitValue</references>
-        <references refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" compoundref="csv_8cpp" startline="587" endline="590">getActivation</references>
-        <references refid="csv_8cpp_1a06ba5d2bce46c751d895dbf5678036ae" compoundref="csv_8cpp" startline="532" endline="535">getEtatInitialVannes</references>
-        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
-        <references refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" compoundref="config_define_8h" startline="26">MAX_VALVES</references>
-        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
-        <references refid="valve_8cpp_1a96860d8272d2d5ef1b46f17e271042da" compoundref="valve_8cpp" startline="24">values</references>
-        <referencedby refid="classvalve_1a3db8975d7c2cc46b33fd65e683e8c6df" compoundref="valve_8cpp" startline="413" endline="438">valve::extinctValve</referencedby>
-        <referencedby refid="classvalve_1a86e16a5cc95d9bec4ee8eec6722760fe" compoundref="valve_8cpp" startline="55" endline="106">valve::initValve</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="68" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="483" bodyend="499" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" declline="68" declcolumn="14"/>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a49c48509a2e506bb1cdbf57f6638dbe2" compoundref="status_error_define_8h" startline="96">errGetValveInitValue</references>
+        <references refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" compoundref="csv_8cpp" startline="692" endline="695">getActivation</references>
+        <references refid="csv_8cpp_1a06ba5d2bce46c751d895dbf5678036ae" compoundref="csv_8cpp" startline="584" endline="587">getEtatInitialVannes</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="17">i</references>
+        <references refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" compoundref="config_define_8h" startline="90">MAX_VALVES</references>
+        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="42">nbValuesCN_Out_ByCN</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="22">noError</references>
+        <references refid="valve_8cpp_1a96860d8272d2d5ef1b46f17e271042da" compoundref="valve_8cpp" startline="32">values</references>
+        <referencedby refid="classvalve_1a3db8975d7c2cc46b33fd65e683e8c6df" compoundref="valve_8cpp" startline="431" endline="456">valve::extinctValve</referencedby>
+        <referencedby refid="classvalve_1a86e16a5cc95d9bec4ee8eec6722760fe" compoundref="valve_8cpp" startline="73" endline="124">valve::initValve</referencedby>
       </memberdef>
       <memberdef kind="function" id="valve_8h_1acd6fee6c4a2ab256a33ff4bc2c6ef745" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int16_t</type>
@@ -417,10 +419,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="54" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="491" bodyend="498" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" declline="54" declcolumn="9"/>
-        <references refid="csv_8cpp_1ab23dd7339a925518cc7ccb9c8ff617c9" compoundref="csv_8cpp" startline="487" endline="490">getValeur</references>
-        <references refid="opl_8cpp_1a38621a01003975db3d4d97d7c7b5c874" compoundref="opl_8cpp" startline="18">nbValuesCN_In</references>
-        <referencedby refid="opl_8cpp_1aee2f3fe4573dcc68e0ead2380eb83317" compoundref="opl_8cpp" startline="132" endline="142">setValues_Out_CN</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="69" column="9" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="509" bodyend="516" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" declline="69" declcolumn="9"/>
+        <references refid="csv_8cpp_1ab23dd7339a925518cc7ccb9c8ff617c9" compoundref="csv_8cpp" startline="539" endline="542">getValeur</references>
+        <references refid="opl_8cpp_1a38621a01003975db3d4d97d7c7b5c874" compoundref="opl_8cpp" startline="38">nbValuesCN_In</references>
+        <referencedby refid="opl_8cpp_1aee2f3fe4573dcc68e0ead2380eb83317" compoundref="opl_8cpp" startline="196" endline="210">setValues_Out_CN</referencedby>
       </memberdef>
       <memberdef kind="function" id="valve_8h_1ad6ff3dc82333091b53b2fbdc3ef5842e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
@@ -437,78 +439,91 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="55" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="507" bodyend="518" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" declline="55" declcolumn="14"/>
-        <references refid="valve_8cpp_1a718c1d403150a0052fdc750073ecede8" compoundref="valve_8cpp" startline="28">currentTime</references>
-        <references refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" compoundref="csv_8cpp" startline="587" endline="590">getActivation</references>
-        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="14">i</references>
-        <references refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" compoundref="config_define_8h" startline="26">MAX_VALVES</references>
-        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="19">nbValuesCN_Out_ByCN</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
-        <references refid="valve_8cpp_1af18a1c02404999c7ccfe789b84c4a817" compoundref="valve_8cpp" startline="30">timerStarted</references>
-        <referencedby refid="opl_8cpp_1af37cdd5c32789328a95994329b009c24" compoundref="opl_8cpp" startline="188" endline="207">isEGchanged</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" line="70" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/valve.cpp" bodystart="525" bodyend="536" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h" declline="70" declcolumn="14"/>
+        <references refid="valve_8cpp_1a718c1d403150a0052fdc750073ecede8" compoundref="valve_8cpp" startline="45">currentTime</references>
+        <references refid="csv_8cpp_1a59b3cd375160ea778a774e62c7c64f7d" compoundref="csv_8cpp" startline="692" endline="695">getActivation</references>
+        <references refid="sensor_8cpp_1acb559820d9ca11295b4500f179ef6392" compoundref="sensor_8cpp" startline="17">i</references>
+        <references refid="config_define_8h_1abcc3ea803cac2ea690fac3f5ceb23211" compoundref="config_define_8h" startline="90">MAX_VALVES</references>
+        <references refid="opl_8cpp_1afbb7865bc950120040f337a3631fc921" compoundref="opl_8cpp" startline="42">nbValuesCN_Out_ByCN</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="22">noError</references>
+        <references refid="valve_8cpp_1af18a1c02404999c7ccfe789b84c4a817" compoundref="valve_8cpp" startline="49">timerStarted</references>
+        <referencedby refid="opl_8cpp_1af37cdd5c32789328a95994329b009c24" compoundref="opl_8cpp" startline="256" endline="280">isEGchanged</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>
+<para>header file of the valve module that controls the valves of the CAC Board </para>
     </briefdescription>
     <detaileddescription>
+<para><simplesect kind="author"><para>Mael Parot </para>
+</simplesect>
+<simplesect kind="version"><para>1.2 </para>
+</simplesect>
+<simplesect kind="date"><para>11/04/2024</para>
+</simplesect>
+Contains all functions definitions related to controling valves with the gpiod library. </para>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>VALVES_H</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VALVES_H</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="csv_8h" kindref="compound">csv.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="config_define_8h" kindref="compound">configDefine.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="status_error_define_8h" kindref="compound">statusErrorDefine.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fcntl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;errno.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;time.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/types.h&gt;</highlight><highlight class="normal"><sp/></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;signal.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="sensor_8h" kindref="compound">sensor.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdlib&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;filesystem&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>(TARGET_SYSTEM<sp/>==<sp/>_WIN32_)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gpiod.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29" refid="classvalve" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classvalve" kindref="compound">valve</ref></highlight></codeline>
-<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classvalve_1af2362056385e00eb0477c7d57836572d" kindref="member">valve</ref>();</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classvalve_1ad13f3b2288a13ef68ff1b5bdb87077c2" kindref="member">~valve</ref>();</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="classvalve_1a86e16a5cc95d9bec4ee8eec6722760fe" kindref="member">initValve</ref>();</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="classvalve_1a82140bbfd1329eea0100b8359cc9ebc2" kindref="member">actionnementValvesInit</ref>();</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="classvalve_1aac2cd5441d1c1a1180e18af2468a4547" kindref="member">actionnementValve</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>valveNum);</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="classvalve_1a1364f1770f8218d7a0077ca2a953371b" kindref="member">verifDependanceValves</ref>();</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="classvalve_1ae69c309265ce0269e0207043fb6b06ca" kindref="member">isDependanceActive</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><ref refid="classvalve_1a17fdfe4c2fe56901e25e94f7af0a0a86" kindref="member">startTimerDependance</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><ref refid="classvalve_1a5dae9e8165e79289e59e2426f9d75d29" kindref="member">isTimerExeeded</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="classvalve_1a3db8975d7c2cc46b33fd65e683e8c6df" kindref="member">extinctValve</ref>();</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="46"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><ref refid="valve_8h_1add60b51091e6e3c9653ed8400895e3a1" kindref="member">setValvesValue</ref>();</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="valve_8h_1ad4e5b817af0b9501d2a6e6deb0c89445" kindref="member">getValvesInitValue</ref>();</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><ref refid="valve_8h_1acd6fee6c4a2ab256a33ff4bc2c6ef745" kindref="member">getValveValue</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index);</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="valve_8h_1ad6ff3dc82333091b53b2fbdc3ef5842e" kindref="member">resetTimers</ref>();</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1"></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>VALVES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VALVES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>includes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="csv_8h" kindref="compound">csv.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="config_define_8h" kindref="compound">configDefine.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="status_error_define_8h" kindref="compound">statusErrorDefine.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fcntl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;errno.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;time.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/types.h&gt;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;signal.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="sensor_8h" kindref="compound">sensor.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdlib&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;filesystem&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>(TARGET_SYSTEM<sp/>==<sp/>_WIN32_)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gpiod.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="classvalve" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classvalve" kindref="compound">valve</ref></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classvalve_1af2362056385e00eb0477c7d57836572d" kindref="member">valve</ref>();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classvalve_1ad13f3b2288a13ef68ff1b5bdb87077c2" kindref="member">~valve</ref>();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="classvalve_1a86e16a5cc95d9bec4ee8eec6722760fe" kindref="member">initValve</ref>();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="classvalve_1a82140bbfd1329eea0100b8359cc9ebc2" kindref="member">actionnementValvesInit</ref>();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="classvalve_1aac2cd5441d1c1a1180e18af2468a4547" kindref="member">actionnementValve</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>valveNum);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="classvalve_1a1364f1770f8218d7a0077ca2a953371b" kindref="member">verifDependanceValves</ref>();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="classvalve_1ae69c309265ce0269e0207043fb6b06ca" kindref="member">isDependanceActive</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><ref refid="classvalve_1a17fdfe4c2fe56901e25e94f7af0a0a86" kindref="member">startTimerDependance</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><ref refid="classvalve_1a5dae9e8165e79289e59e2426f9d75d29" kindref="member">isTimerExeeded</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="classvalve_1a3db8975d7c2cc46b33fd65e683e8c6df" kindref="member">extinctValve</ref>();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="59"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>VALVES_H</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><ref refid="valve_8h_1add60b51091e6e3c9653ed8400895e3a1" kindref="member">setValvesValue</ref>();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="valve_8h_1ad4e5b817af0b9501d2a6e6deb0c89445" kindref="member">getValvesInitValue</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><ref refid="valve_8h_1acd6fee6c4a2ab256a33ff4bc2c6ef745" kindref="member">getValveValue</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref><sp/><ref refid="valve_8h_1ad6ff3dc82333091b53b2fbdc3ef5842e" kindref="member">resetTimers</ref>();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>VALVES_H</highlight></codeline>
     </programlisting>
     <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h"/>
   </compounddef>

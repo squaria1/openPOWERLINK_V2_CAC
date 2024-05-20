@@ -1,8 +1,9 @@
-.TH "LigneVannes" 3 "Version 1.1" "CAC_CN" \" -*- nroff -*-
+.TH "LigneVannes" 3 "Version 1.2" "CAC main program" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-LigneVannes
+LigneVannes \- struct containing values taken from 'physicalCONFIG_valves\&.csv' such as the initial values, GPIO ports of each valves\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -12,26 +13,28 @@ LigneVannes
 
 .in +1c
 .ti -1c
-.RI "uint8_t \fBetatInitial\fP [\fBMAX_PHYSICAL_LINE_SIZE\fP]"
+.RI "uint8_t \fBetatInitial\fP [2 *\fBMAX_VALVES\fP]"
 .br
 .ti -1c
-.RI "uint8_t \fBportGPIO\fP [\fBMAX_PHYSICAL_LINE_SIZE\fP]"
+.RI "uint8_t \fBportGPIO\fP [2 *\fBMAX_VALVES\fP]"
 .br
 .in -1c
 .SH "Detailed Description"
 .PP 
-Definition at line \fB29\fP of file \fBcsv\&.h\fP\&.
+struct containing values taken from 'physicalCONFIG_valves\&.csv' such as the initial values, GPIO ports of each valves\&. 
+.PP
+Definition at line \fB56\fP of file \fBcsv\&.h\fP\&.
 .SH "Member Data Documentation"
 .PP 
-.SS "uint8_t LigneVannes::etatInitial[\fBMAX_PHYSICAL_LINE_SIZE\fP]"
-
+.SS "uint8_t LigneVannes::etatInitial[2 *\fBMAX_VALVES\fP]"
+the initial value of a valve 
 .PP
-Definition at line \fB30\fP of file \fBcsv\&.h\fP\&.
-.SS "uint8_t LigneVannes::portGPIO[\fBMAX_PHYSICAL_LINE_SIZE\fP]"
-
+Definition at line \fB57\fP of file \fBcsv\&.h\fP\&.
+.SS "uint8_t LigneVannes::portGPIO[2 *\fBMAX_VALVES\fP]"
+the GPIO port associated with the valve 
 .PP
-Definition at line \fB31\fP of file \fBcsv\&.h\fP\&.
+Definition at line \fB58\fP of file \fBcsv\&.h\fP\&.
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for CAC_CN from the source code\&.
+Generated automatically by Doxygen for CAC main program from the source code\&.

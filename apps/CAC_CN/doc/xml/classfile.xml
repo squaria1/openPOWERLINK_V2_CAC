@@ -11,14 +11,15 @@
         <name>pathFile</name>
         <qualifiedname>file::pathFile</qualifiedname>
         <briefdescription>
+<para>path to the telemetry file </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="35" column="12" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" bodystart="35" bodyend="-1"/>
-        <referencedby refid="classfile_1ac0354d5b8c38714c335bed66f1a5368c" compoundref="file_8cpp" startline="32" endline="82">initFile</referencedby>
-        <referencedby refid="classfile_1a5eabb45d2518c4ad1391be6d5205cfdf" compoundref="file_8cpp" startline="185" endline="199">openFile</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="52" column="12" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" bodystart="52" bodyend="-1"/>
+        <referencedby refid="classfile_1ac0354d5b8c38714c335bed66f1a5368c" compoundref="file_8cpp" startline="37" endline="78">initFile</referencedby>
+        <referencedby refid="classfile_1a5eabb45d2518c4ad1391be6d5205cfdf" compoundref="file_8cpp" startline="184" endline="198">openFile</referencedby>
       </memberdef>
       <memberdef kind="variable" id="classfile_1a60c20221b3650d600b0e10c300a66faa" prot="private" static="no" mutable="no">
         <type>ofstream</type>
@@ -27,17 +28,18 @@
         <name>dataFile</name>
         <qualifiedname>file::dataFile</qualifiedname>
         <briefdescription>
+<para>telemetry file object </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="36" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" bodystart="36" bodyend="-1"/>
-        <referencedby refid="classfile_1a86ce3c36d7e87f24600c8755d8601e7c" compoundref="file_8cpp" startline="208" endline="221">closeFile</referencedby>
-        <referencedby refid="classfile_1a5eabb45d2518c4ad1391be6d5205cfdf" compoundref="file_8cpp" startline="185" endline="199">openFile</referencedby>
-        <referencedby refid="classfile_1af0da4dcb7aa1111b0858eca8efc1ec30" compoundref="file_8cpp" startline="91" endline="103">testWriteFile</referencedby>
-        <referencedby refid="classfile_1af8c8b22309c8efd3fb87a567a74c16b5" compoundref="file_8cpp" startline="149" endline="176">writeError</referencedby>
-        <referencedby refid="classfile_1a873fcc71c11302b9e65f54f165cc1236" compoundref="file_8cpp" startline="112" endline="140">writeTelem</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="56" column="14" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" bodystart="56" bodyend="-1"/>
+        <referencedby refid="classfile_1a86ce3c36d7e87f24600c8755d8601e7c" compoundref="file_8cpp" startline="207" endline="220">closeFile</referencedby>
+        <referencedby refid="classfile_1a5eabb45d2518c4ad1391be6d5205cfdf" compoundref="file_8cpp" startline="184" endline="198">openFile</referencedby>
+        <referencedby refid="classfile_1af0da4dcb7aa1111b0858eca8efc1ec30" compoundref="file_8cpp" startline="87" endline="99">testWriteFile</referencedby>
+        <referencedby refid="classfile_1af8c8b22309c8efd3fb87a567a74c16b5" compoundref="file_8cpp" startline="146" endline="175">writeError</referencedby>
+        <referencedby refid="classfile_1a873fcc71c11302b9e65f54f165cc1236" compoundref="file_8cpp" startline="108" endline="137">writeTelem</referencedby>
       </memberdef>
       <memberdef kind="variable" id="classfile_1a32d4e3f75b05cec4881a282bf92617cd" prot="private" static="no" mutable="no">
         <type>string</type>
@@ -46,13 +48,14 @@
         <name>nameFiles</name>
         <qualifiedname>file::nameFiles</qualifiedname>
         <briefdescription>
+<para>name of the telemetry file </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="37" column="12" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" bodystart="37" bodyend="-1"/>
-        <referencedby refid="classfile_1ac0354d5b8c38714c335bed66f1a5368c" compoundref="file_8cpp" startline="32" endline="82">initFile</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="60" column="12" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" bodystart="60" bodyend="-1"/>
+        <referencedby refid="classfile_1ac0354d5b8c38714c335bed66f1a5368c" compoundref="file_8cpp" startline="37" endline="78">initFile</referencedby>
       </memberdef>
       <memberdef kind="variable" id="classfile_1a3bca228e2cfb8cd254e4770f8d1f058b" prot="private" static="no" mutable="no">
         <type>string</type>
@@ -61,13 +64,14 @@
         <name>year_month_day</name>
         <qualifiedname>file::year_month_day</qualifiedname>
         <briefdescription>
+<para>current year, month and day </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="38" column="12" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" bodystart="38" bodyend="-1"/>
-        <referencedby refid="classfile_1ac0354d5b8c38714c335bed66f1a5368c" compoundref="file_8cpp" startline="32" endline="82">initFile</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="64" column="12" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" bodystart="64" bodyend="-1"/>
+        <referencedby refid="classfile_1ac0354d5b8c38714c335bed66f1a5368c" compoundref="file_8cpp" startline="37" endline="78">initFile</referencedby>
       </memberdef>
       <memberdef kind="variable" id="classfile_1abcaf2953711c9b12908a0858523b1265" prot="private" static="no" mutable="no">
         <type>string</type>
@@ -76,13 +80,14 @@
         <name>hour_minute_second</name>
         <qualifiedname>file::hour_minute_second</qualifiedname>
         <briefdescription>
+<para>current hour, minute and second </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="39" column="12" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" bodystart="39" bodyend="-1"/>
-        <referencedby refid="classfile_1ac0354d5b8c38714c335bed66f1a5368c" compoundref="file_8cpp" startline="32" endline="82">initFile</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="68" column="12" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" bodystart="68" bodyend="-1"/>
+        <referencedby refid="classfile_1ac0354d5b8c38714c335bed66f1a5368c" compoundref="file_8cpp" startline="37" endline="78">initFile</referencedby>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -98,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="22" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/file.cpp" bodystart="14" bodyend="17"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="36" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/file.cpp" bodystart="14" bodyend="22"/>
       </memberdef>
       <memberdef kind="function" id="classfile_1a7174566303bcda6dc7d47cc0997c8c42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -112,7 +117,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="23" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/file.cpp" bodystart="19" bodyend="22"/>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="37" column="5" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/file.cpp" bodystart="24" bodyend="27"/>
       </memberdef>
       <memberdef kind="function" id="classfile_1ac0354d5b8c38714c335bed66f1a5368c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
@@ -130,15 +135,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="25" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/file.cpp" bodystart="32" bodyend="82"/>
-        <references refid="classfile_1abcaf2953711c9b12908a0858523b1265" compoundref="file_8h" startline="39">hour_minute_second</references>
-        <references refid="classfile_1a32d4e3f75b05cec4881a282bf92617cd" compoundref="file_8h" startline="37">nameFiles</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
-        <references refid="classfile_1a5eabb45d2518c4ad1391be6d5205cfdf" compoundref="file_8cpp" startline="185" endline="199">openFile</references>
-        <references refid="classfile_1a483afd9f96538c51735fb686edd2cc25" compoundref="file_8h" startline="35">pathFile</references>
-        <references refid="config_define_8h_1aeead33868b09a953457fd5235525bd39" compoundref="config_define_8h" startline="49">TELEMFILES_DIRECTORY</references>
-        <references refid="classfile_1a3bca228e2cfb8cd254e4770f8d1f058b" compoundref="file_8h" startline="38">year_month_day</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="39" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/file.cpp" bodystart="37" bodyend="78"/>
+        <references refid="classfile_1abcaf2953711c9b12908a0858523b1265" compoundref="file_8h" startline="68">hour_minute_second</references>
+        <references refid="classfile_1a32d4e3f75b05cec4881a282bf92617cd" compoundref="file_8h" startline="60">nameFiles</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="22">noError</references>
+        <references refid="classfile_1a5eabb45d2518c4ad1391be6d5205cfdf" compoundref="file_8cpp" startline="184" endline="198">openFile</references>
+        <references refid="classfile_1a483afd9f96538c51735fb686edd2cc25" compoundref="file_8h" startline="52">pathFile</references>
+        <references refid="config_define_8h_1aeead33868b09a953457fd5235525bd39" compoundref="config_define_8h" startline="124">TELEMFILES_DIRECTORY</references>
+        <references refid="classfile_1a3bca228e2cfb8cd254e4770f8d1f058b" compoundref="file_8h" startline="64">year_month_day</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="216">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="classfile_1af0da4dcb7aa1111b0858eca8efc1ec30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
@@ -156,11 +161,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="26" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/file.cpp" bodystart="91" bodyend="103"/>
-        <references refid="classfile_1a60c20221b3650d600b0e10c300a66faa" compoundref="file_8h" startline="36">dataFile</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ad8e0328b57f4daa9a6a29519f1d8558a" compoundref="status_error_define_8h" startline="43">errTestWriteFile</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="40" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/file.cpp" bodystart="87" bodyend="99"/>
+        <references refid="classfile_1a60c20221b3650d600b0e10c300a66faa" compoundref="file_8h" startline="56">dataFile</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ad8e0328b57f4daa9a6a29519f1d8558a" compoundref="status_error_define_8h" startline="60">errTestWriteFile</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="22">noError</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="216">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="classfile_1a5eabb45d2518c4ad1391be6d5205cfdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
@@ -178,12 +183,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="27" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/file.cpp" bodystart="185" bodyend="199"/>
-        <references refid="classfile_1a60c20221b3650d600b0e10c300a66faa" compoundref="file_8h" startline="36">dataFile</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ae7bf9a86fbf981c6e4caf5912790bd4a" compoundref="status_error_define_8h" startline="42">errOpenTelemFile</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
-        <references refid="classfile_1a483afd9f96538c51735fb686edd2cc25" compoundref="file_8h" startline="35">pathFile</references>
-        <referencedby refid="classfile_1ac0354d5b8c38714c335bed66f1a5368c" compoundref="file_8cpp" startline="32" endline="82">initFile</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="41" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/file.cpp" bodystart="184" bodyend="198"/>
+        <references refid="classfile_1a60c20221b3650d600b0e10c300a66faa" compoundref="file_8h" startline="56">dataFile</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ae7bf9a86fbf981c6e4caf5912790bd4a" compoundref="status_error_define_8h" startline="59">errOpenTelemFile</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="22">noError</references>
+        <references refid="classfile_1a483afd9f96538c51735fb686edd2cc25" compoundref="file_8h" startline="52">pathFile</references>
+        <referencedby refid="classfile_1ac0354d5b8c38714c335bed66f1a5368c" compoundref="file_8cpp" startline="37" endline="78">initFile</referencedby>
       </memberdef>
       <memberdef kind="function" id="classfile_1a86ce3c36d7e87f24600c8755d8601e7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94" kindref="member">statusErrDef</ref></type>
@@ -201,11 +206,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="28" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/file.cpp" bodystart="208" bodyend="221"/>
-        <references refid="classfile_1a60c20221b3650d600b0e10c300a66faa" compoundref="file_8h" startline="36">dataFile</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a2a9edd04aaa6fed4564c1a9018a287f5" compoundref="status_error_define_8h" startline="44">errCloseTelemFile</references>
-        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="6">noError</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="42" column="18" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/file.cpp" bodystart="207" bodyend="220"/>
+        <references refid="classfile_1a60c20221b3650d600b0e10c300a66faa" compoundref="file_8h" startline="56">dataFile</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94a2a9edd04aaa6fed4564c1a9018a287f5" compoundref="status_error_define_8h" startline="61">errCloseTelemFile</references>
+        <references refid="status_error_define_8h_1adf0c44f8de9b8e78b0e56caacfa1ac94ab22416d928134d1c6c7b2e8d2c31f20b" compoundref="status_error_define_8h" startline="22">noError</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="216">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="classfile_1a873fcc71c11302b9e65f54f165cc1236" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -219,15 +224,11 @@
         </param>
         <param>
           <type>...</type>
-          <defname>...</defname>
-          <briefdescription><para>ajouter uniquement : uint16_t codeSuccess </para>
-</briefdescription>
         </param>
         <briefdescription>
-<para>ajouter uniquement : uint16_t codeSuccess </para>
+<para>function to write status telemetry into the telemetry file. </para>
         </briefdescription>
         <detaileddescription>
-<para>function to write status telemetry into the telemetry file.</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>fmt_p</parametername>
@@ -249,10 +250,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="29" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/file.cpp" bodystart="112" bodyend="140"/>
-        <references refid="classfile_1a60c20221b3650d600b0e10c300a66faa" compoundref="file_8h" startline="36">dataFile</references>
-        <references refid="config_define_8h_1a33e0ce62bb48bae39a3086aa66f18abf" compoundref="config_define_8h" startline="53">EVENTLOG_MAX_LENGTH</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="43" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/file.cpp" bodystart="108" bodyend="137"/>
+        <references refid="classfile_1a60c20221b3650d600b0e10c300a66faa" compoundref="file_8h" startline="56">dataFile</references>
+        <references refid="config_define_8h_1a33e0ce62bb48bae39a3086aa66f18abf" compoundref="config_define_8h" startline="131">EVENTLOG_MAX_LENGTH</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="216">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="classfile_1af8c8b22309c8efd3fb87a567a74c16b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -267,15 +268,11 @@
         </param>
         <param>
           <type>...</type>
-          <defname>...</defname>
-          <briefdescription><para>ajouter uniquement : uint16_t codeError </para>
-</briefdescription>
         </param>
         <briefdescription>
-<para>ajouter uniquement : uint16_t codeError </para>
+<para>function to write error telemetry into the telemetry file. </para>
         </briefdescription>
         <detaileddescription>
-<para>function to write error telemetry into the telemetry file.</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>fmt_p</parametername>
@@ -297,10 +294,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="30" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/file.cpp" bodystart="149" bodyend="176"/>
-        <references refid="classfile_1a60c20221b3650d600b0e10c300a66faa" compoundref="file_8h" startline="36">dataFile</references>
-        <references refid="config_define_8h_1a33e0ce62bb48bae39a3086aa66f18abf" compoundref="config_define_8h" startline="53">EVENTLOG_MAX_LENGTH</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="240">main</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="44" column="10" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/file.cpp" bodystart="146" bodyend="175"/>
+        <references refid="classfile_1a60c20221b3650d600b0e10c300a66faa" compoundref="file_8h" startline="56">dataFile</references>
+        <references refid="config_define_8h_1a33e0ce62bb48bae39a3086aa66f18abf" compoundref="config_define_8h" startline="131">EVENTLOG_MAX_LENGTH</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="25" endline="216">main</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -308,7 +305,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="19" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" bodystart="20" bodyend="40"/>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" line="33" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/file.h" bodystart="34" bodyend="69"/>
     <listofallmembers>
       <member refid="classfile_1a86ce3c36d7e87f24600c8755d8601e7c" prot="public" virt="non-virtual"><scope>file</scope><name>closeFile</name></member>
       <member refid="classfile_1a60c20221b3650d600b0e10c300a66faa" prot="private" virt="non-virtual"><scope>file</scope><name>dataFile</name></member>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CAC_CN: C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h File Reference</title>
+<title>CAC main program: C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/valve.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">CAC_CN<span id="projectnumber">&#160;1.1</span>
+   <div id="projectname">CAC main program<span id="projectnumber">&#160;1.2</span>
    </div>
    <div id="projectbrief">The main program for acquisition and control boards.</div>
   </td>
@@ -99,6 +99,9 @@ $(function(){initNavTree('valve_8h.html',''); initResizable(); });
   <div class="headertitle"><div class="title">valve.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>header file of the valve module that controls the valves of the CAC Board  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="csv_8h_source.html">csv.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="config_define_8h_source.html">configDefine.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="status_error_define_8h_source.html">statusErrorDefine.h</a>&quot;</code><br />
@@ -138,7 +141,15 @@ Functions</h2></td></tr>
 <tr class="memdesc:ad6ff3dc82333091b53b2fbdc3ef5842e"><td class="mdescLeft">&#160;</td><td class="mdescRight">function to reset the timers after the activation of all the valves.  <br /></td></tr>
 <tr class="separator:ad6ff3dc82333091b53b2fbdc3ef5842e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>header file of the valve module that controls the valves of the CAC Board </p>
+<dl class="section author"><dt>Author</dt><dd>Mael Parot </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.2 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>11/04/2024</dd></dl>
+<p>Contains all functions definitions related to controling valves with the gpiod library. </p>
+
+<p class="definition">Definition in file <a class="el" href="valve_8h_source.html">valve.h</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="ad4e5b817af0b9501d2a6e6deb0c89445" name="ad4e5b817af0b9501d2a6e6deb0c89445"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad4e5b817af0b9501d2a6e6deb0c89445">&#9670;&#160;</a></span>getValvesInitValue()</h2>
 
@@ -158,7 +169,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values errGetValveInitValue when the getter of the initial values fails or noError when the function exits successfully. <br  />
  </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00465">465</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00483">483</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -186,7 +197,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the value of the valve </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00491">491</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00509">509</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -208,7 +219,7 @@ Functions</h2></td></tr>
 <p>function to reset the timers after the activation of all the valves. </p>
 <dl class="section return"><dt>Returns</dt><dd>statusErrDef that values noError when the function exits successfully. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00507">507</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00525">525</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>
@@ -230,7 +241,7 @@ Functions</h2></td></tr>
 <p>function setter of the valve values from a general state CSV file. </p>
 <dl class="section return"><dt>Returns</dt><dd>0 if the valves are set successfully </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00446">446</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="valve_8cpp_source.html#l00464">464</a> of file <a class="el" href="valve_8cpp_source.html">valve.cpp</a>.</p>
 
 </div>
 </div>

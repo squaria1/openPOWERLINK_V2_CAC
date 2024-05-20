@@ -163,9 +163,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/eventOpl.h" line="69" column="17" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/eventOpl.c" bodystart="112" bodyend="115" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/eventOpl.h" declline="69" declcolumn="17"/>
-        <references refid="event_opl_8c_1af1a8110ff93ea225db12eeb7512fff71" compoundref="event_opl_8c" startline="64">pfGsOff_l</references>
-        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="248" endline="302">initOPL</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/eventOpl.h" line="69" column="17" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/eventOpl.c" bodystart="110" bodyend="113" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/eventOpl.h" declline="69" declcolumn="17"/>
+        <references refid="event_opl_8c_1af1a8110ff93ea225db12eeb7512fff71" compoundref="event_opl_8c" startline="63">pfGsOff_l</references>
+        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="321" endline="384">initOPL</referencedby>
       </memberdef>
       <memberdef kind="function" id="event_opl_8h_1ad6f574bee28d3a8f66b5885f365a8df2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>tOplkError</type>
@@ -220,11 +220,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/eventOpl.h" line="70" column="17" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/eventOpl.c" bodystart="132" bodyend="158" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/eventOpl.h" declline="70" declcolumn="17"/>
-        <references refid="event_opl_8c_1a471f0e4af307e5efc3d9e210cbd55bf3" compoundref="event_opl_8c" startline="235" endline="246">processErrorWarningEvent</references>
-        <references refid="event_opl_8c_1aa2cf6c59fdc9a28d59a00bc8787eec9d" compoundref="event_opl_8c" startline="261" endline="295">processPdoChangeEvent</references>
-        <references refid="event_opl_8c_1a0e1b53cf0cea4698362f22fa97c0ceb4" compoundref="event_opl_8c" startline="178" endline="221">processStateChangeEvent</references>
-        <referencedby refid="opl_8cpp_1a730d6cf41b1191a63dae8e8f789e47f0" compoundref="opl_8cpp" startline="325" endline="444">initPowerlink</referencedby>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/eventOpl.h" line="70" column="17" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/src/eventOpl.c" bodystart="129" bodyend="155" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/CAC_CN/include/eventOpl.h" declline="70" declcolumn="17"/>
+        <references refid="event_opl_8c_1a471f0e4af307e5efc3d9e210cbd55bf3" compoundref="event_opl_8c" startline="232" endline="243">processErrorWarningEvent</references>
+        <references refid="event_opl_8c_1aa2cf6c59fdc9a28d59a00bc8787eec9d" compoundref="event_opl_8c" startline="258" endline="292">processPdoChangeEvent</references>
+        <references refid="event_opl_8c_1a0e1b53cf0cea4698362f22fa97c0ceb4" compoundref="event_opl_8c" startline="175" endline="218">processStateChangeEvent</references>
+        <referencedby refid="opl_8cpp_1a730d6cf41b1191a63dae8e8f789e47f0" compoundref="opl_8cpp" startline="407" endline="527">initPowerlink</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>

@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "CAC_MN", "index.html", [
+  [ "OpenPOWERLINK MN application for CAC boards", "index.html", [
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -51,7 +51,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"structdata_activation.html"
+"struct_ligne_e_g.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
