@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_d44c64559bbebec7f509842c48db8b23" kind="dir">
+    <compoundname>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include</compoundname>
+    <innerfile refid="config_define_8h">configDefine.h</innerfile>
+    <innerfile refid="csv_8h">csv.h</innerfile>
+    <innerfile refid="event_opl_8h">eventOpl.h</innerfile>
+    <innerfile refid="file_8h">file.h</innerfile>
+    <innerfile refid="nb_nodes_8h">nbNodes.h</innerfile>
+    <innerfile refid="opl_8h">opl.h</innerfile>
+    <innerfile refid="status_error_define_8h">statusErrorDefine.h</innerfile>
+    <innerfile refid="xap_opl_8h">xapOpl.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/"/>
+  </compounddef>
+</doxygen>

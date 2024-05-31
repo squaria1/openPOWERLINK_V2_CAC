@@ -24,6 +24,7 @@
 #include "csv.h"
 #include "sensor.h"
 #include "valve.h"
+#include "file.h"
 
 #include <oplk/oplk.h>
 #include <oplk/debugstr.h>
@@ -38,10 +39,13 @@
 
 #if (TARGET_SYSTEM == _WIN32_)
 #include <getopt/getopt.h>
+#include <windows.h>
 #else
 #include <unistd.h>
+#include <time.h>
+#include <signal.h>
+#include <pthread.h>
 #endif
-
 #include <console/console.h>
 #include <eventlog/eventlog.h>
 #include <netselect/netselect.h>
@@ -110,13 +114,14 @@ extern "C"
     extern const uint16_t       nbValuesCN_Out_ByCN;
     extern const uint16_t       nbValuesCN_In_ByCN;
 
+
     //------------------------------------------------------------------------------
     // local function prototypes
     //------------------------------------------------------------------------------
 
     int16_t                  getEG();
     statusErrDef             isEGchanged();
-    void                     setEC(int16_t EC1);
+    void                     setEC(int16_t EC1); 
 
 #ifdef __cplusplus
 }

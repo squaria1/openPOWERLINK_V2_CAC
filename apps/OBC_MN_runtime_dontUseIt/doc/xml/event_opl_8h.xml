@@ -1,0 +1,287 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="event_opl_8h" kind="file" language="C++">
+    <compoundname>eventOpl.h</compoundname>
+    <includes local="no">oplk/oplk.h</includes>
+    <includes local="no">oplk/debugstr.h</includes>
+    <includes local="no">console/console.h</includes>
+    <includes local="no">eventlog/eventlog.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includedby refid="file_8h" local="yes">C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/file.h</includedby>
+    <includedby refid="opl_8h" local="yes">C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h</includedby>
+    <includedby refid="event_opl_8c" local="yes">C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/eventOpl.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h</label>
+        <link refid="event_opl_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>console/console.h</label>
+      </node>
+      <node id="5">
+        <label>eventlog/eventlog.h</label>
+      </node>
+      <node id="3">
+        <label>oplk/debugstr.h</label>
+      </node>
+      <node id="2">
+        <label>oplk/oplk.h</label>
+      </node>
+      <node id="6">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="6">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/csv.h</label>
+        <link refid="csv_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h</label>
+        <link refid="event_opl_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/file.h</label>
+        <link refid="file_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/opl.h</label>
+        <link refid="opl_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/csv.cpp</label>
+        <link refid="csv_8cpp"/>
+      </node>
+      <node id="9">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/eventOpl.c</label>
+        <link refid="event_opl_8c"/>
+      </node>
+      <node id="3">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/file.cpp</label>
+        <link refid="file_8cpp"/>
+      </node>
+      <node id="4">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="8">
+        <label>C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/opl.cpp</label>
+        <link refid="opl_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structt_event_config" prot="public">tEventConfig</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="event_opl_8h_1a708072d52104add21873311bb5ad111a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initEvents</definition>
+        <argsstring>(const tEventConfig *config)</argsstring>
+        <name>initEvents</name>
+        <param>
+          <type>const <ref refid="structt_event_config" kindref="compound">tEventConfig</ref> *</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Initialize applications event module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The function initializes the applications event module</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pfGsOff_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to GsOff flag (determines if the stack is down) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h" line="77" column="13" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/eventOpl.c" bodystart="124" bodyend="127" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h" declline="77" declcolumn="13"/>
+        <references refid="event_opl_8c_1a2e48e96f9ffa5ddea61959e3d669faa3" compoundref="event_opl_8c" startline="85">instance_l</references>
+        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="284" endline="370">initOPL</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="event_opl_8h_1ad6f574bee28d3a8f66b5885f365a8df2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>tOplkError</type>
+        <definition>tOplkError processEvents</definition>
+        <argsstring>(tOplkApiEventType eventType_p, const tOplkApiEventArg *pEventArg_p, void *pUserArg_p)</argsstring>
+        <name>processEvents</name>
+        <param>
+          <type>tOplkApiEventType</type>
+          <declname>eventType_p</declname>
+        </param>
+        <param>
+          <type>const tOplkApiEventArg *</type>
+          <declname>pEventArg_p</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>pUserArg_p</declname>
+        </param>
+        <briefdescription>
+<para>Process openPOWERLINK events. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The function implements the application&apos;s stack event handler.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">eventType_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of event </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pEventArg_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to union which describes the event in detail </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pUserArg_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User specific argument</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The function returns a tOplkError error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h" line="78" column="13" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/src/eventOpl.c" bodystart="144" bodyend="192" declfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h" declline="78" declcolumn="13"/>
+        <references refid="event_opl_8c_1a13fef295b7a62c0e26742595dfd94169" compoundref="event_opl_8c" startline="430" endline="438">processCfmProgressEvent</references>
+        <references refid="event_opl_8c_1a792464ce63a26909ff7debda8399930d" compoundref="event_opl_8c" startline="452" endline="478">processCfmResultEvent</references>
+        <references refid="event_opl_8c_1a471f0e4af307e5efc3d9e210cbd55bf3" compoundref="event_opl_8c" startline="277" endline="288">processErrorWarningEvent</references>
+        <references refid="event_opl_8c_1a4779cb6285a203e5b0d37a4fddf64e2b" compoundref="event_opl_8c" startline="480" endline="514">processFirmwareManagerEvents</references>
+        <references refid="event_opl_8c_1acc03f0f0fe044e1215cf0fb7dd5dbfab" compoundref="event_opl_8c" startline="302" endline="310">processHistoryEvent</references>
+        <references refid="event_opl_8c_1ab8eee0c0c8ef3b470b89c2f03151622f" compoundref="event_opl_8c" startline="324" endline="365">processNodeEvent</references>
+        <references refid="event_opl_8c_1aa2cf6c59fdc9a28d59a00bc8787eec9d" compoundref="event_opl_8c" startline="379" endline="416">processPdoChangeEvent</references>
+        <references refid="event_opl_8c_1a0e1b53cf0cea4698362f22fa97c0ceb4" compoundref="event_opl_8c" startline="212" endline="263">processStateChangeEvent</references>
+        <referencedby refid="opl_8cpp_1a79db23e985d7f28a067c6a822761b5f9" compoundref="opl_8cpp" startline="434" endline="559">initPowerlink</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Definitions of the MN demo event handler. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The file contains the definitions for the MN demo event handler. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">/*------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">Copyright<sp/>(c)<sp/>2016,<sp/>B&amp;R<sp/>Industrial<sp/>Automation<sp/>GmbH</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">Copyright<sp/>(c)<sp/>2013,<sp/>SYSTEC<sp/>electronic<sp/>GmbH</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">Copyright<sp/>(c)<sp/>2013,<sp/>Kalycito<sp/>Infotech<sp/>Private<sp/>Ltd.All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment">Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holders<sp/>nor<sp/>the</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>names<sp/>of<sp/>its<sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>derived<sp/>from<sp/>this<sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"></highlight></codeline>
+<codeline lineno="27"><highlight class="comment">THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;<sp/>AND</highlight></codeline>
+<codeline lineno="28"><highlight class="comment">ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE<sp/>IMPLIED</highlight></codeline>
+<codeline lineno="29"><highlight class="comment">WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>ARE</highlight></codeline>
+<codeline lineno="30"><highlight class="comment">DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY</highlight></codeline>
+<codeline lineno="31"><highlight class="comment">DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES</highlight></codeline>
+<codeline lineno="32"><highlight class="comment">(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;</highlight></codeline>
+<codeline lineno="33"><highlight class="comment">LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND</highlight></codeline>
+<codeline lineno="34"><highlight class="comment">ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT</highlight></codeline>
+<codeline lineno="35"><highlight class="comment">(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS</highlight></codeline>
+<codeline lineno="36"><highlight class="comment">SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="37"><highlight class="comment">------------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_INC_demo_event_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_INC_demo_event_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>includes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;oplk/oplk.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;oplk/debugstr.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;console/console.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eventlog/eventlog.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/>const<sp/>defines</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">//<sp/>typedef</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="structt_event_config" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65" refid="structt_event_config_1a5baa11deb2b8d39e42178a4a72100292" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>BOOL*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structt_event_config_1a5baa11deb2b8d39e42178a4a72100292" kindref="member">pfGsOff</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66" refid="structt_event_config_1a210224e651107b9afb21698ad40d9ad0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>tOplkApiCbEvent<sp/><ref refid="structt_event_config_1a210224e651107b9afb21698ad40d9ad0" kindref="member">pfnFirmwareManagerCallback</ref>;<sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}<sp/><ref refid="structt_event_config" kindref="compound">tEventConfig</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment">//<sp/>function<sp/>prototypes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="event_opl_8h_1a708072d52104add21873311bb5ad111a" kindref="member">initEvents</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structt_event_config" kindref="compound">tEventConfig</ref>*<sp/>config);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">tOplkError<sp/><sp/><ref refid="event_opl_8h_1ad6f574bee28d3a8f66b5885f365a8df2" kindref="member">processEvents</ref>(tOplkApiEventType<sp/>eventType_p,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>tOplkApiEventArg*<sp/>pEventArg_p,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pUserArg_p);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>_INC_demo_event_H_<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h"/>
+  </compounddef>
+</doxygen>

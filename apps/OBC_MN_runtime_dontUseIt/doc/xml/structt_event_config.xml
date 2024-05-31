@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structt_event_config" kind="struct" language="C++" prot="public">
+    <compoundname>tEventConfig</compoundname>
+    <includes refid="event_opl_8h" local="no">eventOpl.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structt_event_config_1a5baa11deb2b8d39e42178a4a72100292" prot="public" static="no" mutable="no">
+        <type>BOOL *</type>
+        <definition>BOOL* tEventConfig::pfGsOff</definition>
+        <argsstring></argsstring>
+        <name>pfGsOff</name>
+        <qualifiedname>tEventConfig::pfGsOff</qualifiedname>
+        <briefdescription>
+<para>Pointer to GsOff flag (determines if the stack is down) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h" line="65" column="20" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h" bodystart="65" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="284" endline="370">initOPL</referencedby>
+        <referencedby refid="event_opl_8c_1a0e1b53cf0cea4698362f22fa97c0ceb4" compoundref="event_opl_8c" startline="212" endline="263">processStateChangeEvent</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structt_event_config_1a210224e651107b9afb21698ad40d9ad0" prot="public" static="no" mutable="no">
+        <type>tOplkApiCbEvent</type>
+        <definition>tOplkApiCbEvent tEventConfig::pfnFirmwareManagerCallback</definition>
+        <argsstring></argsstring>
+        <name>pfnFirmwareManagerCallback</name>
+        <qualifiedname>tEventConfig::pfnFirmwareManagerCallback</qualifiedname>
+        <briefdescription>
+<para>Callback function to firmware manager. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h" line="66" column="21" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h" bodystart="66" bodyend="-1"/>
+        <referencedby refid="opl_8cpp_1a670c5cd6fdf306df596560ec23f0cd2f" compoundref="opl_8cpp" startline="284" endline="370">initOPL</referencedby>
+        <referencedby refid="event_opl_8c_1a4779cb6285a203e5b0d37a4fddf64e2b" compoundref="event_opl_8c" startline="480" endline="514">processFirmwareManagerEvents</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Event configuration. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h" line="63" column="1" bodyfile="C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h" bodystart="64" bodyend="67"/>
+    <listofallmembers>
+      <member refid="structt_event_config_1a5baa11deb2b8d39e42178a4a72100292" prot="public" virt="non-virtual"><scope>tEventConfig</scope><name>pfGsOff</name></member>
+      <member refid="structt_event_config_1a210224e651107b9afb21698ad40d9ad0" prot="public" virt="non-virtual"><scope>tEventConfig</scope><name>pfnFirmwareManagerCallback</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

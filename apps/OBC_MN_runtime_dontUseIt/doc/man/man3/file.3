@@ -1,0 +1,204 @@
+.TH "file" 3 "Version 1.2" "OpenPOWERLINK MN application for CAC boards" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+file \- file module class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <file\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfile\fP ()"
+.br
+.ti -1c
+.RI "\fB~file\fP ()"
+.br
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBinitFile\fP ()"
+.br
+.RI "function to create the telemetry file and name it after the current date and time "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBtestWriteFile\fP ()"
+.br
+.RI "function to test if we can write in the telemetry file "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBopenFile\fP ()"
+.br
+.RI "function to open the telemetry file "
+.ti -1c
+.RI "\fBstatusErrDef\fP \fBcloseFile\fP ()"
+.br
+.RI "function to close the telemetry file "
+.ti -1c
+.RI "void \fBwriteTelem\fP (const char *fmt_p,\&.\&.\&.)"
+.br
+.RI "function to write status telemetry into the telemetry file\&. "
+.ti -1c
+.RI "void \fBwriteError\fP (const char *fmt_p='code_Error:0x%08X',\&.\&.\&.)"
+.br
+.RI "function to write error telemetry into the telemetry file\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "string \fBpathFile\fP"
+.br
+.RI "path to the telemetry file "
+.ti -1c
+.RI "ofstream \fBdataFile\fP"
+.br
+.RI "telemetry file object "
+.ti -1c
+.RI "string \fBnameFiles\fP"
+.br
+.RI "name of the telemetry file "
+.ti -1c
+.RI "string \fByear_month_day\fP"
+.br
+.RI "current year, month and day "
+.ti -1c
+.RI "string \fBhour_minute_second\fP"
+.br
+.RI "current hour, minute and second "
+.in -1c
+.SH "Detailed Description"
+.PP 
+file module class\&. 
+.PP
+Definition at line \fB33\fP of file \fBfile\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "file::file ()"
+
+.PP
+Definition at line \fB14\fP of file \fBfile\&.cpp\fP\&.
+.SS "file::~file ()"
+
+.PP
+Definition at line \fB24\fP of file \fBfile\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBstatusErrDef\fP file::closeFile ()"
+
+.PP
+function to close the telemetry file 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errCloseTelemFile when the file close fails\&. or noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB208\fP of file \fBfile\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP file::initFile ()"
+
+.PP
+function to create the telemetry file and name it after the current date and time 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errOpenTelemFile when the file creation and opening fails\&. or noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB37\fP of file \fBfile\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP file::openFile ()"
+
+.PP
+function to open the telemetry file 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errOpenTelemFile when the file open fails\&. or noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB185\fP of file \fBfile\&.cpp\fP\&.
+.SS "\fBstatusErrDef\fP file::testWriteFile ()"
+
+.PP
+function to test if we can write in the telemetry file 
+.PP
+\fBReturns\fP
+.RS 4
+statusErrDef that values errTestWriteFile when the file write fails\&. or noError when the function exits successfully\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB87\fP of file \fBfile\&.cpp\fP\&.
+.SS "void file::writeError (const char * fmt_p = \fR'code_Error:0x%08X'\fP,  \&.\&.\&.)"
+
+.PP
+function to write error telemetry into the telemetry file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfmt_p\fP formated string about the error 
+.br
+\fI\&.\&.\&.\fP other parameters such as the error code 
+.RE
+.PP
+
+.PP
+Definition at line \fB147\fP of file \fBfile\&.cpp\fP\&.
+.SS "void file::writeTelem (const char * fmt_p,  \&.\&.\&.)"
+
+.PP
+function to write status telemetry into the telemetry file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfmt_p\fP formated string about the status 
+.br
+\fI\&.\&.\&.\fP other parameters such as the success code 
+.RE
+.PP
+
+.PP
+Definition at line \fB108\fP of file \fBfile\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "ofstream file::dataFile\fR [private]\fP"
+
+.PP
+telemetry file object 
+.PP
+Definition at line \fB56\fP of file \fBfile\&.h\fP\&.
+.SS "string file::hour_minute_second\fR [private]\fP"
+
+.PP
+current hour, minute and second 
+.PP
+Definition at line \fB68\fP of file \fBfile\&.h\fP\&.
+.SS "string file::nameFiles\fR [private]\fP"
+
+.PP
+name of the telemetry file 
+.PP
+Definition at line \fB60\fP of file \fBfile\&.h\fP\&.
+.SS "string file::pathFile\fR [private]\fP"
+
+.PP
+path to the telemetry file 
+.PP
+Definition at line \fB52\fP of file \fBfile\&.h\fP\&.
+.SS "string file::year_month_day\fR [private]\fP"
+
+.PP
+current year, month and day 
+.PP
+Definition at line \fB64\fP of file \fBfile\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OpenPOWERLINK MN application for CAC boards from the source code\&.

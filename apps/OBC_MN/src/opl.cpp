@@ -633,6 +633,7 @@ tOplkError processSync(void)
 {
     tOplkError  ret;
 
+
     //Wait for the OpenPOWERLINK cycle to start
     ret = oplk_waitSyncEvent(100000);
     if (ret != kErrorOk)

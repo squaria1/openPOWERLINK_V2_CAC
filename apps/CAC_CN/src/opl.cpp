@@ -290,6 +290,7 @@ void setEC(int16_t EC)
 }
 
 
+
 //------------------------------------------------------------------------------
 // OpenPOWERLINK stack and module functions
 //------------------------------------------------------------------------------
@@ -601,11 +602,9 @@ tOplkError processSync()
 {
     tOplkError  res = kErrorOk;
     valve valve;
-
     //Wait for the OpenPOWERLINK cycle to start
     if (oplk_waitSyncEvent(100000) != kErrorOk)
         return res;
-
     //Receive OpenPOWERLINK RPDOs values
     res = oplk_exchangeProcessImageOut();
     if (res != kErrorOk)
@@ -635,36 +634,6 @@ tOplkError processSync()
         break;
     }
 
-    //Important : the valve dependance verification and the sensor reading 
-    //is called here to trigger valves for every CAC boards (every CNs) at the same time
-    #if (TARGET_SYSTEM == _WIN32_)
-    #else
-    if (EG != 0)
-    {
-        res = valve.verifDependanceValves();
-        //if (res == noError)
-        //{
-        //    file.writeTelem("Verification of valve dependances has succeeded", infoVerifDependSucess);
-        //    opl.sendTelem(infoVerifDependSucess);
-        //}
-        //else
-        //{
-        //    file.writeError("Verification of valve dependances has failed!", res);
-        //    opl.sendError(res);
-        //}
-        res = readChannels();
-        //if (res == noError)
-        //{
-        //    file.writeTelem("Reading sensor channels has succeeded", infoReadChannels);
-        //    opl.sendTelem(infoReadChannels);
-        //}
-        //else
-        //{
-        //    file.writeError("Reading sensor channels has failed!", res);
-        //    opl.sendError(res);
-        //}
-    }
-    #endif
 
     //Process PI_OUT --> variables sortant du CN
     setValues_Out_CN();

@@ -30,11 +30,16 @@ int main() {
     sensor          sensor;
     char            cKey = 0;
     statusErrDef    res = noError;
+    tOplkError      ret = kErrorOk;
+    tOplkApiSocTimeInfo pTimeInfo_p;
+    int valTimerSoc = 0;
+    int valPrevTimerSoc = 0;
 
     
     while(state != ending){
         switch(state){
             case init: // Initialisation
+
                 res = file.initFile();
                 if (res == noError)
                     printf("TelemFile OK\n");
@@ -86,7 +91,6 @@ int main() {
                 }
                 #endif
 
-                system_msleep(DELAYMSINIT);
 
                 res = opl.demandeExtinctOPL();
                 if(res == noError)
@@ -94,12 +98,111 @@ int main() {
                 else
                 {
                     state = controlAndAcquisition;
-
                     file.writeTelem("CAC is going into state control and acquisition", infoStateToControl);
                     opl.sendTelem(infoStateToControl);
                 }
+
+                system_msleep(DELAYMSINIT);
                 break;
             case controlAndAcquisition: // Acquisition et controle
+
+                #if (TARGET_SYSTEM == _WIN32_)
+                res = opl.demandeExtinctOPL();
+                if (res == infoStopOrderReceived)
+                    state = shutdown;
+
+                res = checkStateOpl();
+                if (res != noError)
+                {
+                    file.writeError("OpenPOWERLINK has failed!", res);
+                    opl.sendError(res);
+                    if (res == errSystemSendTerminate)
+                        state = shutdown;
+                }
+
+                ret = oplk_process();
+
+                if (ret != kErrorOk)
+                    printf("ret : 0x%04X\n", ret);
+
+                system_msleep(DELAYMSWIN);
+
+                #else
+
+                //Get the Soc time of the OpenPOWERLINK cycle
+                ret = oplk_getSocTime(&pTimeInfo_p);
+                if (ret != kErrorOk)
+                    printf("ret : 0x%04X\n", ret);
+
+                valTimerSoc = pTimeInfo_p.netTime.nsec;
+
+                //Important : the valve dependance verification and the sensor reading 
+                //is called here to trigger valves for every CAC boards (every CNs) at the same time
+                if (valTimerSoc != valPrevTimerSoc) {
+                    valPrevTimerSoc = valTimerSoc;
+                    res = isEGchanged();
+                    if (res == noError)
+                    {
+                        res = refreshCSV();
+                        if (res == noError)
+                        {
+                            file.writeTelem("CSV has been changed", infoCSVChanged);
+                            opl.sendTelem(infoCSVChanged);
+                        }
+                        else
+                        {
+                            file.writeError("CSV has failed to change with the new EG!", res);
+                            opl.sendError(res);
+                        }
+                    }
+                    else if (res == infoModeSetToManual)
+                    {
+                        printf("Mode set to manual valve activation from MN.\n");
+                        file.writeTelem("Mode set to manual valve activation from MN", res);
+                        opl.sendTelem(res);
+                    }
+                    if (EG != 0)
+                    {
+                        res = valve.verifDependanceValves();
+                        //if (res == noError)
+                        //{
+                        //    file.writeTelem("Verification of valve dependances has succeeded", infoVerifDependSucess);
+                        //    opl.sendTelem(infoVerifDependSucess);
+                        //}
+                        //else
+                        //{
+                        //    file.writeError("Verification of valve dependances has failed!", res);
+                        //    opl.sendError(res);
+                        //}
+                        res = readChannels();
+                        //if (res == noError)
+                        //{
+                        //    file.writeTelem("Reading sensor channels has succeeded", infoReadChannels);
+                        //    opl.sendTelem(infoReadChannels);
+                        //}
+                        //else
+                        //{
+                        //    file.writeError("Reading sensor channels has failed!", res);
+                        //    opl.sendError(res);
+                        //}
+                    }
+
+                    res = opl.demandeExtinctOPL();
+                    if (res == infoStopOrderReceived)
+                        state = shutdown;
+
+                    res = checkStateOpl();
+                    if (res != noError)
+                    {
+                        file.writeError("OpenPOWERLINK has failed!", res);
+                        opl.sendError(res);
+                        if (res == errSystemSendTerminate)
+                            state = shutdown;
+                    }
+                }
+
+                usleep(DELAYUSLINUX);
+                #endif
                 if (console_kbhit())
                 {
                     cKey = (char)console_getch();
@@ -122,42 +225,6 @@ int main() {
                         break;
                     }
                 }
-                res = isEGchanged();
-                if (res == noError)
-                {
-                    res = refreshCSV();
-                    if (res == noError)
-                    {
-                        file.writeTelem("CSV has been changed", infoCSVChanged);
-                        opl.sendTelem(infoCSVChanged);
-                    }
-                    else
-                    {
-                        file.writeError("CSV has failed to change with the new EG!", res);
-                        opl.sendError(res);
-                    }
-                }
-                else if (res == infoModeSetToManual)
-                {
-                    printf("Mode set to manual valve activation from MN.\n");
-                    file.writeTelem("Mode set to manual valve activation from MN", res);
-                    opl.sendTelem(res);
-                }
-
-                res = opl.demandeExtinctOPL();
-                if(res == infoStopOrderReceived)
-                    state = shutdown;
-                
-                res = checkStateOpl();
-                if (res != noError)
-                {
-                    file.writeError("OpenPOWERLINK has failed!", res);
-                    opl.sendError(res);
-                    if (res == errSystemSendTerminate)
-                        state = shutdown;
-                }
-
-                system_msleep(DELAYMSCONTROL);
                 break;
             case shutdown: // Extinction
                 file.writeTelem("CAC is going into shutdown state", infoStateToShutdown);

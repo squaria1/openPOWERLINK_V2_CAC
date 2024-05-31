@@ -1,13 +1,13 @@
 ﻿Carte;Capteur;Type;Modbus remote slave address;Modbus start address; Modbus baud rate; Modbus parity; Modbus Data bits; Modbus Stop bit
-CACMO;sensorCH0;1;#;#;#;#;#;#
-CACMO;sensorCH1;1;#;#;#;#;#;#
-CACMO;sensorCH2;1;#;#;#;#;#;#
-CACMO;sensorCH3;1;#;#;#;#;#;#
-CACMO;sensorCH4;1;#;#;#;#;#;#
-CACMO;sensorCH5;1;#;#;#;#;#;#
-CACMO;sensorCH6;2;3;10;9600;N;8;1
-CACMO;sensorCH7;#;#;#;#;#;#;#
-CACMO;sensorCH8;#;#;#;#;#;#;#
-CACMO;sensorCH9;#;#;#;#;#;#;#
-CACMO;sensorCH10;#;#;#;#;#;#;#
-CACMO;sensorCH11;#;#;#;#;#;#;#
+CACMO;sensor1;1;#;#;#;#;#;#
+CACMO;sensor2;1;#;#;#;#;#;#
+CACMO;sensor3;1;#;#;#;#;#;#
+CACMO;sensor4;1;#;#;#;#;#;#
+CACMO;sensor5;1;#;#;#;#;#;#
+CACMO;sensor6;1;#;#;#;#;#;#
+CACMO;sensor7;2;3;10;9600;N;8;1
+CACMO;sensor8;#;#;#;#;#;#;#
+CACMO;sensor9;#;#;#;#;#;#;#
+CACMO;sensor10;#;#;#;#;#;#;#
+CACMO;sensor11;#;#;#;#;#;#;#
+CACMO;sensor12;#;#;#;#;#;#;#

@@ -1,0 +1,87 @@
+.TH "C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h" 3 "Version 1.2" "OpenPOWERLINK MN application for CAC boards" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/Squaria/Documents/openPOWERLINK_V2_CAC/apps/OBC_MN/include/eventOpl.h \- Definitions of the MN demo event handler\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <oplk/oplk\&.h>\fP
+.br
+\fR#include <oplk/debugstr\&.h>\fP
+.br
+\fR#include <console/console\&.h>\fP
+.br
+\fR#include <eventlog/eventlog\&.h>\fP
+.br
+\fR#include <stdio\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtEventConfig\fP"
+.br
+.RI "Event configuration\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinitEvents\fP (const \fBtEventConfig\fP *config)"
+.br
+.RI "Initialize applications event module\&. "
+.ti -1c
+.RI "tOplkError \fBprocessEvents\fP (tOplkApiEventType eventType_p, const tOplkApiEventArg *pEventArg_p, void *pUserArg_p)"
+.br
+.RI "Process openPOWERLINK events\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definitions of the MN demo event handler\&. 
+
+The file contains the definitions for the MN demo event handler\&. 
+.PP
+Definition in file \fBeventOpl\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void initEvents (const \fBtEventConfig\fP * config)"
+
+.PP
+Initialize applications event module\&. The function initializes the applications event module
+.PP
+\fBParameters\fP
+.RS 4
+\fIpfGsOff_p\fP Pointer to GsOff flag (determines if the stack is down) 
+.RE
+.PP
+
+.PP
+Definition at line \fB124\fP of file \fBeventOpl\&.c\fP\&.
+.SS "tOplkError processEvents (tOplkApiEventType eventType_p, const tOplkApiEventArg * pEventArg_p, void * pUserArg_p)"
+
+.PP
+Process openPOWERLINK events\&. The function implements the application's stack event handler\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIeventType_p\fP Type of event 
+.br
+\fIpEventArg_p\fP Pointer to union which describes the event in detail 
+.br
+\fIpUserArg_p\fP User specific argument
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The function returns a tOplkError error code\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB144\fP of file \fBeventOpl\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OpenPOWERLINK MN application for CAC boards from the source code\&.

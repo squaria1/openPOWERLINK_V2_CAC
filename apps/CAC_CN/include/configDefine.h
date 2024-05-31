@@ -140,6 +140,10 @@
  * \brief delay in milliseconds at the end of the controlAndAcquisition state
  * to avoid dropping the connexion between the CN and the MN.
  */
-#define DELAYMSCONTROL 1
+#ifdef _WIN32
+#define DELAYMSWIN 1
+#else
+#define DELAYUSLINUX 10
+#endif
 
 #endif

@@ -1,0 +1,37 @@
+**Release v1.2:**
+Adding features, improving stability and adapting the program to integrate with the PHP configuration website.
+
+changelog:
+- added modbus serial sensor acquisition to the sensor module.
+- adding Doxygen C++ documentation to every header files and variables.
+- improving function comments for better understanding.
+- modifying the changeEG() function in the MN program and adding the liaisonEGEtat.csv reading to the CSV module
+  to go through the real general state CSV files and not non existing ones.
+- moving the acquisition and control functions for valves and sensors (verifDependanceValves and readChannels)
+  into the synchronous OpenPOWERLINK cycle thread function (processSync) to simultaneously activate valves on every CAC boards.
+  
+bug fixes:
+- Changing the CN program EG initialization value from 1 to 0 and deactivate CSV file reading if EG is 0
+  so a general state CSV file should not be associated with an EG value of 0 anymore.
+- Deactivating the modbus sensor in the initialization state if it is not plugged in to avoid the timeout slowing down the program.
+
+**Release v1.1:**
+Improving the stability, readability and usability of the program.
+
+changelog:
+- changing timer synchronisation from CLOCK_MONOTONIC to CLOCK_REALTIME to syncronize multiple CNs (CACs) with the PTP protocol so
+  that valves of every CNs activate at the same time.
+- adding Doxygen C++ documentation to every source files.
+- removing some unused functions.
+- differentiating the CNs with a unique nodeId.h header file that contains the ID of the CN.
+
+bug fixes:
+- OpenPOWERLINK module bug fix: every activated valve or sensor values are now all transmitted regardless of the CN number.
+- Memory leak in valve module when checking for dependances fixed.
+
+
+**Release v1:**
+The first working version to test its logic and the correct integration of every modules.
+
+changelog:
+- CSV, sensor, valve, OpenPOWERLINK modules working with user keyboard input from MN

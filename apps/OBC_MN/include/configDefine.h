@@ -94,7 +94,7 @@
 #define COMMON_PHYSICAL_CONFIG_DIRECTORY "../../../common/commonCSVFiles/activation.csv"
 #define EG_ETAT_DIRECTORY "../../../common/commonCSVFiles/liaisonEGEtat.csv"
 // TelemFiles
-#define TELEMFILES_DIRECTORY "../../include/telemFiles"
+#define TELEMFILES_DIRECTORY "../../include/telemFiles/"
 #endif
 
 // TelemFiles

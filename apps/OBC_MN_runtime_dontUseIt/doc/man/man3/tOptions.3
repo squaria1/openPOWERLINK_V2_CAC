@@ -1,0 +1,75 @@
+.TH "tOptions" 3 "Version 1.2" "OpenPOWERLINK MN application for CAC boards" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+tOptions \- the OpenPOWERLINK initialization parameters  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <opl\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "char \fBcdcFile\fP [256]"
+.br
+.ti -1c
+.RI "char \fBfwInfoFile\fP [256]"
+.br
+.ti -1c
+.RI "char * \fBpLogFile\fP"
+.br
+.ti -1c
+.RI "tEventlogFormat \fBlogFormat\fP"
+.br
+.ti -1c
+.RI "UINT32 \fBlogLevel\fP"
+.br
+.ti -1c
+.RI "UINT32 \fBlogCategory\fP"
+.br
+.ti -1c
+.RI "char \fBdevName\fP [200]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+the OpenPOWERLINK initialization parameters 
+.PP
+Definition at line \fB61\fP of file \fBopl\&.h\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "char tOptions::cdcFile[256]"
+The OpenPOWERLINK binary file name 
+.PP
+Definition at line \fB63\fP of file \fBopl\&.h\fP\&.
+.SS "char tOptions::devName[200]"
+the network card device name from the DEVNAME define in '\fBconfigDefine\&.h\fP' 
+.PP
+Definition at line \fB69\fP of file \fBopl\&.h\fP\&.
+.SS "char tOptions::fwInfoFile[256]"
+The OpenPOWERLINK info file name 
+.PP
+Definition at line \fB64\fP of file \fBopl\&.h\fP\&.
+.SS "UINT32 tOptions::logCategory"
+the OpenPOWERLINK log category (see OpenPOWERLINK doc) 
+.PP
+Definition at line \fB68\fP of file \fBopl\&.h\fP\&.
+.SS "tEventlogFormat tOptions::logFormat"
+the OpenPOWERLINK log format (see OpenPOWERLINK doc) 
+.PP
+Definition at line \fB66\fP of file \fBopl\&.h\fP\&.
+.SS "UINT32 tOptions::logLevel"
+the OpenPOWERLINK log level (see OpenPOWERLINK doc) 
+.PP
+Definition at line \fB67\fP of file \fBopl\&.h\fP\&.
+.SS "char* tOptions::pLogFile"
+the custom log file output of OpenPOWERLINK 
+.PP
+Definition at line \fB65\fP of file \fBopl\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OpenPOWERLINK MN application for CAC boards from the source code\&.

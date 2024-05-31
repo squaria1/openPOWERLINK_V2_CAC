@@ -22,12 +22,12 @@ typedef enum
 	noError						= 0x0000, /**< No error has been detected, the function is working. */
 
 	/*=====INFORMATION AND SUCCESS=====*/
-	// CSV
+	// CSV (from 0x0100 to 0x01FF)
 	infoInitCSV					= 0x0101, /**< The CSV module has successfully initialized. */
 	infoCSVChanged				= 0x0102, /**< The general state CSV has been changed. */
 	infoShutdownCSV				= 0x01FF, /**< The CSV module has successfully shutdown. */
 
-	// OPL
+	// OPL (from 0x0200 to 0x02FF)
 	infoInitOPL					= 0x0201, /**< The OpenPOWERLINK module has successfully initialized. */
 	infoEGNotChanged			= 0x0202, /**< The general state from the MN has not changed. */
 	infoStopOrderReceived		= 0x0203, /**< A stop order from the MN has been received. */
@@ -36,7 +36,7 @@ typedef enum
 	infoEGsetToZero				= 0x0206, /**< The default EG value when the MN is not connected. */
 	infoShutdownOPL				= 0x02FF, /**< The OpenPOWERLINK module has successfully shutdown. */
 
-	// Valve
+	// Valve (from 0x0300 to 0x03FF)
 	infoInitValve				= 0x0301, /**< The valve module has successfully initialized. */
 	infoVerifDependSucess		= 0x0302, /**< The verification of valve dependances has succeeded. */
 	infoNoDepend				= 0x0303, /**< There is no dependances for this valve. */
@@ -44,23 +44,26 @@ typedef enum
 	infoAllDependNotActivated	= 0x0305, /**< All the valve dependances are not yet activated. */
 	infoShutdownValve			= 0x03FF, /**< The valve module has successfully shutdown. */
 
-	// Sensor
+	// Sensor (from 0x0400 to 0x04FF)
 	infoInitSensor				= 0x0401, /**< The sensor module has successfully initialized. */
 	infoReadChannels			= 0x0402, /**< Reading sensor channels has succeeded. */
 	infoShutdownSensor			= 0x04FF, /**< The sensor module has successfully shutdown. */
+	
+	// EG codes (from 0x1000 to 0x6FFF)
 
-	// Main state
+	// Main state (from 0x7000 to 0x7FFF)
 	infoStateToInit				= 0x7001, /**< The main state has been changed to initialisation. */
 	infoStateToControl			= 0x7002, /**< The main state has been changed to acquisition and control. */
 	infoStateToManualMode		= 0x7777, /**< The general state has been changed to manual mode. */
 	infoStateToShutdown			= 0x7FFF, /**< The main state has been changed to shutdown state. */
 
 	/*=============ERROR===============*/
+	// Sensor (from 0xE000 to 0xE0FF)
 	errOpenTelemFile			= 0xE001, /**< Opening the telemetry file has failed. */
 	errTestWriteFile			= 0xE002, /**< Writing in the telemetry file has failed. */
 	errCloseTelemFile			= 0xE0FF, /**< Closing the telemetry file has failed. */
 
-	// CSV
+	// CSV (from 0xE100 to 0xE1FF)
 	errAllocDataEG				= 0xE101, /**< Memory allocation failure for the structure LigneEG. */
 	errAllocDataEtats			= 0xE102, /**< Memory allocation failure for the structure LigneCSV. */
 	errAllocDataPhysValves		= 0xE103, /**< Memory allocation failure for the structure LigneVannes. */
@@ -73,7 +76,7 @@ typedef enum
 	errOpenPhysSensorsFile		= 0xE10A, /**< The "physicalCONFIG_sensors.csv" CSV file has failed to open. */
 	errOpenActivationFile		= 0xE10B, /**< The "activation.csv" CSV file has failed to open. */
 
-	// OPL
+	// OPL (from 0xE200 to 0xE2FF)
 	errOPLSystemInit			= 0xE201, /**< OpenPOWERLINK fails to set the correct configuration for the current operating system. */
 	errSelNetInterface			= 0xE202, /**< The selection of the network interface fails when in a Windows machine. Can be caused by the absence of WinPcap. */
 	errInitObjDictionary		= 0xE203, /**< The object dictionary header file (objdict.h) has incorrect values or syntax. */
@@ -88,7 +91,7 @@ typedef enum
 	errSystemSendTerminate		= 0xE20C, /**< A termination signal from the operating system has been received. */
 	errOplKernelStackDown		= 0xE20D, /**< The OpenPOWERLINK kernel is down. */
 
-	// Valve
+	// Valve (from 0xE300 to 0xE3FF)
 	errGPIOPathEmpty			= 0xE301, /**< The gpio chip path is not correctly set. */
 	errOpenGPIO					= 0xE302, /**< The gpio chip fails to open. */
 	errGPIOGetLine				= 0xE303, /**< The gpio lines are busy, line get fails. */
@@ -103,7 +106,7 @@ typedef enum
 	errGPIOSetValue				= 0xE30C, /**< The valve value has not been set to the gpio line. */
 	errGPIORelease				= 0xE3FF, /**< A gpio line fails to be released. */
 
-	// Sensor
+	// Sensor (from 0xE400 to 0xE4FF)
 	errOpenAdc					= 0xE401, /**< A sysfs file of the MCP3008 fails to open. */
 	errReadAdc					= 0xE402, /**< A sysfs file read of the MCP3008 fails. */
 	errCloseAdc					= 0xE4FF, /**< A sysfs file of the MCP3008 fails to close. */
